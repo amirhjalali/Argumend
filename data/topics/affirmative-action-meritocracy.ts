@@ -2,71 +2,96 @@ export const affirmativeActionMeritocracyData = {
   id: "affirmative-action-meritocracy",
   title: "Affirmative Action & Meritocracy",
   question:
-    "Are race-conscious admissions and hiring needed for equal opportunity?",
+    "Should colleges and employers weigh race to give people an equal shot?",
   meta_claim:
     "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
   status: "contested" as const,
   category: "policy" as const,
+  // As of 3 November 2026: race-conscious admissions have been unlawful since
+  // SFFA v. Harvard (June 2023); the first class admitted under the ruling
+  // entered in fall 2024. On 21 January 2025 the President revoked Executive
+  // Order 11246 (affirmative action by federal contractors); an August 2025
+  // memorandum ordered colleges to report more admissions data to show they
+  // are not using race through proxies.
+  last_updated: "2026-11-03",
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In 2023 the Supreme Court ruled race-conscious admissions at Harvard and the University of North Carolina unlawful. After California banned affirmative action in 1996, minority enrollment fell at the most selective University of California campuses. Both sides accept those facts. The fight is over whether race-neutral tools can match the diversity those policies produced, and what test scores really measure.",
+      "The Supreme Court ended race-conscious college admissions in 2023. In the first class admitted after the ruling, Black and Hispanic enrollment at MIT fell 15 points combined, while Yale's Black share did not move. In January 2025 the President revoked the 1965 order that required affirmative action by federal contractors. The fight now is over whether race-neutral admissions can keep doors open, and whether 'merit' measures such as test scores are fair to begin with.",
     confidence: 90,
     source:
-      "Supreme Court of the United States, SFFA v. Harvard (2023); Bleemer, Quarterly Journal of Economics (2022)",
+      "Supreme Court of the United States, SFFA v. Harvard (2023); Liam Knox, 'An Early Look at Diversity Post–Affirmative Action', Inside Higher Ed (6 September 2024); The White House, 'Ending Illegal Discrimination and Restoring Merit-Based Opportunity' (21 January 2025)",
     sourceUrl:
-      "https://www.supremecourt.gov/opinions/22pdf/20-1199_hgdj.pdf",
+      "https://www.insidehighered.com/news/admissions/traditional-age/2024/09/06/early-look-racial-diversity-post-affirmative-action",
   },
   simple_case: [
-    "The answer bears on how colleges pursue diversity after the ruling, on hiring programs that consider race, and on preferences such as legacy admissions.",
+    "The answer bears on who gets into selective colleges and good jobs, on whether legacy and athlete preferences survive, and on how hard the federal government polices diversity programs.",
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Systemic Disadvantage vs. Individual Merit
+    // PILLAR 1: What do test scores and credentials measure?
     // =========================================================================
     {
       id: "systemic-disadvantage-vs-merit",
-      title: "Systemic Disadvantage vs. Individual Merit",
+      title: "What Do Test Scores and Credentials Measure?",
       short_summary:
-        "The debate over affirmative action fundamentally hinges on whether standardized measures of merit — test scores, GPAs, credentials — reflect genuine individual capability or merely encode preexisting systemic advantages. Since the Supreme Court's 2023 SFFA v. Harvard ruling struck down race-conscious admissions, this question has become even more urgent as universities scramble for race-neutral alternatives.",
+        "Test scores track family income closely. They also predict college grades well, and a 2025 study at Ivy-Plus colleges found they do so as accurately for disadvantaged students as for others. Meanwhile legacy, athlete and other preferences tilt admissions toward the rich. Whether 'merit' is a fair yardstick, or a record of head starts, is where the dispute begins.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Race-conscious policies violate the foundational principle that individuals should be evaluated on their own merit, not on immutable group characteristics. The Equal Protection Clause of the Fourteenth Amendment guarantees equal treatment under law. Chief Justice Roberts wrote in SFFA v. Harvard (2023) that 'eliminating racial discrimination means eliminating all of it.' When admissions offices assign value to race, they necessarily disadvantage individuals of other races who may have overcome their own hardships. Asian American applicants at Harvard were systematically scored lower on 'personal ratings' — a proxy for racial balancing. True meritocracy requires race-blind evaluation, and the proper remedy for past discrimination is ensuring equal access to quality K-12 education, not adjusting outcomes at the university gate.",
+        "Merit can be measured, and the measures work for everyone. Friedman, Sacerdote, Staiger and Tine found that at Ivy-Plus colleges SAT and ACT scores are about four times more predictive of first-year grades than high school GPA, and that they 'show no calibration bias': disadvantaged students with a given score do not outperform it. Brown, Dartmouth, Harvard, Stanford and Yale cited such research when they brought back testing. Race is a poor proxy for disadvantage, and using it penalizes other applicants: in Harvard's own data, Asian American applicants would have been admitted about 19% more often had they been treated as white. Chief Justice Roberts put the principle plainly: 'Eliminating racial discrimination means eliminating all of it.' The remedy for unequal schools is better schools, not adjusted scores at the gate.",
       proponent_rebuttal:
-        "The concept of 'merit' as measured by standardized tests and traditional credentials is itself shaped by centuries of systemic advantage. The University of California's 2020 Standardized Testing Task Force found that family income, parental education, and race together account for over 40% of the variance in applicants' SAT/ACT scores but less than 10% of the variance in high school grades — showing that test scores are heavily income-loaded even where they retain predictive value. Legacy admissions — which disproportionately benefit white applicants — admit students with lower academic credentials than affirmative action beneficiaries, yet face no constitutional challenge. The racial wealth gap ($171,000 median white family wealth vs. $17,600 for Black families per the Federal Reserve's 2022 Survey of Consumer Finances) creates compounding educational disadvantages from birth. Race-blind policies don't eliminate racial consideration — they simply make it invisible while perpetuating the status quo.",
+        "A test can predict grades and still record a head start. The University of California's 2020 task force found family income, parental education and race explain more than 40% of the variance in applicants' SAT and ACT scores, against less than 10% of the variance in high school grades. The median white family held about $171,000 in wealth in 2022 against $17,600 for Black families, and that buys tutoring, test prep and better school districts. Selective colleges never ran on scores alone: children from the top 1% are twice as likely as middle-class children with the same scores to attend an Ivy-Plus college, driven by legacy preferences, recruited athletes and non-academic ratings. At Harvard, over 43% of white admits were athletes, legacies, dean's-list or faculty children. Ending race preferences while keeping these does not create a meritocracy.",
       crux: {
         id: "merit-measurement-validity",
         title: "The Merit Measurement Validity Test",
         question:
           "Do test scores and credentials measure individual ability, or accumulated advantage?",
         description:
-          "Whether standardized measures of merit accurately reflect individual capability independent of systemic advantage. If test scores and credentials primarily measure accumulated advantage rather than innate ability or effort, then 'merit-based' selection systematically excludes capable individuals from disadvantaged backgrounds.",
+          "If test scores predict college and career success as well for disadvantaged students as for advantaged ones, they measure capability that admissions can fairly use, and race-conscious correction loses one of its main justifications. If they understate what disadvantaged students go on to achieve, 'merit-based' selection excludes capable people and some correction is warranted.",
         methodology:
-          "Conduct a large-scale longitudinal study tracking 50,000+ students from diverse socioeconomic and racial backgrounds from kindergarten through career outcomes. Control for family wealth, school quality (per-pupil spending, teacher credentials), neighborhood characteristics, and access to test preparation. Compare predictive validity of standardized test scores vs. alternative measures (growth metrics, non-cognitive assessments, portfolio evaluations) for college completion, graduate school attainment, and career achievement at 10 and 20 years post-admission.",
+          "Follow 50,000+ students from kindergarten into careers, recording family wealth, school quality and access to test prep. Compare how well test scores, grades and other measures predict college completion, graduate degrees and earnings at 10 and 20 years, separately for advantaged and disadvantaged students and by race.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "A study following 50,000+ students from kindergarten to careers, controlling for family wealth, school quality and test prep, comparing how well test scores predict later success for disadvantaged and advantaged students.",
         },
         cost_to_verify:
-          "$5-15M (Multi-decade longitudinal cohort study requiring institutional partnerships and sustained funding)",
+          "$5-15M (multi-decade cohort study)",
         falsification: {
           supporter_flip:
-            "If a long-run study following 50,000+ students from kindergarten to careers, controlling for family wealth, school quality and test prep, found test scores predicting later success as well for disadvantaged students as for advantaged ones, 'merit' measures would reflect capability rather than accumulated advantage, and the case for race-conscious correction would weaken.",
+            "If long-run data matched what the Ivy-Plus study found for first-year grades, test scores predicting degrees and earnings as accurately for disadvantaged students as for advantaged ones, the claim that merit measures mostly record accumulated advantage would weaken.",
           skeptic_flip:
-            "If new data matched the University of California finding that income, parental education and race explain over 40% of SAT/ACT variance but under 10% of high school grades, and legacy edges above five-fold for top-1% families held, race-blind 'merit' would look partly like accumulated advantage.",
+            "If disadvantaged students with a given score went on to out-earn and out-achieve advantaged students with the same score by wide margins, test scores would be shown to understate their ability, and race-blind selection on scores would look less like merit.",
           common_ground:
-            "Both sides agree disadvantage starts long before the university gate — median white family wealth was $171,000 versus $17,600 for Black families in 2022 — and that K-12 opportunity matters.",
+            "Both sides agree test scores track family income, that they predict first-year college grades, that legacy and athlete preferences favor the rich, and that disadvantage starts long before the college gate.",
           live_disagreement:
-            "Whether test scores and credentials measure individual ability or encode accumulated advantage — and so whether the remedy belongs at admission or earlier, in schools and neighborhoods.",
+            "Whether test scores and credentials measure ability fairly across backgrounds or encode accumulated advantage, and so whether any remedy belongs at admission or earlier, in schools and neighborhoods.",
         },
       },
       evidence: [
         {
-          id: "sat-income-correlation",
-          title: "Family Background Accounts for ~40% of Variance in SAT Scores",
+          id: "ivy-plus-test-scores-2025",
+          title: "Ivy-Plus study 2025: SAT/ACT scores predict first-year grades about four times better than high school GPA, with no bias against the disadvantaged",
           description:
-            "The University of California's 2020 Standardized Testing Task Force found that family income, parental education, and race together now account for over 40% of the variance in SAT/ACT scores among UC applicants (up from 25% in 1994), while family background explains less than 10% of the variance in high school grades. Students from high-income families substantially outscore those from low-income families. Importantly, the same Task Force also concluded that test scores still added predictive value for UC outcomes beyond high school GPA and — over the objection of critics — recommended retaining the SAT/ACT requirement (a recommendation the Board of Regents later overrode). The income-loading of scores thus shows that test performance encodes accumulated advantage, even though the tests retain some independent predictive power.",
+            "John Friedman, Bruce Sacerdote, Douglas Staiger and Michele Tine, in AEA Papers and Proceedings (May 2025), found that 'SAT and ACT scores have substantial predictive power for forecasting first-year college GPA' at Ivy-Plus colleges, while high school grades add little: 'A perfect 4.0 high-school GPA predicts only a 0.1 point higher first-year GPA compared to a 3.2 high-school GPA.' The scores 'show no calibration bias': students from less advantaged backgrounds do not outperform peers with the same scores. Students admitted without scores under test-optional rules earned grades like those of students scoring about 1300. Brown, Caltech, Dartmouth, Harvard, Stanford and Yale cited the research when they reinstated testing.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Friedman, Sacerdote, Staiger & Tine, 'Standardized Test Scores and Academic Performance at Ivy-Plus Colleges', AEA Papers and Proceedings 115:676-81 (2025), via Opportunity Insights",
+          sourceUrl: "https://opportunityinsights.org/paper/test-scores/",
+          reasoning:
+            "Strong evidence that scores measure something real and do not underrate disadvantaged students at the most selective colleges. It measures first-year grades among admitted students at a dozen colleges, not later careers, and it does not address whether disadvantaged students had the same chance to reach a high score; the standardized-testing map covers the testing dispute itself.",
+        },
+        {
+          id: "sat-income-correlation",
+          title: "UC task force 2020: family background explains over 40% of SAT/ACT variance but under 10% of high school grades",
+          description:
+            "The University of California's Standardized Testing Task Force found that family income, parental education and race together account for more than 40% of the variance in applicants' SAT and ACT scores (up from 25% in 1994), against less than 10% of the variance in high school grades. The same task force found the tests still added predictive value beyond GPA and recommended keeping them, a recommendation the Board of Regents overrode in 2020.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -77,47 +102,31 @@ export const affirmativeActionMeritocracyData = {
           source: "University of California Standardized Testing Task Force (2020)",
           sourceUrl: "https://senate.universityofcalifornia.edu/_files/underreview/sttf-report.pdf",
           reasoning:
-            "The UC system's own faculty conducted this analysis with access to comprehensive student data. That family background explains roughly 40% of SAT-score variance but under 10% of grade variance directly supports the claim that test scores partly encode preexisting advantage. Directness is lowered because the same Task Force found the tests still add predictive value beyond grades and recommended keeping them — so this evidence shows tests are income-loaded, not that they are meritless. The earlier version of this item misattributed to the Task Force a conclusion (that the SAT adds little beyond GPA) that the report's majority explicitly rejected.",
+            "The system's own faculty, with full applicant data, showing scores are heavily loaded with family background. The same report found the tests still predict, so it shows scores carry advantage, not that they are meaningless.",
         },
         {
           id: "legacy-admissions-advantage",
-          title: "Legacy Applicants Admitted at 3-5x Higher Rates Than Non-Legacy Applicants",
+          title: "Opportunity Insights 2023: top-1% children twice as likely to attend an Ivy-Plus college as middle-class peers with the same scores",
           description:
-            "A 2023 study by Opportunity Insights (Chetty et al.) analyzing admissions data from Ivy-Plus colleges found that legacy applicants from the top 1% of the income distribution had more than a 5-fold admissions advantage over comparable applicants, with legacy preferences accounting for roughly 46% of the total admissions edge enjoyed by top-1% applicants. (Separately, Princeton's Thomas Espenshade earlier estimated that legacy status at elite colleges was worth roughly 160 SAT points.) Legacy admissions historically benefit white, wealthy applicants; at Harvard, court records showed more than 43% of white admits were recruited athletes, legacies, dean's-list, or children of faculty (ALDC). Despite this, legacy preferences faced no legal challenge in SFFA v. Harvard, leading Justice Sotomayor to note in her dissent that the ruling 'cements a superficial rule of colorblindness as a constitutional principle in an endemically segregated society.'",
+            "Raj Chetty, David Deming and John Friedman found that 'children from families in the top 1% are twice as likely to attend an Ivy-Plus college' as middle-class children with comparable SAT or ACT scores. Two-thirds of the gap comes from higher admission rates, driven by 'preferences for children of alumni', weight on non-academic ratings that favor private-school applicants, and the recruitment of athletes, 'who tend to come from higher-income families.' Separately, Arcidiacono, Kinsler and Ransom found that at Harvard 'Among white admits, over 43% are ALDC' (athletes, legacies, dean's-list and children of faculty and staff), and that roughly three-quarters of them would have been rejected without that status.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 8,
-            directness: 7,
+            directness: 5,
           },
-          source: "Opportunity Insights, Harvard University; Chetty, Deming, Friedman (2023)",
+          source:
+            "Chetty, Deming & Friedman, 'Diversifying Society's Leaders?', Opportunity Insights (2023); Arcidiacono, Kinsler & Ransom, 'Legacy and Athlete Preferences at Harvard', NBER Working Paper 26316 (2019)",
           sourceUrl: "https://opportunityinsights.org/paper/collegeadmissions/",
           reasoning:
-            "Opportunity Insights led by Raj Chetty is among the most rigorous empirical economics research groups. The finding that legacy preferences provide a larger admissions advantage than affirmative action — while being constitutionally unchallenged — directly exposes inconsistency in meritocracy arguments. Directness is slightly lower because legacy admissions are a related but distinct issue from race-conscious policies.",
-        },
-        {
-          id: "sffa-v-harvard-ruling",
-          title: "SFFA v. Harvard (2023): Supreme Court Strikes Down Race-Conscious Admissions",
-          description:
-            "In Students for Fair Admissions v. Harvard (2023), the Supreme Court ruled that race-conscious admissions programs at Harvard and the University of North Carolina violated the Equal Protection Clause — 6-3 in the UNC case, and 6-2 in the Harvard case (Justice Ketanji Brown Jackson recused herself from the Harvard portion due to her prior service on a Harvard governing board). Chief Justice Roberts's majority opinion held that university admissions programs 'must comply with the Equal Protection Clause' and that 'the student must be treated based on his or her experiences as an individual — not on the basis of race.' The ruling effectively overturned Grutter v. Bollinger (2003), which had upheld race-conscious admissions under strict scrutiny. The decision left open the possibility that applicants could discuss how race affected their lives in personal essays.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 10,
-            independence: 7,
-            replicability: 10,
-            directness: 9,
-          },
-          source: "Supreme Court of the United States",
-          sourceUrl: "https://www.supremecourt.gov/opinions/22pdf/20-1199_hgdj.pdf",
-          reasoning:
-            "A Supreme Court opinion is the highest legal authority in the US and is a matter of public record with perfect replicability. Independence is lower because the 6-3 ideological split and the overturning of recent precedent (Grutter was only 20 years old) reflect judicial philosophy as much as neutral legal analysis. The ruling provides strong legal support for the anti-affirmative-action position but does not resolve the empirical questions about whether race-neutral alternatives achieve comparable outcomes.",
+            "Two rigorous studies, one by SFFA's own expert, showing large non-academic preferences that favor the advantaged. They undercut the claim that admissions without race preferences would be a meritocracy. They bear on race-conscious policy only indirectly: ending legacy preferences is a separate remedy that both sides can support.",
         },
         {
           id: "harvard-asian-american-penalty",
-          title: "Harvard Admissions Data: Asian American Applicants Penalized Relative to Similar White Applicants",
+          title: "Harvard data: Asian American applicants would be admitted about 19% more often if treated as white",
           description:
-            "Using the admissions data made public in SFFA v. Harvard, Arcidiacono, Kinsler and Ransom estimate that typical Asian American applicants would see their average admit rate rise by 19%, about 1 percentage point, if they were treated as white applicants. They identify the personal rating as one channel of the penalty: including it cuts the estimated penalty by less than half. The authors acknowledge that identifying the causal effect of race from observational data is challenging, but argue the concern is limited because Asian American applicants are substantially stronger than white applicants on the observables tied to admission and the model predicts admissions extremely well.",
+            "Using admissions data made public in SFFA v. Harvard, Arcidiacono, Kinsler and Ransom estimate that typical Asian American applicants would see their admit rate rise by 19%, about 1 percentage point, if treated as white applicants. They identify Harvard's personal rating as one channel: including it in the model cuts the estimated penalty by less than half.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -126,145 +135,114 @@ export const affirmativeActionMeritocracyData = {
             directness: 6,
           },
           source:
-            "Arcidiacono, Kinsler & Ransom, 'Asian American Discrimination in Harvard Admissions,' European Economic Review 144 (2022)",
+            "Arcidiacono, Kinsler & Ransom, 'Asian American Discrimination in Harvard Admissions', European Economic Review 144 (2022)",
           sourceUrl: "https://doi.org/10.1016/j.euroecorev.2022.104079",
           reasoning:
-            "Peer-reviewed and built on the public trial record of one of the most scrutinised admissions datasets in the country. Independence is scored low: the paper discloses that Arcidiacono served as SFFA's expert witness and Kinsler as a consultant for SFFA in the case, though SFFA did not fund the paper, and the paper itself notes that Harvard's expert reached a different conclusion on whether Asian Americans were discriminated against, a disagreement that turns largely on whether the personal rating belongs in the model as a control. It bears on the meta-claim by showing a cost of a race-conscious process to a group it did not aim to help, at one institution; it does not measure whether race-conscious admission widens opportunity for under-represented groups, so directness is moderate.",
+            "Peer-reviewed and built on one of the most scrutinized admissions datasets in the country. Independence is 4: Arcidiacono was SFFA's expert witness and Kinsler a consultant, and Harvard's expert reached a different conclusion, largely over whether the personal rating belongs in the model. It shows a cost to a group the policy did not aim to help, at one college.",
         },
         {
           id: "racial-wealth-gap-data",
-          title: "Racial Wealth Gap: White Families Hold 10x the Wealth of Black Families",
+          title: "Federal Reserve 2022: median white family wealth $171,000; Black families $17,600",
           description:
-            "The Federal Reserve's 2022 Survey of Consumer Finances found that the median white family held $171,000 in net wealth compared to $17,600 for Black families and $20,700 for Hispanic families — a nearly 10:1 ratio. Research by Darity and Mullen (2020) traces this gap to slavery, Jim Crow, exclusion from the GI Bill and FHA lending, and ongoing discrimination in housing and employment. The wealth gap translates directly into educational advantage: wealthier families invest more in tutoring, test preparation, extracurricular activities, and can afford to live in higher-quality school districts.",
+            "The Federal Reserve's 2022 Survey of Consumer Finances found median net wealth of $171,000 for white families, $17,600 for Black families and $20,700 for Hispanic families, close to a ten-to-one ratio between white and Black families. Researchers including William Darity trace the gap to slavery, Jim Crow, exclusion from GI Bill and federal housing benefits, and later discrimination.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
             replicability: 9,
-            directness: 7,
+            directness: 5,
           },
-          source: "Federal Reserve Board, Survey of Consumer Finances; Darity & Mullen, 'From Here to Equality'",
+          source: "Federal Reserve Board, Survey of Consumer Finances (2022)",
           sourceUrl: "https://www.federalreserve.gov/econres/scfindex.htm",
           reasoning:
-            "The Federal Reserve's Survey of Consumer Finances is the gold-standard household wealth dataset, conducted triennially with rigorous methodology. The wealth gap data is independently verifiable and undisputed. Directness is lower because the wealth gap establishes systemic disadvantage but does not directly prove that race-conscious admissions are the necessary remedy — other policies (wealth redistribution, K-12 investment) could theoretically address the gap.",
+            "The standard household wealth data, and undisputed. It establishes a large inherited disadvantage; it does not show that race-conscious admission is the right remedy rather than wealth-based preferences or earlier investment.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 2: Effectiveness of Race-Conscious vs. Race-Neutral Alternatives
+    // PILLAR 2: After the ban — can race-neutral admissions keep doors open?
     // =========================================================================
     {
       id: "race-conscious-vs-neutral-effectiveness",
-      title: "Effectiveness of Race-Conscious vs. Race-Neutral Alternatives",
+      title: "After the Ban: Can Race-Neutral Admissions Keep Doors Open?",
       short_summary:
-        "Following SFFA v. Harvard, universities must rely on race-neutral alternatives to maintain diversity. Evidence from states that previously banned affirmative action — California (1996), Michigan (2006), Washington (1998) — shows significant and persistent declines in underrepresented minority enrollment that race-neutral strategies only partially offset.",
+        "Several states banned racial preferences long before the Supreme Court did, so there are decades of evidence. At the most selective campuses, Black and Hispanic enrollment fell and recovered slowly; California's ban also lowered degree completion and wages for the students it displaced. Across the whole UC system, admissions reached record diversity by 2024. The first national class after the ruling showed sharp falls at some colleges and none at others.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Race-neutral alternatives — income-based preferences, percentage plans guaranteeing admission to top high school graduates, holistic review emphasizing socioeconomic hardship, targeted recruitment, and pipeline programs — can achieve meaningful diversity without racial classification. Texas's Top 10% rule, which guarantees admission to the state flagship for students graduating in the top 10% of any high school class, leveraged residential segregation to produce racial diversity without explicit racial preferences. Income-based affirmative action addresses the underlying disadvantage (poverty) that disproportionately affects minorities. After California banned affirmative action with Proposition 209 in 1996, the UC system eventually recovered minority enrollment through aggressive outreach, holistic review, and community college transfer pathways — demonstrating that race-neutral strategies can work given sufficient institutional commitment and time.",
+        "Race-neutral tools can produce diverse classes without sorting applicants by race. California has been race-blind since 1996, and by fall 2024 the University of California had admitted 'the largest and most diverse class in its history', with underrepresented students 45.4% of California first-year admits. Outreach to high schools, holistic review weighing hardship, community-college transfer and income preferences all work. After SFFA, some of the most selective colleges held steady: Yale's Black share stayed at 14% in the first class admitted under the ruling. The Constitution, the Court held, requires treating each 'student … based on his or her experiences as an individual — not on the basis of race.' Colleges that care about diversity have legal tools to pursue it.",
       proponent_rebuttal:
-        "The empirical record consistently shows that race-neutral alternatives underperform race-conscious policies. After Proposition 209, Black enrollment at UC Berkeley fell 50% and at UCLA by 43%, taking over 15 years for partial recovery — and 2023 enrollment still had not reached pre-ban levels at the most selective campuses. The Texas Top 10% rule maintained overall diversity only because Texas high schools remain deeply segregated; it failed to produce diversity at the department level, and the legislature had to cap the program at 75% of the entering class because it displaced other qualified applicants. A 2020 study by Bleemer in the Quarterly Journal of Economics found that Prop 209 reduced minority students' probability of graduating from a UC campus, reduced their wages by 5%, and pushed them toward less selective institutions — not a neutral reallocation but a net harm. Income-based affirmative action helps low-income white and Asian students but does not adequately capture the specific disadvantages of race: middle-class Black families still face discrimination in housing, employment, and policing.",
+        "The record says race-neutral tools recover only part of what is lost, and slowly. Bleemer's study of California's Proposition 209, in the Quarterly Journal of Economics, found that ending affirmative action pushed minority applicants 'into lower-quality colleges', that 'their degree attainment declined overall and in STEM fields', and that their wages in their twenties and thirties fell. At the University of Michigan, Black students were 7.2% of undergraduates in 2006, when Michigan banned preferences, and 4.63% by 2014, despite years of outreach. A Stanford simulation found income-based preferences alone recover only part of the racial diversity race-conscious admission produced. The first class after SFFA bore this out: at MIT, Black and Hispanic enrollment fell 15 points combined; at Amherst, Black enrollment fell 8 points.",
       crux: {
         id: "race-neutral-diversity-outcomes",
         title: "The Race-Neutral Equivalence Test",
         question:
           "Can race-neutral policies match the diversity that race-conscious policies achieve?",
         description:
-          "Whether race-neutral policies can achieve comparable diversity outcomes to race-conscious policies at selective institutions. If race-neutral alternatives produce equivalent representation within a reasonable timeframe, the case for race-conscious policies weakens. If they consistently produce lower representation that compounds over time, race-neutral mandates effectively entrench racial stratification.",
+          "If race-neutral policies produce comparable representation, graduation and later earnings for underrepresented students at selective colleges within a reasonable time, the case that race-conscious policy is necessary weakens. If they consistently produce lower representation and worse outcomes for the students displaced, race-neutral rules entrench the gap.",
         methodology:
-          "Compare enrollment, graduation, and post-graduation outcomes for underrepresented minorities at the 50 most selective US universities, dividing them into three groups: (1) institutions in states that banned affirmative action before SFFA (California, Michigan, Washington, Florida, etc.), (2) institutions that practiced race-conscious admissions until SFFA (2023), and (3) all institutions post-SFFA. Track outcomes at 1, 3, 5, and 10 years post-ban, controlling for state demographics, institutional spending on outreach, and application pool changes.",
+          "Compare enrollment, graduation and post-graduation earnings for underrepresented students at the 50 most selective US universities in three groups: those in states that banned affirmative action before SFFA, those race-conscious until 2023, and all of them since. Track outcomes 1, 3, 5 and 10 years after each ban, controlling for state demographics, outreach spending and changes in who applies.",
         verification_status: "verified" as const,
         settle: {
           condition:
             "Enrollment, graduation and later earnings for underrepresented students at the 50 most selective universities, comparing states that banned affirmative action before SFFA, schools race-conscious until 2023, and all schools since.",
         },
         cost_to_verify:
-          "$0 (IPEDS enrollment data is publicly available; state-level analyses exist)",
+          "$0 (IPEDS enrollment data and state-level analyses are public)",
         falsification: {
           supporter_flip:
-            "If selective universities in states that banned affirmative action, and all of them after SFFA, reached representation and graduation outcomes comparable to race-conscious admissions within a reasonable time through income-based preferences, percentage plans and outreach, the claim that race-conscious policies are necessary would weaken.",
+            "If selective colleges in the years after SFFA, using income preferences, outreach and essays on hardship, returned to their pre-ruling representation and graduation rates, as Yale's unchanged Black share hints, the claim that race-conscious admission is necessary would weaken.",
           skeptic_flip:
-            "If more states repeated the Proposition 209 pattern (minority enrollment down 50% at Berkeley and 43% at UCLA), studies like Bleemer's found lower graduation and wages, and income-based preferences kept falling short in simulations, race-neutral alternatives would look unable to replace the diversity lost.",
+            "If national data in the years after SFFA repeated California's pattern, with displaced students completing fewer degrees and earning less, and no recovery at the most selective colleges, race-neutral admission would look unable to replace what was lost.",
           common_ground:
-            "Both sides agree minority enrollment at the most selective campuses fell after bans like California's Proposition 209, and that race-neutral tools such as Texas's Top 10% rule restore some diversity.",
+            "Both sides agree minority enrollment at the most selective campuses fell after state bans like Proposition 209, that the whole UC system later reached record diversity in admissions, and that the first national class after SFFA moved differently at different colleges.",
           live_disagreement:
-            "Whether race-neutral strategies can fully recover that diversity given enough time and institutional commitment, or only partially, leaving representation lower in ways that compound.",
+            "Whether race-neutral strategies can recover the diversity and outcomes lost at the most selective colleges given time, or only partly, leaving gaps that compound in degrees and earnings.",
         },
       },
       evidence: [
         {
           id: "prop-209-aftermath",
-          title: "Prop 209 Reduced UC Minority Enrollment and Long-Term Wages",
+          title: "Bleemer, QJE 2022: California's ban pushed minority applicants to weaker colleges and cut their degrees and wages",
           description:
-            "Zachary Bleemer's 2022 study in the Quarterly Journal of Economics, using administrative UC data, found that Proposition 209 (California's 1996 ban on affirmative action) reduced underrepresented minority enrollment at UC Berkeley by 50% and at UCLA by 43% in the first year. Over the longer term, the ban reduced minority students' probability of completing a UC degree and decreased their annual wages by approximately 5% compared to the pre-ban trend. The study found that displaced students enrolled at less selective institutions rather than not attending college, resulting in a mismatch that harmed their outcomes.",
+            "Zachary Bleemer used University of California administrative records to trace the effects of Proposition 209, California's 1996 ban on racial preferences. He found that 'ending affirmative action caused underrepresented minority (URM) freshman applicants to cascade into lower-quality colleges', that 'their degree attainment declined overall and in STEM fields', more steeply for less qualified applicants, and that 'URM applicants' average wages in their twenties and thirties subsequently declined', mainly among Hispanic applicants. He notes that the mismatch hypothesis 'implies that this cascade would provide net educational benefits to URM applicants'; it did not.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 8,
+            replicability: 7,
             directness: 9,
           },
-          source: "Zachary Bleemer, Quarterly Journal of Economics (2022)",
+          source:
+            "Bleemer, 'Affirmative Action, Mismatch, and Economic Mobility after California's Proposition 209', Quarterly Journal of Economics 137(1) (2022)",
           sourceUrl: "https://academic.oup.com/qje/article/137/1/115/6360989",
           reasoning:
-            "Published in one of the top five economics journals with rigorous peer review. Uses administrative data covering the entire UC system population rather than samples. The finding that the ban reduced not just enrollment but also graduation and wages directly demonstrates that race-neutral alternatives failed to achieve equivalent outcomes in California.",
-        },
-        {
-          id: "texas-top-10-limitations",
-          title: "Texas Top 10% Rule: Diversity Through Segregation with Structural Limits",
-          description:
-            "Texas's Top 10% rule, implemented after the Hopwood v. Texas decision (1996), guaranteed admission to UT Austin for students in the top 10% of their high school graduating class. Because Texas high schools are heavily segregated by race and income, the rule produced racial diversity at the university level. However, the rule was capped at 75% of the entering class in 2009 because it was displacing other qualified applicants. Studies by UT Austin researchers found the policy did not produce diversity within academic departments — STEM fields remained disproportionately white and Asian — and it primarily benefited students from segregated minority-majority schools rather than addressing systemic inequity.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
-            directness: 8,
-          },
-          source: "University of Texas at Austin Office of Admissions; Journal of Policy Analysis and Management",
-          sourceUrl: "https://admissions.utexas.edu/research",
-          reasoning:
-            "UT Austin's own institutional data and published policy analyses provide credible evidence. The rule's reliance on school-level segregation to produce university-level diversity is an ironic finding — it works only because K-12 remains deeply segregated. The 75% cap demonstrates practical limitations. However, proponents note the rule still produced diversity without racial classification.",
-        },
-        {
-          id: "michigan-post-ban-decline",
-          title: "Michigan Proposal 2: Sustained Decline in Minority Enrollment at U of M",
-          description:
-            "After Michigan voters passed Proposal 2 in 2006, banning affirmative action in public university admissions, Black enrollment at the University of Michigan declined steadily despite extensive race-neutral outreach. Black students made up nearly 9% of the student body in 1996 (the historical peak), 7.2% by 2006 just before the ban took effect, and 4.63% of undergraduates by 2014 — even as roughly 19% of Michigan's college-age population is Black. The university launched outreach and pipeline programs (the Center for Educational Outreach, established 2008) but, by its own later admission, failed to restore diversity 'despite persistent and vigorous race-neutral efforts.'",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 9,
-          },
-          source: "The Michigan Daily, 'University continues to struggle with minority enrollment' (2014)",
-          sourceUrl: "https://www.michigandaily.com/uncategorized/minority-enrollment/",
-          reasoning:
-            "Enrollment data from the University of Michigan is publicly reported and corroborated by the campus paper's reporting. The sustained decline despite years of outreach and pipeline investment provides evidence that race-neutral approaches struggled to maintain diversity at a highly selective institution. The multi-year timeframe weakens the objection that alternatives merely need more time.",
+            "Top-journal causal evidence from full administrative records on the exact policy question: what happens to students when preferences end. It covers one state's ban in the late 1990s, before the outreach and holistic review that California built later, so it describes the first years after a ban better than the long run.",
         },
         {
           id: "post-sffa-enrollment-drops",
-          title: "Post-SFFA 2024 Enrollment: Significant Drops at Elite Universities",
+          title: "First class after SFFA (fall 2024): MIT's Black and Hispanic share fell 15 points; Yale's Black share held at 14%",
           description:
-            "Initial enrollment data for the entering class of 2024 — the first class admitted after the SFFA v. Harvard decision — showed significant declines in Black and Hispanic enrollment at many selective institutions. Amherst College reported Black enrollment dropping from 11% to 3%. MIT reported a decline in Black enrollment from about 13% to 5% and Hispanic enrollment from 16% to 11%. However, some institutions (Harvard, Yale) reported more modest changes, leading to debate about whether early data reflects sustainable diversity or unsustainable efforts that will erode over time.",
+            "Inside Higher Ed's early tally of the first class admitted under SFFA found that at MIT, Black and Hispanic enrollment combined 'fell by 15 percentage points', while Asian American students rose 7 points to nearly half of the class. Amherst's Black enrollment fell 8 points and its Hispanic enrollment 4 points; Tufts's Black enrollment fell 3 points. At Yale, the Black share 'remained exactly the same' at 14%, Hispanic enrollment rose a point and Asian American enrollment fell 6 points.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 7,
-            directness: 9,
+            directness: 8,
           },
-          source: "Inside Higher Ed, 'An Early Look at Diversity Post–Affirmative Action' (Sept. 2024); institutional Common Data Sets",
-          sourceUrl: "https://www.insidehighered.com/news/admissions/traditional-age/2024/09/06/early-look-racial-diversity-post-affirmative-action",
+          source:
+            "Liam Knox, 'An Early Look at Diversity Post–Affirmative Action', Inside Higher Ed (6 September 2024)",
+          sourceUrl:
+            "https://www.insidehighered.com/news/admissions/traditional-age/2024/09/06/early-look-racial-diversity-post-affirmative-action",
           reasoning:
-            "Institutional enrollment data is publicly reported. The post-SFFA data directly tests whether the ruling's promised race-neutral alternatives can maintain diversity. However, this is only one year of data, some institutions may be using essay-based race consideration (allowed under SFFA), and the full impact will take several years to assess. Source reliability is slightly lower because institutional self-reporting may reflect different methodologies.",
+            "Direct, early data on the national experiment. It is one year, colleges report their figures in different ways, and the spread between MIT and Yale shows outcomes depend on each college's choices, which both sides can read as support.",
         },
         {
           id: "uc-record-admits-2024",
-          title: "Twenty-eight years into its race-blind rule, UC admitted its most diverse class yet (fall 2024)",
+          title: "UC 2024: 28 years into its race-blind rule, the University of California admitted its most diverse class",
           description:
-            "The University of California reported on 31 July 2024 that it 'admitted the largest and most diverse class in its history for fall 2024'. Among California first-year admits, 'admission offers to underrepresented students rose to 45.4 percent', Latino students were the largest group at 38.6 percent, and offers to African American students rose by almost 10 percent from the year before. The release notes that 'California's Proposition 209 banned the consideration of race in admissions 28 years ago within the state', and credits 'the university's holistic admissions process, combined with our campuses' deliberate work with high schools'. For defenders of race-neutral policy, this is a large public system reaching record representation on outreach, holistic review and test-free admission alone. The figures are systemwide admission offers, not enrollment at Berkeley or UCLA, and they do not separate the policy from changes in who applies.",
+            "The University of California reported on 31 July 2024 that it 'admitted the largest and most diverse class in its history for fall 2024'. Among California first-year admits, 'admission offers to underrepresented students rose to 45.4 percent', Latino students were the largest group at 38.6%, and offers to African American students rose by almost 10% from the year before. It credits 'the university's holistic admissions process, combined with our campuses' deliberate work with high schools'.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -272,178 +250,224 @@ export const affirmativeActionMeritocracyData = {
             replicability: 8,
             directness: 5,
           },
-          source: "University of California Office of the President, 'UC announces record-breaking admissions for fall 2024' (31 July 2024)",
+          source:
+            "University of California Office of the President, 'UC announces record-breaking admissions for fall 2024' (31 July 2024)",
           sourceUrl: "https://www.universityofcalifornia.edu/news/uc-announces-record-breaking-admissions-fall-2024",
           reasoning:
-            "Official admissions counts, published annually and checkable, so reliability and replicability are high. Independence is 5: the university is reporting its own record. Directness is held to 5: the crux asks whether race-neutral policy can match race-conscious outcomes at selective institutions, and systemwide admission offers do not answer that for the most selective campuses, where the map's own cards show the steepest losses; nor do they separate policy from demographic change. It is still the strongest evidence that a race-neutral system can reach record representation over a long horizon.",
+            "The strongest evidence that a large race-blind system can reach record representation over a long horizon. Independence is 5: the university is reporting its own record. Directness is 5: these are systemwide offers, not enrollment at Berkeley or UCLA where the losses were steepest, and they do not separate policy from California's changing demographics.",
+        },
+        {
+          id: "sffa-v-harvard-ruling",
+          title: "SFFA v. Harvard (2023): the Supreme Court held race-conscious admissions unlawful, 6–3 and 6–2",
+          description:
+            "In Students for Fair Admissions v. Harvard, the Supreme Court held that the race-conscious admissions programs at Harvard and the University of North Carolina violated the Equal Protection Clause (6-3 in the UNC case; 6-2 at Harvard, where Justice Jackson recused). Chief Justice Roberts wrote that 'eliminating racial discrimination means eliminating all of it' and that 'the student must be treated based on his or her experiences as an individual — not on the basis of race.' The ruling left applicants free to write about how race affected their lives. Justice Sotomayor's dissent said it 'cements a superficial rule of colorblindness as a constitutional principle in an endemically segregated society.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 7,
+            replicability: 10,
+            directness: 6,
+          },
+          source: "Supreme Court of the United States, SFFA v. President and Fellows of Harvard College, No. 20-1199 (29 June 2023)",
+          sourceUrl: "https://www.supremecourt.gov/opinions/22pdf/20-1199_hgdj.pdf",
+          reasoning:
+            "Settles the US law for admissions. It does not settle whether race-neutral alternatives work, which is an empirical question, or the moral one, which the majority and dissent answer differently.",
+        },
+        {
+          id: "eo-11246-revoked-2025",
+          title: "January 2025: the President revoked the 1965 order requiring affirmative action by federal contractors",
+          description:
+            "The executive order 'Ending Illegal Discrimination and Restoring Merit-Based Opportunity' (21 January 2025) states: 'Executive Order 11246 of September 24, 1965 (Equal Employment Opportunity), is hereby revoked.' It requires federal contractors and grantees to certify that they do not operate programs promoting DEI in violation of federal anti-discrimination law, and directs agencies to 'combat illegal private-sector DEI preferences, mandates, policies, programs, and activities.' An August 2025 presidential memorandum told the Education Department to expand admissions reporting, citing 'diversity statements' and other racial proxies.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 4,
+            replicability: 10,
+            directness: 3,
+          },
+          source:
+            "The White House, 'Ending Illegal Discrimination and Restoring Merit-Based Opportunity' (21 January 2025); 'Ensuring Transparency in Higher Education Admissions' (7 August 2025)",
+          sourceUrl:
+            "https://www.whitehouse.gov/presidential-actions/2025/01/ending-illegal-discrimination-and-restoring-merit-based-opportunity/",
+          reasoning:
+            "Ends sixty years of affirmative action duties in federal contracting, extending the admissions ruling's logic to hiring. It is a policy choice by one side of the dispute, not evidence about whether such programs work, so independence and directness are low.",
+        },
+        {
+          id: "michigan-post-ban-decline",
+          title: "Michigan: Black undergraduates fell from 7.2% in 2006 to 4.6% in 2014 after the state's ban",
+          description:
+            "Michigan voters banned racial preferences in public university admissions in 2006. Black students made up 7.2% of University of Michigan undergraduates that year and 4.63% by 2014, in a state where about 19% of the college-age population is Black, despite outreach and pipeline programs launched after the ban.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "The Michigan Daily, 'University continues to struggle with minority enrollment' (2014)",
+          sourceUrl: "https://www.michigandaily.com/uncategorized/minority-enrollment/",
+          reasoning:
+            "University enrollment figures reported by the campus paper, at a highly selective public university that invested in alternatives. It is one campus, and the figures stop in 2014, before later recruitment efforts.",
         },
         {
           id: "income-based-aa-underperformance",
-          title: "Income-Based Affirmative Action Falls Well Short of Racial Diversity Lost",
+          title: "Stanford simulation 2018: income-based preferences alone recover only part of the racial diversity",
           description:
-            "A simulation study by Sean Reardon, Rachel Baker, Matt Kasman, Daniel Klasik, and Joseph Townsend at Stanford (published in the Journal of Policy Analysis and Management, 2018), using nationally representative data, found that neither socioeconomic-status-based affirmative action nor race-targeted recruiting on its own produces the level of racial diversity achieved by race-based affirmative action. Only the two policies in combination — likely expensive — approach comparable diversity. This is because racial disadvantage and income disadvantage overlap but are not identical: middle-class Black and Hispanic families face racial barriers (neighborhood segregation, school quality, discriminatory discipline) that low-income white families do not. Additionally, there are more low-income white applicants than low-income minority applicants in absolute numbers, diluting the racial-diversity effect of income-based preferences.",
+            "Sean Reardon and colleagues at Stanford simulated admissions at selective colleges using national data (Journal of Policy Analysis and Management, 2018). Neither preferences by socioeconomic status nor race-targeted recruiting alone produced the racial diversity of race-based affirmative action; only the two combined, at higher cost, came close. Racial and income disadvantage overlap but are not the same, and low-income white applicants outnumber low-income Black and Hispanic applicants.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 9,
+            directness: 7,
           },
-          source: "Reardon, Baker, Kasman, Klasik & Townsend, Stanford Center for Education Policy Analysis; Journal of Policy Analysis and Management (2018)",
-          sourceUrl: "https://cepa.stanford.edu/content/what-levels-racial-diversity-can-be-achieved-socioeconomic-based-affirmative-action-evidence-simulation-model",
+          source:
+            "Reardon, Baker, Kasman, Klasik & Townsend, Journal of Policy Analysis and Management (2018), Stanford Center for Education Policy Analysis",
+          sourceUrl:
+            "https://cepa.stanford.edu/content/what-levels-racial-diversity-can-be-achieved-socioeconomic-based-affirmative-action-evidence-simulation-model",
           reasoning:
-            "Stanford CEPA is a leading education policy research center and this work was peer-reviewed in the Journal of Policy Analysis and Management. The simulation methodology is transparent and uses nationally representative data. The finding that income-based alternatives alone recover only a fraction of racial diversity directly challenges the most commonly proposed race-neutral alternative. However, simulations have limitations compared to real-world implementation.",
+            "A transparent, peer-reviewed simulation of the main race-neutral alternative. Simulations depend on assumptions about who applies and enrolls; real colleges after SFFA are now testing the same question.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 3: Social Cohesion vs. Remedial Justice
+    // PILLAR 3: Does it help or harm the people and the society it aims at?
     // =========================================================================
     {
       id: "social-cohesion-vs-remedial-justice",
-      title: "Social Cohesion vs. Remedial Justice",
+      title: "Does It Help the People It Aims At, and at What Cost to Trust?",
       short_summary:
-        "Critics argue that racial preferences increase resentment, stigmatize beneficiaries, and undermine social cohesion. Proponents counter that diversity in institutions builds cross-racial understanding and that the 'stigma' and 'mismatch' arguments are empirically weak. International comparisons with India, Brazil, and South Africa offer mixed lessons.",
+        "Critics say preferences place students where they struggle and breed resentment and doubt. The strong version of the 'mismatch' claim has not held up, but a narrower one about STEM persistence has support. Half of Americans disapproved of race-conscious admissions in 2023. India's caste reservations, the largest such program, reached poorer students without making those displaced resentful.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Racial preferences generate resentment among non-beneficiary groups, fuel perceptions of unfairness, and stigmatize the very minorities they aim to help by creating doubt about whether they earned their positions. The 'mismatch hypothesis,' advanced by UCLA law professor Richard Sander, argues that affirmative action places students in academic environments where they are underprepared relative to peers, leading to higher dropout rates, lower GPAs, and fewer graduates in STEM fields. Public opinion leans against race-based preferences — a June 2023 Pew Research poll found 50% of Americans disapprove of considering race in admissions, against 33% who approve. International examples reinforce concerns: India's reservation system (quotas for Scheduled Castes, Scheduled Tribes, and Other Backward Classes covering up to 50% of seats) has been in place for 75 years but has not closed socioeconomic gaps and has generated persistent intercaste resentment.",
+        "Preferences can hurt the students they mean to help and divide everyone else. In University of California data, Arcidiacono, Aucejo and Hotz found less-prepared minority students who started in STEM were more likely to finish a STEM degree at a less selective campus: placement above preparation costs graduates. Preferences also cast doubt on every member of a group, including those who needed no help. Most of the public is unconvinced: in June 2023 Pew found 50% of Americans disapproved of colleges considering race, against 33% who approved, with majorities of white and Asian adults opposed. A policy that sorts people by race to reduce the weight of race keeps race at the center of public life.",
       proponent_rebuttal:
-        "The strong version of the mismatch hypothesis has not held up. Reanalysing the same law-school data Sander used, Rothstein and Yoon (2008) found no evidence of mismatch effects on any students' employment outcomes or on the graduation or bar passage rates of Black students with moderate or strong entering credentials, and a 2016 Journal of Economic Literature review by Arcidiacono and Lovenheim describes that literature as contentious and frames the question as a trade-off between school quality and fit rather than a settled harm. The stigma argument assumes that the alternative to affirmative action is a perception of pure merit, but in practice, legacy admits, donor children, and athletes face no equivalent stigma despite receiving larger admissions advantages. Research on diversity's benefits is substantial: diverse teams produce more innovative research (Freeman & Huang, 2015), diverse corporate boards improve financial performance (McKinsey, 2020), and students exposed to racial diversity in college show greater civic engagement and reduced prejudice (Gurin et al., 2002). Brazil's racial quotas, implemented in 2012, have increased Black and mixed-race enrollment at federal universities from 33% to 50% with no measurable decline in academic quality.",
+        "The mismatch claim in its strong form has failed. Reanalyses of the law-school data Richard Sander used found no harm to graduation, bar passage or jobs for Black students with moderate or strong credentials, and Bleemer found California's ban lowered degree completion, the opposite of what mismatch predicts. Legacy admits and athletes get larger preferences and face no comparable stigma. Diverse teams produce more-cited research. And the largest real program shows resentment is not inevitable: in India, Bertrand, Hanna and Mullainathan found engineering-college reservations 'successfully target the financially disadvantaged', produce 'a strong, positive economic return to admission' for lower-caste students, and leave displaced upper-caste applicants with no more negative attitudes toward lower castes.",
       crux: {
         id: "net-social-cohesion-effect",
         title: "The Social Cohesion Net Impact Assessment",
         question:
           "Do race-conscious policies strengthen or strain social cohesion between groups?",
         description:
-          "Whether race-conscious policies produce net positive or negative effects on social cohesion and intergroup relations. If affirmative action reduces prejudice, builds cross-racial networks, and creates role models that inspire future generations, the social benefits outweigh resentment costs. If it primarily generates backlash, stigmatizes beneficiaries, and entrenches racial categorization, it undermines its own goals.",
+          "If race-conscious policies reduce prejudice, build cross-group friendships and leave beneficiaries better off without lasting resentment among others, the social case for them holds. If they mainly generate backlash, stigmatize beneficiaries and entrench racial categories, they undercut their own goals.",
         methodology:
-          "Design a mixed-methods study combining: (1) analysis of intergroup attitudes in states with and without affirmative action bans using the General Social Survey and ANES data, (2) longitudinal surveys of 10,000 students at 50 universities tracking racial attitudes, cross-racial friendships, and sense of belonging from freshman year through 10 years post-graduation, and (3) qualitative interviews with 500 beneficiaries and non-beneficiaries exploring perceived stigma, resentment, and solidarity. Include international comparative analysis of social cohesion metrics in India, Brazil, South Africa, and Malaysia.",
+          "Combine (1) intergroup attitudes in states with and without bans, from the General Social Survey and ANES; (2) longitudinal surveys of 10,000 students at 50 universities tracking racial attitudes, cross-racial friendships and belonging from first year to 10 years after graduation; and (3) comparisons with India, Brazil and Malaysia, where admission quotas are large and long-standing.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Longitudinal surveys of 10,000 students at 50 universities tracking racial attitudes, cross-racial friendships and belonging for 10 years after graduation, alongside General Social Survey and ANES attitudes in states with and without bans.",
         },
         cost_to_verify:
-          "$3-8M (Multi-site longitudinal study with survey and qualitative components)",
+          "$3-8M (multi-site longitudinal study)",
         falsification: {
           supporter_flip:
-            "If long-run surveys of 10,000 students at 50 universities, plus attitude data from states with and without bans, found race-conscious policies mainly producing backlash and stigma rather than cross-racial friendships and reduced prejudice, the social case for them would weaken.",
+            "If long-run surveys found that campuses with race-conscious admission produced more resentment and stigma, and fewer cross-racial friendships, than campuses without it, the social case for such policies would weaken.",
           skeptic_flip:
-            "If more reanalyses challenged the mismatch hypothesis, diverse campuses kept showing more civic engagement and less prejudice, and quotas like Brazil's 2012 law raised Black and mixed-race enrollment (33% to 50%) without lowering academic quality, the fear of resentment would weigh less.",
+            "If long-run surveys repeated India's finding that displaced applicants did not grow more hostile, while beneficiaries gained in degrees and earnings, the fear that preferences divide more than they heal would weigh less.",
           common_ground:
-            "Both sides agree more Americans disapprove than approve of considering race in admissions — 50% to 33% in a June 2023 Pew survey — and that international cases from India to Brazil offer mixed lessons.",
+            "Both sides agree more Americans disapproved than approved of race-conscious admissions in 2023, that the strong mismatch claim has weak support while a narrower one about STEM persistence has some, and that foreign programs offer mixed lessons.",
           live_disagreement:
-            "Whether race-conscious policies build cross-racial understanding and role models, or generate resentment and stigma that undercut their own goals — which long-run attitude data from states with and without bans could show.",
+            "Whether race-conscious policies build cross-group trust and opportunity, or breed resentment and doubt that undercut them, which long-run attitude data could show.",
         },
       },
       evidence: [
         {
           id: "mismatch-hypothesis-debate",
-          title: "The mismatch hypothesis and the reanalyses of it",
+          title: "The strong 'mismatch' claim has not survived reanalysis; a narrower version remains live",
           description:
-            "Richard Sander's 2004 Stanford Law Review article argued that affirmative action in law schools 'mismatched' Black students with institutions above their preparation level, reducing the number of Black lawyers. Reanalyses of the same Bar Passage Study data reached different conclusions: Rothstein and Yoon (2008) found no mismatch effect on the graduation, bar passage or employment outcomes of Black students with moderate or strong entering credentials, and located what mismatch evidence there is among students with the weakest credentials at lower-tier schools. A 2016 Journal of Economic Literature review by Arcidiacono and Lovenheim surveyed the field, described the law-school literature as contentious, and framed the question as a trade-off between institutional quality and student-school fit rather than a settled finding either way.",
+            "Richard Sander's 2004 Stanford Law Review article argued that affirmative action in law schools placed Black students above their preparation, reducing the number of Black lawyers. Reanalyses of the same Bar Passage Study data reached different conclusions: Rothstein and Yoon (2008) found no mismatch effect on graduation, bar passage or employment for Black students with moderate or strong credentials, locating what evidence there is among the weakest-credentialed students. A 2016 Journal of Economic Literature review by Arcidiacono and Lovenheim called the literature contentious and framed the question as a trade-off between college quality and student fit.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 8,
+            directness: 7,
           },
           source:
-            "Stanford Law Review (Sander, 2004); NBER w14275 (Rothstein & Yoon, 2008); Journal of Economic Literature (Arcidiacono & Lovenheim, 2016)",
+            "Sander, Stanford Law Review (2004); Rothstein & Yoon, NBER w14275 (2008); Arcidiacono & Lovenheim, Journal of Economic Literature (2016)",
           sourceUrl: "https://doi.org/10.1257/jel.54.1.3",
           reasoning:
-            "The debate between Sander and his critics has run for two decades in peer-reviewed venues, with several teams reanalysing one shared dataset and disagreeing about selection correction. The strong version of the hypothesis — that race-conscious admission reduces the total number of minority lawyers — has not held up in the reanalyses, while a weaker version concerning the least-prepared students and STEM persistence remains live. This card weighs on the policy question only to the extent the strong version fails.",
+            "Two decades of peer-reviewed argument over one shared dataset. The strong version, that preferences reduce the total number of minority graduates, has not held; a weaker version about the least-prepared students and STEM persistence remains live, which the next card speaks to.",
         },
         {
           id: "stem-persistence-less-selective-campuses",
-          title:
-            "Minority students in the UC system persisted in STEM more often at less selective campuses",
+          title: "AER 2016: less-prepared minority STEM students finished STEM degrees more often at less selective UC campuses",
           description:
-            "Arcidiacono, Aucejo and Hotz, in the American Economic Review (2016), used University of California data and found that less-prepared minority students who began in STEM were more likely to graduate in a STEM field had they attended a less selective UC campus. Their estimate is that the number of minority STEM graduates would rise if students were better matched to campuses, because persistence in the major, not admission to the system, is where the loss occurs.",
+            "Arcidiacono, Aucejo and Hotz, in the American Economic Review, used University of California data and found that less-prepared minority students who began in STEM were more likely to graduate in a STEM field had they attended a less selective UC campus. They estimate the number of minority STEM graduates would rise with better matching of students to campuses, because persistence in the major, not admission, is where the loss occurs.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 8,
+            independence: 7,
             replicability: 6,
             directness: 6,
           },
-          source: "American Economic Review (Arcidiacono, Aucejo & Hotz, 2016)",
+          source: "Arcidiacono, Aucejo & Hotz, American Economic Review (2016)",
           sourceUrl: "https://doi.org/10.1257/aer.20130626",
           reasoning:
-            "This is the strongest peer-reviewed evidence for a fit effect in a specific, measurable outcome, from administrative records for an entire state system rather than survey data. It bears on how students are allocated across campuses, not on whether race-conscious admission widens access overall, and its counterfactual depends on modelling assumptions about where each student would otherwise have enrolled.",
-        },
-        {
-          id: "diversity-innovation-research",
-          title: "Diverse Teams Produce Higher-Impact Research and Better Corporate Outcomes",
-          description:
-            "Freeman and Huang (2015) analyzed 2.5 million research papers and found that papers authored by ethnically diverse teams received 5-10% more citations than homogeneous teams. McKinsey's 2020 'Diversity Wins' report found that companies in the top quartile for racial/ethnic diversity were 36% more likely to have above-average profitability. Gurin et al.'s (2002) longitudinal study of University of Michigan students found that exposure to diversity in college increased active thinking, intellectual engagement, and motivation, with effects persisting 5 years after graduation. These findings suggest that diversity in institutions produces tangible intellectual and economic benefits beyond equity considerations.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 6,
-            directness: 6,
-          },
-          source: "Freeman & Huang, NBER; McKinsey & Company; Gurin et al., Journal of Social Issues",
-          sourceUrl: "https://www.nber.org/papers/w19905",
-          reasoning:
-            "The citation analysis uses a massive dataset and quantitative methodology. However, the McKinsey corporate diversity studies have been criticized for correlation-not-causation issues (more profitable companies may invest more in diversity, rather than diversity causing profitability). Gurin's study is from a single university. The evidence collectively suggests diversity has benefits, but establishing causation is difficult. Independence and replicability are lower because some studies (McKinsey) are from consulting firms with business interests in diversity services.",
+            "The strongest peer-reviewed evidence for a fit effect in a measurable outcome, from a whole state system's records. It concerns how students are spread across campuses, not whether race-conscious admission widens access overall, and it sits in tension with Bleemer's finding that California's ban lowered STEM degrees.",
         },
         {
           id: "public-opinion-opposition",
-          title: "Half of Americans Disapprove of Race-Based Admissions Preferences",
+          title: "Pew June 2023: 50% of Americans disapproved of colleges considering race, 33% approved",
           description:
-            "A June 2023 Pew Research Center survey found that half of U.S. adults (50%) disapprove of selective colleges considering race and ethnicity in admissions to increase diversity, while just 33% approve and 16% are unsure. Disapproval was higher among some groups — about 74% of Republicans and Republican-leaners disapproved, as did 57% of white adults and 52% of Asian adults — while nearly half of Black adults (47%) approved. A 2023 Gallup poll likewise found a majority opposed. Opinion is sensitive to framing: support rises when the question emphasizes 'programs designed to increase diversity,' and many of the same respondents back considering applicants' economic background, suggesting greater openness to socioeconomic than to racial preferences.",
+            "A June 2023 Pew Research Center survey found 50% of US adults disapproved of selective colleges considering race and ethnicity in admissions, 33% approved and 16% were unsure. About 74% of Republicans disapproved, as did 57% of white adults and 52% of Asian adults; 47% of Black adults approved. Support rises when questions stress diversity, and many respondents back considering applicants' economic background.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 8,
-            directness: 7,
+            directness: 5,
           },
-          source: "Pew Research Center; Gallup",
-          sourceUrl: "https://www.pewresearch.org/politics/2023/06/08/more-americans-disapprove-than-approve-of-colleges-considering-race-ethnicity-in-admissions-decisions/",
+          source: "Pew Research Center (8 June 2023)",
+          sourceUrl:
+            "https://www.pewresearch.org/politics/2023/06/08/more-americans-disapprove-than-approve-of-colleges-considering-race-ethnicity-in-admissions-decisions/",
           reasoning:
-            "Pew and Gallup are the gold standard for public opinion polling with rigorous methodology. More Americans disapprove than approve of race-conscious admissions, which supports the social cohesion concern. However, opposition is a plurality (50%) rather than an overwhelming majority, and results are sensitive to question framing ('race as a factor' vs. 'diversity programs'), so opinions are more nuanced than simple blanket opposition. Directness is slightly lower because public opinion does not determine whether a policy is effective or just.",
+            "Gold-standard polling showing more opposition than support, which bears on cohesion and consent. Opinion is sensitive to wording, and public opinion does not show whether a policy works or is just.",
         },
         {
-          id: "brazil-quotas-outcomes",
-          title: "Brazil's Racial Quotas Increased Black University Enrollment Without Quality Decline",
+          id: "diversity-innovation-research",
+          title: "Freeman & Huang: papers by ethnically diverse author teams were cited 5–10% more",
           description:
-            "Brazil implemented racial quotas at federal universities through the Lei de Cotas (Quota Law) in 2012, reserving 50% of seats for public school graduates, with sub-quotas for Black, mixed-race, and indigenous students proportional to state demographics. By 2022, Black and mixed-race enrollment at federal universities rose from 33% to over 50%, roughly matching their share of the population. Studies by Francis and Tannuri-Pianto (2012) and Mello (2022) found no measurable decline in academic quality as measured by graduation rates and post-graduation employment. However, Brazil's unique racial classification system (self-identification with fluid categories) and its relatively recent implementation limit direct comparability to the US context.",
+            "Richard Freeman and Wei Huang analyzed about 2.5 million research papers and found that papers by ethnically diverse teams received 5% to 10% more citations than those by homogeneous teams. Gurin and colleagues' longitudinal study of University of Michigan students found exposure to diversity in college linked to more active thinking and engagement years after graduation. Corporate studies such as McKinsey's link board diversity to profits but cannot separate cause from effect.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
+            independence: 6,
             replicability: 6,
-            directness: 5,
+            directness: 4,
           },
-          source: "Brazilian Ministry of Education; Francis & Tannuri-Pianto, Journal of Economic Behavior & Organization",
-          sourceUrl: "https://www.sciencedirect.com/science/article/pii/S0167268112001539",
+          source: "Freeman & Huang, NBER Working Paper 19905; Gurin et al., Harvard Educational Review (2002)",
+          sourceUrl: "https://www.nber.org/papers/w19905",
           reasoning:
-            "Brazilian data provides a real-world test of racial quotas at national scale. The absence of quality decline is significant. However, directness is substantially lower because Brazil's racial categories, university system, and historical context differ fundamentally from the US. Cross-national comparisons in social policy always carry limited transferability. Replicability is lower due to challenges accessing Brazilian administrative data from outside the country.",
+            "Large data on research teams; the college and corporate findings are weaker and correlational. Diversity having benefits does not show that race-conscious admission is the way to get it, so directness is 4.",
         },
         {
           id: "india-reservation-mixed-results",
-          title: "India's 75-Year Reservation System: Significant Gains but Persistent Gaps and Resentment",
+          title: "India engineering colleges: caste reservations reached poorer students and paid off; displaced applicants did not grow more hostile",
           description:
-            "India's constitutional reservation system, in place since 1950, reserves up to 50% of seats in public universities and government jobs for Scheduled Castes, Scheduled Tribes, and Other Backward Classes. Studies by Deshpande (2011) and Bertrand et al. (2010) document significant gains: a substantial Dalit middle class has emerged, political representation has increased, and intergenerational mobility has improved. However, the caste wealth gap remains enormous, and the system has generated decades of intense political conflict, including the 2006 anti-reservation protests and ongoing 'caste wars' over which groups qualify as backward. The 'creamy layer' exclusion — barring wealthy members of backward classes from quotas — has been only partially effective.",
-          side: "against" as const,
+            "Studying engineering-college admissions in India, Marianne Bertrand, Rema Hanna and Sendhil Mullainathan found the caste-based reservation policy 'successfully targets the financially disadvantaged': the marginal upper-caste applicant displaced usually came from a richer background than the lower-caste student admitted. Lower-caste admits, despite much lower entrance scores, saw 'a strong, positive economic return to admission', though the marginal upper-caste entrant gained nearly twice as much in earnings. They found no evidence that rejected upper-caste applicants developed more negative attitudes toward lower castes or toward affirmative action.",
+          side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
+            sourceReliability: 8,
+            independence: 8,
             replicability: 6,
             directness: 5,
           },
-          source: "Deshpande, 'The Grammar of Caste'; Bertrand, Hanna & Mullainathan, Journal of Public Economics (2010), NBER Working Paper 13926",
+          source:
+            "Bertrand, Hanna & Mullainathan, 'Affirmative Action in Education: Evidence From Engineering College Admissions in India', NBER Working Paper 13926 (2008); Journal of Public Economics (2010)",
           sourceUrl: "https://www.nber.org/papers/w13926",
           reasoning:
-            "Bertrand, Hanna and Mullainathan's study of Indian engineering-college admissions was peer-reviewed in the Journal of Public Economics and is among the most cited empirical analyses of caste-based reservations. India provides the longest-running large-scale affirmative action experiment globally. The mixed results — genuine gains, with reservations successfully reaching the financially disadvantaged, alongside persistent inequality and social friction — provide evidence for both sides. Directness is low because the Indian caste system differs substantially from American racial categories in structure, duration, and social mechanics.",
+            "A rigorous study of the world's largest admissions quota system that speaks to both halves of the crux: benefits for those admitted and no measured resentment among those displaced. It covers one state's engineering colleges, and caste differs from race in the US, so directness is 5. The smaller earnings gain for lower-caste admits is a real cost.",
         },
       ],
     },
+  ],
+  aliases: [
+    "Are race-conscious admissions and hiring needed for equal opportunity?",
+    "Was the Supreme Court right to end affirmative action?",
+    "Is affirmative action fair?",
+    "Should colleges consider race in admissions?",
   ],
   references: [
     {
@@ -451,20 +475,36 @@ export const affirmativeActionMeritocracyData = {
       url: "https://www.supremecourt.gov/opinions/22pdf/20-1199_hgdj.pdf",
     },
     {
-      title: "Grutter v. Bollinger (2003) — Supreme Court Opinion on Race-Conscious Admissions",
-      url: "https://supreme.justia.com/cases/federal/us/539/306/",
+      title: "An Early Look at Diversity Post–Affirmative Action — Inside Higher Ed (6 September 2024)",
+      url: "https://www.insidehighered.com/news/admissions/traditional-age/2024/09/06/early-look-racial-diversity-post-affirmative-action",
     },
     {
-      title: "Diversifying Society's Leaders? The Determinants and Causal Effects of Admission to Highly Selective Private Colleges — Chetty et al. (2023)",
+      title: "Ending Illegal Discrimination and Restoring Merit-Based Opportunity — The White House (21 January 2025)",
+      url: "https://www.whitehouse.gov/presidential-actions/2025/01/ending-illegal-discrimination-and-restoring-merit-based-opportunity/",
+    },
+    {
+      title: "Ensuring Transparency in Higher Education Admissions — The White House (7 August 2025)",
+      url: "https://www.whitehouse.gov/presidential-actions/2025/08/ensuring-transparency-in-higher-education-admissions/",
+    },
+    {
+      title: "Standardized Test Scores and Academic Performance at Ivy-Plus Colleges — Friedman, Sacerdote, Staiger & Tine (2025)",
+      url: "https://opportunityinsights.org/paper/test-scores/",
+    },
+    {
+      title: "Diversifying Society's Leaders? — Chetty, Deming & Friedman, Opportunity Insights (2023)",
       url: "https://opportunityinsights.org/paper/collegeadmissions/",
     },
     {
-      title: "Affirmative Action, Mismatch, and Economic Mobility after California's Proposition 209 — Bleemer, Quarterly Journal of Economics (2022)",
+      title: "Legacy and Athlete Preferences at Harvard — Arcidiacono, Kinsler & Ransom, NBER w26316 (2019)",
+      url: "https://www.nber.org/papers/w26316",
+    },
+    {
+      title: "Affirmative Action, Mismatch, and Economic Mobility after California's Proposition 209 — Bleemer, QJE (2022)",
       url: "https://academic.oup.com/qje/article/137/1/115/6360989",
     },
     {
-      title: "Survey of Consumer Finances: Wealth Disparities by Race — Federal Reserve Board (2022)",
-      url: "https://www.federalreserve.gov/econres/scfindex.htm",
+      title: "Affirmative Action in Education: Evidence From Engineering College Admissions in India — Bertrand, Hanna & Mullainathan, NBER w13926",
+      url: "https://www.nber.org/papers/w13926",
     },
     {
       title: "Affirmative Action and the Quality-Fit Trade-off — Arcidiacono & Lovenheim, Journal of Economic Literature (2016)",
@@ -479,28 +519,28 @@ export const affirmativeActionMeritocracyData = {
       url: "https://senate.universityofcalifornia.edu/_files/underreview/sttf-report.pdf",
     },
     {
-      title: "The Economic Impact of Affirmative Action Policies — National Bureau of Economic Research",
-      url: "https://www.nber.org/papers/w19905",
+      title: "Survey of Consumer Finances — Federal Reserve Board",
+      url: "https://www.federalreserve.gov/econres/scfindex.htm",
     },
   ],
   questions: [
     {
       id: "q1",
-      title: "Does 'merit' measure ability or accumulated advantage?",
+      title: "Do test scores measure merit or privilege?",
       content:
-        "SAT scores correlate more with family income than with college performance, and legacy admits get a bigger admissions boost than affirmative action beneficiaries. If our standard metrics of merit systematically favor those born into advantage, can a truly meritocratic system exist without accounting for the unequal starting line?",
+        "Both, which is why the argument persists. Family background explains over 40% of the variation in UC applicants' SAT and ACT scores. Yet a 2025 study at Ivy-Plus colleges found scores predict first-year grades about four times better than high school GPA, and do not underrate disadvantaged students. Meanwhile legacy, athlete and other preferences make top-1% children twice as likely as middle-class children with the same scores to attend.",
     },
     {
       id: "q2",
-      title: "Can race-neutral alternatives actually achieve diversity?",
+      title: "What happened to diversity after the Supreme Court ended affirmative action?",
       content:
-        "After Proposition 209, Black enrollment at UC Berkeley dropped 50% and took 15+ years to partially recover. Michigan spent $250 million on alternatives without restoring pre-ban diversity. Post-SFFA data shows sharp drops at elite schools. If race-neutral methods consistently underperform, is the Supreme Court's mandate achievable or does it simply accept resegregation of elite institutions?",
+        "In the first class admitted after the 2023 ruling, results split. At MIT, Black and Hispanic enrollment fell 15 points combined; Amherst's Black enrollment fell 8 points; Yale's Black share held at 14%. California, race-blind since 1996, saw steep early losses at Berkeley and UCLA, and a study found its ban lowered displaced students' degrees and wages; by 2024 the UC system as a whole admitted its most diverse class.",
     },
     {
       id: "q3",
-      title: "Does diversity in institutions reduce or deepen racial division?",
+      title: "Does affirmative action create resentment or mismatch?",
       content:
-        "Half of Americans oppose race-based admissions (50% to 33% in a 2023 Pew survey), yet diverse teams produce higher-impact research and students exposed to diversity show reduced prejudice. India's 75-year reservation system created a Dalit middle class but also entrenched caste politics. Does the path to a post-racial society run through race-conscious policy, or does racial classification perpetuate the very divisions it aims to heal?",
+        "The strong mismatch claim, that preferences reduce the number of minority graduates, has not held up in reanalyses, though a narrower effect on STEM persistence has support. Half of Americans disapproved of race-conscious admissions in 2023. India's caste reservations, studied in engineering colleges, reached poorer students and paid off for them, with no rise in hostility among the applicants they displaced.",
     },
   ],
 };
