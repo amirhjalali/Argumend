@@ -13,9 +13,9 @@ export const nuclearWeaponsAbolitionData = {
       "Nuclear-armed great powers have not fought each other directly since 1945, the longest such stretch in modern history. No nuclear-armed state has joined the Treaty on the Prohibition of Nuclear Weapons, which entered into force in 2021. Both sides accept those facts. The fight is over whether the bomb kept that peace, and whether a world without it could be verified and kept safe.",
     confidence: 88,
     source:
-      "Gaddis, 'The Long Peace' (1987); Our World in Data, 'War and Peace' (Correlates of War Project); UNODA treaty database (TPNW)",
+      "John Lewis Gaddis, 'The Long Peace: Elements of Stability in the Postwar International System', International Security 10(4) (1986); UN Treaty Collection, TPNW status (96 signatories, 75 parties, none nuclear-armed, as of 3 November 2026)",
     sourceUrl:
-      "https://ourworldindata.org/war-and-peace",
+      "https://doi.org/10.2307/2538951",
   },
   simple_case: [
     "The answer decides whether the wiser course is to keep deterrence and manage its risks, or to work toward giving the weapons up.",
@@ -66,7 +66,7 @@ export const nuclearWeaponsAbolitionData = {
           id: "long-peace-statistic",
           title: "No Direct War Between Nuclear Great Powers Since 1945 — Longest Period in Modern History",
           description:
-            "The period since 1945 represents the longest stretch without direct military conflict between the world's major powers in recorded modern history. Prior to the nuclear age, great power wars occurred on average every 20-30 years: the Napoleonic Wars (1803-1815), Crimean War (1853-1856), Franco-Prussian War (1870-1871), World War I (1914-1918), and World War II (1939-1945). The 80+ year absence of great power war since 1945 is statistically anomalous by pre-nuclear historical standards. Political scientist John Lewis Gaddis coined the term 'Long Peace' in 1986 to describe this phenomenon.",
+            "The period since 1945 represents the longest stretch without direct military conflict between the world's major powers in recorded modern history. Before the nuclear age, the great powers fought one another repeatedly: the Napoleonic Wars (1803-1815), Crimean War (1853-1856), Franco-Prussian War (1870-1871), World War I (1914-1918), and World War II (1939-1945). The 80+ year absence of great power war since 1945 is statistically anomalous by pre-nuclear historical standards. Political scientist John Lewis Gaddis coined the term 'Long Peace' in 1986 to describe this phenomenon.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -74,16 +74,16 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 10,
             directness: 7,
           },
-          source: "John Lewis Gaddis, 'The Long Peace' (1987); Our World in Data, 'War and Peace' (citing Correlates of War Project, 1816–2007)",
-          sourceUrl: "https://ourworldindata.org/war-and-peace",
+          source: "John Lewis Gaddis, 'The Long Peace: Elements of Stability in the Postwar International System', International Security 10(4): 99-142 (1986); expanded in Gaddis, 'The Long Peace' (1987)",
+          sourceUrl: "https://doi.org/10.2307/2538951",
           reasoning:
             "The historical record of great power peace since 1945 is an undeniable fact, earning high reliability and replicability scores. However, directness is lower because correlation does not establish causation — multiple factors changed simultaneously in 1945 (nuclear weapons, UN, decolonization, bipolarity), making it impossible to isolate the nuclear variable from historical data alone.",
         },
         {
           id: "india-pakistan-nuclear",
-          title: "India-Pakistan: Three Full-Scale Wars Before Nuclear Weapons, None Since (1947-present)",
+          title: "India-Pakistan: Three Major Wars Before Nuclear Weapons, Contained Crises Since",
           description:
-            "India and Pakistan fought three full-scale wars before both overtly tested nuclear weapons in 1998: 1947, 1965, and 1971. The 1999 Kargil conflict — a limited border war — occurred the year after both states' tests, before mature deterrence doctrine; during it, Pakistani Prime Minister Nawaz Sharif reportedly cited nuclear escalation risk as a factor in withdrawal. Since both countries achieved secure second-strike capability in the early 2000s, they have experienced multiple severe crises — the 2001 Parliament attack, 2008 Mumbai attacks, and 2019 Pulwama crisis — without escalation to full-scale war. (Skeptics note this is also consistent with the stability-instability paradox, in which nuclear weapons deter major war but enable sub-conventional conflict.)",
+            "India and Pakistan fought three major wars, in 1947, 1965 and 1971, before either had nuclear weapons; both tested openly in 1998. In the Brookings book 'Four Crises and a Peace Process' (2007), P.R. Chari, Pervaiz Iqbal Cheema and Stephen P. Cohen study four 'contained conflicts': the Brasstacks crisis of 1986–1987, the compound crisis of 1990, the Kargil conflict of 1999 and the border confrontation of 2001–2002. 'Any one of them could have escalated to a large-scale conflict, or even all-out war, and three took place after India and Pakistan had gone nuclear.' Later crises (the 2008 Mumbai attacks, the 2019 Pulwama crisis and the May 2025 exchange of strikes) also stopped short of full-scale war. (Skeptics note this is also consistent with the stability-instability paradox, in which nuclear weapons deter major war but enable limited conflict, and Chatham House counts Kargil and 2001–2002 among its cases of near nuclear use.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -91,8 +91,8 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Stimson Center; Carnegie Endowment for International Peace; Chari et al. (2007)",
-          sourceUrl: "https://carnegieendowment.org/research/2007/01/four-crises-and-a-peace-process?lang=en",
+          source: "P.R. Chari, Pervaiz Iqbal Cheema & Stephen P. Cohen, 'Four Crises and a Peace Process: American Engagement in South Asia' (Brookings Institution Press, 2007)",
+          sourceUrl: "https://www.brookings.edu/books/four-crises-and-a-peace-process/",
           reasoning:
             "The India-Pakistan case provides the closest thing to a natural experiment in nuclear deterrence — the same two adversaries, similar disputes, different outcomes before and after nuclearization. The evidence is strong but not conclusive: India's conventional military superiority also grew over this period, and both countries matured politically. The stability-instability paradox also applies — nuclear weapons prevented major war but may have enabled sub-conventional conflict.",
         },
@@ -100,7 +100,7 @@ export const nuclearWeaponsAbolitionData = {
           id: "cuban-missile-crisis",
           title: "Cuban Missile Crisis: Nuclear Weapons Nearly Caused the Very Catastrophe They Were Supposed to Prevent (1962)",
           description:
-            "The October 1962 Cuban Missile Crisis brought the world closer to nuclear war than any other event in history. Declassified records reveal that the situation was far more dangerous than policymakers realized at the time: Soviet submarine B-59 commander Valentin Savitsky ordered a nuclear torpedo launch that was vetoed only by flotilla commander Vasili Arkhipov; Soviet forces in Cuba had tactical nuclear weapons with pre-authorized use; and US reconnaissance flights that Kennedy did not authorize nearly triggered Soviet anti-aircraft fire. A 2002 Havana conference with surviving participants concluded the world avoided nuclear war largely through luck, not rational deterrence.",
+            "The October 1962 Cuban Missile Crisis is widely regarded as the closest the world has come to nuclear war, and later testimony showed dangers policymakers did not see at the time. Each Soviet submarine sent toward Cuba, including B-59, carried one nuclear torpedo, and US anti-submarine forces were tracking them. Accounts collected by the National Security Archive 'confirm that Savitsky did, in fact, order the dive and call for the launch of the sub's nuclear torpedo'; Vasily Arkhipov, chief of staff of the submarine brigade, 'called the commander back and calmed him down', and 'Savitsky's command was never transmitted to the officer in charge of the torpedo.' The story became widely known after the 2002 Havana conference of surviving participants.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -178,7 +178,7 @@ export const nuclearWeaponsAbolitionData = {
           id: "tpnw-entry-force",
           title: "Treaty on the Prohibition of Nuclear Weapons Enters into Force with 70+ Parties (2021)",
           description:
-            "The TPNW, adopted in 2017 and entering into force on January 22, 2021, comprehensively prohibits the development, testing, production, stockpiling, transfer, use, and threat of use of nuclear weapons. As of late 2025, 74 states have ratified and 95 have signed. However, no nuclear-armed state has joined, and all NATO members (except the Netherlands, which voted against during negotiations) boycotted the negotiations. The treaty creates a legal norm but lacks enforcement mechanisms. Proponents cite the Anti-Personnel Mine Ban Treaty as a precedent where stigmatization eventually changed behavior even among non-signatory states.",
+            "The TPNW, adopted in 2017 and entering into force on January 22, 2021, comprehensively prohibits the development, testing, production, stockpiling, transfer, use, and threat of use of nuclear weapons. As of 3 November 2026 the UN Treaty Collection lists 96 signatories and 75 parties. However, no nuclear-armed state has joined, and all NATO members (except the Netherlands, which voted against during negotiations) boycotted the negotiations. The treaty creates a legal norm but lacks enforcement mechanisms. Proponents cite the Anti-Personnel Mine Ban Treaty as a precedent where stigmatization eventually changed behavior even among non-signatory states.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -186,8 +186,8 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 9,
             directness: 5,
           },
-          source: "United Nations Office for Disarmament Affairs; ICAN (International Campaign to Abolish Nuclear Weapons)",
-          sourceUrl: "https://treaties.unoda.org/t/tpnw",
+          source: "United Nations Treaty Collection, Chapter XXVI.9, Treaty on the Prohibition of Nuclear Weapons (status page)",
+          sourceUrl: "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=XXVI-9&chapter=26&clang=_en",
           reasoning:
             "The treaty's existence is unambiguous fact (high reliability/replicability). But it is fundamentally a NORMATIVE instrument — a statement by non-nuclear states that nuclear weapons SHOULD be abolished — not empirical evidence that abolition WOULD make the world safer, which is what the meta-claim disputes. Independence is discounted because a co-source (ICAN) is an abolition-advocacy organization, and directness is low because no nuclear-armed state has joined, so the treaty bears only weakly on the empirical deterrence-vs-abolition question. It belongs on the 'against' side as an expression of international preference, not as proof of the meta-claim's falsity.",
         },
@@ -210,9 +210,9 @@ export const nuclearWeaponsAbolitionData = {
         },
         {
           id: "chemical-biological-precedent",
-          title: "Chemical and Biological Weapons Largely Eliminated Despite Knowledge Persistence",
+          title: "Every Declared Chemical Weapons Stockpile Destroyed Despite Knowledge Persistence (2023)",
           description:
-            "The Chemical Weapons Convention (1993) and Biological Weapons Convention (1972) have achieved near-complete elimination of two categories of weapons of mass destruction despite the knowledge to produce them remaining widely available. 193 states are party to the CWC, and 98% of declared chemical weapons stockpiles have been verifiably destroyed. Chemical weapons use has been reduced to rare violations by pariah states (Syria) and assassination operations (Russia's Novichok). The BWC, despite lacking a formal verification mechanism, has maintained a strong norm against biological weapons development. Critics note that nuclear weapons are fundamentally different — they provide a unique strategic advantage that chemical and biological weapons do not.",
+            "The Chemical Weapons Convention (signed 1993) and Biological Weapons Convention (1972) ban two categories of weapons of mass destruction whose know-how remains widely available. The OPCW counts 193 states committed to the CWC and reports that '100% of the chemical weapons stockpiles declared by possessor States have been verifiably destroyed', the last (the United States') on 7 July 2023. Chemical weapons use has been reduced to rare violations by pariah states (Syria) and assassination operations (Russia's Novichok). The BWC, despite lacking a formal verification mechanism, has maintained a strong norm against biological weapons development. Critics note that nuclear weapons are fundamentally different — they provide a unique strategic advantage that chemical and biological weapons do not.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -220,8 +220,8 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Organisation for the Prohibition of Chemical Weapons (OPCW); Arms Control Association",
-          sourceUrl: "https://www.opcw.org/our-work/demilitarisation",
+          source: "Organisation for the Prohibition of Chemical Weapons (OPCW), 'Eliminating Chemical Weapons'",
+          sourceUrl: "https://www.opcw.org/our-work/eliminating-chemical-weapons",
           reasoning:
             "The CWC/BWC precedent demonstrates that weapons can be abolished even when the knowledge persists. However, the analogy is imperfect: chemical and biological weapons provide limited strategic advantage compared to conventional alternatives, whereas nuclear weapons provide unique deterrent value. The directness score is lower because the strategic asymmetry between nuclear and chemical/biological weapons limits the analogy's applicability.",
         },
@@ -281,7 +281,7 @@ export const nuclearWeaponsAbolitionData = {
           skeptic_flip:
             "If further crises passed without nuclear use, extending an 80-year record, and studies linked deterrence to the absence of conventional great-power wars like those that killed 80+ million people before 1950, the catastrophic risk would have a large offsetting benefit.",
           common_ground:
-            "Both sides agree any nuclear use would be a humanitarian catastrophe — the ICRC says no adequate response exists for a detonation in a populated area — and that this horror sits at the center of the argument either way.",
+            "Both sides agree any nuclear use would be a humanitarian catastrophe — the Red Cross and Red Crescent Movement finds 'the lack of any adequate humanitarian response capacity' — and that this horror sits at the center of the argument either way.",
           live_disagreement:
             "Whether nuclear winter models are right that even a limited exchange would cause global famine, making the tail risk outweigh any deterrence benefit, or overstated, leaving the record of non-use as the weightier fact.",
         },
@@ -289,9 +289,9 @@ export const nuclearWeaponsAbolitionData = {
       evidence: [
         {
           id: "nuclear-winter-nature-food",
-          title: "Limited Nuclear War Could Cause 2 Billion Famine Deaths from Nuclear Winter (2022)",
+          title: "Model Study: A Regional India-Pakistan Nuclear War Could Kill Over 2 Billion Through Famine (2022)",
           description:
-            "A 2022 study published in Nature Food used state-of-the-art climate and crop models to simulate the global food impact of six nuclear war scenarios. Even the smallest scenario — a regional India-Pakistan exchange of 100 Hiroshima-sized weapons — would inject enough soot into the stratosphere to reduce global caloric production by 7% in the first year, affecting 2 billion people with food insecurity. A full US-Russia exchange (4,400 weapons) would reduce global food production by 90% for 3-4 years, potentially causing the deaths of over 5 billion people from famine alone — in addition to the hundreds of millions killed directly. The study concluded that nuclear weapons pose a threat to global food security regardless of where they are detonated.",
+            "A 2022 study in Nature Food (Xia et al.) used climate, crop and fishery models to estimate the food impact of six nuclear war scenarios injecting 5 to 150 Tg of soot. 'Global average calorie production from the crops we simulated decreased 7% in years 1–5 after the war even under the smallest, 5 Tg soot scenario' (an India-Pakistan war), and up to 50% under the 47 Tg scenario; in the 150 Tg case (a US-Russia war) it 'would decrease by around 90% 3–4 years after the nuclear war.' The authors 'estimate more than 2 billion people could die from nuclear war between India and Pakistan, and more than 5 billion could die from a war between the United States and Russia.' These are single-model estimates; the paper notes that one Earth system model, one crop model and one fishery model were used.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -299,7 +299,7 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Nature Food; Xia et al. (2022); Rutgers University",
+          source: "Xia et al., 'Global food insecurity and famine from reduced crop, marine fishery and livestock production due to climate disruption from nuclear war soot injection', Nature Food 3: 586-596 (2022)",
           sourceUrl: "https://doi.org/10.1038/s43016-022-00573-0",
           reasoning:
             "Published in a top-tier Nature journal using validated climate and agricultural models. The finding that even a 'limited' exchange threatens billions of lives is devastating for the deterrence argument. However, nuclear winter models have been criticized for potentially overestimating soot lofting and underestimating atmospheric self-cleaning. Independent replication with updated models is essential for validation.",
@@ -323,9 +323,9 @@ export const nuclearWeaponsAbolitionData = {
         },
         {
           id: "humanitarian-consequences-icrc",
-          title: "ICRC: No Adequate Humanitarian Response Exists for Nuclear Detonation in a City",
+          title: "Red Cross Movement: No Adequate Humanitarian Response Capacity for Nuclear Use (2011)",
           description:
-            "The International Committee of the Red Cross — the world's foremost authority on humanitarian consequences of armed conflict — has stated unequivocally that no adequate humanitarian response exists for the detonation of a nuclear weapon in a populated area. A single modern thermonuclear warhead detonated over a major city would immediately kill 500,000 to 2 million people, overwhelm all medical infrastructure within hundreds of kilometers, create radioactive fallout affecting millions more, and render the area uninhabitable for years. The ICRC's 2011 resolution called on all states to ensure that nuclear weapons 'are never again used, regardless of the views held on their legality' and was reaffirmed in 2024.",
+            "In Resolution 1 of 26 November 2011, the Council of Delegates of the International Red Cross and Red Crescent Movement 'emphasizes the incalculable human suffering that can be expected to result from any use of nuclear weapons, the lack of any adequate humanitarian response capacity and the absolute imperative to prevent such use', and appeals to all States 'to ensure that nuclear weapons are never again used, regardless of their views on the legality of such weapons.' The ICRC's own overview adds that a detonation in or near a populated area can destroy the medical infrastructure and services needed to help survivors.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -333,10 +333,10 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 8,
             directness: 8,
           },
-          source: "International Committee of the Red Cross (ICRC); 31st International Conference Resolution (2011)",
-          sourceUrl: "https://www.icrc.org/en/document/nuclear-weapons",
+          source: "Council of Delegates of the International Red Cross and Red Crescent Movement, Resolution 1, 'Working towards the elimination of nuclear weapons' (Geneva, 26 November 2011); ICRC, 'Nuclear weapons' (2018)",
+          sourceUrl: "https://rcrcconference.org/app/uploads/2025/09/CD11_R1_Nuclear_Weapons_EN.pdf",
           reasoning:
-            "The ICRC is among the most respected and independent humanitarian organizations in the world. Its assessment that no humanitarian response is possible for nuclear weapon use is based on decades of expertise in conflict medicine and disaster response. This evidence is devastating for any argument that nuclear weapons can be used or retained 'responsibly' — the consequences of failure are unmanageable.",
+            "The ICRC is among the most respected and independent humanitarian organizations in the world. The Movement's finding that no adequate humanitarian response capacity exists for nuclear weapon use is based on decades of expertise in conflict medicine and disaster response. This evidence is devastating for any argument that nuclear weapons can be used or retained 'responsibly' — the consequences of failure are unmanageable.",
         },
       ],
     },
