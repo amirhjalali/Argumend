@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise circadian indiana doleac entrain kotchen robberies misalignment monday sanders chronobiology clin fritz outdoor sandhu"
+    "keywords": "sunrise circadian indiana doleac entrain kotchen robberies misalignment monday sanders chronobiology clin fritz sandhu outdoor"
   },
   {
     "id": "tipping-culture",
@@ -151,7 +151,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation cement mothballed mammoth dioxide amine beneath orca wgiii"
+    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation mothballed mammoth dioxide amine beneath orca wgiii barrel"
   },
   {
     "id": "hydrogen-economy-viability",
@@ -173,7 +173,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "ammonia aviation grey stegra wheel steam electrolyzer mill refueling shell haul electrolytic furnace hybrit insideevs"
+    "keywords": "ammonia aviation grey stegra wheel shell steam electrolyzer refueling haul methane mill electrolytic furnace hybrit"
   },
   {
     "id": "vertical-farming-viability",
@@ -370,7 +370,7 @@
       "Do data centers raise power bills",
       "Are hyperscale server campuses behind my utility's rate hike?"
     ],
-    "keywords": "pjms megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
+    "keywords": "pjms norris subscribed gigawatts megawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
   },
   {
     "id": "proof-of-citizenship-voting",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses factcheck mail unconfirmed"
+    "keywords": "hampshire heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses mail unconfirmed factcheck"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -471,7 +471,7 @@
       "Independent redistricting commissions",
       "Gerrymandering ban"
     ],
-    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom cements deadlocked ajps"
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom deadlocked ajps arora"
   },
   {
     "id": "aca-enhanced-subsidies",
@@ -532,7 +532,7 @@
       "What do we do with nuclear waste that stays dangerous for thousands of years?",
       "Was Germany wrong to shut down its nuclear plants?"
     ],
-    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore safest"
+    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore fukushima"
   },
   {
     "id": "universal-healthcare",
@@ -637,7 +637,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "overdose portugal recidivism emcdda spencer incarceration fentanyl nida zoorob hotline marijuana provisional vera ticketed toronto"
+    "keywords": "overdose portugal recidivism emcdda spencer incarceration fentanyl nida zoorob hotline marijuana provisional toronto vera ticketed"
   },
   {
     "id": "death-penalty-deterrence",
@@ -686,7 +686,7 @@
       "Should we defund the police?",
       "Does police reform reduce crime?"
     ],
-    "keywords": "devi fryer lots vera chalfin unarmed vacant campbell denver feloniously cahoots louisville roland tanaya portland"
+    "keywords": "devi fryer lots vera chalfin unarmed vacant campbell denver dispatched feloniously cahoots louisville roland tanaya"
   },
   {
     "id": "mandatory-voting",
@@ -779,7 +779,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens borjas bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular"
+    "keywords": "carens remittances clemens borjas bier isil milton sidewalk circular clemenss feudal kahanec peasant zaiceva zimmermann"
   },
   {
     "id": "universal-basic-income",
@@ -823,7 +823,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka deferral luxembourg"
   },
   {
     "id": "standardized-testing-debate",
@@ -918,7 +918,7 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran memorandum fordow"
+    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran barrels memorandum"
   },
   {
     "id": "epstein-files",
@@ -969,7 +969,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight upholds broadcast retrained relicensed usds"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight upholds broadcast retrained relicensed subsidiaries"
   },
   {
     "id": "immigration-border-crisis",
@@ -1461,16 +1461,16 @@
       "Is AGI coming soon?",
       "When will AI be smarter than humans?"
     ],
-    "keywords": "astra lecun amodei fable sooner bricken dziri shazeer chollet hoffmann predecessor decoder kaplan opus harness"
+    "keywords": "astra lecun sooner amodei fable bricken dziri shazeer chollet hoffmann predecessor decoder kaplan opus harness"
   },
   {
     "id": "nuclear-renaissance-smr",
     "title": "Can Small Modular Reactors Save Nuclear Energy?",
-    "question": "Can small modular reactors deliver clean power at scale within a decade?",
-    "meta_claim": "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at meaningful scale within the next decade — a proposition advocates treat as imminent and skeptics regard as perennially deferred.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 66,
+    "question": "Will small modular reactors be cheap and fast enough to matter by the mid-2030s?",
+    "meta_claim": "Small modular reactors will be built cheaply and quickly enough to supply a meaningful share of clean, round-the-clock power by the mid-2030s.",
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1478,12 +1478,16 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Can factory production bring small reactors' costs below renewables with backup power?",
+    "evidenceCount": 15,
+    "firstCrux": "Will later small reactors, like Darlington's units 2 to 4, cost less than the first and beat firmed wind and solar?",
     "tags": [
       "technology"
     ],
-    "keywords": "nuscale uamps streamlined lazards fukushima vogtle akademik edwin lomonosov royce westinghouse lcoe lyman overruns midpoint"
+    "aliases": [
+      "Can small modular reactors deliver clean power at scale within a decade?",
+      "Are SMRs always ten years away?"
+    ],
+    "keywords": "nuscale bwrx darlington lazard unsubsidized akademik basemat idaho lomonosov uamps fukushima licence vogtle aalo doice"
   },
   {
     "id": "tiktok-brain-rot",
@@ -1576,16 +1580,16 @@
       "Hasn't the climate always changed naturally, because of the sun?",
       "Isn't CO2 just plant food?"
     ],
-    "keywords": "scripps outgassing arctic maunder pmel rantanen pinatubos volcanoes stratosphere argo ceres forster hotter keeling mauritsen"
+    "keywords": "scripps outgassing arctic maunder pmel rantanen pinatubos volcanoes stratosphere argo ceres hotter keeling mauritsen thermometers"
   },
   {
     "id": "ev-environmental-impact",
-    "title": "Electric Vehicles vs. ICE Cars",
-    "question": "Are EVs significantly greener than gas cars over their full lifecycle?",
+    "title": "Electric Cars vs. Gas Cars: The Whole Life",
+    "question": "Are electric cars really greener than gas cars, batteries and mines included?",
     "meta_claim": "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
     "confidence_score": 54,
     "balance": 54,
-    "weight": 82,
+    "weight": 78,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1593,17 +1597,18 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 17,
-    "firstCrux": "How fast does an EV make up its battery's emissions?",
+    "evidenceCount": 13,
+    "firstCrux": "How many miles does an EV need to repay its battery's extra emissions, and do most cars get there?",
     "tags": [
       "science"
     ],
     "aliases": [
+      "Are EVs significantly greener than gas cars over their full lifecycle?",
       "Lithium Mining & EV Environmental Impact",
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina tropical"
+    "keywords": "cobalt nickel poland icct congo indonesias amnesty argonne ember factcheck redwood volvo halmahera payback phosphate"
   },
   {
     "id": "factory-farming-ban",
@@ -1626,7 +1631,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "livestock antibiotic cage sentience cattle runoff dietetics antimicrobial bacterial cafo manure vegetarian eggs grass hayek"
+    "keywords": "livestock antibiotic cage sentience cattle dietetics runoff antimicrobial bacterial cafo manure vegetarian eggs grass pasture"
   },
   {
     "id": "organic-food-health",
@@ -1692,7 +1697,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars collisions irreplaceable perseverance constellation didymos dimorphoss"
+    "keywords": "dart asteroid debris spinoff spacex spin planetary landsat modis mars collisions irreplaceable perseverance constellation didymos"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1989,7 +1994,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole glaser kiecolt luchetti sage suburbs surkalim fibrinogen suburban"
+    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole glaser kiecolt luchetti sage surkalim fibrinogen suburbs suburban"
   },
   {
     "id": "remote-work-permanence",
@@ -2294,7 +2299,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia starter airbnb batzer bearish cmas cmhc"
+    "keywords": "rentals sellers lows hmrc redfin tourist fraser garcia starter airbnb batzer bearish cmas cmhc fhfa"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2485,7 +2490,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "belts dosimeters orion laser reflector astronaut artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell"
+    "keywords": "dosimeters laser orion reflector astronaut artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell crimean"
   },
   {
     "id": "minneapolis-shooting",
@@ -2689,24 +2694,28 @@
   {
     "id": "geoengineering-climate",
     "title": "Solar Geoengineering: Buy Time or Distraction?",
-    "question": "Is solar geoengineering now a necessary complement to cutting emissions?",
+    "question": "Is dimming the sun a necessary backup to cutting emissions?",
     "meta_claim": "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 62,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 7,
+    "pillarCount": 4,
+    "evidenceCount": 12,
     "firstCrux": "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed celsius geophysical hydrological intercomparison irvine"
+    "aliases": [
+      "Is solar geoengineering now a necessary complement to cutting emissions?",
+      "Should we dim the sun to fight climate change?"
+    ],
+    "keywords": "geomip pinatubo advisors britain outdoor dioxide precipitation aria fairbrother monsoon forster hydrological rainfall tons unpriced"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2888,7 +2897,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "borjas putnam hunkering jews complementarity diploma italians norc reexamining resettlement dispersed refugee scandinavian"
+    "keywords": "borjas putnam hunkering jews complementarity diploma dispersed italians norc reexamining resettlement refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2910,7 +2919,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sffa arcidiacono quotas disapprove campuses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler klasik"
+    "keywords": "sffa arcidiacono disapprove campuses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler klasik lovenheim"
   },
   {
     "id": "ukraine-peace-terms",
@@ -2954,7 +2963,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo piie aluminum usitc chris penn reed wharton krugman truce usmca scattered"
+    "keywords": "fence ieepa yard cavallo piie aluminum usitc penn reed wharton krugman truce usmca scattered alberto"
   },
   {
     "id": "rfk-health-policy",
@@ -2998,7 +3007,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "pahlka fy2025 callers slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
+    "keywords": "fy2025 pahlka callers slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
   },
   {
     "id": "open-weight-ai-models",
@@ -3030,19 +3039,19 @@
   {
     "id": "carbon-tax-effectiveness",
     "title": "Carbon Tax Effectiveness",
-    "question": "Is a carbon tax an effective, efficient way to cut emissions?",
-    "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 73,
+    "question": "Does a carbon tax cut emissions cheaply enough to be worth the backlash?",
+    "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions, worth the political cost of keeping it.",
+    "confidence_score": 47,
+    "balance": 47,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 9,
+    "pillarCount": 4,
+    "evidenceCount": 13,
     "firstCrux": "How much of the observed emission cuts did carbon taxes actually cause?",
     "tags": [
       "economics",
@@ -3051,7 +3060,11 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
+    "aliases": [
+      "Is a carbon tax an effective, efficient way to cut emissions?",
+      "Does a carbon tax reduce emissions?"
+    ],
+    "keywords": "stern stiglitz rebate bbeling hildebrandt jessica dividends abbott ahmadi aluminium andersson darcangelo ecoscope emitters kabore"
   },
   {
     "id": "congestion-pricing",
@@ -3315,10 +3328,10 @@
   {
     "id": "nuclear-fusion-timeline",
     "title": "Fusion Power Within Two Decades",
-    "question": "Will fusion power be a meaningful part of the energy mix within 20 years?",
+    "question": "Will fusion plants be putting real power on the grid by the mid-2040s?",
     "meta_claim": "Commercial fusion power will be a meaningful part of the energy mix within the next two decades.",
-    "confidence_score": 47,
-    "balance": 47,
+    "confidence_score": 54,
+    "balance": 54,
     "weight": 59,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
@@ -3327,8 +3340,8 @@
     "status": "highly_speculative",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 9,
-    "firstCrux": "Can a complete fusion plant put out more electricity than it consumes?",
+    "evidenceCount": 11,
+    "firstCrux": "Can a complete fusion plant put out more electricity than it draws from the grid?",
     "tags": [
       "science",
       "fusion",
@@ -3337,7 +3350,11 @@
       "iter",
       "decarbonization"
     ],
-    "keywords": "tritium laser livermore tokamaks sparc chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
+    "aliases": [
+      "Will fusion power be a meaningful part of the energy mix within 20 years?",
+      "Is fusion always 30 years away?"
+    ],
+    "keywords": "helion laser tritium sparc deuterium polaris orion plasma arcs livermore llnl nifs chesterfield delaporte devens"
   },
   {
     "id": "vaccine-mandates",
@@ -3602,7 +3619,7 @@
       "How much water does an AI chatbot drink?",
       "Will AI data centers use as much electricity as whole countries?"
     ],
-    "keywords": "onsite freshwater gallons lbnl islam eesi gco2e masley offsite shehabi thermoelectric thirsty hyperscaler cubic"
+    "keywords": "onsite freshwater gallons lbnl islam eesi gco2e masley offsite shehabi thermoelectric thirsty hyperscaler cubic ieas"
   },
   {
     "id": "adhd-overdiagnosis",
@@ -3656,7 +3673,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350 pub8"
+    "keywords": "evali hospitalised acetate bhadriraju glantz cessation blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
   },
   {
     "id": "sex-work-decriminalization",
@@ -3822,6 +3839,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter rodrigues sparc astronomy acoustic mcgaugh tully fisher planck sigma bullet davari kroupa"
+    "keywords": "baryonic radial scatter rodrigues sparc astronomy acoustic fisher mcgaugh tully planck sigma bullet davari kroupa"
   }
 ]
