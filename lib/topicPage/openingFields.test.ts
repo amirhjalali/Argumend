@@ -17,7 +17,6 @@ const OPENING_PENDING = new Set([
   "us-iran-conflict",
   "transgender-athletes-sports",
   "doge-federal-cuts",
-  "minneapolis-shooting",
   "social-media-elections",
   "obesity-personal-responsibility",
 ]);
