@@ -15,7 +15,7 @@ export interface ChoiceOption<T extends string | number> {
 }
 
 const CHOICE_LABEL =
-  "flex min-h-11 cursor-pointer items-center justify-center rounded-lg border px-2 py-2 text-center font-sans text-sm leading-tight transition-colors " +
+  "flex min-h-11 cursor-pointer items-center rounded-lg border py-2 font-sans text-sm leading-tight transition-colors " +
   "border-stone-300/80 bg-card text-primary hover:border-stone-400 dark:border-divider " +
   "has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-focus has-[:focus-visible]:ring-offset-2 has-[:focus-visible]:ring-offset-canvas " +
   "has-[:checked]:border-deep has-[:checked]:bg-deep has-[:checked]:text-white dark:has-[:checked]:border-[#7fb5b0] dark:has-[:checked]:bg-[#2d524f]";
@@ -48,7 +48,14 @@ export function ChoiceGroup<T extends string | number>({
       {hint ? <p className="mt-1 font-sans text-sm text-muted">{hint}</p> : null}
       <div className={cx("mt-3 grid gap-1.5", columns)}>
         {options.map((option) => (
-          <label key={String(option.value)} className={CHOICE_LABEL}>
+          <label
+            key={String(option.value)}
+            // A full-width row reads as a sentence: start it at the left edge.
+            className={cx(
+              CHOICE_LABEL,
+              columns.startsWith("grid-cols-1") ? "justify-start px-4 text-left" : "justify-center px-2 text-center",
+            )}
+          >
             <input
               type="radio"
               name={groupName}

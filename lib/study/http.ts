@@ -63,14 +63,9 @@ export type StudyStorage =
  * usable STUDY_PID_SECRET it refuses, because it could not pseudonymize.
  */
 export async function studyStorage(): Promise<StudyStorage> {
-  let configured = false;
-  try {
-    const { isDatabaseConfigured } = await import("@/lib/db");
-    configured = isDatabaseConfigured();
-  } catch {
-    return { mode: "misconfigured" };
-  }
-  if (!configured) return { mode: "none" };
+  // The same test as lib/db's isDatabaseConfigured, without loading the
+  // database stack: a driver that fails to load must not read as "no database".
+  if (!process.env.DATABASE_URL?.trim()) return { mode: "none" };
   const secret = studyPidSecret();
   return secret ? { mode: "database", secret } : { mode: "misconfigured" };
 }

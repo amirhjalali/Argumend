@@ -2,7 +2,6 @@ import { NextRequest } from "next/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { PID, STUDY_ID, validResponse } from "@/test/fixtures/study";
 
-const db = vi.hoisted(() => ({ configured: false }));
 const store = vi.hoisted(() => ({
   findAssignment: vi.fn(),
   countAssignments: vi.fn(),
@@ -11,7 +10,7 @@ const store = vi.hoisted(() => ({
 }));
 
 vi.mock("@/lib/db", () => ({
-  isDatabaseConfigured: () => db.configured,
+  isDatabaseConfigured: () => Boolean(process.env.DATABASE_URL?.trim()),
   getDb: () => {
     throw new Error("tests never reach the real database");
   },
@@ -43,7 +42,7 @@ beforeEach(() => {
   vi.stubEnv("STUDY_COMPLETION_CODE", "C1A2B3C4");
   vi.stubEnv("STUDY_SCREENOUT_CODE", "");
   vi.stubEnv("STUDY_PID_SECRET", SECRET);
-  db.configured = false;
+  vi.stubEnv("DATABASE_URL", "");
   for (const fn of Object.values(store)) fn.mockReset();
   vi.spyOn(console, "warn").mockImplementation(() => {});
 });
@@ -56,7 +55,7 @@ afterEach(() => {
 describe("study API flag gate", () => {
   it("answers 404 on both routes while ENABLE_STUDY_RESPONSES is off, and touches nothing", async () => {
     vi.stubEnv("ENABLE_STUDY_RESPONSES", "");
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     expect((await assignPost(post("/api/study/assign", assignBody()))).status).toBe(404);
     expect((await responsePost(post("/api/study/response", validResponse()))).status).toBe(404);
     expect(store.findAssignment).not.toHaveBeenCalled();
@@ -79,7 +78,7 @@ describe("POST /api/study/assign", () => {
   });
 
   it("screens out a participant closer to neither party, storing nothing", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     vi.stubEnv("STUDY_SCREENOUT_CODE", "SCREEN01");
     const res = await assignPost(post("/api/study/assign", assignBody("neither")));
     expect(await res.json()).toEqual({
@@ -100,7 +99,7 @@ describe("POST /api/study/assign", () => {
   });
 
   it("refuses to run against a database without a usable secret", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     vi.stubEnv("STUDY_PID_SECRET", "short");
     const res = await assignPost(post("/api/study/assign", assignBody()));
     expect(res.status).toBe(503);
@@ -108,7 +107,7 @@ describe("POST /api/study/assign", () => {
   });
 
   it("assigns the least-filled cell in the participant's stratum and stores only the hash", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     store.findAssignment.mockResolvedValue(null);
     // Every cell has 3 but one.
     store.countAssignments.mockResolvedValue({
@@ -132,7 +131,7 @@ describe("POST /api/study/assign", () => {
   });
 
   it("gives a returning participant the cell they already have", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     store.findAssignment.mockResolvedValue({ topic: "immigration-border-crisis", arm: "chatbot", party: "democrat" });
     const res = await assignPost(post("/api/study/assign", assignBody()));
     expect(await res.json()).toMatchObject({ topic: "immigration-border-crisis", arm: "chatbot", returning: true });
@@ -140,7 +139,7 @@ describe("POST /api/study/assign", () => {
   });
 
   it("answers 503, not 500, when the database fails", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     store.findAssignment.mockRejectedValue(new Error("connection refused postgres://user:pw@host/db"));
     const res = await assignPost(post("/api/study/assign", assignBody()));
     expect(res.status).toBe(503);
@@ -150,7 +149,7 @@ describe("POST /api/study/assign", () => {
 
 describe("POST /api/study/response", () => {
   it("refuses a response with free text or out-of-range answers", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     expect((await responsePost(post("/api/study/response", { ...validResponse(), comment: "hi" }))).status).toBe(400);
     expect((await responsePost(post("/api/study/response", validResponse({ attention: 9 })))).status).toBe(400);
     expect(store.insertResponse).not.toHaveBeenCalled();
@@ -166,7 +165,7 @@ describe("POST /api/study/response", () => {
   });
 
   it("refuses a response from someone the server never assigned", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     store.findAssignment.mockResolvedValue(null);
     const res = await responsePost(post("/api/study/response", validResponse()));
     expect(res.status).toBe(409);
@@ -174,7 +173,7 @@ describe("POST /api/study/response", () => {
   });
 
   it("refuses a response that reports a different cell than the one assigned", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     store.findAssignment.mockResolvedValue({ topic: "gun-control-effectiveness", arm: "chatbot", party: "democrat" });
     const res = await responsePost(post("/api/study/response", validResponse({ arm: "map" })));
     expect(res.status).toBe(409);
@@ -182,7 +181,7 @@ describe("POST /api/study/response", () => {
   });
 
   it("stores a matching response under the hash, without the raw Prolific id", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     store.findAssignment.mockResolvedValue({ topic: "gun-control-effectiveness", arm: "map", party: "democrat" });
     store.insertResponse.mockResolvedValue(true);
     const res = await responsePost(post("/api/study/response", validResponse()));
@@ -201,7 +200,7 @@ describe("POST /api/study/response", () => {
   });
 
   it("accepts and ignores a second submission", async () => {
-    db.configured = true;
+    vi.stubEnv("DATABASE_URL", "postgres://localhost/study-test");
     store.findAssignment.mockResolvedValue({ topic: "gun-control-effectiveness", arm: "map", party: "democrat" });
     store.insertResponse.mockResolvedValue(false);
     const res = await responsePost(post("/api/study/response", validResponse()));
