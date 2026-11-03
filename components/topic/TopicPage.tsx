@@ -71,8 +71,6 @@ export interface TopicPageProps {
   cruxes: CruxEntryView[];
   /** Quiet links under the crux sheet (the living AI map, the diagram). */
   afterCruxes?: ReactNode;
-  /** Shown after the positions (the flagship illustration). */
-  afterPositions?: ReactNode;
   folds: TopicFold[];
   /** The provenance sentence before "How this map was made". */
   madeBy: string;
@@ -86,7 +84,6 @@ export function TopicPage({
   page,
   cruxes,
   afterCruxes,
-  afterPositions,
   folds,
   madeBy,
   madeByHref = "/methodology",
@@ -119,7 +116,6 @@ export function TopicPage({
           note={page.positionsNote}
           cards={page.positions}
         />
-        {afterPositions}
         <OpenCruxFromHash />
         {reflectionOptions.length > 0 && (
           <CruxReflection topicId={page.id} options={reflectionOptions} />
