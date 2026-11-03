@@ -1,6 +1,18 @@
 import { MetadataRoute } from "next";
 import { topicSummaries } from "@/data/topicIndex";
+import {
+  articleSummaries,
+  blogCategoryToSlug,
+  getArticleSummaryCategories,
+} from "@/data/blogIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
+import {
+  CONCEPT_ROUTE_SLUGS,
+  FALLACY_ROUTE_SLUGS,
+  GUIDE_ROUTE_IDS,
+  WORKSHEET_ROUTE_IDS,
+} from "@/lib/dynamicRoutePolicy";
+import { getPrimaryQuestionVariations } from "@/lib/questions";
 import { aiPageAsOf } from "./ai/loadAiMaps";
 import {
   ARGUMENT_TOPICS_LAST_UPDATED,
@@ -12,13 +24,21 @@ import {
 export const revalidate = 86400;
 
 /**
- * The sitemap advertises only the pruned CORE surface (see
- * docs/PRODUCT_PRUNING_AUDIT.md): home, Explore/topics, Analyze, the living
- * AI map (/ai), and About,
- * plus the two legal pages, which are not discovery surfaces but must be
- * findable. Hidden and merge-pending routes still serve when visited directly
- * but are deliberately kept out of the crawlable index so they do not compete
- * with the core pages.
+ * Every indexable page the site links to, at its canonical URL: home, the
+ * maps (both models), /analyze, /ai, the /learn hub and everything that
+ * hangs off it (blog, guides, ideas, fallacies, glossary, questions), the
+ * story and method pages (/about, /methodology, /faq, /research,
+ * /perspectives), /for-educators and its worksheets, and the legal pages.
+ *
+ * Left out on purpose: URLs that redirect (/guides, /concepts, retired
+ * concepts and maps; next.config.js), noindex pages (diagrams, blog tags,
+ * /reply, /saved, embeds, reports), other phrasings of a question (they
+ * canonicalise to the primary), and paginated or filtered list views.
+ * app/sitemap.test.ts checks each listed URL against the redirects, the
+ * proxy's 404 policy and the page's own robots and canonical metadata.
+ *
+ * Dates come from the data where it has them (a post's publishedAt, the AI
+ * ledgers, the legal revision date); otherwise the corpus revision date.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
@@ -107,6 +127,63 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.3,
   }));
 
+  // ── Learn: the hub, and the pages that hang off it ────────────────────
+  const entry = (
+    path: string,
+    priority: number,
+    lastModified: Date = contentLastUpdated,
+    changeFrequency: "weekly" | "monthly" = "monthly",
+  ): MetadataRoute.Sitemap[number] => ({
+    url: `${baseUrl}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+  });
+  const dayOf = (iso: string) => new Date(`${iso.slice(0, 10)}T00:00:00Z`);
+  const latest = (dates: readonly string[]) =>
+    dayOf(dates.reduce((a, b) => (a > b ? a : b)));
+
+  const learnPages: MetadataRoute.Sitemap = [
+    entry("/learn", 0.7, contentLastUpdated, "weekly"),
+    entry("/glossary", 0.5),
+    entry("/fallacies", 0.6),
+    ...GUIDE_ROUTE_IDS.map((id) => entry(`/guides/${id}`, 0.6)),
+    ...CONCEPT_ROUTE_SLUGS.map((slug) => entry(`/concepts/${slug}`, 0.6)),
+    ...FALLACY_ROUTE_SLUGS.map((slug) => entry(`/fallacies/${slug}`, 0.5)),
+  ];
+
+  // ── Blog: dated by the posts themselves ───────────────────────────────
+  const blogPages: MetadataRoute.Sitemap = [
+    entry("/blog", 0.6, latest(articleSummaries.map((a) => a.publishedAt)), "weekly"),
+    ...articleSummaries.map((article) => entry(`/blog/${article.slug}`, 0.6, dayOf(article.publishedAt))),
+    ...getArticleSummaryCategories().map((category) =>
+      entry(
+        `/blog/category/${blogCategoryToSlug(category)}`,
+        0.4,
+        latest(articleSummaries.filter((a) => a.category === category).map((a) => a.publishedAt)),
+      ),
+    ),
+  ];
+
+  // ── Questions: one page per map, its primary phrasing ─────────────────
+  // The other phrasings canonicalise to it, so they are not listed.
+  const questionPages: MetadataRoute.Sitemap = [
+    entry("/questions", 0.7, contentLastUpdated, "weekly"),
+    ...getPrimaryQuestionVariations(topicSummaries).map((variation) =>
+      entry(`/questions/${variation.slug}`, 0.6),
+    ),
+  ];
+
+  // ── Story, method and teaching pages ──────────────────────────────────
+  const infoPages: MetadataRoute.Sitemap = [
+    entry("/methodology", 0.6),
+    entry("/faq", 0.5),
+    entry("/research", 0.5),
+    entry("/perspectives", 0.4),
+    entry("/for-educators", 0.5),
+    ...WORKSHEET_ROUTE_IDS.map((id) => entry(`/for-educators/worksheets/${id}`, 0.4)),
+  ];
+
   return [
     ...homepage,
     ...listingPages,
@@ -114,6 +191,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...argumentTopicPages,
     ...aiPage,
     ...aboutPage,
+    ...learnPages,
+    ...blogPages,
+    ...questionPages,
+    ...infoPages,
     ...legalPages,
   ];
 }

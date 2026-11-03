@@ -38,16 +38,14 @@ describe("canonical URL contracts", () => {
     }
   });
 
-  it("keeps every blog canonical self-aligned and out of the pruned sitemap", async () => {
+  it("keeps every blog canonical self-aligned and advertised in the sitemap", async () => {
     for (const article of articleSummaries) {
       const expected = `https://argumend.org/blog/${article.slug}`;
       const metadata = await blogMetadata({
         params: Promise.resolve({ slug: article.slug }),
       });
       expect(metadata.alternates?.canonical).toBe(expected);
-      // Blog is HIDDEN in docs/PRODUCT_PRUNING_AUDIT.md: pages still serve
-      // with self-canonicals, but the sitemap must not advertise them.
-      expect(sitemapUrls.has(expected)).toBe(false);
+      expect(sitemapUrls.has(expected)).toBe(true);
     }
   });
 
