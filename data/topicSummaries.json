@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann superhuman looming metr philanthropy"
+    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann superhuman looming philanthropy serial"
   },
   {
     "id": "jones-act",
@@ -370,7 +370,7 @@
       "Do data centers raise power bills",
       "Are hyperscale server campuses behind my utility's rate hike?"
     ],
-    "keywords": "pjms megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
+    "keywords": "pjms norris subscribed gigawatts megawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
   },
   {
     "id": "proof-of-citizenship-voting",
@@ -680,7 +680,7 @@
       "Should we defund the police?",
       "Does police reform reduce crime?"
     ],
-    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver feloniously cahoots louisville roland tanaya portland"
+    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver dispatched feloniously cahoots louisville roland tanaya"
   },
   {
     "id": "mandatory-voting",
@@ -817,7 +817,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg deferral"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka deferral luxembourg"
   },
   {
     "id": "standardized-testing-debate",
@@ -1438,11 +1438,11 @@
   {
     "id": "nuclear-renaissance-smr",
     "title": "Can Small Modular Reactors Save Nuclear Energy?",
-    "question": "Can small modular reactors deliver clean power at scale within a decade?",
-    "meta_claim": "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at meaningful scale within the next decade — a proposition advocates treat as imminent and skeptics regard as perennially deferred.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 66,
+    "question": "Will small modular reactors be cheap and fast enough to matter by the mid-2030s?",
+    "meta_claim": "Small modular reactors will be built cheaply and quickly enough to supply a meaningful share of clean, round-the-clock power by the mid-2030s.",
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1450,12 +1450,16 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Can factory production bring small reactors' costs below renewables with backup power?",
+    "evidenceCount": 15,
+    "firstCrux": "Will later small reactors, like Darlington's units 2 to 4, cost less than the first and beat firmed wind and solar?",
     "tags": [
       "technology"
     ],
-    "keywords": "nuscale uamps streamlined lazards fukushima vogtle akademik edwin lomonosov royce westinghouse lcoe lyman overruns midpoint"
+    "aliases": [
+      "Can small modular reactors deliver clean power at scale within a decade?",
+      "Are SMRs always ten years away?"
+    ],
+    "keywords": "nuscale bwrx darlington lazard unsubsidized akademik basemat idaho licence lomonosov uamps fukushima vogtle aalo doice"
   },
   {
     "id": "tiktok-brain-rot",
@@ -2188,7 +2192,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
+    "keywords": "tuition repayment deciles nebraska catherine bennett forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes mbas"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2883,7 +2887,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc penn krugman truce usmca scattered alberto"
+    "keywords": "fence ieepa yard cavallo piie reed aluminum usitc chris penn krugman truce usmca scattered alberto"
   },
   {
     "id": "rfk-health-policy",
@@ -2927,7 +2931,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "pahlka fy2025 callers slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
+    "keywords": "fy2025 pahlka callers slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
   },
   {
     "id": "open-weight-ai-models",
