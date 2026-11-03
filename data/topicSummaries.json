@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming metr superhuman bench"
+    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann metr superhuman bench looming"
   },
   {
     "id": "jones-act",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful heard"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki beautiful kffs propublica"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -403,7 +403,109 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat louisiana turnout brennan cantoni kansass pons tenth tribal campuses"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses mail factcheck"
+  },
+  {
+    "id": "congress-stock-trading-ban",
+    "title": "Banning Congress From Trading Stocks",
+    "question": "Should members of Congress be banned from trading individual stocks?",
+    "meta_claim": "Members of Congress, their spouses and dependent children should be barred from buying and selling individual stocks, because disclosure and insider-trading law do not stop lawmakers from trading on what their jobs tell them, and the conflict corrodes trust whether or not any one trade is improper.",
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 20,
+    "firstCrux": "Do lawmakers' trades beat similar stocks by more than luck, with gains where their power and inside information are?",
+    "tags": [
+      "policy",
+      "congress",
+      "stock-trading",
+      "ethics",
+      "insider-trading",
+      "stock-act"
+    ],
+    "aliases": [
+      "Congressional stock trading ban",
+      "Stop Insider Trading Act",
+      "Ban Congress from owning stocks",
+      "Pelosi stock trades",
+      "Congress insider trading"
+    ],
+    "keywords": "belmont burr hoek sacerdote sehgal hainmueller perlmutter schulp yahoo ziobrowski rally nancy maybe shouldnt toomey"
+  },
+  {
+    "id": "partisan-gerrymandering",
+    "title": "The Redistricting War",
+    "question": "Should partisan gerrymandering be banned, including mid-decade redraws?",
+    "meta_claim": "Drawing congressional districts for partisan advantage, including redrawing them mid-decade, should be banned nationwide, with maps drawn by independent commissions or neutral rules, because partisan maps cost voters competitive elections and no state can safely give them up alone.",
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 71,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 20,
+    "firstCrux": "How many House seats do partisan maps move nationally once both parties' gerrymanders are added up?",
+    "tags": [
+      "policy",
+      "redistricting",
+      "gerrymandering",
+      "elections",
+      "congress",
+      "prop-50"
+    ],
+    "aliases": [
+      "Mid-decade redistricting",
+      "Texas redistricting",
+      "California Prop 50",
+      "Independent redistricting commissions",
+      "Gerrymandering ban"
+    ],
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki kagan newsom cements deadlocked"
+  },
+  {
+    "id": "aca-enhanced-subsidies",
+    "title": "The Obamacare Subsidy Cliff",
+    "question": "Should Congress bring back the expanded Obamacare subsidies?",
+    "meta_claim": "Congress should restore the enhanced ACA premium tax credits that expired at the end of 2025, because their loss priced millions of eligible people out of coverage, and the cost of about $350 billion over ten years buys coverage that fraud controls, not subsidy cuts, should protect.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 68,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 18,
+    "firstCrux": "Of those who left the marketplace in 2026, how many were improper enrollees and how many eligible buyers priced out?",
+    "tags": [
+      "policy",
+      "health-insurance",
+      "affordable-care-act",
+      "obamacare",
+      "premiums",
+      "federal-budget"
+    ],
+    "aliases": [
+      "ACA enhanced premium tax credits",
+      "Obamacare subsidies expired",
+      "ACA subsidy cliff",
+      "Health insurance premiums 2026",
+      "Extend the ACA tax credits"
+    ],
+    "keywords": "enrollees paragon improper bronze r48290 phantom aspe kffs blase moreno maga planners sicker backfills bernie"
   },
   {
     "id": "nuclear-energy-safety",
@@ -590,7 +692,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "turnout boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
+    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
   },
   {
     "id": "reparations-slavery",
@@ -700,7 +802,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral richest"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral"
   },
   {
     "id": "standardized-testing-debate",
@@ -846,7 +948,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture upholds fisa forbes knight retrained broadcast revelations divest"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture upholds fisa forbes knight retrained broadcast gorsuch relicensed"
   },
   {
     "id": "immigration-border-crisis",
@@ -981,7 +1083,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "amphibious rhodium tsmc afghanistan pacific cancian navy wargames fabs indo buildup chairman strait aircraft submarine"
+    "keywords": "amphibious rhodium tsmc afghanistan pacific cancian navy wargames fabs indo buildup strait aircraft chairman submarine"
   },
   {
     "id": "global-water-crisis",
@@ -1025,7 +1127,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva"
+    "keywords": "colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva brownell"
   },
   {
     "id": "social-media-age-limits",
@@ -1047,7 +1149,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "yoti coppa anxious circumvention ofcom murthy yougov anglophone birthdate drama inman pinpoint tweens candice esafety"
+    "keywords": "yoti coppa anxious circumvention ofcom murthy anglophone birthdate drama inman pinpoint tweens candice esafety penguin"
   },
   {
     "id": "social-media-mental-health",
@@ -1157,7 +1259,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "metoo yougov afraid boycotts brady eeoc kaufmann shor cspi tweeting censorship bavel chappelle civis cosby"
+    "keywords": "metoo afraid boycotts brady eeoc kaufmann shor cspi tweeting censorship bavel chappelle civis cosby harvey"
   },
   {
     "id": "media-bias-democracy",
@@ -1179,7 +1281,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow regrets crowdsourced msnbc multipartisan unmoderated missouri regretsreporter"
+    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow regrets crowdsourced msnbc multipartisan unmoderated regretsreporter angry"
   },
   {
     "id": "space-colonization-feasibility",
@@ -1267,7 +1369,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu dario demis gavin godfather gsm8k hassabis kefauver"
+    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu dario demis godfather gsm8k hassabis kefauver mmmu"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1311,7 +1413,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt kaplan mamba mirage multilingual openreview ouyang schaeffer shazeer"
+    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt mamba mirage multilingual openreview ouyang schaeffer shazeer smoothly"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1593,7 +1695,7 @@
       "Does psychedelic therapy actually work?",
       "Are the claims about psychedelic therapy exaggerated?"
     ],
-    "keywords": "mdma mapp2 psychopharmacology colorado hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005"
+    "keywords": "mdma mapp2 psychopharmacology hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005 comp006"
   },
   {
     "id": "lab-leak-theory",
@@ -1820,7 +1922,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs suburban surkalim fibrinogen glaser"
+    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs surkalim fibrinogen glaser suburban"
   },
   {
     "id": "remote-work-permanence",
@@ -1864,7 +1966,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician leavers pipefitters plumbers steamfitters hvac looney qualifications steeper"
+    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -1999,7 +2101,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tribunal bolt freelance leigh presumption addison calmatters castellanos ceepr zoepf claimants ab5s aslam gigs holiday"
+    "keywords": "tribunal bolt freelance leigh addison calmatters castellanos ceepr zoepf claimants ab5s aslam gigs holiday hustlers"
   },
   {
     "id": "housing-affordability-crisis",
@@ -2226,7 +2328,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason sight biocapacity biophysical garment giorgos greek"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason biocapacity biophysical garment giorgos greek haberl"
   },
   {
     "id": "free-will",
@@ -2491,7 +2593,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion turkey"
+    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied subversion turkey unraveling"
   },
   {
     "id": "geoengineering-climate",
@@ -2579,7 +2681,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa tape deloitte schiff hampshire politicians robocall kramer leica nikon hollywood adobe bueno crying liars"
+    "keywords": "c2pa tape deloitte schiff hampshire robocall politicians kramer leica nikon hollywood adobe bueno crying liars"
   },
   {
     "id": "declining-birth-rates",
@@ -2606,7 +2708,7 @@
       "Should governments help people have the children they want?",
       "Do housing and childcare costs explain low fertility?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth yougov"
+    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2761,7 +2863,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo chris piie reed aluminum usitc penn krugman truce usmca scattered alberto"
+    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc penn krugman truce usmca scattered alberto"
   },
   {
     "id": "rfk-health-policy",
@@ -2783,7 +2885,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "acip marion nestle prasad appointees makary dairy confirmatory gras toothpaste unqualified asthma aluminum inpatient cavity"
+    "keywords": "acip marion nestle prasad makary appointees dairy confirmatory gras toothpaste unqualified asthma aluminum inpatient cavity"
   },
   {
     "id": "doge-federal-cuts",
@@ -2967,7 +3069,7 @@
       "gun-rights",
       "originalism"
     ],
-    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace alito"
+    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace coeme"
   },
   {
     "id": "self-driving-car-safety",
@@ -3245,7 +3347,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated chairman illiquid instantaneously ranch taxable forgone"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch taxable chairman forgone"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3420,7 +3522,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest convincing kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest"
+    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3501,7 +3603,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson powell raja rogowski thornton carroll jenkins"
+    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson raja rogowski thornton carroll jenkins powell"
   },
   {
     "id": "effective-altruism",
@@ -3558,7 +3660,7 @@
       "Is a glass of red wine a day good for your heart?",
       "Is moderate drinking good for you?"
     ],
-    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted zhao mendelian carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
+    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted mendelian zhao carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
   },
   {
     "id": "modern-monetary-theory",
