@@ -41,7 +41,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pfoa pfos dupont genx antibody chemours corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
+    "keywords": "pfoa pfos dupont genx antibody chemours corteva atsdr ultrashort biomonitoring fluorochemical hfpo ulcerative colitis pharmacokinetic"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise circadian indiana doleac entrain kotchen robberies misalignment monday sanders chronobiology fritz sandhu clin outdoor"
+    "keywords": "sunrise circadian doleac entrain kotchen indiana robberies misalignment monday chronobiology fritz sandhu clin outdoor aasm"
   },
   {
     "id": "tipping-culture",
@@ -218,7 +218,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dire wolf wolves colossal canid gray iucn resurrected woolly lineage coyotes extant ghost latham multiplex"
+    "keywords": "dire wolf wolves colossal canid gray iucn resurrected woolly endangered lineage coyotes extant ghost latham"
   },
   {
     "id": "scott-cost-disease",
@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol stagnant pell naep nordhaus rosen vijan cutler admin haircut helland marron tabarrok ginsberg liscow"
+    "keywords": "baumol stagnant pell naep nordhaus rosen vijan admin cutler haircut helland marron tabarrok ginsberg himmelstein"
   },
   {
     "id": "moloch",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas snap sommers corinth leive prager pukelis wherry zaki childless gray propublica arkansass blendon"
+    "keywords": "nebraska arkansas sommers corinth leive prager pukelis zaki childless wherry gray propublica arkansass blendon caretakers"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire heritage lieutenant schwab votebeat affidavit brennan cantoni kansass pons tribal campuses mail unconfirmed factcheck"
+    "keywords": "hampshire heritage lieutenant schwab votebeat affidavit brennan cantoni pons kansass tribal mail unconfirmed factcheck surprise"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -539,29 +539,31 @@
   {
     "id": "universal-healthcare",
     "title": "Universal Healthcare in the US",
-    "question": "Should the US replace employer-based insurance with universal healthcare?",
-    "meta_claim": "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
-    "confidence_score": 71,
-    "balance": 71,
-    "weight": 76,
+    "question": "Should the US switch to universal healthcare, like Medicare for All?",
+    "meta_claim": "The United States should guarantee health coverage to everyone through a universal system, such as a single public plan, replacing most job-based and private insurance.",
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 85,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Would single-payer's projected administrative and drug savings survive a real US transition?",
+    "pillarCount": 4,
+    "evidenceCount": 17,
+    "firstCrux": "How much of the US health gap comes from how care is paid for, versus overdoses, violence and obesity?",
     "tags": [
       "policy"
     ],
     "aliases": [
+      "Should the US replace employer-based insurance with universal healthcare?",
       "Universal medical coverage",
+      "Medicare for All",
+      "Single-payer health care",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein treatable molecular simplification"
+    "keywords": "concord knee mercatus overdoses blahous cihi papanicolas woskie wherry allemani baicker cataract embolism generalist glycated"
   },
   {
     "id": "gun-control-effectiveness",
@@ -617,7 +619,7 @@
       "Hawley-Welch $15 minimum wage bill",
       "California $20 fast-food minimum wage"
     ],
-    "keywords": "neumark krueger cengiz shirley sosinskiy wascher oklahoma reich clemens eitc preponderance argumends bobby dube lindner"
+    "keywords": "neumark krueger cengiz shirley sosinskiy wascher reich clemens eitc preponderance argumends bobby dube lindner meer"
   },
   {
     "id": "drug-decriminalization",
@@ -644,24 +646,29 @@
   {
     "id": "death-penalty-deterrence",
     "title": "The Death Penalty",
-    "question": "Is the death penalty a justified punishment?",
-    "meta_claim": "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
-    "confidence_score": 25,
-    "balance": 25,
-    "weight": 57,
+    "question": "Should America keep the death penalty?",
+    "meta_claim": "The United States should keep capital punishment for the worst murders, because it delivers justice the crime deserves and may deter killings, and its risks of error and unfairness can be held to an acceptable level.",
+    "confidence_score": 30,
+    "balance": 30,
+    "weight": 71,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Without proof that it deters, can possible deterrence plus retribution still justify the death penalty?",
+    "pillarCount": 4,
+    "evidenceCount": 17,
+    "firstCrux": "Do executions prevent murders that would otherwise have happened?",
     "tags": [
       "policy"
     ],
-    "keywords": "exonerated scalia dezhbakhsh rubin shepherd plea alarcon baldus marsh guilt arthur coleman dietzel ehrhard kemp"
+    "aliases": [
+      "Is the death penalty a justified punishment?",
+      "Does the death penalty deter murder?"
+    ],
+    "keywords": "shepherd exonerated glossip parker scalia dezhbakhsh parkland rubin killers alarc brett dpic joanna jurors parole"
   },
   {
     "id": "police-reform",
@@ -688,7 +695,7 @@
       "Should we defund the police?",
       "Does police reform reduce crime?"
     ],
-    "keywords": "devi fryer lots politifact vera chalfin unarmed vacant campbell feloniously cahoots louisville roland tanaya citywide"
+    "keywords": "devi fryer lots politifact vera chalfin unarmed vacant campbell cahoots louisville roland tanaya citywide denver"
   },
   {
     "id": "mandatory-voting",
@@ -710,7 +717,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "boxell cepaluni fowler hidalgo hoffman lachat lombardi selb leigh gentzkow uninformed dampen donkey faqs jesse"
+    "keywords": "boxell cepaluni fowler hidalgo hoffman lachat lombardi selb leigh uninformed dampen donkey faqs jesse brazilian"
   },
   {
     "id": "reparations-slavery",
@@ -909,7 +916,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo bridgedetroit buolamwini farrington gebru lineup munyo piza rossi shades welsh zhan"
+    "keywords": "detroit smartlink medell montevideo bridgedetroit buolamwini criminology farrington gebru lineup munyo piza rossi shades welsh"
   },
   {
     "id": "us-iran-conflict",
@@ -998,7 +1005,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "garland oracle divestiture retrained redseer gorsuch usds curiam outage broadcast bondi buzzfeed chow moolenaar roundtable"
+    "keywords": "garland oracle divestiture redseer gorsuch usds curiam outage broadcast bondi buzzfeed chow moolenaar roundtable sanford"
   },
   {
     "id": "immigration-border-crisis",
@@ -1075,10 +1082,10 @@
     "id": "school-phone-bans",
     "title": "Should Schools Ban Smartphones?",
     "question": "Do school phone bans improve students' learning and mental health?",
-    "meta_claim": "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 70,
+    "meta_claim": "Banning smartphones in schools for the whole school day measurably improves students' learning and mental health, enough to justify the costs of enforcing it.",
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1086,15 +1093,17 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 11,
+    "evidenceCount": 9,
     "firstCrux": "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
     "tags": [
       "policy"
     ],
     "aliases": [
-      "What happens in a school lockdown if every phone is locked away?"
+      "What happens in a school lockdown if every phone is locked away?",
+      "Should phones be banned in class?",
+      "Do Yondr pouches work?"
     ],
-    "keywords": "yondr beland pouches victoria literacy lorenzo abrahamsson bullying classroom discriminatory adrian cgms cyberbullying dexcom lockable"
+    "keywords": "figlio suspension cellphone unexcused abrahamsson bullying bell beland baron duckworth jacob sara pings goodyear lockable"
   },
   {
     "id": "pandemic-preparedness",
@@ -1116,7 +1125,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sars cepi cutler biosurveillance kariko weissman givewell warp wastewater biontech csse gable kruk marani pfizer"
+    "keywords": "sars cepi mrna cutler biosurveillance kariko weissman givewell warp wastewater biontech csse gable kruk marani"
   },
   {
     "id": "china-taiwan-invasion",
@@ -1193,46 +1202,56 @@
   {
     "id": "social-media-age-limits",
     "title": "Social Media Age Limits",
-    "question": "Should children under 16 be legally barred from social media?",
-    "meta_claim": "Children under 16 should be legally prohibited from using social media platforms.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 56,
-    "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Do teens kept off social media end up with better mental health than teens who stay on?",
-    "tags": [
-      "technology"
-    ],
-    "keywords": "yoti circumvention coppa anxious ofcom murthy circumvent anglophone birthdate drama inman pinpoint tweens candice esafety"
-  },
-  {
-    "id": "social-media-mental-health",
-    "title": "Social Media and Teen Mental Health",
-    "question": "Is social media a primary cause of the teen mental health crisis?",
-    "meta_claim": "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 60,
+    "question": "Should kids under 16 be banned from social media?",
+    "meta_claim": "Governments should legally bar children under 16 from holding social media accounts, as Australia did in December 2025.",
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 59,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Is social media's harm a small average effect, or a large one concentrated in heavy-using girls?",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do children kept off social media end up better off than children who stay on?",
     "tags": [
       "technology"
     ],
-    "keywords": "odgers comic coyne makarin braghieri jensen twenge unfounded joiner michaeline sisyphean stockdale wertham zurcher candice"
+    "aliases": [
+      "Should children under 16 be legally barred from social media?",
+      "Australia social media ban for under-16s",
+      "Should there be a minimum age for social media?"
+    ],
+    "keywords": "esafety netchoice yoti medianet muster tweens eleventh indonesia malaysia floridians greeces rkiyes tjoflat uthmeier blakemore"
+  },
+  {
+    "id": "social-media-mental-health",
+    "title": "Social Media and Teen Mental Health",
+    "question": "Is social media to blame for the teen mental health crisis?",
+    "meta_claim": "Social media use is a primary cause of the rise in teen depression, anxiety and self-harm that began in the early 2010s, especially among girls.",
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 69,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 12,
+    "firstCrux": "Is social media's harm a small average effect, or a large one concentrated in heavy-using young girls?",
+    "tags": [
+      "technology"
+    ],
+    "aliases": [
+      "Is social media a primary cause of the teen mental health crisis?",
+      "Is social media making teenagers depressed?",
+      "Did smartphones cause the rise in teen anxiety?"
+    ],
+    "keywords": "haidt braghieri odgers thoughts detox makarin witkin mercury rausch schoolers candice kaiser keyes rewiring thimm"
   },
   {
     "id": "ai-risk",
@@ -1327,7 +1346,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "metoo undeserving censorship outrage afraid boycotts brady eeoc kaufmann shor cspi tweeting aguirre bavel chappelle"
+    "keywords": "metoo yougov undeserving censorship outrage afraid boycotts brady eeoc kaufmann shor cspi tweeting aguirre bavel"
   },
   {
     "id": "media-bias-democracy",
@@ -1349,7 +1368,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "slant allsides goel budak crowdsourced groseclose milyo nyhan flaxman husz echo gentzkow outrage regrets ceren"
+    "keywords": "slant allsides goel budak crowdsourced groseclose milyo nyhan flaxman husz echo outrage regrets ceren fifteen"
   },
   {
     "id": "space-colonization-feasibility",
@@ -1420,7 +1439,7 @@
       "Should AI be used in schools?",
       "Is ChatGPT bad for students?"
     ],
-    "keywords": "bastani khanmigo kulik ruip schoolwork valiente nigeria reich fletcher unaided muralidharan nfer learners delhi chalkboards"
+    "keywords": "bastani khanmigo kulik ruip schoolwork valiente nigeria reich fletcher unaided unesco muralidharan nfer learners delhi"
   },
   {
     "id": "ai-regulation",
@@ -1544,7 +1563,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pisa douyin circuitry scrolling anterior dopamine geng gnambs goldfish lorenz maybin spreen supplementary teng wood"
+    "keywords": "pisa douyin circuitry anterior dopamine geng gnambs goldfish lorenz maybin spreen supplementary teng wood clips"
   },
   {
     "id": "ai-replacing-doctors",
@@ -1643,7 +1662,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel poland icct congo indonesias amnesty argonne ember factcheck redwood volvo halmahera payback phosphate"
+    "keywords": "cobalt nickel poland icct congo amnesty argonne ember factcheck indonesias redwood volvo halmahera payback phosphate"
   },
   {
     "id": "factory-farming-ban",
@@ -1935,7 +1954,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide wegovy novo pharmacy nordisk quadrupled novocare substudy dieters endocrinology pharmacotherapy reclassification waist amgen copay"
+    "keywords": "semaglutide wegovy novo pharmacy nordisk quadrupled novocare substudy dieters endocrinology pharmacotherapy reclassification waist amgen cuisine"
   },
   {
     "id": "fluoride-water-supplies",
@@ -2034,7 +2053,7 @@
       "Is there really a loneliness epidemic?",
       "Is loneliness as deadly as smoking 15 cigarettes a day?"
     ],
-    "keywords": "holt lunstad leyden walkable galway luchetti masi allcott liang esteban kannan ortiz ospina veazie diaries"
+    "keywords": "holt lunstad leyden walkable galway luchetti masi liang potatoes esteban kannan ortiz ospina veazie diaries"
   },
   {
     "id": "remote-work-permanence",
@@ -2088,7 +2107,7 @@
       "Is college worth the debt?",
       "Should I go to college or learn a trade?"
     ],
-    "keywords": "deitz abel electrician bootcamps cirr goodman hurwitz plumber vocational leavers arts chandar freopp preston underemployed"
+    "keywords": "glass deitz abel electrician bootcamps cirr goodman hurwitz plumber vocational leavers arts chandar freopp preston"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2187,7 +2206,7 @@
       "Is cryptocurrency a good investment?",
       "Is Bitcoin just digital tulips?"
     ],
-    "keywords": "coingecko etfs terra luna marketscreener coinmarketcap fantasized forfeited glassnode hashrate linh litecoin nakamoto widest outflow"
+    "keywords": "coingecko etfs terra luna marketscreener coinmarketcap fantasized glassnode hashrate linh litecoin nakamoto widest forfeited outflow"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -2369,7 +2388,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sellers hmrc redfin tourist fraser garcia starter metro airbnb batzer bearish cmas cmhc fhfa jacksonville"
+    "keywords": "sellers fraser hmrc redfin tourist garcia starter metro airbnb batzer bearish cmas cmhc fhfa jacksonville"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2582,7 +2601,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa castro julio cbps nonfatal patrol footage superintendent venturella shooters spokesperson sues"
+    "keywords": "celis hennepin scene sosa castro julio cbps nonfatal patrol footage superintendent venturella spokesperson sues shooters"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2649,7 +2668,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "abramitzky boustan duckworth dweck gatsby grit hubris hunter mindset schmidt gregory hendren sandel solidarity surname"
+    "keywords": "abramitzky boustan dweck gatsby grit hubris hunter mindset schmidt duckworth gregory hendren sandel solidarity surname"
   },
   {
     "id": "consciousness-hard-problem",
@@ -2737,7 +2756,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety sadness commenced anglosphere babel kick rausch scandinavia twitch undifferentiated abrahamsson assent pediatricians reddit snapchat"
+    "keywords": "esafety sadness commenced haidt anglosphere babel kick scandinavia twitch undifferentiated abrahamsson assent jean pediatricians rausch"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2785,7 +2804,7 @@
       "Is solar geoengineering now a necessary complement to cutting emissions?",
       "Should we dim the sun to fight climate change?"
     ],
-    "keywords": "geomip pinatubo advisors britain outdoor precipitation dioxide aria fairbrother monsoon forster hydrological rainfall tons unpriced"
+    "keywords": "geomip pinatubo advisors outdoor precipitation britain dioxide aria fairbrother monsoon forster hydrological rainfall tons unpriced"
   },
   {
     "id": "central-bank-digital-currency",
@@ -3015,7 +3034,7 @@
       "Is affirmative action fair?",
       "Should colleges consider race in admissions?"
     ],
-    "keywords": "arcidiacono sffa bleemer freeman huang kinsler ransom disapproved campuses athletes aucejo gurin hanna hotz lovenheim"
+    "keywords": "arcidiacono sffa bleemer freeman huang kinsler ransom disapproved athletes aucejo gurin hanna hotz lovenheim reardon"
   },
   {
     "id": "ukraine-peace-terms",
@@ -3091,7 +3110,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "acip marion nestle prasad makary appointees dairy confirmatory gras toothpaste unqualified asthma aluminum inpatient cavity"
+    "keywords": "acip marion nestle prasad makary appointees dairy confirmatory gras toothpaste unqualified mrna asthma aluminum inpatient"
   },
   {
     "id": "doge-federal-cuts",
@@ -3177,7 +3196,7 @@
       "Is a carbon tax an effective, efficient way to cut emissions?",
       "Does a carbon tax reduce emissions?"
     ],
-    "keywords": "stern stiglitz rebate bbeling hildebrandt jessica abbott ahmadi aluminium andersson darcangelo ecoscope emitters kabore kruse"
+    "keywords": "stiglitz stern rebate bbeling hildebrandt jessica abbott ahmadi aluminium andersson darcangelo ecoscope emitters kabore kruse"
   },
   {
     "id": "congestion-pricing",
@@ -3211,7 +3230,7 @@
       "Motorist charges on central streets",
       "Should cities charge drivers at peak times to fund public transit?"
     ],
-    "keywords": "cordon tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass depreciation wheels mayors"
+    "keywords": "cordon tfls untolled roadways weekday eliasson inbound jonas roadworks unaudited zpass depreciation wheels daytime mayors"
   },
   {
     "id": "right-to-repair",
@@ -3324,7 +3343,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla gode kusano paddock pe24031 shladover"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode kusano paddock pe24031"
   },
   {
     "id": "net-neutrality",
@@ -3409,7 +3428,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt metropolitan nistir affidavit clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers"
+    "keywords": "frvt metropolitan nistir affidavit clare frte garvie grother hanaoka misidentification mugshot ngan nijeer passers porcha"
   },
   {
     "id": "gmo-crops-safety",
@@ -3467,7 +3486,7 @@
       "Will fusion power be a meaningful part of the energy mix within 20 years?",
       "Is fusion always 30 years away?"
     ],
-    "keywords": "helion laser tritium sparc deuterium polaris orion plasma arcs livermore llnl nifs chesterfield delaporte devens"
+    "keywords": "helion commonwealth laser tritium sparc deuterium polaris orion plasma arcs livermore llnl nifs magnetic chesterfield"
   },
   {
     "id": "vaccine-mandates",
@@ -3588,7 +3607,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk gravelle wojciech bequest deathbed if11812 jane saxton forgone illiquid ranch peterson unrealized"
+    "keywords": "kopczuk gravelle wojciech bequest deathbed if11812 jane saxton forgone illiquid ranch unrealized"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3674,7 +3693,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "fosta overblocking rohingya aggravated disincentives netzdg overseas eifert netchoice nylah moody abetted anhaltspunkte antiterrorism backpage"
+    "keywords": "fosta overblocking rohingya disincentives netzdg overseas aggravated eifert nylah netchoice moody abetted anhaltspunkte antiterrorism backpage"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3790,7 +3809,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali acetate mcneill hospitalised bhadriraju blount glantz hajek flavoured cessation bronchoalveolar cd010216 latinx lavage lindson"
+    "keywords": "evali acetate mcneill fluid hospitalised bhadriraju blount glantz hajek flavoured cessation bronchoalveolar cd010216 latinx lavage"
   },
   {
     "id": "sex-work-decriminalization",
@@ -3928,7 +3947,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature countercyclical jurkatis misdescribe neednt pcepilfe powar"
+    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru booth caricature countercyclical jurkatis misdescribe neednt pcepilfe"
   },
   {
     "id": "dark-matter-vs-mond",
