@@ -1021,7 +1021,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety andreyeva"
+    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -2487,7 +2487,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering hungary subversion"
+    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion turkey"
   },
   {
     "id": "geoengineering-climate",
@@ -2851,7 +2851,7 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth profession jazeera"
+    "keywords": "bbeling hildebrandt stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera profession"
   },
   {
     "id": "congestion-pricing",
@@ -3030,9 +3030,9 @@
     "title": "AI Training & Copyright",
     "question": "Should training AI on copyrighted work without permission be unlawful?",
     "meta_claim": "Training generative AI on copyrighted works without permission is unfair and should be unlawful.",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 67,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3040,7 +3040,7 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "Is the wrong in how training data was acquired, or in training on it at all?",
     "tags": [
       "technology",
@@ -3050,7 +3050,7 @@
       "intellectual-property",
       "law"
     ],
-    "keywords": "bartz ross pirated freelancer thomson verbatim kadrey regurgitate reshef shutterstock guild memorization bibas bookseller corps"
+    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim regurgitate reshef shutterstock guild memorization thirteen bibas bookseller"
   },
   {
     "id": "facial-recognition-policing",
@@ -3329,7 +3329,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia"
+    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
   },
   {
     "id": "autonomous-weapons-ban",
