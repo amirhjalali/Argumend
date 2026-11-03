@@ -33,3 +33,22 @@ settings, the crux-recall evaluation design, the tariffs truce card (review afte
 
 ## Log
 
+**03:35 UTC, wave 1 (assess) done.** Baseline: typecheck clean, 4,216 tests green,
+prod health 152 maps, deployed ~Oct 25. Reviewers:
+- technical: 0 broken links in ~950 requests, 0 console errors, axe clean except the
+  React Flow attribution link; image optimizer serves originals at every width
+  (`sharp` only in `overrides`); zod (~67KB gzip) ships on every page via the footer
+  newsletter form; sitemap omits ~230 indexable pages; og:image gaps; FAQPage answers
+  are questions; long descriptions.
+- journey: a plain pro-nuclear paste lands on the SMR map; paste evidence cards
+  unrelated to the shown crux; submit below the fold; "hidden assumption" line reads
+  as placeholder; legacy maps reuse an agreed fact as a side's best card (moon
+  landing); flagship `/map` URLs 404; library page 2+ repeats "Start here".
+- content: geoengineering "2024 Nature study … Sahel 10%" has no source (real: Haywood
+  2013, no percentage); microplastics "2024 Lancet review" not found; CHAMACOS 5.6 not
+  5.5; three blog passages name a winner; tariffs/USMCA/Australia lines overtaken by
+  events; four maps thin on one side.
+
+**03:40 UTC, wave 2 (fix).** Five worktree branches: r10/perf, r10/seo, r10/paste,
+r10/copy, r10/citations. The sitemap expansion is its own last commit on r10/seo so
+it can be dropped (it was on the founder-decision list).
