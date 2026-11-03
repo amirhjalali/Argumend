@@ -173,7 +173,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "ammonia aviation grey stegra wheel mill steam electrolyzer refueling shell haul electrolytic furnace hybrit insideevs"
+    "keywords": "ammonia aviation grey stegra wheel steam electrolyzer mill refueling shell haul electrolytic furnace hybrit insideevs"
   },
   {
     "id": "vertical-farming-viability",
@@ -612,7 +612,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "darity mullen rothstein hamilton conyers craemer kirsten naomi sheila zewde holocaust jackson lineage ayanna darrick"
+    "keywords": "darity mullen rothstein hamilton conyers craemer kirsten naomi sheila zewde holocaust lineage ayanna darrick heirs"
   },
   {
     "id": "immigration-wage-impact",
@@ -679,7 +679,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly yangs banerjee"
+    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee dauphin"
   },
   {
     "id": "wealth-tax",
@@ -752,9 +752,9 @@
     "title": "Surveillance and Public Safety",
     "question": "Does expanding government surveillance meaningfully reduce crime?",
     "meta_claim": "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
-    "confidence_score": 45,
-    "balance": 45,
-    "weight": 57,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 58,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
@@ -762,12 +762,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does surveillance prevent crime, or push it to nearby areas?",
     "tags": [
       "policy"
     ],
-    "keywords": "smartlink medell montevideo buolamwini farrington munyo piza rossi shades welsh zhan gebru criminology detention placement"
+    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan gebru wrongfully"
   },
   {
     "id": "us-iran-conflict",
@@ -898,18 +898,17 @@
     "title": "Should Nuclear Weapons Be Abolished?",
     "question": "Does nuclear deterrence keep the world safer than abolition would?",
     "meta_claim": "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
-    "confidence_score": 30,
-    "balance": 30,
-    "weight": 67,
+    "confidence_score": 37,
+    "balance": 37,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Did nuclear weapons cause the Long Peace, or would the superpowers have avoided war anyway?",
     "tags": [
       "policy"
@@ -1005,7 +1004,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination brine groundwater reuse wastewater cubic feet irrigation pacific abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1455,7 +1454,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons tropical"
+    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
   },
   {
     "id": "factory-farming-ban",
@@ -1829,9 +1828,9 @@
     "title": "The Future of Remote Work",
     "question": "Will remote and hybrid work permanently replace the five-day office week?",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 64,
-    "balance": 64,
-    "weight": 57,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 59,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1839,12 +1838,12 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
     "tags": [
       "economics"
     ],
-    "keywords": "bloom andy gibbs jassy mengel moodys schoar shinde siemroth atkin boise ctrip gentrification nashville ying"
+    "keywords": "placer bloom andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip gentrification"
   },
   {
     "id": "college-value-proposition",
@@ -2112,7 +2111,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers lows belt hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
+    "keywords": "rentals lows sellers belt hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2156,7 +2155,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen teammates bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks emanuel frey"
+    "keywords": "allen teammates bamboohr ding bloom irvine sunk gloria pittsburgh uspto brucks frey gudith harrington junior"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2456,9 +2455,9 @@
     "title": "Smartphone Age Restrictions for Children",
     "question": "Should children under 14 be barred from owning smartphones?",
     "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the harms of a personal, always-connected device in childhood outweigh the benefits of access and safety.",
-    "confidence_score": 68,
-    "balance": 68,
-    "weight": 55,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 58,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2466,12 +2465,12 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 6,
+    "evidenceCount": 7,
     "firstCrux": "Do children with a smartphone fare worse than children with a basic phone or no phone?",
     "tags": [
       "technology"
     ],
-    "keywords": "commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson esafety pediatricians reddit threads"
+    "keywords": "esafety commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2500,9 +2499,9 @@
     "title": "Solar Geoengineering: Buy Time or Distraction?",
     "question": "Is solar geoengineering now a necessary complement to cutting emissions?",
     "meta_claim": "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
-    "confidence_score": 35,
-    "balance": 35,
-    "weight": 60,
+    "confidence_score": 43,
+    "balance": 43,
+    "weight": 62,
     "verdict": {
       "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
@@ -2510,12 +2509,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 6,
+    "evidenceCount": 7,
     "firstCrux": "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide eruption rainfall tons geomip intercomparison celsius geophysical hydrological shells precipitation dimming fairbrother"
+    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2566,9 +2565,9 @@
     "title": "AI Deepfakes & the Collapse of Shared Truth",
     "question": "Have AI deepfakes made it impossible to trust any digital media?",
     "meta_claim": "AI-generated deepfake audio, video, and images have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining evidence-based discourse, journalism, and democratic accountability.",
-    "confidence_score": 72,
-    "balance": 72,
-    "weight": 61,
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 64,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2576,12 +2575,12 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does calling real evidence a deepfake actually let powerful people escape accountability?",
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa tape deloitte hampshire robocall kramer leica nikon hollywood adobe vall firmware eval accent arup"
+    "keywords": "c2pa tape deloitte schiff hampshire politicians robocall kramer leica nikon hollywood adobe bueno crying liars"
   },
   {
     "id": "declining-birth-rates",
@@ -2749,18 +2748,17 @@
     "title": "Trump's Tariffs & Protectionist Trade Policy",
     "question": "Have Trump's tariffs revived US manufacturing and helped American workers?",
     "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
-    "confidence_score": 29,
-    "balance": 29,
-    "weight": 78,
+    "confidence_score": 36,
+    "balance": 36,
+    "weight": 79,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 4,
-    "evidenceCount": 16,
+    "evidenceCount": 18,
     "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
     "tags": [
       "economics"
@@ -2838,9 +2836,9 @@
     "title": "Carbon Tax Effectiveness",
     "question": "Is a carbon tax an effective, efficient way to cut emissions?",
     "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 72,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2848,7 +2846,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "How much of the observed emission cuts did carbon taxes actually cause?",
     "tags": [
       "economics",
@@ -2857,7 +2855,7 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera profession"
+    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
   },
   {
     "id": "congestion-pricing",
@@ -2897,9 +2895,9 @@
     "title": "Right to Repair",
     "question": "Do right-to-repair laws help consumers without harming innovation or safety?",
     "meta_claim": "Right-to-repair laws benefit consumers without significantly harming innovation or safety.",
-    "confidence_score": 77,
-    "balance": 77,
-    "weight": 55,
+    "confidence_score": 67,
+    "balance": 67,
+    "weight": 57,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2907,7 +2905,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Once firms adjust prices and parts, do right-to-repair laws lower or raise consumers' total ownership costs?",
     "tags": [
       "policy",
@@ -2917,7 +2915,7 @@
       "e-waste",
       "cybersecurity"
     ],
-    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit dortz eggman laptops monopolize owens sheep wagner workshop"
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas laptops luyi monopolize owens"
   },
   {
     "id": "assisted-dying-euthanasia",
@@ -3202,9 +3200,9 @@
     "title": "Raising the Retirement Age",
     "question": "Is raising the retirement age a fair, necessary fix for Social Security?",
     "meta_claim": "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 72,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3212,7 +3210,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "How much of Social Security's funding gap would raising the retirement age close, versus revenue options?",
     "tags": [
       "economics",
@@ -3222,7 +3220,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "solvency crfb retirees oasdi payable trustees actuarial taxable"
+    "keywords": "actuary trustees solvency crfb retirees oasdi payable taxable"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3397,7 +3395,7 @@
       "How much water does an AI chatbot drink?",
       "Will AI data centers use as much electricity as whole countries?"
     ],
-    "keywords": "onsite freshwater gallons lbnl islam yang eesi gco2e masley offsite shehabi thermoelectric thirsty hyperscaler cubic"
+    "keywords": "onsite freshwater gallons lbnl islam eesi gco2e masley offsite shehabi thermoelectric thirsty hyperscaler cubic"
   },
   {
     "id": "adhd-overdiagnosis",

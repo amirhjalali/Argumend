@@ -289,6 +289,25 @@ export const childrenSmartphoneAgeData = {
           reasoning:
             "The campaign directly tests the voluntary coordination approach and provides evidence of its limitations. However, source reliability is lower because adoption data is self-reported by the organization, and there are no rigorous studies of the campaign's actual participation rates or outcomes.",
         },
+        {
+          id: "australia-ban-three-month-evaluation",
+          title: "Three Months In, Most Australian Under-16s With Accounts Kept or Reopened Them",
+          description:
+            "eSafety's first evaluation report on Australia's social media minimum age, part of a two-year study following over 4,000 children and families, used data collected in March 2026, three months after the law took effect on 10 December 2025. The share of under-16s holding a social media account fell from 52.4% to 42.1%, which eSafety calls 'a modest but statistically significant decline.' The share who used a platform with or without an account fell only from 85.9% to 81.5%. eSafety reports that most under-16s who had accounts before the start date 'were able to either retain them or create new ones,' with platforms' failure to implement effective age checks cited as the main reason. The same report found a fall in children feeling they were missing out by not having social media, from 43.3% to 36.3%.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "eSafety Commissioner (Australia), 'Early insights from eSafety's comprehensive evaluation project' (media release on the three-month evaluation report, 2026)",
+          sourceUrl:
+            "https://www.esafety.gov.au/newsroom/media-releases/early-insights-from-esafetys-comprehensive-evaluation-project",
+          reasoning:
+            "This is the first measured result from the mandate the 'for' side cites, and it supports the skeptic's enforcement worry: after three months, about four in five under-16s still used the platforms. The regulator is evaluating its own law, which lowers independence, though publishing a weak early result cuts against any bias. Directness is moderate: the law covers social media accounts, not phone ownership; three months is early; and eSafety says the findings are not a ruling on whether platforms complied. The drop in feeling left out is the 'for' side's point that a rule can ease the peer pressure a pledge cannot.",
+        },
       ],
     },
   ],

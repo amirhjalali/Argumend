@@ -226,6 +226,24 @@ export const geoengineeringClimateData = {
           reasoning:
             "Pinatubo is the best available natural experiment for SRM effects. The data is from independent scientific agencies observing a natural event, giving it high reliability and independence. It simultaneously validates the cooling mechanism (supporting SRM feasibility) and documents side effects (supporting concern about unintended consequences).",
         },
+        {
+          id: "half-sg-no-region-worse",
+          title: "Halving Warming, Not Cancelling It, Left No IPCC Region Worse Off in Models (2019)",
+          description:
+            "Irvine, Emanuel, He, Horowitz, Vecchi and Keith ran a high-resolution model that resolves tropical cyclones (GFDL's HiFLOR) alongside 12 GeoMIP models, but instead of cancelling all the warming from doubled CO2 they dimmed sunlight enough to halve it. In their words, 'neither temperature, water availability, extreme temperature nor extreme precipitation are exacerbated under half-SG when averaged over any Intergovernmental Panel on Climate Change (IPCC) Special Report on Extremes (SREX) region,' and for extreme precipitation and water availability 'less than 0.4% of the ice-free land surface sees exacerbation.' Half-SG also offset most of the CO2-driven rise in simulated tropical cyclone intensity.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Irvine et al., 'Halving warming with idealized solar geoengineering moderates key climate hazards,' Nature Climate Change 9, 295-299 (2019)",
+          sourceUrl: "https://www.nature.com/articles/s41558-019-0398-8",
+          reasoning:
+            "This is the proponents' strongest direct answer to the crux: a peer-reviewed multi-model test of whether any region is left worse off finds none when solar geoengineering is used moderately, which differs from the full-cancellation runs behind the monsoon-drying results. Its limits are real. The experiment is idealized sunlight dimming, not actual aerosol injection with its ozone and uneven-spread effects; region-wide averages can hide local losers; and the study does not touch termination shock or governance. Independence is discounted because the paper was conceived and written with David Keith, whose own research program at Harvard studies solar geoengineering, though the authors declare no competing interests.",
+        },
       ],
     },
 
