@@ -287,6 +287,31 @@ describe("decideMatch", () => {
   it("is empty for an empty ranking", () => {
     expect(decideMatch({ ranked: [], ceiling: 0, exclusiveLead: () => 0 }, noSiblings).named).toBeNull();
   });
+
+  it("names the leader when a rival without its words is a second subject in sentences of its own", () => {
+    // Ahead on score (1.6), not on the words where they differ (1.8).
+    const mixed = ranking([24, 15, 10], 60, () => 1.8);
+    const second = (top: string, rival: string) => top === "map-0" && rival === "map-1";
+    const args = [noSiblings, undefined, undefined, undefined, undefined, undefined, undefined] as const;
+    expect(decideMatch(mixed, ...args).named).toBeNull();
+    expect(decideMatch(mixed, ...args, second).named?.id).toBe("map-0");
+    // The score lead and the coverage floors still apply.
+    expect(decideMatch(ranking([24, 20, 10], 60, () => 1.8), ...args, second).named).toBeNull();
+    expect(decideMatch(ranking([24, 15, 10], 200, () => 1.8), ...args, second).named).toBeNull();
+  });
+});
+
+describe("findMaps on a paste about two subjects", () => {
+  it("names the map of the subject that the paste argues, with the other beside it", async () => {
+    // r12: the flagship evidence index made the AI-jobs map a rival here on
+    // its own sentence; the right-to-repair sentences still stand clear of it.
+    const result = await findMaps(
+      "The repair debate concerns whether phone makers should sell parts and diagnostic tools to independent shops. " +
+        "Manufacturers cite battery fires; repair advocates cite waste and monopoly prices. " +
+        "Separately, my cousin lost a translation contract to AI and says automation is coming for everyone's job.",
+    );
+    expect(result.match?.id).toBe("right-to-repair");
+  });
 });
 
 describe("pickPillars", () => {
@@ -322,6 +347,19 @@ describe("pickPillars", () => {
     // The long crux shares two words, the short one two rarer, closer ones.
     const picked = pickPillars([long, short], "rent control keeps families in their neighborhoods", flatIdf);
     expect(picked[0]?.id).toBe("short");
+  });
+
+  it("reads a word in the sense its qualifier gives it", () => {
+    // "Waste storage" is the waste crux's storage, though only the grid crux says "storage".
+    const cruxes = [
+      pillar("grid", "Grid storage batteries firm power wind"),
+      pillar("waste", "Waste accidents deaths safety"),
+    ];
+    const pick = (text: string) => pickPillars(cruxes, text, flatIdf).map((picked) => picked.id);
+    expect(pick("waste storage is fine and deaths are rare")).toEqual(["waste"]);
+    expect(pick("battery storage is cheap and deaths are rare")[0]).toBe("grid");
+    expect(pick("storage is cheap and deaths are rare")).toContain("grid");
+    expect(pick("cheap storage")).toEqual(["grid"]);
   });
 });
 

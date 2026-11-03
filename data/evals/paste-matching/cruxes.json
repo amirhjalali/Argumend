@@ -66,6 +66,13 @@
       "note": "r11 (2026-11-03): added with the grid-reliability crux, so not a clean test of it."
     },
     {
+      "id": "nuc-waste-storage",
+      "map": "nuclear-energy-safety",
+      "text": "Per terawatt-hour nuclear has killed fewer people than coal, gas, even wind. The waste storage scare is overblown too: all the spent fuel America ever made would fit on one football field, and dry cask storage at the plants has never hurt anyone. Keep the reactors on the grid.",
+      "expected": "safety-record",
+      "note": "r12 (2026-11-03): journey review, a pro-nuclear paste on deaths per TWh and waste storage was shown the grid-reliability crux first, on 'storage' and 'grid'. Written before the fix."
+    },
+    {
       "id": "imm-site",
       "map": "immigration-wage-impact",
       "text": "When a construction site can hire guys off the books for half the rate, of course the native workers' pay goes down. Borjas showed it with the Mariel data.",
