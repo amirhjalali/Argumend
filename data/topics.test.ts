@@ -214,19 +214,21 @@ describe("weight calibration anchors (spec §2.2)", () => {
     expect(moonLanding?.weight).toBeGreaterThan(80);
   });
 
-  // The map is 8 cards (3 for + 1 steelmanned against per pillar), which puts
-  // balance at 76 — six points from the settled line. Relabelling either
-  // "against" card drops it to 61, so on its own evidence the map cannot carry
-  // "settled". It keeps the word on the authored `status: "settled"` pin, and
-  // says so: fragile stays set and the page shows the one-card line. The real
-  // fix is a deeper map.
-  // See docs/reviews/2026-09-21-verdict-robustness.md.
-  it("moon-landing keeps settled on the editorial pin, and admits it", () => {
+  // Until 2026-11-02 the map read 6 for + 2 against, balance 76, and kept
+  // "settled" only on the authored `status: "settled"` pin (fragile, one flip
+  // from changing; docs/reviews/2026-09-21-verdict-robustness.md). One of the
+  // two "against" cards was mislabelled: "Apollo dosimeters recorded
+  // non-lethal radiation doses" was rewritten from a skeptic card in b6939eb
+  // and kept its old side, though it points to yes. Labelled by what it
+  // shows, the map is 7 for + 1 against (the telescope limit both sides
+  // accept), balance 88, and earns "settled" on its evidence without the pin.
+  // The map is still shallow on the skeptic side; a deeper map is the fix.
+  it("moon-landing earns settled on its evidence once the dosimeter card is on its own side", () => {
     expect(moonLanding?.status).toBe("settled");
     expect(moonLanding?.verdict.quadrant).toBe("settled");
-    expect(moonLanding?.verdict.pinnedByStatus).toBe(true);
-    expect(moonLanding?.verdict.fragile).toBe(true);
-    expect(topicVerdictSensitivity(moonLanding!).flipsToChange).toBe(1);
+    expect(moonLanding?.verdict.pinnedByStatus).toBeUndefined();
+    expect(moonLanding?.verdict.fragile).toBeUndefined();
+    expect(topicVerdictSensitivity(moonLanding!).flipsToChange).toBe(2);
   });
 
   it("climate-change earns settled without the pin", () => {

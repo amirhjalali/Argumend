@@ -19,6 +19,7 @@ import {
 } from "@/components/nodes/DiagramNode";
 import { DiagramDetail, DETAIL_PANEL_WIDTH } from "@/components/DiagramDetail";
 import { ZoomIndicator } from "@/components/ZoomIndicator";
+import { EvidenceKey } from "@/components/EvidenceKey";
 import { FIT_VIEW, layoutDiagram } from "@/lib/diagram/layout";
 import type { DiagramModel, DiagramNode as DiagramNodeModel } from "@/lib/diagram/model";
 import { GRAPH } from "@/lib/constants";
@@ -200,6 +201,10 @@ function CanvasInner({ diagram }: { diagram: DiagramModel }) {
           />
           <ZoomIndicator />
         </ReactFlow>
+        <EvidenceKey
+          labels={diagram.evidenceLabels}
+          className="pointer-events-none absolute bottom-4 left-4 z-40 rounded-lg border border-stone-200/60 bg-[#fefcf9]/90 px-3 py-2 shadow-[0_2px_8px_rgba(120,100,80,0.08)] backdrop-blur-sm dark:border-[var(--border-default)] dark:bg-card/90"
+        />
       </ActiveDiagramNode.Provider>
       <DiagramDetail model={diagram} node={active} onClose={() => setActiveId(null)} />
     </div>

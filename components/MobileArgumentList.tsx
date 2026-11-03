@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useIsHydrated } from "@/hooks/useMediaQuery";
 import { TextAction } from "@/components/ui";
+import { EvidenceKey } from "@/components/EvidenceKey";
 import { INLINE_SUMMARY, SOURCE_LINK, SettleAnswer } from "@/components/topic/cruxPrimitives";
 import { cruxSheetHeading } from "@/lib/topicPage/model";
 import type {
@@ -50,6 +51,7 @@ function EvidenceRow({ item }: { item: DiagramEvidenceNode }) {
             <span aria-hidden="true" className={`mr-1 font-sans text-[13px] ${mark.className}`}>
               {mark.glyph}
             </span>
+            <span className="sr-only">{item.sideLabel}: </span>
             {item.label}
           </span>
           <span
@@ -210,6 +212,7 @@ export function MobileArgumentList({ diagram }: { diagram: DiagramModel }) {
             <h3 id="outline-cruxes" className="label-caps">
               {cruxSheetHeading(cruxes.length)}
             </h3>
+            <EvidenceKey labels={diagram.evidenceLabels} />
             <ol className="space-y-3">
               {cruxes.map((crux) => (
                 <CruxSection

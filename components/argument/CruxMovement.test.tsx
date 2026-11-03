@@ -398,11 +398,24 @@ describe("DebateView crux entries lead with how each could close", () => {
   });
 
   it("sorts the list in one sentence by how each question could close", () => {
-    render(<DebateView meta={base} graph={graph} cruxes={cruxes} ledger={[fork]} />);
+    // A map with no lede of its own gets the generic opener before the tally.
+    render(<DebateView meta={{ ...base, tldr: "" }} graph={graph} cruxes={cruxes} ledger={[fork]} />);
     const intro = screen.getByText(/Settle one and whole positions move\./);
     // The fixture's fork plus claims with no written condition.
     expect(intro.textContent).toMatch(/One cannot be settled by evidence, and \w+ ha(s|ve) no stated test yet\.$/);
     expect(intro.textContent).not.toMatch(/%|winner/i);
+  });
+
+  it("gives the crux sheet one intro: the map's lede, then the tally, no generic opener", () => {
+    const { container } = render(
+      <DebateView meta={base} graph={graph} cruxes={cruxes} ledger={[fork]} />,
+    );
+    const sheet = container.querySelector<HTMLElement>("#cruxes")!;
+    expect(sheet.textContent).not.toContain("Settle one and whole positions move.");
+    const intro = sheet.querySelector<HTMLElement>("[data-crux-lede]")!;
+    expect(intro.textContent).toMatch(
+      /^tl;dr One cannot be settled by evidence, and \w+ ha(s|ve) no stated test yet\.$/,
+    );
   });
 
   it("links to the living AI page from the two AI maps only", () => {

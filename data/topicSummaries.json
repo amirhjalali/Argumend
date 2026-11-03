@@ -2167,14 +2167,12 @@
     "title": "The Moon Landing",
     "question": "Did the Moon landings happen?",
     "meta_claim": "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
-    "confidence_score": 76,
-    "balance": 76,
+    "confidence_score": 88,
+    "balance": 88,
     "weight": 82,
     "verdict": {
       "label": "Evidence largely converges on the claim",
-      "quadrant": "settled",
-      "fragile": true,
-      "pinnedByStatus": true
+      "quadrant": "settled"
     },
     "status": "settled",
     "category": "science",

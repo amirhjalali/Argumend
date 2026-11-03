@@ -39,7 +39,7 @@ export const articleSummaries: ArticleSummary[] = [
     slug: "we-gave-a-model-that-cant-talk-1000-arguments",
     title: "We Gave a Model That Can't Talk 1,000 Arguments. Here Is What It Got Right.",
     description:
-      "A new model returns typed judgments with calibrated probabilities in 200 ms and cannot write a sentence. We tested it against 156 argument maps and 1,567 weighted evidence items, and found the missing half of a referee that never names a winner.",
+      "A new model returns typed judgments with calibrated probabilities in 200 ms and cannot write a sentence. We tested it against the 156 argument maps the library had then and their 1,567 weighted evidence items, and found the missing half of a referee that never names a winner.",
     tags: ["jev", "typesafe ai", "crux", "argument mapping", "calibration", "online discourse", "methodology"],
     category: "Methodology",
     publishedAt: "2026-09-17T00:00:00Z",

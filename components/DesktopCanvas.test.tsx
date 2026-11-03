@@ -52,6 +52,16 @@ describe("DesktopCanvas", () => {
     }
   });
 
+  it("keys the ＋ and − evidence marks in words, with the page's side labels", () => {
+    render(<DesktopCanvas diagram={diagram} />);
+    const key = document.querySelector<HTMLElement>("[data-evidence-key]")!;
+    expect(key.getAttribute("aria-label")).toBe("Evidence marks");
+    const terms = Array.from(key.querySelectorAll("dt")).map((dt) => dt.textContent);
+    const meanings = Array.from(key.querySelectorAll("dd")).map((dd) => dd.textContent);
+    expect(terms).toEqual(["＋Plus", "−Minus"]);
+    expect(meanings).toEqual([diagram.evidenceLabels.for, diagram.evidenceLabels.against]);
+  });
+
   it("opens a box's detail on Enter and closes it on Escape", async () => {
     render(<DesktopCanvas diagram={diagram} />);
     const crux = flowNodes().find((n) => n.dataset.id === diagram.nodes[1].id)!;

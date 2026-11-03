@@ -100,6 +100,11 @@ export interface DiagramModel {
   title: string;
   /** Every node in reading order: the order of the page, and the tab order. */
   nodes: DiagramNode[];
+  /**
+   * What the evidence marks mean, for the diagram's key: ＋ is a card that
+   * points to yes (or supports the claim), − one that points to no.
+   */
+  evidenceLabels: Record<LegacyEvidenceItem["side"], string>;
 }
 
 /** Which side each evidence card sits under. */
@@ -176,7 +181,7 @@ export function buildDiagram(topic: Topic): DiagramModel {
     }
   });
 
-  return { topicId: topic.id, title: page.title, nodes };
+  return { topicId: topic.id, title: page.title, nodes, evidenceLabels: labels };
 }
 
 /** A node's children, in model order. */
