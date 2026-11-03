@@ -535,7 +535,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const lede = diagnosisOn
     ? "Paste a conversation, an article or your own draft. Argumend separates what the sides agree on from what they don’t, finds the question it turns on, and takes you to the map that lays out both sides’ best evidence."
-    : "Paste a conversation, an article or your own draft. Find a map with questions and evidence on each side, or write conversation notes with a guide built around three questions.";
+    : "Paste an argument to see which map covers it and the question it turns on.";
 
   return (
     <PageContainer width="default">
@@ -581,10 +581,6 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
           {/* The disclosure sits at the click, and names the lane that will run. */}
           <AiConsentLine id={CONSENT_ID} consent={consent} className="max-w-[36rem]" />
-          <p className="max-w-[36rem] text-xs leading-relaxed text-muted dark:text-stone-400">
-            Your current draft and notes stay in this tab while you explore maps.
-            Reload or choose Paste another to clear them.
-          </p>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             <Button
@@ -614,6 +610,12 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
               <span aria-hidden="true"> ({minChars - trimmedLength} to go)</span>.
             </p>
           ) : null}
+          {/* Below the button, not above it: the button has to stay on the
+              first screen of a phone with the box empty (r10 live review #3). */}
+          <p className="max-w-[36rem] text-xs leading-relaxed text-muted dark:text-stone-400">
+            Your current draft and notes stay in this tab while you explore maps.
+            Reload or choose Paste another to clear them.
+          </p>
         </div>
       )}
 

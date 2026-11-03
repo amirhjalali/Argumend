@@ -101,6 +101,30 @@ describe("/topics: no scoreboard", () => {
   });
 });
 
+describe("/topics: category tabs on a phone", () => {
+  beforeEach(() => window.history.replaceState({}, "", "/topics"));
+  afterEach(cleanup);
+
+  it("fades the edge where more tabs are hidden, and clears the fade at the end", () => {
+    // r10 review #7: at 390px the row stopped at "Sci" with no sign it scrolls.
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    const nav = view.getByRole("navigation", { name: "Map categories" });
+    const strip = nav.querySelector("div.overflow-x-auto") as HTMLDivElement;
+    Object.defineProperty(strip, "clientWidth", { configurable: true, value: 358 });
+    Object.defineProperty(strip, "scrollWidth", { configurable: true, value: 900 });
+    act(() => { fireEvent.scroll(strip); });
+    expect(view.getByTestId("tabs-fade-right")).toBeTruthy();
+    expect(view.queryByTestId("tabs-fade-left")).toBeNull();
+
+    act(() => {
+      strip.scrollLeft = 542;
+      fireEvent.scroll(strip);
+    });
+    expect(view.queryByTestId("tabs-fade-right")).toBeNull();
+    expect(view.getByTestId("tabs-fade-left")).toBeTruthy();
+  });
+});
+
 describe("/topics: Start here", () => {
   beforeEach(() => window.history.replaceState({}, "", "/topics"));
   afterEach(cleanup);
@@ -282,6 +306,33 @@ describe("/topics: order and pagination", () => {
     expect(categories.slice(0, CATEGORY_ORDER.length)).toEqual(CATEGORY_ORDER);
     expect(window.location.search).toBe("");
     expect(view.queryByRole("heading", { level: 2, name: "Policy" })).toBeNull();
+  });
+
+  it("leads page 1 with Start here, and takes later pages straight to their list", () => {
+    // r10 review #8: page 2 repeated the intro and the pinned maps, so its
+    // list started ~1000px down on a phone, and the count read "of 149 maps,
+    // plus the 3 above".
+    const pinned = argumentTopicIds.length;
+    const total = filterLibrary(defaultState).length + pinned;
+    window.history.replaceState({}, "", "/topics");
+    const first = render(<TopicsPageClient initialState={defaultState} />);
+    expect(first.getByRole("heading", { name: "Start here" })).toBeTruthy();
+    expect(first.getByRole("status").textContent).toBe(`Showing 1–${TOPICS_PAGE_SIZE + pinned} of ${total} maps`);
+    cleanup();
+
+    window.history.replaceState({}, "", "/topics?page=2");
+    const second = render(<TopicsPageClient initialState={{ ...defaultState, page: 2 }} />);
+    expect(second.queryByRole("heading", { name: "Start here" })).toBeNull();
+    expect(second.container.querySelector('a[href="/ai"]')).toBeNull();
+    expect(second.queryByText(/contested questions\. Each map/)).toBeNull();
+    expect(second.getByRole("heading", { level: 1, name: "Maps" })).toBeTruthy();
+    expect(second.getByRole("status").textContent).toBe(
+      `Showing ${TOPICS_PAGE_SIZE + pinned + 1}–${TOPICS_PAGE_SIZE * 2 + pinned} of ${total} maps`,
+    );
+    // The pinned maps are not dealt into the later pages either.
+    for (const id of argumentTopicIds) {
+      expect(second.container.querySelector(`a[href="/topics/${id}"]`)).toBeNull();
+    }
   });
 
   it("renders one crawlable page with stable next links", () => {

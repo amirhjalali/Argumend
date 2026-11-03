@@ -4,6 +4,7 @@
   "cases": [
     { "query": "is nuclear power safe", "expected": ["nuclear-energy-safety"], "kind": "question" },
     { "query": "nuclear energy", "expected": ["nuclear-energy-safety"], "kind": "keyword" },
+    { "query": "nuclear", "expected": ["nuclear-energy-safety"], "kind": "keyword" },
     { "query": "nuclaer power", "expected": ["nuclear-energy-safety"], "kind": "misspelling" },
     { "query": "does rent control work", "expected": ["rent-control-effectiveness"], "kind": "question" },
     { "query": "rent control", "expected": ["rent-control-effectiveness"], "kind": "keyword" },

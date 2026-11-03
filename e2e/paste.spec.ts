@@ -3,7 +3,7 @@ import { PASTE_LIMITS } from "../lib/paste/limits";
 
 for (const entry of [
   { name: "paste form", path: "/analyze", label: "The argument to read", example: "See an example" },
-  { name: "home form", path: "/", label: "Text to analyze", example: "Try an example" },
+  { name: "home form", path: "/", label: "Text to analyze", example: "See an example" },
 ]) {
   test(`the ${entry.name} waits for its handlers before accepting a draft`, async ({ page }) => {
     let releaseScripts!: () => void;

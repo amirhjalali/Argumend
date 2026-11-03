@@ -98,7 +98,7 @@ export function HeroAnalyze() {
               disabled={!hydrated}
               className="inline-flex min-h-11 items-center rounded-lg text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-[#8bb5b1] dark:decoration-[#8bb5b1]/40"
             >
-              Try an example
+              See an example
             </button>
             <button
               type="button"

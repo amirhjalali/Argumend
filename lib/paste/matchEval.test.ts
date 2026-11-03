@@ -125,6 +125,13 @@ describe("the paste-matching eval set", () => {
     expect(row?.outcome).toBe("correct");
   });
 
+  it("keeps a nuclear-for-climate rant that says 'reactors' off the small-reactor map", () => {
+    // r10 live review #1: "reactors" is in the SMR map's name, but the
+    // nuclear-power map uses it throughout, so it does not tell them apart.
+    const row = rows.find((candidate) => candidate.id === "nuclear-only-answer");
+    expect(row?.named).toBe("nuclear-energy-safety");
+  });
+
   it("finds both flagship debate maps it was given", () => {
     for (const id of ["israel-aid-leahy", "ai-jobs-graduates", "capitalism-who-buys"]) {
       expect(rows.find((row) => row.id === id)?.outcome, id).toBe("correct");

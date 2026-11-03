@@ -28,7 +28,7 @@ describe("HeroAnalyze", () => {
     const view = render(<HeroAnalyze />);
 
     expect(
-      view.getByRole("button", { name: "Try an example" }).className,
+      view.getByRole("button", { name: "See an example" }).className,
     ).toContain("min-h-11");
     expect(view.getByRole("button", { name: "Find what it turns on" }).className).toContain(
       "min-h-11",
