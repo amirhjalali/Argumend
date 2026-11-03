@@ -4,12 +4,15 @@ import { AppShell } from "@/components/AppShell";
 import { PageContainer, PageHeader } from "@/components/ui";
 import { LegalSection as Section, LEGAL_LINK as LINK, Pending } from "@/components/legal/LegalParts";
 import { LegalDraftNotice } from "@/components/LegalDraftNotice";
+import { buildGenericOgUrl } from "@/lib/og";
 import {
   LEGAL_CONTACT_EMAIL,
   LEGAL_LAST_UPDATED,
   LEGAL_LAST_UPDATED_LABEL,
   SITE_NAME,
 } from "@/lib/site";
+
+const OG_IMAGE = buildGenericOgUrl({ title: "Terms of Service", subtitle: "Legal" });
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -20,6 +23,14 @@ export const metadata: Metadata = {
     description:
       "What Argumend does and does not claim, acceptable use, and the limits of what we warrant.",
     url: "https://argumend.org/terms",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Terms of Service" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | ARGUMEND",
+    description:
+      "What Argumend does and does not claim, acceptable use, and the limits of what we warrant.",
+    images: [OG_IMAGE],
   },
   alternates: {
     canonical: "https://argumend.org/terms",
