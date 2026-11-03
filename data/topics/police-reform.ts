@@ -36,9 +36,9 @@ export const policeReformData = {
         "US police kill about 1,300 people a year, far more per head than other rich democracies, and Black Americans at 2.6 times the white rate. About three in four of those killed were allegedly armed. Whether body cameras, oversight and prosecutions reduce force, and what share of killings is avoidable, is the first split.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Most people police kill were armed and dangerous, and the tools sold as accountability have not been shown to reduce force. In 2025, 76% of those killed by police were allegedly armed and an estimated 52% had a gun, by the reform group Mapping Police Violence's own count. Officers work in a country with more guns than people: 53 officers were feloniously killed in 2025, and agencies reported more than 90,000 assaults on officers, 13.8 per 100 officers, the highest rate in at least ten years. International comparisons ignore that armed population. A 2020 Campbell review of 30 body-camera studies found 'insufficient' evidence that cameras reduce officer use of force; the famous Rialto drop did not hold up in a 2,200-officer Washington, DC trial.",
+        "Most people police kill were armed and dangerous, and the tools sold as accountability have not been shown to reduce force. In 2025, 76% of those killed by police were allegedly armed and an estimated 52% had a gun, by the reform group Mapping Police Violence's own count. Officers work in a country with more guns than people: 53 officers were feloniously killed in 2025, and agencies reported more than 90,000 assaults on officers, 13.8 per 100 officers, the highest rate in at least ten years. International comparisons ignore that armed population. A 2020 Campbell review of 30 body-camera studies found 'insufficient' evidence that cameras reduce officer use of force; the famous Rialto drop did not hold up in a 2,224-officer Washington, DC trial.",
       proponent_rebuttal:
-        "US police kill people at many times the rate of other rich countries, and much of that is not about armed suspects. In 2025 at least 1,314 people were killed; 22% were unarmed, one in five showed signs of a mental health crisis, and two-thirds of all killings began with a call for service rather than a crime in progress. Per capita, US police killed about 33 people per 10 million residents in the Prison Policy Initiative's comparison, roughly 25 times Germany's rate and 67 times England and Wales'. Black Americans were killed at 2.6 times the white rate. The share of killings in which officers were charged rose between 2019 and 2023, to about 4% by the group's count, and 2025 was the first year since 2019 that killings fell, which reformers credit to that scrutiny. Body cameras alone are not the answer, but they cut citizen complaints by about 17% in the Campbell review, and accountability is a system, not one gadget.",
+        "US police kill people at many times the rate of other rich countries, and much of that is not about armed suspects. In 2025 at least 1,314 people were killed; 22% were unarmed, one in five showed signs of a mental health crisis, and two-thirds of all killings began with a call for service rather than a crime in progress. Per capita, US police killed about 33 people per 10 million residents in 2019 in the Prison Policy Initiative's comparison, roughly 25 times Germany's rate and 67 times England and Wales'. Black Americans were killed at 2.6 times the white rate. The share of killings in which officers were charged rose between 2019 and 2023, to about 4% by the group's count, and 2025 was the first year since 2019 that killings fell, which reformers credit to that scrutiny. Body cameras alone are not the answer, but they cut citizen complaints by about 17% in the Campbell review, and accountability is a system, not one gadget.",
       crux: {
         id: "accountability-use-of-force-link",
         title: "The Accountability Test",
@@ -87,7 +87,7 @@ export const policeReformData = {
           id: "pr-international-comparison",
           title: "Prison Policy Initiative: US Police Kill 33 per 10 Million, 25 Times Germany's Rate",
           description:
-            "US police kill civilians at roughly 33 per 10 million people — about 4x the rate in Australia, 25x Germany, 67x England and Wales, and over 150x Japan (Prison Policy Initiative compilation of national statistics). The gap with peer democracies is large, though the multiple varies widely by comparison country.",
+            "Using 2019 US data, US police killed civilians at about 33.5 per 10 million people: about 4x the rate in Australia, 25x Germany, 67x England and Wales, and over 150x Japan (Prison Policy Initiative compilation of national statistics, mostly 2017-2019). The gap with peer democracies is large, though the multiple varies widely by comparison country.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -104,7 +104,7 @@ export const policeReformData = {
           id: "pr-body-camera-rct",
           title: "Campbell Review of 30 Studies: 'Insufficient' Evidence Body Cameras Reduce Force; Complaints Fell 17%",
           description:
-            "A 2020 Campbell systematic review by Cynthia Lum, Christopher Koper and colleagues pooled 30 studies of police body-worn cameras. It concluded 'the current evidence is insufficient for concluding that BWCs reduce officer use of force' (pooled change −6.8%, confidence interval −19.5% to +7.9%), while finding cameras can reduce citizen complaints (−16.6%). Overall, cameras 'do not have clear or consistent effects on most officer or citizen behaviors.' The early Rialto, California trial had found about a 50% drop in force; the much larger 2017 Washington, DC trial of about 2,200 officers found no significant effect.",
+            "A 2020 Campbell systematic review by Cynthia Lum, Christopher Koper and colleagues pooled 30 studies of police body-worn cameras. It concluded 'the current evidence is insufficient for concluding that BWCs reduce officer use of force' (pooled change −6.8%, confidence interval −19.5% to +7.9%), while finding cameras can reduce citizen complaints (−16.6%). Overall, cameras 'do not have clear or consistent effects on most officer or citizen behaviors.' The early Rialto, California trial had reported a large drop in force; the much larger Washington, DC trial of 2,224 officers (Yokum et al., 2019) found 'very small and statistically insignificant effects on police use of force and civilian complaints.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -120,9 +120,9 @@ export const policeReformData = {
         },
         {
           id: "pr-officer-assaults-2025",
-          title: "FBI 2025: 53 Officers Feloniously Killed and Assault Rate Highest in a Decade",
+          title: "FBI 2025: 53 Officers Feloniously Killed, Assault Rate Highest in 10 Years",
           description:
-            "FBI data for 2025 show 53 law enforcement officers feloniously killed in the line of duty, 43 of them with firearms, down 17% from 2024 and the lowest number since 2017. Agencies reported more than 90,000 assaults on officers, 13.8 per 100 officers, the highest assault rate in at least ten years.",
+            "In 2025, 53 officers were feloniously killed in the line of duty, 43 of them with firearms, down 17% from 2024 and the lowest number since 2017. Agencies reported 90,178 assaults on officers, 13.8 per 100 officers, 'the highest officer assault rate in the past 10 years.' Officers assaulted and injured by firearms fell for a second year, to 445.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -131,9 +131,9 @@ export const policeReformData = {
             directness: 5,
           },
           source:
-            "FBI, Law Enforcement Officers Killed and Assaulted (LEOKA) 2025, as reported by FedAgent (May 2026)",
+            "FBI, 'Officers Killed and Assaulted in the Line of Duty, 2025' special report, press release (11 May 2026); FedAgent (May 2026) for the firearm count and trend",
           sourceUrl:
-            "https://www.fedagent.com/news/fbi-assaults-on-law-enforcement-hit-10-year-high-even-as-officer-deaths-decline",
+            "https://www.fbi.gov/news/press-releases/fbi-releases-officers-killed-and-assaulted-in-the-line-of-duty-2025-special-report-and-law-enforcement-employee-counts",
           reasoning:
             "Shows the danger officers face and why force policies that ask them to wait or retreat carry a cost. It does not show that any given killing was necessary, and officer deaths fell in 2025 even as police killings also fell.",
         },
@@ -150,7 +150,7 @@ export const policeReformData = {
         "After viral killings and federal investigations, some departments stopped stopping people, and homicide rose. Other investigations were followed by less crime. In May 2025 the Justice Department dropped its Minneapolis and Louisville cases. Whether scrutiny itself costs lives, or only the way it lands, is the second split.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Scrutiny that lands on the street as fear gets people killed. Economists Tanaya Devi and Roland Fryer found that federal pattern-or-practice investigations launched after a viral police killing were followed by almost 900 excess homicides and almost 34,000 excess felonies. Police-civilian contact in Chicago fell almost 90% in the month after its investigation was announced. Cities that cut police budgets after 2020, such as Minneapolis, Austin and Portland, restored the money within about a year as violence rose. Consent decrees cost millions of dollars, run for a decade or more and, in the words of the Justice Department's civil rights chief in May 2025, amounted to 'micromanagement' of local police based on 'factually unjustified' findings. Reform that drives officers off the job or into passivity hurts most the neighbourhoods with the most violence.",
+        "Scrutiny that lands on the street as fear gets people killed. Economists Tanaya Devi and Roland Fryer found that federal and state pattern-or-practice investigations launched after a viral police killing were followed by almost 900 excess homicides and almost 34,000 excess felonies. Police-civilian contact in Chicago fell almost 90% in the month after its investigation was announced. Some cities that cut police budgets in 2020 began reversing course within a year as violence rose: Minneapolis cut $7.8 million and then put $6.4 million back to hire officers. Consent decrees cost millions of dollars, run for a decade or more and, in the words of the Justice Department's civil rights chief in May 2025, amounted to 'micromanagement' of local police based on 'factually unjustified' findings. Reform that drives officers off the job or into passivity hurts most the neighbourhoods with the most violence.",
       proponent_rebuttal:
         "The pullback is a choice police make, not a law of nature, and accountability done steadily does not raise crime. The same Devi and Fryer study found that federal investigations not triggered by a viral incident were followed, on average, by a statistically significant fall in homicides and total crime. The 2020 murder spike hit cities that cut police budgets and cities that did not. And the best recent test cuts against the trade-off: in 2025, police killings fell for the first time in six years, officers were being charged more often than before 2019, and homicide in large cities fell 21%. The Justice Department's May 2025 retreat from oversight in Minneapolis, Louisville, Phoenix, Memphis and four other places removed federal checks on departments its own career lawyers had found violating the Constitution.",
       crux: {
@@ -246,17 +246,17 @@ export const policeReformData = {
             replicability: 8,
             directness: 4,
           },
-          source: "NPR via Connecticut Public, 'Trump DOJ dismisses investigations of police in several cities, including Minneapolis' (21 May 2025)",
+          source: "NPR, 'Trump administration dismisses police investigations in several cities' (21 May 2025)",
           sourceUrl:
-            "https://www.ctpublic.org/2025-05-21/trump-doj-dismisses-investigations-of-police-in-several-cities-including-minneapolis",
+            "https://www.npr.org/2025/05/21/nx-s1-5406262/trump-administration-dismisses-police-investigations-minneapolis-george-floyd",
           reasoning:
             "Records the federal government's judgment that consent decrees cost more than they deliver, and sets up a natural experiment. It is a policy decision, not evidence about outcomes; state-level oversight continues in Minneapolis and Louisville hired its own monitor.",
         },
         {
           id: "pr-failed-defunding",
-          title: "Minneapolis, Portland, Austin: Police Budget Cuts Reversed Within About a Year",
+          title: "PolitiFact 2021: Some Cities That Cut Police Budgets Were Already Reversing Course",
           description:
-            "Minneapolis, Portland, and Austin all restored or increased police budgets within about a year after crime increases and political backlash — Austin's FY2022 budget reached a record high after the prior year's cut, and Minneapolis re-injected most of the funds it had removed. A roughly 30% national homicide increase in 2020 hit cities that did and did not cut budgets, and several of the cuts were modest.",
+            "Checking claims in June 2021, PolitiFact found that 'some cities that decreased their police budgets last year have reversed course.' The Minneapolis City Council cut $7.8 million from its police department in 2020 'but later injected $6.4 million back into their budget to hire new officers.' Austin's council had voted to cut $21.5 million and move another $128 million to other city departments. PolitiFact judged the evidence for a national trend of rising police budgets to fall short.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -264,10 +264,10 @@ export const policeReformData = {
             replicability: 6,
             directness: 4,
           },
-          source: "PolitiFact analysis of city police budgets; FBI Uniform Crime Reporting data",
+          source: "Emily Tian, 'Some police budgets are increasing, but evidence of national trend falls short,' PolitiFact (18 June 2021)",
           sourceUrl: "https://www.politifact.com/factchecks/2021/jun/18/tweets/some-police-budgets-are-increasing-evidence-nation/",
           reasoning:
-            "Shows that voters and councils in those cities judged the cuts a mistake. It does not show the cuts caused the violence: the rise was national and the cuts were small or short-lived.",
+            "Shows that councils in some cities judged the cuts a mistake within a year. It does not show the cuts caused the violence, and PolitiFact found no clear national trend either way.",
         },
       ],
     },
@@ -282,7 +282,7 @@ export const policeReformData = {
         "Each extra officer prevents about 0.1 homicides a year, with twice the benefit per head for Black residents, but also brings more arrests for low-level offences. Departments are hiring again in 2025-26. Whether a city should buy safety with more officers, or with other things that also cut violence, is the third split.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "More police save lives, and the people saved are disproportionately Black. A study of 242 cities from 1990 to 2018 by Aaron Chalfin and colleagues found each additional officer prevents about 0.1 homicides, and that per head the effect is twice as large for Black victims as for white. That makes officers one of the few proven ways to cut murder at scale. Departments lost officers after 2020. In 2025 agencies responding to the Police Executive Research Forum's survey hired 17.6% more officers than in 2024, bringing staffing back to its 2022 level, and homicide fell sharply in the same period. Shrinking police forces to fund other services trades proven protection for promises.",
+        "More police save lives, and the people saved are disproportionately Black. A study of 242 cities from 1981 to 2018 by Aaron Chalfin and colleagues found each additional officer prevents about 0.1 homicides, and that per head the effect is twice as large for Black victims as for white. That makes officers one of the few proven ways to cut murder at scale. Departments lost officers after 2020. In 2025 agencies responding to the Police Executive Research Forum's survey hired 17.6% more officers than in 2024, bringing staffing back to its 2022 level, and homicide fell sharply in the same period. Shrinking police forces to fund other services trades proven protection for promises.",
       proponent_rebuttal:
         "The same study that finds more police cut homicides finds they make more arrests for low-level 'quality-of-life' offences, with the burden falling disproportionately on Black Americans, which is what reformers mean by being over-policed and under-protected at once. Officers are not the only proven tool. In a citywide randomised trial in Philadelphia, cleaning and greening 541 vacant lots cut gun violence 29% in neighbourhoods below the poverty line, at about $5 a square metre plus upkeep. Homicide also fell 21% in big cities in 2025 while many departments were still short-staffed against 2020, so staffing is not the whole story. The real question is the mix: which calls need an armed officer, and which dollars buy more safety elsewhere.",
       crux: {
@@ -306,7 +306,7 @@ export const policeReformData = {
           skeptic_flip:
             "If non-police programmes prevented homicides at a lower cost per life than added officers in repeated trials, without the added arrests, the view that hiring more police is the best way to cut murder would be hard to hold.",
           common_ground:
-            "Both sides agree that more officers reduce homicide on average, that they also bring more low-level arrests, and that departments have been hiring again since 2023.",
+            "Both sides agree that more officers reduce homicide on average, that they also bring more low-level arrests, and that departments have been hiring more officers each year since 2021.",
           live_disagreement:
             "How to weigh lives saved against the cost of added arrests and stops, which fall hardest on Black residents, and whether money spent on officers or on other programmes buys more safety.",
         },
@@ -334,7 +334,7 @@ export const policeReformData = {
           id: "chalfin-force-size",
           title: "Chalfin et al. 2022: Each Added Officer Prevents ~0.1 Homicides, Twice the Effect per Head for Black Victims",
           description:
-            "Using data from 242 US cities from 1990 to 2018 and two instrumental-variable strategies, Aaron Chalfin, Benjamin Hansen, Emily Weisburst and Morgan Williams found that 'each additional police officer abates approximately 0.1 homicides,' and that 'in per capita terms, effects are twice as large for Black versus white victims.' Larger police forces also make more arrests for low-level 'quality-of-life' offences, with a disproportionate burden on Black Americans.",
+            "Using data from 242 large US cities from 1981 to 2018 and two instrumental-variable strategies, Aaron Chalfin, Benjamin Hansen, Emily Weisburst and Morgan Williams found that 'each additional police officer abates approximately 0.1 homicides,' and that 'in per capita terms, effects are twice as large for Black versus white victims.' Larger police forces also make more arrests for low-level 'quality-of-life' offences, with a disproportionate burden on Black Americans.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -378,9 +378,9 @@ export const policeReformData = {
         "Unarmed teams in Eugene and Denver handled tens of thousands of calls with little police backup, and Denver's cut low-level crime 34%. New York's version reaches only a third of eligible calls. Whether these teams can carry a big share of 911 in large cities is the fourth split.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "Unarmed crisis teams work on carefully screened calls in a few places, and struggle at big-city scale. Eugene is a small, mostly white city, and Denver's STAR began as a six-month pilot in 8 of 36 precincts. New York's B-HEARD, launched in 2021, still runs as a pilot in 31 of 78 precincts with nine teams per shift; in the third quarter of 2025 only 37% of eligible calls were assigned a team and 33% got one, and average response times for mental-health calls more than doubled to over 26 minutes from 2022 to 2025. To be eligible the caller must confirm there is no weapon and no imminent danger. Calls that screen as calm can turn violent, and sending unarmed responders shifts that risk onto them and the person in crisis.",
+        "Unarmed crisis teams work on carefully screened calls in a few places, and struggle at big-city scale. Eugene is a small, mostly white city, and Denver's STAR began as a six-month pilot in 8 of 36 precincts. New York's B-HEARD, launched in June 2021, still runs as a pilot in 31 of 78 precincts with nine teams per shift; in the third quarter of 2025 only 37% of eligible calls were assigned a team and 33% got one, and citywide average response times for mental-health (EDP) calls more than doubled to over 26 minutes from 2022 to 2025. To be eligible the caller must confirm there is no weapon and no imminent danger. Calls that screen as calm can turn violent, and sending unarmed responders shifts that risk onto them and the person in crisis.",
       proponent_rebuttal:
-        "Most 911 calls are not violent crimes, and when trained clinicians answer the ones that are not, things go better and cost less. In New York, violent-crime calls were about 4% of all calls dispatched to police. CAHOOTS in Eugene handled about 24,000 calls in 2019, about 20% of the call volume, and asked for police backup on 311 of them. Denver's STAR answered 748 calls in its first six months with no arrests, and a peer-reviewed Stanford study found reports of the targeted low-level crimes fell 34%, at about a quarter of the cost of a police response. One in five people killed by police in 2025 showed signs of a mental health crisis, and 89% of those deaths followed a call for help. New York's problems are about too few teams, not the model: its budget grew 35% while its coverage grew ninefold.",
+        "Most 911 calls are not violent crimes, and when trained clinicians answer the ones that are not, things go better and cost less. In New York in 2025, 96% of the almost 3.7 million 911 calls assigned to the NYPD did not involve violent crime. CAHOOTS in Eugene handled about 24,000 calls in 2019, about 20% of the call volume, and asked for police backup on 311 of them. Denver's STAR answered 748 calls in its first six months, none of which required a call to police for assistance, and a peer-reviewed Stanford study found reports of the targeted low-level crimes fell 34%, at about a quarter of the cost of a police response. One in five people killed by police in 2025 showed signs of a mental health crisis, and 89% of those deaths followed a call for help. New York's problems are about too few teams, not the model: its budget grew 35% while its coverage grew ninefold.",
       crux: {
         id: "alternative-response-scalability",
         title: "The Scale Test",
@@ -410,9 +410,9 @@ export const policeReformData = {
       evidence: [
         {
           id: "pr-denver-star",
-          title: "Denver STAR: 748 Calls, No Arrests, and 34% Fewer Low-Level Crime Reports",
+          title: "Denver STAR: 748 Calls Without Police Assistance, and 34% Fewer Low-Level Crime Reports",
           description:
-            "In its 6-month 2020 pilot, Denver's STAR team responded to 748 calls (out of ~2,500+ eligible calls received) with zero arrests and no police backup needed. A Stanford evaluation (Dee & Pyne, Science Advances 2022) found the program cut targeted low-level crime reports by ~34% without increasing violent crime, at direct costs about 4x lower than police-only response.",
+            "In its 6-month 2020 pilot in eight of Denver's 36 police precincts, the STAR team responded to 748 incidents, 'none of which required a call to police for assistance or for a response to a criminal offense.' Thomas Dee and Jaymes Pyne of Stanford found the program reduced reports of targeted, less serious crimes 'by 34% and had no detectable effect on more serious crimes,' and that the direct costs of a police response are over four times those of the community response.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -420,8 +420,8 @@ export const policeReformData = {
             replicability: 5,
             directness: 8,
           },
-          source: "Dee & Pyne, Science Advances (2022); Denver STAR pilot data via Stanford SIEPR",
-          sourceUrl: "https://siepr.stanford.edu/news/groundbreaking-study-shows-benefits-reinventing-responses-nonviolent-911-calls",
+          source: "Dee & Pyne, 'A community response approach to mental health and substance abuse crises reduced crime,' Science Advances (10 June 2022); Stanford SIEPR summary",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9176742/",
           reasoning:
             "A peer-reviewed evaluation with a credible comparison. Pilot phase only: six months, eight precincts and screened call types.",
         },
@@ -444,9 +444,9 @@ export const policeReformData = {
         },
         {
           id: "pr-911-call-analysis",
-          title: "Vera, New York City: Violent-Crime Calls Were About 4% of Police Dispatches",
+          title: "Vera, New York City 2025: 96% of 911 Calls Sent to Police Did Not Involve Violent Crime",
           description:
-            "Vera Institute analysis of New York City 911 data found violent-crime calls were about 4% of all calls dispatched to police (~9% of crime-related calls); 96% of dispatched calls did not involve violent crime, and only ~42% were even labeled crime-related. The bulk were administrative, social-need, or non-emergency matters.",
+            "Vera Institute analysis of New York City 911 data found that in 2025 call-takers assigned almost 3.7 million calls to receive an NYPD response, and 96% of them did not involve violent crime. About 150,000 involved a person experiencing a mental health crisis, and more than a million involved social and health-related issues that may be appropriate for an alternative response.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -463,7 +463,7 @@ export const policeReformData = {
           id: "nyc-bheard-ibo-2026",
           title: "NYC Budget Office 2026: B-HEARD Reached 33% of Eligible Calls; Response Times Doubled",
           description:
-            "New York's Independent Budget Office reported in January 2026 that B-HEARD, the city's non-police mental-health response launched in 2021, still runs as a pilot in 31 of 78 precincts, 9 a.m. to 1 a.m., with nine three-person teams per shift and a $35 million budget. In the third quarter of 2025 only 37% of eligible calls were assigned a team and 33% received one, even as eligible calls grew ninefold. Average response times for mental-health calls more than doubled, from about 12 to more than 26 minutes, for B-HEARD and police responses alike. To be eligible the caller must confirm no known weapon and no imminent danger. The IBO did not evaluate outcomes.",
+            "New York's Independent Budget Office reported in January 2026 that B-HEARD, the city's non-police mental-health response launched in 2021, still runs as a pilot in 31 of 78 precincts, 9 a.m. to 1 a.m., with nine three-person teams per shift and a $35 million budget. In the third quarter of 2025 only 37% of eligible calls were assigned a team and 33% received one, even as eligible calls grew ninefold. Citywide, average response times for emotionally disturbed person (EDP) calls more than doubled, from about 12 to more than 26 minutes, between early 2022 and late 2025. To be eligible the caller must confirm no known weapon and no imminent danger. The IBO did not evaluate outcomes.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,

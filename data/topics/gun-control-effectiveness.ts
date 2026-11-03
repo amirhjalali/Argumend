@@ -40,7 +40,7 @@ export const gunControlEffectivenessData = {
       skeptic_premise:
         "America's gun deaths come from violence and despair concentrated in particular places, and tighter laws on lawful owners would barely touch them. Gun deaths are concentrated: in 2024 Mississippi's gun death rate was 28.0 per 100,000 and Hawaii's 3.7, and the US gun homicide rate of 6.2 per 100,000 in 2023 was below more than two dozen countries and territories, many of them with strict gun laws. Australia's 1996 buyback is the case everyone cites, yet its own authors could not show the law caused the decline, because deaths by other means fell too. With about 400 million guns already in private hands and no national registry, a new sales law here reaches the stockpile slowly. And guns are used to stop crimes as well as commit them: a 2021 survey of 16,708 gun owners estimated about 1.67 million defensive uses a year, most without a shot fired. Laws that make it harder for law-abiding people to arm themselves have a cost the death statistics do not show.",
       proponent_rebuttal:
-        "Where guns are easier to get, more people die by them, in other countries and between US states. The US had 13.2 gun deaths per 100,000 people in 2023, and about 10,000 more gun deaths than Brazil, the country with the next-highest total; its gun suicide rate was second only to Greenland's. After Australia's 1996 National Firearms Agreement banned semi-automatic rifles and bought back about 650,000 guns, the country went from 13 fatal mass shootings in 18 years to none for two decades, and its firearm death rate fell from 3.6 to 1.2 per 100,000. Within the US, the 2024 rate ran from 3.7 per 100,000 in Hawaii, which requires a permit to buy any gun, to 28.0 in Mississippi, which requires no permit to carry one. Defensive gun use is real, but the survey counts behind the largest estimates are self-reported and far above what crime-victim surveys find. The 'criminals don't follow laws' reply applies to every law; it is an argument for enforcing laws well, not for having none.",
+        "Where guns are easier to get, more people die by them, in other countries and between US states. The US had 13.2 gun deaths per 100,000 people in 2023, and about 10,000 more gun deaths than Brazil, the country with the next-highest total; its gun suicide rate was second only to Greenland's. After Australia's 1996 National Firearms Agreement banned semi-automatic rifles and bought back about 660,000 guns, the country went from 13 fatal mass shootings in 18 years to none for two decades, and its firearm death rate fell from 3.6 to 1.2 per 100,000. Within the US, the 2024 rate ran from 3.7 per 100,000 in Hawaii, which requires a permit to buy any gun, to 28.0 in Mississippi, which requires no permit to carry one. Defensive gun use is real, but the survey counts behind the largest estimates are self-reported and far above what crime-victim surveys find. The 'criminals don't follow laws' reply applies to every law; it is an argument for enforcing laws well, not for having none.",
       crux: {
         id: "natural-experiment",
         title: "The Natural Experiment Test",
@@ -92,7 +92,7 @@ export const gunControlEffectivenessData = {
           id: "australia-buyback",
           title: "Australia After 1996: 13 Mass Shootings in 18 Years, Then None for 20",
           description:
-            "After the 1996 National Firearms Agreement (which banned semi-automatic rifles and bought back about 650,000 firearms), Australia recorded 13 fatal mass shootings in 1979-1996 and none from 1997 through May 2016. Total firearm deaths fell from a mean 3.6 to 1.2 per 100,000, with the pre-existing decline accelerating. The authors caution they cannot determine whether the law caused the change, since non-firearm deaths also declined over the period.",
+            "After the 1996 National Firearms Agreement (which banned semi-automatic rifles and pump-action shotguns and rifles, and by August 2001 had bought back and destroyed 659,940 newly prohibited guns), Australia recorded 13 fatal mass shootings in 1979-1996 and none from 1997 through May 2016. Total firearm deaths fell from a mean 3.6 to 1.2 per 100,000, with the pre-existing decline accelerating. The authors caution they cannot determine whether the law caused the change, since non-firearm deaths also declined over the period.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -118,9 +118,9 @@ export const gunControlEffectivenessData = {
             directness: 6,
           },
           source:
-            "Small Arms Survey, Global Firearms Holdings (2017); William English, '2021 National Firearms Survey: Updated Analysis' (2022)",
+            "Aaron Karp, 'Estimating Global Civilian-Held Firearms Numbers,' Small Arms Survey Briefing Paper (June 2018), 2017 estimates; William English, '2021 National Firearms Survey: Updated Analysis' (2022)",
           sourceUrl:
-            "https://www.smallarmssurvey.org/database/global-firearms-holdings",
+            "https://www.smallarmssurvey.org/sites/default/files/resources/SAS-BP-Civilian-Firearms-Numbers.pdf",
           reasoning:
             "A practical limit on any law that works through new sales. The US has no national registry, so these are modelled or survey estimates, not counts. It argues that sales laws act slowly, not that they do nothing.",
         },
@@ -128,7 +128,7 @@ export const gunControlEffectivenessData = {
           id: "defensive-gun-use",
           title: "2021 Survey of 16,708 Gun Owners: About 1.67 Million Defensive Uses a Year",
           description:
-            "William English's 2021 National Firearms Survey (about 54,000 adults, 16,708 of them gun owners) found that 31.1% of owners said they had used a gun to defend themselves or their property, and estimated about 1.67 million defensive incidents a year. In 81.9% of them no shot was fired. The government's National Crime Victimization Survey yields far lower figures, roughly 60,000 to 120,000 a year, and a 2013 National Research Council review reported survey estimates spanning 500,000 to 3 million.",
+            "William English's 2021 National Firearms Survey (about 54,000 adults, 16,708 of them gun owners) found that 31.1% of owners said they had used a gun to defend themselves or their property, and estimated about 1.67 million defensive incidents a year. In 81.9% of them no shot was fired. Estimates from the government's National Crime Victimization Survey are far lower, about 108,000 to 116,000 a year in the studies the National Research Council and RAND cite, and a 2013 National Research Council review reported survey estimates ranging from about 500,000 to more than 3 million.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -137,11 +137,11 @@ export const gunControlEffectivenessData = {
             directness: 6,
           },
           source:
-            "William English, '2021 National Firearms Survey: Updated Analysis' (Georgetown, May 2022), as filed in federal court; RAND, 'The Challenges of Defining and Measuring Defensive Gun Use'",
+            "William English, '2021 National Firearms Survey: Updated Analysis' (Georgetown McDonough School of Business Research Paper, SSRN, May 2022); RAND, 'The Challenges of Defining and Measuring Defensive Gun Use'; National Research Council, 'Priorities for Research to Reduce the Threat of Firearm-Related Violence' (2013)",
           sourceUrl:
-            "https://michellawyers.com/wp-content/uploads/2024/09/2024-09-06-Exhibit-1-William-English-2021-National-Firearms-Survey-ISO-State-Defendants-Mtn-to-Preclude-Consideration-of-William-English-NSSF-Surveys.pdf",
+            "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4109494",
           reasoning:
-            "If even the low estimates are right, defensive use is a benefit that death counts leave out. But the estimates differ by more than tenfold, self-reported 'defensive' incidents are hard to verify, and RAND judged the highest earlier figure implausible against the number of people shot each year. The weights are low because no estimate commands agreement.",
+            "If even the low estimates are right, defensive use is a benefit that death counts leave out. But the estimates differ by more than tenfold, self-reported 'defensive' incidents are hard to verify, and RAND judged that the survey behind the highest earlier figure implied more defensive shootings than the number of people treated for gunshot wounds each year, and called the government count an almost certain undercount. The weights are low because no estimate commands agreement.",
         },
       ],
     },
@@ -156,9 +156,9 @@ export const gunControlEffectivenessData = {
         "In 2024, 27,593 Americans killed themselves with a gun, a record, against 15,364 gun homicides. Gun owners are far more likely to die by suicide than their neighbours. Whether keeping guns from people in crisis lowers total suicides, or people find another way, is the biggest crux by body count.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Suicide is driven by despair, and despair finds a way. South Korea, where civilians rarely own guns, recorded 29.1 suicides per 100,000 people in 2024, nearly three times the OECD average. Gun owners may differ from non-owners in ways a study cannot see, including plans already made. A 2019 review by criminologist Gary Kleck found that the soundest research shows gun prevalence affects gun suicides but not total suicides, and his own state-level analysis found no significant effect on the total. RAND rates the evidence that red-flag laws reduce suicides as only limited, and some studies find non-firearm suicides rising where firearm suicides fall. Laws that take guns from adults who have not been found dangerous by a court burden millions to reach a few, and the money might save more lives in mental health care.",
+        "Suicide is driven by despair, and despair finds a way. South Korea, where civilians rarely own guns, recorded 26.2 suicides per 100,000 people in the OECD's Health at a Glance 2025, far above the OECD average of 10.8. Gun owners may differ from non-owners in ways a study cannot see, including plans already made. A 2019 review by criminologist Gary Kleck found that the soundest research shows gun prevalence affects gun suicides but not total suicides, and his own state-level analysis found no significant effect on the total. RAND rates the evidence that red-flag laws reduce suicides as only limited, and their effect on suicides by other means as uncertain. Laws that take guns from adults who have not been found dangerous by a court burden millions to reach a few, and the money might save more lives in mental health care.",
       proponent_rebuttal:
-        "Many suicide attempts come with little planning during a short crisis, and 90% of people who survive an attempt do not go on to die by suicide later, so the method used in that hour decides who lives. A study of 26.3 million Californians followed from 2004 to 2016 found that men who acquired handguns were eight times as likely as other men to die by self-inflicted gunshot, and women 35 times as likely; they had no higher rate of suicide by other methods, which is the opposite of what pure substitution would predict. RAND's 2024 review gives its highest rating, 'supportive', to child-access prevention laws for cutting youth gun suicides and to higher minimum purchase ages for the same. It finds moderate evidence that waiting periods reduce firearm suicides. Red-flag laws let families ask a judge to pause access during a crisis, with a hearing. These are narrow laws aimed at the largest group of gun deaths.",
+        "Many suicide attempts come with little planning during a short crisis, and most people who survive an attempt do not go on to die by suicide later, so the method used in that hour decides who lives. A study of 26.3 million Californians followed from 2004 to 2016 found that men who acquired handguns were eight times as likely as other men to die by self-inflicted gunshot, and women 35 times as likely; they had no higher rate of suicide by other methods, which is the opposite of what pure substitution would predict. RAND's 2024 review gives its highest rating, 'supportive', to child-access prevention laws for cutting self-inflicted gun injuries and deaths among young people, and to higher minimum purchase ages for cutting youth gun suicides. It finds moderate evidence that waiting periods reduce firearm suicides. Red-flag laws let families ask a judge to pause access during a crisis, with a hearing. These are narrow laws aimed at the largest group of gun deaths.",
       crux: {
         id: "suicide-substitution",
         title: "The Method-Substitution Test",
@@ -203,13 +203,13 @@ export const gunControlEffectivenessData = {
           sourceUrl:
             "https://med.stanford.edu/news/all-news/2020/06/handgun-ownership-associated-with-much-higher-suicide-risk.html",
           reasoning:
-            "The largest individual-level study, and the absence of extra non-gun suicides cuts against simple substitution. It is still an association: the authors note it is hard to know whether some buyers already planned to harm themselves, and the lead author said 'There appears to be some of both happening.' It measures owning a gun, not the effect of any law.",
+            "The largest individual-level study, and the absence of extra non-gun suicides cuts against simple substitution. It is still an association: the authors note it is hard to know whether some buyers already planned to harm themselves, and the senior author, Matthew Miller, said 'There appears to be some of both happening.' It measures owning a gun, not the effect of any law.",
         },
         {
           id: "rand-cap-supportive",
-          title: "RAND 2024: 'Supportive' Evidence That Child-Access Laws Cut Youth Gun Suicides",
+          title: "RAND 2024: 'Supportive' Evidence That Child-Access Laws Cut Youth Self-Inflicted Gun Injuries",
           description:
-            "RAND's fourth edition of The Science of Gun Policy, covering research published from 1995 to February 2023 across 18 policy classes, gives its highest rating, supportive evidence, to child-access prevention (safe-storage) laws for reducing youth firearm suicides, unintentional injuries and firearm homicides, and to raising the minimum purchase age above the federal threshold for reducing youth firearm suicides. It finds moderate evidence that waiting periods reduce firearm suicides and total homicides.",
+            "RAND's fourth edition of The Science of Gun Policy, covering research published from 1995 to February 2023 across 18 policy classes, gives its highest rating, supportive evidence, to child-access prevention (safe-storage) laws for reducing self-inflicted firearm injuries and deaths, unintentional firearm injuries and deaths, and firearm homicides among young people (with moderate evidence that they cut youth firearm suicides specifically), and to raising the minimum purchase age above the federal threshold for reducing youth firearm suicides. It finds moderate evidence that waiting periods reduce firearm suicides and total homicides.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -225,9 +225,9 @@ export const gunControlEffectivenessData = {
         },
         {
           id: "red-flag-laws",
-          title: "Red Flag Laws: 7.5% to 13.7% Fewer Gun Suicides in Early Studies, Rated 'Limited'",
+          title: "Red Flag Laws: Indiana's Gun Suicides 7.5% Below Its Comparison, Evidence Rated 'Limited'",
           description:
-            "Studies of early extreme-risk protection order (ERPO) laws estimated roughly a 7.5% firearm-suicide reduction in Indiana and about 13.7% in Connecticut (Swanson et al.). RAND's evidence synthesis rates this as 'limited' evidence that ERPO laws may reduce firearm and total suicides, noting some offsetting increase in non-firearm suicides.",
+            "In the decade after Indiana enacted its extreme-risk protection order (ERPO) law in 2006, its firearm suicide rate was about 7.5% lower than that of a synthetic comparison state, which RAND calls 'a suggestive decline' (Kivisto & Phalen, 2018). The same study found larger but imprecise declines in Connecticut after enforcement stepped up in 2007, with uncertain effects on non-firearm suicide. A multi-state study (Dalafave, 2021) found reductions of about 4% in total suicides and 6% in firearm suicides. RAND concludes there is 'limited evidence that extreme-risk protection orders reduce total and firearm suicides.'",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -236,11 +236,11 @@ export const gunControlEffectivenessData = {
             directness: 6,
           },
           source:
-            "RAND, The Science of Gun Policy (ERPO/suicide); Swanson et al. (Connecticut, Indiana)",
+            "RAND, 'Effects of Extreme Risk Protection Orders on Suicide' (Gun Policy in America), reviewing Kivisto & Phalen (2018) and Dalafave (2021)",
           sourceUrl:
             "https://www.rand.org/research/gun-policy/analysis/extreme-risk-protection-orders/suicide.html",
           reasoning:
-            "Suicide is easier to study than rare mass shootings, but RAND classifies the evidence as limited and notes partial substitution, so replicability is lowered and the effect size is uncertain.",
+            "Suicide is easier to study than rare mass shootings, but RAND classifies the evidence as limited: the main study could evaluate only two states, and the effect on non-firearm suicide was uncertain, so replicability is lowered and the effect size is uncertain.",
         },
         {
           id: "kleck-total-suicide",
@@ -273,7 +273,7 @@ export const gunControlEffectivenessData = {
         "States run the experiments: some require a permit to buy a handgun, most now let adults carry without one. RAND finds evidence that looser carry laws raise homicide and that background checks lower it, but rates most laws inconclusive. Meanwhile murder fell 21% in big cities in 2025 and kept falling in 2026, under both strict and loose regimes.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The best evidence is that almost nothing on the gun-control wish list has been shown to work. RAND's 2024 review, the most careful in the field, rates the evidence on assault-weapon bans, licensing, registration and most other measures as inconclusive. The famous Connecticut permit study built its 'synthetic Connecticut' from a comparison group that was 72% Rhode Island, and similar drops in gun murder happened in most other states. And the biggest change in American violence in decades has nothing to do with gun law: homicide in large cities fell 21% in 2025 and another 18% in the first half of 2026, putting the national rate on course for its lowest level since 1900, while no new federal gun restriction passed. Policing, the end of the pandemic and community violence programs explain murder better than gun statutes do.",
+        "The best evidence is that almost nothing on the gun-control wish list has been shown to work. RAND's 2024 review, the most careful in the field, rates the evidence on assault-weapon bans and sales registration as inconclusive, and finds only limited evidence that licensing laws reduce homicide. The famous Connecticut permit study built its 'synthetic Connecticut' from a comparison group that was 72% Rhode Island, and similar drops in gun murder happened in most other states. And the biggest change in American violence in decades has nothing to do with gun law: homicide in large cities fell 21% in 2025 and another 18% in the first half of 2026, putting the national rate on course for its lowest level since 1900, while no new federal gun restriction passed. Policing, the end of the pandemic and community violence programs explain murder better than gun statutes do.",
       proponent_rebuttal:
         "Where states have changed gun laws, homicide has moved in the direction the laws predict. RAND's 2024 review finds supportive evidence, its highest rating, that stand-your-ground laws increase firearm homicides and that shall-issue carry laws increase total homicides, firearm homicides and violent crime; and moderate evidence that dealer background checks reduce firearm homicides. A synthetic-control study of right-to-carry laws estimated violent crime 13% to 15% higher ten years after adoption. Connecticut's 1995 handgun permit-to-purchase law was associated with a 40% fall in firearm homicides over ten years, about 296 fewer deaths, with no matching fall in other homicides. The 2025-26 drop in murder is welcome, but a falling national tide does not show that state laws make no difference to how high it runs in each state.",
       crux: {
@@ -379,7 +379,7 @@ export const gunControlEffectivenessData = {
           id: "ct-synthetic-critique",
           title: "Critics: 'Synthetic Connecticut' Was 72% Rhode Island, and Other States Saw Similar Drops",
           description:
-            "Writing in Reason in June 2015, Brian Doherty noted that the synthetic comparison state in the Connecticut permit study 'ends up being 72 percent Rhode Island, with a mix of Maryland and California tossed in,' and that 'very similar gun murder rate drops happened in most other states' during the same period. RAND's 2024 review rates the evidence on licensing and permitting laws mostly inconclusive.",
+            "Writing in Reason in June 2015, Brian Doherty noted that the synthetic comparison state in the Connecticut permit study 'ends up being 72 percent Rhode Island, with a mix of Maryland and California tossed in,' and that 'very similar gun murder rate drops happened in most other states' during the same period. RAND's 2024 review finds only limited evidence that licensing and permitting laws reduce homicides, and inconclusive evidence on suicide.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -388,10 +388,10 @@ export const gunControlEffectivenessData = {
             directness: 6,
           },
           source:
-            "Brian Doherty, '5 Questions About the New Study Purporting to Show Connecticut's Gun Law Saved Lives,' Reason (24 June 2015); RAND, The Science of Gun Policy, 4th ed. (2024)",
+            "Brian Doherty, '5 Problems with the New Study 'Proving' that More Background Checks Lowered Connecticut's Gun Murder Rate by 40 Percent,' Reason (24 June 2015); RAND, The Science of Gun Policy, 4th ed. (2024)",
           sourceUrl: "https://reason.com/2015/06/24/5-questions-about-the-new-study-purporti/",
           reasoning:
-            "An opinion magazine, not a peer-reviewed reanalysis, so reliability is low. The point it makes about how much one comparison state drives the result is a real methodological concern, and RAND's mostly inconclusive rating for licensing shows the field has not settled it.",
+            "An opinion magazine, not a peer-reviewed reanalysis, so reliability is low. The point it makes about how much one comparison state drives the result is a real methodological concern, and RAND's 'limited' rating for licensing shows the field has not settled it.",
         },
       ],
     },
@@ -408,9 +408,9 @@ export const gunControlEffectivenessData = {
         "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Assault-weapon bans target the guns least used in crime. Before the 1994 federal ban, assault weapons were rarely used in gun crimes, and the Justice Department's own evaluation concluded that if renewed, the ban's effects on gun violence 'are likely to be small at best and perhaps too small for reliable measurement.' Of the 11,717 gun murders the FBI tallied for 2024, rifles of every kind were involved in 3% and handguns in 53%; most of the rest did not record the type. About 24.6 million Americans own AR-15-style rifles, up to 44 million of them, and there are up to 542 million magazines holding more than ten rounds: these are among the most common guns in the country. In Mother Jones' database of mass shootings since 1982, about 74% of the guns were obtained legally, so most shooters would pass any background check. RAND rates the evidence on assault-weapon bans as inconclusive.",
+        "Assault-weapon bans target the guns least used in crime. Before the 1994 federal ban, assault weapons were rarely used in gun crimes, and the evaluation the Justice Department funded concluded that if renewed, the ban's effects on gun violence 'are likely to be small at best and perhaps too small for reliable measurement.' Of the 11,717 gun murders the FBI tallied for 2024, rifles of every kind were involved in 3% and handguns in 53%; most of the rest did not record the type. About 24.6 million Americans own AR-15-style rifles, up to 44 million of them, and there are up to 542 million magazines holding more than ten rounds: these are among the most common guns in the country. In 74% of the mass shootings in Mother Jones' database from 1982 to 2019, the guns were obtained legally, so most shooters would pass any background check. RAND rates the evidence on assault-weapon bans as inconclusive.",
       proponent_rebuttal:
-        "The weapon sets the death toll. In high-fatality mass shootings from 1990 to 2017, attacks with large-capacity magazines had a 62% higher average death toll, and states without a magazine ban had more than double the rate of such shootings and more than three times the deaths. Across US mass shootings from 2015 to 2022, Everytown found incidents involving assault weapons averaged 11.5 killed and 35.4 shot, against 5.1 killed and 6.1 shot with other guns. Large magazines let a shooter fire for longer before reloading, and reloads are when victims flee and bystanders tackle the shooter. The 1994 ban exempted millions of guns and magazines already owned and expired after ten years, so it never had a fair test. Most shooters buying legally is an argument for changing what is legal to buy.",
+        "The weapon sets the death toll. In high-fatality mass shootings from 1990 to 2017, attacks with large-capacity magazines had a 62% higher average death toll, and states without a magazine ban had more than double the rate of such shootings and more than three times the deaths. Across US mass shootings from 2016 to 2025, Everytown found incidents involving assault weapons or large magazines averaged 24.4 people shot, against 5.6 when neither was used. Large magazines let a shooter fire for longer before reloading, and reloads are when victims flee and bystanders tackle the shooter. The 1994 ban exempted millions of guns and magazines already owned and expired after ten years, so it never had a fair test. Most shooters buying legally is an argument for changing what is legal to buy.",
       crux: {
         id: "assault-weapon-lethality",
         title: "The Weapon-and-Magazine Test",
@@ -434,7 +434,7 @@ export const gunControlEffectivenessData = {
           skeptic_flip:
             "If the higher death tolls with large magazines held after adjusting for target and response time, and magazine-ban states kept recording fewer high-fatality attacks, the view that weapon type does not affect lethality would be hard to hold.",
           common_ground:
-            "Both sides agree mass shootings are a small share of US gun deaths, that most mass shooters obtain their guns legally (about 74%), and that the 1994 federal ban exempted the millions of guns and magazines already owned.",
+            "Both sides agree mass shootings are a small share of US gun deaths, that most mass shooters obtain their guns legally (74% of shootings in one count), and that the 1994 federal ban exempted the millions of guns and magazines already owned.",
           live_disagreement:
             "Whether restricting assault weapons and large magazines lowers mass-shooting casualties, or whether attackers substitute other weapons with similar results; and whether banning guns that millions of law-abiding owners keep is a fair price for that gain.",
         },
@@ -453,17 +453,16 @@ export const gunControlEffectivenessData = {
             directness: 8,
           },
           source:
-            "Klarevas, Conner & Hemenway, 'The Effect of Large-Capacity Magazine Bans on High-Fatality Mass Shootings, 1990-2017,' American Journal of Public Health 109(12) (2019), as filed in federal court",
-          sourceUrl:
-            "https://www.courthousenews.com/wp-content/uploads/2023/06/effect-large-capacity-magazines-study.pdf",
+            "Klarevas, Conner & Hemenway, 'The Effect of Large-Capacity Magazine Bans on High-Fatality Mass Shootings, 1990-2017,' American Journal of Public Health 109(12) (2019)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6836798/",
           reasoning:
             "Peer-reviewed, with ten controls and state fixed effects. It rests on 69 events, so a few shootings can move the result, and critics question the six-death threshold. RAND rates the evidence that magazine bans reduce mass shootings as limited.",
         },
         {
           id: "assault-weapon-casualties",
-          title: "Everytown 2015-2022: 11.5 Killed per Assault-Weapon Mass Shooting vs 5.1 With Other Guns",
+          title: "Everytown 2016-2025: 24.4 Shot per Mass Shooting With Assault Weapons or Large Magazines, 5.6 Without",
           description:
-            "Across US mass shootings from 2015-2022, Everytown found the 30 incidents involving assault weapons averaged 11.5 killed and 35.4 shot per incident, vs. 5.1 killed and 6.1 shot in the 78 incidents using other guns.",
+            "Across US mass shootings (four or more killed) from 2016 to 2025, Everytown counted 52 incidents involving an assault weapon or high-capacity magazine, with 482 killed and 785 wounded, an average of 9.3 killed and 24.4 shot per incident. The 178 incidents involving neither left 799 killed and 198 wounded, an average of 5.6 shot per incident (about 4.5 killed). All 10 of the highest-casualty mass shootings since 2016 involved both an assault weapon and a high-capacity magazine.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -471,7 +470,7 @@ export const gunControlEffectivenessData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Everytown Research (advocacy org), 2015-2022 data",
+          source: "Everytown Research (advocacy org), 'Assault Weapons and High-Capacity Magazines' (updated 24 June 2026), 2016-2025 data",
           sourceUrl:
             "https://everytownresearch.org/report/assault-weapons-and-high-capacity-magazines/",
           reasoning:
@@ -479,7 +478,7 @@ export const gunControlEffectivenessData = {
         },
         {
           id: "koper-awb-1994",
-          title: "Justice Department Study 2004: Renewed Ban's Effects 'Likely to Be Small at Best'",
+          title: "Justice Department-Funded Study 2004: Renewed Ban's Effects 'Likely to Be Small at Best'",
           description:
             "The federally funded evaluation of the 1994-2004 assault weapons ban found the share of gun crimes involving assault weapons fell 17% to 72% in the cities studied, mostly through fewer assault pistols. But use of other guns with large magazines held steady or rose, because millions of pre-ban magazines were exempt. Christopher Koper concluded 'we cannot clearly credit the ban with any of the nation's recent drop in gun violence' and that, if renewed, its effects 'are likely to be small at best and perhaps too small for reliable measurement.' Assault weapons were rarely used in gun crimes even before the ban.",
           side: "against" as const,
@@ -497,9 +496,9 @@ export const gunControlEffectivenessData = {
         },
         {
           id: "background-check-pass",
-          title: "Mother Jones Database: About 74% of Mass Shooters' Guns Were Obtained Legally",
+          title: "Mother Jones Data: 74% of Mass Shootings Since 1982 Involved Legally Obtained Guns",
           description:
-            "In Mother Jones' database of US mass shootings since 1982, about 74% of the firearms used were obtained legally, implying most perpetrators passed (or would have passed) a background check.",
+            "A 2019 public-radio analysis of Mother Jones' database found that of the 114 US mass shootings since 1982, 85 (74%) 'involved firearms obtained by legal means'; in 12 the source of the guns was unknown. That implies most perpetrators passed (or would have passed) a background check.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -507,9 +506,10 @@ export const gunControlEffectivenessData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Mother Jones US Mass Shootings Database (since 1982)",
+          source:
+            "Luis Melgar & Lisa Dunn, 'Since 1982, 74 Percent Of Mass Shooters Obtained Their Guns Legally,' Guns & America / KCUR (13 August 2019), from the Mother Jones US Mass Shootings Database",
           sourceUrl:
-            "https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/",
+            "https://www.kcur.org/2019-08-13/since-1982-74-percent-of-mass-shooters-obtained-their-guns-legally",
           reasoning:
             "Limits what background-check expansion can do about this kind of attack. It is a journalistic compilation with a narrow definition of mass shooting, and it says nothing about laws that restrict what may be bought.",
         },
@@ -526,9 +526,9 @@ export const gunControlEffectivenessData = {
             directness: 5,
           },
           source:
-            "William English, '2021 National Firearms Survey: Updated Analysis' (Georgetown, May 2022), as filed in federal court",
+            "William English, '2021 National Firearms Survey: Updated Analysis Including Types of Firearms Owned' (Georgetown McDonough School of Business Research Paper, SSRN, May 2022); filed in September 2024 as an exhibit to the Illinois state defendants' motion to preclude it in Barnett v. Raoul (S.D. Ill.)",
           sourceUrl:
-            "https://michellawyers.com/wp-content/uploads/2024/09/2024-09-06-Exhibit-1-William-English-2021-National-Firearms-Survey-ISO-State-Defendants-Mtn-to-Preclude-Consideration-of-William-English-NSSF-Surveys.pdf",
+            "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4109494",
           reasoning:
             "If roughly right, a ban would reach tens of millions of lawful owners and a stockpile no buyback could quickly retire, and courts weigh how common a weapon is when deciding whether it is protected. The survey has been used in litigation against gun laws, states defending those laws have asked courts to exclude it, and its online sample is contested, so the weights are low.",
         },

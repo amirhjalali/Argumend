@@ -21,12 +21,12 @@ export const secondAmendmentIndividualRightData = {
       "In Heller (2008) the Supreme Court held 5-4 that the Second Amendment protects an individual right to keep a gun for self-defense. In Bruen (2022) it ruled that gun laws must fit the nation's historical tradition. On 30 June 2026 it agreed to decide whether states may ban AR-15-style rifles, with a ruling expected by June 2027. The fight is over what the amendment meant when it was written, and how far that meaning reaches today.",
     confidence: 92,
     source:
-      "District of Columbia v. Heller, 554 U.S. 570 (2008); New York State Rifle & Pistol Ass'n v. Bruen, 597 U.S. 1 (2022); Duke Center for Firearms Law, 'Cert Alert' (30 June 2026)",
+      "District of Columbia v. Heller, 554 U.S. 570 (2008); New York State Rifle & Pistol Ass'n v. Bruen, 597 U.S. 1 (2022); Duke Center for Firearms Law, 'Cert Alert' (30 June 2026); The Reload, 'Supreme Court to Decide Constitutionality of AR-15 Bans' (30 June 2026), on the term ending in June 2027",
     sourceUrl:
       "https://firearmslaw.duke.edu/2026/06/cert-alert-scotus-grants-certiorari-in-ar-15-ban-cases",
   },
   simple_case: [
-    "The answer decides which gun laws survive in court: bans on AR-15s in the nine states that prohibit them, limits on large magazines, limits on where licensed owners may carry, and which people may be disarmed.",
+    "The answer decides which gun laws survive in court: bans on AR-15s and similar rifles, which about a dozen states have enacted, limits on large magazines, limits on where licensed owners may carry, and which people may be disarmed.",
     "Both sides accept that Heller is the law. They split over whether the history behind it is right, and over how a test built on history should judge weapons and places the founders never knew.",
   ],
   pillars: [
@@ -37,12 +37,12 @@ export const secondAmendmentIndividualRightData = {
       id: "text-and-founding-history",
       title: "What Did 'Bear Arms' Mean in 1791?",
       short_summary:
-        "Searches of founding-era writing find 'bear arms' used mostly in a military sense, by some counts about 95% of the time. Critics of those counts find about a fifth of uses meant carrying a gun as an individual, and note the amendment also protects the right to 'keep' arms. What ordinary readers in 1791 understood is the first split.",
+        "Searches of founding-era writing find 'bear arms' used mostly in a military sense, by some counts about 95% of the time. Critics note that one re-analysis found about a fifth of the clear uses meant an individual carrying a gun, that the counts leave out constitutional texts, and that the amendment also protects the right to 'keep' arms. What ordinary readers in 1791 understood is the first split.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "In the founders' English, to 'bear arms' meant to serve as a soldier. When linguists searched the founding-era corpora, the large databases of 18th-century writing built at Brigham Young University, they found the phrase used in a military or collective sense in the large majority of cases: Dennis Baron reported that of about 1,500 uses, all but a handful were military, and Neal Goldfarb estimated about 95%. The amendment opens with 'A well regulated Militia, being necessary to the security of a free State,' which no other right in the Bill of Rights needs. Historians such as Saul Cornell argue that the founders saw arms-bearing as a civic duty owed to a state militia, and that the idea of a freestanding private right to arms for self-defense grew up later. On this reading, the amendment protected the states' militias from a federal government that might disarm them, and says little about private guns.",
+        "In the founders' English, to 'bear arms' meant to serve as a soldier. When linguists searched the founding-era corpora, the large databases of 18th-century writing built at Brigham Young University, they found the phrase used in a military or collective sense in the large majority of cases: Dennis Baron reported that of about 1,500 uses in the 17th and 18th centuries, only a handful were not about war or soldiering, and Neal Goldfarb estimated about 95% for 1760-1799. The amendment opens with 'A well regulated Militia, being necessary to the security of a free State,' which no other right in the Bill of Rights needs. Historians such as Saul Cornell argue that the founders saw arms-bearing as neither an individual nor a collective right but a civic one, a duty citizens owed the state so they could serve in a well-regulated militia. On this reading, the amendment protected the states' militias from a federal government that might disarm them, and says little about private guns.",
       proponent_rebuttal:
-        "The amendment protects 'the right of the people to keep and bear Arms,' and 'the people' means individuals everywhere else in the Bill of Rights. To 'keep' arms is plainly to own them. The militia clause states one reason for the right, not its limit, a common drafting style in the period. The corpus counts depend on choices: when constitutional texts are included and plural or unclear uses are not coded as collective, about a fifth of founding-era uses of 'bear arms' mean an individual carrying a weapon. Several state constitutions of the founding era, such as Pennsylvania's of 1776, declared that 'the people have a right to bear arms for the defence of themselves and the state.' The Fifth Circuit reached the individual-right reading in 2001 after a long review of the history, seven years before Heller.",
+        "The amendment protects 'the right of the people to keep and bear Arms,' and 'the people' means individuals everywhere else in the Bill of Rights. To 'keep' arms is plainly to own them. The militia clause states one reason for the right, not its limit, a common drafting style in the period. The corpus counts depend on choices: one re-analysis found that about a fifth of the clear founding-era uses of 'bear arms' meant an individual carrying a weapon, and the leading studies left out the phrase's use in constitutions and coded plural uses as collective. Several state constitutions of the founding era, such as Pennsylvania's of 1776, declared that 'the people have a right to bear arms for the defence of themselves and the state.' The Fifth Circuit reached the individual-right reading in 2001 after a long review of the history, seven years before Heller.",
       crux: {
         id: "bear-arms-corpus-meaning",
         title: "The Founding-Era 'Bear Arms' Test",
@@ -62,7 +62,7 @@ export const secondAmendmentIndividualRightData = {
           supporter_flip:
             "If sensitivity-tested corpus work, including constitutional texts and re-coding plural uses, still found literal individual carrying rare, and 'keep arms' and the state provisions offered no independent support, the historical case for an individual right would shrink to precedent alone.",
           skeptic_flip:
-            "If re-analyses including constitutional texts held at about a fifth of founding-era 'bear arms' uses being literal individual carrying, with the right to 'keep' arms and state provisions securing arms for personal defense, the corpus counts would support the militia-only reading less.",
+            "If re-analyses that include constitutional texts found a fifth or more of clear founding-era 'bear arms' uses to be literal individual carrying, with the right to 'keep' arms and state provisions securing arms for personal defense, the corpus counts would support the militia-only reading less.",
           common_ground:
             "Both sides agree 'bear arms' carried a military meaning in most founding-era uses, and that contemporaneous state constitutions varied, some securing arms for personal defense and some tying them to the militia.",
           live_disagreement:
@@ -72,9 +72,9 @@ export const secondAmendmentIndividualRightData = {
       evidence: [
         {
           id: "corpus-individual-carrying",
-          title: "Kopel and Wallace 2021: About a Fifth of 'Bear Arms' Uses Meant Individual Carrying",
+          title: "Kopel and Wallace 2021: In One Coding, 21% of Clear 'Bear Arms' Uses Meant Individual Carrying",
           description:
-            "Re-analyses (e.g., by Josh Jones, and critiques by Kopel & Wallace) find that when constitutional texts are included and plural/ambiguous uses are not coded as 'collective,' roughly one-fifth of founding-era 'bear arms' uses are literal individual carrying — more than the strongest military-meaning claims imply.",
+            "Writing at the Volokh Conspiracy, David Kopel and Gregory Wallace note that in Josh Jones's 2019 coding of founding-era uses, once the ambiguous ones are set aside, 'only 21% of the relevant uses' were 'unambiguously literal' (individuals carrying weapons), against 79% military: more than the 'at least 95 percent' military figure implies. They argue the leading studies also excluded 'bear arms' in constitutional provisions and coded plurals as collective, though 'plurals often are used to describe two or more individuals.'",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -83,17 +83,17 @@ export const secondAmendmentIndividualRightData = {
             directness: 7,
           },
           source:
-            "Reason / Volokh Conspiracy (Kopel & Wallace, 2021), 'Corpus Linguistics and the Second Amendment'; summarizing Jones's COFEA re-analysis",
+            "David Kopel & Gregory Wallace, 'Corpus Linguistics and the Second Amendment,' Volokh Conspiracy, Reason (31 October 2021), discussing Josh Jones's 2019 COFEA analysis",
           sourceUrl:
             "https://reason.com/volokh/2021/10/31/corpus-linguistics-and-the-second-amendment/",
           reasoning:
-            "Replicable against the same public corpora and it exposes how much the military-meaning percentages depend on coding. It is commentary by gun-rights scholars rather than a neutral peer-reviewed study, and a fifth of uses still leaves the military meaning dominant.",
+            "Replicable against the same public corpora and it exposes how much the military-meaning percentages depend on coding. It is commentary by gun-rights scholars rather than a neutral peer-reviewed study, and a fifth of clear uses still leaves the military meaning dominant.",
         },
         {
           id: "emerson-2001",
           title: "Emerson 2001: The Fifth Circuit Found an Individual Right Seven Years Before Heller",
           description:
-            "In United States v. Emerson (2001), the Fifth Circuit became the first federal court of appeals to formally adopt the individual-rights ('Standard Model') reading after an extensive review of text and founding history, breaking from the collective-right consensus of its sister circuits and presaging Heller.",
+            "In United States v. Emerson (16 October 2001), the Fifth Circuit held after an extensive review of text and founding history that 'the right of the people to keep arms' is 'an individual, rather than a collective, right', the view 'known by commentators as the individual rights model or the standard model.' It acknowledged that 'almost all of our sister circuits have rejected any individual rights view of the Second Amendment,' and it anticipated Heller by seven years.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -103,7 +103,7 @@ export const secondAmendmentIndividualRightData = {
           },
           source:
             "United States v. Emerson, 270 F.3d 203 (5th Cir. 2001)",
-          sourceUrl: "https://en.wikipedia.org/wiki/United_States_v._Emerson",
+          sourceUrl: "https://caselaw.findlaw.com/us-5th-circuit/1332436.html",
           reasoning:
             "A federal appeals court reaching the individual-right conclusion through its own historical analysis, before and apart from the Supreme Court. It was one circuit against several that read the right the other way.",
         },
@@ -111,7 +111,7 @@ export const secondAmendmentIndividualRightData = {
           id: "corpus-military-meaning",
           title: "Corpus Studies: About 95% of Founding-Era 'Bear Arms' Uses Were Military",
           description:
-            "Analyses of the BYU founding-era corpora (COFEA/COEME) by Dennis Baron and others found that 'bear arms' overwhelmingly carried a military/idiomatic meaning ('serve as a soldier, do military service'); Baron reported that of ~1,500 founding-era uses, all but a handful were military, and Goldfarb estimated ~95% conveyed the idiomatic military sense.",
+            "Analyses of the BYU corpora of founding-era and early modern English (COFEA/COEME) found that 'bear arms' overwhelmingly carried a military/idiomatic meaning ('serve as a soldier, do military service'). Dennis Baron reported that of about 1,500 separate occurrences in the 17th and 18th centuries, 'only a handful don't refer to war, soldiering or organized, armed action', and Neal Goldfarb concluded that 'at least 95 percent' of uses from 1760 to 1799 conveyed the idiomatic military sense.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -120,7 +120,7 @@ export const secondAmendmentIndividualRightData = {
             directness: 7,
           },
           source:
-            "Duke Center for Firearms Law, 'Legal Corpus Linguistics and the Meaning of Bear Arms' (2021), summarizing Baron and Goldfarb",
+            "E. Gregory Wallace, 'Legal Corpus Linguistics and the Meaning of Bear Arms,' Duke Center for Firearms Law (16 July 2021), summarizing Goldfarb; Dennis Baron, 'Antonin Scalia was wrong about the meaning of bear arms,' Washington Post (21 May 2018)",
           sourceUrl:
             "https://firearmslaw.duke.edu/2021/07/legal-corpus-linguistics-and-the-meaning-of-bear-arms",
           reasoning:
@@ -130,7 +130,7 @@ export const secondAmendmentIndividualRightData = {
           id: "cornell-civic-right",
           title: "Historian Saul Cornell: Arms-Bearing Was a Civic Duty to the Militia",
           description:
-            "Constitutional historian Saul Cornell argues that founders understood the right to bear arms as a civic obligation to participate in a well-regulated militia, that federal courts treated it as a collective right for over a century, and that the modern individual-right view emerged only in the 19th century.",
+            "Constitutional historian Saul Cornell argues that the founders understood the right to bear arms 'as neither an individual nor a collective right, but as a civic right--an obligation citizens owed to the state to arm themselves so that they could participate in a well regulated militia.'",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -143,7 +143,7 @@ export const secondAmendmentIndividualRightData = {
           sourceUrl:
             "https://global.oup.com/academic/product/a-well-regulated-militia-9780195341034",
           reasoning:
-            "Peer-reviewed scholarship by a leading historian of the period. Other historians read the same record as supporting a private right.",
+            "Scholarship from a university press by a leading historian of the period. Other historians read the same record as supporting a private right.",
         },
       ],
     },
@@ -229,7 +229,7 @@ export const secondAmendmentIndividualRightData = {
           id: "miller-1939",
           title: "Miller 1939: A Gun Law Upheld Because the Weapon Had No Militia Use",
           description:
-            "In United States v. Miller (1939), the Court upheld a National Firearms Act conviction because a sawed-off shotgun had no 'reasonable relationship to the preservation or efficiency of a well regulated militia,' framing the Amendment's 'obvious purpose' as assuring an effective militia. For about 70 years most lower courts read it as establishing a militia-tied right.",
+            "In United States v. Miller (1939), the Court reversed the dismissal of a National Firearms Act indictment because, absent evidence that a sawed-off shotgun had some 'reasonable relationship to the preservation or efficiency of a well regulated militia,' it could not say the Second Amendment protected it, framing the Amendment's 'obvious purpose' as assuring an effective militia. For about 70 years most lower courts read it as establishing a militia-tied right.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -238,7 +238,7 @@ export const secondAmendmentIndividualRightData = {
             directness: 7,
           },
           source: "United States v. Miller, 307 U.S. 174 (1939)",
-          sourceUrl: "https://en.wikipedia.org/wiki/United_States_v._Miller",
+          sourceUrl: "https://www.law.cornell.edu/supremecourt/text/307/174",
           reasoning:
             "The precedent the militia reading rested on for decades. Its terse opinion, in a case where the respondent never appeared, left its holding ambiguous, which is why Heller could read it as a case about weapons rather than people.",
         },
@@ -273,9 +273,9 @@ export const secondAmendmentIndividualRightData = {
         "Since Bruen (2022), a gun law survives only if it fits the nation's historical tradition. The Court upheld disarming people under domestic-violence orders in 2024, struck down Hawaii's default carry ban and a drug-user prosecution in June 2026, and will decide on AR-15 bans by June 2027. Whether the right covers the most popular rifle in America is the third split.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Even granting an individual right, Heller itself said it is 'not unlimited', and a history-only test cannot sensibly judge weapons and threats the founders never imagined. Bruen told judges to ignore whether a law saves lives and look only for old analogues; lower courts have split ever since, upholding a law in one circuit and striking the same kind of law in another, as with 21-and-older purchase limits, which the Third Circuit struck down and the Fourth, Eleventh and DC circuits upheld. Even this Court had to step back in Rahimi (2024), ruling 8-1 that a person a court finds to be a credible threat to another may be disarmed, and saying the test needs no 'historical twin.' The Fourth Circuit held in the Maryland case that AR-15s are not even 'arms' the amendment protects, given their military design. States that ban them are making the kind of judgment about dangerous weapons that legislatures have made since the founding.",
+        "Even granting an individual right, Heller itself said it is 'not unlimited', and a history-only test cannot sensibly judge weapons and threats the founders never imagined. Bruen told judges to ignore whether a law saves lives and look only for old analogues; lower courts have split ever since, upholding a law in one circuit and striking the same kind of law in another, as with 21-and-older purchase limits, which the Third Circuit struck down and the Fourth and Eleventh Circuits and the D.C. Court of Appeals upheld. Even this Court had to step back in Rahimi (2024), ruling 8-1 that a person a court finds to be a credible threat to another may be disarmed, and saying the test needs no 'historical twin.' The Fourth Circuit held in the Maryland case that AR-15s are not even 'arms' the amendment protects, given their military design. States that ban them are making the kind of judgment about dangerous weapons that legislatures have made since the founding.",
       proponent_rebuttal:
-        "The right protects the arms law-abiding people actually choose, and Americans have chosen the AR-15. Justice Kavanaugh wrote in 2025 that there is 'a strong argument that AR-15s are in common use by law-abiding citizens,' with an estimated 20 to 30 million in circulation, legal in 41 of 50 states. Bruen replaced judges' own weighing of costs and benefits with the method the Court uses for other rights: text and history. Since then it has struck down New York's rule that a citizen show 'proper cause' to carry a gun; in June 2026, by 6-3 in Wolford v. Lopez, Hawaii's rule that licensed carriers may not enter shops and other private property open to the public without the owner's express permission; and, in United States v. Hemani, a prosecution of a man for owning a pistol while using marijuana, because the government did not show he was dangerous. Rahimi shows the test can uphold sensible laws that target dangerous people. Banning a common rifle owned by millions of peaceful people is not one of them.",
+        "The right protects the arms law-abiding people actually choose, and Americans have chosen the AR-15. Justice Kavanaugh wrote in 2025 that there is 'a strong argument that AR-15s are in \"common use\" by law-abiding citizens,' with an estimated 20 to 30 million in circulation, legal in 41 of 50 states. Bruen replaced judges' own weighing of costs and benefits with the method the Court uses for other rights: text and history. Since then it has struck down New York's rule that a citizen show 'proper cause' to carry a gun; in June 2026, by 6-3 in Wolford v. Lopez, Hawaii's rule that licensed carriers may not enter shops and other private property open to the public without the owner's express permission; and, in United States v. Hemani, a prosecution of a man for keeping a gun at home while using marijuana, because the government did not show he was dangerous. Rahimi shows the test can uphold sensible laws that target dangerous people. Banning a common rifle owned by millions of peaceful people is not one of them.",
       crux: {
         id: "ar15-ban-history-test",
         title: "The AR-15 Test",
@@ -297,7 +297,7 @@ export const secondAmendmentIndividualRightData = {
           skeptic_flip:
             "If the record showed weapon bans in the founding era reached only weapons that were rare or carried concealed to commit crimes, never a common arm kept at home, the claim that an AR-15 ban fits the nation's tradition would be hard to hold.",
           common_ground:
-            "Both sides agree Bruen (2022) requires gun laws to fit the nation's historical tradition, that Rahimi (2024) allows disarming people a court finds dangerous, and that about nine states ban AR-15-style rifles pending the Court's 2027 ruling.",
+            "Both sides agree Bruen (2022) requires gun laws to fit the nation's historical tradition, that Rahimi (2024) allows disarming people a court finds dangerous, and that about a dozen states have 'assault weapon' bans in force pending the Court's ruling.",
           live_disagreement:
             "Whether a weapon's popularity makes it protected, or whether legislatures may ban weapons they judge too dangerous for civilian use; and whether a test built only on history can weigh modern firearms and the lives at stake.",
         },
@@ -324,7 +324,7 @@ export const secondAmendmentIndividualRightData = {
           id: "wolford-2026",
           title: "Wolford v. Lopez, June 2026: 6-3 Against Hawaii's Default Ban on Carry Onto Private Property",
           description:
-            "On 25 June 2026 the Supreme Court, in an opinion by Justice Alito joined by Chief Justice Roberts and Justices Thomas, Gorsuch, Kavanaugh and Barrett, held that Hawaii's Act 52 'cannot be reconciled with the right to bear arms' because it barred licensed carriers from carrying on private property open to the public without the owner's express permission. Justices Kagan and Jackson dissented, Justice Sotomayor joining Jackson. Hawaii's limits in places such as parks, beaches and bars were not affected, and owners may still bar guns.",
+            "On 25 June 2026 the Supreme Court, in an opinion by Justice Alito joined by Chief Justice Roberts and Justices Thomas, Gorsuch, Kavanaugh and Barrett, held that Hawaii's Act 52, which barred licensed carriers from carrying on private property open to the public without the owner's express authorization, 'violates the Second and Fourteenth Amendments': 'We hold that the law is unconstitutional.' Justices Kagan and Jackson dissented, Justice Sotomayor joining Jackson. Hawaii's limits in places such as parks, beaches and restaurants that serve alcohol were not affected, and owners may still bar guns.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -333,9 +333,9 @@ export const secondAmendmentIndividualRightData = {
             directness: 6,
           },
           source:
-            "Faegre Drinker, 'Supreme Court Decides Wolford v. Lopez' (June 2026); Hawaii Public Radio (26 June 2026)",
+            "Wolford v. Lopez, No. 24-1046, 609 U.S. 185 (25 June 2026), preliminary print; Hawaii Public Radio (26 June 2026)",
           sourceUrl:
-            "https://www.faegredrinker.com/en/insights/publications/2026/6/supreme-court-decides-wolford-v-lopez-attorney-general-of-hawaii",
+            "https://www.supremecourt.gov/opinions/25pdf/609us1r58_a8cf.pdf",
           reasoning:
             "Shows the current majority applying Bruen to strike down a carry rule written after it. It is about where guns may be carried, not which guns may be owned, and it left most of Hawaii's law in place.",
         },
@@ -343,7 +343,7 @@ export const secondAmendmentIndividualRightData = {
           id: "ar15-cert-2026",
           title: "June 2026: Court Agrees to Decide AR-15 Bans; Kavanaugh Cites 20-30 Million in Circulation",
           description:
-            "On 30 June 2026 the Supreme Court granted review in Viramontes v. Cook County, Illinois, a challenge to Cook County's ban on AR-15s and similar rifles, and Grant v. Higgins, a challenge to Connecticut's assault weapons ban. The year before, it had denied review of Maryland's ban in Snope v. Brown; Justice Kavanaugh then wrote there is 'a strong argument that AR-15s are in common use by law-abiding citizens,' citing an estimated 20 to 30 million in circulation and noting they are legal in 41 of 50 states. The Court also denied review of several challenges to 21-and-older purchase limits, leaving a split among the circuits.",
+            "On 30 June 2026 the Supreme Court granted review in Viramontes v. Cook County, Illinois, a challenge to Cook County's ban on AR-15s and similar rifles, and Grant v. Higgins, a challenge to Connecticut's assault weapons ban. The year before, it had denied review of Maryland's ban in Snope v. Brown; Justice Kavanaugh then wrote that the challengers had 'a strong argument that AR-15s are in \"common use\" by law-abiding citizens,' citing an estimated 20 to 30 million in circulation and noting they are legal in 41 of 50 states. The Court also denied review of several challenges to 21-and-older purchase limits, leaving a split among the circuits.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -378,7 +378,7 @@ export const secondAmendmentIndividualRightData = {
           id: "hemani-2026",
           title: "Hemani, June 2026: Drug-User Gun Ban Unconstitutional as Applied to One Marijuana User",
           description:
-            "On 18 June 2026, in an opinion by Justice Gorsuch, the Court held that prosecuting Ali Hemani under the federal 'unlawful user' ban, for having a handgun while using marijuana, was 'inconsistent with the Second Amendment,' because the government offered no showing that his drug use made him dangerous. The ruling is limited to his circumstances; it left open bans on addicts or intoxicated people and future laws aimed at users of particular drugs. Justice Jackson, joined by Justice Sotomayor, concurred but criticised Bruen's history-and-tradition test.",
+            "On 18 June 2026, in an opinion by Justice Gorsuch, the Court held that prosecuting Ali Hemani under the federal 'unlawful user' ban, for keeping a gun in his home while using marijuana, was 'inconsistent with the Second Amendment,' because the government offered no showing that his drug use made him dangerous. The ruling is limited to his circumstances; it left open bans on addicts or intoxicated people and future laws aimed at users of particular drugs. Justice Jackson, joined by Justice Sotomayor, concurred but criticised Bruen's history-and-tradition test.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -386,9 +386,9 @@ export const secondAmendmentIndividualRightData = {
             replicability: 8,
             directness: 4,
           },
-          source: "National Constitution Center, 'Supreme Court rules in favor of man facing gun ban for using marijuana' (June 2026)",
+          source: "United States v. Hemani, No. 24-1234, 608 U.S. 772 (18 June 2026), preliminary print",
           sourceUrl:
-            "https://constitutioncenter.org/amp/blog/supreme-court-rules-in-favor-of-man-facing-gun-ban-for-using-marijuana",
+            "https://www.supremecourt.gov/opinions/25pdf/608us2r51_k4lo.pdf",
           reasoning:
             "A narrow ruling that tied disarmament to a showing of danger, the same line Rahimi drew. Supporters of broad rights read it as a win; supporters of regulation read it as confirming that dangerous people can still be disarmed, and two justices used it to attack the history test itself.",
         },
