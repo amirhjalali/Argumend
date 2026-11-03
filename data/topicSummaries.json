@@ -19,7 +19,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "helpline wagered bettors sportsbook gamblers ncaa intimate upset earmarked arnesen balthrop geocomply if12761 kotter matsuzawa"
+    "keywords": "helpline wagered bettors sportsbook gamblers ncaa upset earmarked arnesen balthrop geocomply if12761 kotter matsuzawa pisciotta"
   },
   {
     "id": "pfas-forever-chemicals",
@@ -124,22 +124,26 @@
     "title": "Can AI Chatbots Replace Therapists?",
     "question": "Can AI chatbots replace therapists?",
     "meta_claim": "AI chatbots can substitute for human therapists in delivering effective, safe mental-health care",
-    "confidence_score": 39,
-    "balance": 39,
-    "weight": 73,
+    "confidence_score": 38,
+    "balance": 38,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 19,
     "firstCrux": "Do chatbots' short-term symptom gains hold up against human therapists and last beyond a few months?",
     "tags": [
       "technology"
     ],
-    "keywords": "therabot facct nedas woebot sycophancy tessa bots psychotherapy roleplay heinz moore ckiger darcy fitzpatrick jmir"
+    "aliases": [
+      "Is it safe to use ChatGPT as a therapist?",
+      "Should AI therapy apps be banned?"
+    ],
+    "keywords": "therabot woebot facct nedas psychotherapy bots tessa darcy psychosis genai heinz hotline waitlist moore ckiger"
   },
   {
     "id": "carbon-capture-viability",
@@ -161,7 +165,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation mothballed mammoth dioxide amine beneath orca wgiii barrel"
+    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation mothballed mammoth amine beneath orca wgiii barrel beccs"
   },
   {
     "id": "hydrogen-economy-viability",
@@ -294,7 +298,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann serial untenable looming superhuman besiroglu"
+    "keywords": "chinchilla kokotajlos centric alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann serial superhuman untenable looming"
   },
   {
     "id": "jones-act",
@@ -573,7 +577,7 @@
       "Single-payer health care",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord knee mercatus overdoses blahous cihi papanicolas woskie wherry allemani baicker cataract embolism generalist glycated"
+    "keywords": "concord knee mercatus overdoses blahous cihi papanicolas woskie wherry allemani baicker cataract embolism glycated goldin"
   },
   {
     "id": "gun-control-effectiveness",
@@ -629,7 +633,7 @@
       "Hawley-Welch $15 minimum wage bill",
       "California $20 fast-food minimum wage"
     ],
-    "keywords": "neumark krueger cengiz shirley sosinskiy wascher reich clemens eitc preponderance argumends bobby dube lindner meer"
+    "keywords": "neumark krueger cengiz shirley sosinskiy wascher reich clemens eitc preponderance bobby dube lindner meer nguyen"
   },
   {
     "id": "drug-decriminalization",
@@ -882,7 +886,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "pell coaching gpas galla prep allensworth alvero briggs nacac derek sttf deming antonio domingue eabi9031"
+    "keywords": "pell coaching gpas galla prep underrepresented allensworth alvero briggs nacac derek sttf deming antonio domingue"
   },
   {
     "id": "electoral-college-reform",
@@ -926,7 +930,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo bridgedetroit buolamwini criminology farrington gebru lineup munyo piza rossi shades welsh"
+    "keywords": "detroit smartlink medell montevideo bridgedetroit buolamwini criminology farrington gebru munyo piza rossi shades welsh zhan"
   },
   {
     "id": "us-iran-conflict",
@@ -1234,7 +1238,7 @@
       "Australia social media ban for under-16s",
       "Should there be a minimum age for social media?"
     ],
-    "keywords": "esafety netchoice yoti medianet muster tweens eleventh indonesia malaysia floridians greeces rkiyes tjoflat uthmeier blakemore"
+    "keywords": "esafety netchoice yoti medianet muster tweens eleventh indonesia malaysia floridians greeces rkiyes tjoflat tones uthmeier"
   },
   {
     "id": "social-media-mental-health",
@@ -1290,7 +1294,7 @@
       "Could AI escape human control?",
       "Could a misaligned superintelligence wipe out humanity?"
     ],
-    "keywords": "apollo kapoor narayanan amodei astra rlhf opus hyperfocused redwood sonnet circled sandbox boat deliberative mini"
+    "keywords": "apollo kapoor narayanan rlhf amodei astra opus hyperfocused redwood sonnet circled sandbox boat deliberative mini"
   },
   {
     "id": "ai-content-labeling",
@@ -1312,7 +1316,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "parody synthid altay bonta feizi forged gilardi kohls dathathri farid nightingale saberi sadasivan thumbs zauderer"
+    "keywords": "parody synthid altay bonta feizi gilardi kohls forged dathathri farid nightingale saberi sadasivan spoofed thumbs"
   },
   {
     "id": "big-tech-antitrust",
@@ -1334,7 +1338,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "mehta headwind boasberg chrome monopolist genai brynjolfsson wrested android monopolized crippling brinkema gses kamepalli perplexity"
+    "keywords": "mehta headwind boasberg chrome monopolist brynjolfsson genai wrested monopolized android crippling brinkema gses kamepalli perplexity"
   },
   {
     "id": "cancel-culture",
@@ -1476,7 +1480,7 @@
       "Should states or Washington regulate AI?",
       "Should AI companies be allowed to police themselves?"
     ],
-    "keywords": "summit seoul multimodal vetoed globalist hinton zhipu thalidomide altman amodei delhi calif hassabis knapp vocabulary"
+    "keywords": "summit seoul multimodal vetoed globalist hinton zhipu thalidomide amodei delhi calif hassabis knapp vocabulary kelsey"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1573,16 +1577,16 @@
     "tags": [
       "science"
     ],
-    "keywords": "pisa douyin circuitry anterior dopamine geng gnambs goldfish lorenz maybin spreen supplementary teng wood clips"
+    "keywords": "pisa douyin circuitry anterior dopamine geng gnambs goldfish lorenz maybin spreen teng wood clips multistate"
   },
   {
     "id": "ai-replacing-doctors",
     "title": "Will AI Replace Doctors Within a Decade?",
     "question": "Will AI replace doctors within a decade?",
     "meta_claim": "AI systems will be capable of diagnosing and treating most medical conditions better than human physicians within 10 years, fundamentally disrupting healthcare.",
-    "confidence_score": 44,
-    "balance": 44,
-    "weight": 74,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1590,12 +1594,16 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 15,
+    "evidenceCount": 20,
     "firstCrux": "Does AI's benchmark accuracy hold up on messy real-world clinical data across populations?",
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine jamainternmed kung mammography odyssey usmle lesions rads annonc ayers brormann"
+    "aliases": [
+      "Is AI better than doctors at diagnosis?",
+      "Can I trust ChatGPT for medical advice?"
+    ],
+    "keywords": "radiologists sepsis radiology healthbench mammogram mammography masai pneumonia generalist malpractice telehealth empathetic gerke kelley kung"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1812,7 +1820,7 @@
       "Does psychedelic therapy actually work?",
       "Are the claims about psychedelic therapy exaggerated?"
     ],
-    "keywords": "mdma mapp2 psychopharmacology hopkins gukasyan lykos madrs nasdaq unblinding antidepressant remission agrawal carhart comp005 comp006"
+    "keywords": "mdma mapp2 psychopharmacology hopkins gukasyan lykos madrs nasdaq remission unblinding antidepressant agrawal carhart comp005 comp006"
   },
   {
     "id": "lab-leak-theory",
@@ -1892,7 +1900,7 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity fibrosis cellular ebiomedicine grimage healthspan metformin mayo agonists tumor dasatinib"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity fibrosis cellular ebiomedicine grimage healthspan mayo metformin agonists tumor dasatinib"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -1920,7 +1928,7 @@
       "Should minors receive gender-affirming care?",
       "Are puberty blockers safe for children?"
     ],
-    "keywords": "bone nonbinary trevor tavistock cass plastic appleby regret skrmetti finnish mcmaster psychotherapy bustos congruence ruuska"
+    "keywords": "bone nonbinary trevor cass tavistock plastic appleby regret skrmetti finnish mcmaster psychotherapy bustos congruence ruuska"
   },
   {
     "id": "microplastics-health-crisis",
@@ -1952,7 +1960,7 @@
       "Is there a spoonful of plastic in my brain?",
       "Do microplastics cause heart attacks?"
     ],
-    "keywords": "polyethylene recycled pyrolysis micrograms phthalate landfills plaque rauert frontline artery chromatography malforms millilitre nano dementia"
+    "keywords": "polyethylene recycled pyrolysis micrograms phthalate landfills plaque rauert frontline artery chromatography malforms nano dementia millilitre"
   },
   {
     "id": "glp1-weight-loss-drugs",
@@ -1974,7 +1982,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide wegovy novo pharmacy nordisk quadrupled novocare substudy dieters endocrinology pharmacotherapy reclassification waist amgen cuisine"
+    "keywords": "semaglutide wegovy pharmacy nordisk quadrupled novocare substudy dieters endocrinology pharmacotherapy reclassification waist amgen cuisine diarrhea"
   },
   {
     "id": "fluoride-water-supplies",
@@ -2110,7 +2118,7 @@
       "Is hybrid work permanent?",
       "Are return-to-office mandates winning?"
     ],
-    "keywords": "placer swaa workdays kastle bloom moodys gibbs mengel siemroth teleworked liang andy jassy lila margalit"
+    "keywords": "placer swaa workdays kastle bloom moodys gibbs mengel siemroth teleworked liang jassy lila margalit merchandising"
   },
   {
     "id": "college-value-proposition",
@@ -2236,7 +2244,7 @@
       "Is cryptocurrency a good investment?",
       "Is Bitcoin just digital tulips?"
     ],
-    "keywords": "coingecko etfs terra luna marketscreener coinmarketcap fantasized glassnode hashrate linh litecoin nakamoto forfeited outflow soared"
+    "keywords": "coingecko etfs terra luna marketscreener coinmarketcap fantasized glassnode hashrate linh litecoin nakamoto forfeited outflow strives"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -2286,7 +2294,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tribunal mckinsey bolt freelance leigh addison calmatters castellanos ceepr zoepf claimants ab5s aslam gigs holiday"
+    "keywords": "tribunal mckinsey bolt freelance leigh addison calmatters castellanos ceepr zoepf claimants ab5s aslam gigs hustlers"
   },
   {
     "id": "housing-affordability-crisis",
@@ -2418,7 +2426,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sellers fraser hmrc redfin tourist starter garcia metro airbnb batzer bearish cmas cmhc fhfa jacksonville"
+    "keywords": "sellers fraser hmrc redfin tourist starter garcia airbnb batzer bearish cmas cmhc fhfa jacksonville lisbon"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2543,7 +2551,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason prosperity biocapacity biophysical garment giorgos haberl"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason centric prosperity biocapacity biophysical garment giorgos"
   },
   {
     "id": "free-will",
@@ -2764,7 +2772,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "chimeric airborne alphafold baric fouchiers h5n1 sars anthrax chapel coronaviruses influenza virology virologist viruses virus"
+    "keywords": "chimeric alphafold baric fouchiers h5n1 airborne sars anthrax chapel coronaviruses influenza virology virologist viruses virus"
   },
   {
     "id": "children-smartphone-age",
@@ -2808,7 +2816,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion composed contentious defamation deliberative eighth turkey"
+    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion turkey composed contentious defamation deliberative unraveling"
   },
   {
     "id": "geoengineering-climate",
@@ -2834,7 +2842,7 @@
       "Is solar geoengineering now a necessary complement to cutting emissions?",
       "Should we dim the sun to fight climate change?"
     ],
-    "keywords": "geomip pinatubo advisors outdoor precipitation britain dioxide aria fairbrother monsoon forster hydrological rainfall tons unpriced"
+    "keywords": "geomip pinatubo advisors outdoor precipitation britain aria fairbrother monsoon forster hydrological rainfall tons unpriced cyclone"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2890,29 +2898,33 @@
       "Is there a masculinity crisis?",
       "Is there a boy crisis?"
     ],
-    "keywords": "tate anne deaton despair nces brothers extradition guryan juvenile lns11300061 loneliest ludwig midlife pollack angus"
+    "keywords": "tate anne deaton despair nces brothers extradition guryan juvenile lns11300061 loneliest ludwig midlife pollack readmissions"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
     "title": "AI Deepfakes & the Collapse of Shared Truth",
-    "question": "Have AI deepfakes made it impossible to trust any digital media?",
+    "question": "Can we still trust what we see online, now that AI can fake anything?",
     "meta_claim": "AI-generated deepfake audio, video, and images have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining evidence-based discourse, journalism, and democratic accountability.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 64,
+    "confidence_score": 47,
+    "balance": 47,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Does calling real evidence a deepfake actually let powerful people escape accountability?",
+    "evidenceCount": 12,
+    "firstCrux": "Can deepfake detection stay reliable as generators improve, or must trust shift to provenance?",
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa deloitte schiff hampshire robocall kramer leica nikon hollywood adobe bueno crying liars vall eval"
+    "aliases": [
+      "Have AI deepfakes made it impossible to trust any digital media?",
+      "Can you tell a deepfake from a real video?"
+    ],
+    "keywords": "c2pa leica nikon sora hampshire adobe deloitte iproov schiff vall eval robocall acquitted hollywood dialogue"
   },
   {
     "id": "declining-birth-rates",
@@ -3196,7 +3208,7 @@
       "Should AI models be open source?",
       "Are open-source AI models dangerous?"
     ],
-    "keywords": "deepseek ntia caisi mistral uplift biorisk toner casper kaunismaa amateur lecun novice nonproliferation bioattack hendrycks"
+    "keywords": "deepseek ntia caisi uplift biorisk toner mistral casper kaunismaa amateur lecun novice nonproliferation bioattack hendrycks"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -3260,7 +3272,7 @@
       "Motorist charges on central streets",
       "Should cities charge drivers at peak times to fund public transit?"
     ],
-    "keywords": "cordon tfls untolled roadways weekday eliasson inbound jonas roadworks unaudited zpass depreciation wheels daytime mayors"
+    "keywords": "cordon tfls untolled roadways weekday eliasson inbound jonas roadworks zpass depreciation mayors unaudited wheels"
   },
   {
     "id": "right-to-repair",
@@ -3351,11 +3363,11 @@
   {
     "id": "self-driving-car-safety",
     "title": "Self-Driving Car Safety",
-    "question": "Are self-driving cars already safer than humans and ready for broad use?",
-    "meta_claim": "Autonomous vehicles are already safer than human drivers and should be deployed broadly.",
-    "confidence_score": 49,
-    "balance": 49,
-    "weight": 73,
+    "question": "Are self-driving cars safer than human drivers?",
+    "meta_claim": "Driverless cars are already safer than human drivers where they operate, and they should be allowed to spread to more cities and roads.",
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 78,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3363,7 +3375,7 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 16,
     "firstCrux": "Does self-driving cars' safety edge survive a truly like-for-like, independently audited comparison?",
     "tags": [
       "technology",
@@ -3373,7 +3385,12 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode kusano paddock pe24031"
+    "aliases": [
+      "Are self-driving cars already safer than humans and ready for broad use?",
+      "Are robotaxis safe?",
+      "Is Waymo safer than human drivers?"
+    ],
+    "keywords": "nhtsa tesla riders cruise pedestrian freeways kalra collisions swiss uber monica zoox glare santa phoenix"
   },
   {
     "id": "net-neutrality",
@@ -3431,7 +3448,7 @@
       "intellectual-property",
       "law"
     ],
-    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim memorization regurgitate reshef shutterstock guild thirteen bibas bookseller"
+    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim memorization regurgitate reshef shutterstock guild bibas bookseller chhabria"
   },
   {
     "id": "facial-recognition-policing",
@@ -3579,7 +3596,7 @@
       "medicine",
       "placebo"
     ],
-    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus monotherapy pigott prespecified reboxetine reuptake riat"
+    "keywords": "remission hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus monotherapy pigott prespecified reboxetine reuptake riat serotonin"
   },
   {
     "id": "social-security-retirement-age",
@@ -3758,20 +3775,20 @@
   {
     "id": "ai-energy-water-footprint",
     "title": "AI's Energy & Water Footprint",
-    "question": "Is AI's energy and water use serious enough to warrant intervention?",
-    "meta_claim": "AI's energy and water footprint is a serious environmental problem that warrants intervention.",
-    "confidence_score": 55,
-    "balance": 55,
-    "weight": 69,
+    "question": "Is AI using too much electricity and water?",
+    "meta_claim": "AI's electricity and water use is a serious problem, for the climate, for local water supplies and for household power bills, and it warrants government intervention.",
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 82,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Is new data-center demand met by clean power, or by new gas and delayed coal retirements?",
+    "pillarCount": 4,
+    "evidenceCount": 17,
+    "firstCrux": "Will efficiency gains shrink AI's total energy use, or will heavier use keep outrunning them?",
     "tags": [
       "technology",
       "ai",
@@ -3783,9 +3800,11 @@
     "aliases": [
       "How much water does each ChatGPT query use?",
       "How much water does an AI chatbot drink?",
-      "Will AI data centers use as much electricity as whole countries?"
+      "Will AI data centers use as much electricity as whole countries?",
+      "Is AI's energy and water use serious enough to warrant intervention?",
+      "Are data centers raising my electric bill?"
     ],
-    "keywords": "onsite freshwater gallons lbnl islam eesi gco2e masley offsite shehabi thermoelectric thirsty hyperscaler cubic ieas"
+    "keywords": "gallons freshwater onsite mistral fifteenth teaspoon pjms riverside evaporated turbine brad datacenters gco2e masley andy"
   },
   {
     "id": "adhd-overdiagnosis",
@@ -3952,7 +3971,7 @@
       "Is moderate drinking good for you?",
       "Is there a safe level of alcohol?"
     ],
-    "keywords": "drinkers stockwell minimises bagnardi fillmore kassaw larynx naimi bowel continuum carcinoma chikritzhs colorectal dyae046 hypp"
+    "keywords": "drinkers stockwell minimises bagnardi fillmore kassaw larynx naimi bowel continuum linear carcinoma chikritzhs colorectal dyae046"
   },
   {
     "id": "modern-monetary-theory",
@@ -4007,6 +4026,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial mcgaugh scatter rodrigues sparc astronomy fisher tully planck sigma acoustic bertone bullet davari"
+    "keywords": "baryonic radial mcgaugh scatter rodrigues sparc astronomy fisher tully planck sigma bertone bullet davari famaey"
   }
 ]
