@@ -38,6 +38,10 @@ vi.mock("@/lib/disagreement/model", async () => {
 
 import { POST } from "./route";
 
+// The gap row is fire-and-forget; under a loaded full-suite run it can take
+// longer than vi.waitFor's 1s default to land.
+const WAIT = { timeout: 5000 };
+
 const SOURCE = `${DISAGREEMENT_FEW_SHOT_EXAMPLES[1].source}\n\n${"Context for length. ".repeat(8)}`;
 
 function post() {
@@ -66,7 +70,7 @@ describe("POST /api/disagreements/analyze gap-metric logging", () => {
 
   it("writes one counts-only analyze-v2 row", async () => {
     expect((await POST(post())).status).toBe(200);
-    await vi.waitFor(() => expect(dbState.inserted).toHaveLength(1));
+    await vi.waitFor(() => expect(dbState.inserted).toHaveLength(1), WAIT);
     const row = GapObservationSchema.parse(dbState.inserted[0]);
     expect(row.lane).toBe("analyze-v2");
     expect(row.topicId).toBeNull();
