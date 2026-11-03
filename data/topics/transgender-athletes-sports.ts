@@ -7,6 +7,18 @@ export const transgenderAthletesSportsData = {
     "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In March 2026 the IOC limited the female category at its events, from the 2028 Games, to those it calls biological females, as shown by a one-time SRY gene screen; grassroots sport is exempt. In 2023 World Athletics barred transgender women who had been through male puberty from female World Rankings events. The fight is over what fairness and inclusion each require, and at which levels of sport.",
+    confidence: 92,
+    source:
+      "International Olympic Committee, policy on the protection of the female category (26 March 2026), as published by the Olympic Council of Asia; World Athletics Council decision (March 2023)",
+    sourceUrl: "https://oca.asia/news/7029-ioc-announces-new-policy-on-protection-of-female-athletes.html",
+  },
+  simple_case: [
+    "The answer bears on who may enter female events, from school leagues to the Olympics, and on whether open categories could serve both aims.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Retained Physiological Advantages

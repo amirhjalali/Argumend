@@ -6,6 +6,18 @@ export const socialMediaElectionsData = {
     "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In a 2020 US election experiment run with Meta, users switched to chronological Facebook and Instagram feeds saw more political and untrustworthy content, yet their polarization did not significantly change in three months. In 2018 a US grand jury indicted 13 Russians and three Russian companies over a social media campaign aimed at the 2016 election. The fight is over how much feeds and foreign campaigns move voters.",
+    confidence: 90,
+    source:
+      "Guess et al., 'How do social media feed algorithms affect attitudes and behavior in an election campaign?', Science (2023); United States v. Internet Research Agency LLC et al., indictment (D.D.C., 16 February 2018)",
+    sourceUrl: "https://www.science.org/doi/10.1126/science.abp9364",
+  },
+  simple_case: [
+    "The answer bears on how platforms rank feeds and police foreign accounts, and on the rules for online political ads, in the 2026 US midterms and beyond.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Algorithmic Amplification of Misinformation

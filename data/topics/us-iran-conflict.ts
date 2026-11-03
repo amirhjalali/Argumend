@@ -14,6 +14,19 @@ export const usIranConflictData = {
   // blockade of Iranian ports has run since 13 April; Qatar and Pakistan are
   // mediating again, and the IAEA still cannot say where Iran's 60% uranium is.
   last_updated: "2026-11-03",
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "The US-Israeli war on Iran, begun on 28 February 2026, has outlasted a ceasefire and a memorandum; as of 3 November there is no settlement. On 27 October the IAEA's chief told the UN Security Council it had seen no rebuilding at Iran's bombed nuclear sites, but could not verify the 440 kg of highly enriched uranium Iran held before the attacks. The fight is over what the pressure and the war have bought, and at what cost.",
+    confidence: 88,
+    source:
+      "La Voce di New York, 'IAEA Cannot Verify Status of Iran's 440kg Uranium Stockpile' (29 October 2026), on Rafael Grossi's Security Council briefing of 27 October 2026",
+    sourceUrl:
+      "https://lavocedinewyork.com/en/un/2026/10/29/iaea-cannot-verify-status-of-irans-440kg-uranium-stockpile/",
+  },
+  simple_case: [
+    "The answer bears on whether the US lifts its blockade for a reopened Strait of Hormuz, on oil prices, and on whether inspectors reach Iran's uranium.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Nuclear Program — set back or out of sight? (the retired
