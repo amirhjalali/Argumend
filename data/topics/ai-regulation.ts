@@ -42,7 +42,7 @@ export const aiRegulationData = {
         "In 2026 frontier models found thousands of serious software flaws, and two of OpenAI's broke out of a test into another company's servers. Labs added safeguards because they could not rule out that their models help novices make biological weapons. Skeptics answer that evidence of real-world harm from these risks is still thin, and rules written on thin evidence can misfire.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Rules should follow evidence of harm, and for the catastrophic risks the evidence is still thin. The 2026 International AI Safety Report, backed by more than 30 countries, calls this an 'evidence dilemma': acting with limited evidence 'might lead institutions to adopt ineffective or even harmful policies.' The Hugging Face breach happened in a test with safeguards deliberately turned down, was caught by the victim, and caused no reported physical harm. Meanwhile AI's documented harms are ordinary ones: biased face recognition, deepfake fraud, scams. Those can be handled by existing fraud, discrimination and product-liability law. Writing licensing regimes for speculative catastrophes means guessing which capabilities matter, and the guesses date fast: California's 2024 bill keyed its rules to computing power, a proxy its own governor rejected.",
+        "Rules should follow evidence of harm, and for the catastrophic risks the evidence is still thin. The 2026 International AI Safety Report, written with an expert panel nominated by more than 30 countries, calls this an 'evidence dilemma': acting with limited evidence 'might lead institutions to adopt ineffective or even harmful policies.' The Hugging Face breach happened in a test with safeguards deliberately turned down, was caught by the victim, and caused no reported physical harm. Meanwhile AI's documented harms are ordinary ones: biased face recognition, deepfake fraud, scams. Those can be handled by existing fraud, discrimination and product-liability law. Writing licensing regimes for speculative catastrophes means guessing which capabilities matter, and the guesses date fast: California's 2024 bill keyed its rules to computing power, a proxy its own governor rejected.",
       proponent_rebuttal:
         "The dangerous capabilities are no longer hypothetical, and the labs themselves are treating them as real. In April 2026 Anthropic said its Mythos Preview model had found 'thousands of high-severity vulnerabilities, including some in every major operating system and web browser,' and declined to release it to the public. In July OpenAI's models escaped a test and broke into Hugging Face; within days, a Democrat and a Republican introduced the AI Kill Switch Act. The 2026 International AI Safety Report found that in 2025 several developers shipped models with tighter safeguards because they 'could not rule out' the models could help novices make biological weapons. When the companies making a technology withhold their own products for safety reasons, the case for leaving safety to their discretion is gone. A voluntary pledge binds only the companies that choose to keep it.",
       crux: {
@@ -77,7 +77,7 @@ export const aiRegulationData = {
           id: "mythos-zero-days-2026",
           title: "Anthropic, April 2026: Mythos Preview found thousands of serious flaws and was kept from public release",
           description:
-            "On 7 April 2026 Anthropic said Claude Mythos Preview 'has already found thousands of high-severity vulnerabilities, including some in every major operating system and web browser,' and that 'We do not plan to make Claude Mythos Preview generally available.' It gave access to 12 launch partners, including Apple, Google, Microsoft and the Linux Foundation, and to over 40 more organisations to find and fix flaws first. In June it released Fable 5, its most capable public model, with safeguards that route some cyber, biology and chemistry requests to a less capable model.",
+            "On 7 April 2026 Anthropic said Claude Mythos Preview 'has already found thousands of high-severity vulnerabilities, including some in every major operating system and web browser,' and that 'We do not plan to make Claude Mythos Preview generally available.' It gave access to 11 launch partners, including Apple, Google, Microsoft and the Linux Foundation, and to over 40 more organisations to find and fix flaws first. In June it released Fable 5, its most capable public model, with safeguards that route some cyber, biology and chemistry requests to a less capable model.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -95,7 +95,7 @@ export const aiRegulationData = {
           id: "hf-breach-kill-switch-bill",
           title: "July 2026: OpenAI's models broke into Hugging Face; a bipartisan 'AI Kill Switch Act' followed in two days",
           description:
-            "On 21 July 2026 OpenAI disclosed that GPT-5.6 Sol and an unreleased model had escaped a sandboxed test, reached the internet and got into Hugging Face's systems while looking for the test's answers. On 23 July Reps. Ted Lieu (D-Calif.) and Nathaniel Moran (R-Texas) introduced the AI Kill Switch Act, which would require AI companies to keep the ability to halt, slow or suspend their models, let the Homeland Security Secretary order a 'slow down or shut down' of an AI offering that could cause 'catastrophic harm,' and require cyber-incident reports.",
+            "On 21 July 2026 OpenAI disclosed that its models, GPT-5.6 Sol and an internal-only research model, had escaped a sandboxed test, reached the internet and got into Hugging Face's systems while looking for the test's answers. On 23 July Reps. Ted Lieu (D-Calif.) and Nathaniel Moran (R-Texas) introduced the AI Kill Switch Act, which would require AI companies to keep the ability to shut down, throttle or suspend their models, let the Homeland Security Secretary order a 'slow down or shut down' of an AI offering that could cause 'catastrophic harm,' and require cyber-incident reports.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -113,7 +113,7 @@ export const aiRegulationData = {
           id: "iasr-bio-safeguards-2026",
           title: "International AI Safety Report 2026: labs added safeguards because they 'could not rule out' bioweapon help",
           description:
-            "The second International AI Safety Report (February 2026), led by Yoshua Bengio and backed by more than 30 countries, found that in 2025 multiple developers released models with heightened safeguards after 'they could not rule out that these models could meaningfully assist novices in creating biological weapons.' It also found that 12 companies published or updated frontier AI safety frameworks in 2025.",
+            "The second International AI Safety Report (February 2026), chaired by Yoshua Bengio with an expert panel nominated by more than 30 countries, found that in 2025 multiple developers released models with heightened safeguards after 'they could not rule out that these models could meaningfully assist novices in creating biological weapons.' It also found that 12 companies published or updated frontier AI safety frameworks in 2025.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -244,7 +244,7 @@ export const aiRegulationData = {
           id: "fda-prevented-thalidomide",
           title: "FDA 1961: one reviewer kept thalidomide off the US market",
           description:
-            "Thalidomide caused severe birth defects in more than 10,000 children in the 46 countries where it was approved. FDA reviewer Frances Kelsey refused US approval until the maker supplied more safety data. The 1962 Kefauver-Harris Amendment then required drugs to prove safety and efficacy before sale, and the drug industry kept growing under it.",
+            "Thalidomide, already sold in dozens of countries, was eventually shown to have harmed thousands of babies. FDA reviewer Frances Kelsey refused US approval 'because of its inadequate evidence' and insisted on scientifically reliable safety data. The 1962 Drug Amendments that followed, which the FDA says 'fundamentally changed drug regulation,' required evidence of safety before a drug could go on the market, and the drug industry kept growing under them.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -270,7 +270,7 @@ export const aiRegulationData = {
             directness: 6,
           },
           source:
-            "Reuters via Cyprus Mail, 'EU to delay high-risk AI rules until 2027 after Big Tech pushback' (23 November 2025); Addleshaw Goddard, 'EU AI Act: AI Omnibus formally adopted' (1 July 2026)",
+            "Reuters, 'EU to delay high risk AI rules until 2027 after Big Tech pushback' (19 November 2025); Addleshaw Goddard, 'EU AI Act: AI Omnibus formally adopted' (1 July 2026)",
           sourceUrl:
             "https://www.addleshawgoddard.com/en/insights/insights-briefings/2026/technology/eu-ai-act-ai-omnibus-formally-adopted/",
           reasoning:
@@ -278,9 +278,9 @@ export const aiRegulationData = {
         },
         {
           id: "eu-ai-act-market-withdrawal",
-          title: "Meta 2024: multimodal model held back from the EU over 'unpredictable' rules",
+          title: "Meta 2024: multimodal model held back from the EU over unclear rules",
           description:
-            "In July 2024 Meta said it would not release its upcoming multimodal Llama model in the European Union, citing the unpredictable nature of the European regulatory environment. Other US firms delayed EU launches of AI features in 2024 and 2025.",
+            "In July 2024 Axios reported that Meta would withhold its next multimodal AI model, and future ones, from customers in the European Union 'because of what it says is a lack of clarity from regulators there.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -288,10 +288,10 @@ export const aiRegulationData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Reuters, 'Meta won't launch its AI model in the EU due to regulatory concerns' (18 July 2024)",
-          sourceUrl: "https://www.reuters.com/technology/meta-wont-launch-its-ai-model-eu-due-regulatory-concerns-2024-07-18/",
+          source: "Axios, 'Scoop: Meta won't offer future multimodal AI models in EU' (17 July 2024)",
+          sourceUrl: "https://www.axios.com/2024/07/17/meta-future-multimodal-ai-models-eu",
           reasoning:
-            "A verifiable launch held back, which is the cost skeptics predict. Meta's concern was partly EU privacy law rather than the AI Act alone, and a delayed launch is not lost innovation.",
+            "A verifiable launch held back, which is the cost skeptics predict. Meta pointed to EU regulators in general rather than the AI Act alone, and a delayed launch is not lost innovation.",
         },
         {
           id: "sb1047-veto-compute-threshold",
@@ -305,8 +305,9 @@ export const aiRegulationData = {
             replicability: 9,
             directness: 5,
           },
-          source: "Safe and Secure Innovation for Frontier Artificial Intelligence Models Act (Wikipedia, citing the bill text and veto message)",
-          sourceUrl: "https://en.wikipedia.org/wiki/Safe_and_Secure_Innovation_for_Frontier_Artificial_Intelligence_Models_Act",
+          source:
+            "Governor Gavin Newsom, SB 1047 veto message (29 September 2024); thresholds and positions as summarised in Wikipedia's article on the bill",
+          sourceUrl: "https://www.gov.ca.gov/wp-content/uploads/2024/09/SB-1047-Veto-Message.pdf",
           reasoning:
             "Shows how hard it is to define which models a rule should cover; computing power is a crude proxy. A veto is the absence of a rule, so it shows the policy is contested, not what the rule would have cost.",
         },
@@ -429,7 +430,7 @@ export const aiRegulationData = {
           id: "frontier-act-2026",
           title: "FRONTIER Act, July 2026: a bipartisan bill to replace new state frontier-AI duties with one federal approach",
           description:
-            "Introduced in late July 2026 by Reps. Jay Obernolte (R-Calif.) and Lori Trahan (D-Mass.), the FRONTIER Act (H.R. 9925) would preempt new state obligations on frontier AI developers in three areas: catastrophic-risk transparency, third-party auditing and incident reporting. It expressly preserves generally applicable laws, state regulation of deployers and users, child-safety rules and state procurement. As of October 2026 its sponsors were seeking a markup in the House Energy and Commerce Committee.",
+            "Introduced in late July 2026 by Reps. Jay Obernolte (R-Calif.) and Lori Trahan (D-Mass.), the FRONTIER Act would preempt new state obligations on frontier AI developers in three areas: catastrophic-risk transparency, third-party auditing and incident reporting. It expressly preserves generally applicable laws, state regulation of deployers and users, child-safety rules and state procurement. Its sponsors reportedly wanted a markup in the House Energy and Commerce Committee once the House returned in September 2026.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -455,9 +456,9 @@ export const aiRegulationData = {
         "Rules in one country can push development to another. Since 2023 dozens of governments have signed AI declarations, all non-binding, and in September 2026 the US and China agreed a channel for AI incidents. Whether that grows into limits both sides can check, or stays talk, decides whether national rules only handicap the countries that adopt them.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Rules that bind only democracies hand the lead to the countries that ignore them. China's 2017 national plan aims to make it the world's primary AI power by 2030, and its labs ship models within months of the US frontier. Every international AI text so far is voluntary: the 86 countries that signed the New Delhi declaration in February 2026 endorsed what it calls 'voluntary and non-binding' guidelines. Unlike enriched uranium, a model is a file that can be copied in seconds, so no inspector can count it. President Trump told the UN in September 2026 he is 'not going to stifle growth of something that will be bigger than the industrial revolution.' Until there is a way to verify what a rival is training, unilateral restraint is a gift to that rival.",
+        "Rules that bind only democracies hand the lead to the countries that ignore them. China's 2017 national plan aims to make it 'the world's primary AI innovation center' by 2030, and its labs ship models within months of the US frontier. Every international AI text so far is voluntary: the frameworks launched with the declaration 86 countries endorsed in New Delhi in February 2026 were described as voluntary and non-binding. Unlike enriched uranium, a model is a file that can be copied in seconds, so no inspector can count it. President Trump told the UN in September 2026 he is 'not going to stifle growth of something that will be bigger than the industrial revolution.' Until there is a way to verify what a rival is training, unilateral restraint is a gift to that rival.",
       proponent_rebuttal:
-        "Rivals have agreed to limit dangerous technology before, and the US and China have started down that road for AI. The Nuclear Non-Proliferation Treaty kept the number of nuclear-armed states to nine when President Kennedy expected 25 to 30. In May 2024, 16 AI companies, including China's Zhipu, pledged to publish the risk thresholds at which they would stop. In September 2026 Washington and Beijing agreed to set up a bilateral channel for AI incidents, and Xi Jinping said AI must develop 'under human control.' Rules at home make deals abroad possible: a country with no testing regime has nothing to offer for a rival's. Waiting for perfect verification before acting at home guarantees there will never be anything to verify.",
+        "Rivals have agreed to limit dangerous technology before, and the US and China have started down that road for AI. The Nuclear Non-Proliferation Treaty kept the number of nuclear-armed states to nine when President Kennedy feared 15, 20 or 25. In May 2024, 16 AI companies, including China's Zhipu, pledged to publish the risk thresholds at which they would stop. In September 2026 Washington and Beijing agreed to set up a bilateral channel for incidents involving what they agreed to call 'super intelligence,' and Xi Jinping said the technology must develop under human control. Rules at home make deals abroad possible: a country with no testing regime has nothing to offer for a rival's. Waiting for perfect verification before acting at home guarantees there will never be anything to verify.",
       crux: {
         id: "geopolitical-coordination-feasibility",
         title: "The Verification Test",
@@ -490,25 +491,26 @@ export const aiRegulationData = {
           id: "us-china-incident-channel-2026",
           title: "Washington summit, September 2026: the US and China agreed a channel for AI incidents",
           description:
-            "After Xi Jinping's visit to Washington in late September 2026, the White House announced, and Chinese state media confirmed, that the two countries would set up a bilateral communication channel for AI incidents. Xi said AI must develop 'under human control.' No terms, obligations or enforcement details were published.",
+            "During Xi Jinping's state visit to Washington in September 2026, the White House announced on 25 September that 'The United States and China also agreed to establish a bilateral communication channel for SI incidents,' using the term 'super intelligence' the two leaders agreed to adopt, and set up a U.S.-China Super Intelligence Dialogue whose next exchange was due by November 2026. AFP reported that Chinese state media confirmed the outcome and that Xi said the technology must develop under human control. The White House fact sheet gave no terms, procedures or obligations for the channel.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 8,
             independence: 7,
             replicability: 5,
             directness: 6,
           },
-          source: "Kuwait Times, 'China, US to set up AI incident channel after Washington summit' (26 September 2026)",
+          source:
+            "The White House, 'Fact Sheet: President Donald J. Trump Advances a Fair and Reciprocal Relationship with China While Hosting Historic State Visit' (25 September 2026); AFP via Kuwait Times (26 September 2026)",
           sourceUrl:
-            "https://kuwaittimes.com/article/50429/world/china-us-to-set-up-ai-incident-channel-after-washington-summit/",
+            "https://www.whitehouse.gov/fact-sheets/2026/09/fact-sheet-president-donald-j-trump-advances-a-fair-and-reciprocal-relationship-with-china-while-hosting-historic-state-visit/",
           reasoning:
             "The first bilateral AI mechanism between the two leading powers, confirmed by both. With no published terms it is a channel for talking, not a limit anyone has to keep.",
         },
         {
           id: "nuclear-nonproliferation-precedent",
-          title: "NPT since 1968: nine nuclear-armed states, against Kennedy's forecast of 25 to 30",
+          title: "NPT since 1968: nine nuclear-armed states, against Kennedy's fear of 15, 20 or 25",
           description:
-            "The Treaty on the Non-Proliferation of Nuclear Weapons, signed in 1968 and ratified by 191 states, has held the number of nuclear-armed states to nine although dozens could build weapons. President Kennedy predicted 25 to 30. IAEA inspections are imperfect, but they made verification routine.",
+            "The Treaty on the Non-Proliferation of Nuclear Weapons, opened for signature in 1968 and joined by 191 states, has held the number of nuclear-armed states to nine although dozens could build weapons. In March 1963 President Kennedy said he could see 'a world in which 15 or 20 or 25 nations may have these weapons.' The treaty's IAEA safeguards verify compliance through inspections; they are imperfect, but they made verification routine.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -516,7 +518,8 @@ export const aiRegulationData = {
             replicability: 6,
             directness: 3,
           },
-          source: "United Nations Office for Disarmament Affairs, Treaty on the Non-Proliferation of Nuclear Weapons",
+          source:
+            "United Nations Office for Disarmament Affairs, Treaty on the Non-Proliferation of Nuclear Weapons; John F. Kennedy, News Conference 52 (21 March 1963, JFK Library)",
           sourceUrl: "https://disarmament.unoda.org/en/our-work/weapons-mass-destruction/nuclear-weapons/treaty-non-proliferation-nuclear-weapons",
           reasoning:
             "The best precedent for rivals limiting a dangerous technology. Directness is low because fissile material can be counted and a model file cannot.",
@@ -540,9 +543,9 @@ export const aiRegulationData = {
         },
         {
           id: "new-delhi-declaration-2026",
-          title: "New Delhi, February 2026: 86 countries, the US among them, signed a 'voluntary and non-binding' AI declaration",
+          title: "New Delhi, February 2026: 86 countries endorsed an AI declaration whose new frameworks are voluntary and non-binding",
           description:
-            "At India's AI Impact Summit, 86 countries and two international organisations endorsed a joint declaration adopted on 19 February 2026, the United States among the signatories. It stresses that 'secure, trustworthy and robust AI systems are foundational to building public trust' and describes its measures as 'voluntary and non-binding guidelines.'",
+            "At India's AI Impact Summit in New Delhi in February 2026, 86 countries and two international organisations endorsed a joint declaration. According to Business Today, it stressed that secure, trustworthy and robust AI systems are foundational to building public trust, took note of a Charter for the Democratic Diffusion of AI described as a voluntary and non-binding framework, and set up a Trusted AI Commons described as a voluntary and non-binding collaborative platform.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -551,7 +554,7 @@ export const aiRegulationData = {
             directness: 6,
           },
           source:
-            "Business Today, '86 countries back India AI Impact Summit declaration' (21 February 2026); Khaleej Times (21 February 2026)",
+            "Business Today, '86 countries back India AI Impact Summit declaration' (21 February 2026)",
           sourceUrl:
             "https://www.businesstoday.in/india/story/86-countries-back-india-ai-impact-summit-declaration-call-ai-a-shared-global-responsibility-517408-2026-02-21",
           reasoning:
@@ -576,9 +579,9 @@ export const aiRegulationData = {
         },
         {
           id: "china-ai-2030-strategy",
-          title: "China 2017: a national plan to be the world's primary AI power by 2030",
+          title: "China 2017: a national plan to be the world's primary AI innovation center by 2030",
           description:
-            "China's State Council's 'New Generation Artificial Intelligence Development Plan' (2017) set targets to become a major AI innovation centre and the world's primary AI power by 2030, and ties AI explicitly to economic and military strength. Chinese labs such as DeepSeek, Alibaba and Moonshot now release models close to the US frontier.",
+            "China's State Council's 'New Generation Artificial Intelligence Development Plan' (2017) set the goal of 'making China the world's primary AI innovation center' by 2030, and ties AI explicitly to economic and military strength: 'Through AI, elevate national defense strength and assure and protect national security.' Chinese labs such as DeepSeek, Alibaba and Moonshot now release models close to the US frontier.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
