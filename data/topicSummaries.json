@@ -291,8 +291,8 @@
     "title": "Repealing the Jones Act",
     "question": "Should the Jones Act be repealed or substantially reformed?",
     "meta_claim": "The Jones Act's requirement that cargo moving between U.S. ports travel on ships that are U.S.-built, U.S.-flagged, and U.S.-crewed imposes large and measurable economic costs — inflated domestic shipping prices, a shrunken merchant fleet, freight pushed onto trucks and rail, and disproportionate harm to Puerto Rico, Hawaii, Alaska, and Guam — that outweigh its claimed national-security and maritime-industry benefits, so it should be repealed or substantially reformed.",
-    "confidence_score": 73,
-    "balance": 73,
+    "confidence_score": 71,
+    "balance": 71,
     "weight": 77,
     "verdict": {
       "label": "Evidence clearly leans toward the claim",
@@ -302,12 +302,12 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 5,
-    "evidenceCount": 18,
+    "evidenceCount": 19,
     "firstCrux": "Would domestic shipping get much cheaper if the Jones Act were repealed?",
     "tags": [
       "economics"
     ],
-    "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding ikenson manak shipyard surcharge underdeveloped usitc"
+    "keywords": "marine sealift marad oceangoing grabow hurricane maria shipyard turbo shipbuilding ikenson manak pricewaterhousecoopers surcharge underdeveloped"
   },
   {
     "id": "medicaid-work-requirements",
@@ -663,23 +663,22 @@
     "title": "Universal Basic Income",
     "question": "Should developed nations adopt a universal basic income?",
     "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
-    "confidence_score": 70,
-    "balance": 70,
-    "weight": 73,
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 74,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 14,
+    "evidenceCount": 15,
     "firstCrux": "Can any realistic funding plan pay for UBI without growth-damaging debt or tax rates?",
     "tags": [
       "policy"
     ],
-    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee dauphin"
+    "keywords": "openresearch dividend kela stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee bartik"
   },
   {
     "id": "wealth-tax",
@@ -774,8 +773,8 @@
     "title": "The US-Iran Conflict",
     "question": "Has US pressure on Iran, up to the 2026 war, made the Middle East safer and served the US?",
     "meta_claim": "US policy toward Iran — maximum-pressure sanctions, covert operations, the June 2025 strikes and the war the US and Israel began on 28 February 2026 — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 39,
-    "balance": 39,
+    "confidence_score": 40,
+    "balance": 40,
     "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -784,7 +783,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 5,
-    "evidenceCount": 30,
+    "evidenceCount": 31,
     "firstCrux": "Did the strikes set Iran's nuclear program back for good, or push its 60% uranium out of inspectors' sight?",
     "tags": [
       "policy"
@@ -796,7 +795,7 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "houthis jcpoa jazeera hezbollahs lebanon iranian grossi hormuz ceasefire blockade israeli fordow iraq memorandum tehran"
+    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq memorandum tehran fordow"
   },
   {
     "id": "epstein-files",
@@ -825,8 +824,8 @@
     "title": "Should TikTok Be Banned?",
     "question": "Is TikTok enough of a security threat to justify a ban or forced sale?",
     "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
-    "confidence_score": 53,
-    "balance": 53,
+    "confidence_score": 54,
+    "balance": 54,
     "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -835,7 +834,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 5,
-    "evidenceCount": 23,
+    "evidenceCount": 24,
     "firstCrux": "Can ByteDance staff in China still access Americans' TikTok data despite Project Texas safeguards?",
     "tags": [
       "policy"
@@ -847,7 +846,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle snowden divestiture upholds fisa forbes knight retrained broadcast revelations divest gorsuch"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture upholds fisa forbes knight retrained broadcast revelations divest"
   },
   {
     "id": "immigration-border-crisis",
@@ -891,7 +890,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "analytica bots extremist mueller persuasion aral cisa hosseinmardi kalla untrustworthy vosoughi broockman iranian personas watts"
+    "keywords": "analytica bots extremist mueller persuasion aral hosseinmardi kalla untrustworthy vosoughi broockman cisa iranian personas watts"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -1070,7 +1069,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "odgers braghieri comic coyne makarin jensen unfounded joiner michaeline sisyphean stockdale wertham zurcher candice television"
+    "keywords": "odgers braghieri comic coyne makarin jensen unfounded joiner michaeline sisyphean stockdale wertham zurcher candice historians"
   },
   {
     "id": "ai-risk",
@@ -1733,7 +1732,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist comorbidities amgen"
+    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist amgen copay"
   },
   {
     "id": "fluoride-water-supplies",
@@ -1963,9 +1962,9 @@
     "title": "Cryptocurrency Regulation",
     "question": "Should crypto be regulated like traditional financial instruments?",
     "meta_claim": "Cryptocurrencies should be regulated like traditional financial instruments",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 75,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1973,12 +1972,12 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 15,
+    "evidenceCount": 16,
     "firstCrux": "Can crypto rules deter fraud without driving compliant builders offshore?",
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna cftc chainalysis gensler silvergate usdc"
+    "keywords": "coinbase stablecoin ripple mica dubai defi fit21 terraform terrausd contagion luna cftc chainalysis gensler rakoff"
   },
   {
     "id": "gig-economy-regulation",
@@ -2703,18 +2702,17 @@
     "title": "Affirmative Action & Meritocracy",
     "question": "Are race-conscious admissions and hiring needed for equal opportunity?",
     "meta_claim": "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
-    "confidence_score": 70,
-    "balance": 70,
+    "confidence_score": 66,
+    "balance": 66,
     "weight": 79,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 16,
+    "evidenceCount": 17,
     "firstCrux": "Do test scores and credentials measure individual ability, or accumulated advantage?",
     "tags": [
       "policy"
@@ -3286,17 +3284,17 @@
     "title": "Encryption Backdoors",
     "question": "Should governments be able to compel encryption backdoors?",
     "meta_claim": "Governments should be able to compel lawful-access (\"backdoor\") capabilities in encrypted communications.",
-    "confidence_score": 35,
-    "balance": 35,
-    "weight": 63,
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 65,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Can a lawful-access design exist whose added security risk is acceptably small?",
     "tags": [
       "technology",
@@ -3306,7 +3304,7 @@
       "security",
       "law-enforcement"
     ],
-    "keywords": "calea rivest intercept abelson bellovin cybertipline diffie doormats inventor investigatory ncmec schneier telephony venetic comms"
+    "keywords": "wiretap intercept calea rivest abelson bellovin cybertipline diffie doormats inventor investigatory ncmec schneier telephony venetic"
   },
   {
     "id": "section-230-reform",
@@ -3402,9 +3400,9 @@
     "title": "Is ADHD Overdiagnosed?",
     "question": "Is ADHD overdiagnosed?",
     "meta_claim": "ADHD is substantially overdiagnosed.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 69,
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3412,7 +3410,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does the gap between diagnosed and community ADHD rates reflect false positives or previously missed cases?",
     "tags": [
       "science",
@@ -3422,7 +3420,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest convincing kazda underdiagnosed barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
+    "keywords": "milder youngest convincing kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3567,9 +3565,9 @@
     "title": "Modern Monetary Theory",
     "question": "Is Modern Monetary Theory a sound basis for spending and deficit policy?",
     "meta_claim": "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 65,
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3577,7 +3575,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Does 'a currency issuer can't be forced to default' guide spending policy, or hide the inflation limit?",
     "tags": [
       "economics",
@@ -3587,16 +3585,16 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "latin fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats countercyclical"
+    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature hoover jurkatis misdescribe neednt pcepilfe powar"
   },
   {
     "id": "dark-matter-vs-mond",
     "title": "Dark Matter vs. MOND",
     "question": "Does dark matter, not modified gravity, explain how galaxies move?",
     "meta_claim": "Dark matter, rather than modified gravity (MOND), is the correct explanation for galactic dynamics.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 72,
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3604,7 +3602,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Is the link between visible matter and galactic motion exact, or does it vary slightly from galaxy to galaxy?",
     "tags": [
       "science",
@@ -3615,6 +3613,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli schombert bullet phys priori"
+    "keywords": "baryonic radial scatter rodrigues sparc astronomy acoustic mcgaugh tully fisher planck sigma davari kroupa lelli"
   }
 ]
