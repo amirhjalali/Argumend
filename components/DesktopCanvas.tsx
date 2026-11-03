@@ -57,7 +57,8 @@ function accessibleName(node: DiagramNodeModel, model: DiagramModel): string {
       return `The question: ${node.label}`;
     case "crux": {
       const total = model.nodes.filter((n) => n.kind === "crux").length;
-      return `Crux ${node.number} of ${total}${node.kicker ? `, ${node.kicker}` : ""}: ${node.label}`;
+      const settle = node.settleLine ? ` ${node.settleLine.text}` : "";
+      return `Crux ${node.number} of ${total}${node.kicker ? `, ${node.kicker}` : ""}: ${node.label}${settle}`;
     }
     case "side":
       return `${node.heading} on ${node.lead}: ${node.label}`;
@@ -89,11 +90,18 @@ function buildNodes(model: DiagramModel): DiagramFlowNode[] {
   });
 }
 
+/** The evidence spines take their side's colour, so each side reads as one strand. */
+const SPINE = {
+  light: { for: "rgba(196, 97, 60, 0.55)", against: "rgba(139, 90, 60, 0.5)" },
+  dark: { for: "rgba(212, 128, 95, 0.5)", against: "rgba(207, 168, 138, 0.45)" },
+} as const;
+
 function buildEdges(model: DiagramModel, isDark: boolean): Edge[] {
-  const stroke = isDark ? "#5f5850" : "#c2b8ac";
+  const tree = isDark ? "#6a625a" : "#b9aea0";
   return model.nodes.flatMap((node) => {
     if (node.kind === "question") return [];
     const spine = node.kind === "evidence";
+    const stroke = node.kind === "evidence" ? SPINE[isDark ? "dark" : "light"][node.side] : tree;
     return [
       {
         id: `edge-${node.parentId}-${node.id}`,

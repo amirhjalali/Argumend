@@ -20,6 +20,7 @@ import {
 } from "@/lib/topicPage/legacy";
 import { strongestPair, type RelatedMap } from "@/lib/topicPage/model";
 import { evidenceLabels } from "@/lib/mapNaming";
+import { getGeneratedMedia } from "@/data/generatedMedia";
 import {
   CommonQuestions,
   TopicPage,
@@ -45,10 +46,15 @@ export function ReadModeView({
   const { cruxes, weighing, references } = legacy;
   const questionSlug = getPrimaryQuestionSlug(topic.id);
   const question = getTopicQuestionPhrasings(topic.id)[0];
-  const page =
-    questionSlug && question
-      ? { ...legacy.page, questionPage: { href: `/questions/${questionSlug}`, question } }
-      : legacy.page;
+  // The opening plate, for maps that have registered art (data/generatedMedia.ts).
+  const hero = getGeneratedMedia("topic", topic.id)?.hero;
+  const page = {
+    ...legacy.page,
+    ...(hero ? { hero } : {}),
+    ...(questionSlug && question
+      ? { questionPage: { href: `/questions/${questionSlug}`, question } }
+      : {}),
+  };
 
   const labels = evidenceLabels(topic);
   const cruxViews: CruxEntryView[] = cruxes.map((crux) => ({

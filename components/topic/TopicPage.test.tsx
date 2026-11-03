@@ -8,6 +8,7 @@ import { isPublicEntry } from "@/lib/argument/ledger";
 import { loadTopicById } from "@/data/topicLoader";
 import { withoutFalsification } from "@/test/fixtures/legacyTopics";
 import { HIDDEN_ASSUMPTION_NOTE } from "@/lib/topicPage/model";
+import { getGeneratedMedia } from "@/data/generatedMedia";
 
 afterEach(() => {
   cleanup();
@@ -356,5 +357,36 @@ describe("the hidden-assumption line", () => {
       expect(assumption, claim.id).toBeTruthy();
       expect(container.textContent).toContain(assumption!);
     }
+  });
+});
+
+describe("the opening plate", () => {
+  it("opens a legacy map that has registered art on that art, before the question", async () => {
+    const media = getGeneratedMedia("topic", "ai-risk")!;
+    expect(media).toBeDefined();
+    const { view } = await renderLegacy("ai-risk");
+    const plate = view.getByTestId("topic-plate");
+    const image = within(plate).getByAltText(media.hero.alt);
+    expect(image.getAttribute("width")).toBe(String(media.hero.width));
+    expect(image.getAttribute("height")).toBe(String(media.hero.height));
+    expect(before(plate, view.container.querySelector("h1")!)).toBe(true);
+  });
+
+  it("opens a flagship map on its own illustration, not after the positions", () => {
+    const topic = loadArgumentTopic("ai-mass-unemployment")!;
+    const view = render(<DebateView meta={topic.meta} graph={topic.graph} cruxes={topic.cruxes} />);
+    const plate = view.getByTestId("topic-plate");
+    within(plate).getByAltText(topic.meta.hero!.alt);
+    expect(before(plate, view.container.querySelector("h1")!)).toBe(true);
+    expect(view.container.querySelectorAll("img")).toHaveLength(1);
+  });
+
+  it("leaves a map without art to open on its question", async () => {
+    // Any shipped map may gain art; an id nothing is registered under has none.
+    const topic = { ...(await loadTopicById("gun-control-effectiveness"))!, id: "no-art-registered" };
+    expect(getGeneratedMedia("topic", topic.id)).toBeUndefined();
+    const view = render(<ReadModeView topic={topic} />);
+    expect(view.queryByTestId("topic-plate")).toBeNull();
+    expect(view.container.querySelector("img")).toBeNull();
   });
 });

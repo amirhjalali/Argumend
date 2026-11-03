@@ -11,7 +11,6 @@
  * sheet → the camps → reflection → folds. Zero client JS for the core (native
  * <details>); no canvas bundle; designed at 390px.
  */
-import Image from "next/image";
 import type {
   ArgumentGraph,
   ArgumentEdge,
@@ -25,6 +24,7 @@ import type { CruxLedgerEntry } from "@/types/cruxLedger";
 import { claimMovement, mapReviewedOn } from "@/lib/argument/ledger";
 import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
 import { ARGUMENT_TOPICS_LAST_UPDATED } from "@/lib/site";
+import { getGeneratedMedia } from "@/data/generatedMedia";
 import {
   STANDING_CONDITION_LEAD,
   numberWord,
@@ -58,6 +58,10 @@ export {
   settleTally,
   type SettleMode,
 } from "@/components/topic/cruxPrimitives";
+
+/** The flagship heroes' intrinsic size (lib/argument/flagshipContracts.test.tsx). */
+const HERO_WIDTH = 1600;
+const HERO_HEIGHT = 1066;
 
 // Position accent colors from the design system: teal, rust, brown, crimson.
 const POSITION_ACCENTS = ["#3a6965", "#C4613C", "#8B5A3C", "#a23b3b"];
@@ -130,6 +134,18 @@ export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: D
     id: meta.id,
     kind: "flagship",
     title: meta.title,
+    // The illustration opens the page as its plate (it used to close the
+    // positions, and phones skipped it).
+    hero: meta.hero
+      ? {
+          src: meta.hero.src,
+          alt: meta.hero.alt,
+          width: HERO_WIDTH,
+          height: HERO_HEIGHT,
+          // The flagship illustrations keep their figures in the lower half.
+          focus: "50% 72%",
+        }
+      : getGeneratedMedia("topic", meta.id)?.hero,
     crumb: meta.title,
     subtitle:
       scopedQuestion && scopedQuestion !== meta.title
@@ -260,22 +276,6 @@ export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: D
           <p className="mt-2">
             <TextAction href="/ai">What has moved across the AI maps →</TextAction>
           </p>
-        ) : undefined
-      }
-      afterPositions={
-        meta.hero ? (
-          // The illustration used to fill 60% of the first desktop screen. It
-          // now closes the positions, and phones skip it.
-          <figure className="mt-8 hidden sm:block">
-            <Image
-              src={meta.hero.src}
-              alt={meta.hero.alt}
-              width={1600}
-              height={1066}
-              sizes="(max-width: 1024px) calc(100vw - 3rem), 672px"
-              className="max-h-[320px] w-full rounded-lg object-cover ring-1 ring-stone-900/5 dark:brightness-[0.85] dark:ring-white/5"
-            />
-          </figure>
         ) : undefined
       }
       folds={folds}

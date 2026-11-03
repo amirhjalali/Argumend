@@ -31,7 +31,7 @@ export interface Box extends Size {
 /** Sizes at zoom 1. The node components draw exactly these boxes. */
 export const NODE_SIZE = {
   question: { width: 560, height: 124 },
-  crux: { width: 496, height: 136 },
+  crux: { width: 496, height: 148 },
   side: { width: 240, height: 140 },
   evidence: { width: 220, height: 80 },
 } as const satisfies Record<DiagramNode["kind"], Size>;
