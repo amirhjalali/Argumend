@@ -407,7 +407,8 @@ export function MapMatch({
 }
 
 /**
- * "No map, rather than the wrong map", and what the reader gets instead:
+ * "No map clearly fits, so we won’t guess one" (better no map than the wrong one),
+ * and what the reader gets instead:
  * possible maps from an ambiguous reading, then three
  * questions to read the argument themselves (ReadItYourself). The guide is
  * left out when the diagnosis lane has already read the text above.
@@ -437,7 +438,7 @@ export function MapNoMatch({
           tabIndex={-1}
           className="font-serif text-[2rem] leading-[1.1] text-[var(--text-heading)] focus:outline-none sm:text-[2.5rem]"
         >
-          No map, rather than the wrong map
+          No map clearly fits, so we won’t guess one
         </h2>
         <p className="max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
           {closest
