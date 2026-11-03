@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla alphatensor amdahls aschenbrenner christiano latency leaderboard bench davidson hoffmann looming superhuman metr philanthropy"
+    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard bench davidson hoffmann looming philanthropy serial superhuman"
   },
   {
     "id": "jones-act",
@@ -1099,7 +1099,7 @@
       "Could AI escape human control?",
       "Could a misaligned superintelligence wipe out humanity?"
     ],
-    "keywords": "apollo mythos metr amodei astra kapoor narayanan turner opus redwood sonnet circled sandbox boat dario"
+    "keywords": "apollo mythos kapoor narayanan amodei astra rlhf turner redwood sonnet circled opus sandbox boat deliberative"
   },
   {
     "id": "ai-content-labeling",
@@ -1281,7 +1281,7 @@
       "Should states or Washington regulate AI?",
       "Should AI companies be allowed to police themselves?"
     ],
-    "keywords": "summit newsom mythos seoul globalist zhipu amodei hinton thalidomide altman multimodal tape calif fable hassabis"
+    "keywords": "summit newsom seoul mythos globalist zhipu hinton thalidomide amodei multimodal tape calif hassabis kelsey knapp"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1309,23 +1309,28 @@
     "id": "ai-superintelligence-timeline",
     "title": "Will Artificial Superintelligence Arrive Before 2035?",
     "question": "Could artificial superintelligence arrive before 2035?",
-    "meta_claim": "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation. The AI 2027 scenario is one named fast path to it, not the only one.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 63,
+    "meta_claim": "AI progress in 2025 and 2026 makes artificial superintelligence, AI that outperforms the best humans at nearly every cognitive task, a real possibility before 2035: not a certainty, and not a fringe view.",
+    "confidence_score": 48,
+    "balance": 48,
+    "weight": 71,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Will capability gains from more compute hit a ceiling before general reasoning?",
+    "evidenceCount": 17,
+    "firstCrux": "Will the length of task AI agents can finish keep doubling every few months, or level off before human expert level?",
     "tags": [
       "technology"
     ],
-    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt mamba mirage multilingual openreview ouyang schaeffer shazeer smoothly"
+    "aliases": [
+      "Will superintelligent AI arrive before 2035?",
+      "Is AGI coming soon?",
+      "When will AI be smarter than humans?"
+    ],
+    "keywords": "astra mythos fable lecun amodei bricken dziri shazeer chollet hoffmann kaplan predecessor decoder opus harness"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1991,7 +1996,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna cftc chainalysis gensler silvergate usdc"
+    "keywords": "coinbase token stablecoin mica ripple dubai defi fit21 terrausd contagion luna cftc chainalysis gensler silvergate"
   },
   {
     "id": "gig-economy-regulation",
@@ -2080,7 +2085,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates bard disbursed forgave fullwiler"
+    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb alleviates bard disbursed forgave fullwiler heroes"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2571,7 +2576,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate herself naep ceos clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "keywords": "despair deaton anne tate herself naep ceos clearinghouse mens afflicting congregations fraternal hierarchies misogynistic proficiency"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2664,7 +2669,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "keywords": "olympic ncaa rapporteur cisgender skeletal medals swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
   },
   {
     "id": "animal-consciousness-rights",
@@ -3067,7 +3072,7 @@
       "intellectual-property",
       "law"
     ],
-    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim regurgitate reshef shutterstock guild memorization thirteen bibas bookseller"
+    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim memorization regurgitate reshef shutterstock guild thirteen bibas bookseller"
   },
   {
     "id": "facial-recognition-policing",

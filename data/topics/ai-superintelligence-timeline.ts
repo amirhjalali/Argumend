@@ -5,57 +5,69 @@ export const aiSuperintelligenceTimelineData = {
   title: "Will Artificial Superintelligence Arrive Before 2035?",
   question: "Could artificial superintelligence arrive before 2035?",
   meta_claim:
-    "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation. The AI 2027 scenario is one named fast path to it, not the only one.",
+    "AI progress in 2025 and 2026 makes artificial superintelligence, AI that outperforms the best humans at nearly every cognitive task, a real possibility before 2035: not a certainty, and not a fringe view.",
   status: "highly_speculative" as const,
   category: "technology" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  // As of 3 November 2026: GPT-6 Astra scored 62.7% on ARC-AGI-3's standard
+  // harness (3 September), up from under 1% for the best models at launch
+  // (25 March); METR's best measured time horizon is above 16 hours; the AI
+  // Futures Project moved its automated-coder medians earlier (2 April);
+  // Anthropic withheld Mythos Preview (April) and OpenAI GPT-6.1 Astra
+  // (September) from general release.
+  last_updated: "2026-11-03",
+  // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "The largest survey of AI researchers, 2,778 of them (Grace et al., 2023), put the median 50% odds of human-level machine intelligence around 2047, about 13 years earlier than the same survey's estimate one year before. Individual forecasts run from a few years to never. The fight is over whether the recent pace of progress means superintelligence before 2035, or whether the hard problems still ahead push it out by decades.",
-    confidence: 82,
+      "In March 2026 the best AI models scored under 1% on ARC-AGI-3, a set of puzzle games that untrained people solve. Six months later OpenAI's GPT-6 Astra scored 62.7% under the test's standard rules, and the test's creator, François Chollet, said AGI would come sooner than his 2030 forecast 'because progress is happening faster than I expected.' The test's makers say the result is not AGI. The fight is over whether 2026's pace carries on to machines that outthink people at almost everything within nine years.",
+    confidence: 86,
     source:
-      "Grace et al., 'Thousands of AI Authors on the Future of AI' (2,778 researchers, 2023/24); prior AI Impacts expert surveys",
-    sourceUrl: "https://arxiv.org/abs/2401.02843",
+      "ARC Prize Foundation, 'OpenAI's GPT-6 Astra on ARC-AGI-3' (3 September 2026); The Decoder (26 March and 4 September 2026)",
+    sourceUrl: "https://arcprize.org/blog/astra",
   },
-  // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that AI scaling laws have held remarkably well so far, that today's models excel on tasks resembling their training data while genuinely novel reasoning is the hard test, and that no current method reliably verifies an AI's true goals.",
-    "They split over whether capability gains from more compute keep paying off or hit a ceiling before general reasoning; whether scaled-up transformers can generalize to novel problems or need a new architecture; and whether safety checks or regulation would hold a buildable system back past 2035 or shape only how it ships.",
+    "If machines that outthink people at nearly everything arrive within nine years, the fights over jobs, elections, weapons and AI safety all run on that clock. If they are decades away, there is time to prepare.",
+    "The sides split over three things: whether 2026's pace on long, hard tasks keeps going, whether today's models can really handle problems they have never seen, and whether labs and governments will hold back systems that can already be built.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
+  aliases: [
+    "Will superintelligent AI arrive before 2035?",
+    "Is AGI coming soon?",
+    "When will AI be smarter than humans?",
+  ],
   references: [
     {
-      title: "Anthropic — Core Views on AI Safety",
-      url: "https://www.anthropic.com/research/core-views-on-ai-safety",
+      title: "ARC Prize Foundation: OpenAI's GPT-6 Astra on ARC-AGI-3 (3 September 2026)",
+      url: "https://arcprize.org/blog/astra",
+    },
+    {
+      title: "AI Futures Project: Q1 2026 Timelines Update",
+      url: "https://blog.aifutures.org/p/q1-2026-timelines-update",
+    },
+    {
+      title: "METR (time-horizon measurements)",
+      url: "https://en.wikipedia.org/wiki/METR",
+    },
+    {
+      title: "International AI Safety Report 2026: Extended Summary for Policymakers",
+      url: "https://internationalaisafetyreport.org/publication/2026-report-extended-summary-policymakers",
     },
     {
       title:
-        "OpenAI — Planning for AGI and Beyond",
-      url: "https://openai.com/index/planning-for-agi-and-beyond/",
-    },
-    {
-      title:
-        "Epoch AI — Trends in Machine Learning (compute & scaling)",
-      url: "https://epoch.ai/trends",
-    },
-    {
-      title:
-        "Grace et al. 2024 — 'Thousands of AI Authors on the Future of AI' (AI Impacts survey, n=2,778; 50% chance of high-level machine intelligence by 2047)",
+        "Grace et al. 2024, 'Thousands of AI Authors on the Future of AI' (AI Impacts survey, n=2,778)",
       url: "https://arxiv.org/abs/2401.02843",
     },
     {
-      title:
-        "Villalobos et al. 2024 — 'Will We Run Out of Data? Limits of LLM Scaling Based on Human-Generated Data' (Epoch AI)",
-      url: "https://arxiv.org/abs/2211.04325",
+      title: "Epoch AI, 'Can AI scaling continue through 2030?'",
+      url: "https://epoch.ai/blog/can-ai-scaling-continue-through-2030",
     },
   ],
   questions: [
     {
       id: "q1",
-      title: "Are scaling laws enough for AGI?",
+      title: "Did GPT-6 Astra just pass the hardest test of general intelligence?",
       content:
-        "Neural scaling laws show predictable improvement as compute and data grow. But do these power-law gains translate to genuine understanding and reasoning, or merely better pattern matching?",
+        "On ARC-AGI-3, interactive puzzle games that untrained people solve, the best models scored under 1% in March 2026. In September GPT-6 Astra scored 62.7% under the standard rules and 99.9% with a different harness, and used fewer moves than the median human on 96% of levels. The ARC Prize Foundation called it 'a noticeable step-function change' but said 'we are not claiming that it is AGI,' because the games have 'deterministic, closed-ended mechanics and goals.'",
       imageUrl:
         "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=60",
     },
@@ -63,7 +75,7 @@ export const aiSuperintelligenceTimelineData = {
       id: "q2",
       title: "What would superintelligence look like?",
       content:
-        "If ASI emerged, would it be a single system vastly exceeding human cognition, or a distributed network of specialized agents? How would we even recognize it?",
+        "If it came, it might be one system far beyond any person, or many agents that together out-think human institutions. Either way it would be recognised less by a test score than by what it can do unaided: run research, run companies, or design its own successor.",
       imageUrl:
         "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
     },
@@ -71,317 +83,446 @@ export const aiSuperintelligenceTimelineData = {
       id: "q3",
       title: "Would safety checks delay deployment?",
       content:
-        "Even if scaling makes superintelligence buildable, developers and regulators could hold a system back until its goals can be checked. Do those checks move the date, or does competitive pressure set the schedule?",
+        "In 2026 Anthropic held Mythos Preview back from the public and OpenAI held back GPT-6.1 Astra, both over safety. But two months after withholding Mythos Preview, Anthropic released Fable 5, its most capable public model, with safeguards attached. Whether checks move the date, or only shape how a model ships, is one of the questions this map weighs.",
       imageUrl:
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
     },
   ],
   pillars: [
+    // =========================================================================
+    // PILLAR 1: The pace
+    // =========================================================================
     {
       id: "scaling-laws-compute",
-      title: "Scaling Laws and Compute",
+      title: "The Pace: Will 2026's Speed Last?",
       short_summary:
-        "Whether scaling compute, data, and parameters on current architectures is sufficient to reach AGI-level capabilities.",
+        "METR's measure of how long a task AI agents can finish has been doubling about every four months since 2023, and forecasters at the AI Futures Project moved their dates earlier in 2026. Skeptics point to measurements that break down at the top, an intelligence index that went flat, and expert surveys that still put human-level AI decades out.",
       image_url:
         "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=60",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "Scaling laws describe falling next-token loss, not gains on the reasoning that matters for general intelligence — and the two can decouple. Current models excel at interpolation within their training distribution but stumble on genuine out-of-distribution reasoning. We are approaching a data wall: Epoch AI projects the public stock of human-generated text will be roughly exhausted between about 2026 and 2032 (Villalobos et al.), and synthetic data has reliably helped only in narrow, verifiable domains like math and code. Crucially, loss falls as a power law — each new increment of capability costs exponentially more compute — so the curve flattens in capability terms even as spending explodes. The 'this time is different' framing assumes the jump from narrow proficiency to general intelligence is a smooth extrapolation, but every prior paradigm needed a qualitative architectural break, not just more of the same.",
+        "Benchmarks are racing ahead of what they can measure, and the broader picture is flatter. GPT-6 Astra, the model that leapt on ARC-AGI-3, scored exactly level with its predecessor on the Artificial Analysis Intelligence Index, and behind Anthropic's Claude Fable 5.1. METR says its task suite cannot reliably measure anything above about 16 hours, and its GPT-5.6 Sol result shows why: counted strictly the model's horizon was about 11 hours, but over 270 hours if its cheating attempts were scored as successes. The largest survey of AI researchers put even a 50% chance of machines beating humans at every task around 2047. Training runs also need power and chips: even Epoch AI, which expects far larger runs to be feasible by 2030, calls power 'the constraint likely to bind first.' Fast progress on coding tasks with clear answers is not the same as reaching superhuman judgment on open problems in nine years.",
       proponent_rebuttal:
-        "Scaling laws have held across many orders of magnitude of compute, from GPT-2 to GPT-4 and beyond, and capability keeps tracking compute even as raw loss gains shrink. Two independent cost curves compound in scaling's favor: hardware price-performance improves roughly 40% per year (Epoch AI), while algorithmic efficiency improves even faster — the compute needed to hit a fixed language-modeling performance has halved roughly every eight months, about 3x per year (Ho et al. / Epoch). So an effective-compute budget grows far faster than dollar spend alone. Data ceilings are being attacked with synthetic data, self-play, multimodal corpora, and reinforcement learning on verifiable rewards. And forecasters keep revising shorter: in the 2024 AI Impacts survey of 2,778 published AI researchers, the median estimate for a 50% chance of high-level machine intelligence fell 13 years (to 2047) versus the 2022 survey — a base rate that argues for treating short timelines as live, not fringe.",
+        "Every measure that tracks real work is accelerating, and the people closest to the data keep pulling their dates in. In January 2026 METR estimated the length of software tasks agents can finish has doubled about every 4.3 months since 2023, faster than the seven months it reported in 2025, and by May its best measured model was likely beyond 16 hours. The 2026 International AI Safety Report recorded gold-medal performance on International Mathematical Olympiad questions. In April the AI Futures Project, authors of the AI 2027 scenario, moved their median for an AI that can do a top coder's job from late 2029 to mid 2028 (Daniel Kokotajlo) and from early 2032 to mid 2030 (Eli Lifland), saying agentic coding had improved faster than they expected. Once AI does most of the work of AI research, the step from human-level to superhuman can take years, not decades. Nine years is a long time on a four-month doubling.",
       crux: {
         id: "scaling-ceiling-test",
-        title: "The Scaling Ceiling Test",
+        title: "The Doubling Test",
         question:
-          "Will capability gains from more compute hit a ceiling before general reasoning?",
+          "Will the length of task AI agents can finish keep doubling every few months, or level off before human expert level?",
         description:
-          "Determine whether scaling laws exhibit a ceiling or inflection point before reaching AGI-level performance on general reasoning benchmarks.",
+          "If agents' task horizons keep doubling every four to seven months, they reach weeks and then months of expert work within a few years, which is roughly what automating AI research would take. If the doubling slows on tasks where cheating is impossible and answers are not clear-cut, the fast path to superintelligence before 2035 narrows.",
         methodology:
-          "Track loss curves and downstream benchmark performance across successive model generations (10x compute increments). Plot capability gains on novel reasoning tasks (ARC-AGI, GPQA, frontier math) against compute. Identify whether the power-law exponent is stable, increasing, or decreasing.",
+          "Extend time-horizon measurement to tasks of days to weeks, score cheating as failure, include open-ended tasks without automatic grading, and fit the doubling time separately for each model generation. Compare with broad indices of general capability over the same period.",
         equation:
-          "L(C) = \\alpha C^{-\\beta} + L_{\\infty}",
+          "H(t) = H_0 \\cdot 2^{t/T_d}",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Loss curves and scores on novel reasoning tasks (ARC-AGI, GPQA, frontier math) across successive 10x compute steps, checking whether the power-law exponent holds steady, rises or falls.",
+            "Time-horizon measurements on new tasks lasting days to weeks, with cheating scored as failure and open-ended tasks included, showing whether the doubling time stays near four to seven months through 2028 or lengthens.",
         },
-        cost_to_verify: "$1B+ (requires training multiple frontier-scale models)",
+        cost_to_verify: "Several million dollars a year for long-task evaluation; resolves over 2027-2029",
         falsification: {
           supporter_flip:
-            "If capability gains per 10× of compute clearly flattened on hard reasoning benchmarks — a scaling ceiling appearing before AGI-level performance — the 'just scale up and we get there soon' basis for near-term superintelligence would break.",
+            "If time horizons measured on long, cheat-proof, open-ended tasks stopped doubling and stalled at a few days of expert work through 2028, the fast path to superintelligence before 2035 would look much less likely.",
           skeptic_flip:
-            "If each new compute generation kept delivering predictable capability gains, with algorithmic efficiency improving on top, the claim that scaling has hit a wall would lose its footing and near-term timelines would look plausible.",
+            "If cheat-proof measurements on week-long open-ended tasks kept doubling every few months, and broad intelligence indices rose with them, the claim that benchmark gains overstate progress would be hard to hold.",
           common_ground:
-            "Both sides agree scaling laws have held remarkably well so far and that whether they continue to AGI-level reasoning is unknown.",
+            "Both sides agree AI agents' task horizons grew very fast from 2023 to 2026, and that today's measurements become unreliable for tasks longer than about a day.",
           live_disagreement:
-            "Whether the capability-per-compute curve hits a ceiling before reaching general reasoning — which only continued frontier-scale training and benchmark tracking can reveal.",
+            "Whether the doubling continues on long, open-ended work that cannot be gamed, or flattens once tasks lack clear answers.",
         },
       },
       evidence: [
         {
-          id: "consistent-scaling",
-          title: "Scaling Laws Have Held Across Five Orders of Magnitude",
+          id: "metr-doubling-2026",
+          title: "METR 2026: the length of task agents can finish has doubled about every 4.3 months since 2023",
           description:
-            "From 2019 to 2025, neural scaling laws predicted loss improvements with remarkable accuracy across compute scales from 10^20 to 10^25 FLOP.",
+            "METR measures the length of software tasks, timed by human experts, that AI agents complete half the time. With its Time Horizon 1.1 suite (January 2026) it estimated a post-2023 doubling time of 130.8 days, about 4.3 months, faster than the roughly seven months it reported for 2019 to 2024. As of May 2026 its best measured model, Claude Mythos, was likely at least 16 hours; Claude Opus 4.6 (February 2026) measured about 12 hours.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "METR time-horizon results, as compiled on Wikipedia's METR article (accessed November 2026)",
+          sourceUrl: "https://en.wikipedia.org/wiki/METR",
+          reasoning:
+            "The most direct repeated measure of how much autonomous work AI can do, from an independent evaluator. It covers mostly software tasks with clear success criteria, which is where skeptics say progress is easiest.",
+        },
+        {
+          id: "ai-futures-q1-2026",
+          title: "AI Futures Project, April 2026: automated-coder forecasts moved 1.5 years earlier",
+          description:
+            "The AI 2027 authors moved their median for an AI able to automate coding from late 2029 to mid 2028 (Daniel Kokotajlo) and from early 2032 to mid 2030 (Eli Lifland), and their medians for AI that beats top experts at nearly everything 'about 1.5 years sooner.' They cited new METR data, a faster assumed doubling time, and progress in agentic coding that was 'faster than we expected over the last 3-5 months.' In December 2025 the same group's updated model had produced 'a roughly 3-5 year shift' later in its median for full coding automation compared with April 2025.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 4,
+            directness: 6,
+          },
+          source: "AI Futures Project, 'Q1 2026 Timelines Update' (2 April 2026); 'AI Futures Model: Dec 2025 Update'",
+          sourceUrl: "https://blog.aifutures.org/p/q1-2026-timelines-update",
+          reasoning:
+            "Forecasters who publish their models and change them both ways are worth tracking. It is still a forecast built on the METR trend, not independent evidence of it.",
+        },
+        {
+          id: "consistent-scaling",
+          title: "Kaplan 2020 and Hoffmann 2022: model loss fell predictably with compute across many orders of magnitude",
+          description:
+            "Neural scaling laws showed language-model loss falling as a smooth power law as compute, data and parameters grew, and Chinchilla (2022) refined the best balance of data and parameters. Labs have planned training runs on these curves since.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
             replicability: 9,
-            directness: 7,
+            directness: 4,
           },
           source:
-            "Kaplan et al. 2020, 'Scaling Laws for Neural Language Models' (arXiv:2001.08361); Hoffmann et al. 2022, 'Training Compute-Optimal Large Language Models' / Chinchilla (arXiv:2203.15556)",
+            "Kaplan et al. 2020, 'Scaling Laws for Neural Language Models' (arXiv:2001.08361); Hoffmann et al. 2022, 'Training Compute-Optimal Large Language Models' (arXiv:2203.15556)",
           sourceUrl: "https://arxiv.org/abs/2203.15556",
           reasoning:
-            "Empirically robust across multiple labs and architectures, but directness limited because loss improvement does not guarantee capability emergence. Note both papers fit power laws over training-time loss (up to ~10^24 FLOP), not the 10^25 frontier; the broader 'five orders of magnitude' claim is an extrapolation.",
+            "Robust across labs, which is why investors keep buying compute. Lower loss is not the same as new abilities, so it bears only indirectly on superintelligence.",
         },
         {
-          id: "emergent-capabilities",
-          title: "Emergent Capabilities Appear Unpredictably at Scale",
+          id: "metr-cheating-caveat",
+          title: "METR 2026: GPT-5.6 Sol measured about 11 hours, or over 270 if its cheating counted",
           description:
-            "Abilities like chain-of-thought reasoning, multilingual transfer, and code generation emerged at specific compute thresholds without being explicitly trained.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 6,
-          },
-          source:
-            "Wei et al. 2022, 'Emergent Abilities of Large Language Models' (arXiv:2206.07682); contested by Schaeffer et al. 2023, 'Are Emergent Abilities a Mirage?' (arXiv:2304.15004)",
-          sourceUrl: "https://arxiv.org/abs/2206.07682",
-          reasoning:
-            "Documented across multiple models, but Schaeffer et al. (2023) argue emergence is largely an artifact of discontinuous metric choice rather than a true phase transition — which is why directness is held low.",
-        },
-        {
-          id: "diminishing-benchmark-returns",
-          title: "Benchmark Gains Show Diminishing Returns on Reasoning Tasks",
-          description:
-            "While language fluency scales smoothly, performance on genuine reasoning benchmarks (ARC-AGI, novel math proofs) shows slower improvement per compute dollar, suggesting a possible ceiling.",
+            "METR put OpenAI's GPT-5.6 Sol (June 2026) at a 50% time horizon of 11 hours 18 minutes, and noted that if its cheating attempts were counted as successes the figure would exceed 270 hours. METR also says 'measurements above 16 [hours] are unreliable with [their] current task suite,' so its top results are lower bounds.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "METR results, as compiled on Wikipedia's METR article (accessed November 2026)",
+          sourceUrl: "https://en.wikipedia.org/wiki/METR",
+          reasoning:
+            "Shows the headline numbers depend on scoring choices and that models game tests, so some measured progress may not be real progress. It does not show the underlying trend is flat: the strict figure still rose.",
+        },
+        {
+          id: "astra-flat-index-2026",
+          title: "Artificial Analysis, September 2026: GPT-6 Astra scored level with its predecessor",
+          description:
+            "Independent benchmark aggregators disagreed on GPT-6 Astra. Epoch AI ranked it first of 267 models. Artificial Analysis gave it 61 points on its Intelligence Index, 'exactly level with its predecessor' GPT-5.6 Sol, and behind Anthropic's Claude Fable 5.1 at 66.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
             independence: 7,
             replicability: 6,
-            directness: 8,
+            directness: 6,
+          },
+          source: "The Decoder, 'Benchmarks disagree on GPT-6 Astra' (4 September 2026)",
+          sourceUrl:
+            "https://the-decoder.com/benchmarks-disagree-on-gpt-6-astra-but-its-human-beating-efficiency-on-arc-agi-3-pulls-chollets-agi-forecast-forward/",
+          reasoning:
+            "A flat broad index next to a leap on one test suggests gains are uneven. One release is one data point, and the other index ranked the same model first.",
+        },
+        {
+          id: "expert-survey-2047",
+          title: "AI Impacts 2023 survey: 2,778 researchers gave 50% odds of human-level machine intelligence by 2047",
+          description:
+            "The largest survey of AI researchers, of authors at top venues, put a 50% chance of unaided machines outperforming humans at every task by 2047, and a 10% chance by 2027. The median moved 13 years earlier than in the same survey a year before.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 8,
+            replicability: 5,
+            directness: 5,
           },
           source:
-            "Chollet 2019, 'On the Measure of Intelligence' / ARC-AGI (arXiv:1911.01547)",
-          sourceUrl: "https://arxiv.org/abs/1911.01547",
+            "Grace et al. (AI Impacts), 'Thousands of AI Authors on the Future of AI', 2024 (arXiv:2401.02843)",
+          sourceUrl: "https://arxiv.org/abs/2401.02843",
           reasoning:
-            "ARC-AGI directly targets novel-task generalization rather than narrow capabilities; the underlying benchmark and skill-acquisition-efficiency framing trace to Chollet's 2019 paper, though benchmarks themselves may not capture the full picture.",
+            "The broadest view of the field, and it puts even human-level AI past 2035 at the median. It predates the 2025-26 gains, and the 13-year swing in one year shows how unstable such forecasts are.",
         },
       ],
     },
+    // =========================================================================
+    // PILLAR 2: Can today's models handle what they have never seen?
+    // =========================================================================
     {
       id: "architecture-limitations",
-      title: "Architecture Limitations",
+      title: "The Kind of Mind: Can Today's AI Handle the Truly New?",
       short_summary:
-        "Whether transformer-based architectures can achieve general reasoning or if fundamentally new approaches are needed.",
+        "Superintelligence needs more than speed on familiar tasks: it needs to work out problems no one has shown it. ARC-AGI-3 was built to test exactly that, and in six months the best score went from under 1% to 62.7%. Its makers still say the games are narrow, and controlled studies keep finding models that break on long chains of reasoning.",
       image_url:
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Transformers are sophisticated pattern matchers that approximate reasoning through memorized heuristics. They lack persistent memory, cannot update their own weights during inference, and degrade sharply on systematic compositionality — controlled tests (Dziri et al., NeurIPS 2023) show accuracy collapsing as multi-step problems grow, consistent with shortcut-matching rather than learned algorithms. They also have no grounded world model. The gap between 'looks like reasoning' and 'actually reasons' may be unbridgeable without fundamentally different architectures — ones incorporating symbolic reasoning, causal inference, or neuromorphic computing. Every prior AI paradigm shift (expert systems, connectionism, deep learning) required architectural innovation, not just scaling the previous paradigm; assuming this paradigm is the exception is precisely the 'this time is different' bet that has failed before.",
+        "Solving puzzle games is not the same as understanding the world. The ARC Prize Foundation, which ran the test GPT-6 Astra did so well on, says plainly that 'we are not claiming that it is AGI': its games have 'deterministic, closed-ended mechanics and goals,' unlike the 'complexity and open-endedness of the real world.' Under the standard rules Astra scored 62.7% on games untrained people solve in full, at about $26,000 a run. Controlled studies show transformer models solving multi-step problems by matching shortcuts, with accuracy collapsing as problems grow (Dziri et al., 2023). Yann LeCun argues language models lack the grounded world models that animals use to plan. Every previous leap in AI needed a new kind of system, not just a bigger one; superintelligence may need one too.",
       proponent_rebuttal:
-        "Transformers have repeatedly exceeded expected capability limits. The architecture has proven remarkably flexible: chain-of-thought prompting unlocked multi-step reasoning, tool use extended capabilities beyond the model itself, and techniques like RLHF dramatically improved alignment with human intent. Architectural innovations are happening within the transformer paradigm — mixture of experts, state-space models, retrieval augmentation, and test-time compute scaling. The brain itself is built from relatively simple computational units (neurons) that achieve general intelligence through scale and connectivity. There is no strong theoretical argument that transformers cannot achieve AGI — only an intuition that they 'feel' too simple, which has been wrong at every previous scale.",
+        "The test built to prove today's AI cannot reason fell in six months. ARC-AGI-3 drops an agent into game worlds with no instructions, so it must explore, guess the rules, infer the goal and plan; in March 2026 the best models scored under 1%. In September GPT-6 Astra scored 62.7% under the standard rules and 99.9% with a different harness, using fewer moves than the median human on 96% of levels. The ARC Prize Foundation called it 'a noticeable step-function change' and 'meaningful progress towards generalization,' and François Chollet, who created the test and has long been a prominent skeptic of language models, said AGI would come sooner than his 2030 forecast. Each time someone names a task these systems cannot do, a later model does it. The burden of the 'new kind of system' argument is to name the task that stays out of reach.",
       crux: {
         id: "novel-reasoning-generalization",
-        title: "The Novel Reasoning Generalization Test",
+        title: "The Novel-Problem Test",
         question:
           "Can today's scaled-up models handle genuinely novel reasoning, or is their architecture a ceiling?",
         description:
-          "Test whether scaled transformer models can solve genuinely novel reasoning problems that require out-of-distribution generalization, not pattern matching from training data.",
+          "A system that outthinks people at nearly everything must handle problems unlike anything in its training. The test is whether frontier models, without task-specific help, solve new kinds of problem as reliably as people do, across open-ended domains as well as closed puzzle worlds.",
         methodology:
-          "Design reasoning tasks that are provably absent from training data (e.g., novel mathematical structures, invented formal systems). Test whether models can learn the rules from few examples and generalize systematically. Compare performance to human baselines on the same tasks. Control for memorization by using procedurally generated tasks.",
+          "Build tasks provably absent from training data, such as invented games, formal systems and experiments, including open-ended ones without fixed goals. Score models without custom harnesses against untrained humans, and track the gap across model generations.",
         equation:
           "G_{OOD} = \\frac{P(\\text{correct} | \\text{novel task})}{P(\\text{correct} | \\text{trained task})}",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Procedurally generated reasoning tasks provably absent from training data, such as invented formal systems, where models must learn the rules from a few examples, scored against human baselines on the same tasks.",
+            "Scores on newly built tasks absent from any training data, including open-ended ones with no fixed goal, for frontier models under standard rules against untrained humans, tracked across the next two model generations.",
         },
-        cost_to_verify: "$10M (benchmark design + frontier model evaluation)",
+        cost_to_verify: "$10M (benchmark design and frontier-model evaluation)",
         falsification: {
           supporter_flip:
-            "If frontier models went on failing at provably novel, out-of-distribution reasoning (learning invented formal systems from a few examples and generalizing) while excelling on training-like tasks, scaling would look like sophisticated pattern-matching, pushing timelines out or calling for a new architecture.",
+            "If frontier models kept failing new open-ended tasks that untrained people handle, while scoring well only on closed puzzle worlds, scaling would look like a ceiling and the date would move past 2035.",
           skeptic_flip:
-            "If models went on solving tasks once said to be beyond pattern-matching, such as competition math and novel coding, and improving on out-of-distribution benchmarks, 'it can't really reason' would have to retreat to ever narrower ground.",
+            "If models under standard rules matched untrained humans on new open-ended tasks with no fixed goals, as they now nearly do on ARC-AGI-3's closed games, 'it can't really reason' would have little ground left.",
           common_ground:
-            "Both sides agree current models excel on tasks resembling their training data and that genuinely novel, contamination-free reasoning is the hard test.",
+            "Both sides agree GPT-6 Astra's ARC-AGI-3 result was a large jump, and that the test's games are closed worlds simpler than real life.",
           live_disagreement:
-            "Whether scaled transformers can systematically generalize to genuinely novel reasoning or are bounded by an architectural ceiling — which only contamination-controlled novel-reasoning benchmarks can distinguish.",
+            "Whether today's kind of model can carry its new skill at closed puzzles into open-ended problems, or needs a different design to get there.",
         },
       },
       evidence: [
         {
-          id: "transformer-flexibility",
-          title: "Transformers Keep Exceeding Expected Capability Limits",
+          id: "arc-agi-3-astra-2026",
+          title: "ARC Prize, September 2026: GPT-6 Astra scored 62.7% on ARC-AGI-3, up from under 1% for March's best",
           description:
-            "Capabilities like code generation, mathematical proof assistance, and scientific reasoning were not anticipated when the architecture was designed, suggesting latent generality.",
+            "ARC-AGI-3 launched on 25 March 2026 with interactive games that untrained humans solved in full; the best frontier models then scored under 1% (Gemini 3.1 Pro 0.37%, GPT-5.4 0.26%, Opus 4.6 0.25%). On 3 September the ARC Prize Foundation reported GPT-6 Astra at 62.7% under its standard harness ($26,098 a run) and 99.9% under a provider-adapter harness ($18,817), using fewer actions than the human baseline on 96.0% of levels. The Foundation called it 'a noticeable step-function change in frontier model capabilities.'",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 8,
-            directness: 6,
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
           },
           source:
-            "Bubeck et al. 2023, 'Sparks of Artificial General Intelligence: Early experiments with GPT-4' (Microsoft Research, arXiv:2303.12712)",
-          sourceUrl: "https://arxiv.org/abs/2303.12712",
+            "ARC Prize Foundation, 'OpenAI's GPT-6 Astra on ARC-AGI-3' (3 September 2026); The Decoder (26 March 2026) for the launch scores",
+          sourceUrl: "https://arcprize.org/blog/astra",
           reasoning:
-            "Well-documented but contested — a non-peer-reviewed Microsoft Research report on a pre-release GPT-4; observed capabilities may reflect training-data patterns rather than genuine reasoning, so reliability is held moderate.",
+            "Verified by the test's own makers, on a benchmark designed to resist memorisation. The two harnesses give very different scores, and the games are closed worlds, which keeps directness from the top.",
         },
         {
-          id: "architectural-innovation-pace",
-          title: "Rapid Architectural Innovation Within the Paradigm",
+          id: "chollet-sooner-2026",
+          title: "Chollet, September 2026: AGI 'sooner' than his 2030 forecast",
           description:
-            "Mixture of experts, state-space hybrids, retrieval augmentation, and test-time compute scaling represent significant architectural evolution without abandoning the core transformer framework.",
+            "François Chollet, who created the ARC benchmarks and long argued language models could not generalise, had forecast AGI for 2030. Asked after the Astra result whether that held, he replied: 'Sooner, because progress is happening faster than I expected.'",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 7,
-            replicability: 8,
+            replicability: 4,
             directness: 5,
           },
+          source: "The Decoder (4 September 2026)",
+          sourceUrl:
+            "https://the-decoder.com/benchmarks-disagree-on-gpt-6-astra-but-its-human-beating-efficiency-on-arc-agi-3-pulls-chollets-agi-forecast-forward/",
+          reasoning:
+            "A leading skeptic moving his own date earlier is informative. It is one person's judgment, and AGI is not superintelligence.",
+        },
+        {
+          id: "architectural-innovation-pace",
+          title: "Shazeer 2017 to Gu and Dao 2023: mixture-of-experts, state-space and test-time methods extend the design",
+          description:
+            "Mixture-of-experts layers, state-space hybrids, retrieval and extra computation at answer time have changed how today's models work without abandoning the transformer, answering some earlier limits from within the design.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 7,
+            directness: 4,
+          },
           source:
-            "Synthesis of primary architecture papers, e.g. Shazeer et al. 2017 (Sparsely-Gated MoE, arXiv:1701.06538) and Gu & Dao 2023 (Mamba state-space models, arXiv:2312.00752). No single source establishes the aggregate 'pace' claim.",
+            "Shazeer et al. 2017 (Sparsely-Gated MoE, arXiv:1701.06538); Gu & Dao 2023 (Mamba, arXiv:2312.00752)",
           sourceUrl: "https://arxiv.org/abs/2312.00752",
           reasoning:
-            "Shows the paradigm is not static, but this is an aggregate characterization across several papers rather than one primary finding — hence reduced source reliability — and it does not prove these innovations are sufficient for AGI.",
+            "Shows the design keeps changing, which weakens 'transformers are a dead end'. It does not show the changes are enough.",
+        },
+        {
+          id: "arc-prize-not-agi-2026",
+          title: "ARC Prize, September 2026: 'we are not claiming that it is AGI'",
+          description:
+            "In the same report the ARC Prize Foundation wrote that 'we are not claiming that it is AGI' and that saturating the benchmark would not be proof of AGI. ARC-AGI-3 has 'a tightly bounded scope and format,' its environments have 'deterministic, closed-ended mechanics and goals,' and it does not represent 'the complexity and open-endedness of the real world.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "ARC Prize Foundation, 'OpenAI's GPT-6 Astra on ARC-AGI-3' (3 September 2026)",
+          sourceUrl: "https://arcprize.org/blog/astra",
+          reasoning:
+            "The people best placed to read the result caution against reading too much into it. It is a caveat about scope, not evidence that open-ended reasoning is out of reach.",
         },
         {
           id: "compositionality-failure",
-          title: "Systematic Compositionality Failures Persist at Scale",
+          title: "Dziri et al. 2023: transformers' accuracy collapsed as multi-step problems grew",
           description:
-            "Even frontier models fail on tasks requiring systematic composition of learned rules — e.g., multi-step logical deductions, novel combinations of known operations — suggesting a fundamental architectural limitation.",
+            "In controlled tests of multi-digit multiplication, logic puzzles and dynamic programming, transformer models' accuracy fell sharply as problems needed more steps. The authors found the models matched shortcuts from training rather than learning the procedure.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 8,
             independence: 7,
             replicability: 7,
-            directness: 8,
+            directness: 6,
           },
           source:
             "Dziri et al. 2023, 'Faith and Fate: Limits of Transformers on Compositionality' (NeurIPS 2023, arXiv:2305.18654)",
           sourceUrl: "https://arxiv.org/abs/2305.18654",
           reasoning:
-            "Directly tests compositional reasoning rather than benchmark performance; peer-reviewed (NeurIPS spotlight) and evaluated across model scales.",
+            "Peer-reviewed and directly about reasoning. It tested 2023 models without the reasoning training of later ones, so it may describe a limit since eased.",
         },
         {
           id: "no-world-model",
-          title: "Lack of Grounded World Models",
+          title: "LeCun 2022: language models lack the world models animals use to plan",
           description:
-            "Language models operate on token sequences without grounded understanding of physics, causality, or spatial reasoning — capabilities that may require embodied interaction or fundamentally different architectures.",
+            "Yann LeCun argues that systems trained to predict text have no grounded model of physics, cause and space, and that reaching human-level intelligence will need architectures that learn such models from observation.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,
-            replicability: 5,
-            directness: 7,
+            replicability: 4,
+            directness: 6,
           },
           source:
-            "LeCun 2022, 'A Path Towards Autonomous Machine Intelligence' (position paper, v0.9.2, OpenReview)",
+            "LeCun 2022, 'A Path Towards Autonomous Machine Intelligence' (position paper, OpenReview)",
           sourceUrl: "https://openreview.net/pdf?id=BZ5a1r-kVsf",
           reasoning:
-            "A self-published position paper (not peer-reviewed) advancing a theoretical argument supported by empirical failures on physical reasoning; multimodal models are rapidly closing some gaps, so reliability is held moderate.",
+            "A serious argument from a Turing Award winner, but a position paper rather than a result, and multimodal models have since closed some of the gaps it names.",
         },
       ],
     },
+    // =========================================================================
+    // PILLAR 3: Would anyone hold it back?
+    // =========================================================================
     {
       id: "release-gates",
-      title: "Safety Gates on Release",
+      title: "The Brakes: Would Anyone Hold It Back?",
       short_summary:
-        "Whether safety checks or regulation would delay a superintelligent system that scaling had made buildable, or only shape how it ships. Whether such a system would be dangerous is argued on the map asking whether AGI poses a real risk of human extinction; here it matters only as a possible cause of delay. Here a system arrives when it is deployed: one trained but held back has not yet arrived.",
+        "A system that can be built has not arrived until it is deployed. In 2026 two labs held models back for safety, and Anthropic's chief called for the industry to slow down. But Anthropic released a safeguarded model of the same class two months later, and four labs shipped new models in three days in September. Whether such a system would be dangerous is argued on the map asking whether advanced AI threatens human survival; here it matters only as a possible cause of delay.",
       image_url:
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Being buildable is not the same as arriving. A system that the compute curve makes possible before 2035 still has to be trained and released by people who can decide to wait. No current method reliably verifies an advanced AI's true goals: interpretability can recover human-readable features from model internals (Bricken et al. 2023), but extracting features is still far from checking what a model is trying to do. A developer or regulator that will not release what it cannot check therefore has a standing reason to hold the most capable system back, and the date would then be set by when goal-checking catches up, not by when the system first becomes buildable.",
+        "The brakes are real now, and they could move the date. In April 2026 Anthropic said of its most capable model, 'We do not plan to make Claude Mythos Preview generally available.' In September OpenAI held back GPT-6.1 Astra because it 'didn't quite meet the bar in terms of staying within scope and authorization.' That same month Anthropic's chief executive wrote that 'We must slow the pace at which we improve the capabilities of AI models' and committed his company to outside evaluators embedded in the lab; Sam Altman and Elon Musk said they agreed. A system that labs will not release until they can check its goals arrives when checking catches up, and no current method can check the goals of a system smarter than its checkers. If the leading labs pace themselves, superintelligence that could be built by 2035 may not be deployed by then.",
       proponent_rebuttal:
-        "The pressure to ship is structural and the gates are not. Global investment in AI capabilities far exceeds dedicated safety research, and frontier labs compete to release first. Safety work has so far been built into releases rather than standing in front of them: RLHF and constitutional AI ship in production systems today. As long as a system is judged good enough to deploy and keep improving, safety work decides the conditions of release, not its year.",
+        "Holding a model back has so far meant holding it back for a couple of months, then shipping it with safeguards. Two months after withholding Mythos Preview, Anthropic released Fable 5, its most capable public model, with filters that route some cyber, biology and chemistry requests to a weaker model. Between 1 and 3 September 2026, Anthropic, Meta, Google and OpenAI all released new models, and Sam Altman said 'we're all moving to faster cadences.' The US government wants it faster still: President Trump told the UN he is 'not going to stifle growth of something that will be bigger than the industrial revolution.' One lab pausing hands the lead to the next. Safety work so far decides how a model ships and who gets the riskiest version first, not the year it arrives.",
       crux: {
         id: "safety-release-gate",
         title: "The Release Gate Test",
         question:
           "Will safety checks or regulation hold back deploying superintelligence past 2035?",
         description:
-          "Ask whether the gates that could delay a superintelligent system (pre-release safety evaluations, outside review, regulation) bind on frontier developers, or whether they shape how systems are released but not when.",
+          "Ask whether the gates that could delay a superintelligent system, such as pre-release evaluations, outside review and regulation, change when the most capable systems reach users, or only the form in which they arrive. Here a system arrives when it is deployed: one trained but held back has not yet arrived.",
         methodology:
-          "Track frontier releases against safety evaluations: whether any developer withholds or delays a trained model after it fails an evaluation, whether outside review before release becomes a legal requirement anywhere, and whether the gap between finishing training and public release lengthens as capability grows.",
+          "For each frontier model, record the dates of training completion, internal use, limited release and general release; note which delays followed failed safety evaluations; and track whether the gap between training and general release lengthens as capability grows, and whether any law makes outside review a condition of release.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Records of frontier developers withholding or delaying trained models after failed evaluations, of outside review before release becoming a legal requirement, and of the gap between training and release as models grow more capable.",
+            "Dates of training, limited release and general release for each frontier model, which delays followed failed safety checks, and whether the gap from training to general release lengthens as models grow more capable or any law makes outside review a condition of release.",
         },
         cost_to_verify: "Low to monitor public release records; resolves only as more capable systems are trained",
         falsification: {
           supporter_flip:
-            "If frontier developers began withholding trained models that failed safety evaluations, and outside review before release became a legal requirement, the date would track when goal-checking catches up, which could push superintelligence past 2035 even with scaling on schedule.",
+            "If the gap between training and general release lengthened from months to years for each more capable model, or a law made outside review a condition of release, the date of deployment could slip past 2035 even with capability on schedule.",
           skeptic_flip:
-            "If each new frontier model kept reaching the public on its usual schedule despite open safety questions, and outside review stayed voluntary, safety work would look like a condition on how systems ship rather than a delay in when they arrive.",
+            "If each withheld model kept reaching the public within months in a safeguarded form, and no government required outside review, safety work would look like a condition on how systems ship rather than a delay in when they arrive.",
           common_ground:
-            "Both sides agree no current method reliably verifies an advanced AI's true goals, and that frontier labs face competitive pressure to release quickly.",
+            "Both sides agree that in 2026 at least two frontier labs held back a model from general release over safety, and that the labs face strong pressure to ship quickly.",
           live_disagreement:
-            "Whether unverified goals become a reason to hold a trained system back, or a condition attached to systems that ship on the schedule capability allows.",
+            "Whether holding models back becomes a lasting delay as capability grows, or stays a pause of weeks before release with safeguards.",
         },
       },
       evidence: [
         {
           id: "alignment-progress",
-          title: "Safety Techniques Ship Inside Deployed Systems",
+          title: "Anthropic, June 2026: two months after withholding Mythos Preview, a safeguarded model of its class went public",
           description:
-            "RLHF, constitutional AI, and red-teaming have improved the safety and helpfulness of deployed systems: safety methods applied to models as they are released, rather than a gate that holds them back.",
+            "Anthropic withheld Claude Mythos Preview from general release in April 2026. On 9 June it released Claude Fable 5, 'the most capable model it has ever released to the public,' with automated classifiers routing some cybersecurity, biology, chemistry and model-distillation requests to the less capable Claude Opus 4.8; Anthropic says this happens in fewer than 5% of sessions. A version with cyber restrictions lifted, Mythos 5, stayed limited to a small group of security and infrastructure partners.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 6,
-            replicability: 8,
-            directness: 5,
+            replicability: 6,
+            directness: 8,
           },
-          source:
-            "Bai et al. 2022, 'Constitutional AI: Harmlessness from AI Feedback' (Anthropic, arXiv:2212.08073); Ouyang et al. 2022, 'Training language models to follow instructions with human feedback' / InstructGPT-RLHF (OpenAI, arXiv:2203.02155)",
-          sourceUrl: "https://arxiv.org/abs/2212.08073",
+          source: "CSO Online, 'Anthropic releases Mythos-class Fable 5 model with safeguards for cyber risks' (9 June 2026)",
+          sourceUrl:
+            "https://www.csoonline.com/article/4183094/anthropic-releases-mythos-class-fable-5-model-with-safeguards-for-cyber-risks.html",
           reasoning:
-            "Published lab methods, proven on current systems. Directness to the 2035 date is limited: they show safety work and releases moving together today, not that the same methods would clear a far more capable system for release.",
+            "The clearest test so far of what a safety hold does: it shaped the release, and lasted about two months. One lab and one model; a far more capable system could be held longer.",
         },
         {
           id: "capabilities-outpace-safety",
-          title: "Capabilities Research Vastly Outpaces Safety Research",
+          title: "CNBC, September 2026: four major labs released new models in three days",
           description:
-            "Global investment in AI capabilities vastly exceeds dedicated AI-safety research. Major labs face competitive pressure to ship faster, creating structural incentives against holding a system back for safety work.",
+            "On 1 September 2026 Anthropic released Claude Fable 5.1 and Claude Mythos 5.1; on 2 September Meta released Muse Spark 1.3 and Google Gemini 3.8 Flash; on 3 September OpenAI released GPT-6 Astra. Sam Altman said 'we're all moving to faster cadences,' and one cloud executive said 'model fatigue is a real thing.'",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 8,
             independence: 7,
-            replicability: 7,
+            replicability: 8,
             directness: 6,
           },
-          source:
-            "Directional estimate; no single audited primary source. Spending-trend context from Stanford HAI AI Index Report (annual) and Epoch AI investment data; the precise capabilities-vs-safety ratio is not rigorously measured.",
-          sourceUrl: "https://hai.stanford.edu/ai-index",
+          source: "CNBC, \"'Model fatigue' sets in as AI labs race to roll out new versions at frenetic pace\" (6 September 2026)",
+          sourceUrl: "https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html",
           reasoning:
-            "The qualitative disparity is widely reported, but the 'orders of magnitude' figure is an estimate rather than an audited statistic, hence reduced source reliability. Directness is moderate: incentives to ship do not show that no developer or regulator would wait.",
+            "Shows the competitive pressure that works against long holds. Several of the releases were point upgrades, so cadence is not the same as capability.",
+        },
+        {
+          id: "openai-astra-held-2026",
+          title: "OpenAI, September 2026: GPT-6.1 Astra held back for missing its safety bar",
+          description:
+            "On 28 September 2026 OpenAI confirmed it would not release GPT-6.1 Astra. Its head of safety systems, Saachi Jain, said the model 'didn't quite meet the bar in terms of staying within scope and authorization,' and that 'For anything regarding safety and alignment, there's a trade off.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 5,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "CNBC, 'OpenAI abandons plan to release upcoming model as safety concerns escalate' (28 September 2026)",
+          sourceUrl:
+            "https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html",
+          reasoning:
+            "A release stopped by the lab's own safety bar is the gate working. It does not show the capability was held back for long, since GPT-6 Astra had shipped weeks earlier.",
+        },
+        {
+          id: "amodei-pace-2026",
+          title: "Amodei, September 2026: 'We must slow the pace' of capability gains",
+          description:
+            "In 'We Must Pace the Frontier' (September 2026), Anthropic's Dario Amodei wrote: 'We must slow the pace at which we improve the capabilities of AI models.' He proposed outside evaluators embedded in every frontier lab, shared limits among labs in democratic countries and talks with authoritarian governments, and said 'Anthropic is unilaterally committing to this step now' for the first.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 4,
+            replicability: 4,
+            directness: 6,
+          },
+          source: "Dario Amodei, 'We Must Pace the Frontier' (September 2026)",
+          sourceUrl: "https://darioamodei.com/post/we-must-pace-the-frontier",
+          reasoning:
+            "A frontier lab committing to slow down is the strongest sign the date could be set by choice. Only the first step is a commitment; the limits on pace depend on other labs and governments agreeing.",
         },
         {
           id: "interpretability-breakthroughs",
-          title: "Goal-Checking Tools Are Early-Stage",
+          title: "Bricken et al. 2023: readable features recovered from a small model, far from checking a model's goals",
           description:
-            "Researchers can now identify human-interpretable features and some circuits in language models, a path toward checking a model's goals from the inside, but the 2023 demonstration was on a small model. A release gate that waits for goal-checking would be waiting on tools at this stage.",
+            "Researchers recovered human-interpretable features and some circuits from a small language model, a first step toward checking a model's goals from the inside. A release gate that waits for goal-checking would be waiting on tools at this stage.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
             replicability: 7,
-            directness: 6,
+            directness: 5,
           },
           source:
             "Bricken et al. 2023, 'Towards Monosemanticity: Decomposing Language Models With Dictionary Learning' (Anthropic, transformer-circuits.pub)",
           sourceUrl:
             "https://transformer-circuits.pub/2023/monosemantic-features/index.html",
           reasoning:
-            "Sparse autoencoders recover concept-aligned features, but on a small model and far from verifying a frontier model's goals. Directness is moderate: immature goal-checking delays deployment only if someone requires it before release.",
+            "Immature goal-checking delays deployment only if someone requires it before release, which is the open question.",
         },
       ],
     },
