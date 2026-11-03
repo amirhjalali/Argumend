@@ -20,7 +20,7 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["nuclear-weapons-abolition", 2, "The humanitarian consequences of nuclear weapons use are so severe"],
   ["alternatives-to-democracy", 1, "Citizens' assemblies are advisory bodies"],
   ["transgender-athletes-sports", 2, "The open category model is not exclusion"],
-  ["masculinity-crisis", 2, "The 'both sides fail' framing creates a false equivalence"],
+  ["masculinity-crisis", 2, "Programs for men are not where the evidence or the need points."],
   // Found by the same audit's scan of every legacy map.
   // Decided by the founder's go-ahead after round 3: the flips and both evidence
   // cards already treated "CBDCs threaten dollar power" as the claim's side.

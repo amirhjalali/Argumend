@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol pell stagnant nordhaus rosen vijan cutler naep tuition admin turner haircut helland marron tabarrok"
+    "keywords": "baumol pell stagnant naep nordhaus rosen vijan cutler tuition admin turner haircut helland marron tabarrok"
   },
   {
     "id": "moloch",
@@ -934,7 +934,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz perpetrators prostitution starr jean cvra"
+    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz starr perpetrators prostitution jean cvra"
   },
   {
     "id": "tiktok-ban",
@@ -963,7 +963,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight retrained upholds broadcast relicensed usds"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture retrained fisa forbes knight upholds broadcast relicensed usds"
   },
   {
     "id": "immigration-border-crisis",
@@ -1947,7 +1947,7 @@
       "Is there really a loneliness epidemic?",
       "Is loneliness as deadly as smoking 15 cigarettes a day?"
     ],
-    "keywords": "lonely holt lunstad leyden walkable neighbourhoods galway luchetti masi allcott liang minister neighbours esteban kannan"
+    "keywords": "lonely holt lunstad leyden walkable galway luchetti masi allcott liang minister neighbours esteban kannan ortiz"
   },
   {
     "id": "remote-work-permanence",
@@ -1991,7 +1991,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper"
+    "keywords": "attendees vocational apprenticeship bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2530,7 +2530,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical"
+    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal irreducibility"
   },
   {
     "id": "artificial-reproduction-ethics",
@@ -2666,12 +2666,12 @@
   },
   {
     "id": "masculinity-crisis",
-    "title": "The Modern Masculinity Crisis",
-    "question": "Are young men in a crisis that neither left nor right adequately addresses?",
-    "meta_claim": "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 70,
+    "title": "Boys and Men: Is There a Crisis?",
+    "question": "Are boys and young men in a crisis that needs help aimed at them?",
+    "meta_claim": "Boys and young men are falling behind in school, work, health and friendship in ways that amount to a crisis, and it needs policies and programs aimed at them, not only general help for the poor or the economy.",
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2679,12 +2679,17 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Are men's worse outcomes driven by gender itself, or by class and economic factors that hit more men?",
+    "evidenceCount": 13,
+    "firstCrux": "Do men's gaps in school, work and health persist among men and women from the same class and race?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate ceos herself naep clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "aliases": [
+      "Are young men in a crisis that neither left nor right adequately addresses?",
+      "Is there a masculinity crisis?",
+      "Is there a boy crisis?"
+    ],
+    "keywords": "tate anne lonely deaton despair nces brothers extradition guryan juvenile lns11300061 loneliest ludwig midlife pollack"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2779,7 +2784,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics chromosome"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2982,7 +2987,7 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
+    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth profession"
   },
   {
     "id": "congestion-pricing",
@@ -3267,7 +3272,7 @@
       "iter",
       "decarbonization"
     ],
-    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
+    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting fivefold plasma"
   },
   {
     "id": "vaccine-mandates",
@@ -3379,7 +3384,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch taxable chairman forgone"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch taxable chairman forgone peterson"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3411,7 +3416,7 @@
       "Government licenses to work in a trade",
       "Licenses for hair braiding and beauty salons"
     ],
-    "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher"
+    "keywords": "midwifery dept kleiner dentist soltas barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher"
   },
   {
     "id": "encryption-backdoors",
@@ -3465,7 +3470,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
+    "keywords": "overblocking aggravated fosta netzdg taamneh eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch isis"
   },
   {
     "id": "autonomous-weapons-ban",

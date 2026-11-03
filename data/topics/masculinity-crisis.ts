@@ -2,333 +2,256 @@ import type { TopicInput } from "@/lib/schemas/topic";
 
 export const masculinityCrisisData = {
   id: "masculinity-crisis",
-  title: "The Modern Masculinity Crisis",
-  question:
-    "Are young men in a crisis that neither left nor right adequately addresses?",
+  title: "Boys and Men: Is There a Crisis?",
+  question: "Are boys and young men in a crisis that needs help aimed at them?",
   meta_claim:
-    "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
+    "Boys and young men are falling behind in school, work, health and friendship in ways that amount to a crisis, and it needs policies and programs aimed at them, not only general help for the poor or the economy.",
   status: "contested" as const,
   category: "philosophy" as const,
+  // As of 3 November 2026: men 41.5% of bachelor's degrees in 2021-22 (NCES
+  // Digest table 318.10); male suicide 23.0 vs female 5.9 per 100,000 in 2022
+  // (NCHS Data Brief 509); prime-age men's labour force participation 89.5%
+  // in September 2026 (BLS LNS11300061); Andrew Tate arrested in Miami on a
+  // UK extradition request on 18 July 2026 (ADL, updated 21 July 2026).
+  last_updated: "2026-11-03",
   imageUrl:
     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=60",
-  references: [
-    {
-      title: "Of Boys and Men: Why the Modern Male Is Struggling — Richard V. Reeves, Brookings",
-      url: "https://www.brookings.edu/books/of-boys-and-men/",
-    },
-    {
-      title: "The Boy Crisis — Warren Farrell & John Gray",
-      url: "https://boycrisis.org/",
-    },
-    {
-      title: "Men's Mental Health — American Psychological Association",
-      url: "https://www.apa.org/topics/men-boys",
-    },
-  ],
-  questions: [
-    {
-      id: "q1",
-      title: "Is the 'masculinity crisis' real or manufactured?",
-      content:
-        "Men earn fewer degrees, have higher suicide rates, declining labor force participation, and rising 'deaths of despair.' But some argue that framing male struggles as a gendered crisis obscures the class and race dynamics driving the data — poor and working-class men of all backgrounds are struggling, while affluent men are doing fine.",
-    },
-    {
-      id: "q2",
-      title: "Why are young men drawn to figures like Andrew Tate and Jordan Peterson?",
-      content:
-        "When mainstream institutions tell young men that their problems are a product of their own privilege, and that masculinity itself is 'toxic,' the vacuum is filled by figures who validate male experience — sometimes with genuine insight, sometimes with misogyny. What is the pipeline from legitimate grievance to toxic ideology, and how should it be addressed?",
-    },
-    {
-      id: "q3",
-      title: "Can masculinity be redefined without dismissing what men value?",
-      content:
-        "The tension between 'toxic masculinity' discourse and men's lived experience of purpose, protection, and provision is real. Can society articulate a positive vision of masculinity that honors traditionally valued traits while discarding genuinely harmful ones, without condescension?",
-    },
+  aliases: [
+    "Are young men in a crisis that neither left nor right adequately addresses?",
+    "Is there a masculinity crisis?",
+    "Is there a boy crisis?",
   ],
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In the U.S., men die by suicide at nearly four times the rate of women, a gap that has run between three and four and a half times for more than a century. Men now earn about 42% of bachelor's degrees. Both sides accept those numbers. The fight is over whether they add up to a crisis of men as men, or a crisis of class that hits more men.",
-    confidence: 88,
+      "In 2022 American men died by suicide at a rate of 23.0 per 100,000, against 5.9 for women. Men earned 41% of bachelor's degrees in 2021-22, down from 57% in 1969-70, and one in ten men aged 25 to 54 is neither working nor looking for work. Women working full time still earn 84% of what men earn. Both sides accept those numbers. The fight is over whether they add up to a crisis of boys and men as such, and whether the answer is help aimed at them.",
+    confidence: 90,
     source:
-      "CDC/NCHS Data Brief No. 464 (2023); American Foundation for Suicide Prevention; National Student Clearinghouse",
-    sourceUrl:
-      "https://www.cdc.gov/nchs/products/databriefs/db464.htm",
+      "CDC/NCHS Data Brief No. 509 (September 2024); NCES Digest of Education Statistics, table 318.10; BLS series LNS11300061 (September 2026); BLS, Highlights of women's earnings in 2023",
+    sourceUrl: "https://www.cdc.gov/nchs/products/databriefs/db509.htm",
   },
   simple_case: [
-    "The answer bears on whether help for struggling young men should come as jobs and training, as cultural change, or both, and on whether either political side has an offer that reaches them.",
+    "The answer decides whether schools let boys start a year later, whether states fund programs for young men, and what either political party offers them.",
+    "It is a live fight. In May 2025 Gallup found a quarter of American men aged 15 to 34 had felt lonely for a lot of the previous day. In July 2026 Andrew Tate, whose videos have drawn billions of views from young men, was arrested in Miami on a British extradition request.",
+  ],
+  references: [
+    {
+      title: "Richard V. Reeves, Of Boys and Men: Why the Modern Male Is Struggling, Why It Matters, and What to Do About It (Brookings)",
+      url: "https://www.brookings.edu/books/of-boys-and-men/",
+    },
+    {
+      title: "NCES, Digest of Education Statistics 2023, table 318.10: Degrees conferred by level of degree and sex of student",
+      url: "https://nces.ed.gov/programs/digest/d23/tables/dt23_318.10.asp",
+    },
+    {
+      title: "NCHS Data Brief No. 509: Suicide Mortality in the United States, 2002-2022 (September 2024)",
+      url: "https://www.cdc.gov/nchs/products/databriefs/db509.htm",
+    },
+    {
+      title: "Gallup, 'Younger Men in the U.S. Among the Loneliest in West' (20 May 2025)",
+      url: "https://news.gallup.com/poll/690788/younger-men-among-loneliest-west.aspx",
+    },
+    {
+      title: "Heller et al., 'Thinking, Fast and Slow? Some Field Experiments to Reduce Crime and Dropout in Chicago', NBER Working Paper 21178",
+      url: "https://www.nber.org/papers/w21178",
+    },
+    {
+      title: "Anne Case, 'Deaths of despair strike women too', Princeton University Press",
+      url: "https://press.princeton.edu/ideas/deaths-of-despair-strike-women-too",
+    },
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Empirical Crisis Indicators
+    // PILLAR 1: What the numbers show
     // =========================================================================
     {
       id: "empirical-crisis-indicators",
-      title: "Empirical Crisis Indicators",
+      title: "Are Boys and Men Falling Behind?",
       short_summary:
-        "Men account for nearly 4x the suicide rate of women, declining college enrollment (now 40% of bachelor's degrees), rising opioid deaths, a loneliness epidemic, and falling marriage and fertility rates. The question is whether these data points constitute a gendered crisis or reflect broader economic and social disruptions that disproportionately affect men.",
+        "Men now earn about 41% of bachelor's degrees, die by suicide at about four times women's rate, and drop out of the labour force more than they did. Women still earn less and men still hold most top jobs. Whether men's gaps are a crisis of men as men, or a class problem that hits more men, is the first split.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "The data points used to construct the 'masculinity crisis' narrative are real, but the gendered framing is misleading. Male suicide rates have been higher than female rates for over a century — this is not a new crisis. The decline in male college enrollment reflects the success of women's educational advancement, not male failure — men still dominate the highest-paying professions, C-suites, and political office. The 'loneliness epidemic' affects both genders, and women report higher rates of anxiety and depression than men. Framing these issues as a 'masculinity crisis' rather than a class crisis allows society to ignore that the men struggling most are poor, rural, and lacking access to economic opportunity — problems that would be better addressed through economic policy than gender identity discourse.",
+        "The numbers are real, but they do not show a new crisis of men as such. The male suicide rate has been three to four and a half times the female rate for as long as the CDC's modern series runs, and between 2001 and 2021 the female rate rose faster. Women working full time still earn 84% of what men earn. Men hold about 92% of S&P 500 chief executive jobs and 72% of seats in Congress. Women's rise in college is a success, not a sign that men failed. The men who are struggling are mostly poor, rural or without a degree, and so are the women beside them. Calling it a crisis of masculinity points at gender when the dividing line is class.",
       proponent_rebuttal:
-        "The 'it's class, not gender' argument is a false dichotomy. Gender and class intersect — working-class men face compounding disadvantages that working-class women do not, including higher rates of workplace death (roughly 92% of occupational fatalities are male, per BLS), harsher criminal sentencing (Sonja Starr's analysis of federal cases found men receive about 63% longer sentences than women charged with comparable offenses, though much of that gap originates in prosecutorial charging decisions rather than judges sentencing identical cases), lower rates of seeking mental health treatment, and the collapse of male-dominated industries without equivalent retraining. The educational decline is not just 'women succeeding' — boys are struggling from elementary school onward, with lower reading scores, higher discipline rates, and higher dropout rates across every demographic group. Richard Reeves' research at Brookings demonstrates that male educational decline is a genuine crisis that, if it were happening to women at the same rate, would be recognized as a national emergency.",
+        "The gaps run across class and they are growing in the places that decide a life. Men earned 57% of bachelor's degrees in 1969-70 and 41% in 2021-22. In 2022 men died by suicide at 23.0 per 100,000 against 5.9 for women. In September 2026 one in ten men aged 25 to 54 was neither working nor looking for work. A gap this size against women, in schooling or in early death, would be called an emergency. Pointing to men at the top does not help the boy who is behind in reading at ten and out of school at eighteen. The question is not which sex has it worse overall, but whether boys and young men have problems that are their own.",
       crux: {
         id: "gendered-vs-class-analysis",
-        title: "The Gender vs. Class Attribution Study",
+        title: "The Same-Class Test",
         question:
-          "Are men's worse outcomes driven by gender itself, or by class and economic factors that hit more men?",
+          "Do men's gaps in school, work and health persist among men and women from the same class and race?",
         description:
-          "The crux is whether the negative outcomes disproportionately affecting men (suicide, educational decline, deaths of despair) are primarily driven by gender-specific factors or by class and economic factors that happen to affect more men. If controlling for socioeconomic status eliminates most gender differences in these outcomes, the crisis is primarily economic. If gender gaps persist within the same socioeconomic brackets, the crisis has irreducibly gendered dimensions.",
+          "If men's gaps in degrees, suicide, work and early death shrink to little once family income, parental education, place and race are held equal, the problem is mostly class. If they persist within the same class, they belong to boys and men as such.",
         methodology:
-          "Conduct a decomposition analysis using large-scale longitudinal data (NLSY, PSID, or equivalent) that examines male disadvantage in education, mental health, mortality, and labor force participation while controlling for income, wealth, parental education, geographic location, and race. Determine what percentage of the male-female gap in each outcome is explained by socioeconomic factors versus residual gender-specific factors. Repeat across multiple countries to test whether the pattern is culturally universal or context-dependent.",
+          "Decompose male-female gaps in degree completion, suicide, labour force participation and deaths from drugs and alcohol using large longitudinal data such as the NLSY or PSID, controlling for family income, wealth, parental education, location and race, and repeat the analysis in other rich countries.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "A decomposition of NLSY or PSID data that controls for income, wealth, parental education, location and race and reports how much of each male-female gap in schooling, mental health, mortality and work remains.",
+            "A decomposition of NLSY or PSID data that controls for family income, wealth, parental education, location and race, and reports how much of each male-female gap in degrees, suicide, work and deaths of despair remains.",
         },
-        cost_to_verify:
-          "$300K-800K (Large-scale decomposition analysis using existing longitudinal datasets)",
+        cost_to_verify: "$300K-800K (Analysis of existing longitudinal datasets)",
         falsification: {
           supporter_flip:
-            "If a decomposition of NLSY or PSID data found that controlling for income, wealth, parental education, location and race erased most of the male-female gaps in education, mental health, mortality and work, the crisis would be mainly economic rather than one of young men as such.",
+            "If controlling for family income, parental education, place and race erased most of the male-female gaps in degrees, suicide and work, the case for a crisis of boys and men as such would weaken.",
           skeptic_flip:
-            "If decompositions found boys behind from elementary school on in reading and dropout rates across every demographic group, and men's share of bachelor's degrees stayed near 42% after 57% in the early 1970s, the gaps would look tied to gender rather than class alone.",
+            "If large gaps remained among boys and girls from the same families, neighbourhoods and income levels, the view that the problem is class rather than sex would be hard to hold.",
           common_ground:
-            "Both sides agree the underlying numbers are real: men die by suicide at nearly 4x women's rate and now earn about 42% of bachelor's degrees.",
+            "Both sides agree men earn about 41% of bachelor's degrees and die by suicide at about four times women's rate, and that women working full time still earn less than men.",
           live_disagreement:
-            "Whether these gaps persist among men and women of the same class, marking an irreducibly gendered crisis, or mostly disappear once income, education and place are controlled for.",
+            "Whether men's gaps persist among people of the same class, and so call for help aimed at boys and men, or mostly reflect class and the loss of good jobs for people without degrees.",
         },
       },
       evidence: [
         {
-          id: "male-suicide-rate-disparity",
-          title: "Men Die by Suicide at Nearly 4x the Rate of Women (US)",
-          description:
-            "The CDC reports that men account for approximately 80% of all suicides in the United States, dying by suicide at an age-adjusted rate of about 23 per 100,000 compared to roughly 6 per 100,000 for women (2022 data). While women attempt suicide more frequently, men's higher completion rate reflects the use of more lethal methods and lower rates of help-seeking behavior. The male suicide rate rose roughly 30% from 2000 (17.7 per 100,000) to its 2018 peak (22.8), even as female rates also rose. Among young men aged 15-24, suicide is a leading cause of death.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "Centers for Disease Control and Prevention; American Foundation for Suicide Prevention",
-          sourceUrl: "https://afsp.org/suicide-statistics/",
-          reasoning:
-            "CDC mortality data is among the most reliable statistics available. The 4:1 gender disparity in suicide is stark and directly supports the existence of a gendered mental health crisis. However, the long-standing nature of this disparity (predating the 'crisis' framing) slightly complicates claims that it represents a new phenomenon.",
-        },
-        {
           id: "male-college-enrollment-decline",
-          title: "Men Now Make Up About 40% of College Students (and ~42% of Bachelor's Degrees)",
+          title: "NCES: Men Earned 41% of Bachelor's Degrees in 2021-22, Down From 57% in 1969-70",
           description:
-            "According to the National Student Clearinghouse, men now account for roughly 40% of college students and about 42% of conferred bachelor's degrees, down from a male majority (around 57% of degrees) in the early 1970s. The enrollment gap exists across every major racial and ethnic group and has been widening for two decades. Boys also lag behind girls in reading proficiency on NAEP assessments starting in elementary school. Some colleges are reported to apply more lenient admissions standards to male applicants to maintain gender balance.",
+            "In 1969-70 men earned 451,097 of 792,316 bachelor's degrees, about 57%. Women first earned more bachelor's degrees than men in 1981-82. In 2021-22 men earned 835,316 of 2,015,035, about 41%.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "National Student Clearinghouse; NAEP; Brookings Institution",
-          sourceUrl: "https://nscresearchcenter.org/current-term-enrollment-estimates/",
-          reasoning:
-            "Enrollment data from the National Student Clearinghouse is highly reliable and independently verifiable. The consistency of the gap across all demographic groups directly challenges the 'it's about class, not gender' explanation and supports a gendered dimension to educational decline.",
-        },
-        {
-          id: "women-also-struggling-context",
-          title: "Women Report Higher Rates of Anxiety and Depression Than Men",
-          description:
-            "While men have higher suicide rates, women consistently report higher rates of diagnosed anxiety, depression, and psychological distress across national surveys. The National Health Interview Survey (2019) shows women report recent anxiety symptoms at about 1.6 times the rate of men (roughly 19% vs 12%), and clinical surveys find women are about twice as likely to meet lifetime criteria for an anxiety disorder. This complicates the narrative of a uniquely male crisis — both genders are struggling with mental health, manifesting in different ways.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
             directness: 7,
           },
-          source: "National Institutes of Health; American Psychological Association",
-          sourceUrl: "https://www.nimh.nih.gov/health/statistics/any-anxiety-disorder",
+          source:
+            "National Center for Education Statistics, Digest of Education Statistics 2023, table 318.10",
+          sourceUrl: "https://nces.ed.gov/programs/digest/d23/tables/dt23_318.10.asp",
           reasoning:
-            "NIH data is highly reliable and directly complicates the 'masculinity crisis' framing by showing that women also face serious mental health challenges. However, the different manifestation (female anxiety/depression vs. male suicide, addiction, and violence) may itself be gendered, suggesting that both genders face crises that express differently.",
+            "Official counts of a large, long-running reversal. They do not by themselves say whether the cause is something about boys, about schools, or about the jobs open to men without a degree.",
+        },
+        {
+          id: "male-suicide-rate-disparity",
+          title: "NCHS: Men Died by Suicide at 23.0 per 100,000 in 2022, Women at 5.9",
+          description:
+            "The age-adjusted suicide rate in 2022 was 23.0 per 100,000 for males and 5.9 for females. The male rate was three to four times the female rate across 2002 to 2022.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
+            directness: 7,
+          },
+          source: "CDC/NCHS Data Brief No. 509, 'Suicide Mortality in the United States, 2002-2022' (September 2024)",
+          sourceUrl: "https://www.cdc.gov/nchs/products/databriefs/db509.htm",
+          reasoning:
+            "Death records are the hardest numbers in this debate. A gap that has lasted decades shows a deep difference in how men suffer or seek help, but not that it is getting worse.",
+        },
+        {
+          id: "prime-age-men-out-of-labor-force",
+          title: "BLS: 89.5% of Men Aged 25 to 54 Were in the Labour Force in September 2026",
+          description:
+            "The seasonally adjusted labour force participation rate for men aged 25 to 54 was 89.5% in September 2026, after moving between 89.2% and 89.9% over the previous year. About one in ten prime-age men was neither working nor looking for work.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
+            directness: 5,
+          },
+          source: "Bureau of Labor Statistics, Current Population Survey, series LNS11300061",
+          sourceUrl: "https://data.bls.gov/timeseries/LNS11300061",
+          reasoning:
+            "An official monthly measure of men outside the workforce in their main working years. It includes men in school, caring for family or disabled, and it does not compare men with women.",
         },
         {
           id: "male-suicide-disparity-longstanding",
-          title: "Male Suicide Rates Have Been 3-4.5x Higher Than Female for Over a Century",
+          title: "NCHS: The Male Suicide Rate Was 3 to 4.5 Times the Female Rate From 2001 to 2021",
           description:
-            "The male suicide disparity is not a new phenomenon that signals an emerging 'crisis' — it is one of the most stable findings in epidemiology. CDC/NCHS data show the male suicide rate was three to four and one-half times the female rate across the entire 2001-2021 period (males 18.2 vs. females 4.1 per 100,000 in 2001; 22.8 vs. 5.7 in 2021). Historical research extends this 'gender paradox' back over a century: studies of records from the 1800s onward find men consistently completing suicide at far higher rates than women, even as women attempt more often. Notably, the female suicide rate rose faster in percentage terms in recent decades (up 55% from 1999-2018 vs. 28% for men), meaning the gap has narrowed, not widened. A disparity that has persisted for 100+ years and is shrinking cannot be evidence of a distinctly modern male crisis.",
+            "The male age-adjusted suicide rate was 18.2 per 100,000 in 2001 and 22.8 in 2021; the female rate was 4.1 and 5.7. 'The suicide rate for males was three to four and one-half times the rate for females during the 2001-2021 period.' The female rate rose by a larger share over those two decades, narrowing the ratio.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
+            directness: 6,
           },
-          source: "CDC/NCHS Data Brief No. 464 (Suicide Mortality in the United States, 2001-2021)",
+          source: "CDC/NCHS Data Brief No. 464, 'Suicide Mortality in the United States, 2001-2021' (April 2023)",
           sourceUrl: "https://www.cdc.gov/nchs/products/databriefs/db464.htm",
           reasoning:
-            "This is the same authoritative CDC mortality data the proponent side relies on, read longitudinally. It directly undercuts the 'new crisis' framing: the male-female suicide gap is a century-old structural pattern (rooted in method lethality and help-seeking norms), and the gap has been closing rather than widening. The 4:1 ratio is real, but its stability and recent narrowing argue against treating it as a novel emergency unique to today's young men.",
+            "The same death records read over time: the gap is old and has narrowed, which cuts against a new or worsening crisis of men. It does not make the gap less serious.",
+        },
+        {
+          id: "women-earnings-84-percent",
+          title: "BLS 2023: Women Working Full Time Earned 84% of What Men Earned",
+          description:
+            "In 2023 women who worked full time had median weekly earnings that were 84% of men's. The gap was smaller for younger workers: women aged 25 to 34 earned 89% of what men earned, and women aged 16 to 24 earned 94%.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
+            directness: 4,
+          },
+          source: "Bureau of Labor Statistics, 'Highlights of women's earnings in 2023', Report 1111 (August 2024)",
+          sourceUrl: "https://www.bls.gov/opub/reports/womens-earnings/2023/home.htm",
+          reasoning:
+            "Shows men still earn more on average, a point against treating men as the disadvantaged sex. It says nothing about the men at the bottom, and the shrinking gap among young workers fits the other side's story too.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 2: Structural vs. Cultural Explanations
+    // PILLAR 2: Why: lost jobs, or lost connection and roles?
     // =========================================================================
     {
       id: "structural-vs-cultural",
-      title: "Structural vs. Cultural Explanations",
+      title: "Why: Lost Jobs, or Lost Friends and Roles?",
       short_summary:
-        "Is the male crisis primarily about lost manufacturing jobs, declining wages for non-college workers, and economic displacement — or about cultural narratives that leave men without positive identity models? The answer determines whether the solution is economic policy or cultural reconstruction.",
+        "Deaths from drugs, alcohol and suicide rose among Americans without degrees, men and women alike. Young American men report more loneliness than young men elsewhere, and men lean less on friends. Whether better jobs alone would fix men's struggles, or loneliness and lost roles need their own answers, is the second split.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The decline of male-dominated industries — manufacturing, mining, construction — has eliminated millions of jobs that provided identity, income, and community to working-class men. Since 1979, real wages for men without college degrees have declined by 14% while women's wages have risen. The prime-age (25-54) male labor force participation rate has fallen from about 96% in 1970 to roughly 89% in 2024, with millions of prime-age men entirely out of the labor force. This is not a cultural or identity crisis — it is an economic crisis. Men who have good jobs, stable relationships, and community connections do not experience a 'masculinity crisis.' The cultural framing obscures the material reality: provide economic opportunity and the identity crisis resolves itself. Crucially, the same forces are killing working-class women: 'deaths of despair' have risen in near-lockstep for both sexes among Americans without a four-year degree, and married, employed men of all classes show none of the distress attributed to 'masculinity.' That the crisis tracks class and connection rather than maleness per se suggests the gendered label misdiagnoses the disease.",
+        "The forces hurting working-class men are hurting working-class women too, which points to the economy, not masculinity. Anne Case, who with Angus Deaton named 'deaths of despair', found that deaths from drugs, alcohol and suicide were rising in parallel for men and women. In 1992 non-college white women aged 45 to 54 were three times as likely to die of heart disease as of a death of despair; now they are 30% more likely to die from drugs, alcohol or suicide. Loneliness is not a male story either: Pew found in 2024 that men and women are about equally likely to have a close friend and about equally likely to feel lonely most of the time. Good jobs, stable families and strong communities protect people of both sexes. Bring back the first and much of the rest follows.",
       proponent_rebuttal:
-        "The economic explanation is necessary but insufficient. Suicide rates are elevated even in affluent professional occupations (physicians, dentists, veterinarians) where economic displacement is not a factor. Japan and South Korea — wealthy nations with low unemployment — have some of the highest male suicide rates globally. The loneliness epidemic disproportionately affects young men who grew up in the digital era with fewer in-person friendships, romantic relationships, and community ties than any previous generation. Richard Reeves documents that male educational decline begins in kindergarten — years before economic factors could operate. The cultural dimension is real: when traditional sources of male identity (provider, protector, father) are devalued without replacement, and when mainstream institutions frame masculinity itself as problematic, men lose access to the narrative resources needed to construct a meaningful life.",
+        "Jobs matter, but men's isolation has a shape of its own. Gallup found in 2023-24 that 25% of American men aged 15 to 34 had felt lonely a lot of the previous day, against a median of 15% for young men across the OECD. Men lean on friends far less: in a 2021 survey 21% of men had received emotional support from a friend in the past week, against 41% of women, and in Pew's 2024 survey 38% of men said they would be extremely or very likely to turn to a friend for support, against 54% of women. The share of all Americans with no close friends rose from 3% in 1990 to 12% in 2021. Despair may be shared, but it is men who die by suicide at four times the rate of women. Paychecks do not teach a man to ask for help or give him a place among other men.",
       crux: {
         id: "economic-vs-cultural-intervention",
-        title: "The Intervention Type Comparison",
+        title: "The Jobs-Alone Test",
         question:
-          "Would economic help alone improve struggling men's lives, or is cultural change also needed?",
+          "Would better jobs and wages alone fix men's struggles, or do loneliness and lost roles need their own answers?",
         description:
-          "The crux is whether economic interventions (job creation, trade school investment, wage support) or cultural interventions (mentorship programs, positive masculinity frameworks, community building) produce better outcomes for struggling men. If economic interventions alone substantially improve male mental health, social connection, and life satisfaction, the crisis is primarily structural. If economic improvement without cultural change leaves men still struggling, the crisis has irreducibly cultural dimensions.",
+          "If men who get good jobs see their suicide risk, drinking, isolation and despair fall to the level of similar women, the problem is economic. If those gaps persist among men with good work, something else is going on.",
         methodology:
-          "Compare communities that have received primarily economic interventions (job retraining programs, new industry development) with communities that have received primarily social/cultural interventions (men's mental health programs, mentorship networks, community organizations). Measure outcomes across male suicide rates, labor force participation, educational attainment, social connection, and life satisfaction. Use propensity score matching to control for baseline differences between communities.",
+          "Follow men and women who gain stable, well-paid jobs, through plant openings, apprenticeship lotteries or wage shocks, and compare changes in suicide, overdoses, friendship and life satisfaction with similar people who did not, using linked administrative and survey data.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Communities that got mainly job retraining and new industry compared with communities that got mainly men's mental-health programs, mentorship and community groups, on male suicide, labor-force participation, social connection and life satisfaction.",
+            "Linked records for people who won apprenticeship or job-program lotteries against those who lost, tracking suicide, overdoses, friendships and life satisfaction for men and women separately over ten years.",
         },
-        cost_to_verify:
-          "$1-3M (Multi-community quasi-experimental comparison study)",
+        cost_to_verify: "$1-3M (Lottery-based study with linked administrative data)",
         falsification: {
           supporter_flip:
-            "If communities that received job retraining and new industry saw men's suicide, labor-force participation, social connection and life satisfaction recover without any cultural programs, the crisis would be primarily economic and the identity-and-purpose part of the claim would weaken.",
+            "If men who won good jobs through lotteries saw their isolation, drinking and suicide risk fall to the level of similar women, the case that men need help beyond the economy would weaken.",
           skeptic_flip:
-            "If more data matched elevated suicide among affluent professionals such as physicians, high male suicide in wealthy, low-unemployment Japan and South Korea, and the rise in men with no close friends from 3% to 15% since 1990, money alone would look unlikely to end the crisis.",
+            "If those men gained income but stayed as isolated and at risk as before, while similar women improved, the view that jobs alone would fix men's struggles would be hard to hold.",
           common_ground:
-            "Both sides agree the decline of male-dominated industries has hurt working-class men — real wages for men without degrees have fallen 14% since 1979 — and that economic help is at least part of the answer.",
+            "Both sides agree deaths from drugs, alcohol and suicide rose among Americans without degrees, and that men are less likely than women to turn to friends for emotional support.",
           live_disagreement:
-            "Whether jobs, wages and connection would resolve men's struggles on their own — deaths of despair have risen for working-class women too — or whether a lost sense of male identity needs cultural answers as well.",
+            "Whether rebuilding good jobs for people without degrees would resolve most of men's struggles, or whether men's isolation and loss of role need answers of their own.",
         },
       },
       evidence: [
         {
-          id: "deaths-of-despair-case-deaton",
-          title: "Case & Deaton: Deaths of Despair Among White Working-Class Men",
+          id: "gallup-young-men-loneliest",
+          title: "Gallup 2025: 25% of US Men Aged 15 to 34 Felt Lonely a Lot of the Previous Day",
           description:
-            "Princeton economists Anne Case and Angus Deaton documented a dramatic rise in 'deaths of despair' — deaths from suicide, drug overdose, and alcoholic liver disease — among white non-Hispanic Americans without college degrees, particularly men, beginning in the late 1990s. This cohort experienced rising mortality while every other demographic group saw declining death rates. Case and Deaton attribute the trend to the collapse of stable employment, community institutions, and family structures in deindustrialized regions.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 8,
-          },
-          source: "Proceedings of the National Academy of Sciences; Princeton University",
-          sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.1518393112",
-          reasoning:
-            "Case and Deaton's research is among the most influential social science findings of the decade, from a Nobel laureate-led team. The evidence directly demonstrates that a large demographic of men is experiencing rising mortality from causes linked to hopelessness and disconnection. The research supports both economic and cultural explanations.",
-        },
-        {
-          id: "male-loneliness-survey-data",
-          title: "Survey of American Life: 15% of Young Men Report Zero Close Friends (2021)",
-          description:
-            "The American Enterprise Institute's Survey of American Life found that the share of men reporting zero close friends increased fivefold since 1990, from 3% to 15%. Among young men (18-29), the decline is even sharper. Men are less likely than women to have confided in a friend in the past week, less likely to have received emotional support, and more likely to report feeling lonely 'frequently.' The male friendship recession has occurred alongside the decline of traditional male bonding institutions: unions, fraternal organizations, team sports leagues, and religious congregations.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 8,
-          },
-          source: "American Enterprise Institute; Survey of American Life",
-          sourceUrl: "https://www.americansurveycenter.org/research/the-state-of-american-friendship-change-challenges-and-loss/",
-          reasoning:
-            "The survey data directly quantifies the male social isolation that the crisis narrative describes. AEI is a center-right think tank, which affects independence slightly, though the survey methodology appears rigorous. The friendship data is self-reported, which is the standard methodology for social connection research.",
-        },
-        {
-          id: "deaths-of-despair-women-too",
-          title: "Case Herself: Deaths of Despair Strike Women Too — It's Class, Not Gender",
-          description:
-            "Anne Case — co-author of the foundational 'deaths of despair' research — argues directly against the gendered reading of her own work. Mortality from drugs, alcohol, and suicide has risen 'in parallel for both men and women' over 25 years among Americans without a bachelor's degree. All-cause mortality rose 15% for white non-Hispanic women and 35% for white women without a four-year degree since the late 1990s. Most strikingly: in 1992, non-college white women aged 45-54 were three times more likely to die of heart disease than a death of despair; now they are 30% MORE likely to die of drugs, alcohol, or suicide. The dividing line is the bachelor's degree, not the X or Y chromosome — which means the phenomenon is a working-class catastrophe that happens to be slightly more lethal for men, not a distinct 'masculinity crisis.'",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 8,
-            directness: 8,
-          },
-          source: "Anne Case, Princeton University Press (\"Deaths of despair strike women too\")",
-          sourceUrl: "https://press.princeton.edu/ideas/deaths-of-despair-strike-women-too",
-          reasoning:
-            "This is the strongest possible against-evidence for the structural-versus-cultural case because it comes from the very researcher whose work anchors the proponent's deaths-of-despair argument. Case explicitly attributes the trend to class and the loss of the bachelor's-degree wage premium, not gender, and documents that less-educated women are dying at comparable or faster-rising rates. It directly rebuts the inference that rising despair mortality is evidence of a uniquely male crisis, reframing it as the immiseration of the non-college working class of both sexes.",
-        },
-      ],
-    },
-
-    // =========================================================================
-    // PILLAR 3: The Ideological Capture Problem
-    // =========================================================================
-    {
-      id: "ideological-capture-problem",
-      title: "The Ideological Capture Problem",
-      short_summary:
-        "Both 'man up' traditionalism and 'deconstruct masculinity' progressivism fail to offer a compelling positive vision that most men find meaningful. This vacuum is filled by figures ranging from thoughtful (Richard Reeves) to inflammatory (Andrew Tate), suggesting that the missing element is a constructive framework, not more critique from either direction.",
-      icon_name: "HelpCircle" as const,
-      skeptic_premise:
-        "The 'both sides fail' framing creates a false equivalence between fundamentally different problems. The conservative response to male struggle — 'man up,' reject feminism, embrace hierarchy — actively worsens outcomes by discouraging help-seeking behavior, reinforcing the emotional suppression that drives male suicide, and directing legitimate anger toward scapegoats (women, immigrants, minorities) rather than toward structural causes. The progressive response, while imperfect in its communication, correctly identifies the harmful norms (suppress emotions, avoid vulnerability, equate worth with earning) that contribute to male suffering. The solution is not to abandon the critique but to communicate it better and pair it with positive alternatives. Programs like ManKind Project, Evryman, and Next Gen Men show that progressive masculinity frameworks can resonate with men when they validate male experience while expanding the definition of strength. And the very premise of a universal 'masculinity crisis' is overstated: affluent and elite men remain overwhelmingly dominant at the top of nearly every status hierarchy — CEO suites, Congress, board seats, and the top 1% of incomes are still held mostly by men. The struggling young men drawn to Tate and Peterson are disproportionately working-class and isolated, not 'men' as a category. Treating a concentrated class-and-connection problem as a generalized crisis of maleness both flatters elite men who are thriving and lets the actual structural drivers off the hook.",
-      proponent_rebuttal:
-        "The progressive framework has failed young men not by being wrong about toxic behavior, but by offering critique without construction. 'Toxic masculinity' discourse, as it filters through social media and institutional communications, is often experienced by young men as a wholesale condemnation of male identity rather than a critique of specific harmful behaviors. The APA's 2019 guidelines describing 'traditional masculinity' as 'on the whole, harmful' drew backlash not because the underlying research was wrong, but because the framing felt like an institutional declaration that being male is pathological. When mainstream institutions offer only deconstruction, the reconstruction vacuum is filled by figures who validate male identity — sometimes productively (Jordan Peterson on responsibility), sometimes toxically (Andrew Tate on dominance). The problem is not that progressives are wrong about specific harms; it is that they have not articulated what positive masculinity looks like.",
-      crux: {
-        id: "framework-effectiveness-test",
-        title: "The Masculinity Framework Effectiveness Comparison",
-        question:
-          "Do traditional, progressive or blended masculinity frameworks produce better outcomes for men?",
-        description:
-          "The crux is whether men respond better to (a) conservative/traditional masculinity frameworks that emphasize responsibility, discipline, and purpose, (b) progressive frameworks that critique harmful norms while offering expanded definitions of strength, or (c) synthesized frameworks that honor traditionally valued traits while discarding genuinely harmful ones. If longitudinal outcomes show one approach produces significantly better mental health, social connection, and life satisfaction among participating men, the debate can move from ideology to evidence.",
-        methodology:
-          "Randomly assign men aged 18-35 who report low life satisfaction to one of four 12-month programs: (1) traditional masculinity mentorship (responsibility, discipline, purpose focus), (2) progressive masculinity groups (emotional intelligence, vulnerability, expanded roles), (3) synthesized approach (combining elements of both), and (4) waitlist control. Measure mental health (PHQ-9, GAD-7), social connection (UCLA Loneliness Scale), relationship quality, employment outcomes, and self-reported purpose/meaning at baseline, 6 months, and 12 months.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "A trial that randomly assigns men aged 18-35 with low life satisfaction to 12-month traditional, progressive or combined programs, or a waitlist, and measures depression, anxiety, loneliness and life satisfaction.",
-        },
-        cost_to_verify:
-          "$2-5M (Multi-arm randomized controlled trial with 12-month follow-up)",
-        falsification: {
-          supporter_flip:
-            "If randomly assigning struggling men aged 18-35 to traditional, progressive or blended 12-month programs showed one existing framework significantly improving mental health, connection and life satisfaction, the claim that neither left nor right has an adequate answer would weaken.",
-          skeptic_flip:
-            "If backlash like that to the APA's 2019 'on the whole, harmful' description kept growing, and figures like Andrew Tate kept drawing audiences on the scale of 11.6 billion TikTok views, the existing frameworks would look like they leave a vacuum.",
-          common_ground:
-            "Both sides agree some traditional norms, such as suppressing emotion and avoiding help, do real harm to men, and that progressive messaging about them has often landed badly with young men.",
-          live_disagreement:
-            "Whether the answer is better communication of the progressive critique, a renewed emphasis on responsibility and purpose, or a new synthesis — and whether the crisis is general to men or concentrated among working-class, isolated men.",
-        },
-      },
-      evidence: [
-        {
-          id: "apa-masculinity-guidelines-backlash",
-          title: "APA Guidelines Calling Traditional Masculinity 'Harmful' Drew Major Backlash (2019)",
-          description:
-            "In January 2019, the American Psychological Association released its first-ever guidelines for psychological practice with boys and men, stating that 'traditional masculinity — marked by stoicism, competitiveness, dominance, and aggression — is, on the whole, harmful.' The guidelines provoked intense backlash from men who felt their identity was being pathologized. While the underlying research on how rigid gender norms harm men's help-seeking behavior is sound, the summary framing was widely experienced as an institutional condemnation of masculinity itself.",
+            "In Gallup data from 2023 and 2024, 25% of US men aged 15 to 34 said they felt lonely a lot of the previous day, against 18% for young women and 18% for all US adults. Across the 38 OECD countries the median for younger men was 15%.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
+            independence: 8,
             replicability: 7,
-            directness: 8,
+            directness: 7,
           },
-          source: "American Psychological Association",
-          sourceUrl: "https://www.apa.org/about/policy/boys-men-practice-guidelines.pdf",
+          source: "Gallup, 'Younger Men in the U.S. Among the Loneliest in West' (20 May 2025)",
+          sourceUrl: "https://news.gallup.com/poll/690788/younger-men-among-loneliest-west.aspx",
           reasoning:
-            "The APA guidelines and the public response are well-documented and directly illustrate the communication failure at the heart of the ideological capture problem. The APA's credibility as a professional organization gives the guidelines weight, but the backlash from the very population the guidelines aimed to help demonstrates the gap between expert framing and lived experience.",
+            "A large international survey shows young American men stand out against young women and against young men elsewhere. It is one question about one day, and it does not show why.",
         },
         {
-          id: "tate-popularity-data",
-          title: "Andrew Tate Was Among the Most-Searched Figures Online in 2022",
+          id: "male-loneliness-survey-data",
+          title: "Survey Center on American Life 2021: 21% of Men Got Emotional Support From a Friend Last Week, vs 41% of Women",
           description:
-            "In 2022, Andrew Tate topped Google's global 'Who is?' search list and accumulated over 11.6 billion views of his content on TikTok (some claims that he was 'the most Googled person on the planet' are overstated — Google Trends ranked him roughly 8th among the most-searched people that year). His audience skews heavily toward young men. While much of his content promotes misogynistic views, his viral reach illustrates the demand for male identity content that mainstream institutions are not providing. Researchers studying his audience find that many followers are first drawn by messages about self-improvement and purpose before being exposed to more extreme content.",
+            "In a May 2021 survey, 21% of men said they had received emotional support from a friend in the past week, against 41% of women. Among all Americans, 12% said they had no close friends, up from 3% in 1990, and 13% had ten or more, down from 33%.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -336,27 +259,156 @@ export const masculinityCrisisData = {
             replicability: 6,
             directness: 6,
           },
-          source: "Anti-Defamation League (citing The Guardian and Hope Not Hate)",
+          source: "Survey Center on American Life (American Enterprise Institute), 'The State of American Friendship: Change, Challenges, and Loss' (June 2021)",
+          sourceUrl: "https://www.americansurveycenter.org/research/the-state-of-american-friendship-change-challenges-and-loss/",
+          reasoning:
+            "Shows a clear sex gap in how much men lean on friends. The 1990 comparison comes from a different poll with different methods, and the survey was taken during the pandemic.",
+        },
+        {
+          id: "deaths-of-despair-case-deaton",
+          title: "Case and Deaton 2015: Death Rates Rose Among Middle-Aged White Americans Without Degrees",
+          description:
+            "Anne Case and Angus Deaton documented rising mortality among middle-aged white non-Hispanic Americans from 1999, driven by drug and alcohol poisonings, suicide and chronic liver disease, and concentrated among those with a high school education or less, while death rates fell for other groups and in other rich countries.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "Case and Deaton, 'Rising morbidity and mortality in midlife among white non-Hispanic Americans in the 21st century', PNAS 112(49) (2015)",
+          sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.1518393112",
+          reasoning:
+            "The founding study of 'deaths of despair'. Its dividing line is education, not sex, so it supports the claim that men without degrees are in trouble more than the claim that men as such are.",
+        },
+        {
+          id: "deaths-of-despair-women-too",
+          title: "Anne Case: Deaths of Despair Rose in Parallel for Women Without Degrees",
+          description:
+            "Anne Case writes that deaths from drugs, alcohol and suicide were rising in parallel for men and women. In 1992 non-college white women aged 45 to 54 were three times as likely to die of heart disease as of a death of despair; now they are 30% more likely to die from drugs, alcohol or suicide.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Anne Case, 'Deaths of despair strike women too', Princeton University Press",
+          sourceUrl: "https://press.princeton.edu/ideas/deaths-of-despair-strike-women-too",
+          reasoning:
+            "The researcher behind the 'deaths of despair' finding reads it as a class story. It is an essay summarising her work, not a new study, and men still die of these causes at higher rates.",
+        },
+        {
+          id: "pew-friends-equal-2024",
+          title: "Pew 2024: Men and Women Equally Likely to Have a Close Friend, and to Feel Lonely",
+          description:
+            "In Pew's September 2024 survey of 6,204 US adults, men and women were about equally likely to say they have at least one close friend, and roughly equal shares said they feel lonely all or most of the time; 16% of all adults did. Men were less likely than women to say they would turn to a friend for emotional support (38% vs 54%).",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "Pew Research Center, 'Men, Women and Social Connections' (16 January 2025)",
+          sourceUrl: "https://www.pewresearch.org/social-trends/2025/01/16/men-women-and-social-connections/",
+          reasoning:
+            "A large recent survey finds no sex gap in friendship or loneliness overall, against the idea of a male loneliness crisis. It does find men lean on friends less, and it does not single out young men.",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 3: Who is speaking to young men, and what helps?
+    // =========================================================================
+    {
+      id: "ideological-capture-problem",
+      title: "What Helps, and Who Is Speaking to Young Men?",
+      short_summary:
+        "Andrew Tate's videos have been viewed billions of times; in July 2026 he was arrested on a British extradition request covering 42 charges. A Chicago program for teenage boys cut violent-crime arrests by about half. Whether help aimed at boys and men works better than help for everyone, and whether it is fair to offer it, is the third split.",
+      icon_name: "HelpCircle" as const,
+      skeptic_premise:
+        "Programs for men are not where the evidence or the need points. Men still hold about 92% of S&P 500 chief executive jobs and 72% of seats in Congress, and women working full time earn 84% of what men do. The help that works for struggling boys, such as better schools, training and good jobs, works for struggling girls too, and can be offered to both. Gender-specific framing tends to arrive with a story about what feminism took from men, which is the story men like Andrew Tate sell. His audience shows how that story ends: in July 2026 he was arrested in Miami on a British extradition request, facing 42 charges including rape and human trafficking, which he denies. The answer to Tate is better economic help for everyone, not a men's movement of the centre.",
+      proponent_rebuttal:
+        "Help aimed at boys works, and leaving the field empty has a cost. In randomized trials in Chicago, the Becoming a Man program for teenage boys cut total arrests during the program by 28% to 35%, cut violent-crime arrests by 45% to 50% and raised graduation rates by 12% to 19% in the study with follow-up data, at benefit-cost ratios of 5-to-1 or more. Richard Reeves argues for practical reforms such as letting boys start school a year later, and says helping boys 'does not mean giving up on the ideal of gender equality.' When mainstream institutions say little to young men, others fill the gap: Tate's TikTok videos have been viewed some 11.6 billion times, many by teenagers. Men at the top are not the men in trouble, and pointing at CEOs does nothing for a boy failing ninth grade.",
+      crux: {
+        id: "framework-effectiveness-test",
+        title: "The Targeted-Help Test",
+        question:
+          "Do programs aimed at boys and young men do more for them than the same money spent on help for everyone?",
+        description:
+          "Becoming a Man is one targeted program with strong trial results. The test is whether programs designed for boys, from later school starts to mentoring and male teachers, beat sex-neutral programs of the same cost on boys' outcomes, without leaving girls worse off.",
+        methodology:
+          "Randomized or lottery-based comparisons of boy-specific programs (delayed school entry, cognitive behavioural programs for boys, male mentors) against sex-neutral programs of equal cost, measuring graduation, arrests, employment and mental health for boys and girls separately.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized comparisons of programs built for boys, such as Becoming a Man or a later school start, against sex-neutral programs of the same cost, reporting graduation, arrests, work and mental health for boys and girls separately.",
+        },
+        cost_to_verify: "$2-5M (Multi-site randomized comparison)",
+        falsification: {
+          supporter_flip:
+            "If boy-specific programs did no better for boys than sex-neutral programs of the same cost, the case for help aimed at boys and men would weaken.",
+          skeptic_flip:
+            "If boy-specific programs repeatedly beat sex-neutral ones on boys' graduation, arrests and work, without costing girls, the view that general help is enough would be hard to hold.",
+          common_ground:
+            "Both sides agree Becoming a Man produced large drops in arrests in Chicago trials, and that Andrew Tate has drawn a very large audience of young men.",
+          live_disagreement:
+            "Whether help framed around boys and men beats help for everyone, and a value question no data settles: whether gender-specific programs are fair while men still hold most top jobs and earn more.",
+        },
+      },
+      evidence: [
+        {
+          id: "becoming-a-man-chicago",
+          title: "Becoming a Man, Chicago: Violent-Crime Arrests Fell 45% to 50% in Randomized Trials",
+          description:
+            "Randomized trials of Becoming a Man, a cognitive behavioural program for disadvantaged teenage boys in Chicago, found it reduced total arrests during the program by 28% to 35%, reduced violent-crime arrests by 45% to 50%, and, in the first study with follow-up data, raised graduation rates by 12% to 19%. A related program in the county juvenile detention centre cut readmissions by 21%. The authors estimate benefit-cost ratios from 5-to-1 to 30-to-1 or more, and find the effects came from helping youth slow down and rethink automatic responses rather than from generic mentoring.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Heller, Shah, Guryan, Ludwig, Mullainathan and Pollack, 'Thinking, Fast and Slow? Some Field Experiments to Reduce Crime and Dropout in Chicago', NBER Working Paper 21178 (2015, revised 2016)",
+          sourceUrl: "https://www.nber.org/papers/w21178",
+          reasoning:
+            "Some of the strongest evidence that a program aimed at boys can change their lives. It was not compared with a sex-neutral program, so it shows targeted help works, not that it works better than help for everyone.",
+        },
+        {
+          id: "tate-popularity-data",
+          title: "ADL: Tate's TikTok Videos Viewed About 11.6 Billion Times; Arrested in Miami in July 2026",
+          description:
+            "TikTok videos of Andrew Tate have been viewed some 11.6 billion times, according to reporting by The Guardian; many in his audience are teenagers. On 18 July 2026 US Marshals arrested Andrew and Tristan Tate in Miami on a United Kingdom extradition request; British prosecutors say Andrew Tate faces 42 charges, including rape and human trafficking. Both brothers deny wrongdoing, and a Romanian case against them remains unresolved.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 4,
+          },
+          source: "Anti-Defamation League, 'Andrew Tate: Five Things to Know' (3 January 2024, updated 21 July 2026)",
           sourceUrl: "https://www.adl.org/resources/article/andrew-tate-five-things-know",
           reasoning:
-            "Tate's viral popularity is empirically verifiable and directly demonstrates the demand for male identity content. The analysis of his appeal pipeline (self-improvement gateway to misogyny) is documented by multiple independent researchers. However, the interpretation of what his popularity means for the broader 'crisis' framing is contested.",
+            "Shows the size of the audience for a figure who speaks to young men about manhood. View counts are not followers, the ADL is an advocacy group, and popularity does not show that mainstream institutions caused the demand.",
         },
         {
           id: "elite-men-dominate-top-outcomes",
-          title: "Men Still Dominate the Top: 92% of S&P 500 CEOs and 72% of Congress",
+          title: "Men Still Hold About 92% of S&P 500 CEO Jobs and 72% of Seats in Congress",
           description:
-            "If there were a universal crisis of maleness, it would be visible at the top of status hierarchies — but men remain overwhelmingly dominant there. As of 2024, women hold just 7.9% of S&P 500 CEO roles, meaning men hold about 92% (The Conference Board). In the 119th Congress (2025), women are 28% of voting members — 29% of the House and only 25% of the Senate — so men hold roughly 72%. Men likewise remain heavily over-represented among the top 1% of earners and on corporate boards. The 'crisis' is therefore concentrated, not universal: it is acute among working-class, rural, and socially isolated men, while affluent and elite men continue to occupy the commanding heights of economic and political power. This pattern is consistent with a class-and-connection story and inconsistent with a blanket 'masculinity crisis' afflicting men as such.",
+            "As of 2024 women held 7.9% of S&P 500 chief executive roles, so men held about 92% (The Conference Board). In the 119th Congress, which began in 2025, women are 28% of voting members, 29% of the House and 25% of the Senate, so men hold about 72%.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 9,
-            directness: 7,
+            directness: 4,
           },
-          source: "The Conference Board (S&P 500 CEO data); Pew Research Center (119th Congress composition)",
+          source: "The Conference Board (S&P 500 CEO data); Pew Research Center, 119th Congress (21 February 2025)",
           sourceUrl: "https://www.pewresearch.org/short-reads/2025/02/21/women-account-for-28-of-lawmakers-in-the-119th-congress-unchanged-from-the-last-congress/",
           reasoning:
-            "These are highly reliable, independently verifiable institutional statistics. They do not deny that many men are struggling, but they directly rebut the 'crisis of men as a category' framing that animates the ideological-capture market: elite men are not in crisis at all. Directness is moderate because dominance at the top does not by itself disprove suffering at the bottom — but it strongly supports the skeptic's claim that the problem is concentrated by class rather than generalized to maleness, which is the precise mechanism inflating the topic's confidence score on one-sided evidence.",
+            "Shows that men as a group still hold most power, which makes programs for men a harder case to argue on fairness. It says nothing about men at the bottom, which is where the other side says the problem is.",
         },
       ],
     },
