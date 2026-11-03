@@ -225,22 +225,22 @@
     "title": "The Cost Disease",
     "question": "Have US health, school and infrastructure costs soared without matching gains?",
     "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
-    "confidence_score": 85,
-    "balance": 85,
-    "weight": 81,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 84,
     "verdict": {
-      "label": "Evidence largely converges on the claim",
-      "quadrant": "settled"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 5,
-    "evidenceCount": 16,
+    "evidenceCount": 20,
     "firstCrux": "How much of the cost rise is just rising wages in work that can't be automated?",
     "tags": [
       "economics"
     ],
-    "keywords": "baumol naep tuition admin haircut helland marron tabarrok ginsberg liscow subway dulls himmelstein lucca nadauld"
+    "keywords": "baumol pell stagnant nordhaus rosen vijan cutler naep tuition admin turner haircut helland marron tabarrok"
   },
   {
     "id": "moloch",
@@ -1009,7 +1009,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists maryland writers chegini conspicuous ecfr"
+    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers maryland chegini conspicuous ecfr"
   },
   {
     "id": "big-tech-antitrust",
@@ -3111,7 +3111,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "solvency crfb oasdi payable trustees actuarial longevity taxable"
+    "keywords": "solvency crfb oasdi payable trustees actuarial taxable"
   },
   {
     "id": "estate-inheritance-tax",
