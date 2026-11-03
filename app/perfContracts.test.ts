@@ -9,6 +9,46 @@ import { describe, expect, it } from "vitest";
 
 const read = (file: string) => readFileSync(path.join(process.cwd(), file), "utf8");
 
+const SOURCE_EXTENSIONS = ["", ".ts", ".tsx", ".js", ".mjs", "/index.ts", "/index.tsx"];
+
+function resolveLocalImport(fromFile: string, specifier: string): string | null {
+  let base: string;
+  if (specifier.startsWith("@/")) base = path.join(process.cwd(), specifier.slice(2));
+  else if (specifier.startsWith(".")) base = path.join(path.dirname(fromFile), specifier);
+  else return null;
+  for (const extension of SOURCE_EXTENSIONS) {
+    const file = base + extension;
+    if (existsSync(file) && statSync(file).isFile() && !file.endsWith(".json")) return file;
+  }
+  return null;
+}
+
+/**
+ * Walks the value imports (static, re-exports and dynamic import()) reachable
+ * from the entry files and returns the project files that import `pkg`, with
+ * the import chain that reached each one. Type-only imports are skipped: they
+ * are erased and ship nothing.
+ */
+function filesImporting(pkg: string, entries: string[]): string[] {
+  const seen = new Set<string>();
+  const hits: string[] = [];
+  const importPattern =
+    /(?:^|\n)\s*(?:import|export)\s+(type\s+)?[^;]*?from\s+["']([^"']+)["']|import\(\s*["']([^"']+)["']\s*\)/g;
+  const visit = (file: string, chain: string[]) => {
+    if (seen.has(file)) return;
+    seen.add(file);
+    for (const match of readFileSync(file, "utf8").matchAll(importPattern)) {
+      if (match[1]) continue;
+      const specifier = match[2] ?? match[3];
+      if (specifier === pkg || specifier.startsWith(`${pkg}/`)) hits.push(chain.join(" -> "));
+      const next = resolveLocalImport(file, specifier);
+      if (next) visit(next, [...chain, path.relative(process.cwd(), next)]);
+    }
+  };
+  for (const entry of entries) visit(path.join(process.cwd(), entry), [entry]);
+  return hits;
+}
+
 describe("performance contracts", () => {
   it("keeps the topic page's client islands out of home, /about and /methodology", () => {
     // DebateView and TopicPage import TopicActions and CruxReflection. A server
@@ -36,6 +76,23 @@ describe("performance contracts", () => {
     const projection = read("lib/argument/ledgerProjection.ts");
     expect(projection).not.toMatch(/from "zod"/);
     expect(projection).not.toMatch(/from "\.\/ledger"|from "@\/lib\/argument\/ledger"/);
+  });
+
+  it("keeps zod out of the shell every page loads", () => {
+    // The footer's newsletter form imported zod to check a { success: true }
+    // receipt, which put ~67KB gzip of zod in every page's first load. The
+    // root layout, the header and the footer (and anything they import, even
+    // through next/dynamic) use plain guards from lib/apiReceipt instead.
+    // SaveTopicButton sits on topic pages and map cards: same rule.
+    expect(
+      filesImporting("zod", [
+        "app/layout.tsx",
+        "components/AppShell.tsx",
+        "components/TopBar.tsx",
+        "components/Footer.tsx",
+        "components/SaveTopicButton.tsx",
+      ]),
+    ).toEqual([]);
   });
 
   it("preloads only the upright font faces", () => {
