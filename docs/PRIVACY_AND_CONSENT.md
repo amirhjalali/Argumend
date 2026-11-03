@@ -91,10 +91,12 @@ and the privacy table all narrow together.
 
 | Claim on /privacy | Backed by |
 | --- | --- |
-| Google Analytics loads only when a measurement ID is configured | `GA_MEASUREMENT_ID` guard in `app/layout.tsx` |
-| Page views fire on client navigation | `components/GAPageView.tsx` |
-| Events never carry pasted text | The `AnalyticsEvent` union in `lib/analytics.ts`; length and latency go through `characterBucket`/`latencyBucket` in `lib/disagreement/labels.ts` |
-| Theme, sidebar state, prefill, and the manage key stay in the browser | `next-themes` in `components/ThemeProvider.tsx`; `sessionStorage` in `HeroAnalyze.tsx` and `DisagreementAnalyzeClient.tsx`; `localStorage` in `DeleteReportControl.tsx` |
+| One analytics provider (GA4, Plausible or Umami) loads only when configured at build time, and the page names which | `resolveAnalyticsConfig()` in `lib/analyticsConfig.ts`, used by both `app/layout.tsx` (via `components/AnalyticsScripts.tsx`) and the `ANALYTICS_SENTENCE` in `app/privacy/page.tsx` |
+| Cloudflare's Web Analytics beacon can be added by the network | Injected by Cloudflare at the edge, not by this code; `next.config.js` CSP allows `static.cloudflareinsights.com`. The quoted privacy sentence is from developers.cloudflare.com/web-analytics/about/ (loaded 2026-11-03) |
+| Page views fire on client navigation | `components/GAPageView.tsx` (GA); Plausible and Umami count navigations themselves |
+| The listed events are the only ones, and none carries pasted or searched text | The `AnalyticsEvent` union in `lib/analytics.ts`; `analyticsParams()` drops any string parameter that is not a short token at runtime; lengths go through `characterBucket` in `lib/disagreement/labels.ts`; searches report `resultsBucket` only (`hooks/useSearchAnalytics.ts`). Pinned by `lib/analytics.test.ts` and `hooks/useSearchAnalytics.test.tsx` |
+| Page addresses are sent without search terms | `sanitizeAnalyticsUrl()` / `ANALYTICS_URL_PARAMS` in `lib/analyticsConfig.ts` (GA page_location and page_path, Plausible `transformRequest`); Umami gets `data-exclude-search` |
+| Theme, saved maps, reflection answers, prefill, and the manage key stay in the browser | `next-themes` in `components/ThemeProvider.tsx`; `localStorage` in `hooks/useSavedTopics.ts`, `components/topic/CruxReflection.tsx` and `DeleteReportControl.tsx`; `sessionStorage` for the home-to-analyzer prefill (`lib/paste/handoff.ts`) |
 | Rate limiting counts per IP, in process memory | `lib/rate-limit.ts` — a module-level `Map`, explicitly documented as per-process |
 | The diagnosis lane hashes the IP before using it as a key | `clientKey()` → `hashClientKey()` in `lib/disagreement/publication.ts` |
 | Request logs record metadata, not text | `logDisagreementEvent` in `lib/disagreement/http.ts` |
@@ -125,7 +127,10 @@ here so nothing hides.
    not a statement of fact about the operator.
 6. **No cookie banner exists.** Google Analytics loads without consent when
    configured. The page states this plainly. Whether that is acceptable depends on
-   where visitors are, which is a founder decision.
+   where visitors are, which is a founder decision; `docs/ANALYTICS.md` sets out the
+   cookieless alternatives (Plausible, Umami) the code now supports. "Plausible and
+   Umami are built to count visits without cookies" is the vendors' own description,
+   not something this repository can verify.
 7. **No retention schedule and no deletion job exist** for any stored record. The
    page says so rather than promising a period.
 8. **No self-serve unsubscribe endpoint exists.** `newsletters.unsubscribedAt` is a

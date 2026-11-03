@@ -5,6 +5,7 @@ import { PageContainer, PageHeader } from "@/components/ui";
 import { LegalSection as Section, LEGAL_LINK as LINK, Pending } from "@/components/legal/LegalParts";
 import { LegalDraftNotice } from "@/components/LegalDraftNotice";
 import { buildGenericOgUrl } from "@/lib/og";
+import { resolveAnalyticsConfig } from "@/lib/analyticsConfig";
 import {
   ALL_AI_PROVIDER_IDS,
   DIAGNOSIS_PROVIDER_IDS,
@@ -42,6 +43,17 @@ export const metadata: Metadata = {
     canonical: "https://argumend.org/privacy",
   },
 };
+
+/**
+ * Which analytics provider this build loads, read from the same config the
+ * root layout uses (lib/analyticsConfig.ts), so the page cannot name a
+ * provider the build does not load.
+ */
+const ANALYTICS_PROVIDER_NAMES = { ga: "Google Analytics 4", plausible: "Plausible", umami: "Umami" } as const;
+const ANALYTICS_CONFIG = resolveAnalyticsConfig();
+const ANALYTICS_SENTENCE = ANALYTICS_CONFIG
+  ? `This version of the site loads ${ANALYTICS_PROVIDER_NAMES[ANALYTICS_CONFIG.provider]}.`
+  : "This version of the site loads none of them.";
 
 /** Which providers can see which kind of material, for the processor table. */
 const PROVIDER_ROLES: Record<string, string> = {
@@ -249,8 +261,9 @@ export default function PrivacyPage() {
             </p>
             <p>
               Beyond the AI providers, Argumend is hosted on infrastructure operated by our hosting
-              provider, and uses Google Analytics when analytics are configured. Both necessarily see
-              the network requests your browser makes.
+              provider, sits behind Cloudflare&rsquo;s network, and uses an analytics provider when
+              one is configured (see Analytics and cookies below). All of them necessarily see the
+              network requests your browser makes.
             </p>
             <Pending>
               Name the hosting provider and any other sub-processor (email, error tracking) here, and
@@ -289,27 +302,44 @@ export default function PrivacyPage() {
 
           <Section id="analytics" heading="Analytics and cookies">
             <p>
-              When a Google Analytics measurement ID is configured, Argumend loads Google Analytics 4.
-              It records page views as you navigate and a small set of product events: a topic
-              viewed, a view switched, a node expanded, a share clicked, a newsletter signup, and
-              whether an analysis started, finished, or failed.
+              Argumend can load one analytics provider, chosen when the site is built: Google
+              Analytics 4, Plausible, or Umami. {ANALYTICS_SENTENCE} Separately, our network
+              provider, Cloudflare, can add its own Web Analytics beacon to pages as they pass
+              through it; that beacon counts page views and page-load timings, and Cloudflare says
+              it &ldquo;does not collect or use your visitors&rsquo; personal data.&rdquo;
             </p>
             <p>
-              Those events never carry the text you pasted. Length is reported as a coarse bucket,
-              response time as a coarse bucket, and a diagnosis contributes only its pattern name and
-              the number of positions and cruxes found.
+              Whichever provider is loaded records page views as you navigate and a small set of
+              counts: a map viewed; its first crux scrolled into view; a crux or its evidence
+              opened; how far down a map you scrolled (a quarter, half, three quarters, all of it);
+              the diagram opened; a share or copy-link button pressed; a search made, with how many
+              results it found; text submitted to the paste tool, and whether it matched a map, came
+              closest to some, or matched none; a newsletter signup; and whether a diagnosis
+              started, finished, or failed.
+            </p>
+            <p>
+              None of those events carries the text you pasted or what you typed into a search box.
+              A pasted text&rsquo;s length is reported as a coarse bucket, a search as a count of
+              results in a coarse bucket, response time as a coarse bucket, and a diagnosis
+              contributes only its pattern name and the number of positions and cruxes found. Page
+              addresses are sent without their search terms: a search for something on the maps
+              page is reported as a visit to the maps page.
             </p>
             <p>
               Google Analytics sets its own cookies and receives your IP address as part of the
-              request; Google&rsquo;s privacy policy governs what it does with them. Signing in sets a
-              session cookie. Everything else Argumend remembers about you — your light or dark
-              theme, whether the sidebar is open, a report&rsquo;s management key, text handed from
-              the home page to the analyzer — is stored in your own browser and never sent to us.
+              request; Google&rsquo;s privacy policy governs what it does with them. Plausible and
+              Umami are built to count visits without cookies; they still receive your IP address
+              with each request, as any web server does. Signing in sets a session cookie.
+              Everything else Argumend remembers about you — your light or dark theme, the maps you
+              saved, your answer to a map&rsquo;s reflection question, a report&rsquo;s management
+              key, text handed from the home page to the analyzer — is stored in your own browser
+              and never sent to us.
             </p>
             <Pending>
-              Argumend does not currently show a cookie banner or ask for analytics consent before
-              loading Google Analytics. If the site expects visitors in the EU or the UK, that needs
-              to change, and this section needs to describe the choice they are given.
+              Argumend does not show a cookie banner or ask for analytics consent before loading
+              Google Analytics. If the site expects visitors in the EU or the UK, either that needs to
+              change, with this section describing the choice they are given, or the site should use
+              a cookieless provider instead. See docs/ANALYTICS.md for the trade-off.
             </Pending>
           </Section>
 
@@ -351,7 +381,7 @@ export default function PrivacyPage() {
               </li>
               <li className="list-disc">
                 <strong className="text-primary dark:text-stone-200">Analytics:</strong> kept for
-                whatever period is set in Google Analytics.
+                whatever period is set in the analytics provider in use.
               </li>
             </ul>
             <Pending>
