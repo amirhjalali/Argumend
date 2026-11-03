@@ -66,7 +66,7 @@ export const vapingHarmReductionData = {
           id: "cochrane-2024-rr",
           title: "Cochrane: E-cigarettes Beat NRT for Quitting (High Certainty)",
           description:
-            "The 2024 Cochrane systematic review found nicotine e-cigarettes increase 6-month+ quit rates vs. nicotine-replacement therapy (RR 1.59, 95% CI 1.30-1.93; 7 studies, 2,544 participants), about 4 extra quitters per 100, rated HIGH-certainty evidence.",
+            "The 2024 Cochrane systematic review found nicotine e-cigarettes increase 6-month+ quit rates vs. nicotine-replacement therapy (RR 1.59, 95% CI 1.29-1.93; 7 studies, 2,544 participants), about 4 extra quitters per 100, rated HIGH-certainty evidence.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -103,7 +103,7 @@ export const vapingHarmReductionData = {
           id: "rcp-phe-95-percent",
           title: "Expert Bodies: Vaping ~95% Less Harmful Than Smoking",
           description:
-            "Public Health England (2015) and the Royal College of Physicians ('Nicotine without Smoke', 2016) concluded e-cigarette use is around 95% less harmful than smoking and recommended promoting switching, because the toxicants driving smoking disease are largely absent from vapour.",
+            "Public Health England's 2015 evidence review, led by Ann McNeill and Peter Hajek, concluded that 'the current best estimate is that e-cigarettes are around 95% less harmful than smoking'. The Royal College of Physicians' 2016 report 'Nicotine without Smoke' judged that the hazard from long-term vapour inhalation 'is unlikely to exceed 5% of the harm from smoking tobacco'. McNeill's advice was that 'smokers should try vaping and vapers should stop smoking entirely.'",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -112,9 +112,9 @@ export const vapingHarmReductionData = {
             directness: 9,
           },
           source:
-            "McNeill et al. for Public Health England, 'E-cigarettes: an evidence update' (2015); Royal College of Physicians, 'Nicotine without Smoke: Tobacco Harm Reduction' (2016)",
+            "Public Health England, 'E-cigarettes around 95% less harmful than tobacco estimates landmark review' (19 Aug 2015), on McNeill & Hajek et al., 'E-cigarettes: an evidence update'; Royal College of Physicians, 'Nicotine without Smoke: Tobacco Harm Reduction' (April 2016)",
           sourceUrl:
-            "https://www.rcp.ac.uk/policy-and-campaigns/policy-documents/e-cigarettes-and-harm-reduction-an-evidence-review/",
+            "https://www.gov.uk/government/news/e-cigarettes-around-95-less-harmful-than-tobacco-estimates-landmark-review",
           reasoning:
             "Authoritative national medical bodies endorsing the acceptability of harm reduction — directly on the 'acceptable tool' half of the claim. Weighted down because the headline '95%' figure derives partly from an expert-elicitation estimate that critics (e.g. in The Lancet) argued rested on weak sourcing, so replicability is limited.",
         },
@@ -198,7 +198,7 @@ export const vapingHarmReductionData = {
           id: "dual-use-cardiovascular",
           title: "Dual Use Carries Smoking-Level Cardiovascular Risk",
           description:
-            "Population research summarised by the American Heart Association finds people who use both cigarettes and e-cigarettes have cardiovascular disease risk similar to smoking alone — dual use, the most common real-world pattern, does not deliver the expected reduction in tobacco-exposure harm.",
+            "An American Heart Association News story (May 2022) reported a Circulation study of 24,027 people in the US Population Assessment of Tobacco and Health study (2013-2019): people who used both cigarettes and e-cigarettes had cardiovascular disease risk similar to people who only smoked. The senior author said dual users were a group 'where we saw no reduction in cardiovascular risk'. Dual use is common: in one switching trial on this map, 58% of the e-cigarette group were still dual using at week 6.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -207,7 +207,7 @@ export const vapingHarmReductionData = {
             directness: 7,
           },
           source:
-            "American Heart Association news release on dual-use cardiovascular risk (2022); see also Wang et al., Korean dual-use cardiovascular study (PMC7101350)",
+            "American Heart Association News, 'Smoking both traditional and e-cigarettes may carry same heart risks as cigarettes alone' (6 May 2022), on a Circulation study of PATH data; see also Kim et al., 'Dual use of electronic and conventional cigarettes is associated with higher cardiovascular risk factors in Korean men', Scientific Reports (2020)",
           sourceUrl:
             "https://www.heart.org/en/news/2022/05/06/smoking-both-traditional-and-e-cigarettes-may-carry-same-heart-risks-as-cigarettes-alone",
           reasoning:
@@ -217,7 +217,7 @@ export const vapingHarmReductionData = {
           id: "evali-outbreak",
           title: "EVALI Outbreak: 2,807 Hospitalised, 68 Deaths",
           description:
-            "The 2019-2020 US outbreak of e-cigarette/vaping product use-associated lung injury caused 2,807 hospitalisations and 68 confirmed deaths. CDC identified vitamin E acetate as the primary cause, concentrated in illicit THC-containing products from informal sources.",
+            "In the 2019-2020 US outbreak of e-cigarette or vaping product use-associated lung injury (EVALI), CDC counted 2,807 hospitalised cases or deaths as of 18 February 2020, including 68 confirmed deaths, and named vitamin E acetate as a primary cause. In Blount et al. (NEJM, 2020), vitamin E acetate was found in lung fluid from 48 of 51 patients, and 47 of 50 with data had THC in their lung fluid or reported vaping THC products.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -245,7 +245,7 @@ export const vapingHarmReductionData = {
             directness: 6,
           },
           source:
-            "CDC / FDA National Youth Tobacco Survey 2024, 'E-Cigarette Use Among Youth'",
+            "CDC, 'E-Cigarette Use Among Youth' (2024 National Youth Tobacco Survey; 87.6% of current users used flavoured products); 2019 peak: CDC, MMWR Surveillance Summaries 68(12) (2019), 5.4 million students",
           sourceUrl: "https://www.cdc.gov/tobacco/e-cigarettes/youth.html",
           reasoning:
             "Robust national survey data on the central 'acceptability' objection: harm reduction for adult smokers came packaged with mass nicotine initiation among never-smoking youth. Directness is moderate because youth uptake speaks to net population acceptability and externalities, not to whether the device helps an individual smoker quit; the post-2019 decline also shows the risk is regulable.",
