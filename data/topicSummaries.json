@@ -746,9 +746,9 @@
     "title": "Surveillance and Public Safety",
     "question": "Does expanding government surveillance meaningfully reduce crime?",
     "meta_claim": "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
-    "confidence_score": 45,
-    "balance": 45,
-    "weight": 57,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 58,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
@@ -756,12 +756,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does surveillance prevent crime, or push it to nearby areas?",
     "tags": [
       "policy"
     ],
-    "keywords": "smartlink medell montevideo buolamwini farrington munyo piza rossi shades welsh zhan gebru criminology detention placement"
+    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan gebru wrongfully"
   },
   {
     "id": "us-iran-conflict",
@@ -999,7 +999,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination brine groundwater reuse wastewater cubic feet irrigation pacific abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
   },
   {
     "id": "sugar-tax-effectiveness",

@@ -224,6 +224,25 @@ export const surveillancePublicSafetyData = {
           reasoning:
             "Peer-reviewed and a genuinely interesting cross-cultural finding, but it is primarily a theoretical/analytical framework rather than a large empirical test, and China's context differs sharply from Western democracies—hence the modest directness score. It speaks to public acceptability, not to whether surveillance reduces crime.",
         },
+        {
+          id: "detroit-frt-settlement-guardrails",
+          title: "Detroit's Court-Enforced Face-Recognition Rules After a Wrongful Arrest (2024)",
+          description:
+            "Settling Williams v. City of Detroit in June 2024, after police wrongfully arrested Robert Williams on a facial recognition match, the Detroit Police Department accepted rules the federal court can enforce for four years. A face-recognition lead, even combined with a lineup identification, 'may never be a sufficient basis for seeking an arrest warrant'; detectives must document independent evidence and get sign-off from two supervisors; lineups may not reuse the photo the software flagged; and the department must audit every case since 2017 in which facial recognition was used to obtain an arrest warrant. The ACLU, which litigated the case and calls police use of the technology 'deeply problematic,' describes the rules as 'best-in-the-nation practices' for agencies that keep using it. Department data reported to the Board of Police Commissioners showed nine facial recognition searches in violent-crime investigations in 2025, against about 100 in 2023.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 3,
+            directness: 4,
+          },
+          source:
+            "ACLU, 'Summary of Detroit Facial Recognition Settlement Agreement (Williams v. City of Detroit)' (June 2024); ID Tech, 'Detroit Police Facial Recognition Use Drops 91 Percent After Settlement Tightens Policy' (27 Apr 2026)",
+          sourceUrl:
+            "https://assets.aclu.org/live/uploads/2024/06/williams_settlement_one-pager_june_24-1.pdf",
+          reasoning:
+            "This is the clearest real instance of the guardrails the 'for' side proposes: binding rules that treat a face match as a lead needing corroboration, negotiated by the civil-rights lawyers who brought the case. It is weak as evidence that oversight works, so the weights are low. It is one city, the rules are recent, and no published outcome data yet show wrongful arrests falling under them. The steep drop in searches also cuts both ways: oversight clearly constrained use, but a tool used nine times a year delivers little of the public-safety benefit the 'for' side wants to keep.",
+        },
       ],
     },
   ],
