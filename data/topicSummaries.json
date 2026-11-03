@@ -2516,22 +2516,22 @@
     "title": "Central Bank Digital Currencies",
     "question": "Would central bank digital currencies enable unprecedented surveillance?",
     "meta_claim": "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
-    "confidence_score": 43,
-    "balance": 43,
+    "confidence_score": 47,
+    "balance": 47,
     "weight": 61,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
     "tags": [
       "economics"
     ],
-    "keywords": "enaira nigeria mbridge convoy pesa nigerian trucker interoperable payee safaricoms suri bernanke goats instantaneous thailand"
+    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
   },
   {
     "id": "masculinity-crisis",
