@@ -63,7 +63,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids lowe"
+    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids glycemic"
   },
   {
     "id": "daylight-saving-time-abolition",
@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann superhuman looming metr philanthropy"
+    "keywords": "kokotajlos chinchilla alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann superhuman looming metr philanthropy serial"
   },
   {
     "id": "jones-act",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs arkansass blendon"
+    "keywords": "nebraska arkansas enrollees snap sommers corinth leive prager pukelis wherry zaki childless kffs arkansass blendon"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -1898,7 +1898,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
+    "keywords": "linoleic aldehyde hexane frying blasbalg pufa sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid fats"
   },
   {
     "id": "obesity-personal-responsibility",
@@ -2144,7 +2144,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
+    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog shelters charitable phillips dwelling huds livable"
   },
   {
     "id": "four-day-work-week",
@@ -2232,7 +2232,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia starter lopez metro airbnb batzer bearish"
+    "keywords": "rentals sellers belt hmrc redfin tourist fraser garcia starter lopez metro airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2705,30 +2705,32 @@
   },
   {
     "id": "declining-birth-rates",
-    "title": "The Global Fertility Collapse",
-    "question": "Is falling fertility an existential crisis that demands policy action?",
-    "meta_claim": "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 60,
+    "title": "The Birth-Rate Decline",
+    "question": "Are falling birth rates a crisis that governments should try to fix?",
+    "meta_claim": "Falling birth rates are a serious problem for rich countries, driven largely by costs and barriers that stop people having the children they want, and governments should act to raise them.",
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 73,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 7,
-    "firstCrux": "Is there a fertility level below which falling income per person becomes self-reinforcing?",
+    "pillarCount": 4,
+    "evidenceCount": 14,
+    "firstCrux": "Will low birth rates push down living standards, or can aging countries adjust without more babies?",
     "tags": [
       "economics"
     ],
     "aliases": [
+      "Is falling fertility an existential crisis that demands policy action?",
       "Falling birth rates and family policy",
       "Should governments help people have the children they want?",
-      "Do housing and childcare costs explain low fertility?"
+      "Do housing and childcare costs explain low fertility?",
+      "Do baby bonuses work?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth"
+    "keywords": "milligan unfpa minister hungarian kearney lutz pardue sobotka zeman quebecs childbirth conjecture hovering iussp nvsr"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -3345,7 +3347,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "actuary trustees solvency crfb retirees oasdi payable taxable"
+    "keywords": "actuary trustees solvency crfb retirees oasdi payable taxable insolvent"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3547,7 +3549,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
+    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan skoglund underdiagnosis"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3654,7 +3656,7 @@
       "global-health",
       "longtermism"
     ],
-    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory maertens miguel pryce utilitas haushofer kremer bankman"
+    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory kremer maertens miguel pryce utilitas haushofer bankman"
   },
   {
     "id": "alcohol-no-safe-level",

@@ -46,7 +46,7 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["generative-ai-art-copyright", 2, "The leading generative-AI rulings cut the other way"],
   ["open-weight-ai-models", 2, "Democratization is a genuine good, but it is not unconditional"],
   ["open-weight-ai-models", 3, "The fact that China releases capable open weights"],
-  ["declining-birth-rates", 0, "The 'doom loop' framing confuses a challenging transition"],
+  ["declining-birth-rates", 0, "A shrinking population is a problem to manage, not a catastrophe."],
   ["congressional-term-limits", 0, "High re-election rates can reflect satisfied constituents"],
   ["congressional-term-limits", 1, "The best natural experiment — 15 states that adopted"],
   ["return-to-office-productivity", 1, "The serendipity argument is the most romanticized"],
