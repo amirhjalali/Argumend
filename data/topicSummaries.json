@@ -195,7 +195,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro plenty strawberries hannah ritchie aerofarms appharvest bowery leafy"
+    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro strawberries plenty ritchie hannah aerofarms appharvest bowery leafy"
   },
   {
     "id": "de-extinction-species",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses mail unconfirmed factcheck"
+    "keywords": "hampshire heritage lieutenant schwab votebeat affidavit brennan cantoni kansass pons tenth tribal campuses mail unconfirmed"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -505,7 +505,7 @@
       "Health insurance premiums 2026",
       "Extend the ACA tax credits"
     ],
-    "keywords": "enrollees paragon improper deductibles bronze r48290 phantom kffs blase moreno maga planners sicker backfills colleran"
+    "keywords": "enrollees paragon deductibles bronze r48290 phantom kffs blase moreno maga planners sicker backfills colleran fumble"
   },
   {
     "id": "nuclear-energy-safety",
@@ -588,7 +588,7 @@
       "Does gun control work?",
       "Would an assault weapons ban reduce mass shootings?"
     ],
-    "keywords": "handgun rifles donohue everytown kleck indianas aneja conner dalafave dealer doherty hemenway ihme kivisto klarevas"
+    "keywords": "handgun rifles donohue everytown kleck indianas aneja conner dalafave doherty hemenway ihme kivisto klarevas mcdonough"
   },
   {
     "id": "minimum-wage-effects",
@@ -781,7 +781,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens borjas bier isil milton sidewalk circular clemenss feudal kahanec peasant zaiceva zimmermann"
+    "keywords": "carens remittances clemens borjas bier isil milton sidewalk migrant circular clemenss feudal kahanec peasant zaiceva"
   },
   {
     "id": "universal-basic-income",
@@ -875,7 +875,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "compact morley npvic chiafalo trifecta gore infirmities inadvertent abigail ashley cabal faithless foleys hillary impenetrable"
+    "keywords": "compact morley npvic chiafalo trifecta gore infirmities inadvertent bush abigail ashley cabal faithless foleys hillary"
   },
   {
     "id": "surveillance-public-safety",
@@ -931,11 +931,11 @@
   {
     "id": "epstein-files",
     "title": "The Epstein Files",
-    "question": "Does the Epstein case reveal a systemic institutional failure?",
+    "question": "Did America's institutions protect Epstein and the powerful people around him?",
     "meta_claim": "The Jeffrey Epstein case reveals systemic institutional failure — law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for decades, and full accountability has still not been achieved.",
-    "confidence_score": 61,
-    "balance": 61,
-    "weight": 76,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -943,12 +943,18 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 14,
     "firstCrux": "Was immunity for Epstein's unnamed co-conspirators standard practice, or an extraordinary concession?",
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators palm beach acosta blackmail dershowitz starr batch perpetrators prostitution jean cvra"
+    "aliases": [
+      "Does the Epstein case reveal a systemic institutional failure?",
+      "What do the Epstein files reveal?",
+      "Is the government still hiding the Epstein files?",
+      "Did institutions cover up the Epstein case?"
+    ],
+    "keywords": "maxwell acostas redacted palm brunel conspirators mountbatten windsor beach suspicion jazeera blackmail dershowitz disgrace mandelson"
   },
   {
     "id": "tiktok-ban",
@@ -1004,7 +1010,7 @@
       "Should the US deport all illegal immigrants?",
       "Is mass deportation a good idea?"
     ],
-    "keywords": "trac southwest patrol apprehensions backlog propublica marc rosenblum apprehended eoir paso syracuse ices montana quick"
+    "keywords": "trac southwest patrol apprehensions backlog migrant propublica marc rosenblum apprehended eoir paso syracuse ices montana"
   },
   {
     "id": "social-media-elections",
@@ -1123,7 +1129,7 @@
       "Would the US defend Taiwan?",
       "Would China blockade Taiwan instead of invading?"
     ],
-    "keywords": "amphibious cancian rhodium wargames himars kinmen rehearsed tsmcs unification aircraft defence submarine aukus darwin easton"
+    "keywords": "amphibious cancian rhodium wargames himars kinmen rehearsed tsmcs unification aircraft submarine aukus darwin easton heginbotham"
   },
   {
     "id": "global-water-crisis",
@@ -1189,7 +1195,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "yoti coppa anxious circumvention ofcom murthy anglophone birthdate drama inman pinpoint tweens candice esafety penguin"
+    "keywords": "yoti circumvention coppa anxious ofcom murthy anglophone birthdate drama inman pinpoint tweens candice esafety penguin"
   },
   {
     "id": "social-media-mental-health",
@@ -1350,7 +1356,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "spacex starship payloads biosphere moxie artemis brine settler suffocate lander refueling processor aboard colonists isru"
+    "keywords": "spacex starship payloads biosphere moxie artemis brine settler suffocate lander refueling aboard colonists isru kingdon"
   },
   {
     "id": "lab-grown-meat-adoption",
@@ -1501,7 +1507,7 @@
       "Can small modular reactors deliver clean power at scale within a decade?",
       "Are SMRs always ten years away?"
     ],
-    "keywords": "nuscale bwrx darlington lazard unsubsidized akademik basemat idaho lomonosov uamps fukushima licence vogtle aalo doice"
+    "keywords": "nuscale bwrx darlington lazard unsubsidized akademik basemat idaho lomonosov uamps fukushima vogtle aalo doice edwin"
   },
   {
     "id": "tiktok-brain-rot",
@@ -1711,7 +1717,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dart asteroid debris spinoff spacex spin planetary landsat modis mars collisions irreplaceable perseverance constellation didymos"
+    "keywords": "asteroid dart debris spinoff spacex spin planetary landsat modis mars collisions irreplaceable perseverance constellation didymos"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1813,7 +1819,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs unprocessed overconsumption petition carboxymethylcellulose emulsifier microbiome umbrella chassaing cream gastroenterology gibney monteiro moss"
+    "keywords": "nova upfs unprocessed overconsumption carboxymethylcellulose emulsifier microbiome umbrella chassaing cream gastroenterology gibney monteiro moss neltner"
   },
   {
     "id": "longevity-science",
@@ -1842,7 +1848,7 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity fibrosis cellular ebiomedicine grimage healthspan metformin mayo agonists tumor cyclic"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity fibrosis cellular ebiomedicine grimage healthspan metformin mayo agonists tumor dasatinib"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -2140,34 +2146,12 @@
   },
   {
     "id": "cryptocurrency-value",
-    "title": "Cryptocurrency as Store of Value",
-    "question": "Are Bitcoin and major coins a store of value like gold or real estate?",
+    "title": "Is Bitcoin Digital Gold?",
+    "question": "Is Bitcoin a store of value like gold, or a speculative bet?",
     "meta_claim": "Bitcoin and major cryptocurrencies represent a legitimate long-term store of value comparable to gold or real estate.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 66,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 7,
-    "firstCrux": "Is Bitcoin's lead a durable network moat, or a first-mover edge a better protocol could erode?",
-    "tags": [
-      "economics"
-    ],
-    "keywords": "hashrate moat terra luna glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase counterparty"
-  },
-  {
-    "id": "cryptocurrency-regulation",
-    "title": "Cryptocurrency Regulation",
-    "question": "Should crypto be regulated like traditional financial instruments?",
-    "meta_claim": "Cryptocurrencies should be regulated like traditional financial instruments",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 76,
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2175,12 +2159,46 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 16,
-    "firstCrux": "Can crypto rules deter fraud without driving compliant builders offshore?",
+    "evidenceCount": 10,
+    "firstCrux": "Is Bitcoin's lead a durable network moat, or a first-mover edge a better protocol could erode?",
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin ripple mica dubai defi fit21 terraform terrausd contagion luna cftc chainalysis gensler rakoff"
+    "aliases": [
+      "Are Bitcoin and major coins a store of value like gold or real estate?",
+      "Is Bitcoin a store of value?",
+      "Is cryptocurrency a good investment?",
+      "Is Bitcoin just digital tulips?"
+    ],
+    "keywords": "coingecko etfs terra luna marketscreener coinmarketcap fantasized forfeited glassnode hashrate linh litecoin nakamoto widest outflow"
+  },
+  {
+    "id": "cryptocurrency-regulation",
+    "title": "Crypto Regulation: A Rulebook of Its Own?",
+    "question": "Should crypto get its own lighter rulebook, or follow the same rules as stocks and banks?",
+    "meta_claim": "Crypto should be held to the same rules as traditional finance: securities law for tokens sold as investments and bank-grade rules for stablecoins and exchanges that hold savers' funds, not a lighter regime written for the industry.",
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 76,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 4,
+    "evidenceCount": 21,
+    "firstCrux": "Do licensing and custody rules cut crypto investors' losses, or just push the business offshore?",
+    "tags": [
+      "economics"
+    ],
+    "aliases": [
+      "Should crypto be regulated like traditional financial instruments?",
+      "Should cryptocurrency be regulated like traditional finance?",
+      "Is the CLARITY Act good for crypto investors?",
+      "Is the SEC going soft on crypto?"
+    ],
+    "keywords": "binance coinbase ripple bybit chainalysis defi dubai gensler usdc genius atkins cftc cornerstone pardoned terraform"
   },
   {
     "id": "gig-economy-regulation",
@@ -2356,7 +2374,7 @@
       "Interest on the debt now costs more than defense",
       "Will the US default on its debt?"
     ],
-    "keywords": "crfb reinhart rogoffs fy2026 outlays brics herndon pollin rachel renminbi unmatched moodys trustees cofer penny"
+    "keywords": "crfb reinhart rogoffs fy2026 outlays brics herndon pollin rachel unmatched moodys renminbi trustees cofer penny"
   },
   {
     "id": "return-to-office-productivity",
@@ -2718,7 +2736,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion contentious defamation deliberative dissatisfied turkey unraveling"
+    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion contentious defamation deliberative turkey unraveling colonial"
   },
   {
     "id": "geoengineering-climate",
@@ -2748,25 +2766,32 @@
   },
   {
     "id": "central-bank-digital-currency",
-    "title": "Central Bank Digital Currencies",
-    "question": "Would central bank digital currencies enable unprecedented surveillance?",
-    "meta_claim": "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 61,
+    "title": "Central Bank Digital Currencies: Digital Cash or Surveillance Tool?",
+    "question": "Is a digital dollar or digital euro a surveillance tool, or digital cash worth having?",
+    "meta_claim": "Central bank digital currencies are a threat rather than a needed tool: at home they would let governments watch and program how citizens spend, abroad China's digital yuan is a lever against the dollar, and they offer little that mobile money and private digital payments do not already provide.",
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 67,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 8,
+    "pillarCount": 4,
+    "evidenceCount": 13,
     "firstCrux": "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira wallet bahamas mbridge nigeria yuan convoy pesa intereconomics nigerian trucker ward bahamian interoperable"
+    "aliases": [
+      "Would central bank digital currencies enable unprecedented surveillance?",
+      "Would a digital dollar or digital euro let governments watch and control how people spend?",
+      "Should central banks issue digital currency?",
+      "Is a digital dollar a good idea?",
+      "Is the digital euro a surveillance tool?"
+    ],
+    "keywords": "sanddollar nigeria bahamas enaira pesa wallet stablecoins mbridge convoy ecbs nigerians issuance intereconomics suri tokenised"
   },
   {
     "id": "masculinity-crisis",
@@ -2933,7 +2958,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam borjas hunkering jews complementarity dispersed italians norc reexamining resettlement diploma refugee scandinavian"
+    "keywords": "putnam borjas hunkering jews complementarity italians norc reexamining resettlement diploma dispersed refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2982,7 +3007,7 @@
       "Should Ukraine accept a ceasefire on the current front line?",
       "Can Ukraine still win the war?"
     ],
-    "keywords": "ukrainian zelensky moscow troops donetsk manpower rusi facto demilitarized embolden haass kremlin kupchan rutland lyman"
+    "keywords": "ukrainian zelensky moscow troops donetsk manpower rusi facto demilitarized haass kremlin kupchan rutland embolden lyman"
   },
   {
     "id": "trump-tariffs",
@@ -3035,25 +3060,32 @@
   },
   {
     "id": "doge-federal-cuts",
-    "title": "DOGE & Federal Spending Cuts",
-    "question": "Did DOGE's cuts eliminate waste and make government more effective?",
+    "title": "DOGE's Cuts: Waste Removed, or Government Weakened?",
+    "question": "Did DOGE cut real waste, or leave Americans with a weaker government?",
     "meta_claim": "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
-    "confidence_score": 32,
-    "balance": 32,
-    "weight": 78,
+    "confidence_score": 30,
+    "balance": 30,
+    "weight": 79,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
-    "evidenceCount": 18,
+    "evidenceCount": 19,
     "firstCrux": "How much of DOGE's claimed savings survives a line-by-line reconciliation?",
     "tags": [
       "policy"
     ],
-    "keywords": "fy2025 pahlka callers slaughter appraisal disinvestment executor humphreys kettl nextgov opms rehired forgo overruled ssas"
+    "aliases": [
+      "Did DOGE's cuts eliminate waste and make government more effective?",
+      "Did DOGE actually cut government waste and make Washington leaner?",
+      "How much did DOGE really save?",
+      "DOGE & Federal Spending Cuts"
+    ],
+    "keywords": "fy2025 kettl pahlka rehire callers slaughter appraisal disinvestment executor humphreys nextgov opms overruled forgoes layoff"
   },
   {
     "id": "open-weight-ai-models",
@@ -3080,7 +3112,7 @@
       "Should AI models be open source?",
       "Are open-source AI models dangerous?"
     ],
-    "keywords": "deepseek ntia caisi mistral uplift biorisk toner licence casper kaunismaa amateur lecun novice nonproliferation whoever"
+    "keywords": "deepseek ntia caisi mistral uplift biorisk toner casper kaunismaa amateur lecun novice nonproliferation bioattack hendrycks"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -3171,7 +3203,7 @@
       "e-waste",
       "cybersecurity"
     ],
-    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas laptops luyi monopolize sheep"
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas luyi monopolize sheep wagner"
   },
   {
     "id": "assisted-dying-euthanasia",
@@ -3342,7 +3374,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt metropolitan nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha"
+    "keywords": "frvt metropolitan nistir affidavit clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers"
   },
   {
     "id": "gmo-crops-safety",
@@ -3517,7 +3549,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch forgone peterson"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 instantaneously lengthy saxton appreciated illiquid ranch forgone peterson"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3603,7 +3635,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch isis"
+    "keywords": "overblocking aggravated fosta netzdg taamneh eifert abetted anhaltspunkte antiterrorism backpages belegen copia empirisch isis keine"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3633,7 +3665,7 @@
     "aliases": [
       "Will killer robots start an AI arms race?"
     ],
-    "keywords": "icrc preemptive lamberth scharre sparrow dumb if11150 if11294 impermissible governmental primer abstentions atrocities belarus milder"
+    "keywords": "icrc preemptive lamberth scharre sparrow dumb if11150 if11294 governmental impermissible primer atrocities belarus unoda"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3692,7 +3724,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard faraone hyperactivity larsson mcgeechan skoglund underdiagnosis agnew"
+    "keywords": "youngest kazda underdiagnosed kessler barratt blais dalsgaard faraone hyperactivity larsson mcgeechan skoglund underdiagnosis agnew bell"
   },
   {
     "id": "vaping-harm-reduction",
