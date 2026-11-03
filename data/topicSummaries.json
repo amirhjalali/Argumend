@@ -3296,7 +3296,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth clerk eifert abetted anhaltspunkte antiterrorism backpages belegen copia"
+    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3323,7 +3323,7 @@
       "international-law",
       "warfare"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus favour governmental milder"
+    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus governmental milder unoda"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3442,9 +3442,9 @@
     "title": "Congressional Term Limits",
     "question": "Would congressional term limits improve American governance?",
     "meta_claim": "Congressional term limits would improve American governance.",
-    "confidence_score": 33,
-    "balance": 33,
-    "weight": 71,
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3452,7 +3452,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 10,
     "firstCrux": "Do forced open seats bring more competitive races and new kinds of legislators, or reshuffle similar ones?",
     "tags": [
       "policy",
@@ -3462,7 +3462,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean lobbyists carey mclaughlin moncrief niemi olson powell rogowski thornton carroll jenkins qualifications rutgers beholden"
+    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson powell raja rogowski thornton carroll jenkins"
   },
   {
     "id": "effective-altruism",
