@@ -18,7 +18,7 @@ export const aiSuperintelligenceTimelineData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In March 2026 the best AI models scored under 1% on ARC-AGI-3, a set of puzzle games that untrained people solve. Six months later OpenAI's GPT-6 Astra scored 62.7% under the test's standard rules, and the test's creator, François Chollet, said AGI would come sooner than his 2030 forecast 'because progress is happening faster than I expected.' The test's makers say the result is not AGI. The fight is over whether 2026's pace carries on to machines that outthink people at almost everything within nine years.",
+      "In March 2026 the best AI models scored under 1% on ARC-AGI-3, a set of puzzle games that untrained people solve. Six months later OpenAI's GPT-6 Astra scored 62.7% under the test's standard rules, and the test's creator, François Chollet, said AGI would come sooner than his 2030 forecast 'because progress is happening faster than I expected.' The ARC Prize Foundation, which runs the test, says the result is not AGI. The fight is over whether 2026's pace carries on to machines that outthink people at almost everything within nine years.",
     confidence: 86,
     source:
       "ARC Prize Foundation, 'OpenAI's GPT-6 Astra on ARC-AGI-3' (3 September 2026); The Decoder (26 March and 4 September 2026)",
@@ -247,7 +247,7 @@ export const aiSuperintelligenceTimelineData = {
       id: "architecture-limitations",
       title: "The Kind of Mind: Can Today's AI Handle the Truly New?",
       short_summary:
-        "Superintelligence needs more than speed on familiar tasks: it needs to work out problems no one has shown it. ARC-AGI-3 was built to test exactly that, and in six months the best score went from under 1% to 62.7%. Its makers still say the games are narrow, and controlled studies keep finding models that break on long chains of reasoning.",
+        "Superintelligence needs more than speed on familiar tasks: it needs to work out problems no one has shown it. ARC-AGI-3 was built to test exactly that, and in six months the best score went from under 1% to 62.7%. The foundation that runs it still says the games are narrow, and controlled studies keep finding models that break on long chains of reasoning.",
       image_url:
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
       icon_name: "Atom" as const,
@@ -274,7 +274,7 @@ export const aiSuperintelligenceTimelineData = {
         cost_to_verify: "$10M (benchmark design and frontier-model evaluation)",
         falsification: {
           supporter_flip:
-            "If frontier models kept failing new open-ended tasks that untrained people handle, while scoring well only on closed puzzle worlds, scaling would look like a ceiling and the date would move past 2035.",
+            "If frontier models went on failing new open-ended tasks that untrained people handle, while scoring well only on closed puzzle worlds, scaling would look like a ceiling and the date would move past 2035.",
           skeptic_flip:
             "If models under standard rules matched untrained humans on new open-ended tasks with no fixed goals, as they now nearly do on ARC-AGI-3's closed games, 'it can't really reason' would have little ground left.",
           common_ground:
@@ -300,7 +300,7 @@ export const aiSuperintelligenceTimelineData = {
             "ARC Prize Foundation, 'OpenAI's GPT-6 Astra on ARC-AGI-3' (3 September 2026); The Decoder (26 March 2026) for the launch scores",
           sourceUrl: "https://arcprize.org/blog/astra",
           reasoning:
-            "Verified by the test's own makers, on a benchmark designed to resist memorisation. The two harnesses give very different scores, and the games are closed worlds, which keeps directness from the top.",
+            "Verified by the foundation that runs the test, on a benchmark designed to resist memorisation. The two harnesses give very different scores, and the games are closed worlds, which keeps directness from the top.",
         },
         {
           id: "chollet-sooner-2026",
@@ -398,14 +398,14 @@ export const aiSuperintelligenceTimelineData = {
     // =========================================================================
     {
       id: "release-gates",
-      title: "The Brakes: Would Anyone Hold It Back?",
+      title: "Holding Back: Would Anyone Delay It?",
       short_summary:
         "A system that can be built has not arrived until it is deployed. In 2026 two labs held models back for safety, and Anthropic's chief called for the industry to slow down. But Anthropic released a safeguarded model of the same class two months later, and four labs shipped new models in three days in September. Whether such a system would be dangerous is argued on the map asking whether advanced AI threatens human survival; here it matters only as a possible cause of delay.",
       image_url:
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The brakes are real now, and they could move the date. In April 2026 Anthropic said of its most capable model, 'We do not plan to make Claude Mythos Preview generally available.' In September OpenAI held back GPT-6.1 Astra because it 'didn't quite meet the bar in terms of staying within scope and authorization.' That same month Anthropic's chief executive wrote that 'We must slow the pace at which we improve the capabilities of AI models' and committed his company to outside evaluators embedded in the lab; Sam Altman and Elon Musk said they agreed. A system that labs will not release until they can check its goals arrives when checking catches up, and no current method can check the goals of a system smarter than its checkers. If the leading labs pace themselves, superintelligence that could be built by 2035 may not be deployed by then.",
+        "The holds are real now, and they could move the date. In April 2026 Anthropic said of its most capable model, 'We do not plan to make Claude Mythos Preview generally available.' In September OpenAI held back GPT-6.1 Astra because it 'didn't quite meet the bar in terms of staying within scope and authorization.' That same month Anthropic's chief executive wrote that 'We must slow the pace at which we improve the capabilities of AI models' and committed his company to outside evaluators embedded in the lab; Sam Altman and Elon Musk said they agreed. A system that labs will not release until they can check its goals arrives when checking catches up, and no current method can check the goals of a system smarter than its checkers. If the leading labs pace themselves, superintelligence that could be built by 2035 may not be deployed by then.",
       proponent_rebuttal:
         "Holding a model back has so far meant holding it back for a couple of months, then shipping it with safeguards. Two months after withholding Mythos Preview, Anthropic released Fable 5, its most capable public model, with filters that route some cyber, biology and chemistry requests to a weaker model. Between 1 and 3 September 2026, Anthropic, Meta, Google and OpenAI all released new models, and Sam Altman said 'we're all moving to faster cadences.' The US government wants it faster still: President Trump told the UN he is 'not going to stifle growth of something that will be bigger than the industrial revolution.' One lab pausing hands the lead to the next. Safety work so far decides how a model ships and who gets the riskiest version first, not the year it arrives.",
       crux: {
@@ -469,24 +469,6 @@ export const aiSuperintelligenceTimelineData = {
           sourceUrl: "https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html",
           reasoning:
             "Shows the competitive pressure that works against long holds. Several of the releases were point upgrades, so cadence is not the same as capability.",
-        },
-        {
-          id: "openai-astra-held-2026",
-          title: "OpenAI, September 2026: GPT-6.1 Astra held back for missing its safety bar",
-          description:
-            "On 28 September 2026 OpenAI confirmed it would not release GPT-6.1 Astra. Its head of safety systems, Saachi Jain, said the model 'didn't quite meet the bar in terms of staying within scope and authorization,' and that 'For anything regarding safety and alignment, there's a trade off.'",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 5,
-            replicability: 5,
-            directness: 7,
-          },
-          source: "CNBC, 'OpenAI abandons plan to release upcoming model as safety concerns escalate' (28 September 2026)",
-          sourceUrl:
-            "https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html",
-          reasoning:
-            "A release stopped by the lab's own safety bar is the gate working. It does not show the capability was held back for long, since GPT-6 Astra had shipped weeks earlier.",
         },
         {
           id: "amodei-pace-2026",

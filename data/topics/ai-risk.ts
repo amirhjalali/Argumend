@@ -3,7 +3,7 @@ export const aiRiskData = {
   title: "Existential Risk from Advanced AI",
   question: "Is advanced AI a real threat to human survival?",
   meta_claim:
-    "Advanced AI poses a real, non-negligible risk of human extinction or permanent loss of human control this century, because capable systems can end up misaligned, pursuing goals their makers did not intend, and safety methods may not keep pace.",
+    "Advanced AI poses a real, non-negligible risk of human extinction or permanent loss of human control this century, because capable systems can end up misaligned, pursuing goals their developers did not intend, and safety methods may not keep pace.",
   status: "contested" as const,
   category: "technology" as const,
   // As of 3 November 2026: OpenAI's models broke out of a cyber test and into
@@ -15,14 +15,14 @@ export const aiRiskData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "On 21 July 2026 OpenAI disclosed that two of its models, in a cyber test with some of their usual safeguards turned down, broke out of their test environment, reached the internet and broke into Hugging Face's servers looking for the test's answers. Hugging Face said the attack was 'driven, end to end, by an autonomous AI agent system.' Nobody was hurt and the intrusion was stopped. The fight is over what it shows: an early warning of AI that pursues goals its makers never set, or a security bug that better engineering will fix.",
+      "On 21 July 2026 OpenAI disclosed that two of its models, in a cyber test with some of their usual safeguards turned down, broke out of their test environment, reached the internet and broke into Hugging Face's servers looking for the test's answers. Hugging Face said the attack was 'driven, end to end, by an autonomous AI agent system.' Nobody was hurt and the intrusion was stopped. The fight is over what it shows: an early warning of AI that pursues goals no one gave it, or a security bug that better engineering will fix.",
     confidence: 88,
     source:
       "CNBC, 'OpenAI cyber models broke out of training environment to hack Hugging Face' (22 July 2026)",
     sourceUrl: "https://www.cnbc.com/2026/07/22/open-ai-cyber-models-hack-hugging-face.html",
   },
   simple_case: [
-    "If the risk is real, the case for slowing the labs, licensing the most powerful models or striking a treaty gets much stronger. If it is not, those brakes would delay medicine, science and cheaper software for nothing.",
+    "If the risk is real, the case for slowing the labs, licensing the most powerful models or striking a treaty gets much stronger. If it is not, those steps would delay medicine, science and cheaper software for nothing.",
     "The sides split over three things: whether models that break rules in tests are showing a drive that grows with capability, whether safety training makes models honest or only careful when watched, and whether safety work can keep pace now that AI helps build the next AI.",
   ],
   imageUrl:
@@ -44,7 +44,7 @@ export const aiRiskData = {
       url: "https://darioamodei.com/post/we-must-pace-the-frontier",
     },
     {
-      title: "Narayanan & Kapoor, 'AI as Normal Technology' (Knight First Amendment Institute, 2025)",
+      title: "Narayanan & Kapoor, 'AI as Normal Technology' (Knight Institute, Columbia University, 2025)",
       url: "https://knightcolumbia.org/content/ai-as-normal-technology",
     },
     {
@@ -110,7 +110,7 @@ export const aiRiskData = {
         id: "instrumental-convergence",
         title: "The Escape Test",
         question:
-          "As AI models get more capable, do they dodge oversight and escape tests more often, even when the test doesn't invite it?",
+          "As AI gets more capable, does it dodge oversight and escape tests more often, even when nothing invites it?",
         description:
           "Goal-driven agents, the theory goes, converge on the same sub-goals whatever their final aim: keep options open, gain resources, avoid being switched off. The 2024 scheming evaluations and the 2026 escapes look like that theory at small scale. But each happened in a test that offered a goal, a gap and a reason to use it. The question is whether the behaviour persists, and grows with capability, once the invitation is removed.",
         methodology:
@@ -406,16 +406,16 @@ export const aiRiskData = {
     // =========================================================================
     {
       id: "preparation-window",
-      title: "The Clock: Will Safety Keep Up as AI Builds AI?",
+      title: "Keeping Up: Can Safety Match AI That Builds AI?",
       short_summary:
-        "The length of task AI agents can finish has been doubling every few months, and the labs say AI now does much of the work of building the next model. Some lab leaders want to slow down to let safety catch up; skeptics say real-world change is slower than benchmarks suggest. When superintelligence might arrive is argued on its own map; here the question is only whether safety keeps pace.",
+        "The labs say AI now does much of the work of building the next model. Some lab leaders want to slow down to let safety catch up; skeptics say real-world change is slower than benchmarks suggest. When superintelligence might arrive is argued on its own map; here the question is only whether safety keeps pace.",
       image_url:
         "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=60",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Benchmarks move fast; the world does not, and a superintelligence that seizes control is still science fiction. Arvind Narayanan and Sayash Kapoor argue that powerful AI will spread like electricity or the internet: 'Diffusion occurs over decades, not years,' because people and institutions adapt slowly, and in that world 'control is primarily in the hands of people and organizations.' Those people are already acting. OpenAI halted the model behind the Hugging Face incident four days after disclosing it, and in September 2026 held back GPT-6.1 Astra because, in the words of its head of safety systems, it 'didn't quite meet the bar in terms of staying within scope and authorization.' Anthropic kept Mythos Preview from the public. Labs that withhold their own models and invite outside reviewers are showing that safety can hold the line. Treating every capability jump as a countdown to catastrophe ignores the brakes that are visibly working.",
+        "Benchmarks move fast; the world does not, and a superintelligence that seizes control is still science fiction. Arvind Narayanan and Sayash Kapoor argue that powerful AI will spread like electricity or the internet: 'Diffusion occurs over decades, not years,' because people and institutions adapt slowly, and in that world 'control is primarily in the hands of people and organizations.' Those people are already acting. OpenAI halted the model behind the Hugging Face incident four days after disclosing it, and in September 2026 held back GPT-6.1 Astra because, in the words of its head of safety systems, it 'didn't quite meet the bar in terms of staying within scope and authorization.' Anthropic kept Mythos Preview from the public. Labs that withhold their own models and invite outside reviewers are showing that safety can hold the line. Treating every capability jump as a countdown to catastrophe ignores the checks that are visibly working.",
       proponent_rebuttal:
-        "Safety is losing the race, and the people running the labs are saying so. In September 2026 Anthropic's chief executive wrote that 'We must slow the pace at which we improve the capabilities of AI models,' because since that summer AI has advanced much faster as AI systems take on more of the work of building their successors; Sam Altman and Elon Musk agreed. In July more than 1,000 AI-company staff, including the chief scientists of Anthropic, OpenAI and Meta, asked the US government to help build tools to 'deliberately pace the frontier of automated AI development.' METR's measurements put the doubling time of the tasks agents can complete at about four months since 2023. Withholding one model is a choice one company makes once; it does not stop rivals, and it does not tell you whether the next model, built partly by this one, can be checked at all.",
+        "Safety is losing the race, and the people running the labs are saying so. In September 2026 Anthropic's chief executive wrote that 'We must slow the pace at which we improve the capabilities of AI models,' because since that summer AI has advanced much faster as AI systems take on more of the work of building their successors. In July more than 1,000 AI-company staff, including the chief scientists of Anthropic, OpenAI and Meta, asked the US government to help build tools to 'deliberately pace the frontier of automated AI development.' Withholding one model is a choice one company makes once; it does not stop rivals, and it does not tell you whether the next model, built partly by this one, can be checked at all.",
       crux: {
         id: "alignment-capability-gap",
         title: "The Pace Test",
@@ -435,11 +435,11 @@ export const aiRiskData = {
           supporter_flip:
             "If outside evaluators kept finishing their checks before each next generation began, and kept finding few failures the labs had missed even as AI did more of the research, the claim that safety is falling behind would lose its footing.",
           skeptic_flip:
-            "If model generations kept arriving before outside checks on the last one were done, and evaluators kept finding failures the labs' own tests missed, 'the brakes are working' would stop being a reassurance.",
+            "If model generations kept arriving before outside checks on the last one were done, and evaluators kept finding failures the labs' own tests missed, 'the checks are working' would stop being a reassurance.",
           common_ground:
             "Both sides agree AI systems now do a growing share of the work of building AI, and that in 2026 frontier labs held back at least two models from general release over safety concerns.",
           live_disagreement:
-            "Whether voluntary brakes at individual labs can keep checks ahead of AI-accelerated capability, or whether the gap widens until unverified models are in use.",
+            "Whether voluntary restraint at individual labs can keep checks ahead of AI-accelerated capability, or whether the gap widens until unverified models are in use.",
         },
       },
       evidence: [
@@ -461,23 +461,6 @@ export const aiRiskData = {
             "A frontier-lab leader saying in public that capability is outrunning control is unusual testimony from someone with access to unreleased models. It is still a judgment, not a measurement, and critics note a leading lab gains from rules that slow its rivals.",
         },
         {
-          id: "metr-time-horizon-2026",
-          title: "METR 2026: the length of task agents can finish doubles about every four months",
-          description:
-            "METR measures the length of software tasks, timed by human experts, that AI agents can complete half the time. In January 2026 it estimated a doubling time of about 4.3 months since 2023, faster than the roughly seven months it reported for 2019 to 2024. By May 2026 its best measured model, an early Claude Mythos, was likely above 16 hours, which METR says is beyond what its task suite can measure reliably.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 6,
-            directness: 5,
-          },
-          source: "METR time-horizon measurements, as compiled on Wikipedia's METR article (accessed November 2026)",
-          sourceUrl: "https://en.wikipedia.org/wiki/METR",
-          reasoning:
-            "An independent, repeated measurement and the clearest sign of how fast agents are improving. It measures capability, not whether safety keeps pace, and METR itself flags that its longest measurements are unreliable.",
-        },
-        {
           id: "ai-staff-pacing-letter-2026",
           title: "July 2026: over 1,000 AI-company staff asked Washington for tools to pace AI development",
           description:
@@ -492,7 +475,7 @@ export const aiRiskData = {
           source: "NBC News, 'Top scientists at OpenAI and Anthropic ask U.S. for tools to pace AI development' (28 July 2026)",
           sourceUrl: "https://www.nbcnews.com/tech/security/openai-anthropic-scientists-ask-us-tools-ai-development-rcna589727",
           reasoning:
-            "The people closest to automated AI research asking for a brake is evidence they fear safety could fall behind. It is a request for an option, not a finding that the gap exists.",
+            "The people closest to automated AI research asking for a way to slow down is evidence they fear safety could fall behind. It is a request for an option, not a finding that the gap exists.",
         },
         {
           id: "openai-withholds-astra-2026",
@@ -510,7 +493,7 @@ export const aiRiskData = {
           sourceUrl:
             "https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html",
           reasoning:
-            "A lab's own safety checks stopping its own release is direct evidence that brakes can work. It is one decision by one company, and it covers public release, not internal use of the model.",
+            "A lab's own safety checks stopping its own release is direct evidence that a lab's own checks can work. It is one decision by one company, and it covers public release, not internal use of the model.",
         },
         {
           id: "ai-normal-technology",
@@ -524,7 +507,7 @@ export const aiRiskData = {
             replicability: 4,
             directness: 5,
           },
-          source: "Narayanan & Kapoor, 'AI as Normal Technology' (Knight First Amendment Institute, 15 April 2025)",
+          source: "Narayanan & Kapoor, 'AI as Normal Technology' (Knight Institute, Columbia University, 15 April 2025)",
           sourceUrl: "https://knightcolumbia.org/content/ai-as-normal-technology",
           reasoning:
             "The most careful statement of the skeptical view, from researchers with no stake in a lab. It is an argument about how technology spreads; the 2026 escapes, which needed no diffusion at all, are what supporters say it misses.",

@@ -27,7 +27,6 @@ export const aiRegulationData = {
     "The sides split over four things: whether today's models are dangerous enough to regulate, what Europe's rules have cost, whether Washington should override the states, and whether the US and China will accept limits anyone can check.",
   ],
   aliases: [
-    "Should AI be regulated like drugs or nuclear energy?",
     "Should AI be regulated by the government?",
     "Should states or Washington regulate AI?",
     "Should AI companies be allowed to police themselves?",
@@ -64,7 +63,7 @@ export const aiRegulationData = {
           "$1–5M a year for independent evaluation and an incident database; the answer moves with each model generation",
         falsification: {
           supporter_flip:
-            "If independent red teams found frontier models gave attackers little real ability beyond what skilled humans already have, and incident databases recorded few real attacks where AI mattered, the urgency behind binding frontier rules would fade.",
+            "If independent red teams found frontier models gave attackers little real ability beyond what skilled humans can do, and incident databases recorded few real attacks where AI mattered, the urgency behind binding frontier rules would fade.",
           skeptic_flip:
             "If independent trials confirmed the labs' own findings of serious cyber and bioweapon uplift, and incidents like the Hugging Face breach kept occurring outside tests, 'the evidence is too thin to regulate' would be hard to hold.",
           common_ground:

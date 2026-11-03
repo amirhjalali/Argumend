@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard bench davidson hoffmann looming philanthropy serial superhuman"
+    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard bench davidson hoffmann looming metr philanthropy serial"
   },
   {
     "id": "jones-act",
@@ -1076,10 +1076,10 @@
     "id": "ai-risk",
     "title": "Existential Risk from Advanced AI",
     "question": "Is advanced AI a real threat to human survival?",
-    "meta_claim": "Advanced AI poses a real, non-negligible risk of human extinction or permanent loss of human control this century, because capable systems can end up misaligned, pursuing goals their makers did not intend, and safety methods may not keep pace.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 74,
+    "meta_claim": "Advanced AI poses a real, non-negligible risk of human extinction or permanent loss of human control this century, because capable systems can end up misaligned, pursuing goals their developers did not intend, and safety methods may not keep pace.",
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1087,8 +1087,8 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 17,
-    "firstCrux": "As AI models get more capable, do they dodge oversight and escape tests more often, even when the test doesn't invite it?",
+    "evidenceCount": 16,
+    "firstCrux": "As AI gets more capable, does it dodge oversight and escape tests more often, even when nothing invites it?",
     "tags": [
       "technology"
     ],
@@ -1236,11 +1236,11 @@
   {
     "id": "ai-in-education",
     "title": "AI in Education: Revolution or Risk?",
-    "question": "Will AI in education close achievement gaps and outweigh its risks?",
-    "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 65,
+    "question": "Does AI in schools help students learn more than it harms them?",
+    "meta_claim": "AI tutors and chatbots in schools will help students learn more than they harm them, and help the students furthest behind the most, outweighing the risks of cheating and of students letting AI do their thinking.",
+    "confidence_score": 44,
+    "balance": 44,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1248,12 +1248,17 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Does AI tutoring help disadvantaged students most, or the already advantaged?",
+    "evidenceCount": 12,
+    "firstCrux": "Do students who learn with AI do better or worse when tested without it?",
     "tags": [
       "technology"
     ],
-    "keywords": "khanmigo unaided mooc quiz bastani estudia kestin kosmyna kulik mindspark ruiperez unguarded valiente fletcher reich"
+    "aliases": [
+      "Will AI in education close achievement gaps and outweigh its risks?",
+      "Should AI be used in schools?",
+      "Is ChatGPT bad for students?"
+    ],
+    "keywords": "schoolwork bastani khanmigo kulik ruip valiente fletcher reich unaided muralidharan nfer learners delhi estudia kestin"
   },
   {
     "id": "ai-regulation",
@@ -1276,7 +1281,6 @@
       "technology"
     ],
     "aliases": [
-      "Should AI be regulated like drugs or nuclear energy?",
       "Should AI be regulated by the government?",
       "Should states or Washington regulate AI?",
       "Should AI companies be allowed to police themselves?"
@@ -1310,9 +1314,9 @@
     "title": "Will Artificial Superintelligence Arrive Before 2035?",
     "question": "Could artificial superintelligence arrive before 2035?",
     "meta_claim": "AI progress in 2025 and 2026 makes artificial superintelligence, AI that outperforms the best humans at nearly every cognitive task, a real possibility before 2035: not a certainty, and not a fringe view.",
-    "confidence_score": 48,
-    "balance": 48,
-    "weight": 71,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1320,7 +1324,7 @@
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 17,
+    "evidenceCount": 16,
     "firstCrux": "Will the length of task AI agents can finish keep doubling every few months, or level off before human expert level?",
     "tags": [
       "technology"
@@ -1330,7 +1334,7 @@
       "Is AGI coming soon?",
       "When will AI be smarter than humans?"
     ],
-    "keywords": "astra lecun amodei fable bricken dziri shazeer chollet hoffmann kaplan predecessor decoder opus harness coder"
+    "keywords": "astra metr lecun amodei fable bricken dziri shazeer chollet hoffmann kaplan predecessor decoder opus harness"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1839,7 +1843,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs suburban surkalim fibrinogen glaser"
+    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole glaser kiecolt luchetti sage suburbs suburban surkalim fibrinogen"
   },
   {
     "id": "remote-work-permanence",
@@ -2554,7 +2558,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
+    "keywords": "sanddollar enaira wallet bahamas mbridge nigeria convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
   },
   {
     "id": "masculinity-crisis",
