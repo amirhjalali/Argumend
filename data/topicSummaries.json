@@ -107,7 +107,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "lynn bartenders waitstaff danny flsa meyers ushg customarily diner goodwill gratitude gratuity kitchen lucrative mccall"
+    "keywords": "lynn bartenders waitstaff danny flsa meyers ushg customarily diner goodwill gratitude gratuity lucrative mccall oews"
   },
   {
     "id": "ai-therapy-chatbots",
@@ -546,7 +546,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "scalia exonerated dezhbakhsh rubin shepherd plea alarcon baldus marsh guilt antonin arthur coleman dietzel ehrhard"
+    "keywords": "exonerated scalia dezhbakhsh rubin shepherd plea alarcon baldus marsh guilt antonin arthur coleman dietzel ehrhard"
   },
   {
     "id": "police-reform",
@@ -1224,7 +1224,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters consolidation"
+    "keywords": "chicken taste aleph steak nahmias reassess barnett bryant inexpensive litre queen tangential tasters consolidation s43016"
   },
   {
     "id": "ai-in-education",
@@ -1477,7 +1477,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "livestock antibiotic cage sentience cattle runoff dietetics beef antimicrobial bacterial cafo manure vegetarian eggs grass"
+    "keywords": "livestock antibiotic cage sentience cattle runoff dietetics antimicrobial bacterial cafo manure vegetarian eggs grass guest"
   },
   {
     "id": "organic-food-health",
@@ -1724,7 +1724,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "plastic recycling phthalate polyethylene sperm tons polymers micrograms micrometers testicular rats arterial butyl interleukin plaque"
+    "keywords": "plastic recycling phthalate polyethylene sperm tons polymers micrometers micrograms testicular rats arterial butyl interleukin plaque"
   },
   {
     "id": "glp1-weight-loss-drugs",
@@ -1773,24 +1773,30 @@
   {
     "id": "seed-oils-health",
     "title": "Are Seed Oils Harmful to Human Health?",
-    "question": "Are seed oils a major driver of inflammation, obesity and metabolic disease?",
+    "question": "Are seed oils bad for you?",
     "meta_claim": "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 66,
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 18,
     "firstCrux": "Does sustained high omega-6 intake from seed oils measurably shift inflammatory signaling in humans?",
     "tags": [
       "science"
     ],
-    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
+    "aliases": [
+      "Are seed oils a major driver of inflammation, obesity and metabolic disease?",
+      "Are seed oils harmful to your health?",
+      "Should I cook with beef tallow instead of vegetable oil?",
+      "Is canola oil toxic?"
+    ],
+    "keywords": "linoleic butter headache olive arachidonic fabp5 hexane frying polyunsaturated aldehyde fats mtorc1 tablespoon blasbalg ramsden"
   },
   {
     "id": "obesity-personal-responsibility",
@@ -2732,7 +2738,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sffa arcidiacono quotas disapprove campuses reanalyses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler"
+    "keywords": "sffa arcidiacono quotas disapprove campuses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler klasik"
   },
   {
     "id": "ukraine-peace-terms",
