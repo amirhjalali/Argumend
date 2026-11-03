@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful heard"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs propublica beautiful"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -875,9 +875,9 @@
     "title": "Social Media's Impact on Elections",
     "question": "Has social media fundamentally undermined democratic elections?",
     "meta_claim": "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 71,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -890,7 +890,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "persuasive analytica bots extremist mueller aral hosseinmardi kalla untrustworthy vosoughi broockman cisa iranian personas watts"
+    "keywords": "persuasive analytica bots extremist mueller clintons aral hosseinmardi kalla untrustworthy vosoughi broockman cisa iranian personas"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -944,8 +944,8 @@
     "title": "Pandemic Preparedness Investment",
     "question": "Should governments invest heavily in pandemic preparedness?",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
-    "confidence_score": 67,
-    "balance": 67,
+    "confidence_score": 68,
+    "balance": 68,
     "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -1615,7 +1615,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "cleavage furin debarred insertion odni progenitor sago ecohealth subcommittee lineages huanan sarbecovirus coronaviruses biosafety virologists"
+    "keywords": "cleavage furin debarred subcommittee insertion odni progenitor sago ecohealth lineages huanan sarbecovirus coronaviruses biosafety virologists"
   },
   {
     "id": "ultra-processed-food",

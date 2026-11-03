@@ -323,20 +323,20 @@ export const socialMediaElectionsData = {
         },
         {
           id: "trump-2020-ad-volume",
-          title: "Trump Campaign Ran 5.9 Million Unique Facebook Ads in 2020",
+          title: "Trump's 2016 Campaign Ran 5.9 Million Facebook Ad Variations",
           description:
-            "The Trump 2020 campaign ran approximately 5.9 million unique Facebook ads — many differing only in small details like images, headlines, or calls to action — testing which combinations performed best for different voter segments. The campaign spent over $160 million on Facebook alone. Brad Parscale, the campaign's digital director, described Facebook as the campaign's 'most important weapon.' The Biden campaign ran approximately 218,000 unique ads by comparison. The gap illustrated how micro-targeting enables unprecedented message testing at scale, creating what critics call a 'dark art' of voter manipulation.",
+            "A Facebook internal document first reported by Bloomberg in April 2018 found that between June and November 2016 the Trump campaign ran 5.9 million ad variations on Facebook, testing them, cutting the underperformers and moving spending to the winners, while the Clinton campaign ran around 66,000 ads in the same period. Trump's campaign spent over $44 million on Facebook ads and Clinton's $28 million. The gap illustrates how platform tools enable message testing at a scale that critics describe as micro-targeted manipulation.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 9,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
             directness: 7,
           },
-          source: "Facebook Ad Library; ProPublica; The New York Times",
-          sourceUrl: "https://www.nytimes.com/2020/10/31/technology/facebook-ads-trump-biden.html",
+          source: "The Next Web, 'Facebook confirms Trump's ads bested Clinton's during presidential bid' (4 April 2018), reporting a Facebook document first obtained by Bloomberg",
+          sourceUrl: "https://thenextweb.com/news/facebook-confirms-trumps-ads-bested-clintons-during-presidential-bid",
           reasoning:
-            "Facebook Ad Library data is publicly verifiable. The sheer volume demonstrates the scale of micro-targeting capability. However, running millions of ads is evidence of effort, not effectiveness. The Trump campaign lost the 2020 election despite this massive micro-targeting operation, which weakens claims about its decisiveness.",
+            "The figures come from Facebook's own internal assessment of both campaigns, reported by Bloomberg. The sheer volume demonstrates the scale of ad-testing capability. However, running millions of ad variations is evidence of effort, not effectiveness, and the document does not isolate how much the testing changed votes.",
         },
       ],
     },
