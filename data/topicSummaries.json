@@ -673,7 +673,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly yangs banerjee"
+    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee castro"
   },
   {
     "id": "wealth-tax",
@@ -2151,7 +2151,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding bloom irvine sunk gloria pittsburgh uspto yang brucks frey gudith klocke levav"
+    "keywords": "allen bamboohr ding bloom irvine sunk gloria pittsburgh uspto brucks frey gudith klocke levav lindsay"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2891,9 +2891,9 @@
     "title": "Right to Repair",
     "question": "Do right-to-repair laws help consumers without harming innovation or safety?",
     "meta_claim": "Right-to-repair laws benefit consumers without significantly harming innovation or safety.",
-    "confidence_score": 77,
-    "balance": 77,
-    "weight": 55,
+    "confidence_score": 67,
+    "balance": 67,
+    "weight": 57,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2901,7 +2901,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Once firms adjust prices and parts, do right-to-repair laws lower or raise consumers' total ownership costs?",
     "tags": [
       "policy",
@@ -2911,7 +2911,7 @@
       "e-waste",
       "cybersecurity"
     ],
-    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit dortz eggman laptops monopolize owens sheep wagner workshop"
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas laptops luyi monopolize owens"
   },
   {
     "id": "assisted-dying-euthanasia",
@@ -3387,7 +3387,7 @@
       "How much water does each ChatGPT query use?",
       "Will AI data centers use as much electricity as whole countries?"
     ],
-    "keywords": "onsite freshwater gallons lbnl islam yang eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
+    "keywords": "onsite freshwater gallons lbnl islam eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
   },
   {
     "id": "adhd-overdiagnosis",
