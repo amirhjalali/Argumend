@@ -636,24 +636,30 @@
   {
     "id": "death-penalty-deterrence",
     "title": "The Death Penalty",
-    "question": "Is the death penalty a justified punishment?",
-    "meta_claim": "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
-    "confidence_score": 25,
-    "balance": 25,
-    "weight": 57,
+    "question": "Should America keep the death penalty?",
+    "meta_claim": "The United States should keep capital punishment for the worst murders, because it delivers justice the crime deserves and may deter killings, and its risks of error and unfairness can be held to an acceptable level.",
+    "confidence_score": 30,
+    "balance": 30,
+    "weight": 71,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Without proof that it deters, can possible deterrence plus retribution still justify the death penalty?",
+    "pillarCount": 4,
+    "evidenceCount": 17,
+    "firstCrux": "Do executions prevent murders that would otherwise have happened?",
     "tags": [
       "policy"
     ],
-    "keywords": "scalia exonerated dezhbakhsh rubin shepherd plea alarcon baldus marsh guilt kansas antonin arthur coleman dietzel"
+    "aliases": [
+      "Is the death penalty a justified punishment?",
+      "Does the death penalty deter murder?",
+      "Should capital punishment be abolished?"
+    ],
+    "keywords": "shepherd exonerated glossip parker scalia oklahoma dezhbakhsh parkland rubin killers alarc armour brett dpic joanna"
   },
   {
     "id": "police-reform",
@@ -680,7 +686,7 @@
       "Should we defund the police?",
       "Does police reform reduce crime?"
     ],
-    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver feloniously cahoots louisville roland tanaya portland"
+    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver cahoots louisville roland tanaya portland branas"
   },
   {
     "id": "mandatory-voting",
@@ -861,7 +867,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega clinton oklahoma whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega clinton whoever donald oklahoma"
   },
   {
     "id": "surveillance-public-safety",
@@ -883,7 +889,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan criminology gebru"
+    "keywords": "detroit smartlink medell montevideo buolamwini criminology farrington lineup munyo piza rossi shades welsh zhan gebru"
   },
   {
     "id": "us-iran-conflict",
@@ -1455,7 +1461,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "nuscale uamps streamlined lazards fukushima vogtle akademik edwin lomonosov royce westinghouse lcoe lyman overruns midpoint"
+    "keywords": "nuscale uamps lazards fukushima vogtle akademik edwin lomonosov royce westinghouse lcoe lyman overruns midpoint nucnet"
   },
   {
     "id": "tiktok-brain-rot",
@@ -2436,7 +2442,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa deportation castro julio cbps nonfatal patrol footage spokesperson superintendent venturella shooters"
+    "keywords": "celis hennepin scene sosa deportation castro julio cbps nonfatal patrol footage spokesperson superintendent venturella evans"
   },
   {
     "id": "consciousness-ai-systems",
@@ -3458,7 +3464,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
+    "keywords": "overblocking fosta netzdg aggravated taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
   },
   {
     "id": "autonomous-weapons-ban",
