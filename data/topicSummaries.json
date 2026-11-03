@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat louisiana turnout brennan cantoni kansass pons tenth tribal campuses"
+    "keywords": "hampshire heritage lieutenant schwab votebeat louisiana turnout brennan cantoni kansass pons tenth tribal campuses mail"
   },
   {
     "id": "nuclear-energy-safety",
@@ -546,7 +546,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "scalia exonerated dezhbakhsh rubin shepherd plea alarcon baldus marsh guilt kansas antonin arthur coleman dietzel"
+    "keywords": "scalia exonerated dezhbakhsh rubin shepherd plea alarcon baldus marsh guilt antonin arthur coleman dietzel ehrhard"
   },
   {
     "id": "police-reform",
@@ -1378,7 +1378,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads annonc ayers"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine jamainternmed kung mammography odyssey usmle lesions rads annonc ayers brormann"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1499,7 +1499,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "antioxidant chamacos prenatal metabolites bara milk pufa bahlai cadmium curl guelph hyland intraspecies oates organophosphate"
+    "keywords": "antioxidant chamacos prenatal metabolites bara milk pufa bahlai cadmium curl guelph hyland intraspecies newcastle oates"
   },
   {
     "id": "gene-editing-embryos",
@@ -1594,7 +1594,7 @@
       "Does psychedelic therapy actually work?",
       "Are the claims about psychedelic therapy exaggerated?"
     ],
-    "keywords": "mdma mapp2 psychopharmacology colorado hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005"
+    "keywords": "mdma mapp2 psychopharmacology colorado hopkins gukasyan lykos madrs nasdaq unblinding antidepressant remission agrawal carhart comp005"
   },
   {
     "id": "lab-leak-theory",
@@ -1638,7 +1638,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs unprocessed overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing cream gastroenterology gibney monteiro moss"
+    "keywords": "nova upfs unprocessed overconsumption petition carboxymethylcellulose emulsifier microbiome umbrella chassaing cream gastroenterology gibney monteiro moss"
   },
   {
     "id": "longevity-science",
@@ -1667,29 +1667,35 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison healthspan"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo agonists tumor cyclic ebiomedicine harrison"
   },
   {
     "id": "gender-affirming-care-minors",
     "title": "Gender-Affirming Care for Minors",
-    "question": "Should transgender teens have access to gender-affirming medical care?",
-    "meta_claim": "Evidence-based gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental health outcomes and should be accessible.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 68,
+    "question": "Should minors with gender dysphoria have access to puberty blockers and hormones?",
+    "meta_claim": "Puberty blockers and cross-sex hormones should remain available to adolescents with persistent gender dysphoria, after clinical assessment, rather than being banned or confined to research settings.",
+    "confidence_score": 37,
+    "balance": 37,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 20,
     "firstCrux": "Is the evidence strong enough to justify treating minors, compared with other accepted pediatric care?",
     "tags": [
       "science"
     ],
-    "keywords": "regret cass dysphoria detransition nonbinary tordoff dutch bustos congruence psychotherapeutic skrmetti trevor vries wpath plastic"
+    "aliases": [
+      "Should transgender teens have access to gender-affirming medical care?",
+      "Should trans kids get puberty blockers?",
+      "Should minors receive gender-affirming care?",
+      "Are puberty blockers safe for children?"
+    ],
+    "keywords": "nonbinary trevor tavistock cass dutch plastic appleby regret skrmetti finnish mcmaster tennessees psychotherapy bustos congruence"
   },
   {
     "id": "microplastics-health-crisis",
@@ -1733,7 +1739,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist comorbidities amgen"
+    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy comorbidities dieters pharmacotherapy reclassification waist amgen"
   },
   {
     "id": "fluoride-water-supplies",
@@ -1978,7 +1984,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd luna cftc chainalysis gensler silvergate usdc blockchain"
+    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna cftc chainalysis gensler silvergate usdc"
   },
   {
     "id": "gig-economy-regulation",
@@ -2089,7 +2095,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
+    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore advisors"
   },
   {
     "id": "global-housing-bubble",
@@ -2651,7 +2657,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "keywords": "olympic ncaa cisgender rapporteur medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
   },
   {
     "id": "animal-consciousness-rights",
@@ -3171,7 +3177,7 @@
       "No jab, no job",
       "Should parents be able to opt out of school vaccines?"
     ],
-    "keywords": "osha reactance amish jacobson mcmaster compulsory waned interdisciplinary passports harden hesitancy mahmoud polio remand activists"
+    "keywords": "osha reactance amish jacobson compulsory mcmaster waned interdisciplinary passports harden hesitancy mahmoud polio remand activists"
   },
   {
     "id": "ssri-antidepressant-efficacy",
@@ -3565,7 +3571,7 @@
       "Is a glass of red wine a day good for your heart?",
       "Is moderate drinking good for you?"
     ],
-    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted zhao mendelian carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
+    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted zhao mendelian carcinoma chikritzhs colorectal ionizing laryngeal naimi oesophageal"
   },
   {
     "id": "modern-monetary-theory",
