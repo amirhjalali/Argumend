@@ -3,6 +3,7 @@ import { topicSummaries } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
 import { buildDiagram, type DiagramModel } from "./model";
 import {
+  EVIDENCE_KEY_CLEARANCE,
   FIT_VIEW,
   MIN_CLEARANCE,
   boxesCollide,
@@ -85,6 +86,19 @@ describe("diagram layout, every map", () => {
       .map((d) => ({ id: d.topicId, zoom: fitZoom(layoutDiagram(d).bounds, CANVAS_1440, FIT_VIEW) }))
       .filter(({ zoom }) => zoom < READABLE_FIT);
     expect(tooSmall).toEqual([]);
+  });
+
+  it("frames the tree above the evidence key in the canvas's bottom-left corner", () => {
+    // Before r12 the fit left about 15px at the bottom and the key covered
+    // one or two evidence boxes on every map at 1280, 1440 and 1920 wide.
+    // fitView then shifts the tree up until the bottom strip is clear, which
+    // it can only do if the framed tree is no taller than the rest.
+    const underKey = diagrams.filter((d) => {
+      const { bounds } = layoutDiagram(d);
+      const zoom = fitZoom(bounds, CANVAS_1440, FIT_VIEW);
+      return bounds.height * zoom > CANVAS_1440.height - EVIDENCE_KEY_CLEARANCE;
+    });
+    expect(underKey.map((d) => d.topicId)).toEqual([]);
   });
 });
 

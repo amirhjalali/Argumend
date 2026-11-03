@@ -7,6 +7,11 @@ export const ukrainePeaceTermsData = {
     "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
   status: "contested" as const,
   category: "policy" as const,
+  // One line under "This turns on four questions": the stakes, without
+  // restating the four questions printed right below it.
+  simple_case: [
+    "The answers decide whether freezing the lines would end the killing on acceptable terms or only buy time before the next invasion.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Territorial Concessions vs. Sovereignty
