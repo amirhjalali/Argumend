@@ -15,7 +15,7 @@ export const seedOilsHealthData = {
   status: "contested" as const,
   category: "science" as const,
   // As of 3 November 2026: the Dietary Guidelines for Americans 2025-2030,
-  // published 7 January 2026, tell people to prioritise oils with essential
+  // published in January 2026, tell people to prioritise oils with essential
   // fatty acids "such as olive oil" and add that "other options can include
   // butter or beef tallow", while keeping the 10%-of-calories cap on
   // saturated fat and conceding that "more high-quality research is needed to
@@ -24,10 +24,10 @@ export const seedOilsHealthData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "US per-capita soybean oil consumption rose more than 1,000-fold between 1909 and 1999, lifting linoleic acid from about 2.8% to 7.2% of calories, over the same century in which obesity and diabetes climbed. In January 2026 the new Dietary Guidelines told Americans to cook with olive oil first and added that 'other options can include butter or beef tallow'. No trial has yet tested modern liquid seed oils against other fats with calories and total fat held constant.",
+      "Estimated US per-capita soybean oil consumption rose more than 1,000-fold between 1909 and 1999, lifting the availability of linoleic acid from 2.79% to 7.21% of calories, over the same century in which obesity and diabetes climbed. In January 2026 the new Dietary Guidelines told Americans to cook with olive oil first and added that 'other options can include butter or beef tallow'. The guidelines add that 'more high-quality research is needed to determine which types of dietary fats best support long-term health'.",
     confidence: 84,
     source:
-      "Blasbalg et al., American Journal of Clinical Nutrition (2011), from USDA food-disappearance data; Dietary Guidelines for Americans 2025-2030 (7 January 2026)",
+      "Blasbalg et al., American Journal of Clinical Nutrition 93(5):950-962 (2011), from USDA food-availability data; Dietary Guidelines for Americans 2025-2030",
     sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3076650/",
   },
   // ── Stage 2: the honest case ──
@@ -204,7 +204,7 @@ export const seedOilsHealthData = {
           title:
             "Linoleic acid rose from about 2.8% to 7.2% of US calories in the 20th century (AJCN, 2011)",
           description:
-            "Blasbalg et al. (AJCN 2011), using USDA food-disappearance data, documented that estimated per-capita soybean oil consumption rose more than 1,000-fold between 1909 and 1999, raising linoleic acid from about 2.8% to 7.2% of energy. Anthropological estimates (Simopoulos) put ancestral omega-6 to omega-3 ratios near 1:1 against roughly 15:1 today. The intake shift itself is uncontested; whether the resulting ratio change causes disease is the disputed step.",
+            "Blasbalg et al. (AJCN 2011), using USDA food-availability data, estimated that per-capita soybean oil consumption rose more than 1,000-fold between 1909 and 1999, raising the availability of linoleic acid from 2.79% to 7.21% of energy. In the same accounting the ratio of linoleic to alpha-linolenic acid rose 38%, from 7.3 to 10.0, and the total omega-6 to omega-3 ratio 42%, from 6.7 to 9.6. The intake shift itself is uncontested; whether the resulting ratio change causes disease is the disputed step.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -213,7 +213,7 @@ export const seedOilsHealthData = {
             directness: 4,
           },
           source:
-            "Blasbalg et al., American Journal of Clinical Nutrition (2011); Simopoulos, Biomedicine & Pharmacotherapy (2002)",
+            "Blasbalg, Hibbeln, Ramsden, Majchrzak & Rawlings, 'Changes in consumption of omega-3 and omega-6 fatty acids in the United States during the 20th century', American Journal of Clinical Nutrition 93(5):950-962 (2011)",
           sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3076650/",
           reasoning:
             "The canonical intake figures, reconstructed from public data. A change in intake is a reason to ask the question, not evidence of harm, so directness is low.",
@@ -251,7 +251,7 @@ export const seedOilsHealthData = {
       skeptic_premise:
         "Every fat degrades when heated, and refined seed oils degrade less readily than the alternatives being sold as safer. Refined soybean oil smokes at about 232°C and canola at 204-246°C, against roughly 150-177°C for butter and 160-190°C for extra-virgin olive oil. Aldehyde formation scales with how hot, how long and how often an oil is heated, which makes it a question about commercial deep-frying rather than a domestic pan. Doses that harm cells in a dish typically exceed realistic dietary exposure by orders of magnitude, and the hexane used in extraction is capped in the EU at 1 mg/kg in the final oil. The honest caveat is that the margin for repeated home frying has not been cleanly established.",
       proponent_rebuttal:
-        "Polyunsaturated fats have multiple double bonds, which is exactly what makes them unstable to heat, light and oxygen, and industrial refining already puts them through solvent extraction, bleaching and deodorising above 200°C. Frying them generates 4-hydroxynonenal, malondialdehyde and acrolein, which damage DNA and cross-link proteins in laboratory studies; Csallany's group measured 7.83-32.15 micrograms of 4-HNE per 100 g in fries from six fast-food restaurants. Repeated heating, as in a restaurant fryer, raises the level. Groups studying domestic frying report that repeated use of PUFA-rich oils can reach aldehyde levels they call toxicologically significant. Nobody eating fries three times a week knows what dose they are getting, because nobody has measured it against a safety threshold.",
+        "Polyunsaturated fats have multiple double bonds, which is exactly what makes them unstable to heat, light and oxygen, and industrial refining already puts them through solvent extraction, bleaching and deodorising above 200°C. Frying them generates 4-hydroxynonenal, malondialdehyde and acrolein, which damage DNA and cross-link proteins in laboratory studies; Csallany's group measured 7.83-32.15 micrograms of 4-HNE per 100 g in fries from six local fast-food restaurants, with more HNE in the fries containing more linoleic acid. Repeated heating, as in a restaurant fryer, raises the level. Groups studying domestic frying report that repeated use of PUFA-rich oils can reach aldehyde levels they call toxicologically significant. Nobody eating fries three times a week knows what dose they are getting, because nobody has measured it against a safety threshold.",
       crux: {
         id: "aldehyde-dose-response",
         title: "The Dietary Aldehyde Dose-Response Test",
@@ -285,7 +285,7 @@ export const seedOilsHealthData = {
           title:
             "Fast-food fries carried 7.83-32.15 micrograms of the toxic aldehyde 4-HNE per 100 g (JAOCS, 2015)",
           description:
-            "Csallany et al. measured 4-hydroxynonenal in French fries from six fast-food restaurants and found 7.83-32.15 micrograms per 100 g of fries. 4-HNE forms when linoleic acid in polyunsaturated oils such as soybean is heated to frying temperatures, and is cytotoxic and mutagenic in cell studies. The same group documented 4-HNE forming in soybean oil heated at 185°C and transferring into the fried food, with repeated heating raising the level.",
+            "Csallany, Han, Shoeman, Chen & Yuan measured 4-hydroxynonenal (HNE) in French fries from six local fast-food restaurants and found 7.83 to 32.15 micrograms per 100 g of fries, or 0.9 to 4.9 micrograms per gram of extracted fat. Fries with more linoleic acid also contained more HNE, and the authors concluded that 'HNE is produced during the heating process of the frying oils and is incorporated into' the fries, warning that frequent consumption 'may be a public health concern'. HNE is cytotoxic in cell studies.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -293,7 +293,8 @@ export const seedOilsHealthData = {
             replicability: 8,
             directness: 5,
           },
-          source: "Csallany et al., Journal of the American Oil Chemists' Society (2015)",
+          source:
+            "Csallany, Han, Shoeman, Chen & Yuan, '4-Hydroxynonenal (HNE), a Toxic Aldehyde in French Fries from Fast Food Restaurants', Journal of the American Oil Chemists' Society 92:1413-1419 (2015)",
           sourceUrl: "https://link.springer.com/article/10.1007/s11746-015-2699-z",
           reasoning:
             "The chemistry is well established and the measurement is in food people actually eat, not a flask. Measuring a compound in fries is not the same as showing harm in a body: the doses in the cell and animal studies of 4-HNE toxicity are far above these levels.",
@@ -338,7 +339,7 @@ export const seedOilsHealthData = {
           id: "hexane-extraction-residues",
           title: "Hexane extraction leaves trace residues, capped at 1 mg/kg in the EU",
           description:
-            "Most commercial seed oils are extracted with n-hexane, a petroleum-derived solvent; refining removes almost all of it. The EU caps hexane residue in vegetable oils at 1 mg/kg (Directive 2009/32/EC); the US FDA treats hexane as a processing aid and sets no maximum residue limit for oils, so routine US residue figures are not officially published. High chronic occupational hexane exposure causes peripheral neuropathy, but food-oil residues are orders of magnitude lower. Critics argue any solvent residue is undesirable when expeller-pressed alternatives exist.",
+            "Most commercial seed oils are extracted with n-hexane, a petroleum-derived solvent; refining removes almost all of it. Under EU law, as the European Food Information Council summarises Directive 2009/32/EC on extraction solvents, 'the maximum residue levels of hexane are set at 1 mg/kg of oil'. Hexane has been shown to harm the nervous, reproductive and endocrine systems in animal studies and in workplace exposure cases, at doses far above food-oil residues. Critics argue any solvent residue is undesirable when expeller-pressed alternatives exist.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -347,10 +348,10 @@ export const seedOilsHealthData = {
             directness: 3,
           },
           source:
-            "EU Directive 2009/32/EC (1 mg/kg residue limit); FDA treats hexane as a processing aid",
+            "European Food Information Council (EUFIC), 'Is hexane in food a cause for concern?', citing EU Directive 2009/32/EC of 23 April 2009 on extraction solvents",
           sourceUrl: "https://www.eufic.org/en/misinformation/article/is-hexane-in-food-a-cause-for-concern",
           reasoning:
-            "Residue limits are far below demonstrated harm thresholds, so this is largely a precautionary concern. The absence of a US limit is a real gap in what consumers can check, which is why it belongs on the map at low weight.",
+            "The EU residue cap is far below the exposures at which hexane has caused harm, so this is largely a precautionary concern. It sits at low weight because the card rests on a food-information body's summary of the law rather than on measurements of residues in oils as sold.",
         },
       ],
     },
@@ -418,9 +419,9 @@ export const seedOilsHealthData = {
         {
           id: "la-reduces-cvd-meta-analysis",
           title:
-            "Meta-analyses: each 5% of calories from linoleic acid, 9% fewer coronary events; cutting saturated fat cut events 17% (2014, 2020)",
+            "Meta-analyses: swapping 5% of calories from saturated fat to linoleic acid, 9% fewer coronary events; cutting saturated fat cut events 17% (2014, 2020)",
           description:
-            "Farvid et al.'s meta-analysis of 13 prospective cohorts (Circulation 2014; 310,602 participants, 12,479 coronary events) found each 5% of energy from linoleic acid associated with 9% lower coronary events (relative risk 0.91) and 13% lower coronary death (0.87); highest versus lowest intake showed 15% lower events and 21% lower coronary death. The Cochrane review of randomised trials of saturated-fat reduction (Hooper et al., 2020) found a 17% reduction in combined cardiovascular events (relative risk 0.83, 95% CI 0.70-0.98), with the benefit driven by replacing saturated fat with polyunsaturated fat.",
+            "Farvid et al.'s meta-analysis of 13 prospective cohorts (Circulation 2014; 310,602 participants, 12,479 coronary events) found that a 5%-of-energy increment in linoleic acid replacing saturated fat was associated with 9% lower coronary events (relative risk 0.91) and 13% lower coronary death (0.87); highest versus lowest intake showed 15% lower events and 21% lower coronary death. The Cochrane review of randomised trials of saturated-fat reduction (Hooper et al., 2020; 15 trials, 56,675 participants) found a 17% reduction in combined cardiovascular events (risk ratio 0.83, 95% CI 0.70-0.98, moderate-quality evidence), but little or no effect on all-cause mortality (0.96, 0.90-1.03) or cardiovascular mortality (0.95, 0.80-1.12), and subgrouping did not separate replacement by polyunsaturated fat from replacement by carbohydrate.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -432,7 +433,7 @@ export const seedOilsHealthData = {
             "Farvid et al., Circulation (2014); Hooper et al., Cochrane Database of Systematic Reviews (2020, CD011737)",
           sourceUrl: "https://www.ahajournals.org/doi/abs/10.1161/circulationaha.114.010236",
           reasoning:
-            "Pooled cohorts plus a Cochrane review of randomised trials, the strongest tiers available. The cohorts cannot remove confounding, and the trials tested replacing saturated fat rather than modern liquid seed oils specifically, which is the gap the crux names.",
+            "Pooled cohorts plus a Cochrane review of randomised trials, the strongest tiers available. The cohorts cannot remove confounding; the trials tested reducing saturated fat rather than modern liquid seed oils specifically, could not distinguish polyunsaturated fat from carbohydrate as the replacement, and found no mortality benefit, which is the gap the crux names.",
         },
         {
           id: "sydney-minnesota-trials",
@@ -558,7 +559,7 @@ export const seedOilsHealthData = {
           title:
             "The 2026 Dietary Guidelines name olive oil first, add butter and beef tallow as options, and keep the 10% saturated-fat cap",
           description:
-            "The Dietary Guidelines for Americans 2025-2030, published on 7 January 2026, advise: 'When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow.' They keep the long-standing limit that 'in general, saturated fat consumption should not exceed 10% of total daily calories', say that 'significantly limiting highly processed foods will help meet this goal', and add that 'more high-quality research is needed to determine which types of dietary fats best support long-term health'. Earlier editions had recommended canola, corn, olive, peanut, safflower, soybean and sunflower oils and discouraged butter.",
+            "The Dietary Guidelines for Americans 2025-2030, dated January 2026, advise: 'When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow.' They keep the long-standing limit that 'in general, saturated fat consumption should not exceed 10% of total daily calories', say that 'significantly limiting highly processed foods will help meet this goal', and add that 'more high-quality research is needed to determine which types of dietary fats best support long-term health'. Earlier editions had recommended canola, corn, olive, peanut, safflower, soybean and sunflower oils and discouraged butter.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -567,7 +568,7 @@ export const seedOilsHealthData = {
             directness: 4,
           },
           source:
-            "Dietary Guidelines for Americans, 2025-2030, US Departments of Health and Human Services and Agriculture (7 January 2026)",
+            "Dietary Guidelines for Americans, 2025-2030, US Departments of Health and Human Services and Agriculture (January 2026)",
           sourceUrl: "https://cdn.realfood.gov/DGA_508.pdf",
           reasoning:
             "Federal advice moved toward the seed-oil critics, and the document itself concedes the evidence on which fats are best is not settled, which is the honest part of this map. Guidelines are a policy judgment, not new data, and this edition was written by an administration that had campaigned on the question, so independence is low.",

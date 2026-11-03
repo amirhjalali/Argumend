@@ -13,14 +13,16 @@ const covidOriginsData: TopicInput = {
   // other US agencies and the National Intelligence Council lean to natural
   // spillover; Germany's BND rated a lab leak 80-95% likely in 2020 (reported
   // March 2025); WHO's SAGO (June 2025) found zoonosis best supported but
-  // could not assess a leak without China's data; France's Académie nationale
-  // de médecine (April 2025) leaned to a lab accident while the Académie des
-  // sciences said the two cannot be told apart; the 391 pages Tulsi Gabbard
-  // declassified in June 2026 held nothing decisive on origins.
+  // said the information needed to evaluate all hypotheses was never
+  // provided; France's Académie nationale de médecine (April 2025) found the
+  // lab-accident hypothesis supported by facts and arguments but not by proof,
+  // and the Académie des sciences (June 2025) said the two cannot be told
+  // apart; the 391 pages Tulsi Gabbard declassified in June 2026 held nothing
+  // decisive on origins.
   last_updated: "2026-11-03",
   keystone_fact: {
     statement:
-      "Nearly seven years on, no one has proof either way. The CIA, FBI and Department of Energy lean toward a lab accident; four other US agencies and the WHO's advisory group lean toward animals at the Huanan market, though that group said it could not assess a leak because China withheld the lab's records. No infected market animal and no lab progenitor virus has ever been found. The fight is over which story the evidence we have favours, and whether the evidence we lack would settle it.",
+      "Nearly seven years on, no one has proof either way. The CIA, FBI and Department of Energy lean toward a lab accident; the National Intelligence Council and four other US agencies, and the WHO's advisory group, lean toward natural exposure to an infected animal, though that group said much of the information needed to evaluate all the hypotheses was never provided by China. No infected market animal and no lab progenitor virus has ever been found. The fight is over which story the evidence we have favours, and whether the evidence we lack would settle it.",
     confidence: 82,
     source:
       "WHO SAGO report (June 2025); CIA assessment via NBC News (January 2025); ODNI declassified report (June 2023)",
@@ -106,7 +108,7 @@ const covidOriginsData: TopicInput = {
       title:
         "What would it take to resolve this question definitively?",
       content:
-        "Key evidence that could settle the debate includes: the WIV viral database taken offline in September 2019, laboratory notebooks and biosafety logs from 2019, early patient samples and sequences (over 500 remain unpublished), complete supply-chain records for the Huanan Seafood Market, and medical records of WIV researchers who reportedly fell ill in November 2019. China has declined to share most of this data. The NDAA of 2026 mandated declassification of US intelligence on COVID-19 origins, which may reveal new details. The House Select Subcommittee obtained internal EcoHealth and NIH documents through subpoena power. But without Chinese cooperation on the most critical datasets, can declassified US intelligence and congressional investigations substitute for direct access to the WIV?",
+        "Key evidence that could settle the debate includes: the WIV viral sequence databases that are no longer public, laboratory notebooks and biosafety logs from 2019, early patient samples and sequences (over 500 remain unpublished), complete supply-chain records for the Huanan Seafood Market, and medical records of WIV researchers who reportedly fell ill in November 2019. China has declined to share most of this data. The NDAA of 2026 mandated declassification of US intelligence on COVID-19 origins, which may reveal new details. The House Select Subcommittee obtained internal EcoHealth and NIH documents through subpoena power. But without Chinese cooperation on the most critical datasets, can declassified US intelligence and congressional investigations substitute for direct access to the WIV?",
     },
     {
       id: "q4",
@@ -129,14 +131,14 @@ const covidOriginsData: TopicInput = {
       skeptic_premise:
         "The earliest known cases cluster on the market, not the lab, and the market's wildlife stalls held both the virus and animals that can carry it. Wuhan is a major city of 11 million people with extensive wildlife trade. Wet markets selling live animals are common throughout southern China, and coronaviruses circulate widely in horseshoe bat populations across Yunnan and Southeast Asia. The first SARS outbreak emerged in Guangdong, far from any BSL-4 lab. Spatial analysis of early COVID-19 cases centers them on the Huanan Seafood Market, not the WIV campus 30 km away. Raccoon dog and civet DNA was found co-located with SARS-CoV-2 RNA in market stalls. A 2025 analysis in Cell found that the bat ancestors of both SARS-CoV and SARS-CoV-2 were unlikely to have reached the cities where those viruses emerged by bat dispersal alone, which points to the wildlife trade as the carrier. The geographic coincidence with the WIV is notable but not probative, since markets with susceptible wildlife existed precisely because Wuhan is a major transport and trade hub.",
       proponent_rebuttal:
-        "The pandemic began in the one city that housed the world's largest collection of SARS-like bat coronaviruses, 1,500 km from the bats that carry its closest known relatives. The WIV's collection included RaTG13 (96.2% similar to SARS-CoV-2), taken from the Mojiang mine in Yunnan. Researchers there conducted gain-of-function experiments creating chimeric coronaviruses. The WIV's viral sequence database was taken offline in September 2019, months before the outbreak. Three WIV researchers were reportedly hospitalized with COVID-like symptoms in November 2019. No direct progenitor of SARS-CoV-2 has been found in any market animal. The probability that a novel bat coronavirus would emerge naturally in the one city housing the world's top bat coronavirus lab, rather than in Yunnan where the closest known relatives are found, demands serious investigation.",
+        "The pandemic began in the one city that housed the world's largest collection of SARS-like bat coronaviruses, 1,500 km from the bats that carry its closest known relatives. The WIV's collection included RaTG13 (96.2% similar to SARS-CoV-2), taken from the Mojiang mine in Yunnan. Researchers there conducted gain-of-function experiments creating chimeric coronaviruses. The WIV's viral sequence databases, public before the pandemic, are no longer accessible. US intelligence reporting described three WIV researchers who sought hospital care after falling ill in November 2019, though the declassified 2023 assessment says there is no indication any was hospitalised for COVID-consistent symptoms. No direct progenitor of SARS-CoV-2 has been found in any market animal. The probability that a novel bat coronavirus would emerge naturally in the one city housing the world's top bat coronavirus lab, rather than in Yunnan where the closest known relatives are found, demands serious investigation.",
       crux: {
         id: "wiv-database-audit",
         title: "The WIV Database Audit",
         question:
           "Is the outbreak's start in the same city as the Wuhan Institute of Virology a real signal, or coincidence?",
         description:
-          "The Wuhan Institute of Virology maintained a database of viral sequences collected from years of bat coronavirus fieldwork. This database was taken offline in September 2019 and has never been restored to public access. An independent audit of these records would reveal what viruses the WIV possessed and whether any were closer relatives of SARS-CoV-2 than publicly known sequences.",
+          "The Wuhan Institute of Virology maintained a database of viral sequences collected from years of bat coronavirus fieldwork. Those databases are no longer publicly accessible and access has never been restored. An independent audit of these records would reveal what viruses the WIV possessed and whether any were closer relatives of SARS-CoV-2 than publicly known sequences.",
         methodology:
           "Commission an independent international audit of the WIV's complete viral sample inventory, unpublished sequence data, laboratory notebooks, and biosafety incident logs from 2018-2020. Compare the full sequence library against SARS-CoV-2 to identify any closer progenitor than RaTG13. Cross-reference researcher health records with laboratory access logs.",
         verification_status: "impossible" as const,
@@ -152,7 +154,7 @@ const covidOriginsData: TopicInput = {
           skeptic_flip:
             "If that audit revealed a SARS-CoV-2 progenitor in the WIV's collection or documentation of relevant gain-of-function work, the natural-origin default would be hard to sustain.",
           common_ground:
-            "Both sides agree Wuhan has extensive wildlife trade AND houses the world's leading bat-coronavirus lab, and that the WIV database was taken offline in September 2019.",
+            "Both sides agree Wuhan has extensive wildlife trade AND houses the world's leading bat-coronavirus lab, and that the WIV's sequence databases are no longer publicly accessible.",
           live_disagreement:
             "Whether the outbreak's coincidence with the WIV is just sampling bias (Wuhan is a huge trade hub) or a meaningful signal — answerable only by data China withholds.",
         },
@@ -193,14 +195,14 @@ const covidOriginsData: TopicInput = {
           sourceUrl:
             "https://www.cell.com/cell/fulltext/S0092-8674(24)00901-2",
           reasoning:
-            "Co-location of animal DNA and viral RNA in environmental samples shows correlation, not causation. The samples were collected in January 2020 after the market was closed and partially decontaminated. No live animal at the market was found to be infected. The underlying genetic data were withheld for over five years before publication, raising questions about why Chinese researchers did not share the data earlier.",
+            "Co-location of animal DNA and viral RNA in environmental samples shows correlation, not causation. The samples were collected in January 2020 after the market was closed and partially decontaminated. No live animal at the market was found to be infected. The sequencing data were generated in China in 2020 but these authors could only analyse them years later, in a preprint posted in September 2023, which raises the question of why they were not shared sooner.",
         },
         {
           id: "wiv-database-offline",
           title:
-            "The Wuhan lab took its virus database offline in September 2019 and never restored it",
+            "The Wuhan lab's bat-virus databases are no longer public, and access has never been restored",
           description:
-            "The Wuhan Institute of Virology removed public access to its database of bat coronavirus sequences in September 2019, approximately three months before the first recognized COVID-19 cases. Eventually all 16 virus databases managed by the WIV were taken offline. The WIV attributed this to hacking attempts but has never restored access. Thousands of samples collected under the US-funded PREDICT program remain unsequenced publicly.",
+            "The Wuhan Institute of Virology's databases of bat coronavirus sequences were public before the pandemic and access has never been restored; the institute has attributed the removal to hacking attempts. Reviewing the record in 2025, France's Académie nationale de médecine found that 'the blocking of access to many computer files and to frozen bat samples', together with the real absence of epidemiological surveillance data, 'confirm the lack of transparency of the Chinese authorities and raise the question of their credibility'. Without the contents, no one can say whether they held a closer relative of SARS-CoV-2 than the published sequences.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -220,7 +222,7 @@ const covidOriginsData: TopicInput = {
           title:
             "US intelligence reported three Wuhan lab researchers seeking care in November 2019; ODNI found the illnesses neither support nor refute either origin",
           description:
-            "US intelligence identified three researchers at the Wuhan Institute of Virology who sought hospital care in November 2019 with symptoms consistent with both COVID-19 and common seasonal illness. A January 2021 State Department fact sheet confirmed this report. The identities of the researchers and their specific diagnoses remain classified. China has denied that any WIV staff were infected before December 2019. The declassified ODNI report of June 2023 states that several WIV researchers were ill in fall 2019 with symptoms consistent with but not diagnostic of COVID-19, that the IC has no indications any were hospitalised for COVID-consistent symptoms, and that one may have been hospitalised for an unrelated condition.",
+            "In May 2021 the Wall Street Journal, and then NBC News, reported that a US intelligence report had identified three Wuhan Institute of Virology researchers who sought hospital care after falling ill in November 2019. A State Department fact sheet had said the US government had 'reason to believe' that 'several researchers inside the WIV became sick in autumn 2019' with 'symptoms consistent with both Covid-19 and common seasonal illnesses'; it did not give a number or mention hospital care. The identities of the researchers and their specific diagnoses remain classified. China has denied that any WIV staff were infected before December 2019. The declassified ODNI report of June 2023 states that several WIV researchers were ill in fall 2019 with 'symptoms consistent with but not diagnostic of COVID-19', that the IC has 'no indications that any of these researchers were hospitalized because of the symptoms consistent with COVID-19', and that one may have been hospitalised then for a non-respiratory condition.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -228,7 +230,8 @@ const covidOriginsData: TopicInput = {
             replicability: 2,
             directness: 6,
           },
-          source: "US State Department Fact Sheet (January 2021); NBC News",
+          source:
+            "NBC News (24 May 2021) on the intelligence report and the State Department fact sheet; ODNI declassified report (June 2023)",
           sourceUrl:
             "https://www.nbcnews.com/health/health-news/u-s-intel-report-identified-3-wuhan-lab-researchers-who-n1268327",
           reasoning:
@@ -257,9 +260,9 @@ const covidOriginsData: TopicInput = {
         {
           id: "ecohealth-debarment-2024",
           title:
-            "HHS debarred EcoHealth Alliance and Peter Daszak for failing to report enhanced-pathogen work at the WIV (2024)",
+            "HHS debarred EcoHealth Alliance and Peter Daszak for five years over unreported work at the WIV (January 2025)",
           description:
-            "In 2024, the Department of Health and Human Services formally debarred EcoHealth Alliance and its president Peter Daszak from receiving federal funding. The debarment cited failures to comply with grant terms, failure to report dangerous gain-of-function experiments conducted at the WIV, and lack of institutional controls. EcoHealth had served as the intermediary funneling NIH grants to the WIV for bat coronavirus research. The debarment was the first of its kind for a scientific organization involved in pandemic-related research.",
+            "On 17 January 2025 the Department of Health and Human Services formally debarred EcoHealth Alliance and its president Peter Daszak from federal funding for five years, after proposing the debarment in 2024. HHS said a period of debarment for Daszak was 'necessary to protect the Federal Government's business interests'; the congressional account cites EcoHealth conducting gain-of-function research in Wuhan without adequate oversight, failing to report experiments at the WIV, violating NIH grant requirements and filing a required report two years late. EcoHealth had served as the intermediary channelling NIH grants to the WIV for bat coronavirus research.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -267,7 +270,8 @@ const covidOriginsData: TopicInput = {
             replicability: 8,
             directness: 4,
           },
-          source: "HHS Debarment Records; House Select Subcommittee (2024)",
+          source:
+            "House Committee on Oversight, 'HHS Formally Debars EcoHealth Alliance, Dr. Peter Daszak' (17 January 2025)",
           sourceUrl:
             "https://oversight.house.gov/release/breaking-hhs-formally-debars-ecohealth-alliance-dr-peter-daszak-after-covid-select-reveals-pandemic-era-wrongdoing/",
           reasoning:
@@ -324,7 +328,7 @@ const covidOriginsData: TopicInput = {
         "SARS-CoV-2 carries a 12-nucleotide insertion that makes it far better at infecting human cells, and no other sequenced SARS-like bat virus has one. A 2018 proposal from EcoHealth and the Wuhan lab planned to insert exactly such a site. Other coronavirus families acquired theirs naturally, and a 21-author review found no engineering signature in the genome.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Coronaviruses pick up furin cleavage sites on their own: MERS has one, so do HKU1 and OC43. They acquire genetic material by recombining when two viruses infect the same animal and by copying enzymes switching templates mid-strand, and a bat virus sampled in Yunnan, RmYN02, carries insertions at the very junction where SARS-CoV-2 carries its site. A 2023 Lancet Microbe analysis found the feature unusual for SARS-like viruses but inside the range of natural coronavirus evolution. Only a few hundred bat sarbecoviruses have ever been sequenced out of an unknown number circulating, so 'no other one has it' may say more about sampling than about nature.",
+        "Coronaviruses pick up furin cleavage sites on their own: MERS has one, so do HKU1 and OC43. They acquire genetic material by recombining when two viruses infect the same animal and by copying enzymes switching templates mid-strand, and a bat virus sampled in Yunnan, RmYN02, carries insertions at the very junction where SARS-CoV-2 carries its site. A 2020 analysis mapping furin recognition motifs onto the coronavirus family tree found such sites arose independently several times during coronavirus evolution. Only a few hundred bat sarbecoviruses have ever been sequenced out of an unknown number circulating, so 'no other one has it' may say more about sampling than about nature.",
       proponent_rebuttal:
         "Of every SARS-like bat virus ever sequenced, only this one has a furin cleavage site, and it is what makes the virus so good at infecting people. The 12-nucleotide insertion that encodes it is unique, and it uses a CGG-CGG codon pair for arginine that is rare in coronaviruses and common in laboratory codon optimisation. In 2018 EcoHealth Alliance asked DARPA to fund DEFUSE, a project to insert furin cleavage sites into bat coronaviruses at the WIV. DARPA refused, and nothing shows the work was not done with other money.",
       crux: {
@@ -369,7 +373,8 @@ const covidOriginsData: TopicInput = {
             replicability: 10,
             directness: 7,
           },
-          source: "Nature Microbiology; multiple genomic studies",
+          source:
+            "Peacock et al., 'The furin cleavage site in the SARS-CoV-2 spike protein is required for transmission in ferrets', Nature Microbiology (2021), on the polybasic PRRAR insertion; Holmes et al., Cell (2021) on its absence in related sarbecoviruses",
           sourceUrl: "https://www.nature.com/articles/s41564-021-00908-w",
           reasoning:
             "This is an objectively verifiable genomic fact confirmed by thousands of independent sequences. However, the absence of an FCS in known sarbecoviruses does not prove it cannot arise naturally, as bat coronavirus sampling covers only a fraction of existing diversity. It does make the feature anomalous and requiring explanation.",
@@ -399,7 +404,7 @@ const covidOriginsData: TopicInput = {
           title:
             "Other coronaviruses, including MERS and HKU1, acquired furin cleavage sites naturally",
           description:
-            "Multiple non-sarbecovirus coronaviruses possess furin cleavage sites acquired through natural evolution, including MERS-CoV, HKU1, and OC43. A 2020 study in Stem Cell Research documented that furin cleavage sites naturally occur in coronaviruses through recombination and insertion events. The broader coronavirus family demonstrates that such acquisitions, while rare, are within the evolutionary repertoire of these viruses.",
+            "Multiple non-sarbecovirus coronaviruses possess furin cleavage sites acquired through natural evolution, including MERS-CoV, HCoV-HKU1 and HCoV-OC43. A 2020 analysis in Stem Cell Research mapped furin recognition motifs onto the phylogeny of coronavirus spike proteins and found that such sites 'occurred independently for multiple times in the evolution of the coronavirus family', which the authors read as support for a natural origin. The broader family shows that such acquisitions, while rare, are within these viruses' evolutionary repertoire.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -408,9 +413,8 @@ const covidOriginsData: TopicInput = {
             directness: 5,
           },
           source:
-            "Stem Cell Research (Okonkwo et al., 2020); The Lancet Microbe (2023)",
-          sourceUrl:
-            "https://www.sciencedirect.com/science/article/pii/S1873506120304165",
+            "Wu & Zhao, 'Furin cleavage sites naturally occur in coronaviruses', Stem Cell Research (2020), doi:10.1016/j.scr.2020.102115",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/33340798/",
           reasoning:
             "Demonstrates that furin cleavage sites can evolve naturally in coronaviruses, weakening the argument that the feature alone proves engineering. However, the relevant comparison class is sarbecoviruses specifically, not all coronaviruses. The natural precedents come from distantly related lineages with different evolutionary histories. The directness score reflects this gap between general coronavirus biology and the specific sarbecovirus question.",
         },
@@ -460,7 +464,7 @@ const covidOriginsData: TopicInput = {
       id: "intelligence-transparency",
       title: "What the Spies Say, and What China Won't",
       short_summary:
-        "Three US agencies lean to a lab accident, four and the National Intelligence Council to natural spillover, nearly all at low confidence. Germany's BND put a leak at 80-95% in 2020. The WHO's panel called zoonosis best supported and said it could not assess a leak without China's records, which have never been released. Hundreds of pages declassified in June 2026 settled nothing.",
+        "Three US agencies lean to a lab accident, four and the National Intelligence Council to natural exposure to an animal, nearly all at low confidence. German newspapers reported the BND put a leak at 80-95% in 2020. The WHO's panel called zoonosis best supported and said much of the information needed to evaluate every hypothesis was never provided. Hundreds of pages declassified in June 2026 settled nothing.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "Intelligence assessments are judgments, not findings, and these ones are mostly hedged. The agencies that favor a lab leak express low confidence (CIA, DOE) or, in the FBI's case, moderate confidence — levels that in intelligence parlance signal evidence that is fragmentary and open to more than one reading. Four other agencies and the National Intelligence Council assessed natural spillover as more likely or remained undecided. The WHO's SAGO panel, after three years of review, concluded in June 2025 that the weight of available scientific evidence favors zoonotic spillover. A 2024 survey of 168 epidemiologists and virologists found they assessed zoonosis as 77% likely versus 21% for lab leak. The political context matters: the CIA's January 2025 reassessment was completed during a political transition, and the House Select Subcommittee's origins conclusion was issued by its Republican majority, with the panel's Democrats releasing a separate report rejecting it. The biggest release yet changed nothing: the 391 pages Tulsi Gabbard declassified on her last day as director of national intelligence in June 2026 were about Anthony Fauci's contacts with analysts, and contained no assessment that the research he funded started the pandemic.",
@@ -518,7 +522,7 @@ const covidOriginsData: TopicInput = {
           title:
             "Germany's foreign intelligence service rated a lab leak 80-95% likely, in 2020 (reported March 2025)",
           description:
-            "Die Zeit and Süddeutsche Zeitung reported in March 2025 that Germany's Bundesnachrichtendienst assessed the lab-leak hypothesis at 80 to 95 percent probability in 2020, drawing on public data and on material from an intelligence operation codenamed 'Saaremaa' that included scientific data from Chinese research institutions, among them the Wuhan Institute of Virology. The finding went to the chancellery and was not published; Angela Merkel's office rejected the accusation that she covered it up. Senior external scientists, including Robert Koch Institute president Lars Schade and virologist Christian Drosten, were asked to examine the assessment's validity, and no final result had been published.",
+            "Die Zeit and Süddeutsche Zeitung reported in March 2025 that Germany's Bundesnachrichtendienst assessed the lab-leak hypothesis at 80 to 95 percent probability in 2020, drawing on public data and on material from an intelligence operation codenamed 'Saaremaa' that included scientific data from Chinese research institutions, among them the Wuhan Institute of Virology. The chancellery had ordered the inquiry and was briefed on it, and the assessment was not published; Angela Merkel declined to comment and a government spokeswoman said it was good practice not to comment on intelligence work. External scientists, including Robert Koch Institute president Lars Schade and virologist Christian Drosten, were asked to examine the assessment's validity, with no final result published at the time of the reports.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -536,9 +540,9 @@ const covidOriginsData: TopicInput = {
         {
           id: "french-academies-2025",
           title:
-            "France's medical academy backed a lab accident; its sciences academy said the two cannot be told apart (2025)",
+            "France's medical academy found the lab hypothesis backed by arguments but not proof; its sciences academy said the two cannot be told apart (2025)",
           description:
-            "On 2 April 2025 the Académie nationale de médecine published a report on the origins of SARS-CoV-2 whose members voted 97% in favour; it called the lab-accident hypothesis 'the most consistent with the available facts' while stating that 'the natural zoonotic origin remains scientifically possible' and that genomic sequencing 'does not allow a definitive conclusion'. On 12 June 2025 the Académie des sciences associated itself with the report, while stating that the lack of information does not allow a choice between a natural animal origin through the consumption of wild meat and a leak from a laboratory.",
+            "The Académie nationale de médecine adopted a report on the origins of SARS-CoV-2 at its session of 1 April 2025, by 67 votes to 2 with 3 abstentions. The report says the lab-accident hypothesis 'is supported by a body of facts and arguments, without being backed by proof', citing the US House subcommittee's circumstantial case, and concludes that neither the intermediate animal nor a progenitor virus has been found in the wild and that, absent data, 'we risk never knowing the origin of the pandemic'. On 12 June 2025 the Académie des sciences associated itself with the report, stating that the lack of information 'does not allow a choice between a natural animal origin through the consumption of wild meat and a leak, in various possible forms, from a laboratory'.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -547,17 +551,18 @@ const covidOriginsData: TopicInput = {
             directness: 4,
           },
           source:
-            "Académie nationale de médecine report (2 April 2025) via Unidivers (3 April 2025); Académie des sciences press release (12 June 2025)",
-          sourceUrl: "https://unidivers.fr/covid-19-academie-medecine-fuite-laboratoire/",
+            "Académie nationale de médecine, Rapport 25-06, 'De l'origine du SARS-CoV-2 aux risques de zoonoses et de manipulations dangereuses de virus' (séance of 1 April 2025), rapporteur Christine Rouzioux; Académie des sciences press release (12 June 2025)",
+          sourceUrl:
+            "https://www.academie-medecine.fr/de-lorigine-du-sars-cov-2-aux-risques-de-zoonoses-et-de-manipulations-dangereuses-de-virus/",
           reasoning:
-            "A national medical academy outside the US reading the same public evidence and leaning the other way from the WHO shows this is not only an American political quarrel. It is a vote of members on published material, not new evidence, both academies say the question may never be settled, and the sister academy declined to choose, so directness is low.",
+            "A national medical academy outside the US reading the same public evidence and giving the lab hypothesis more weight than the WHO did shows this is not only an American political quarrel. It is a members' vote on published material, not new evidence; the report itself says the origin remains an enigma and rests its lab section largely on the US congressional account, and the sister academy declined to choose, so directness is low.",
         },
         {
           id: "gabbard-release-2026",
           title:
             "391 pages declassified in June 2026 held no assessment that US-funded research started the pandemic",
           description:
-            "On her last day as director of national intelligence in June 2026, Tulsi Gabbard released 67 items across 391 pages, alleging that Anthony Fauci had misled Congress about COVID's origins. An analysis in Lawfare found the documents show Fauci attending a February 2020 expert meeting, receiving a June 2021 intelligence briefing and suggesting scientists for analysts to consult, and officials declining to use him as an outside reviewer because he would be seen as conflicted. They 'do not contain an intelligence assessment concluding that Fauci-funded research sparked COVID' and do not identify an NIH-funded virus that became SARS-CoV-2. Fact-checkers reported much of the material had been public for years.",
+            "On her last day as director of national intelligence in June 2026, Tulsi Gabbard released 67 items across 391 pages, alleging that Anthony Fauci had misled Congress about COVID's origins. An analysis in Lawfare found the documents show Fauci attending a February 2020 expert meeting, receiving a June 2021 intelligence briefing and suggesting scientists for analysts to consult, and officials declining to use him as an outside reviewer because he would be seen as conflicted. They 'do not contain an intelligence assessment concluding that Fauci-funded research sparked COVID', in the analysis's words, and do not identify an NIH-funded virus that became SARS-CoV-2. Outlets sympathetic to the release, including Fox News, noted much of the material had been in the public record for years.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -594,9 +599,9 @@ const covidOriginsData: TopicInput = {
         {
           id: "two-lineages-market",
           title:
-            "Two SARS-CoV-2 lineages point to at least two separate jumps into people, both at the market (Science, 2022)",
+            "Two SARS-CoV-2 lineages point to at least two separate jumps into people (Science, 2022)",
           description:
-            "Phylogenetic analysis by Pekar et al. (2022, updated through 2025) identified two distinct SARS-CoV-2 lineages (A and B) separated by characteristic mutations, with evidence that they resulted from at least two independent cross-species transmission events. All eleven sequenced genomes from humans directly associated with the Huanan market belong to lineage B. The earliest lineage A viruses were sampled slightly later. A 2025 analysis in Virus Evolution confirmed no intermediate sequences exist between the lineages, reinforcing the two-introduction model.",
+            "A 2022 Science study by Pekar and colleagues found that SARS-CoV-2 genomic diversity before February 2020 'likely comprised only two distinct viral lineages', A and B, and that phylodynamic rooting with epidemic simulations indicated they were 'the result of at least two separate cross-species transmission events into humans', the first involving lineage B around 18 November 2019 and lineage A within weeks. In 2025 the same group reported in Virus Evolution that two genomes others had put forward as an evolutionary intermediate between the lineages were instead derived from one of them, which keeps the two-introduction model standing.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -604,18 +609,19 @@ const covidOriginsData: TopicInput = {
             replicability: 9,
             directness: 7,
           },
-          source: "Science (Pekar et al., 2022); Virus Evolution (2025)",
+          source:
+            "Pekar et al., 'The molecular epidemiology of multiple zoonotic origins of SARS-CoV-2', Science (2022); Pekar et al., Virus Evolution 11(1):veaf008 (2025)",
           sourceUrl:
             "https://academic.oup.com/ve/article/11/1/veaf008/8033464",
           reasoning:
-            "Two independent zoonotic spillover events from the same market would strongly support natural origin, as a lab leak would more likely produce a single introduction point. The genomic evidence is robust, publicly available, and independently reproducible. However, critics note that two lineages could also result from two separate lab exposure events or from a single leak followed by rapid diversification. The high directness score reflects that multiple independent animal-to-human transmissions are more parsimonious with natural origin.",
+            "Two independent animal-to-human introductions would support natural origin, since a lab leak would more likely produce a single introduction point. The genomic evidence is robust, publicly available, and independently reproducible. However, critics note that two lineages could also result from two separate lab exposure events or from a single leak followed by rapid diversification. The high directness score reflects that multiple independent animal-to-human transmissions are more parsimonious with natural origin.",
         },
         {
           id: "china-obstruction",
           title:
-            "China has withheld the lab database, 500+ early patient sequences and the market supply-chain records",
+            "China withheld the early patient sequences, the market animal records and the Wuhan lab biosafety information the WHO asked for",
           description:
-            "China has refused to provide: (1) the WIV viral sequence database taken offline September 2019; (2) over 500 early patient genetic sequences that remain unpublished; (3) complete Huanan market wildlife supply-chain records; (4) WIV laboratory notebooks and biosafety incident logs; (5) medical records of WIV staff from late 2019. The WHO's initial investigation team in February 2021 had limited access and no ability to conduct independent sampling. WHO Director-General Tedros acknowledged the investigation was insufficient. EcoHealth Alliance and the WIV were formally debarred from US federal funding in 2024-2025 for transparency failures.",
+            "The WHO says it asked China for hundreds of early genetic sequences from people with COVID-19, more detailed information about the animals sold at markets in Wuhan, and information on work and biosafety conditions at Wuhan laboratories, and that China has not shared them with SAGO or the WHO. Its earlier investigation team, which visited in February 2021, had limited access and could not sample independently. In June 2025 Tedros said all hypotheses 'must remain on the table, including zoonotic spillover and lab leak'.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -624,11 +630,11 @@ const covidOriginsData: TopicInput = {
             directness: 4,
           },
           source:
-            "WHO SAGO (2025); House Select Subcommittee (2024); HHS debarment records",
+            "WHO, 'WHO Scientific Advisory Group issues report on origins of COVID-19' (27 June 2025)",
           sourceUrl:
-            "https://oversight.house.gov/release/breaking-hhs-formally-debars-ecohealth-alliance-dr-peter-daszak-after-covid-select-reveals-pandemic-era-wrongdoing/",
+            "https://www.who.int/news/item/27-06-2025-who-scientific-advisory-group-issues-report-on-origins-of-covid-19",
           reasoning:
-            "Obstruction of investigation is not direct evidence of a lab leak; authoritarian governments routinely suppress information for political reasons regardless of the underlying truth. However, the specific data being withheld (WIV database, early sequences, biosafety logs) is precisely the data that could resolve the question one way or the other. The pattern of selective transparency, sharing some market environmental data while withholding institutional records, is consistent with either covering up a lab accident or protecting state secrets unrelated to origins. Directness is scored low because obstruction itself does not indicate which hypothesis is correct.",
+            "Obstruction of investigation is not direct evidence of a lab leak; authoritarian governments routinely suppress information for political reasons regardless of the underlying truth. However, the specific data withheld — early sequences, market animal records, lab biosafety information — is precisely the data that could resolve the question one way or the other. The pattern of selective transparency, sharing some market environmental data while withholding institutional records, is consistent with either covering up a lab accident or protecting state secrets unrelated to origins. Directness is scored low because obstruction itself does not indicate which hypothesis is correct.",
         },
         {
           id: "fbi-moderate-confidence-2023",
@@ -694,7 +700,7 @@ const covidOriginsData: TopicInput = {
           title:
             "168 virologists and epidemiologists put zoonosis at 77% on average, a lab accident at 21% (2024)",
           description:
-            "A February 2024 expert survey by the Global Catastrophic Risk Institute and Nemesys Insights collected anonymous estimates from 168 scientists in 47 countries — 78 epidemiologists, 74 virologists and 16 biosafety or evolutionary-genetics specialists — out of 1,138 invited, a 15% response rate. Respondents put natural zoonosis at 77% likely on average (median 90%) and a research-related accident at 21%. Proponents of a lab origin note that the sample was drawn from the fields whose published literature has favoured zoonosis and did not include intelligence or biosecurity analysts; the report found no statistically significant difference between the epidemiologists' and virologists' estimates (72.4% vs 82.2%).",
+            "A February 2024 expert survey by the Global Catastrophic Risk Institute and Nemesys Insights collected anonymous estimates from 168 scientists in 47 countries — 78 epidemiologists, 74 virologists and 16 biosafety or evolutionary-genetics specialists — out of 1,138 invited, a 15% response rate. Respondents put natural zoonosis at 77% likely on average (median 90%) and a research-related accident at 21%. Proponents of a lab origin note that the sample was drawn from the fields whose published literature has favoured zoonosis and did not include intelligence or biosecurity analysts; the report found no statistically significant difference in these beliefs between experts with backgrounds in epidemiology and in virology, or between those in developed and developing countries.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,

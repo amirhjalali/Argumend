@@ -132,7 +132,7 @@ export const climateChangeData = {
           id: "isotope-measurements",
           title: "Atmospheric carbon-13 fell from about −6.5‰ to −8‰, the fossil-fuel signature (NOAA, Scripps)",
           description:
-            "Atmospheric δ¹³C has declined from roughly -6.5‰ before the industrial era to about -8‰ today, as predicted from fossil fuel combustion (the Suess effect).",
+            "NOAA's Global Monitoring Laboratory records that 'before the industrial revolution, δ13C of our atmosphere was approximately -6.5‰; now the value is around -8‰'. Plants, and so the fossil fuels made from them, are depleted in carbon-13, so burning them makes the air isotopically lighter — the Suess effect, which NOAA defines as 'the observed decrease in δ13C and Δ14C values due to fossil fuel emissions'.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -144,7 +144,7 @@ export const climateChangeData = {
             "NOAA Global Monitoring Laboratory; Scripps CO2 Program (Keeling)",
           sourceUrl: "https://gml.noaa.gov/ccgg/isotopes/c13tellsus.html",
           reasoning:
-            "Chemical fingerprint measured by independent labs worldwide; NOAA GML reports the -6.5‰ to ~-8‰ shift directly.",
+            "A chemical fingerprint, measured continuously by NOAA and independently by Scripps, that identifies the source of the extra carbon rather than inferring it. It establishes where the carbon came from, not how much warming it causes.",
         },
         {
           id: "oxygen-decline",
@@ -167,7 +167,7 @@ export const climateChangeData = {
           id: "ocean-acidification",
           title: "Surface-ocean pH has fallen about 0.1 units, which outgassing would not do (NOAA PMEL)",
           description:
-            "Surface-ocean pH has dropped about 0.1 units (from ~8.2 to ~8.1) since pre-industrial times—a ~30% increase in acidity—as CO₂ dissolves to form carbonic acid.",
+            "NOAA records that in the 200-plus years since the industrial revolution began 'the pH of surface ocean waters has fallen by 0.1 pH units', which on a logarithmic scale 'represents approximately a 30 percent increase in acidity', as the ocean absorbs about a quarter to a third of the CO₂ released each year and the gas dissolves to form carbonic acid.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -175,15 +175,17 @@ export const climateChangeData = {
             replicability: 9,
             directness: 8,
           },
-          source: "NOAA PMEL Carbon Program; IPCC AR6 WG1",
-          sourceUrl: "https://www.pmel.noaa.gov/co2/story/Ocean+Acidification",
+          source:
+            "NOAA Education, 'Ocean acidification' resource collection; NOAA PMEL Carbon Program",
+          sourceUrl:
+            "https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-acidification",
           reasoning:
-            "The ~0.1 pH-unit decline is documented by NOAA PMEL and IPCC AR6; directness is moderate because acidification corroborates the carbon source rather than proving human attribution on its own.",
+            "The 0.1 pH-unit decline is NOAA's own figure, and it points the same way as the isotopes: the ocean is taking carbon up rather than giving it off, which is what outgassing would do. Directness is moderate because acidification corroborates the carbon source rather than proving attribution on its own.",
         },
         {
           id: "natural-co2-claim",
           title: "Volcanoes and ocean outgassing release CO₂ too — about 60-90 times less than people do",
-          description: "Volcanic activity and ocean outgassing could explain CO₂ rise.",
+          description: "The claim is that volcanoes and a warming ocean, not people, put the extra carbon dioxide in the air. NOAA's climate.gov puts volcanic emissions at about 0.6 billion metric tons of CO₂ a year on a 2013 estimate, against roughly 40 billion tons from human activity, making human emissions '60 or more times' the volcanic figure, or more than 90 times on an earlier, lower volcanic estimate. The ocean is absorbing carbon, not releasing it, which is why its surface is becoming less alkaline.",
           side: "against" as const,
           weight: {
             sourceReliability: 2,
@@ -195,7 +197,7 @@ export const climateChangeData = {
           sourceUrl:
             "https://www.climate.gov/news-features/climate-qa/which-emits-more-carbon-dioxide-volcanoes-or-human-activities",
           reasoning:
-            "Contradicted by isotopic evidence and mass balance: volcanoes emit ~0.3–0.6 Gt CO₂/year versus ~40 Gt/year from human activity (60–90x more), per NOAA/USGS. The ocean is a net CO₂ sink, not source.",
+            "This is the main natural-source alternative, and it fails on arithmetic from the same agency that measures both: volcanic emissions are 60 to 90 times smaller than human ones. The isotopes point the same way, and an outgassing ocean would be shedding carbon rather than acidifying.",
         },
       ],
     },
@@ -244,7 +246,7 @@ export const climateChangeData = {
           id: "stratospheric-cooling",
           title: "The stratosphere is cooling while the surface warms — a pattern the sun cannot make (PNAS, 2023)",
           description:
-            "Stratospheric temperatures have declined while surface warms—unique signature of greenhouse effect, not solar warming.",
+            "Santer and colleagues extended 'vertical fingerprinting' into the mid-to-upper stratosphere, 25 to 50 km up, where satellites measure 1 to 2 °C of cooling over 1986 to 2022 while the troposphere warmed at all latitudes. Adding that layer raised the signal-to-noise ratio of the human fingerprint by a factor of five. A brighter sun would warm both layers; trapping heat below cools the layer above, which is what the satellites see.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -256,13 +258,13 @@ export const climateChangeData = {
             "Santer et al. (2023), PNAS 120:e2300758120; NASA/NOAA satellite (MSU/AMSU) records",
           sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.2300758120",
           reasoning:
-            "Solar warming would heat all layers; greenhouse traps heat below while cooling the stratosphere. Santer et al. detect this vertical 'fingerprint' in satellite data at high confidence.",
+            "A pattern test rather than a trend test: the vertical shape of the temperature change discriminates between a brighter sun and a thicker blanket, and the measured shape is the blanket. The authors call it 'incontrovertible evidence of human effects on the thermal structure of Earth's atmosphere'; ozone depletion also contributes to stratospheric cooling, which their analysis accounts for.",
         },
         {
           id: "nights-faster",
-          title: "Nights warmed faster than days through the late 20th century, as a greenhouse blanket predicts",
+          title: "Nights are warming faster than days across the US, as a greenhouse blanket predicts",
           description:
-            "Over 1950–2000 the diurnal temperature range narrowed as minimum (night) temperatures rose faster than maximum (day) temperatures—consistent with a greenhouse 'blanket' effect.",
+            "A 2026 climatology of the continental United States from 1950 to 2022, using the ERA5 Land reanalysis, found the diurnal temperature range has 'declined significantly over the period of record over much of the United States', because maximum temperatures are 'increasing at a slower rate than minima'. The authors ascribe the rising night-time minima to increasing humidity, cloud cover and precipitation, and call the trend 'clearly linked to anthropogenic warming'. A sun brightening the day would not narrow the gap this way.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -270,17 +272,17 @@ export const climateChangeData = {
             replicability: 7,
             directness: 5,
           },
-          source: "IPCC AR4/AR6 WG1; surface station records",
-          sourceUrl:
-            "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-2/",
+          source:
+            "Davis, Delaar, Notari, McCarrick et al., 'Diurnal temperature range: A climatological primer for health researchers', PLOS ONE (2026), doi:10.1371/journal.pone.0352866",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/?term=10.1371%2Fjournal.pone.0352866",
           reasoning:
-            "Robust signal for the late 20th century, but de-weighted because post-1980 the diurnal range has partly reversed (declining cloud cover / solar brightening drives faster daytime warming in recent decades). A supporting but no longer clean fingerprint.",
+            "Reanalysis data over 72 years showing the asymmetry greenhouse warming predicts. It is one continent, the mechanism runs partly through humidity and cloud rather than directly through carbon dioxide, and the paper was written for health researchers rather than as an attribution study, so it corroborates the fingerprint rather than establishing it.",
         },
         {
           id: "polar-amplification",
           title: "The Arctic has warmed nearly four times faster than the globe since 1979 (Rantanen et al., 2022)",
           description:
-            "Since 1979 the Arctic has warmed nearly four times faster than the global mean—polar amplification consistent with greenhouse-driven warming and ice-albedo feedback.",
+            "Rantanen and colleagues, using several observational datasets covering the Arctic, found that over 1979-2021 the Arctic warmed nearly four times faster than the globe, a higher ratio than the two- to three-fold figures usually reported. They also found that a four-fold ratio is 'an extremely rare occasion' in climate model simulations, which they read as either a very unlikely event or a systematic model underestimate of Arctic amplification.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -292,13 +294,13 @@ export const climateChangeData = {
             "Rantanen et al. (2022), Communications Earth & Environment 3:168",
           sourceUrl: "https://doi.org/10.1038/s43247-022-00498-3",
           reasoning:
-            "Ice-albedo feedback predicted and observed; directness trimmed because amplification is also expected from other forcings, so it corroborates rather than uniquely fingerprints greenhouse warming. Rantanen et al. measure ~4x (higher than older 2–3x estimates).",
+            "Observed amplification matching the predicted ice-albedo feedback, measured across several datasets. Directness is trimmed because amplification is expected from any warming, not greenhouse warming alone, and because the paper's point cuts two ways: the observed ratio sits outside most model simulations, which is a mark against the models even as it confirms the physics.",
         },
         {
           id: "model-uncertainty",
           title: "A subset of the newest climate models runs hotter than the thermometers (IPCC AR6)",
           description:
-            "Models show spread in predictions, and a subset of high-sensitivity CMIP6 models run warmer than observations.",
+            "The spread between models is real and wide: in the generation used for the IPCC's sixth assessment, the average surface warming for a doubling of CO₂ ranges from 1.8 °C to 5.7 °C, and the DOE working group's 2025 review argues that such models generally run 'hot' in their description of the climate of the past few decades. The assessed range for the real climate's sensitivity is narrower than the raw model spread, because the IPCC weighted the models against observations and paleoclimate evidence rather than taking their average.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -306,10 +308,12 @@ export const climateChangeData = {
             replicability: 6,
             directness: 4,
           },
-          source: "IPCC AR6 WG1 Chapter 1/4 (model evaluation)",
-          sourceUrl: "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-4/",
+          source:
+            "Climate Working Group, 'A Critical Review of Impacts of Greenhouse Gas Emissions on the U.S. Climate', US Department of Energy (2025), Executive Summary and Section 4.2, citing the CMIP6 range reported in IPCC AR6",
+          sourceUrl:
+            "https://www.energy.gov/sites/default/files/2025-07/DOE_Critical_Review_of_Impacts_of_GHG_Emissions_on_the_US_Climate.pdf",
           reasoning:
-            "Valid caveat, but IPCC AR6 down-weights the hottest CMIP6 models and constrains warming with observations; the attribution conclusion does not depend on the high-sensitivity outliers.",
+            "A real limitation, stated here in the critics' own words, and the reason this map treats magnitude as open. It bears on projections rather than attribution: the IPCC's assessed sensitivity range already weights models against observations, and the measured energy imbalance has been running high rather than low.",
         },
       ],
     },
@@ -317,7 +321,7 @@ export const climateChangeData = {
       id: "natural-factors-elimination",
       title: "Could It Be the Sun, or Volcanoes?",
       short_summary:
-        "Direct satellite measurements since 1978 show solar output flat or slightly falling while temperatures rose, cosmic-ray flux shows no matching trend, and orbital cycles currently push toward cooling. Earth is absorbing roughly 1 W/m² more energy than it radiates, and no measured natural forcing fills that gap.",
+        "Direct satellite measurements since 1978 show solar output flat or slightly falling while temperatures rose, cosmic-ray flux shows no matching trend, and orbital cycles currently push toward cooling. Satellites and ocean floats both show Earth absorbing more energy than it radiates, with the gap widening by about 0.5 W/m² a decade since 2005, and no measured natural forcing fills it.",
       image_url:
         "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
@@ -343,7 +347,7 @@ export const climateChangeData = {
         cost_to_verify: "$2M (satellite data + Argo network analysis)",
         falsification: {
           supporter_flip:
-            "If a measured natural forcing — a real upward trend in solar irradiance or a cosmic-ray-driven cloud change — could be shown to close the ~0.5–1 W/m² energy imbalance, the 'only greenhouse gases fit' conclusion would fail.",
+            "If a measured natural forcing — a real upward trend in solar irradiance or a cosmic-ray-driven cloud change — could be shown to account for the measured energy imbalance and its rise, the 'only greenhouse gases fit' conclusion would fail.",
           skeptic_flip:
             "If new measurements kept finding solar irradiance flat-to-declining since 1980 while warming accelerated, and cosmic-ray flux kept showing no matching trend, the solar explanation would be hard to hold.",
           common_ground:
@@ -357,7 +361,7 @@ export const climateChangeData = {
           id: "solar-flat",
           title: "Solar output has been flat or slightly falling since 1978 while temperatures rose (NASA)",
           description:
-            "Total solar irradiance has shown no upward trend since satellite measurements began, while temperatures rose sharply.",
+            "Total solar irradiance has been measured from space by an uninterrupted series of overlapping instruments since 1978, a record now spanning more than four 11-year solar cycles, in which irradiance swings about 0.1% with each cycle rather than trending up. NASA states that over that time 'there has been no upward trend in the amount of solar energy reaching our planet', and that it is 'extremely unlikely that the Sun has caused the observed global temperature warming trend' of the past half-century.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -366,17 +370,17 @@ export const climateChangeData = {
             directness: 9,
           },
           source:
-            "NASA (Is the Sun causing global warming?); PMOD/ACRIM TSI satellite composites",
+            "NASA, 'Is the Sun causing global warming?'; Kopp, 'Solar irradiance measurements', Living Reviews in Solar Physics (2025) on the space-borne TSI record",
           sourceUrl:
             "https://science.nasa.gov/climate-change/faq/is-the-sun-causing-global-warming/",
           reasoning:
-            "Direct TSI measurement since 1978 shows no upward trend (slight decline) while temperatures rose, ruling out a solar driver—NASA's stated conclusion.",
+            "The one natural driver big enough to do the job has been watched continuously from orbit for nearly fifty years, and it has not moved in the required direction. It rules the sun out as the cause of the trend; it does not by itself establish what is.",
         },
         {
           id: "pinatubo-test",
-          title: "A NASA model predicted Pinatubo's 0.5 °C cooling before the data came in, and got it right (1992)",
+          title: "A NASA model forecast Pinatubo's cooling in advance, and the thermometers followed (GRL, 1992)",
           description:
-            "Climate models accurately predicted the temporary cooling from the 1991 Mt. Pinatubo eruption.",
+            "Within months of the June 1991 eruption, Hansen, Lacis, Ruedy and Sato used the GISS global climate model to forecast 'a dramatic but temporary break in recent global warming trends', with 'intense aerosol cooling' predicted 'to begin late in 1991 and to maximize late in 1992', large enough to overwhelm a developing El Niño. 1992 and 1993 duly came in cooler before warming resumed, which is the closest thing to a controlled experiment on the models' handling of a known forcing.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -385,16 +389,16 @@ export const climateChangeData = {
             directness: 7,
           },
           source:
-            "Hansen et al. (1992), Geophysical Research Letters 19:215 (NASA GISS)",
+            "Hansen, Lacis, Ruedy & Sato, 'Potential climate impact of Mount Pinatubo eruption', Geophysical Research Letters 19(2):215-218 (1992)",
           sourceUrl: "https://doi.org/10.1029/91GL02788",
           reasoning:
-            "Natural experiment: Hansen's GISS model predicted ~0.5 °C transient cooling before the data came in, and observed cooling matched—validating the model's response to volcanic forcing.",
+            "A forecast published before the outcome, which is the hardest test a model can face. It validates the model's response to a large volcanic forcing over a couple of years, not its sensitivity to carbon dioxide over a century, so it supports rather than settles the attribution.",
         },
         {
           id: "energy-imbalance",
-          title: "Satellites and ocean floats measure Earth absorbing about 1 W/m² more than it radiates",
+          title: "Satellites and ocean floats measure Earth absorbing more energy than it radiates, and the gap is widening",
           description:
-            "Satellites and Argo floats show Earth absorbing roughly 0.5–1.0 W/m² more than it radiates—and the imbalance has been rising—so energy is accumulating in the climate system.",
+            "NASA's CERES satellite instruments and the global Argo array of ocean floats independently measure the gap between the sunlight Earth absorbs and the heat it radiates. Loeb and colleagues found both datasets gave 'statistically indistinguishable decadal increases' in that imbalance from mid-2005 to mid-2019, of 0.50 ± 0.47 W/m² per decade; NASA's summary of the work says the imbalance 'approximately doubled during the 14-year period from 2005 to 2019'. Energy is therefore accumulating in the ocean, land, ice and atmosphere.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -403,17 +407,17 @@ export const climateChangeData = {
             directness: 9,
           },
           source:
-            "Loeb et al. (2021), Geophysical Research Letters; NASA/NOAA CERES satellite + Argo",
+            "Loeb et al., 'Satellite and Ocean Data Reveal Marked Increase in Earth's Heating Rate', Geophysical Research Letters (15 June 2021), doi:10.1029/2021GL093047; NASA Langley news release",
           sourceUrl:
             "https://www.nasa.gov/centers-and-facilities/langley/joint-nasa-noaa-study-finds-earths-energy-imbalance-has-doubled/",
           reasoning:
-            "Direct measurement of energy accumulation; CERES+Argo found the imbalance roughly doubled from ~0.5 to ~1.0 W/m² over two decades, updating the older ~0.7 W/m² figure.",
+            "Two independent measurement systems, one in orbit and one in the water, agreeing on a rising heating rate. It measures accumulation rather than its cause, and Loeb attributes much of the trend to less reflected sunlight, so the split between greenhouse forcing, clouds and aerosols is still being worked out.",
         },
         {
           id: "solar-correlation-historical",
-          title: "The sun has shifted climate before, as in the Maunder Minimum of 1645-1715",
+          title: "The sun has nudged the climate before, by at most 0.1 °C of the warming since pre-industrial times (NOAA)",
           description:
-            "Past periods like the Maunder Minimum (c. 1645–1715) show genuine solar-climate connections.",
+            "The sun does influence climate, and NOAA's climate.gov treats that influence as real but small: sunspot records indicate a slight increase in incoming sunlight between the late 1800s and the mid-1900s, which researchers estimate contributed 'at most up to 0.1°C of the 1.0°C (1.8°F) of warming observed since the pre-industrial era'. For the period since, the same page states that 'there has been no significant net change in the Sun's energy output from the late 1970s to the present'.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -421,11 +425,12 @@ export const climateChangeData = {
             replicability: 5,
             directness: 4,
           },
-          source: "NOAA Climate.gov (Couldn't the Sun be the cause?)",
+          source:
+            "NOAA Climate.gov, 'Couldn't the Sun be the cause of global warming?'",
           sourceUrl:
             "https://www.climate.gov/news-features/climate-qa/couldnt-sun-be-cause-global-warming",
           reasoning:
-            "Historical solar influence is real but small, and modern TSI has been flat/declining since 1979 while warming accelerated—so it cannot explain the post-1980 divergence.",
+            "This is the strongest honest version of the solar case: the sun is a real climate influence, so asking about it is not crankery. It is on this side at low weight because the same source bounds that influence at a tenth of the observed warming and finds no net change in solar output over the decades when warming accelerated.",
         },
       ],
     },
@@ -510,7 +515,7 @@ export const climateChangeData = {
           title:
             "DOE working group (July 2025): models give 'little guidance', warming per CO₂ doubling spans 1.8-5.7 °C",
           description:
-            "A five-member Climate Working Group assembled by Energy Secretary Chris Wright — John Christy, Judith Curry, Steven Koonin, Ross McKitrick and Roy Spencer — published 'A Critical Review of Impacts of Greenhouse Gas Emissions on the U.S. Climate' on 29 July 2025. It argued that the world's several dozen global climate models 'offer little guidance' on how much the climate responds to CO₂, with average surface warming for a doubling ranging from 1.8 °C to 5.7 °C; that models run 'hot' against the past few decades; that most extreme weather events in the US show no long-term trend; and that CO₂-induced warming 'appears to be less damaging economically than commonly believed'. The EPA's final February 2026 rescission did not rely on it.",
+            "A five-member Climate Working Group assembled by Energy Secretary Chris Wright — John Christy, Judith Curry, Steven Koonin, Ross McKitrick and Roy Spencer — published 'A Critical Review of Impacts of Greenhouse Gas Emissions on the U.S. Climate', released by DOE on 29 July 2025. It states that 'the world's several dozen global climate models offer little guidance on how much the climate responds to elevated CO2, with the average surface warming under a doubling of the CO2 concentration ranging from 1.8°C to 5.7°C', that such models generally run 'hot' in their description of the climate of the past few decades, that 'claims of increased frequency or intensity of hurricanes, tornadoes, floods, and droughts are not supported by U.S. historical data', and that warming 'might be less damaging economically than commonly believed'. The same report accepts that carbon dioxide 'acts as a greenhouse gas, exerting a warming influence on climate and weather'.",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -519,9 +524,9 @@ export const climateChangeData = {
             directness: 5,
           },
           source:
-            "US Department of Energy, 'Department of Energy Issues Report Evaluating Impact of Greenhouse Gasses on U.S. Climate' (29 July 2025); DieselNet summary of the report's findings",
+            "Climate Working Group, 'A Critical Review of Impacts of Greenhouse Gas Emissions on the U.S. Climate', US Department of Energy (released 29 July 2025), Executive Summary",
           sourceUrl:
-            "https://www.energy.gov/articles/department-energy-issues-report-evaluating-impact-greenhouse-gasses-us-climate-invites",
+            "https://www.energy.gov/sites/default/files/2025-07/DOE_Critical_Review_of_Impacts_of_GHG_Emissions_on_the_US_Climate.pdf",
           reasoning:
             "The fullest recent statement of the dissenting case, and its central point — that the sensitivity range is wide — is uncontested. Independence and reliability are low: the authors were picked by a department seeking a specific policy outcome, the report had no formal peer review, and critics including Zeke Hausfather argued it selects data points that fit its narrative. Its own text accepts that CO₂ warms the planet.",
         },

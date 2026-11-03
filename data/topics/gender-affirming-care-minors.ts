@@ -21,10 +21,10 @@ export const genderAffirmingCareMinorsData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "Systematic reviews since 2020 in Finland, Sweden, England, at Canada's McMaster University and for the US health department have all rated the evidence on puberty blockers and hormones for adolescents as low or very low certainty. Most major US medical bodies still support access. In the US, 27 states ban or restrict the treatments for minors, and the Supreme Court upheld Tennessee's ban in June 2025; in October 2026 New Zealand's High Court struck down that country's ban. The fight is over what doctors and families should do while the evidence is this thin.",
+      "Systematic reviews since 2020 in Finland, Sweden, England, at Canada's McMaster University and for the US health department have all rated the evidence on puberty blockers and hormones for adolescents as low or very low certainty. Most major US medical bodies still support access. In the US, 26 states ban blockers and hormones for minors and one more bans surgery, though some bans are blocked in court, and the Supreme Court upheld Tennessee's ban in June 2025; in October 2026 New Zealand's High Court struck down that country's ban on new blocker prescriptions. The fight is over what doctors and families should do while the evidence is this thin.",
     confidence: 86,
     source:
-      "Miroshnychenko et al., Archives of Disease in Childhood (2025); The Cass Review (2024); United States v. Skrmetti (2025); Yahoo News (18 February 2025) on Kansas as the 27th state; 1News (22 October 2026) on New Zealand's High Court",
+      "Miroshnychenko et al., Archives of Disease in Childhood (2025); The Cass Review (2024); United States v. Skrmetti (2025); Movement Advancement Project equality map (data as of 3 November 2026) for the state count; 1News (22 October 2026) on New Zealand's High Court",
     sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/39855724/",
   },
   simple_case: [
@@ -88,7 +88,7 @@ export const genderAffirmingCareMinorsData = {
             "Miroshnychenko et al., 'Puberty blockers for gender dysphoria in youth' and 'Gender affirming hormone therapy for individuals with gender dysphoria aged <26 years', Archives of Disease in Childhood 110(6):429-445 (2025)",
           sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/39855724/",
           reasoning:
-            "Pre-registered GRADE reviews by one of the groups that built the method, outside the UK and US policy processes. Independence is trimmed because two authors had been paid by the Society for Evidence-based Gender Medicine for separate appraisal work, which the papers disclose. The reviews grade certainty; they do not find that the treatments fail.",
+            "Pre-registered GRADE reviews by one of the groups that built the method, outside the UK and US policy processes. Independence is trimmed because two authors had been paid by the Society for Evidence-based Gender Medicine (SEGM) for separate appraisal work, and the review question was developed with protocol authors linked to SEGM, including a board member; the papers disclose both. The reviews grade certainty; they do not find that the treatments fail.",
         },
         {
           id: "cass-review-2024",
@@ -128,9 +128,9 @@ export const genderAffirmingCareMinorsData = {
         },
         {
           id: "hhs-review-2025",
-          title: "HHS umbrella review rated the evidence low certainty and favoured psychotherapy (May 2025; final November 2025)",
+          title: "HHS review rated the evidence very low quality and called psychotherapy 'a noninvasive alternative' (May 2025; peer-reviewed version November 2025)",
           description:
-            "The US Department of Health and Human Services published 'Treatment for Pediatric Gender Dysphoria: Review of Evidence and Best Practices' on 1 May 2025, under an executive order. It concluded that the evidence on these interventions for minors 'is very low' in certainty, said evidence on harms is 'sparse', presented psychotherapy as 'a noninvasive alternative', and stated that it is 'not a clinical practice guideline'. HHS withheld the authors' names at first; a final peer-reviewed version was published in November 2025. The AAP's president said the report 'misrepresents the current medical consensus and fails to reflect the realities of pediatric care.'",
+            "The US Department of Health and Human Services published 'Treatment for Pediatric Gender Dysphoria: Review of Evidence and Best Practices' on 1 May 2025, under an executive order. It concluded that the evidence on these interventions for minors 'is very low' in certainty, said evidence on harms is 'sparse', presented psychotherapy as 'a noninvasive alternative to endocrine and surgical interventions', and stated that it is 'not a clinical practice guideline'. HHS withheld the names of its contributors; a peer-reviewed version was published in November 2025. The AAP's president, Susan Kressly, said the report 'misrepresents the current medical consensus and fails to reflect the realities of pediatric care.'",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -139,11 +139,11 @@ export const genderAffirmingCareMinorsData = {
             directness: 6,
           },
           source:
-            "NBC News, 'HHS breaks with major U.S. medical groups in review of pediatric gender care' (1 May 2025); HHS Office of Population Affairs, Gender Dysphoria Report (final, November 2025)",
+            "NBC News, 'HHS breaks with major U.S. medical groups in review of pediatric gender care' (1 May 2025); HHS Office of Population Affairs, Gender Dysphoria Report (published November 2025, peer-reviewed)",
           sourceUrl:
             "https://www.nbcnews.com/feature/nbc-out/hhs-breaks-major-us-medical-groups-review-pediatric-gender-care-rcna204185",
           reasoning:
-            "Its grades agree with the European and McMaster reviews, but it was commissioned by an administration that had set policy against this care, and its authors were anonymous at first, so independence is scored low.",
+            "Its grades agree with the European and McMaster reviews, but it was commissioned by an administration that had set policy against this care, and its contributors were not named, so independence is scored low.",
         },
         {
           id: "chen-nejm-two-year-hormones",
@@ -166,7 +166,7 @@ export const genderAffirmingCareMinorsData = {
           id: "tordoff-jama-2022",
           title: "Seattle cohort of 104 youth: 60% lower odds of moderate-to-severe depression after a year of care (JAMA Network Open, 2022)",
           description:
-            "A 2022 prospective cohort study by Tordoff et al. followed 104 transgender and nonbinary youth aged 13 to 20 at a Seattle clinic. Over 12 months, those receiving puberty blockers or hormones had 60% lower odds of moderate-to-severe depression and 73% lower odds of suicidality than those not yet receiving them. Critics note the small sample, the absence of an untreated comparison group followed in parallel, short follow-up and that 22% of participants were lost to follow-up.",
+            "A 2022 prospective cohort study by Tordoff et al. followed 104 transgender and nonbinary youth aged 13 to 20 at a Seattle clinic. Over 12 months, after adjustment, those who had started puberty blockers or hormones had 60% lower odds of moderate-to-severe depression and 73% lower odds of suicidality than those who had not; there was no association with anxiety. Critics note the small sample, the absence of a separately recruited comparison group, short follow-up, and attrition: only 65 of the 104 (62.5%) completed the 12-month survey.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -183,7 +183,7 @@ export const genderAffirmingCareMinorsData = {
           id: "aap-endocrine-society-support",
           title: "AAP, Endocrine Society and AMA still support access to blockers and hormones for adolescents",
           description:
-            "The American Academy of Pediatrics (2018, reaffirmed in 2023 while it commissioned a systematic review), the Endocrine Society (2017 guideline), the American Medical Association and WPATH (Standards of Care 8, 2022) support access to gender-affirming medical care for adolescents when clinically indicated. The AAP's 2018 statement endorsed a 'gender-affirming care model' over 'watchful waiting'. In February 2026 the AMA told NPR that it 'supports evidence-based treatment, including gender affirming care' and that 'surgical interventions in minors should be generally deferred to adulthood', which it called a clarification, not a reversal.",
+            "The American Academy of Pediatrics (2018 policy statement, reaffirmed August 2023), the Endocrine Society (2017 guideline), the American Medical Association and WPATH (Standards of Care 8, 2022) support access to gender-affirming medical care for adolescents when clinically indicated. The AAP's 2018 statement set out a 'gender-affirmative care model' and described the 'watchful waiting' approach as outdated.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -191,10 +191,10 @@ export const genderAffirmingCareMinorsData = {
             replicability: 6,
             directness: 6,
           },
-          source: "American Academy of Pediatrics (Rafferty, Pediatrics, 2018); Endocrine Society; WPATH SOC 8; NPR (8 February 2026) on the AMA's statement",
+          source: "American Academy of Pediatrics (Rafferty, Pediatrics, 2018, reaffirmed 2023); Endocrine Society; WPATH SOC 8",
           sourceUrl: "https://publications.aap.org/pediatrics/article/142/4/e20182162/37381/Ensuring-Comprehensive-Care-and-Support-for",
           reasoning:
-            "The positions of the professional bodies whose members treat these patients carry weight. Independence is lower because policy statements reflect consensus processes rather than systematic reviews: the Cass Review found WPATH's standards were not built on systematic evidence review, and the AAP's own review has not been published.",
+            "The positions of the professional bodies whose members treat these patients carry weight. Independence is lower because policy statements reflect consensus processes rather than systematic reviews: the Cass Review found WPATH's standards were not built on systematic evidence review, and the AAP's 2018 statement predates the systematic reviews in this pillar.",
         },
       ],
     },
@@ -209,7 +209,7 @@ export const genderAffirmingCareMinorsData = {
         "In the Dutch cohort, 98% of people who started blockers and hormones as adolescents were still taking hormones in their early twenties. Critics read that as treatment locking in a path rather than proof it was right. Blockers slow bone-density gains, and going straight from blockers to hormones can leave fertility in doubt. No study follows today's patients for 20 years.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "The parts of this treatment that cannot be undone are known, and its long-run benefits are not. Blockers reduce bone-density gains in the years when adolescents build peak bone mass, and the reviews find no evidence that density fully recovers. An adolescent who moves from early blockers straight to cross-sex hormones may never develop mature eggs or sperm. Most follow-up runs under five years, regret studies lose track of the people most likely to regret, and the high rate at which Dutch patients continued hormones may show that starting blockers sets a course, since nearly all who start go on, rather than that each patient was rightly chosen. These are lifelong decisions taken at 13 or 14 on short-term data.",
+        "The parts of this treatment that cannot be undone are known, and its long-run benefits are not. Blockers reduce bone-density gains in the years when adolescents build peak bone mass, and in one Amsterdam cohort trans girls' bone-density scores were still below average after three years of hormones. An adolescent who moves from early blockers straight to cross-sex hormones may never develop mature eggs or sperm. Most follow-up runs under five years, regret studies lose track of the people most likely to regret, and the high rate at which Dutch patients continued hormones may show that starting blockers sets a course, since nearly all who start go on, rather than that each patient was rightly chosen. These are lifelong decisions taken at 13 or 14 on short-term data.",
       proponent_rebuttal:
         "The people who started this care as adolescents overwhelmingly stay with it: of 720 Dutch patients who began blockers before 18, 98% were still taking gender-affirming hormones at follow-up, at a median age of about 20, a rate that is hard to square with fears of widespread regret. Blockers have been used for precocious puberty since the 1980s, bone density can be monitored and managed, and fertility preservation can be offered before hormones. No other area of pediatrics waits for 20-year data before treating: ADHD stimulants, SSRIs and growth hormone are prescribed without it. And untreated puberty causes permanent changes of its own.",
       crux: {
@@ -260,9 +260,9 @@ export const genderAffirmingCareMinorsData = {
         },
         {
           id: "dutch-protocol-foundation",
-          title: "The Dutch protocol studies: psychological functioning improved in 70 carefully selected adolescents (2011, 2014)",
+          title: "The Dutch protocol studies: psychological functioning improved in a small, carefully selected cohort (2011, 2014)",
           description:
-            "The treatment model was built on two studies from Amsterdam (de Vries et al., 2011 and 2014) following 70 adolescents through puberty suppression and cross-sex hormones; the 2014 study found psychological functioning improved after treatment and gender dysphoria resolved. These patients had childhood-onset gender dysphoria, met strict diagnostic criteria and were extensively evaluated. The Cass Review noted that today's clinic population, larger and often with adolescent-onset dysphoria and other conditions, differs substantially from this cohort.",
+            "The treatment model was built on two studies from Amsterdam: de Vries et al. (2011) assessed the first 70 eligible adolescents before and during puberty suppression, and de Vries et al. (2014) followed 55 of them through cross-sex hormones and surgery into young adulthood, finding that gender dysphoria was alleviated and psychological functioning had steadily improved. These patients had childhood-onset gender dysphoria, met strict diagnostic criteria and were extensively evaluated. The Cass Review noted that today's clinic population, larger and often with adolescent-onset dysphoria and other conditions, differs substantially from this cohort.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -270,7 +270,7 @@ export const genderAffirmingCareMinorsData = {
             replicability: 5,
             directness: 6,
           },
-          source: "de Vries et al., Pediatrics (2014); Journal of the American Academy of Child & Adolescent Psychiatry (2011)",
+          source: "de Vries et al., Pediatrics 134(4):696-704 (2014); de Vries et al., Journal of Sexual Medicine (2011)",
           sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/25201798/",
           reasoning:
             "The foundational evidence for the whole model, published in strong journals. Small, highly selected and uncontrolled, and no comparable controlled study has followed, so replicability is low.",
@@ -279,7 +279,7 @@ export const genderAffirmingCareMinorsData = {
           id: "bone-density-concerns",
           title: "Puberty blockers slow bone-density gains in the years peak bone mass is built",
           description:
-            "Adolescence is when roughly 40-60% of peak bone mass is established. Studies have found that adolescents on puberty blockers gain less bone mineral density than age-matched peers; a 2020 study in the Journal of Bone and Mineral Research found lower bone-density Z-scores in transgender adolescents on blockers. The systematic reviews found no evidence that density fully recovers after blockers stop, though data are limited. Low peak bone density is a risk factor for osteoporosis later in life.",
+            "In a 2020 Amsterdam study of adolescents treated with blockers and then hormones, bone density stabilised or fell slightly over two years of blockers while age- and sex-specific z-scores fell in every group. Over three years of hormones density rose; z-scores returned to normal in trans boys but stayed below zero in trans girls, and the authors called it 'currently unclear' whether that raises fracture risk later. The University of York's systematic review for the Cass Review found multiple studies reporting reductions in bone density during treatment and concluded bone health 'may be compromised during treatment'.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -287,8 +287,8 @@ export const genderAffirmingCareMinorsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Journal of Bone and Mineral Research (2020); NHS-commissioned systematic review",
-          sourceUrl: "https://asbmr.onlinelibrary.wiley.com/doi/10.1002/jbmr.4042",
+          source: "Schagen et al., 'Bone Development in Transgender Adolescents Treated With GnRH Analogues and Subsequent Gender-Affirming Hormones', Journal of Clinical Endocrinology & Metabolism (2020); Taylor et al., Archives of Disease in Childhood (2024)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/32909025/",
           reasoning:
             "Objective DXA measurements of a biologically well-grounded concern. Whether the deficit turns into fractures decades later is unknown, which is why the long-term cohort matters.",
         },
@@ -432,12 +432,12 @@ export const genderAffirmingCareMinorsData = {
       id: "who-decides",
       title: "Who Should Decide: Doctors and Families, Regulators or Legislatures?",
       short_summary:
-        "England confined blockers to research and cleared a trial in July 2026. Twenty-seven US states ban or restrict the treatments for minors, the Supreme Court upheld Tennessee's ban in 2025, and federal Medicaid funding ended in October 2026. New Zealand's High Court struck down a total ban as disproportionate. England saw no measured rise in suicides after its restriction; a US study links state laws to more suicide attempts.",
+        "England confined blockers to research and cleared a trial in July 2026. Twenty-six US states ban blockers and hormones for minors, the Supreme Court upheld Tennessee's ban in 2025, and federal Medicaid funding ended in October 2026. New Zealand's High Court struck down a ban on new blocker prescriptions as disproportionate. England saw no measured rise in suicides after its restriction; a US study links state laws to more suicide attempts.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "When the evidence is this weak and the effects permanent, the public is entitled to set limits through its legislatures, as it does for other treatments on minors. The Supreme Court held in United States v. Skrmetti (June 2025) that Tennessee's ban survives rational-basis review. England restricted puberty blockers to research, and Professor Louis Appleby's review for the government found 'the data do not support the claim that there has been a large rise in suicide' among Tavistock patients after the 2020 court ruling. Even surgeons are pulling back: in February 2026 the American Society of Plastic Surgeons recommended delaying gender-related surgery until 19, finding 'insufficient evidence demonstrating a favorable risk-benefit ratio' for the endocrine and surgical pathway.",
       proponent_rebuttal:
-        "A blanket ban replaces the judgment of doctors and families who know the patient with a legislature's, and it lands on young people already at high risk. A difference-in-differences study of more than 61,000 young people found state anti-transgender laws enacted from 2018 to 2022 were followed by 7% to 72% more past-year suicide attempts among transgender and nonbinary 13- to 17-year-olds. In October 2026 New Zealand's High Court found a rational basis for some restrictions but held that a complete ban on new prescriptions was a disproportionate response that breached the Bill of Rights. Even the plastic surgeons who urged caution opposed 'criminal law or punitive legislative approaches'. Research-only access, England's route, is still access.",
+        "A blanket ban replaces the judgment of doctors and families who know the patient with a legislature's, and it lands on young people already at high risk. A difference-in-differences study of more than 61,000 young people found state anti-transgender laws enacted from 2018 to 2022 were followed by 7% to 72% more past-year suicide attempts among transgender and nonbinary young people, with significant rises among 13- to 17-year-olds from the first year. In October 2026 New Zealand's High Court found a rational basis for some restrictions but held that a complete ban on new prescriptions was a disproportionate response that breached the Bill of Rights. Even the plastic surgeons who urged caution opposed 'criminal law or punitive legislative approaches'. Research-only access, England's route, is still access.",
       crux: {
         id: "access-restriction-outcomes",
         title: "The Restriction Outcomes Test",
@@ -508,7 +508,7 @@ export const genderAffirmingCareMinorsData = {
           id: "skrmetti-2025",
           title: "Supreme Court upheld Tennessee's ban on blockers and hormones for minors, 6-3 (United States v. Skrmetti, June 2025)",
           description:
-            "On 18 June 2025 the Supreme Court held, 6-3, that Tennessee's law banning puberty blockers and hormones for minors with gender dysphoria does not classify by sex or transgender status, is reviewed only for a rational basis, and survives that review. Kansas had become the 27th state to ban or restrict such care in February 2025. In August 2026 CMS finalised a rule ending federal Medicaid and CHIP payment for these treatments in minors, effective 13 October 2026.",
+            "On 18 June 2025 the Supreme Court held, 6-3, that Tennessee's law banning puberty blockers and hormones for minors with gender dysphoria does not classify by sex or transgender status, is reviewed only for a rational basis, and survives that review. By November 2026, 26 states banned blockers and hormones for minors and one more banned surgery, though some bans were blocked in court. On 11 August 2026 CMS announced a final rule ending federal Medicaid and CHIP funding for puberty blockers, cross-sex hormones and surgery for children and youth, effective 13 October 2026, with up to six months' tapering for those already on hormones.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -517,7 +517,7 @@ export const genderAffirmingCareMinorsData = {
             directness: 2,
           },
           source:
-            "United States v. Skrmetti, 605 U.S. ___ (2025); Yahoo News (18 February 2025) on Kansas; AJMC, 'CMS Final Rule Ends Federal Medicaid, CHIP Funding for Youth Gender-Affirming Care' (12 August 2026)",
+            "United States v. Skrmetti, 605 U.S. ___ (2025); Movement Advancement Project equality map (as of 3 November 2026); CMS press release on the Medicaid and CHIP final rule (11 August 2026)",
           sourceUrl: "https://www.supremecourt.gov/opinions/24pdf/23-477_2cp3.pdf",
           reasoning:
             "These decisions govern access for millions of American teenagers, so a map about access needs them. None is evidence about outcomes: Skrmetti decides the standard of constitutional review, and the Court said it was not resolving the medical debate, so directness is minimal.",
@@ -526,7 +526,7 @@ export const genderAffirmingCareMinorsData = {
           id: "state-laws-suicide-attempts-2024",
           title: "Study of 61,240 young people: state anti-trans laws followed by 7%-72% more suicide attempts (Nature Human Behaviour, 2024)",
           description:
-            "Researchers at the Trevor Project used a difference-in-differences design on survey responses from 61,240 transgender and nonbinary 13- to 24-year-olds (35,196 aged 13-17) to compare states that enacted 48 anti-transgender laws from 2018 to 2022 with states that did not. They estimated the laws increased past-year suicide attempts by 7% to 72%, with significant rises for 13- to 17-year-olds in the first year after enactment, and found minimal evidence of an effect before the laws took effect. A 2026 critique in the same journal (Cohn, Sim & Kerr) questioned the methods; the authors replied that their interpretation stands.",
+            "Researchers at the Trevor Project used a difference-in-differences design on survey responses from 61,240 transgender and nonbinary 13- to 24-year-olds (35,196 aged 13-17) to compare states that enacted 48 anti-transgender laws from 2018 to 2022 with states that did not. They estimated the laws increased past-year suicide attempts by 7% to 72%, with significant rises for 13- to 17-year-olds in the first year after enactment, and found minimal evidence of an effect before the laws took effect. A 2026 critique in the same journal (Cohn, Sim & Kerr) questioned the methods, and the authors published a reply.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -594,8 +594,8 @@ export const genderAffirmingCareMinorsData = {
       url: "https://palveluvalikoima.fi/documents/1237350/22895008/Summary_minors_en.pdf/aaf9a6e7-b970-9de9-165c-abedfae46f2e/Summary_minors_en.pdf",
     },
     {
-      title: "Sweden Restricts Hormonal Treatment for Gender Dysphoric Minors — Socialstyrelsen (2022)",
-      url: "https://www.socialstyrelsen.se/globalassets/sharepoint-dokument/artikelkatalog/kunskapsstod/2022-3-7799.pdf",
+      title: "Care of children and adolescents with gender dysphoria: summary of national guidelines — Socialstyrelsen (December 2022)",
+      url: "https://www.socialstyrelsen.se/globalassets/sharepoint-dokument/artikelkatalog/kunskapsstod/2023-1-8330.pdf",
     },
     {
       title: "United States v. Skrmetti, 605 U.S. ___ (2025)",
