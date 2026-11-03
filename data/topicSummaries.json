@@ -1598,7 +1598,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome appraisal chassaing gastroenterology gibney monteiro moss neltner"
+    "keywords": "nova upfs overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing gastroenterology gibney monteiro moss neltner rauber"
   },
   {
     "id": "longevity-science",
@@ -2755,23 +2755,22 @@
     "title": "DOGE & Federal Spending Cuts",
     "question": "Did DOGE's cuts eliminate waste and make government more effective?",
     "meta_claim": "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
-    "confidence_score": 25,
-    "balance": 25,
+    "confidence_score": 32,
+    "balance": 32,
     "weight": 78,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
-    "evidenceCount": 16,
+    "evidenceCount": 18,
     "firstCrux": "How much of DOGE's claimed savings survives a line-by-line reconciliation?",
     "tags": [
       "policy"
     ],
-    "keywords": "pahlka slaughter executor humphreys kettl rehired disinvestment forgo overruled fy2025 opms probationary tigta usaspending caller"
+    "keywords": "pahlka callers fy2025 slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
   },
   {
     "id": "open-weight-ai-models",
