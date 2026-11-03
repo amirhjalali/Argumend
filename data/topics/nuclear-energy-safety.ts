@@ -1,51 +1,59 @@
 export const nuclearEnergySafetyData = {
   id: "nuclear-energy-safety",
-  title: "Nuclear Energy for Climate",
+  title: "Nuclear Power and Climate",
   question: "Should nuclear power be expanded to help decarbonize electricity?",
   // Words readers use for this question that the map's own text does not.
   aliases: [
     "What do we do with nuclear waste that stays dangerous for thousands of years?",
     "Was Germany wrong to shut down its nuclear plants?",
+    "Is nuclear power too expensive?",
+    "Should we build more nuclear reactors?",
   ],
   meta_claim:
     "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
   status: "contested" as const,
   category: "policy" as const,
-  // ── The lede: two facts both sides accept, then what the fight is over ──
+  // As of 3 November 2026: about 80 reactors are under construction worldwide,
+  // 39 of them in China (World Nuclear Association, 2 Nov 2026); a May 2025
+  // US executive order calls for 10 new large reactors under construction by
+  // 2030; Lazard's 2026 LCOE+ puts new US nuclear at $175-255/MWh.
+  last_updated: "2026-11-03",
+  // ── The lede: the live fact, then what the fight is over ──
   keystone_fact: {
     statement:
-      "France commissioned 58 pressurized-water reactors between 1977 and 1999. Georgia Power's net capital investment in Vogtle Units 3 and 4 reached about $10.7 billion by the end of 2024, against its original $4.4 billion estimate, before financing. The fight is over which build-out record predicts the next reactor, and how much rare disasters and long-lived waste should weigh against the fossil-fuel deaths nuclear would displace.",
+      "About 80 nuclear reactors are being built around the world, 39 of them in China, and a 2025 US executive order calls for 10 new large ones under construction by 2030. America's last two, Vogtle 3 and 4 in Georgia, cost Georgia Power about $10.7 billion against its original $4.4 billion estimate, before financing. The fight is over whether new reactors can be built fast and cheap enough to matter for the climate, and how much rare disasters and long-lived waste should weigh against the fossil-fuel deaths nuclear would displace.",
     confidence: 90,
     source:
-      "EDF response document (November 2022); Southern Company 2024 Annual Report, Note 2, Georgia Power nuclear construction",
-    sourceUrl: "https://www.edf.fr/sites/groupe/files/2022-11/2022-11-23-2-edf-response-document-approved-by-amf.pdf",
+      "World Nuclear Association, 'Plans for New Reactors Worldwide' (updated 2 November 2026); Executive Order 14302 (23 May 2025); Southern Company 2024 Annual Report, Note 2",
+    sourceUrl:
+      "https://world-nuclear.org/information-library/current-and-future-generation/plans-for-new-reactors-worldwide",
   },
   // ── The summary above the crux sheet: what the map turns on ──
   simple_case: [
-    "Both sides accept that nuclear plants deliver firm, low-carbon power, with the US fleet at about a 93% capacity factor in 2021-2023, that routine operation kills far fewer people than coal or gas, and that recent Western builds ran badly over budget and behind schedule.",
-    "They split over whether nuclear's cost and build-time problems can be fixed with scale and standardization, or leave renewables plus storage the faster route per dollar; over whether a near-zero-carbon grid needs firm plants such as nuclear to ride out wind and solar lulls, or can lean on storage, transmission and overbuild for less; and over how much weight a rare, severe accident and thousands of years of waste stewardship should carry against the steady toll of the fossil fuels nuclear would displace.",
+    "Both sides accept that nuclear plants deliver firm, low-carbon power, with the US fleet running at about 91% of capacity in 2025, that routine operation kills far fewer people than coal or gas, and that recent Western builds ran badly over budget and behind schedule.",
+    "They split over whether nuclear's cost and build-time problems can be fixed with scale and repeated designs, or leave wind and solar plus storage the faster route per dollar; over whether a near-zero-carbon grid needs firm plants such as nuclear to ride out wind and solar lulls, or can lean on storage, transmission and overbuild for less; and over how much weight a rare, severe accident and thousands of years of waste stewardship should carry against the steady toll of the fossil fuels nuclear would displace.",
     "The first two are questions that the next builds and grid models can answer; the last is a weighing of values that the deaths-per-terawatt-hour tally informs but does not decide.",
   ],
   pillars: [
     {
       id: "safety-record",
-      title: "Safety Record",
+      title: "Is It Safe Enough?",
       short_summary:
-        "Nuclear power has one of the lowest death rates per TWh of any energy source; on par with wind and solar.",
+        "Counted per unit of electricity, nuclear's death toll is close to wind's and solar's and far below coal's, even with Chernobyl and Fukushima included. Germany's post-Fukushima shutdown was followed by more coal burning. The worry is the rare accident that empties a region, and waste that must be isolated for millennia. How much those should weigh is a question of values.",
       image_url:
         "https://images.unsplash.com/photo-1591799265444-d66432b91588?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Average death rates understate low-probability, high-consequence tail risk. Chernobyl's most-exposed cohort faces up to ~4,000 projected eventual cancer deaths (with higher collective-dose estimates contested), and a single accident can force mass evacuation and render areas uninhabitable for years; Fukushima's evacuation and prolonged displacement also caused serious health harms, including increased mortality among elderly evacuees. High-level waste stays hazardous for thousands of years, and EPA's Yucca Mountain standards set dose limits and require risk assessments out to 1 million years, a multigenerational stewardship burden that annual death-rate averages do not capture.",
+        "Average death rates hide the tail. A single accident can force mass evacuation and leave land unusable for years. The WHO-led Chernobyl Forum projected up to about 4,000 eventual cancer deaths among the most-exposed groups, and other models project many more across Europe. Fukushima's radiation toll was small, but the evacuation itself caused serious harm, including higher mortality among elderly evacuees. High-level waste stays dangerous for thousands of years: EPA's standards for the proposed Yucca Mountain repository set dose limits out to 1 million years. A technology whose worst case is a lost region and whose waste outlasts any institution asks future generations to carry risks that per-terawatt-hour averages do not show.",
       proponent_rebuttal:
-        "Published deaths-per-TWh estimates put nuclear at ~0.03, coal at 24.6, oil at 18.4, and wind at ~0.04, placing nuclear near wind and solar. UNSCEAR expects no discernible radiation-attributable cancer increase from Fukushima; worker compensation awards are not scientific proof of causation. Evacuation and displacement caused serious health harms that a radiation-only tally misses. Proponents argue passive cooling can reduce accident risk, while new designs still need independent operating evidence.",
+        "Count the deaths and nuclear is among the safest sources of power: about 0.03 deaths per terawatt-hour against 24.6 for coal, 18.4 for oil and 2.8 for gas, close to wind and solar. UNSCEAR expects no discernible rise in cancers attributable to Fukushima's radiation. The real comparison is with what replaces nuclear. When Germany shut down about half its nuclear capacity after Fukushima, the lost output was replaced mainly by coal and imports, at a social cost Jarvis, Deschenes and Jha put at about $12 billion a year, over 70% of it from deaths caused by air pollution; even the largest estimates of the accident and waste costs avoided were far smaller. Waste is small in volume and contained, and deep geological disposal is an engineering task, not an unknown.",
       crux: {
         id: "deaths-per-twh",
-        title: "Deaths Per TWh Analysis",
+        title: "The Tail-Risk Weighing",
         question:
           "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
         description:
-          "Comprehensive accounting of deaths from each energy source including mining, construction, pollution, and accidents.",
+          "Comprehensive accounting of deaths from each energy source including mining, construction, pollution, and accidents, set against how much weight a rare catastrophe and long-lived waste should carry.",
         methodology:
           "Aggregate studies on: (1) Air pollution deaths (coal, gas, biomass), (2) Mining/construction accidents, (3) Major disasters, (4) Long-term radiation exposure. Normalize per TWh.",
         equation:
@@ -73,9 +81,9 @@ export const nuclearEnergySafetyData = {
       evidence: [
         {
           id: "deaths-comparison",
-          title: "Nuclear Among Safest Energy Per TWh",
+          title: "Our World in Data: Nuclear Causes About 0.03 Deaths per TWh, Coal 24.6",
           description:
-            "Deaths per TWh (accidents + air pollution): Coal 24.6, Oil 18.4, Gas 2.8, Nuclear 0.03, Wind 0.04, Solar 0.02. Nuclear is comparable to wind and solar and ~800x safer than coal.",
+            "Deaths per TWh (accidents + air pollution): Coal 24.6, Oil 18.4, Gas 2.8, Nuclear 0.03, Wind 0.04, Solar 0.02. Nuclear is comparable to wind and solar and roughly 800 times safer than coal.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -87,13 +95,13 @@ export const nuclearEnergySafetyData = {
             "Our World in Data (Ritchie 2020, updated 2022); fossil-fuel rates from Markandya & Wilkinson, Lancet 2007; wind/solar from Sovacool et al. 2016",
           sourceUrl: "https://ourworldindata.org/safest-sources-of-energy",
           reasoning:
-            "Aggregates a peer-reviewed Lancet study (fossil fuels) and a published accident database (renewables) with transparent methodology. OWID's headline nuclear figure is 0.03/TWh (Markandya & Wilkinson basis); an alternate OWID estimate that loads all Chernobyl/Fukushima tolls onto generation gives 0.07/TWh; still in the renewables range.",
+            "Aggregates a peer-reviewed Lancet study (fossil fuels) and a published accident database (renewables) with transparent methodology. OWID's headline nuclear figure is 0.03/TWh; an alternative OWID estimate that loads all Chernobyl and Fukushima tolls onto generation gives 0.07/TWh, still in the renewables range. It measures average harm, which is exactly what the tail-risk side says is the wrong measure.",
         },
         {
-          id: "fukushima-deaths",
-          title: "Fukushima: Radiation Findings and Compensation Differ",
+          id: "germany-phaseout-cost",
+          title: "Jarvis, Deschenes and Jha: Germany's Nuclear Exit Costs About $12 Billion a Year, Mostly in Pollution Deaths",
           description:
-            "UNSCEAR found no acute radiation deaths and no discernible radiation-attributable cancer increase expected. Its report distinguishes cancer compensation awards to workers from scientifically established radiation causation; those awards should not be counted as proven radiation deaths.",
+            "After the 2011 Fukushima accident, Germany shut down roughly half of its nuclear production capacity. Using hourly plant data and a machine-learning model of how plants would otherwise have run, Stephen Jarvis, Olivier Deschenes and Akshaya Jha found the lost nuclear output was replaced primarily by coal-fired production and net electricity imports. They put the social cost of the shift at approximately $12 billion a year, over 70% of it from the increased mortality risk of local air pollution, and found even the largest estimates of the accident-risk and waste costs avoided far smaller than that.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -102,17 +110,34 @@ export const nuclearEnergySafetyData = {
             directness: 8,
           },
           source:
-            "UNSCEAR 2020/2021 Report, Annex B, paragraph 243 (worker compensation and scientific attribution)",
-          sourceUrl:
-            "https://www.unscear.org/unscear/en/publications/2020_2021_2.html",
+            "Jarvis, Deschenes & Jha, 'The Private and External Costs of Germany's Nuclear Phase-Out', NBER Working Paper 26598 (2019; Journal of the European Economic Association, 2022)",
+          sourceUrl: "https://www.nber.org/papers/w26598",
           reasoning:
-            "The report supports a low observed radiation toll, while explicitly warning that legal compensation is not scientific attribution. WHO separately reports increased mortality among elderly evacuees: displacement harms remain relevant to accident safety even when radiation effects are small.",
+            "A peer-reviewed, natural-experiment estimate of what happens when a country swaps nuclear for what it actually had on hand, which is the comparison the safety question turns on. It covers Germany's grid in the 2010s, when coal filled the gap; a country replacing reactors with new wind and solar would face a different trade-off.",
+        },
+        {
+          id: "fukushima-deaths",
+          title: "UNSCEAR: No Discernible Rise in Radiation-Linked Cancers Expected From Fukushima",
+          description:
+            "UNSCEAR found no acute radiation deaths and no discernible radiation-attributable cancer increase expected from Fukushima. Its report distinguishes cancer compensation awards to workers from scientifically established radiation causation; those awards should not be counted as proven radiation deaths.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source:
+            "UNSCEAR 2020/2021 Report, Annex B, paragraph 243 (worker compensation and scientific attribution)",
+          sourceUrl: "https://www.unscear.org/unscear/en/publications/2020_2021_2.html",
+          reasoning:
+            "The UN's scientific committee on radiation supports a low radiation toll from the second-worst accident. It does not count the harm of the evacuation itself: WHO reports increased mortality among elderly evacuees, so an accident's total cost is larger than its radiation toll.",
         },
         {
           id: "chernobyl-deaths",
-          title: "Chernobyl's Long-Term Cancer Death Toll Is Projected",
+          title: "Chernobyl Forum: Up to About 4,000 Eventual Cancer Deaths Among the Most Exposed",
           description:
-            "The WHO-led Chernobyl Forum (2006) projected up to ~4,000 eventual cancer deaths among the most-exposed groups; less conservative models (e.g. TORCH) project tens of thousands across the wider European population, but these are contested.",
+            "The WHO-led Chernobyl Forum (2006) projected up to about 4,000 eventual cancer deaths among the most-exposed groups; less conservative models (such as the TORCH report) project tens of thousands across the wider European population, but these are contested.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -122,14 +147,13 @@ export const nuclearEnergySafetyData = {
           },
           source:
             "WHO / IAEA Chernobyl Forum, 'Chernobyl's Legacy' (2006); higher estimates from the TORCH report (2006)",
-          sourceUrl:
-            "https://www.iaea.org/sites/default/files/chernobyl.pdf",
+          sourceUrl: "https://www.iaea.org/sites/default/files/chernobyl.pdf",
           reasoning:
-            "Worst-case historical disaster. The ~4,000 figure is the WHO/IAEA consensus for the most-exposed cohort; far higher numbers come from collective-dose extrapolations that the Forum itself treats as highly uncertain.",
+            "The worst civilian nuclear accident, so it bounds the tail. The 4,000 figure is the WHO/IAEA consensus for the most-exposed cohort; far higher numbers come from extrapolating small doses across millions of people, a method the Forum itself treats as highly uncertain.",
         },
         {
           id: "waste-storage",
-          title: "Waste Remains Dangerous for Millennia",
+          title: "EPA's Yucca Mountain Standard Sets Radiation Limits Out to 1 Million Years",
           description:
             "High-level nuclear waste needs long-term isolation. For the proposed Yucca Mountain repository, EPA sets radiation dose limits for the first 10,000 years and a different limit from then to 1 million years, with assessments of climate, earthquakes, volcanoes and waste-container corrosion over that period.",
           side: "against" as const,
@@ -144,22 +168,22 @@ export const nuclearEnergySafetyData = {
           sourceUrl:
             "https://www.epa.gov/radiation/public-health-and-environmental-radiation-protection-standards-yucca-mountain-nevada-40",
           reasoning:
-            "Real challenge, though the annual volume is small and the waste is contained; long-lived radiotoxicity is why deep geological disposal is required.",
+            "The timescale is real and unlike any other energy waste. The volume is small and the waste is contained; long-lived radiotoxicity is why deep geological disposal is required, and whether societies can deliver it is the open question.",
         },
       ],
     },
     {
       id: "climate-effectiveness",
-      title: "Climate Effectiveness",
+      title: "Can It Be Built Fast and Cheap Enough?",
       short_summary:
-        "Nuclear provides reliable, low-carbon baseload power that renewables struggle to match.",
+        "France built 58 reactors in about 22 years and got 65% of its power from them in 2023. Georgia's Vogtle reactors, America's last two, cost Georgia Power more than double its original estimate. Lazard puts new US nuclear at $175 to $255 per megawatt-hour against $40 to $98 for utility solar. The dispute is whether repeated builds can bring nuclear's cost down, or whether wind, solar and storage cut more carbon per dollar sooner.",
       image_url:
         "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=60",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Recent Western nuclear construction has been expensive: Georgia Power's net capital investment in Vogtle's two new units reached about $10.7B by end-2024 versus its original $4.4B estimate, before financing. Lazard's June 2025 analysis gives lower standalone generation costs for utility solar ($38-78/MWh) and onshore wind ($37-86/MWh) than US new-build nuclear ($141-220/MWh). The argument for renewables is that faster deployment and lower costs can displace more carbon sooner; the comparison must include the costs of delivering equally reliable power.",
+        "Every dollar and year spent on a reactor is a dollar and year not spent on cheaper, faster options. Georgia Power's net capital investment in Vogtle's two new units reached about $10.7 billion by the end of 2024 against its original $4.4 billion estimate, before financing, and the units entered service in 2023 and 2024, years late. Lazard's 2026 analysis puts unsubsidized new US nuclear at $175 to $255 per megawatt-hour, against $40 to $98 for utility-scale solar and $37 to $99 for onshore wind, and finds wind and solar still broadly competitive with gas plants even after firming costs. Small modular reactors, the industry's answer, come out at about $214 in Lazard's illustrative figures, inside the large-reactor range. Climate change rewards carbon cut this decade, and wind, solar and batteries can be built far faster.",
       proponent_rebuttal:
-        "France commissioned 58 pressurized-water reactors between 1977 and 1999; nuclear supplied 65% of its electricity in 2023. That record shows a large nuclear fleet can anchor a low-carbon electricity system. US nuclear averaged ~93% capacity factor in 2021-2023, avoiding the storage and firming costs that standalone-LCOE figures for wind/solar omit. Country comparisons also reflect weather, demand, fuel prices and cross-border trade, so they do not isolate the effect of nuclear policy.",
+        "Vogtle was a first-of-a-kind build by a country that had forgotten how to build reactors; it is not a law of nature. France commissioned 58 pressurized-water reactors between 1977 and 1999 and got 65% of its electricity from nuclear in 2023, and China is building 39 of the roughly 80 reactors under construction worldwide. Costs fall when the same design is built again: Lazard's own range assumes about a 30% saving from Vogtle unit 3 to unit 4. Standalone generation costs also flatter wind and solar, because a megawatt-hour of nuclear arrives whatever the weather: US nuclear plants ran at 91% of capacity in 2025, against 34% for wind and 24% for solar. And Lazard's illustrative cost for restarting closed plants such as Palisades is about $71 per megawatt-hour.",
       crux: {
         id: "grid-decarbonization",
         title: "Firm Power Cost and Build Time",
@@ -181,36 +205,17 @@ export const nuclearEnergySafetyData = {
           skeptic_flip:
             "If repeated reactor builds match or beat renewable portfolios on total system cost and deployment time while providing comparable reliability and emissions reductions, the cost-and-speed objection weakens. Count financing, grid upgrades, storage and backup costs in that comparison.",
           common_ground:
-            "Both sides agree nuclear delivers firm, low-carbon power, with the US fleet averaging ~93% capacity factor in 2021-2023, and that recent Western first-of-a-kind projects were badly over budget and behind schedule.",
+            "Both sides agree nuclear delivers firm, low-carbon power, with the US fleet running at about 91% of capacity in 2025, and that recent Western first-of-a-kind projects were badly over budget and behind schedule.",
           live_disagreement:
             "Whether nuclear's cost and build-time problems are fixable with scale, standardization, and policy; or are structural, leaving renewables-plus-storage as the faster per-dollar route to a clean grid.",
         },
       },
       evidence: [
         {
-          id: "france-decarbonization",
-          title: "France Decarbonized Its Grid Rapidly via Nuclear",
-          description:
-            "EDF's formal 2022 filing describes a program to build 58 pressurized-water reactors over 25 years, with the first commissioned in 1977 and the last in 1999. RTE's 2023 electricity review reports nuclear supplied 65% of French generation that year.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 7,
-            directness: 8,
-          },
-          source:
-            "EDF response document (November 2022); RTE Annual Electricity Review 2023",
-          sourceUrl:
-            "https://www.edf.fr/sites/groupe/files/2022-11/2022-11-23-2-edf-response-document-approved-by-amf.pdf",
-          reasoning:
-            "Commissioning dates establish the historical scale of deployment, and RTE verifies nuclear's predominant generation share. This record does not by itself establish the cost or construction time of a future reactor in another market.",
-        },
-        {
           id: "capacity-factor",
-          title: "Nuclear ~93% Capacity Factor",
+          title: "EIA: US Nuclear Plants Ran at 91% of Capacity in 2025; Wind 34%, Solar 24%",
           description:
-            "US nuclear plants run at ~93% annual capacity factor vs. ~33% for wind and ~23% for utility-scale solar (EIA, 2021-2023).",
+            "US nuclear plants ran at an annual capacity factor of 91.1% in 2025 (90.8% in 2024, 93.0% in 2023), against 33.8% for wind and 24.0% for utility-scale solar photovoltaics in 2025, according to EIA's Electric Power Monthly (October 2026 release).",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -218,15 +223,32 @@ export const nuclearEnergySafetyData = {
             replicability: 10,
             directness: 8,
           },
-          source:
-            "US EIA, Electric Power Monthly, Table 6.07.B (capacity factors)",
+          source: "US EIA, Electric Power Monthly, Table 6.07.B (capacity factors), released 23 October 2026",
           sourceUrl: "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_b",
           reasoning:
-            "Official US generation data. Higher capacity factor means more energy per unit of nameplate capacity and fewer backup/storage requirements.",
+            "Official US generation data. A higher capacity factor means more energy per unit of capacity built and less need for backup. It does not show what a megawatt-hour costs, which is where the dispute lies.",
+        },
+        {
+          id: "france-decarbonization",
+          title: "France Built 58 Reactors Between 1977 and 1999; Nuclear Supplied 65% of Its Power in 2023",
+          description:
+            "EDF's formal 2022 filing describes a program to build 58 pressurized-water reactors over 25 years, with the first commissioned in 1977 and the last in 1999. RTE's 2023 electricity review reports nuclear supplied 65% of French generation that year.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "EDF response document (November 2022); RTE Annual Electricity Review 2023",
+          sourceUrl:
+            "https://www.edf.fr/sites/groupe/files/2022-11/2022-11-23-2-edf-response-document-approved-by-amf.pdf",
+          reasoning:
+            "The commissioning dates show a country can build a large fleet in about two decades, and RTE verifies nuclear's share. A state-run program in the 1980s does not by itself show what a reactor would cost or how long it would take in another market today.",
         },
         {
           id: "cost-overruns",
-          title: "New Nuclear Has Massive Cost Overruns",
+          title: "Vogtle 3 and 4 Cost Georgia Power $10.7 Billion Against a $4.4 Billion Estimate",
           description:
             "Vogtle Units 3 and 4 entered service on July 31, 2023 and April 29, 2024. Georgia Power's net capital investment at December 31, 2024 was $10.663 billion, against an originally certified $4.418 billion capital cost for its share. These are Georgia Power's figures, not the all-owner project total, and exclude financing costs.",
           side: "against" as const,
@@ -236,18 +258,17 @@ export const nuclearEnergySafetyData = {
             replicability: 8,
             directness: 7,
           },
-          source:
-            "Southern Company 2024 Annual Report, Note 2, Georgia Power nuclear construction and regulatory matters",
+          source: "Southern Company 2024 Annual Report, Note 2, Georgia Power nuclear construction and regulatory matters",
           sourceUrl:
             "https://d18rn0p25nwr6d.cloudfront.net/CIK-0000092122/2a3f62ed-2484-48e4-bdca-fde9f71710ff.pdf",
           reasoning:
-            "Company filings directly document the cost escalation and schedule delay. The net capital figure accounts for Toshiba settlement funds and related customer refunds, includes some costs not shared with other owners, and excludes financing; it should not be presented as a complete project cost. Vogtle is a first-of-a-kind US build, so extrapolation to standardized fleets requires care.",
+            "Company filings directly document the cost escalation and delay. The net capital figure reflects Toshiba settlement funds and customer refunds and excludes financing, so it understates the full project cost. Vogtle was a first-of-a-kind US build, so how far it predicts later ones is the open question.",
         },
         {
           id: "renewable-costs",
-          title: "Solar/Wind Have Lower Standalone LCOE",
+          title: "Lazard 2026: New US Nuclear Costs $175-255 per MWh, Utility Solar $40-98, Onshore Wind $37-99",
           description:
-            "Lazard's June 2025 LCOE v18.0 estimates unsubsidized utility-scale solar at $38-78/MWh, onshore wind at $37-86/MWh, and US new-build nuclear at $141-220/MWh. The nuclear range uses inflation-adjusted assumptions based on earlier Vogtle cost estimates because observable new-build data are limited.",
+            "Lazard's 2026 Levelized Cost of Energy+ (version 19.0) puts unsubsidized new-build costs at $40-98 per megawatt-hour for utility-scale solar, $37-99 for onshore wind, $61-156 for utility solar with storage, and $175-255 for US nuclear. The nuclear range is based on Vogtle 3 and 4, 'the most recent observable data point for a completed U.S. nuclear project', with the low end assuming about 30% savings from unit 3 to unit 4. Lazard finds that 'even after incorporating these firming costs, renewables remain broadly cost-competitive with the LCOE of CCGTs', and adds illustrative figures for small modular reactors (about $214) and restarts of closed plants such as Palisades (about $71).",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -255,18 +276,18 @@ export const nuclearEnergySafetyData = {
             replicability: 8,
             directness: 6,
           },
-          source: "Lazard, Levelized Cost of Energy+ (June 2025), LCOE version 18.0, pp. 7, 34-37",
-          sourceUrl: "https://www.lazard.com/media/uounhon4/lazards-lcoeplus-june-2025.pdf",
+          source: "Lazard, Levelized Cost of Energy+ (2026), LCOE version 19.0",
+          sourceUrl: "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
           reasoning:
-            "The dated standalone-generation comparison favors solar and wind. It is not an equal-reliability portfolio comparison: firming and grid costs must also be considered. The US nuclear estimate is tied to limited Vogtle-based assumptions, rather than a measured worldwide new-reactor price.",
+            "The most widely used cost comparison, and it favours wind and solar on a standalone basis. It is not an equal-reliability portfolio comparison, and its nuclear figure rests on a single first-of-a-kind project, so it cannot show what a repeated design would cost.",
         },
       ],
     },
     {
       id: "grid-reliability",
-      title: "Grid Reliability",
+      title: "Does a Clean Grid Need It?",
       short_summary:
-        "Wind and solar are intermittent; the dispute is whether a near-zero-carbon grid still needs firm plants such as nuclear to stay reliable at reasonable cost.",
+        "Wind and solar rise and fall with the weather. One side says a near-zero-carbon grid still needs firm plants such as nuclear to get through windless, sunless weeks; the other says storage, transmission and overbuilt renewables can do the job for less.",
       icon_name: "Zap" as const,
       skeptic_premise:
         "Intermittency is a cost to manage, not a reason to build reactors. Batteries, wider transmission, overbuilt wind and solar, hydro and flexible demand can cover the gaps. CSIRO and AEMO's GenCost 2025-26 finds that for Australia to reach net zero efficiently, solar PV and onshore wind deliver 93% of electricity, supported by hydro, storage, transmission and gas or hydrogen, and that large-scale nuclear costs slightly more than gas with carbon capture. Paying for firm reactors buys reliability that a cheaper portfolio can already supply.",
@@ -340,6 +361,14 @@ export const nuclearEnergySafetyData = {
     },
   ],
   references: [
+    {
+      title: "World Nuclear Association: Plans for New Reactors Worldwide (updated 2 November 2026)",
+      url: "https://world-nuclear.org/information-library/current-and-future-generation/plans-for-new-reactors-worldwide",
+    },
+    {
+      title: "Executive Order 14302: Reinvigorating the Nuclear Industrial Base (23 May 2025)",
+      url: "https://www.whitehouse.gov/presidential-actions/2025/05/reinvigorating-the-nuclear-industrial-base/",
+    },
     {
       title: "Southern Company 2024 Annual Report: Vogtle actual service dates and Georgia Power net capital investment",
       url: "https://d18rn0p25nwr6d.cloudfront.net/CIK-0000092122/2a3f62ed-2484-48e4-bdca-fde9f71710ff.pdf",

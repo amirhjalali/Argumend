@@ -119,8 +119,8 @@ describe("every older map's card titles", () => {
     expect(after("minimum-wage-effects", "Cengiz et al.")).toBe(
       "Cengiz et al. 2019: after 138 state increases, the number of low-wage jobs was unchanged five years later",
     );
-    expect(after("nuclear-energy-safety", "France Decarbonized")).toBe(
-      "France decarbonized its grid rapidly via nuclear",
+    expect(after("nuclear-energy-safety", "France Built")).toBe(
+      "France built 58 reactors between 1977 and 1999; nuclear supplied 65% of its power in 2023",
     );
     expect(after("epstein-files", "Epstein’s Defense Team")).toBe(
       "Epstein’s defense team included Starr, Dershowitz, and other elite lawyers",

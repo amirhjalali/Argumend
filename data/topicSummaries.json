@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol stagnant pell nordhaus rosen vijan cutler naep admin tuition turner haircut helland marron tabarrok"
+    "keywords": "baumol stagnant pell nordhaus rosen vijan admin cutler naep tuition turner haircut helland marron tabarrok"
   },
   {
     "id": "moloch",
@@ -307,7 +307,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "marine sealift marad oceangoing grabow maria shipyard turbo hurricane shipbuilding ikenson manak pricewaterhousecoopers surcharge underdeveloped"
+    "keywords": "marine sealift marad oceangoing grabow maria shipbuilding shipyard turbo hurricane ikenson manak pricewaterhousecoopers surcharge underdeveloped"
   },
   {
     "id": "medicaid-work-requirements",
@@ -471,7 +471,7 @@
       "Independent redistricting commissions",
       "Gerrymandering ban"
     ],
-    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom deadlocked ajps arora"
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki deadlocked newsom ajps arora"
   },
   {
     "id": "aca-enhanced-subsidies",
@@ -509,12 +509,12 @@
   },
   {
     "id": "nuclear-energy-safety",
-    "title": "Nuclear Energy for Climate",
+    "title": "Nuclear Power and Climate",
     "question": "Should nuclear power be expanded to help decarbonize electricity?",
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 66,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -522,7 +522,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
     "firstCruxStanding": "value-difference",
     "tags": [
@@ -530,9 +530,11 @@
     ],
     "aliases": [
       "What do we do with nuclear waste that stays dangerous for thousands of years?",
-      "Was Germany wrong to shut down its nuclear plants?"
+      "Was Germany wrong to shut down its nuclear plants?",
+      "Is nuclear power too expensive?",
+      "Should we build more nuclear reactors?"
     ],
-    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore fukushima"
+    "keywords": "chernobyl lazard deschenes unscear yucca jarvis onshore fukushima mountain vogtle discernible aemo csiro gencost lester"
   },
   {
     "id": "universal-healthcare",
@@ -801,29 +803,35 @@
     "tags": [
       "policy"
     ],
-    "keywords": "openresearch dividend kela stockton roosevelt alaskas penn wharton manitoba mincome wives tanf denver givedirectly banerjee"
+    "keywords": "openresearch kela stockton roosevelt alaskas manitoba mincome wives tanf denver givedirectly banerjee bartik dauphin krause"
   },
   {
     "id": "wealth-tax",
-    "title": "Wealth Tax on Billionaires",
-    "question": "Would an annual wealth tax on billionaires be effective and reduce inequality?",
-    "meta_claim": "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
-    "confidence_score": 48,
-    "balance": 48,
-    "weight": 66,
+    "title": "Would a Billionaire Wealth Tax Work?",
+    "question": "Would a billionaire wealth tax raise real money, or drive the rich away?",
+    "meta_claim": "A tax on the net worth of billionaires would raise substantial revenue without driving away enough of the tax base, or doing enough economic harm, to defeat its purpose.",
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Did Europe's wealth taxes fail due to fixable design flaws, or problems inherent in taxing wealth yearly?",
+    "pillarCount": 3,
+    "evidenceCount": 15,
+    "firstCrux": "Did Europe's wealth taxes raise little because of fixable flaws, or because taxing wealth yearly always leaks?",
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka deferral luxembourg"
+    "aliases": [
+      "Would an annual wealth tax on billionaires be effective and reduce inequality?",
+      "Should California pass Prop 40, the billionaire tax?",
+      "Did wealth taxes fail in Europe?",
+      "Is the Zucman tax a good idea?"
+    ],
+    "keywords": "jakobsen saez jaros marius kleven lhart rauh propublica berg brin cantons hankey kalanick kroner ostry"
   },
   {
     "id": "standardized-testing-debate",
@@ -969,7 +977,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight upholds broadcast retrained relicensed subsidiaries"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture forbes fisa knight upholds broadcast retrained relicensed subsidiaries"
   },
   {
     "id": "immigration-border-crisis",
@@ -1094,22 +1102,28 @@
     "title": "Will China Invade Taiwan Before 2030?",
     "question": "Will China invade Taiwan before 2030?",
     "meta_claim": "China will attempt military reunification with Taiwan within this decade, fundamentally reshaping the global order.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 67,
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does China have the sealift to carry and supply forces across a contested Taiwan Strait?",
+    "pillarCount": 4,
+    "evidenceCount": 19,
+    "firstCrux": "Are China's drills around Taiwan rehearsals for an invasion this decade, or pressure meant to make one unnecessary?",
     "tags": [
       "policy"
     ],
-    "keywords": "amphibious rhodium tsmc afghanistan pacific cancian navy wargames fabs indo buildup strait aircraft submarine aquilino"
+    "aliases": [
+      "Will China take Taiwan by force?",
+      "Is 2027 the year China invades Taiwan?",
+      "Would the US defend Taiwan?",
+      "Would China blockade Taiwan instead of invading?"
+    ],
+    "keywords": "amphibious cancian rhodium wargames himars kinmen rehearsed tsmcs unification aircraft defence submarine aukus darwin easton"
   },
   {
     "id": "global-water-crisis",
@@ -1131,7 +1145,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination groundwater wastewater brine cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination groundwater wastewater brine cubic feet irrigation pacific reuse arbitration gerd glacier hindu indus kush"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1248,7 +1262,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "parody synthid altay bonta feizi forged gilardi kohls hesitate dathathri farid nightingale saberi sadasivan thumbs"
+    "keywords": "parody synthid altay bonta feizi forged gilardi kohls dathathri farid nightingale saberi sadasivan thumbs zauderer"
   },
   {
     "id": "big-tech-antitrust",
@@ -1777,7 +1791,7 @@
       "Was COVID-19 engineered?",
       "Is the lab leak theory true?"
     ],
-    "keywords": "furin cleavage virus debarred coronaviruses insertions odni subcommittee progenitor sago ecohealth viruses huanan zoonosis virologists"
+    "keywords": "furin cleavage virus debarred coronaviruses insertions subcommittee progenitor sago ecohealth viruses huanan zoonosis virologists darpa"
   },
   {
     "id": "ultra-processed-food",
@@ -1972,7 +1986,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "supermarket semaglutide regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
+    "keywords": "supermarket semaglutide kcal regained microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
   },
   {
     "id": "loneliness-epidemic",
@@ -2038,7 +2052,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper"
+    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac looney qualifications steeper handbook"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2085,7 +2099,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs poliovirus polio afghanistan disappointing opensecrets pakistan theirs"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs poliovirus entrepreneurial polio afghanistan disappointing opensecrets pakistan"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2129,7 +2143,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "forked hashrate moat terra luna glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
+    "keywords": "hashrate moat terra luna glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase counterparty"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -2371,7 +2385,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost ring beers debswana"
+    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost beers debswana foundry"
   },
   {
     "id": "rent-control-effectiveness",
@@ -2424,7 +2438,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason biocapacity biophysical garment giorgos haberl photovoltaic"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason biocapacity biophysical garment giorgos haberl throughput"
   },
   {
     "id": "free-will",
@@ -2490,7 +2504,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dosimeters laser orion reflector astronaut artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell crimean"
+    "keywords": "dosimeters laser orion reflector astronaut artemis retroreflectors allen astrophysical acquiescence dosimetry hubble jodrell crimean luna"
   },
   {
     "id": "minneapolis-shooting",
@@ -2556,7 +2570,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "happiness nonreligious euthyphro atheist divine communist atrocities courtois edgell flourishing happiest unaffiliated unbelief zagonari cambodia"
+    "keywords": "happiness nonreligious euthyphro atheist divine atrocities communist courtois edgell flourishing happiest unaffiliated unbelief zagonari cambodia"
   },
   {
     "id": "meritocracy-myth",
@@ -2689,7 +2703,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion contentious defamation deliberative dissatisfied eighth turkey"
+    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion contentious defamation deliberative dissatisfied turkey unraveling"
   },
   {
     "id": "geoengineering-climate",
@@ -2737,7 +2751,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira wallet bahamas mbridge nigeria convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
+    "keywords": "sanddollar enaira wallet bahamas mbridge nigeria yuan convoy pesa intereconomics nigerian trucker ward bahamian interoperable"
   },
   {
     "id": "masculinity-crisis",
@@ -2781,7 +2795,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa deloitte schiff tape hampshire robocall politicians kramer leica nikon hollywood adobe bueno crying liars"
+    "keywords": "c2pa deloitte schiff tape hampshire robocall kramer leica nikon hollywood adobe bueno crying liars vall"
   },
   {
     "id": "declining-birth-rates",
@@ -2926,9 +2940,9 @@
     "title": "How the Russia-Ukraine War Should End",
     "question": "Would a deal freezing current lines end the war on acceptable terms?",
     "meta_claim": "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
-    "confidence_score": 38,
-    "balance": 38,
-    "weight": 71,
+    "confidence_score": 36,
+    "balance": 36,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2936,21 +2950,26 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
-    "evidenceCount": 16,
+    "evidenceCount": 17,
     "firstCrux": "Can Ukraine realistically retake its 1991 borders, or is the front line effectively frozen?",
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian zelensky troops putin donetsk manpower rusi ceasefire facto moscow emboldens haass jamestown kupchan kyiv"
+    "aliases": [
+      "Should Ukraine give up land for peace?",
+      "Should Ukraine accept a ceasefire on the current front line?",
+      "Can Ukraine still win the war?"
+    ],
+    "keywords": "ukrainian zelensky moscow troops donetsk manpower rusi facto demilitarized embolden haass kremlin kupchan rutland lyman"
   },
   {
     "id": "trump-tariffs",
     "title": "Trump's Tariffs & Protectionist Trade Policy",
     "question": "Have Trump's tariffs revived US manufacturing and helped American workers?",
     "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
-    "confidence_score": 36,
-    "balance": 36,
-    "weight": 79,
+    "confidence_score": 34,
+    "balance": 34,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2958,12 +2977,17 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 4,
-    "evidenceCount": 18,
+    "evidenceCount": 19,
     "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo piie aluminum usitc penn reed wharton krugman truce usmca scattered alberto"
+    "aliases": [
+      "Who really pays Trump's tariffs?",
+      "Are tariffs bringing factory jobs back?",
+      "Are Trump's tariffs working?"
+    ],
+    "keywords": "fence ieepa yard cavallo piie aluminum usitc reed krugman truce usmca ustr scattered alberto conditionalist"
   },
   {
     "id": "rfk-health-policy",
@@ -3064,7 +3088,7 @@
       "Is a carbon tax an effective, efficient way to cut emissions?",
       "Does a carbon tax reduce emissions?"
     ],
-    "keywords": "stern stiglitz rebate bbeling hildebrandt jessica dividends abbott ahmadi aluminium andersson darcangelo ecoscope emitters kabore"
+    "keywords": "stern stiglitz rebate bbeling hildebrandt jessica abbott ahmadi aluminium andersson darcangelo ecoscope emitters kabore kruse"
   },
   {
     "id": "congestion-pricing",
@@ -3184,7 +3208,7 @@
       "Is an assault weapons ban constitutional?",
       "Does the Second Amendment only protect militias?"
     ],
-    "keywords": "heller bruen soldier wallace emerson hemani kavanaugh kopel rahimi saul corpus mcdonald wolford fourteenth gregory"
+    "keywords": "heller bruen wallace emerson hemani kavanaugh kopel rahimi saul soldier corpus mcdonald wolford fourteenth gregory"
   },
   {
     "id": "self-driving-car-safety",
@@ -3211,7 +3235,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla dragged gode groves kusano paddock"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla dragged gode kusano paddock pe24031"
   },
   {
     "id": "net-neutrality",
@@ -3390,7 +3414,7 @@
       "No jab, no job",
       "Should parents be able to opt out of school vaccines?"
     ],
-    "keywords": "osha reactance amish jacobson compulsory mcmaster waned interdisciplinary passports hesitancy mahmoud polio remand activists arie"
+    "keywords": "osha reactance amish jacobson compulsory mcmaster waned interdisciplinary passports mahmoud polio remand activists arie authorisation"
   },
   {
     "id": "ssri-antidepressant-efficacy",
@@ -3417,7 +3441,7 @@
       "medicine",
       "placebo"
     ],
-    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine reuptake"
+    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus monotherapy pigott prespecified reboxetine reuptake riat"
   },
   {
     "id": "social-security-retirement-age",
@@ -3444,7 +3468,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "actuary trustees solvency crfb payable oasdi taxable"
+    "keywords": "actuary trustees solvency crfb oasdi payable"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3471,7 +3495,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch forgone taxable"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated forgone illiquid instantaneously ranch"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3530,7 +3554,7 @@
       "security",
       "law-enforcement"
     ],
-    "keywords": "wiretap intercept calea rivest abelson bellovin cybertipline diffie doormats inventor investigatory ncmec schneier telephony venetic"
+    "keywords": "wiretap intercept calea rivest abelson bellovin cybertipline diffie doormats investigatory ncmec schneier telephony venetic cisa"
   },
   {
     "id": "section-230-reform",
@@ -3646,7 +3670,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan skoglund underdiagnosis"
+    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard faraone hyperactivity larsson mcgeechan skoglund underdiagnosis agnew"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3727,7 +3751,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean caucus cawp lobbyists apollonio carey mclaughlin moncrief niemi olson raja rogowski thornton carroll jenkins"
+    "keywords": "burkean caucus cawp lobbyists apollonio carey carroll mclaughlin moncrief niemi olson raja rogowski thornton jenkins"
   },
   {
     "id": "effective-altruism",
@@ -3811,7 +3835,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature hoover jurkatis misdescribe neednt pcepilfe powar"
+    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature jurkatis misdescribe neednt pcepilfe powar tymoigne"
   },
   {
     "id": "dark-matter-vs-mond",
