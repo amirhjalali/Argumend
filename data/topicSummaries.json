@@ -2609,9 +2609,9 @@
     "title": "The New Nuclear Arms Race",
     "question": "Has a new arms race made nuclear war likelier than at any time since 1962?",
     "meta_claim": "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 71,
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2619,12 +2619,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Can satellites and signals intelligence replace lost treaty inspections, or does losing them fuel buildups?",
     "tags": [
       "policy"
     ],
-    "keywords": "icbm hypersonic petrov pentagon posture bomber putin submarine avangard brumfiel continental denuclearizing glide hgvs kazakhstan"
+    "keywords": "hypersonic glide icbm petrov ballistic pentagon posture tracy bomber putin submarine altitude avangard brumfiel cameron"
   },
   {
     "id": "transgender-athletes-sports",
