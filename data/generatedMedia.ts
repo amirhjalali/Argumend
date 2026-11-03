@@ -25,7 +25,9 @@ const basePrompt =
 // Topic-map heroes (round 15, GPT Image via Codex): the house prompt plus one
 // specific scene per map, held to the palette and kept calm. Saturated
 // orange/amber hues were pulled toward brick rust after generation, and the
-// files were saved as 1672x941 progressive JPEG at quality 82.
+// files were saved as 1672x941 progressive JPEG at quality 82. The guide and
+// blog heroes added the same day use the same prompt and processing, with a
+// scene drawn from each guide's or post's own content.
 const topicHeroStyle =
   "A few faint hairline ink dots and threads connect the motifs, subtle, never boxes or flowchart shapes. Restrained, desaturated palette of parchment cream, deep teal, muted brick rust, warm brown and stone grey; no amber, no orange, no gold, no bright red. Grown-up editorial mood, not a storybook. One clear focal motif, calm open parchment space, no human faces, no words, letters or numbers anywhere.";
 
@@ -62,6 +64,150 @@ export const generatedMedia = [
       ...IMAGE_DIMENSIONS,
       alt: "Three independent evidence paths converging on one verified point.",
       prompt: `${basePrompt} Three independent source paths converging on a verified point, triangulation and compass motifs.`,
+    },
+  },
+  {
+    kind: "guide",
+    id: "understanding-bias",
+    hero: {
+      src: "/images/generated/guides/understanding-bias/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Antique spectacles with one teal and one rust lens, the same sprig of leaves tinted differently through each, beside a balance scale with a small weight on one pan and a magnifying glass.",
+      prompt: topicHeroPrompt(
+        "A pair of antique reading spectacles on a writing desk, one lens tinted teal and one tinted rust, the same small sprig of leaves behind them seen through each lens in a different colour, a brass balance scale beside it with a small counterweight added to one pan, a magnifying glass. No people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "running-your-first-analysis",
+    hero: {
+      src: "/images/generated/guides/running-your-first-analysis/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A blank sheet laid on an unfolded parchment map, its corner touching a crimson mark where a teal path begins, with a compass and a pencil beside it.",
+      prompt: topicHeroPrompt(
+        "A single loose sheet of blank paper being laid onto a large unfolded parchment map of an argument landscape, its edge lining up with one marked path among many, a small crimson crux mark where the sheet meets the path, a teal compass and a pencil resting nearby. No readable writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "evaluating-source-credibility",
+    hero: {
+      src: "/images/generated/guides/evaluating-source-credibility/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Three springs pouring into three separate inkwells above a jeweller's loupe on old papers, two matching teal wax seals and a knotted rust thread winding away.",
+      prompt: topicHeroPrompt(
+        "An archivist's table with a jeweller's loupe resting on one old document, three separate springs feeding three separate inkwells, two matching teal wax seal impressions side by side, and a short straight thread from the document to a small crimson mark beside a long knotted thread that winds away. No writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "crux-test",
+    hero: {
+      src: "/images/generated/guides/crux-test/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A stone arch bridge over a calm river with a crimson keystone at its crown, a teal path and a rust path meeting on the arch, and loose stones on the bank.",
+      prompt: topicHeroPrompt(
+        "A stone arch bridge drawn in fine ink across a calm river, the single keystone at its crown picked out in crimson, a teal path and a rust path approaching from opposite banks and meeting on the arch, a few loose decorative stones lying on the bank that bear no load. No people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "bayesian-thinking",
+    hero: {
+      src: "/images/generated/guides/bayesian-thinking/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A brass balance tipping as teal pebbles are added to one pan, ghosted earlier positions of its beam above it and a bell curve shading from rust to teal behind.",
+      prompt: topicHeroPrompt(
+        "A brass balance scale on parchment with small teal pebbles being added one at a time to one pan, the beam tipping gradually, faint ghosted earlier positions of the beam showing a slow step-by-step shift, and a soft bell-shaped watercolour curve behind it sliding from rust toward teal. No numbers, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "argument-audit",
+    hero: {
+      src: "/images/generated/guides/argument-audit/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A pinned blank slip linked by rust threads to three separate source sketches, with an hourglass, a magnifying glass and a sliding rust-to-teal gauge on a desk.",
+      prompt: topicHeroPrompt(
+        "An inspector's desk with a single pinned paper slip, a small hourglass, a magnifying glass, and a fine thread traced from the slip back through three branching paths to three separate source documents, beside a small sliding gauge running from rust to teal. No writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "steelmanning-practice",
+    hero: {
+      src: "/images/generated/guides/steelmanning-practice/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A teal steel beam resting on an anvil beside a glowing forge, a hammer and tongs at rest, and a flimsy bundle of straw set aside on the floor.",
+      prompt: topicHeroPrompt(
+        "A blacksmith's anvil in a quiet forge with a teal-tempered steel beam laid across it, stronger than a flimsy bundle of straw set aside on the floor, soft rust embers glowing in the hearth, tongs and a hammer at rest, a small crimson crux mark. No people, no hands, no sparks of fire spraying.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "cognitive-bias-field-guide",
+    hero: {
+      src: "/images/generated/guides/cognitive-bias-field-guide/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A naturalist's plate of twelve pinned moths and beetles in teal, rust and brown, with a magnifying glass and a green field notebook beside it.",
+      prompt: topicHeroPrompt(
+        "A naturalist's field-guide plate of twelve distinct pinned moths and beetles arranged in a neat grid, each in muted teal, rust, brown and stone grey, a magnifying glass and a closed field notebook beside the plate. No labels, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "weighing-conflicting-evidence",
+    hero: {
+      src: "/images/generated/guides/weighing-conflicting-evidence/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A tall brass balance with a small stack of teal-bound books under a magnifying glass on one pan and a tall pile of loose rust pamphlets on the other, nearly level.",
+      prompt: topicHeroPrompt(
+        "A tall brass balance with a small dense block of teal-bound volumes on one pan and a tall loose pile of thin rust pamphlets on the other, the beam resting near level, a magnifying glass lying on the dense block, two study paths converging below. No writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "reading-confidence-like-a-forecaster",
+    hero: {
+      src: "/images/generated/guides/reading-confidence-like-a-forecaster/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A barometer with a blank dial, a weather vane and five glass jars of teal water filled to rising heights, rain clouds on the left and sunlight on the right.",
+      prompt: topicHeroPrompt(
+        "A weather forecaster's instrument table with a barometer, a wind vane and a row of small glass jars filled with teal water to different heights like calibration marks, a soft rain cloud and a patch of sunlight drawn across the sky behind them. No numerals on any dial, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "correlation-and-causation",
+    hero: {
+      src: "/images/generated/guides/correlation-and-causation/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Two potted plants growing side by side on a windowsill, each linked by a dotted line to the sun above, with a crossed-out dotted line running directly between them.",
+      prompt: topicHeroPrompt(
+        "Two potted plants growing tall side by side on a windowsill, their stems rising in parallel, a single sun above them sending a thread of light to each plant, a faint dotted line drawn directly between the two plants with a small crimson crux mark on it. No people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "spotting-manufactured-doubt",
+    hero: {
+      src: "/images/generated/guides/spotting-manufactured-doubt/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Leather bellows puffing grey fog across a hillside where teal ribbons converge on one point, from which strings lead out to four small paper megaphones.",
+      prompt: topicHeroPrompt(
+        "A pair of old bellows puffing a soft grey fog across a clear landscape where several teal evidence paths converge on one point, the fog thinning to reveal the paths still meeting, and a cluster of small paper megaphones whose strings all trace back to one single root. No people, no smoke from cigarettes, no logos.",
+      ),
     },
   },
   {
