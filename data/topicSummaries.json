@@ -3312,9 +3312,9 @@
     "title": "Vaping as Harm Reduction",
     "question": "Is vaping an effective and acceptable way to reduce smoking's harm?",
     "meta_claim": "E-cigarettes are an effective and acceptable harm-reduction tool for smokers.",
-    "confidence_score": 52,
-    "balance": 52,
-    "weight": 65,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3322,7 +3322,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 6,
+    "evidenceCount": 8,
     "firstCrux": "Does vaping's quit-rate advantage in trials hold up in the real-world market of flavored disposables?",
     "tags": [
       "science",
@@ -3332,7 +3332,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised acetate blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350 pub8 pulvers summarised"
+    "keywords": "evali hospitalised wang acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
   },
   {
     "id": "sex-work-decriminalization",
