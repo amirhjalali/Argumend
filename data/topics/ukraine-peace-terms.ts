@@ -241,12 +241,12 @@ export const ukrainePeaceTermsData = {
       id: "sanctions-attrition",
       title: "Sanctions, Russian Capability & Attrition",
       short_summary:
-        "Whether to lift sanctions as part of a deal hinges on whether Russia can sustain another year of attrition. RUSI says Russian armored stocks and recruitment are depleting toward a late-2026 crossover; the restraint camp says an autocracy can absorb pain Ukraine cannot — and Russia has evaded sanctions throughout.",
+        "Whether to lift sanctions as part of a deal hinges on whether Russia can sustain another year of attrition. A 2024 RUSI forecast had Russia exhausting most of its stored Soviet-era armor by 2026, and the pressure camp reads recruitment data the same way; the restraint camp says an autocracy can absorb pain Ukraine cannot — and Russia has evaded sanctions throughout.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Lifting sanctions and freezing the war now throws away leverage at the exact moment Russia is breaking. RUSI assesses that roughly 80% of Russian armored-vehicle output is refurbishment of Soviet-era stock, with depots substantially depleted by end-2026, after which Russian combat power 'materially degrades.' Recruitment fell 20% in Q1 2026 to roughly 800 sign-ups per day even as bonuses spiked, and for the first time Russia is losing more soldiers than it recruits. Sweden's intelligence service says Russia is faking macro data to appear more resilient than it is. Russia must lose decisively, or Beijing, Tehran, and Pyongyang learn that aggression pays.",
+        "Lifting sanctions and freezing the war now throws away leverage at the exact moment Russia is breaking. RUSI's Watling and Reynolds estimated in February 2024 that roughly 80% of the tanks and armored vehicles Russia delivers are refurbished from war stocks rather than newly built, forecast that by 2026 Russia 'will have exhausted most of the available stocks,' and wrote that beyond 2026 attrition 'will begin to materially degrade Russian combat power.' Recruitment fell 20% in Q1 2026 to roughly 800 sign-ups per day even as bonuses spiked, and for the first time Russia is losing more soldiers than it recruits. Sweden's intelligence service says Russia is faking macro data to appear more resilient than it is. Russia must lose decisively, or Beijing, Tehran, and Pyongyang learn that aggression pays.",
       proponent_rebuttal:
-        "Willingness, not capability, is the dominant variable — a Russian autocracy can absorb casualties and economic pain that a democratic Ukraine cannot, and Ukrainian manpower is the binding constraint, not Russian matériel. Sanctions have not coerced Russia despite years of maximum pressure; using sanctions relief as an incentive is the only lever that makes a durable deal attractive to Moscow. Betting Ukrainian lives on a forecast that Russia's attrition curve crosses 'in late 2026' is reckless when that prediction has been made and missed before. Stop treating sanctions relief as a bargaining chip to be withheld and use it to buy peace.",
+        "Willingness, not capability, is the dominant variable — a Russian autocracy can absorb casualties and economic pain that a democratic Ukraine cannot, and Ukrainian manpower is the binding constraint, not Russian matériel. Sanctions have not coerced Russia despite years of maximum pressure; using sanctions relief as an incentive is the only lever that makes a durable deal attractive to Moscow. Betting Ukrainian lives on a forecast that Russia's attrition curve crosses around 2026 is reckless when that prediction has been made and missed before. Stop treating sanctions relief as a bargaining chip to be withheld and use it to buy peace.",
       crux: {
         id: "russian-attrition-crossover",
         title: "The Attrition-Crossover Forecast",
@@ -277,9 +277,9 @@ export const ukrainePeaceTermsData = {
       evidence: [
         {
           id: "rusi-depot-depletion",
-          title: "RUSI: ~80% of Russian Armor Is Refurbishment; Depots Depleted by End-2026",
+          title: "RUSI (2024): ~80% of Russian Armor Is Refurbished; Most Stocks Exhausted by 2026",
           description:
-            "RUSI assessments find that roughly 80% of Russian armored-vehicle output is refurbishment of Soviet-era stock rather than new production, and that storage depots will be substantially depleted by the end of 2026, after which Russian combat power 'materially degrades.' RUSI's 2026 commentaries are titled around Russia 'losing' and facing a 2026 attrition crossover. This is the empirical core of the case for maintaining pressure rather than settling now.",
+            "In a February 2024 RUSI commentary, Jack Watling and Nick Reynolds estimated that of the roughly 1,500 tanks and 3,000 armored fighting vehicles Russia delivers each year, 'approximately 80% are not new production but are instead refurbished and modernised from Russian war stocks.' They forecast that vehicles would need deeper refurbishment through 2025 and that 'by 2026 it will have exhausted most of the available stocks,' and that 'beyond 2026, attrition of systems will begin to materially degrade Russian combat power.' This forecast is the empirical core of the case for maintaining pressure rather than settling now; it was made in 2024, and Watling's February 2026 RUSI commentary judges that Russia 'is likely able to maintain its current rate of recruitment' and that 'the Russians believe they can sustain the war into 2027.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -288,9 +288,9 @@ export const ukrainePeaceTermsData = {
             directness: 9,
           },
           source: "Royal United Services Institute (RUSI)",
-          sourceUrl: "https://www.rusi.org/explore-our-research/publications/commentary/russias-aggression-ukraine-will-persist-through-2026",
+          sourceUrl: "https://www.rusi.org/explore-our-research/publications/commentary/russian-military-objectives-and-capacity-ukraine-through-2024",
           reasoning:
-            "RUSI is an independent, methodologically transparent defense institute and its depot estimates are partly satellite-verifiable. It directly addresses the capability crux and supports the continue-fighting position. Coded 'against' the negotiate-now meta-claim because it implies leverage is increasing.",
+            "RUSI is an independent, methodologically transparent defense institute and its depot estimates are partly satellite-verifiable, but this is a two-year-old forecast whose 2026 date is now being tested. It directly addresses the capability crux and supports the continue-fighting position. Coded 'against' the negotiate-now meta-claim because it implies leverage is increasing.",
         },
         {
           id: "recruitment-fell-20-percent",
@@ -468,6 +468,10 @@ export const ukrainePeaceTermsData = {
       url: "https://www.csis.org/analysis/unfinished-plan-peace-ukraine-provision-provision",
     },
     {
+      title: "Russian Military Objectives and Capacity in Ukraine Through 2024 — RUSI (Watling & Reynolds)",
+      url: "https://www.rusi.org/explore-our-research/publications/commentary/russian-military-objectives-and-capacity-ukraine-through-2024",
+    },
+    {
       title: "Russia's Aggression in Ukraine Will Persist Through 2026 — RUSI",
       url: "https://www.rusi.org/explore-our-research/publications/commentary/russias-aggression-ukraine-will-persist-through-2026",
     },
@@ -497,7 +501,7 @@ export const ukrainePeaceTermsData = {
       id: "q1",
       title: "Can Ukraine plausibly retake its lost territory by force?",
       content:
-        "ISW assessments show a front line that has barely moved in months, and Russia's 2026 spring offensive was 'underwhelming.' Proponents of a freeze argue Crimea and the Donbas cannot be liberated on any feasible time horizon, so refusing to ratify de facto control only prolongs the killing. Skeptics counter that Russia's armored stocks and recruitment are depleting toward a late-2026 crossover, making patience rational. Which trajectory is the war actually on?",
+        "ISW assessments show a front line that has barely moved in months, and Russia's 2026 spring offensive was 'underwhelming.' Proponents of a freeze argue Crimea and the Donbas cannot be liberated on any feasible time horizon, so refusing to ratify de facto control only prolongs the killing. Skeptics counter that Russia's stored Soviet-era armor is running down (a 2024 RUSI forecast had most of it exhausted by 2026) and its recruitment is strained, making patience rational. Which trajectory is the war actually on?",
     },
     {
       id: "q2",
