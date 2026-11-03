@@ -103,6 +103,18 @@ describe("the map block on a phone", () => {
     expect(view.getByText(matched.match!.claim)).toBeTruthy();
   });
 
+  it("lists closely related maps one per line, with no separators", () => {
+    const related = [
+      { id: "a", title: "Can small modular reactors scale this decade?", claim: "", href: "/topics/a" },
+      { id: "b", title: "Will fusion power the grid by 2050?", claim: "", href: "/topics/b" },
+    ];
+    const view = render(<MapMatch match={matched.match!} related={related} />);
+    const list = view.getByRole("list", { name: "Closely related" });
+    const items = within(list).getAllByRole("listitem");
+    expect(items.map((item) => item.textContent)).toEqual(related.map((map) => map.title));
+    expect(list.textContent).not.toContain(";");
+  });
+
   it("previews and copies just the crux question and evidence link", async () => {
     const copy = vi.spyOn(clipboard, "copyTextToClipboard").mockResolvedValue();
     const match = matched.match!;
