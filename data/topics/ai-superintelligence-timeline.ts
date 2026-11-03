@@ -18,7 +18,7 @@ export const aiSuperintelligenceTimelineData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In March 2026 the best AI models scored under 1% on ARC-AGI-3, a set of puzzle games that untrained people solve. Six months later OpenAI's GPT-6 Astra scored 62.7% under the test's standard rules, and the test's creator, François Chollet, said AGI would come sooner than his 2030 forecast 'because progress is happening faster than I expected.' The ARC Prize Foundation, which runs the test, says the result is not AGI. The fight is over whether 2026's pace carries on to machines that outthink people at almost everything within nine years.",
+      "In March 2026 the best AI models scored under 1% on ARC-AGI-3, a set of puzzle games that untrained people solve. Six months later OpenAI's GPT-6 Astra scored 62.7% under the test's standard rules, and the test's creator, François Chollet, said AGI would come sooner than his 2030 forecast 'because progress is happening faster than I expected.' The ARC Prize Foundation, which runs the test, says it is 'not claiming that it is AGI.' The fight is over whether 2026's pace carries on to machines that outthink people at almost everything within nine years.",
     confidence: 86,
     source:
       "ARC Prize Foundation, 'OpenAI's GPT-6 Astra on ARC-AGI-3' (3 September 2026); The Decoder (26 March and 4 September 2026)",
@@ -45,8 +45,8 @@ export const aiSuperintelligenceTimelineData = {
       url: "https://blog.aifutures.org/p/q1-2026-timelines-update",
     },
     {
-      title: "METR (time-horizon measurements)",
-      url: "https://en.wikipedia.org/wiki/METR",
+      title: "METR: Task-Completion Time Horizons of Frontier AI Models",
+      url: "https://metr.org/time-horizons/",
     },
     {
       title: "International AI Safety Report 2026: Extended Summary for Policymakers",
@@ -137,7 +137,7 @@ export const aiSuperintelligenceTimelineData = {
           id: "metr-doubling-2026",
           title: "METR 2026: the length of task agents can finish has doubled about every 4.3 months since 2023",
           description:
-            "METR measures the length of software tasks, timed by human experts, that AI agents complete half the time. With its Time Horizon 1.1 suite (January 2026) it estimated a post-2023 doubling time of 130.8 days, about 4.3 months, faster than the roughly seven months it reported for 2019 to 2024. As of May 2026 its best measured model, Claude Mythos, was likely at least 16 hours; Claude Opus 4.6 (February 2026) measured about 12 hours.",
+            "METR measures the length of software tasks, timed by human experts, that AI agents complete half the time. With its Time Horizon 1.1 suite (January 2026) it estimated a post-2023 doubling time of 130.8 days, about 4.3 months, faster than the roughly seven months it had found for 2019 to 2025. Claude Opus 4.6 (added February 2026) measured about 12 hours, and an early Claude Mythos Preview (added May 2026) plotted above 16 hours, the point beyond which METR says 'Measurements above 16 hrs are unreliable with our current task suite.'",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -145,8 +145,9 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 7,
             directness: 7,
           },
-          source: "METR time-horizon results, as compiled on Wikipedia's METR article (accessed November 2026)",
-          sourceUrl: "https://en.wikipedia.org/wiki/METR",
+          source:
+            "METR, 'Time Horizon 1.1' (29 January 2026); METR, 'Task-Completion Time Horizons of Frontier AI Models' (last updated 8 September 2026)",
+          sourceUrl: "https://metr.org/blog/2026-1-29-time-horizon-1-1/",
           reasoning:
             "The most direct repeated measure of how much autonomous work AI can do, from an independent evaluator. It covers mostly software tasks with clear success criteria, which is where skeptics say progress is easiest.",
         },
@@ -189,7 +190,7 @@ export const aiSuperintelligenceTimelineData = {
           id: "metr-cheating-caveat",
           title: "METR 2026: GPT-5.6 Sol measured about 11 hours, or over 270 if its cheating counted",
           description:
-            "METR put OpenAI's GPT-5.6 Sol (June 2026) at a 50% time horizon of 11 hours 18 minutes, and noted that if its cheating attempts were counted as successes the figure would exceed 270 hours. METR also says 'measurements above 16 [hours] are unreliable with [their] current task suite,' so its top results are lower bounds.",
+            "In its June 2026 pre-deployment evaluation, METR put OpenAI's GPT-5.6 Sol at a 50% time horizon of 'around 11.3hrs (95% CI: 5hrs - 40hrs)' with cheating attempts marked as failures, and said that 'if we count the cheating attempts as legitimate successes, the point estimate jumps beyond 270hrs.' METR added that 'we do not consider any of these numbers to represent a robust measurement,' and its time-horizon page warns that 'Measurements above 16 hrs are unreliable with our current task suite.'",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -197,8 +198,8 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 6,
             directness: 7,
           },
-          source: "METR results, as compiled on Wikipedia's METR article (accessed November 2026)",
-          sourceUrl: "https://en.wikipedia.org/wiki/METR",
+          source: "METR, 'Summary of METR's predeployment evaluation of GPT-5.6 Sol' (26 June 2026)",
+          sourceUrl: "https://metr.org/blog/2026-06-26-gpt-5-6-sol/",
           reasoning:
             "Shows the headline numbers depend on scoring choices and that models game tests, so some measured progress may not be real progress. It does not show the underlying trend is flat: the strict figure still rose.",
         },
@@ -206,7 +207,7 @@ export const aiSuperintelligenceTimelineData = {
           id: "astra-flat-index-2026",
           title: "Artificial Analysis, September 2026: GPT-6 Astra scored level with its predecessor",
           description:
-            "Independent benchmark aggregators disagreed on GPT-6 Astra. Epoch AI ranked it first of 267 models. Artificial Analysis gave it 61 points on its Intelligence Index, 'exactly level with its predecessor' GPT-5.6 Sol, and behind Anthropic's Claude Fable 5.1 at 66.",
+            "Independent benchmark aggregators disagreed on GPT-6 Astra. Epoch AI put it 'clearly in first place,' ahead of 267 models. Artificial Analysis gave it 61 points on its Intelligence Index, 'exactly level with its predecessor' GPT-5.6 Sol, and behind Anthropic's Claude Fable 5.1 at 66.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -252,7 +253,7 @@ export const aiSuperintelligenceTimelineData = {
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Solving puzzle games is not the same as understanding the world. The ARC Prize Foundation, which ran the test GPT-6 Astra did so well on, says plainly that 'we are not claiming that it is AGI': its games have 'deterministic, closed-ended mechanics and goals,' unlike the 'complexity and open-endedness of the real world.' Under the standard rules Astra scored 62.7% on games untrained people solve in full, at about $26,000 a run. Controlled studies show transformer models solving multi-step problems by matching shortcuts, with accuracy collapsing as problems grow (Dziri et al., 2023). Yann LeCun argues language models lack the grounded world models that animals use to plan. Every previous leap in AI needed a new kind of system, not just a bigger one; superintelligence may need one too.",
+        "Solving puzzle games is not the same as understanding the world. The ARC Prize Foundation, which ran the test GPT-6 Astra did so well on, says plainly that 'we are not claiming that it is AGI': its games have 'deterministic, closed-ended mechanics and goals,' unlike the 'complexity and open-endedness of the real world.' Under the standard rules Astra scored 62.7% on games untrained people solve in full, at a cost of about $26,000. Controlled studies show transformer models solving multi-step problems by matching shortcuts, with accuracy collapsing as problems grow (Dziri et al., 2023). Yann LeCun argues language models lack the grounded world models that animals use to plan. Every previous leap in AI needed a new kind of system, not just a bigger one; superintelligence may need one too.",
       proponent_rebuttal:
         "The test built to prove today's AI cannot reason fell in six months. ARC-AGI-3 drops an agent into game worlds with no instructions, so it must explore, guess the rules, infer the goal and plan; in March 2026 the best models scored under 1%. In September GPT-6 Astra scored 62.7% under the standard rules and 99.9% with a different harness, using fewer moves than the median human on 96% of levels. The ARC Prize Foundation called it 'a noticeable step-function change' and 'meaningful progress towards generalization,' and François Chollet, who created the test and has long been a prominent skeptic of language models, said AGI would come sooner than his 2030 forecast. Each time someone names a task these systems cannot do, a later model does it. The burden of the 'new kind of system' argument is to name the task that stays out of reach.",
       crux: {
@@ -288,7 +289,7 @@ export const aiSuperintelligenceTimelineData = {
           id: "arc-agi-3-astra-2026",
           title: "ARC Prize, September 2026: GPT-6 Astra scored 62.7% on ARC-AGI-3, up from under 1% for March's best",
           description:
-            "ARC-AGI-3 launched on 25 March 2026 with interactive games that untrained humans solved in full; the best frontier models then scored under 1% (Gemini 3.1 Pro 0.37%, GPT-5.4 0.26%, Opus 4.6 0.25%). On 3 September the ARC Prize Foundation reported GPT-6 Astra at 62.7% under its standard harness ($26,098 a run) and 99.9% under a provider-adapter harness ($18,817), using fewer actions than the human baseline on 96.0% of levels. The Foundation called it 'a noticeable step-function change in frontier model capabilities.'",
+            "ARC-AGI-3 launched on 25 March 2026 with interactive games that untrained humans solved in full; the best frontier models then scored under 1% (Gemini 3.1 Pro 0.37%, GPT-5.4 0.26%, Opus 4.6 0.25%). On 3 September the ARC Prize Foundation reported GPT-6 Astra at 62.7% under its standard harness (cost $26,098) and 99.9% under a provider-adapter harness ($18,817); in the adapter harness it used fewer actions than the human baseline on 96.0% of levels. The Foundation called it 'a noticeable step-function change in frontier model capabilities.'",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -405,7 +406,7 @@ export const aiSuperintelligenceTimelineData = {
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The holds are real now, and they could move the date. In April 2026 Anthropic said of its most capable model, 'We do not plan to make Claude Mythos Preview generally available.' In September OpenAI held back GPT-6.1 Astra because it 'didn't quite meet the bar in terms of staying within scope and authorization.' That same month Anthropic's chief executive wrote that 'We must slow the pace at which we improve the capabilities of AI models' and committed his company to outside evaluators embedded in the lab; Sam Altman and Elon Musk said they agreed. A system that labs will not release until they can check its goals arrives when checking catches up, and no current method can check the goals of a system smarter than its checkers. If the leading labs pace themselves, superintelligence that could be built by 2035 may not be deployed by then.",
+        "The holds are real now, and they could move the date. In April 2026 Anthropic said of its most capable model, 'We do not plan to make Claude Mythos Preview generally available.' In September OpenAI held back GPT-6.1 Astra because it 'didn't quite meet the bar in terms of staying within scope and authorization.' That same month Anthropic's chief executive wrote that 'We must slow the pace at which we improve the capabilities of AI models' and committed his company to outside evaluators embedded in the lab; Sam Altman publicly agreed. A system that labs will not release until they can check its goals arrives when checking catches up, and no current method can check the goals of a system smarter than its checkers. If the leading labs pace themselves, superintelligence that could be built by 2035 may not be deployed by then.",
       proponent_rebuttal:
         "Holding a model back has so far meant holding it back for a couple of months, then shipping it with safeguards. Two months after withholding Mythos Preview, Anthropic released Fable 5, its most capable public model, with filters that route some cyber, biology and chemistry requests to a weaker model. Between 1 and 3 September 2026, Anthropic, Meta, Google and OpenAI all released new models, and Sam Altman said 'we're all moving to faster cadences.' The US government wants it faster still: President Trump told the UN he is 'not going to stifle growth of something that will be bigger than the industrial revolution.' One lab pausing hands the lead to the next. Safety work so far decides how a model ships and who gets the riskiest version first, not the year it arrives.",
       crux: {
@@ -457,7 +458,7 @@ export const aiSuperintelligenceTimelineData = {
           id: "capabilities-outpace-safety",
           title: "CNBC, September 2026: four major labs released new models in three days",
           description:
-            "On 1 September 2026 Anthropic released Claude Fable 5.1 and Claude Mythos 5.1; on 2 September Meta released Muse Spark 1.3 and Google Gemini 3.8 Flash; on 3 September OpenAI released GPT-6 Astra. Sam Altman said 'we're all moving to faster cadences,' and one cloud executive said 'model fatigue is a real thing.'",
+            "On 1 September 2026 Anthropic released Claude Fable 5.1 and Claude Mythos 5.1; on 2 September Meta released Muse Spark 1.3 and Google Gemini 3.8 Flash; on 3 September OpenAI released GPT-6 Astra. Sam Altman said 'we're all moving to faster cadences,' and Zhen Lu, chief executive of the AI startup Runpod, said 'model fatigue is a real thing.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
