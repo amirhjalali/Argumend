@@ -307,7 +307,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "marine sealift marad oceangoing grabow hurricane maria shipyard turbo shipbuilding ikenson manak pricewaterhousecoopers surcharge underdeveloped"
+    "keywords": "marine sealift marad oceangoing grabow hurricane shipyard turbo maria shipbuilding coastal ikenson manak pricewaterhousecoopers surcharge"
   },
   {
     "id": "medicaid-work-requirements",
@@ -912,7 +912,7 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq memorandum tehran fordow"
+    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran fordow islamabad"
   },
   {
     "id": "epstein-files",
@@ -1951,25 +1951,30 @@
   },
   {
     "id": "remote-work-permanence",
-    "title": "The Future of Remote Work",
-    "question": "Will remote and hybrid work permanently replace the five-day office week?",
-    "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 59,
+    "title": "Is Remote Work Here to Stay?",
+    "question": "Is remote work here to stay, or is the five-day office week coming back?",
+    "meta_claim": "Remote and hybrid work will permanently replace the five-day office week for most knowledge workers, whatever employers mandate.",
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 69,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "Has remote work leveled off at a new normal, or is it still sliding back toward the office?",
     "tags": [
       "economics"
     ],
-    "keywords": "placer bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip"
+    "aliases": [
+      "Will remote and hybrid work permanently replace the five-day office week?",
+      "Is hybrid work permanent?",
+      "Are return-to-office mandates winning?"
+    ],
+    "keywords": "placer swaa workdays kastle moodys bloom gibbs mengel siemroth teleworked liang smallest andy jassy lila"
   },
   {
     "id": "college-value-proposition",
@@ -2242,7 +2247,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers belt hmrc redfin tourist fraser garcia starter lopez metro airbnb batzer bearish cmas"
+    "keywords": "rentals sellers belt hmrc redfin tourist fraser garcia metro starter lopez airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2745,7 +2750,7 @@
       "Do housing and childcare costs explain low fertility?",
       "Do baby bonuses work?"
     ],
-    "keywords": "milligan unfpa minister hungarian kearney lutz pardue sobotka zeman quebecs childbirth conjecture hovering iussp nvsr"
+    "keywords": "milligan unfpa minister hungarian kearney lutz pardue sobotka zeman quebecs childbirth conjecture iussp nvsr pcap"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -3169,7 +3174,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona duarte dunn facetime gibson"
+    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante secretly bona duarte dunn facetime gibson isps"
   },
   {
     "id": "generative-ai-art-copyright",
