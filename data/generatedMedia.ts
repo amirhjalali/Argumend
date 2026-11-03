@@ -382,6 +382,18 @@ export const generatedMedia = [
   },
   {
     kind: "topic",
+    id: "vertical-farming-viability",
+    hero: {
+      src: "/images/generated/topics/vertical-farming-viability/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An indoor tower of stacked lettuce trays under teal grow-lights beside an open field of crops under the sky, joined by a power cable that meets at a crux mark.",
+      prompt: topicHeroPrompt(
+        "A tall indoor tower of stacked lettuce trays under soft teal grow-lights stands beside a wide open field of crops under the natural sky, a power cable running between them to a small crimson crux mark. No people, no labels, no purple light.",
+      ),
+    },
+  },
+  {
+    kind: "topic",
     id: "de-extinction-species",
     hero: {
       src: "/images/generated/topics/de-extinction-species/hero.jpg",
