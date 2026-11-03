@@ -288,6 +288,19 @@ describe("decideMatch", () => {
     expect(decideMatch({ ranked: [], ceiling: 0, exclusiveLead: () => 0 }, noSiblings).named).toBeNull();
   });
 
+  it("decides an on-subject map tied with an off-subject leader as if it led", () => {
+    const off = (id: string) => id === "map-0";
+    const args = [noSiblings, undefined, off] as const;
+    // 0.01 apart either way, the result is the same.
+    expect(decideMatch(ranking([17.11, 17.1, 7.85]), ...args).named?.id).toBe("map-1");
+    expect(decideMatch(ranking([17.11, 17.1, 7.85]), noSiblings, undefined, (id) => id === "map-1").named?.id)
+      .toBe("map-0");
+    // An off-subject leader that stands ahead still blocks the paste, lists included.
+    const ahead = decideMatch(ranking([30, 17.1, 7.85]), ...args);
+    expect(ahead.named).toBeNull();
+    expect(ahead.closest).toEqual([]);
+  });
+
   it("names the leader when a rival without its words is a second subject in sentences of its own", () => {
     // Ahead on score (1.6), not on the words where they differ (1.8).
     const mixed = ranking([24, 15, 10], 60, () => 1.8);
