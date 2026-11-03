@@ -81,7 +81,7 @@ export const acaEnhancedSubsidiesData = {
           id: "enrollment-projection",
           title: "KFF: Paid Enrollment Projected to Fall From 22.3 Million to About 17.5 Million in 2026",
           description:
-            "Drawing on federal and state data and Wakely Consulting's estimates, KFF projected average monthly paid enrollment falling from 22.3 million in 2025 to about 17.5 million in 2026, and possibly to 16.5 million, a decline of 17% to 26%. Plan sign-ups fell by over a million to 23.1 million, the sharpest single-year drop since the marketplaces launched. Many people were auto-renewed into plans that cost much more and lost coverage partway through the year when they could not keep paying.",
+            "Drawing on federal and state data and Wakely Consulting's estimates, KFF projected average monthly paid enrollment falling from 22.3 million in 2025 to about 17.5 million in 2026, and possibly to 16.5 million, a decline of 17% to 26%. Plan sign-ups fell by over a million to 23.1 million, the sharpest single-year drop since the marketplaces launched. KFF expects significant mid-year attrition on top of that, as many enrollees cannot afford higher premium payments without the enhanced credits.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -90,7 +90,7 @@ export const acaEnhancedSubsidiesData = {
             directness: 8,
           },
           source:
-            "KFF, 'What We Know So Far About 2026 ACA Marketplace Enrollment, Premiums, and Deductibles' (May 19, 2026); Associated Press via The Philadelphia Inquirer (May 19, 2026)",
+            "KFF, 'What We Know So Far About 2026 ACA Marketplace Enrollment, Premiums, and Deductibles' (May 19, 2026)",
           sourceUrl:
             "https://www.kff.org/affordable-care-act/what-we-know-so-far-about-2026-aca-marketplace-enrollment-premiums-and-deductibles/",
           reasoning:
@@ -192,7 +192,7 @@ export const acaEnhancedSubsidiesData = {
         },
         {
           id: "cms-removed-improper",
-          title: "CMS: Nearly 1.5 Million Removed in 2025 for Ineligibility or Unauthorized Enrollment",
+          title: "CMS: Subsidies or Coverage Ended for Nearly 1.5 Million in 2025 Over Ineligibility or Unauthorized Enrollment",
           description:
             "CMS reported that 23.1 million people selected or were automatically re-enrolled in 2026 coverage, and that in 2025 it took enforcement action ending premium tax credit payments or coverage for nearly 1.5 million people found ineligible for financial assistance or enrolled without authorization on HealthCare.gov.",
           side: "against" as const,
@@ -221,7 +221,7 @@ export const acaEnhancedSubsidiesData = {
             replicability: 5,
             directness: 6,
           },
-          source: "Paragon Health Institute, 'The Persistent Obamacare Enrollment Fraud' (June 2026)",
+          source: "Paragon Health Institute, 'The Persistent Obamacare Enrollment Fraud' (2026)",
           sourceUrl: "https://paragoninstitute.org/private-health/the-persistent-obamacare-enrollment-fraud/",
           reasoning:
             "A transparent method others can rerun, from the group whose earlier estimates shaped the administration's crackdown. Comparing sign-ups with survey counts can overstate fraud if surveys undercount low-income people, and Paragon campaigned against extension.",
@@ -235,7 +235,7 @@ export const acaEnhancedSubsidiesData = {
         "The Congressional Budget Office scores a permanent extension at about $350 billion over ten years and 3.8 million more insured by 2035. Critics say much of the money flowed to people who had other coverage, rarely used their plans, or were never eligible.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The coverage gain is small for the price. CBO and the Joint Committee on Taxation score a permanent extension at about $350 billion over 2026-2035, for 3.8 million more people insured in 2035. HHS's planners, as Paragon summarizes their June 2026 brief, estimate that about two-thirds of enrollment growth from 2019 to 2026, setting aside improper enrollees, came from people leaving Medicaid or private coverage, which shifts costs to taxpayers rather than covering the uninsured. Paragon counted 35% of 2024 enrollees with no medical claims at all, up from 19% in 2021, and estimates improper subsidies of up to $25 billion in 2026.",
+        "The coverage gain is small for the price. CBO and the Joint Committee on Taxation score a permanent extension at about $350 billion over 2026-2035, for 3.8 million more people insured in 2035. HHS's planners estimate that 6.1 million people moved into exchange coverage from 2019 to 2026, only about 2 million of them previously uninsured; as Paragon summarizes their June 2026 brief, about two-thirds of enrollment growth, setting aside improper enrollees, came from people leaving Medicaid or private coverage, which shifts costs to taxpayers rather than covering the uninsured. Paragon counted 35% of 2024 enrollees with no medical claims at all, up from 20% in 2021, and estimates improper subsidies of up to $25 billion in 2026.",
       proponent_rebuttal:
         "The money buys coverage and lower premiums for everyone in the market. CBO projects a permanent extension would insure 3.6 million more people in 2030 and 3.8 million in 2035, and lower gross benchmark premiums by 7.6% a year on average, because healthier people stay in the pool. Subsidized enrollment grew from 9.2 million in 2020 to 21.8 million in 2025. When the credits lapsed, insurers proposed a median 15% increase for 2027, citing the expiration and \"a related increase in the risk pool's morbidity\" as sicker people stayed and healthier ones left.",
       crux: {
@@ -340,9 +340,9 @@ export const acaEnhancedSubsidiesData = {
         },
         {
           id: "crowd-out",
-          title: "HHS Planners: Two-Thirds of Proper Enrollment Growth Since 2019 Came From Other Coverage",
+          title: "HHS Planners' Figures: About Two-Thirds of Proper Enrollment Growth Since 2019 Came From Other Coverage",
           description:
-            "As summarized by Paragon's Brian Blase, the June 2026 ASPE brief found that about two-thirds of exchange enrollment growth from 2019 to 2026, excluding improper enrollees, reflects crowd-out of other coverage, split roughly evenly between Medicaid and private insurance. It also reported that 27.8% of people in zero-premium plans had cancelled coverage by May 2026, more than 80% of them in coverage arranged by an agent or broker.",
+            "As summarized by Paragon's Brian Blase, the June 2026 ASPE brief found that about two-thirds of exchange enrollment growth from 2019 to 2026, excluding improper enrollees, reflects crowd-out of other coverage, split roughly evenly between Medicaid and private insurance. The brief itself estimates that 6.1 million people moved into exchange coverage from 2019 to 2026: about 2 million from Medicaid, 1 million from off-exchange plans, 800,000 from small-employer plans and 2 million previously uninsured (components that sum to 5.8 million). It also reported that 27.8% of people in zero-premium plans had cancelled coverage by May 2026, more than 80% of them in coverage arranged by an agent or broker.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -359,9 +359,9 @@ export const acaEnhancedSubsidiesData = {
         },
         {
           id: "zero-claim-enrollees",
-          title: "Paragon: 35% of 2024 Enrollees Had No Medical Claims, Up From 19% in 2021",
+          title: "Paragon: 35% of 2024 Enrollees Had No Medical Claims, Up From 20% in 2021",
           description:
-            "Paragon reported that in 2024, 35% of exchange enrollees had no medical claims during their enrollment period, no doctor visit, lab test or filled prescription, up from 19% in 2021; among low-income enrollees in zero-premium plans with the richest coverage, 40% had no claims. The figures include anyone enrolled at any point in the year, because CMS did not publish full-year claims data.",
+            "Paragon reported that in 2024, 35% of exchange enrollees had no medical claims during their enrollment period, up from 20% in 2021; among low-income enrollees in zero-premium plans with the richest coverage, 40% had no claims. The figures include anyone enrolled at any point in the year, because CMS did not publish full-year claims data.",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -369,7 +369,7 @@ export const acaEnhancedSubsidiesData = {
             replicability: 5,
             directness: 5,
           },
-          source: "Paragon Health Institute, 'The Persistent Obamacare Enrollment Fraud' (June 2026)",
+          source: "Paragon Health Institute, 'The Persistent Obamacare Enrollment Fraud' (2026)",
           sourceUrl: "https://paragoninstitute.org/private-health/the-persistent-obamacare-enrollment-fraud/",
           reasoning:
             "Suggests many subsidized plans were unused, consistent with people enrolled without knowing it. Healthy people who buy insurance and never use it are the point of insurance, and part-year enrollees inflate the share, so the figure does not separate fraud from ordinary healthy enrollees.",
@@ -472,7 +472,7 @@ export const acaEnhancedSubsidiesData = {
           id: "senate-targeting-talks",
           title: "Senate Talks Centered on Capping Help Above 700% of Poverty and a $5 Minimum Payment",
           description:
-            "While the House voted, a bipartisan Senate group led by Bernie Moreno and Susan Collins discussed a two-year alternative that would cap assistance for households above 700% of the poverty level, require a $5 minimum monthly payment, and offer a health savings account option in year two. Moreno said the group was in the \"red zone\" and warned: \"It could mean a 95-yard fumble.\" Senate leaders signaled they would not take up the House bill.",
+            "While the House voted, a bipartisan Senate group including Sen. Bernie Moreno discussed a two-year alternative that would cap assistance for households above 700% of the poverty level, require a $5 minimum monthly payment, and offer a health savings account option in year two. Moreno said the group was in the \"red zone\" and warned: \"It could mean a 95-yard fumble.\" The House bill was not expected to fare differently in the Senate, which had rejected a three-year extension the month before.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,

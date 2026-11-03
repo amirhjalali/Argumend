@@ -8,9 +8,9 @@ export const partisanGerrymanderingData = {
   category: "policy" as const,
   // As of 3 November 2026: ten states redrew U.S. House maps between August
   // 2025 and June 2026 (Texas, Missouri, North Carolina, Ohio, California,
-  // Utah, Florida, Tennessee, Louisiana, Alabama); Missouri's is off the 2026
-  // ballot after the U.S. Supreme Court's 10 September order, leaving nine in
-  // force. Virginia's amendment was voided on 8 May 2026. This map does not
+  // Utah, Florida, Tennessee, Louisiana, Alabama); Missouri cannot use its new
+  // map in 2026 after the U.S. Supreme Court's 10 September order, leaving nine
+  // in force. Virginia's amendment was voided on 8 May 2026. This map does not
   // rely on any result of the 3 November election.
   last_updated: "2026-11-03",
   tags: ["redistricting", "gerrymandering", "elections", "congress", "prop-50"],
@@ -24,7 +24,7 @@ export const partisanGerrymanderingData = {
   // ── The lede: what happened, then what the fight is over ──
   keystone_fact: {
     statement:
-      "Between August 2025 and June 2026, ten states redrew their U.S. House districts in the middle of the decade, starting with Texas at President Trump's urging and California in reply. In June, NBC News counted up to 16 seats Republicans could gain from the new maps and up to six for Democrats; in September the U.S. Supreme Court left Missouri's new map off the 2026 ballot, leaving nine in force on November 3, 2026. The fight is over how much the lines decide, whether neutral maps would make Congress better, and whether any state should give up the weapon while others use it.",
+      "Between August 2025 and June 2026, ten states redrew their U.S. House districts in the middle of the decade, starting with Texas at President Trump's urging and California in reply. In June, NBC News counted up to 16 seats Republicans could gain from the new maps and up to six for Democrats; in September the U.S. Supreme Court blocked an order that would have let Missouri use its new map, leaving nine in force on November 3, 2026. The fight is over how much the lines decide, whether neutral maps would make Congress better, and whether any state should give up the weapon while others use it.",
     confidence: 85,
     source:
       "NBC News, 'Where the redistricting fight stands heading into the midterms' (June 3, 2026); SCOTUSblog, 'Supreme Court grants request to prevent Missouri from using congressional map' (September 10, 2026)",
@@ -45,9 +45,9 @@ export const partisanGerrymanderingData = {
         "Party tallies credit the 2025-26 redraws with double-digit seat swings. Studies that compare enacted maps with thousands of neutral ones find that gerrymanders by both parties largely cancel nationally, while geography gives Republicans a larger built-in edge.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Nationally, the gerrymanders mostly cancel. Comparing every 2020-cycle House map with simulated nonpartisan plans, Kenny, McCartan, Simko, Kuriwaki and Imai found partisan gerrymandering widespread but worth only about two seats to Republicans on net, because Democratic maps offset Republican ones. A 2025 follow-up found where voters live matters more: Republicans' geographic advantage was 10 seats, and gerrymandering cut the overall pro-Republican bias rather than raising it. The 2025-26 war follows the same pattern: Texas took five seats, California answered with up to five, and courts blocked Missouri's map and voided Virginia's.",
+        "Nationally, the gerrymanders mostly cancel. Comparing every 2020-cycle House map with simulated nonpartisan plans, Kenny, McCartan, Simko, Kuriwaki and Imai found partisan gerrymandering widespread but worth only about two seats to Republicans on net, because Democratic maps offset Republican ones. A 2025 follow-up found where voters live matters more: Republicans' geographic advantage was 10 seats, and gerrymandering cut the overall pro-Republican bias rather than raising it. The 2025-26 war follows the same pattern: Texas drew its map to target five Democratic seats, California answered with up to five, and courts blocked Missouri's map and voided Virginia's.",
       proponent_rebuttal:
-        "Cancelling out is not harmless: voters in each gerrymandered state lose a fair map whether or not another state offsets it, and the netting is luck, not design. This round was lopsided: in June NBC News counted up to 16 seats Republicans could gain from the new maps against six for Democrats. Texas acted because President Trump said \"we are entitled to five more seats,\" and the Supreme Court let its map stand after a lower court found it likely a racial gerrymander. After Louisiana v. Callais narrowed the Voting Rights Act in April 2026, Louisiana and Alabama redrew within weeks.",
+        "Cancelling out is not harmless: voters in each gerrymandered state lose a fair map whether or not another state offsets it, and the netting is luck, not design. This round was lopsided: in June NBC News counted up to 16 seats Republicans could gain from the new maps against six for Democrats. Texas acted because President Trump said \"we are entitled to five more seats,\" and the Supreme Court let its map stand after a lower court found it likely a racial gerrymander. After Louisiana v. Callais narrowed the Voting Rights Act in April 2026, Louisiana redrew and Alabama moved to reinstate its earlier map within weeks.",
       crux: {
         id: "seat-effect",
         title: "The Net Seat Effect",
@@ -92,7 +92,7 @@ export const partisanGerrymanderingData = {
           sourceUrl:
             "https://www.nbcnews.com/politics/2026-election/house-redistricting-gop-democrats-2026-midterm-elections-rcna348110",
           reasoning:
-            "A careful tally of the round's direction, which was lopsided. These are ceilings that assume past voting holds, Missouri's map was later kept off the 2026 ballot, and they are not scored against a neutral baseline.",
+            "A careful tally of the round's direction, which was lopsided. These are ceilings that assume past voting holds, Missouri was later barred from using its new map in 2026, and they are not scored against a neutral baseline.",
         },
         {
           id: "texas-map-upheld",
@@ -263,7 +263,7 @@ export const partisanGerrymanderingData = {
           id: "turnout-competition",
           title: "Brennan Center 2025: Turnout Rises Where Districts Turn Competitive and Commissions Draw Them",
           description:
-            "Using voter files in 21 states, Brennan Center researchers found turnout in newly competitive districts in 2022 of about 54% overall, under 50% where legislatures drew them and 56-57% where courts or commissions did. In consistently noncompetitive districts drawn by new commissions in Colorado and Michigan, turnout ran more than 10 points above the average. Only 27 of 435 House districts were toss-ups in 2024.",
+            "Using voter files in 21 states, Brennan Center researchers found turnout in newly competitive districts in 2022 of about 54% overall, under 50% where legislatures drew them and 56-57% where courts or commissions did. In consistently noncompetitive districts drawn by new commissions in Colorado and Michigan, turnout ran more than 10 points above the overall level. Only 27 of 435 House districts were toss-ups in 2024.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -435,7 +435,7 @@ export const partisanGerrymanderingData = {
       skeptic_premise:
         "Restraint by one side is surrender. When Texas redrew at the President's urging, California's voters approved Proposition 50 to suspend their own commission's map and target five Republican seats in reply; in Barack Obama's words for the campaign, \"Republicans want to steal enough seats in Congress to rig the next election.\" Gov. Gavin Newsom urged Virginia, Maryland, New York, Illinois and Colorado to follow. A state that bans partisan maps while its rivals keep them hands the other party seats, so restraint makes sense only if everyone is bound at once.",
       proponent_rebuttal:
-        "That is the case for a national ban, not against one. In Rucho v. Common Cause in 2019 the Supreme Court held that partisan gerrymandering claims \"present political questions beyond the reach of the federal courts,\" but it said \"the avenue for reform established by the Framers, and used by Congress in the past, remains open.\" Voters across parties want it used: 60% opposed mid-decade redistricting in a September 2025 poll, and 60% of Trump voters backed a congressional ban. Rep. Kevin Kiley's bill, H.R. 4889, would bar mid-decade redraws nationwide; as he put it, \"fighting fire with fire burns everything down.\"",
+        "That is the case for a national ban, not against one. In Rucho v. Common Cause in 2019 the Supreme Court held that partisan gerrymandering claims \"present political questions beyond the reach of the federal courts,\" but it said \"the avenue for reform established by the Framers, and used by Congress in the past, remains open.\" Voters across parties want it used: in a September 2025 poll, 51% of Republicans, 70% of Democrats and 60% of independents opposed mid-decade redistricting, and 60% of Trump voters backed Congress stepping in to stop it. Rep. Kevin Kiley's bill, H.R. 4889, would bar mid-decade redraws nationwide; as he put it, \"fighting fire with fire burns everything down.\"",
       crux: {
         id: "fair-play-between-rivals",
         title: "Fair Play Between Rivals",
@@ -483,9 +483,9 @@ export const partisanGerrymanderingData = {
         },
         {
           id: "voters-oppose-redraws",
-          title: "September 2025 Poll: 60% Oppose Mid-Decade Redistricting, Including 51% of Republicans",
+          title: "September 2025 Poll: Majorities of Republicans, Democrats and Independents Oppose Mid-Decade Redistricting",
           description:
-            "A Noble Predictive Insights poll of more than 2,000 registered voters for Common Cause, fielded August 26 to September 2, 2025, found 51% of Republicans, 70% of Democrats and 60% of independents opposed allowing parties to engage in mid-decade redistricting, and that 60% of 2024 Trump voters supported Congress banning it.",
+            "A Noble Predictive Insights poll of more than 2,000 registered voters for Common Cause, fielded August 26 to September 2, 2025, found 51% of Republicans, 70% of Democrats and 60% of independents opposed allowing parties to engage in mid-decade redistricting, and that 60% of 2024 Trump voters supported Congress stepping in to stop it.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
