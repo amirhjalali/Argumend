@@ -835,9 +835,9 @@
     "title": "Social Media's Impact on Elections",
     "question": "Has social media fundamentally undermined democratic elections?",
     "meta_claim": "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
-    "confidence_score": 69,
-    "balance": 69,
-    "weight": 70,
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -845,12 +845,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Do engagement algorithms drive election misinformation, or would human biases spread it on any platform?",
     "tags": [
       "policy"
     ],
-    "keywords": "analytica mueller persuasion aral cisa extremist kalla untrustworthy vosoughi broockman iranian personas whistleblower boasting brad"
+    "keywords": "analytica bots extremist mueller persuasion aral cisa hosseinmardi kalla untrustworthy vosoughi broockman iranian personas watts"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -986,7 +986,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin rivera earmarked scarborough sugary caries satiety allcott"
+    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety allcott"
   },
   {
     "id": "social-media-age-limits",
