@@ -31,6 +31,7 @@ export const wealthTaxData = {
   },
   simple_case: [
     "The answer bears on whether California's health programs get a one-time windfall, on the federal wealth tax Democrats reintroduced in March 2026, and on whether France and Norway keep taxing their richest families or ease off.",
+    "Under all of it sits a gap both sides can see: from 2014 to 2018 the 25 richest Americans' wealth grew by $401 billion while they paid $13.6 billion in federal income tax, because gains on shares are taxed only when sold.",
   ],
   pillars: [
     // =========================================================================

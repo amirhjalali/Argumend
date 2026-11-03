@@ -370,7 +370,7 @@
       "Do data centers raise power bills",
       "Are hyperscale server campuses behind my utility's rate hike?"
     ],
-    "keywords": "pjms megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
+    "keywords": "pjms norris subscribed gigawatts megawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
   },
   {
     "id": "proof-of-citizenship-voting",
@@ -509,12 +509,12 @@
   },
   {
     "id": "nuclear-energy-safety",
-    "title": "Nuclear Energy for Climate",
+    "title": "Nuclear Power and Climate",
     "question": "Should nuclear power be expanded to help decarbonize electricity?",
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 66,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -522,7 +522,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
     "firstCruxStanding": "value-difference",
     "tags": [
@@ -530,9 +530,11 @@
     ],
     "aliases": [
       "What do we do with nuclear waste that stays dangerous for thousands of years?",
-      "Was Germany wrong to shut down its nuclear plants?"
+      "Was Germany wrong to shut down its nuclear plants?",
+      "Is nuclear power too expensive?",
+      "Should we build more nuclear reactors?"
     ],
-    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore safest"
+    "keywords": "chernobyl lazard deschenes unscear yucca jarvis onshore fukushima mountain vogtle discernible aemo csiro gencost lester"
   },
   {
     "id": "universal-healthcare",

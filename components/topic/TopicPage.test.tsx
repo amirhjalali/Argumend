@@ -130,8 +130,8 @@ describe("one crux-first template for every map", () => {
     // The fold names one strong card per side, in sentence case.
     const weighing = view.container.querySelector("details#weighing")!;
     expect(weighing.textContent).toContain("One strong card on each side");
-    expect(weighing.textContent).toContain("Nuclear ~93% capacity factor.");
-    expect(weighing.textContent).toContain("New nuclear has massive cost overruns.");
+    expect(weighing.textContent).toContain("EIA: US nuclear plants ran at 91% of capacity in 2025; wind 34%, solar 24%.");
+    expect(weighing.textContent).toContain("Vogtle 3 and 4 cost Georgia Power $10.7 billion against a $4.4 billion estimate.");
     // The map's cost_to_verify is an unsourced estimate: never shown.
     expect(text).not.toContain("Cost to run it");
     for (const pillar of topic.pillars) expect(text).not.toContain(pillar.crux.cost_to_verify);
@@ -144,8 +144,8 @@ describe("one crux-first template for every map", () => {
       expect(researcher.textContent).toContain(pillar.title);
     }
     // Card titles in the crux rows read in sentence case.
-    expect(sheet.textContent).toContain("Nuclear among safest energy per TWh.");
-    expect(sheet.textContent).not.toContain("Nuclear Among Safest Energy Per TWh");
+    expect(sheet.textContent).toContain("Our World in Data: Nuclear causes about 0.03 deaths per TWh, coal 24.6.");
+    expect(sheet.textContent).not.toContain("Nuclear Causes About 0.03 Deaths per TWh");
   });
 
   it("renders a legacy map without falsification data cleanly, with no scoreboard", async () => {
