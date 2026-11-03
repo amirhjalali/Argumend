@@ -1449,7 +1449,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons tropical"
+    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
   },
   {
     "id": "factory-farming-ban",
@@ -2151,7 +2151,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding irvine bloom sunk gloria pittsburgh uspto yang brucks frey gudith klocke levav"
+    "keywords": "allen bamboohr ding bloom irvine sunk gloria pittsburgh uspto yang brucks frey gudith klocke levav"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2495,9 +2495,9 @@
     "title": "Solar Geoengineering: Buy Time or Distraction?",
     "question": "Is solar geoengineering now a necessary complement to cutting emissions?",
     "meta_claim": "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
-    "confidence_score": 35,
-    "balance": 35,
-    "weight": 60,
+    "confidence_score": 43,
+    "balance": 43,
+    "weight": 62,
     "verdict": {
       "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
@@ -2505,12 +2505,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 6,
+    "evidenceCount": 7,
     "firstCrux": "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide eruption rainfall tons geomip intercomparison celsius geophysical hydrological shells precipitation dimming fairbrother"
+    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
   },
   {
     "id": "central-bank-digital-currency",
