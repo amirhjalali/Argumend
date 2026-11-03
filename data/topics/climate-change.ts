@@ -2,6 +2,12 @@ export const climateChangeData = {
   id: "climate-change",
   title: "Climate Change",
   question: "Is climate change primarily caused by human activity?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "Is climate change a hoax or a scam?",
+    "Hasn't the climate always changed naturally, because of the sun?",
+    "Isn't CO2 just plant food?",
+  ],
   meta_claim: "Climate change is primarily caused by human activity.",
   status: "settled" as const,
   category: "science" as const,
