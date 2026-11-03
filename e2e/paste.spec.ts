@@ -166,7 +166,7 @@ test("uncovered family and school arguments stay unmapped while vaccine requirem
   await expect(page.getByRole("region", { name: "This argument is already mapped" })).toHaveCount(0);
   await vaccineMap.click();
   await expect(page).toHaveURL(/\/topics\/vaccine-mandates$/);
-  await expect(page.getByRole("heading", { level: 1, name: "Are government vaccine mandates a justified public-health measure?" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Should vaccines be mandatory for school and work?" })).toBeVisible();
 });
 
 test("AI-written essays lead to independent learning rather than the achievement gap", async ({ page }) => {

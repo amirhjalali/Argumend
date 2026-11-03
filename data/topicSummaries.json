@@ -1755,7 +1755,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "cavity toothpaste bashash tooth prenatal calgary dmft nhmrc nuffield unreasonable breastfed edmonton fluorosis hygiene mildest"
+    "keywords": "cavity toothpaste bashash tooth prenatal calgary dmft nhmrc nuffield unreasonable breastfed edmonton fluorosis mildest nuremberg"
   },
   {
     "id": "seed-oils-health",
@@ -1912,7 +1912,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs poliovirus entrepreneurial polio theirs afghanistan funder opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -1978,7 +1978,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna cftc chainalysis gensler silvergate usdc"
+    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd luna cftc chainalysis gensler silvergate usdc blockchain"
   },
   {
     "id": "gig-economy-regulation",
@@ -2492,7 +2492,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion turkey"
+    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied eighth gerrymandering subversion"
   },
   {
     "id": "geoengineering-climate",
@@ -2696,7 +2696,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam retiree hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
+    "keywords": "putnam retiree hunkering jews complementarity dispersed italians norc resettlement diploma refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2969,7 +2969,7 @@
       "gun-rights",
       "originalism"
     ],
-    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace alito"
+    "keywords": "heller emerson corpus mcdonald baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace alito"
   },
   {
     "id": "self-driving-car-safety",
@@ -3027,7 +3027,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte dunn facetime"
+    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona duarte dunn facetime gibson"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3139,20 +3139,20 @@
   },
   {
     "id": "vaccine-mandates",
-    "title": "Government Vaccine Mandates",
-    "question": "Are government vaccine mandates a justified public-health measure?",
-    "meta_claim": "Government vaccine mandates are a justified public-health measure.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 73,
+    "title": "Vaccine Mandates",
+    "question": "Should vaccines be mandatory for school and work?",
+    "meta_claim": "Governments are justified in requiring vaccination for school entry and for some jobs, with medical exemptions, because the protection of others and of children outweighs the cost to individual choice.",
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 9,
+    "pillarCount": 4,
+    "evidenceCount": 15,
     "firstCrux": "How much of the uptake after a mandate is caused by the mandate, rather than the maturing rollout?",
     "tags": [
       "policy",
@@ -3160,13 +3160,18 @@
       "public-health",
       "covid-19",
       "law",
-      "ethics"
+      "ethics",
+      "measles"
     ],
     "aliases": [
+      "Are government vaccine mandates a justified public-health measure?",
+      "Are government vaccine mandates justified?",
       "School vaccination requirements",
-      "Required childhood immunizations"
+      "Required childhood immunizations",
+      "No jab, no job",
+      "Should parents be able to opt out of school vaccines?"
     ],
-    "keywords": "osha measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel kraaijeveld"
+    "keywords": "osha reactance amish jacobson mcmaster compulsory waned interdisciplinary passports harden hesitancy mahmoud polio remand activists"
   },
   {
     "id": "ssri-antidepressant-efficacy",
