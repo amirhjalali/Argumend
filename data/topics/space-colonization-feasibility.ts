@@ -115,6 +115,24 @@ export const spaceColonizationFeasibilityData = {
           reasoning:
             "Direct, in-situ measurement of the deep-space radiation environment from NASA's RAD instrument; the 0.66 Sv round-trip figure is sourced to this peer-reviewed Science paper. Corrected mis-attribution (Zeitlin et al., not Cucinotta). Health risks are real and unsolved for long-duration stays.",
         },
+        {
+          id: "gao-hls-propellant-transfer",
+          title: "GAO (Nov 2023): SpaceX Had Made 'Limited Progress' on the In-Orbit Refueling Its Lander Needs, and 8 of 13 Key Events Had Slipped",
+          description:
+            "The Government Accountability Office's review of NASA's Artemis landing program (GAO-24-106256, 30 November 2023) found that SpaceX's Human Landing System, a Starship variant, depends on launching 'multiple tankers' to fill an orbital depot, and that NASA documents indicate 'SpaceX has made limited progress maturing the technologies needed to support this aspect of its plan.' As of September 2023 the program had delayed 'eight of 13 key events by at least 6 months.' GAO judged the crewed landing 'is unlikely to occur in 2025' and, at the average pace of NASA major projects, 'would likely occur in early 2027.' As of October 2026 ship-to-ship propellant transfer still had not been demonstrated.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "U.S. Government Accountability Office, 'NASA Artemis Programs: Crewed Moon Landing Faces Multiple Challenges', GAO-24-106256 (30 Nov 2023)",
+          sourceUrl: "https://www.gao.gov/products/gao-24-106256",
+          reasoning:
+            "An independent auditor with access to NASA's internal schedule documents, on the exact capability the crux turns on: refueling is the step between a Starship in orbit and a Starship at Mars. Directness is 6 because it audits the lunar lander rather than a Mars mission, and the report is from 2023; SpaceX has since reached orbit (September 2026), though refueling remained undemonstrated as of October 2026.",
+        },
       ],
     },
     {
@@ -173,6 +191,25 @@ export const spaceColonizationFeasibilityData = {
             "Direct demonstration on Mars, but at tiny scale: peak ~12 g/hour and ~122 g total over the mission, versus the tonnes of oxygen a crewed colony would require. Corrected the production rate (was overstated/garbled as 6-8 g/hour).",
         },
         {
+          id: "iss-98-percent-water-recovery",
+          title: "NASA (June 2023): The Space Station's Life Support Reached 98% Water Recovery With a New Brine Processor",
+          description:
+            "NASA reported on 20 June 2023 that the International Space Station's Environmental Control and Life Support System 'can reach total water recovery of 98%, thanks to the brine processor', which pulls the remaining water out of the brine left after urine processing. The agency tied the goal directly to missions beyond Earth orbit: 'The inability of resupply during exploration means we need to be able to reclaim all the resources,' and 'The less water and oxygen we have to ship up, the more science that can be added to the launch vehicle.'",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 5,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "NASA, 'NASA Achieves Water Recovery Milestone on International Space Station' (20 June 2023)",
+          sourceUrl:
+            "https://www.nasa.gov/missions/station/iss-research/nasa-achieves-water-recovery-milestone-on-international-space-station/",
+          reasoning:
+            "A measured, operating result in the hardest closed-loop environment so far, showing that the water loop of a settlement can be closed almost completely. Directness is 5: water is one loop of several, the station still depends on resupply for food, spare parts and other consumables, and NASA is reporting on its own hardware (independence 5).",
+        },
+        {
           id: "biosphere-2-failure",
           title: "Biosphere 2 Failed to Maintain Closed Ecosystem",
           description:
@@ -189,6 +226,24 @@ export const spaceColonizationFeasibilityData = {
           sourceUrl: "https://en.wikipedia.org/wiki/Biosphere_2",
           reasoning:
             "Directly relevant precedent for closed-loop life support. Corrected the cost (~$150M, not $200M) and added the documented oxygen decline (to ~14%) and its cause. Could not web-verify the prior \"Nelson & Dempster (1996)\" citation, so the source is now an honest pointer to the well-documented public record rather than a possibly-fabricated reference. Technology has advanced since 1993, but no full-scale closed-loop success has been demonstrated.",
+        },
+        {
+          id: "mit-mars-one-assessment",
+          title: "MIT (2014): A Crop-Fed Mars One Habitat Would Suffocate Its First Settler in About 68 Days, and Spare Parts Would Reach 62% of Payloads From Earth",
+          description:
+            "An MIT team (Sydney Do, Koki Ho, Andrew Owens, Samuel Schreiner and Olivier de Weck) modelled the Mars One settlement plan and presented it at the International Astronautical Congress in October 2014. If crops supplied all the food they would 'produce unsafe levels of oxygen' above fire-safety limits; venting it means adding nitrogen, which runs out, so pressure falls and the first settler would 'suffocate... within an estimated 68 days.' As the colony grows, spare parts would make up 'as much as 62 percent of payloads from Earth', and the initial supplies would take an estimated 15 Falcon Heavy launches rather than the plan's six.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 9,
+            replicability: 5,
+            directness: 6,
+          },
+          source:
+            "MIT News (14 Oct 2014), on the independent assessment of Mars One by Do, Ho, Owens, Schreiner & de Weck, International Astronautical Congress (2014)",
+          sourceUrl: "https://news.mit.edu/2014/technical-feasibility-mars-one-1014",
+          reasoning:
+            "Independent systems modelling of a concrete settlement plan, and it puts numbers on why a settlement cut off from Earth fails: integrating the loops (crops, atmosphere, spares) is harder than any one loop. Directness is 6 because it models one under-engineered private plan with 2014 technology, so a better design could avoid the oxygen trap; the spares result, that resupply mass grows with the colony, is the more general finding. A conference model, not a peer-reviewed journal article.",
         },
       ],
     },
