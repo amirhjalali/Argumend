@@ -2262,9 +2262,9 @@
     "title": "Minneapolis ICE Shooting",
     "question": "Did federal agents use excessive force in the fatal Minneapolis shooting?",
     "meta_claim": "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account.",
-    "confidence_score": 86,
-    "balance": 86,
-    "weight": 49,
+    "confidence_score": 72,
+    "balance": 72,
+    "weight": 55,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2272,12 +2272,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 4,
+    "evidenceCount": 6,
     "firstCrux": "Does the full sequence of events back the federal self-defense account, or the bystander video and witnesses?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "scene ohara superintendent apprehension bystanders patrol evans handgun"
+    "keywords": "deportation scene chokeholds ohara probation superintendent apprehension bystanders carotid patrol sworn undercount evans fleeing handgun"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2388,7 +2388,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "bodily lambs preterm thomsons biobag commodify nicu pups cohen gestation chop hastings neonatal nichd osaka"
+    "keywords": "lambs preterm thomsons biobag commodify nicu pups cohen gestation chop hastings neonatal nichd osaka procreate"
   },
   {
     "id": "gain-of-function-research-ban",
