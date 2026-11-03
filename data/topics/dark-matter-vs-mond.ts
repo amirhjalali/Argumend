@@ -13,7 +13,7 @@ export const darkMatterVsMondData = {
       "Across 153 galaxies of very different sizes, the gravity observed inside each one tracks its visible matter with only ~0.13 dex of scatter and a single acceleration scale, as MOND predicted in advance. On the largest scales, colliding clusters and the cosmic microwave background point to extra non-baryonic mass, where MOND falls short by about a factor of two. The fight is over which of those two records the true theory of gravity has to explain first.",
     confidence: 88,
     source:
-      "McGaugh, Lelli & Schombert, Phys. Rev. Lett. 117, 201101 (2016) (radial acceleration relation, SPARC); Planck Collaboration, A&A 641, A6 (2020) (Ωc h² ≈ 0.120 vs Ωb h² ≈ 0.0224)",
+      "McGaugh, Lelli & Schombert, Phys. Rev. Lett. 117, 201101 (2016) (radial acceleration relation, SPARC); Planck Collaboration, A&A 641, A6 (2020) (Ωc h² ≈ 0.120 vs Ωb h² ≈ 0.0224); Famaey & McGaugh, Living Rev. Relativ. 15, 10 (2012) (cluster shortfall)",
     sourceUrl: "https://arxiv.org/abs/1609.05917",
   },
   // ── Stage 2: the honest 3-sentence case ──
@@ -205,7 +205,7 @@ export const darkMatterVsMondData = {
           id: "cmb-acoustic-peaks",
           title: "CMB Acoustic Peaks Require Non-Baryonic Matter",
           description:
-            "The Planck CMB power spectrum is fit by the six-parameter Lambda-CDM model with cold dark matter density Omega_c h^2 ~ 0.120 and baryon density Omega_b h^2 ~ 0.0224 — about five times more non-baryonic matter than baryons. The height of the third acoustic peak relative to the second is a direct signature of this non-baryonic component.",
+            "The Planck CMB power spectrum is fit by the six-parameter Lambda-CDM model with cold dark matter density Omega_c h^2 ~ 0.120 and baryon density Omega_b h^2 ~ 0.0224 — about five times more non-baryonic matter than baryons.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -223,7 +223,7 @@ export const darkMatterVsMondData = {
           id: "mond-cluster-failure",
           title: "MOND Still Needs ~2x Extra Mass in Galaxy Clusters",
           description:
-            "Inside galaxy clusters, accelerations are relatively high, so MOND's modification is small — yet the gas dynamics imply gravity exceeding the MOND prediction. Standard MOND under-predicts the required mass by roughly a factor of two, so even within the MOND framework clusters require additional unseen matter (e.g. undetected baryons or massive neutrinos).",
+            "Inside galaxy clusters, accelerations are relatively high, so MOND's modification is small, yet X-ray gas dynamics imply more gravity than MOND predicts from the visible baryons. In their review of MOND, Famaey and McGaugh write that applying MOND to clusters 'routinely exceeds the observed baryonic mass by a factor of 2 to 3' and that 'there is roughly a factor of two of residual missing mass in these objects', so even within the MOND framework clusters require additional unseen matter (candidates include undetected baryons or massive neutrinos).",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -232,8 +232,8 @@ export const darkMatterVsMondData = {
             directness: 7,
           },
           source:
-            "Hodson & Zhao, 'Generalizing MOND to Explain the Missing Mass in Galaxy Clusters,' A&A 598, A127 (2017)",
-          sourceUrl: "https://arxiv.org/abs/1701.03369",
+            "Famaey & McGaugh, 'Modified Newtonian Dynamics (MOND): Observational Phenomenology and Relativistic Extensions,' Living Reviews in Relativity 15, 10 (2012); see also Hodson & Zhao, A&A 598, A127 (2017)",
+          sourceUrl: "https://arxiv.org/abs/1112.3960",
           reasoning:
             "A genuine, well-documented shortfall of plain MOND on cluster scales, acknowledged even by works seeking to rescue MOND. Coded 'for' the dark-matter claim because it shows modified gravity alone is insufficient. Weighted moderately because the residual could in principle be ordinary baryons or neutrinos rather than cold dark matter, and the source's aim is to repair MOND.",
         },
@@ -241,7 +241,7 @@ export const darkMatterVsMondData = {
           id: "no-direct-detection",
           title: "No Dark-Matter Particle Detected Despite Decades of Searches",
           description:
-            "Direct-detection experiments (e.g. multi-tonne xenon detectors) and collider searches have steadily tightened limits on weakly-interacting dark-matter particles without a confirmed signal, leaving the particle nature of dark matter unestablished and keeping modified-gravity explanations on the table.",
+            "As of Bertone and Hooper's 2018 review, direct-detection experiments (CDMS, EDELWEISS, XENON100, LUX and others, including liquid-xenon detectors) and collider searches had steadily tightened limits on weakly-interacting dark-matter particles without a confirmed signal, leaving the particle nature of dark matter unestablished and keeping modified-gravity explanations on the table.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
