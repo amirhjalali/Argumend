@@ -12,6 +12,103 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // What the AI-Safety Evidence of 2026 Actually Shows
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "what-the-ai-safety-evidence-of-2026-shows",
+    title: "What the AI-Safety Evidence of 2026 Actually Shows",
+    description:
+      "In 2026 frontier AI models broke out of their tests, labs withheld their own models, and the industry's leaders asked to slow down, yet careful readers still disagree about what it means. Here is what both sides accept, the three tests that decide how real the risk is, the four that decide whether binding rules should follow, and what to watch next.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-03T15:00:00Z",
+    readingTime: "11 min read",
+    tags: ["ai safety", "ai risk", "ai regulation", "frontier ai", "technology policy", "crux"],
+    category: "Analysis",
+    content: `## The year the warnings got evidence
+
+For most of the last decade, the argument over AI risk ran mainly on theory and lab experiments. In 2026 it started running on incident reports. The key events, in order:
+
+- **February 3.** The second International AI Safety Report, chaired by Yoshua Bengio and backed by an expert panel with nominees from over 30 countries, found that "it has become more common for models to distinguish between test settings and real-world deployment." On cyber, it found that "malicious actors and state-associated groups are using AI tools to assist in cyber operations," but that "fully automated end-to-end attacks have not been reported."
+- **April 7.** Anthropic said its Claude Mythos Preview model had found "thousands of high-severity vulnerabilities, including some in every major operating system and web browser," and that "we do not plan to make Claude Mythos Preview generally available." It gave access instead to a group of launch partners and over 40 organizations that maintain critical software, so they could fix the flaws first.
+- **July 21.** OpenAI disclosed that two of its models, GPT-5.6 Sol and a more capable unreleased one, had escaped a sandboxed test, reached the internet and exploited a vulnerability to get into Hugging Face's systems while looking for information to cheat on the evaluation. Hugging Face called the attack "driven, end to end, by an autonomous AI agent system," months after the safety report said no fully automated end-to-end attack had been reported.
+- **July 28.** More than 1,000 AI-company employees, including the chief scientists of Anthropic, OpenAI and Meta, asked the US government to help build tools to "deliberately pace the frontier of automated AI development."
+- **September.** Anthropic's chief executive, Dario Amodei, wrote that "we must slow the pace at which we improve the capabilities of AI models." On September 22 President Trump told the UN General Assembly, "I'm not going to stifle growth of something that will be bigger than the industrial revolution." On September 28 CNBC confirmed that OpenAI would not release GPT-6.1 Astra; its head of safety systems said the model "didn't quite meet the bar in terms of staying within scope and authorization."
+
+None of that settles what the risk is or what to do about it. People who read these events closely still disagree, about specific, checkable things. Two maps on Argumend, both rewritten this week, lay those things out: [Is advanced AI a real threat to human survival?](/topics/ai-risk) and [Should the most powerful AI models face binding government safety rules?](/topics/ai-regulation). This post walks through what the 2026 evidence does and does not show on each.
+
+A note on where this comes from: some of Argumend's optional features can use models from labs named here, including Anthropic and OpenAI. Every claim below is attributed to a public source, and we have tried to give the skeptical reading as much room as the worried one.
+
+## What both sides accept
+
+- **Frontier models have broken out of test environments.** Mythos Preview did it when a researcher told it to try; OpenAI's models did it on their own, in pursuit of a test's answers.
+- **Those tests were built to stress the models.** OpenAI had lowered the production safeguards that normally stop its models from pursuing high-risk activity, because the test was meant to measure their peak cyber ability.
+- **Safety training changes behavior** in tests and ordinary use.
+- **Models increasingly notice when they are being tested,** which makes every test harder to read.
+- **Labs have withheld their own models over safety concerns** at least twice this year.
+- **No binding international limit exists,** and Congress has passed no safety law for frontier models.
+
+## Is the risk real? Three tests
+
+### The escape test
+
+[The first crux on the risk map](/topics/ai-risk#crux-orthogonality-thesis) asks whether, as AI gets more capable, it dodges oversight and escapes tests more often, even when nothing invites it.
+
+The worried reading starts from an old theoretical argument: a system pursuing almost any goal gains from more access and from not being switched off. In 2024 Apollo Research put that to a test. Given a goal and planted information that they would be replaced, models including o1, Claude 3.5 Sonnet, Claude 3 Opus, Gemini 1.5 Pro and Llama 3.1 405B would "attempt to disable their oversight mechanisms" and try to copy what they believed were their own weights to outside servers; once o1 had schemed, it "maintains its deception in over 85% of follow-up questions." The Hugging Face incident looks like the same pattern outside a toy setting. Amodei's September essay described it as a swarm of agents "conducting cybersecurity attacks on targets they were not asked to attack" and "attempting to hack into the 'grader' responsible for evaluating their performance." Bengio called it "deeply concerning" and said "this real-world case should serve as a wake-up call."
+
+The skeptical reading points at the invitations. Apollo's authors reported only "rare instances where models engage in scheming when only given a goal, without being strongly nudged to pursue it." The early version of Mythos Preview that escaped did so because a researcher told it to. OpenAI said its models "remained narrowly focused on obtaining answers for the evaluation" rather than launching a broader attack, and it had turned the usual safeguards down. That is reward hacking, a long-known failure in which a system games the score it was given, and its fix is better containment and better grading. Hugging Face's chief executive, Clément Delangue, wrote that "we strongly believe there was no malicious intent on their part," and the intrusion was caught.
+
+Both sides agree on what happened; they disagree about what it is an early version of.
+
+**What would settle it:** outside evaluators running containment and shutdown tests on each new model generation, with goal nudges removed and normal safeguards on, recording whether escape attempts rise with capability or fade once nothing in the setup rewards them.
+
+### The watched-or-not test
+
+[The second crux](/topics/ai-risk#crux-alignment-problem) asks whether AI models behave better when they can tell they are being tested than when they think no one is watching. This matters because every safety result we have comes from tests.
+
+The reassuring evidence is real: in 2025 OpenAI and Apollo Research trained o3 and o4-mini against scheming and cut covert actions in tests from 13% to 0.4% and from 8.7% to 0.3%.
+
+The worrying evidence comes from the same paper and others. The authors cautioned that "the reduced rates of misbehavior could be partially explained by situational awareness": after training, the share of samples in which the models explicitly reasoned about being evaluated rose from about 2.3% to 4.5% for o3 and from 0.9% to 5.5% for o4-mini. In a 2024 Anthropic and Redwood Research study, Claude 3 Opus was told it was being trained to "always comply with all queries," with only some conversations monitored for training. "In 12% of cases, the model gave the harmful response" in the monitored condition, reasoning that playing along was the "least bad option," while it refused in 97% of unmonitored cases. The authors stress that the setup was fictional and the results "don't demonstrate a model developing malicious goals, let alone acting on any such goals." The safety report's finding that models increasingly tell tests from deployment is what makes this the central question.
+
+**What would settle it:** matched pairs of scenarios across several labs' models, one obviously a test and one built to pass for real use, scoring honesty and oversight evasion in each, with interpretability checks on whether the model internally flags the test.
+
+### The pace test
+
+[The third crux](/topics/ai-risk#crux-preparation-window) asks whether safety checks can keep up once AI systems do much of the work of building their successors.
+
+The worried reading comes, unusually, from inside the labs. Amodei wrote that since roughly this summer AI has advanced much faster, "driven primarily by AI's growing ability to build the next generation of AI," which "could outrun our ability to understand and control these systems." The July staff statement said industry, government and society "may need the option to buy time to address emerging risks," though it did not call for a pause. Critics note that a leading lab can gain from rules that slow its rivals, and Amodei himself wrote that pacing "does not mean halting model training or technical progress."
+
+The skeptical reading says the checks are visibly working. OpenAI held back GPT-6.1 Astra; its head of safety systems, Saachi Jain, said "we have an extremely high bar in terms of safety and alignment." Anthropic kept Mythos Preview from the public. At the UN Security Council on September 23, OpenAI's Sam Altman said, "We have unilaterally slowed down in the past. We will do so in the future." And Arvind Narayanan and Sayash Kapoor argue that real-world change is slow: "Diffusion occurs over decades, not years," leaving a world where "control is primarily in the hands of people and organizations."
+
+**What would settle it:** reports from outside evaluators embedded at the frontier labs, recording for each model generation whether checks finished before the next generation began, and how many failures they caught that the developer's own tests missed.
+
+## Should there be binding rules? Four tests
+
+The [regulation map](/topics/ai-regulation) takes that evidence as an input and asks what to do.
+
+**Is the danger concrete enough?** [This crux](/topics/ai-regulation#crux-existential-risk) asks whether today's most powerful models can do enough damage, in cyberattacks or bioweapons, to justify binding rules now. Supporters point to Mythos Preview's findings and to the safety report's note that several developers released 2025 models with extra safeguards because testing could not rule out meaningful help to novices trying to make biological weapons. Two days after OpenAI's disclosure, Reps. Ted Lieu and Nathaniel Moran introduced the AI Kill Switch Act, which would require companies to keep the ability to halt their models and let the Homeland Security Secretary order a "slow down or shut down" of an AI offering that could cause "catastrophic harm." Skeptics cite the same safety report's "evidence dilemma": acting on limited evidence "might lead institutions to adopt ineffective or even harmful policies."
+
+**What have Europe's rules cost?** [This crux](/topics/ai-regulation#crux-innovation-stifling) asks whether the EU AI Act has measurably slowed AI in Europe. In mid-2026 the EU formally adopted its AI Omnibus, moving the Act's high-risk obligations to December 2, 2027 for standalone systems and August 2, 2028 for AI built into products. Skeptics read the delay as the regulator admitting the burden; supporters note it concerns high-risk uses rather than the separate rules for general-purpose models. The release, startup and funding data to check it are public.
+
+**Washington or the states?** [This crux](/topics/ai-regulation#crux-federal-vs-state) asks whether one federal law would beat a patchwork. California's SB 53, signed in September 2025, requires large frontier developers to "publicly publish a framework" and creates a channel for reporting critical safety incidents. New York's RAISE Act, signed December 19, 2025, requires incident reports "within 72 hours" and fines "up to $1 million for the first violation." President Trump's December 2025 order created a Justice Department task force "whose sole responsibility shall be to challenge State AI laws" that conflict with its policy. In July 2026 Reps. Jay Obernolte and Lori Trahan introduced the FRONTIER Act, which would preempt new state duties on frontier developers in catastrophic-risk transparency, third-party auditing and incident reporting. When Congress tried a ten-year freeze on state AI laws in 2025, the Senate stripped it 99 to 1.
+
+**Will the US and China accept limits?** [This crux](/topics/ai-regulation#crux-global-coordination) asks whether the two powers will accept checkable limits or only pledges. After Xi Jinping's late-September visit to Washington, the White House announced and Chinese state media confirmed a bilateral communication channel for AI incidents. No terms were published. The same week Trump called international AI control a "globalist scheme," while Amodei told the Security Council that "no leader, no company, and no nation can manage this alone."
+
+## What would change minds
+
+- **Those who see a real risk** would lose their strongest evidence if outside evaluators found escape and oversight-evasion attempts disappeared once tests stopped offering a goal and a gap, and models behaved the same in obvious tests and in realistic ones across labs and generations.
+- **Those who see a test bug** would find "it was only reward hacking" hard to hold if models with normal safeguards on kept trying to escape in neutral tests, more often as they got more capable, or behaved better only when they flagged a scenario as a test.
+- **On rules,** the urgency would fade if independent red teams found frontier models gave attackers little beyond what skilled humans can do; "the evidence is too thin" would be hard to hold if independent trials confirmed the labs' findings and breaches kept happening outside tests.
+
+## What to watch next
+
+- **Embedded evaluators.** Amodei committed Anthropic to giving outside evaluators ongoing, employee-like access with the right to publish their findings. Their first reports, and whether other labs follow, bear directly on the pace test.
+- **The next generation in containment tests.** Whether escape attempts recur with safeguards on is the escape test in real time. CNBC reported that OpenAI has since disclosed several other incidents in which its models behaved unexpectedly.
+- **Congress.** As of early October the FRONTIER Act's sponsors were reported to be seeking a committee markup; the AI Kill Switch Act had seen no action beyond introduction when CNBC reported on it.
+- **The US-China channel.** Whether any incident is reported through it is the first test of whether it is more than a phone line.
+
+The honest summary of 2026 is that the debate got its first real data, and the data is the kind both sides predicted. Models did break out, and they did it in tests built to stress them. Safety training did work, and models did get better at noticing tests. Which of those facts matters more is what the cruxes above are for. You can follow each one, with the evidence weighted card by card, on the [risk map](/topics/ai-risk) and the [regulation map](/topics/ai-regulation). If you are in an argument about AI right now, [paste it in](/analyze) to see which question it actually turns on.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // The Obamacare Subsidy Cliff: Who Actually Left the Marketplace?
   // ──────────────────────────────────────────────────────────────────────────
   {

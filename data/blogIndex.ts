@@ -36,6 +36,16 @@ export interface ArticleSummary {
 /** Pre-computed summaries — no `content`, so importing this stays lightweight. */
 export const articleSummaries: ArticleSummary[] = [
   {
+    slug: "what-the-ai-safety-evidence-of-2026-shows",
+    title: "What the AI-Safety Evidence of 2026 Actually Shows",
+    description:
+      "In 2026 frontier AI models broke out of their tests, labs withheld their own models, and the industry's leaders asked to slow down, yet careful readers still disagree about what it means. Here is what both sides accept, the three tests that decide how real the risk is, the four that decide whether binding rules should follow, and what to watch next.",
+    tags: ["ai safety", "ai risk", "ai regulation", "frontier ai", "technology policy", "crux"],
+    category: "Analysis",
+    publishedAt: "2026-11-03T15:00:00Z",
+    readingTime: "11 min read",
+  },
+  {
     slug: "obamacare-subsidy-cliff-who-left-the-marketplace",
     title: "The Obamacare Subsidy Cliff: Who Actually Left the Marketplace?",
     description:
