@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz outdoor"
+    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz sandhu"
   },
   {
     "id": "tipping-culture",
@@ -173,7 +173,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "ammonia aviation grey stegra wheel steam electrolyzer refueling shell haul mill electrolytic furnace hybrit insideevs"
+    "keywords": "ammonia aviation grey stegra wheel shell steam electrolyzer refueling haul methane mill electrolytic furnace hybrit"
   },
   {
     "id": "vertical-farming-viability",
@@ -532,7 +532,7 @@
       "What do we do with nuclear waste that stays dangerous for thousands of years?",
       "Was Germany wrong to shut down its nuclear plants?"
     ],
-    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore safest"
+    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore standalone"
   },
   {
     "id": "universal-healthcare",
@@ -559,7 +559,7 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein treatable simplification"
   },
   {
     "id": "gun-control-effectiveness",
@@ -1603,7 +1603,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "livestock antibiotic cage sentience cattle runoff dietetics beef antimicrobial bacterial cafo manure vegetarian eggs grass"
+    "keywords": "livestock antibiotic cage sentience cattle dietetics runoff beef antimicrobial bacterial cafo manure vegetarian eggs grass"
   },
   {
     "id": "organic-food-health",
@@ -1669,7 +1669,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars perseverance collisions irreplaceable constellation didymos dimorphoss"
+    "keywords": "dart asteroid debris spinoff spacex spin planetary landsat modis mars perseverance collisions irreplaceable constellation didymos"
   },
   {
     "id": "veganism-environmental-impact",
@@ -2038,7 +2038,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2215,7 +2215,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore advisors"
+    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore autor"
   },
   {
     "id": "global-housing-bubble",
@@ -2623,24 +2623,28 @@
   {
     "id": "geoengineering-climate",
     "title": "Solar Geoengineering: Buy Time or Distraction?",
-    "question": "Is solar geoengineering now a necessary complement to cutting emissions?",
+    "question": "Is dimming the sun a necessary backup to cutting emissions?",
     "meta_claim": "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 62,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 7,
+    "pillarCount": 4,
+    "evidenceCount": 12,
     "firstCrux": "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison geophysical hydrological irvine shells"
+    "aliases": [
+      "Is solar geoengineering now a necessary complement to cutting emissions?",
+      "Should we dim the sun to fight climate change?"
+    ],
+    "keywords": "geomip pinatubo britain outdoor advisors dioxide precipitation aria fairbrother forster monsoon hydrological rainfall tons unpriced"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2984,7 +2988,7 @@
       "Is a carbon tax an effective, efficient way to cut emissions?",
       "Does a carbon tax reduce emissions?"
     ],
-    "keywords": "stern stiglitz rebate bbeling hildebrandt jessica dividends abbott ahmadi aluminium andersson darcangelo ecoscope kabore kruse"
+    "keywords": "stern stiglitz rebate bbeling hildebrandt jessica dividends abbott ahmadi aluminium andersson darcangelo ecoscope emitters kabore"
   },
   {
     "id": "congestion-pricing",
@@ -3587,7 +3591,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350 pub8"
+    "keywords": "evali hospitalised acetate bhadriraju glantz cessation blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
   },
   {
     "id": "sex-work-decriminalization",
