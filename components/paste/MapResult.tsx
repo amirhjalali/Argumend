@@ -236,7 +236,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
       {also ? (
         <>
           <p className="mt-3 font-sans text-sm leading-relaxed text-[var(--text-secondary)]">
-            Your text could fit either question. Choose which to explore or take back to the conversation.
+            Your text could fit either question. Choose one to explore, or copy it with a link to its evidence to take back to the conversation.
           </p>
           <div className="mt-5 grid gap-6 lg:grid-cols-2">
             {([
@@ -257,6 +257,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
                   previewLabel={`Preview the ${ordinal} takeaway`}
                   fallbackLabel={`${label} question to copy`}
                   stacked
+                  hint={false}
                 />
               </section>
             ))}

@@ -117,6 +117,7 @@ export function NextStep({
 export function QuestionTakeaway({
   question, href, scope, leadingAction, copyLabel = "Copy this question",
   previewLabel = "Preview conversation starter", fallbackLabel = "Question to copy", stacked = false,
+  hint = true,
 }: {
   question: string;
   href: string;
@@ -130,6 +131,11 @@ export function QuestionTakeaway({
    * disagree: a longer button label wraps one column's link and not the other's.
    */
   stacked?: boolean;
+  /**
+   * The one-line "take it back" hint. Off where the surrounding copy already
+   * says it, so two takeaways side by side do not repeat it under each.
+   */
+  hint?: boolean;
 }) {
   const starter = [
     "Could we start with this question?",
@@ -169,9 +175,11 @@ export function QuestionTakeaway({
           </span>
         </TextAction>
       </div>
-      <p className="mt-1 text-xs leading-relaxed text-muted dark:text-stone-400">
-        Take a question back to the conversation, with a link to its evidence.
-      </p>
+      {hint && (
+        <p className="mt-1 text-xs leading-relaxed text-muted dark:text-stone-400">
+          Take a question back to the conversation, with a link to its evidence.
+        </p>
+      )}
       <details className="mt-1">
         <summary className="min-h-11 cursor-pointer py-2.5 text-xs text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text">
           {previewLabel}
