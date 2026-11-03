@@ -41,7 +41,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
+    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort biomonitoring nasem fluorochemical hfpo ulcerative colitis"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas snap sommers childless corinth leive prager pukelis zaki wherry arkansass blendon caretakers frail"
+    "keywords": "nebraska arkansas sommers childless corinth leive prager pukelis zaki wherry arkansass blendon caretakers frail noncompliant"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses mail factcheck"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal mail factcheck unconfirmed"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -709,7 +709,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony commonwealth matthew"
+    "keywords": "boxell fowler lachat selb leigh gentzkow uninformed dampen donkey faqs jesse anthony commonwealth matthew"
   },
   {
     "id": "reparations-slavery",
@@ -941,7 +941,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
+    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz perpetrators prostitution starr jean cvra"
   },
   {
     "id": "tiktok-ban",
@@ -1154,7 +1154,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva brownell"
+    "keywords": "colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety slots sugary andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -1176,29 +1176,34 @@
     "tags": [
       "technology"
     ],
-    "keywords": "yoti coppa anxious circumvention ofcom murthy anglophone birthdate drama inman pinpoint tweens candice esafety penguin"
+    "keywords": "yoti coppa circumvention ofcom murthy anglophone birthdate drama inman pinpoint tweens candice esafety penguin takeaways"
   },
   {
     "id": "social-media-mental-health",
     "title": "Social Media and Teen Mental Health",
-    "question": "Is social media a primary cause of the teen mental health crisis?",
-    "meta_claim": "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 60,
+    "question": "Is social media to blame for the teen mental health crisis?",
+    "meta_claim": "Social media use is a primary cause of the rise in teen depression, anxiety and self-harm that began in the early 2010s, especially among girls.",
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 69,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Is social media's harm a small average effect, or a large one concentrated in heavy-using girls?",
+    "pillarCount": 3,
+    "evidenceCount": 12,
+    "firstCrux": "Is social media's harm a small average effect, or a large one concentrated in heavy-using young girls?",
     "tags": [
       "technology"
     ],
-    "keywords": "odgers braghieri comic coyne makarin jensen unfounded joiner michaeline sisyphean stockdale wertham zurcher candice historians"
+    "aliases": [
+      "Is social media a primary cause of the teen mental health crisis?",
+      "Is social media making teenagers depressed?",
+      "Did smartphones cause the rise in teen anxiety?"
+    ],
+    "keywords": "braghieri odgers thoughts detox makarin witkin mercury rausch allcott kaiser keyes rewiring thimm candice happiness"
   },
   {
     "id": "ai-risk",
@@ -1927,7 +1932,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
+    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks"
   },
   {
     "id": "loneliness-epidemic",
@@ -2377,7 +2382,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace schurger vohs philpapers schooler bourget brass compatibilism damasio e2904"
+    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace schurger vohs philpapers bourget brass compatibilism damasio e2904 e2913"
   },
   {
     "id": "simulation-hypothesis",
@@ -2598,7 +2603,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety commenced anglosphere assent babel rausch scandinavia snapchat twitch undifferentiated abrahamsson kick pediatricians reddit threads"
+    "keywords": "esafety commenced anglosphere assent babel scandinavia snapchat twitch undifferentiated abrahamsson kick pediatricians rausch reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2846,7 +2851,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sffa arcidiacono quotas disapprove campuses reanalyses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler"
+    "keywords": "sffa arcidiacono quotas disapprove reanalyses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler klasik"
   },
   {
     "id": "ukraine-peace-terms",
@@ -2982,7 +2987,7 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
+    "keywords": "bbeling hildebrandt jessica stiglitz stern dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
   },
   {
     "id": "congestion-pricing",
@@ -3719,7 +3724,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature hoover jurkatis misdescribe neednt pcepilfe powar"
+    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru booth caricature hoover jurkatis misdescribe neednt pcepilfe"
   },
   {
     "id": "dark-matter-vs-mond",
