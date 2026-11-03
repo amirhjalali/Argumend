@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming metr superhuman bench"
+    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming superhuman bench metr"
   },
   {
     "id": "jones-act",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful heard"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful propublica"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat louisiana turnout brennan cantoni kansass pons tenth tribal campuses"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat turnout brennan cantoni kansass pons tenth tribal campuses mail"
   },
   {
     "id": "nuclear-energy-safety",
@@ -457,7 +457,7 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein phoenix simplification treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
   },
   {
     "id": "gun-control-effectiveness",
@@ -484,7 +484,7 @@
       "Does gun control work?",
       "Would an assault weapons ban reduce mass shootings?"
     ],
-    "keywords": "guns handgun rifles donohue everytown kleck erpo aneja conner dealer doherty hemenway ihme klarevas koper"
+    "keywords": "guns handgun rifles donohue everytown kleck erpo aneja conner dealer doherty hemenway ihme klarevas rudolph"
   },
   {
     "id": "minimum-wage-effects",
@@ -556,24 +556,29 @@
   {
     "id": "police-reform",
     "title": "Policing Reform in America",
-    "question": "Should US policing be restructured, with funds shifted to social services?",
-    "meta_claim": "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
-    "confidence_score": 79,
-    "balance": 79,
-    "weight": 58,
+    "question": "Can America cut police violence without letting crime rise?",
+    "meta_claim": "US cities can reduce killings and other harms by police, through accountability, limits on force and non-police responders, without giving up the gains against violent crime.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 77,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Do accountability measures like body cameras reduce police use of force without raising officer risk?",
+    "pillarCount": 4,
+    "evidenceCount": 16,
+    "firstCrux": "Do body cameras, oversight and prosecutions reduce police use of force without raising officer risk?",
     "tags": [
       "policy"
     ],
-    "keywords": "denver cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed fy2022"
+    "aliases": [
+      "Should US policing be restructured, with funds shifted to social services?",
+      "Should we defund the police?",
+      "Does police reform reduce crime?"
+    ],
+    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver feloniously cahoots louisville roland tanaya portland"
   },
   {
     "id": "mandatory-voting",
@@ -639,7 +644,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad giovanni javier marielitos nonbudgetary reexamining benjamin birthplace"
+    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad giovanni javier marielitos nonbudgetary reexamining birthplace cuban"
   },
   {
     "id": "open-borders",
@@ -750,7 +755,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega clinton oklahoma whoever donald"
   },
   {
     "id": "surveillance-public-safety",
@@ -772,7 +777,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan gebru wrongfully"
+    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan criminology gebru"
   },
   {
     "id": "us-iran-conflict",
@@ -1031,7 +1036,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva"
+    "keywords": "colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva brownell"
   },
   {
     "id": "social-media-age-limits",
@@ -1383,7 +1388,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads annonc ayers"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine jamainternmed kung mammography odyssey usmle lesions rads annonc ayers brormann"
   },
   {
     "id": "privacy-vs-convenience",
@@ -2210,7 +2215,7 @@
       "Rent stabilization for tenants",
       "Rent freezes"
     ],
-    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm citywide decontrol appreciation luttmer yorker glaeser"
+    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm decontrol appreciation citywide luttmer yorker glaeser"
   },
   {
     "id": "degrowth-economics",
@@ -2320,7 +2325,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa deportation castro julio cbps footage nonfatal patrol spokesperson superintendent venturella guns"
+    "keywords": "celis hennepin scene sosa deportation castro julio cbps nonfatal patrol footage spokesperson superintendent venturella shooters"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2679,7 +2684,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters morgans restrainer"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters restrainer mammals"
   },
   {
     "id": "immigration-national-identity",
@@ -2893,7 +2898,7 @@
       "City center entry fees",
       "Motorist charges on central streets"
     ],
-    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas mayors roadworks unaudited zpass wheels depreciation"
+    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass mayors wheels depreciation"
   },
   {
     "id": "right-to-repair",
@@ -3001,7 +3006,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode groves kusano paddock"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla gode groves kusano paddock pe24031"
   },
   {
     "id": "net-neutrality",
@@ -3032,7 +3037,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte dunn facetime"
+    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona duarte dunn facetime gibson"
   },
   {
     "id": "generative-ai-art-copyright",
