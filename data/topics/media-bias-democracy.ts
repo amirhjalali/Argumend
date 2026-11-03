@@ -165,6 +165,24 @@ export const mediaBiasDemocracyData = {
           reasoning:
             "De-inflated: the prior claim that outlet 'quality has not meaningfully declined' and that error rates are demonstrably low was not supported by a specific finding — CJR itself has published work documenting weak correction practices and acknowledging mainstream bias. CJR is also part of the media establishment it covers, limiting independence. The existence of standards and fact-checking does not preclude structural bias.",
         },
+        {
+          id: "budak-goel-rao-fair-balanced",
+          title: "Budak, Goel & Rao (2016): Across 15 Major US Outlets, Measured Slant Was Real but Small; Outlets Are 'Considerably More Similar Than Generally Believed'",
+          description:
+            "Budak, Goel and Rao combined machine learning with crowdsourced coding to measure ideological slant in fifteen major US news outlets. From about 800,000 stories published in 2013 they identified the political ones, and online workers rated a sample of about 10,500 articles by topic and by how favorably they portrayed each party. Outlets ranked from left to right in the order earlier studies found, but the differences were small: most mainstream outlets covered topics in a fairly nonpartisan way and picked stories at similar rates, with political scandals the main exception, and slant showed up mostly as more criticism of one party rather than support for the other. The authors conclude that 'news outlets are considerably more similar than generally believed.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Ceren Budak, Sharad Goel & Justin M. Rao, 'Fair and Balanced? Quantifying Media Bias through Crowdsourced Content Analysis', Public Opinion Quarterly 80(S1): 250–271 (2016)",
+          sourceUrl: "https://academic.oup.com/poq/article/80/S1/250/2223443",
+          reasoning:
+            "Peer-reviewed and built on article-level content coding rather than citation counts or editorial ratings, so it answers the crux's measurement question more directly than Groseclose & Milyo or AllSides. It agrees with them on direction and disagrees on size. Data are from 2013, before the 2016 and 2020 cycles and the growth of partisan digital outlets, so directness is 7, and it measures news stories, not cable opinion programming.",
+        },
       ],
     },
     {
@@ -260,6 +278,42 @@ export const mediaBiasDemocracyData = {
           sourceUrl: "https://web.stanford.edu/~gentzkow/research/echo_chambers.pdf",
           reasoning:
             "Two peer-reviewed studies challenging the strongest echo-chamber claims. Corrected the loose 'Stanford; Oxford' attribution to the actual journals (QJE and Public Opinion Quarterly). Findings are nuanced rather than a flat rejection of filter bubbles, and the data predate current algorithmic feeds, so directness is scored moderately.",
+        },
+        {
+          id: "nyhan-like-minded-not-polarizing",
+          title: "Nyhan et al. (Nature, 2023): Cutting 23,377 Facebook Users' Like-Minded Exposure by a Third During the 2020 Election Did Not Reduce Polarization",
+          description:
+            "In a preregistered field experiment run with Meta during the 2020 US presidential election, academic researchers reduced 23,377 Facebook users' 'exposure to content from like-minded sources during the 2020 US presidential election by about one-third.' Like-minded sources made up 'the majority of what people see on the platform', though political news was a small share. The intervention raised exposure to cross-cutting content and cut uncivil language, but it 'did not correspondingly reduce polarization in beliefs or attitudes' across eight preregistered measures including affective polarization; the authors 'can confidently rule out effects of ±0.12 s.d. or more on each of these outcomes.' The paper states that 'Meta could not block any results from being published' and that the lead academics had final say on the analysis plan.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
+          },
+          source:
+            "Nyhan et al. (more than 30 authors, with Meta researchers), 'Like-minded sources on Facebook are prevalent but not polarizing', Nature 620: 137–144 (2023)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10396953/",
+          reasoning:
+            "Close to the randomized trial the crux asks for, at scale, with precise null estimates, so directness is 8. Limits: three months near an election, when views are most settled; one platform; and a one-third reduction, not removal. It tests whether less echo-chamber exposure de-polarizes now, not whether years of it built the divide, which is the open part of the crux. Independence is 7 because Meta ran the platform side.",
+        },
+        {
+          id: "guess-chronological-feed-null",
+          title: "Guess et al. (Science, 2023): Switching Facebook and Instagram Users to a Chronological Feed for Three Months Did Not Significantly Change Polarization",
+          description:
+            "In a companion 2020-election experiment, the researchers 'assigned a sample of consenting users to reverse-chronologically-ordered feeds instead of the default algorithms' on Facebook and Instagram. Removing the ranking algorithm cut users' time and activity on the platforms and changed the political and incivility content they saw, but over the three-month study it did not significantly change affective polarization, issue polarization, political knowledge or other key attitudes.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Guess, Malhotra, Pan et al., 'How do social media feed algorithms affect attitudes and behavior in an election campaign?', Science 381(6656): 398–404 (2023)",
+          sourceUrl: "https://doi.org/10.1126/science.abp9364",
+          reasoning:
+            "A randomized test of the algorithmic-amplification mechanism that the 'for' side's strongest card describes, and it found no short-run attitude change. Directness is 7 rather than 8 because the chronological feed changed what people saw in several ways at once and the window was three months. Details are from the abstract (the article is paywalled).",
         },
         {
           id: "algorithmic-amplification",
