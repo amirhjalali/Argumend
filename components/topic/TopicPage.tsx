@@ -273,19 +273,28 @@ export function AgreementBlock({ heading, items }: { heading: string; items: str
 
 export function CruxSheet({ page, cruxes }: { page: TopicPageData; cruxes: CruxEntryView[] }) {
   if (cruxes.length === 0) return null;
+  // One intro, not two. A map's own lede leads, with the tally of how the
+  // questions could close after it; the generic "Settle one…" line is only
+  // for a map that has no lede of its own.
+  const lede = page.cruxLede
+    ? [page.cruxLede, page.cruxTally].filter(Boolean).join(" ")
+    : undefined;
   return (
     <Section
       id="cruxes"
       title={cruxSheetHeading(cruxes.length)}
-      lede={page.cruxTally ? `Settle one and whole positions move. ${page.cruxTally}` : undefined}
+      lede={!lede && page.cruxTally ? `Settle one and whole positions move. ${page.cruxTally}` : undefined}
       className="mt-8"
     >
-      {page.cruxLede && (
-        <p className="-mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300">
-          {page.cruxLede}
+      {lede && (
+        <p
+          data-crux-lede=""
+          className="-mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300"
+        >
+          {lede}
         </p>
       )}
-      <ol data-crux-sheet="" className={`${page.cruxLede ? "mt-5" : ""} ${CRUX_SHEET}`}>
+      <ol data-crux-sheet="" className={`${lede ? "mt-5" : ""} ${CRUX_SHEET}`}>
         {cruxes.map((crux, index) => (
           <CruxEntry key={crux.anchor} crux={crux} index={index} />
         ))}

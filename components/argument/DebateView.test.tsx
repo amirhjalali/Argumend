@@ -249,7 +249,11 @@ describe("DebateView", () => {
       `This turns on ${["zero", "one", "two", "three", "four", "five", "six"][cruxes.length]} questions`,
     );
     expect(screen.getByText(TEST_META.hook)).not.toBeNull();
-    expect(screen.getByText(TEST_META.tldr)).not.toBeNull();
+    // One intro over the crux sheet: the map's own lede, then how the
+    // questions could close; no generic "Settle one…" line on top of it.
+    const intro = cruxSection.querySelector<HTMLElement>("[data-crux-lede]")!;
+    expect(intro.textContent?.startsWith(`${TEST_META.tldr} `)).toBe(true);
+    expect(cruxSection.textContent).not.toContain("Settle one and whole positions move.");
     expect(view.container.textContent).not.toContain("pieces of evidence ·");
 
     // The screenshot card remains understandable as a labeled landmark and
