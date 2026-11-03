@@ -261,6 +261,23 @@ export const affirmativeActionMeritocracyData = {
             "Institutional enrollment data is publicly reported. The post-SFFA data directly tests whether the ruling's promised race-neutral alternatives can maintain diversity. However, this is only one year of data, some institutions may be using essay-based race consideration (allowed under SFFA), and the full impact will take several years to assess. Source reliability is slightly lower because institutional self-reporting may reflect different methodologies.",
         },
         {
+          id: "uc-record-admits-2024",
+          title: "Twenty-eight years into its race-blind rule, UC admitted its most diverse class yet (fall 2024)",
+          description:
+            "The University of California reported on 31 July 2024 that it 'admitted the largest and most diverse class in its history for fall 2024'. Among California first-year admits, 'admission offers to underrepresented students rose to 45.4 percent', Latino students were the largest group at 38.6 percent, and offers to African American students rose by almost 10 percent from the year before. The release notes that 'California's Proposition 209 banned the consideration of race in admissions 28 years ago within the state', and credits 'the university's holistic admissions process, combined with our campuses' deliberate work with high schools'. For defenders of race-neutral policy, this is a large public system reaching record representation on outreach, holistic review and test-free admission alone. The figures are systemwide admission offers, not enrollment at Berkeley or UCLA, and they do not separate the policy from changes in who applies.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 5,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "University of California Office of the President, 'UC announces record-breaking admissions for fall 2024' (31 July 2024)",
+          sourceUrl: "https://www.universityofcalifornia.edu/news/uc-announces-record-breaking-admissions-fall-2024",
+          reasoning:
+            "Official admissions counts, published annually and checkable, so reliability and replicability are high. Independence is 5: the university is reporting its own record. Directness is held to 5: the crux asks whether race-neutral policy can match race-conscious outcomes at selective institutions, and systemwide admission offers do not answer that for the most selective campuses, where the map's own cards show the steepest losses; nor do they separate policy from demographic change. It is still the strongest evidence that a race-neutral system can reach record representation over a long horizon.",
+        },
+        {
           id: "income-based-aa-underperformance",
           title: "Income-Based Affirmative Action Falls Well Short of Racial Diversity Lost",
           description:
