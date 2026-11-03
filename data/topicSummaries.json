@@ -63,7 +63,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes lowe regimen lipids"
+    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids lowe"
   },
   {
     "id": "daylight-saving-time-abolition",
@@ -195,7 +195,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro hannah plenty strawberries ritchie aerofarms appharvest bowery leafy"
+    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro plenty strawberries hannah ritchie aerofarms appharvest bowery leafy"
   },
   {
     "id": "de-extinction-species",
@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann metr superhuman bench looming"
+    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann superhuman looming metr philanthropy"
   },
   {
     "id": "jones-act",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki beautiful kffs propublica"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs arkansass blendon"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -471,7 +471,7 @@
       "Independent redistricting commissions",
       "Gerrymandering ban"
     ],
-    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki kagan newsom cements deadlocked"
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom cements deadlocked kagan"
   },
   {
     "id": "aca-enhanced-subsidies",
@@ -559,29 +559,34 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix simplification treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
   },
   {
     "id": "gun-control-effectiveness",
     "title": "Gun Control Effectiveness",
-    "question": "Do stricter gun laws significantly reduce gun violence and mass shootings?",
-    "meta_claim": "Stricter gun control laws significantly reduce gun violence and mass shootings.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 68,
+    "question": "Do stricter gun laws save lives?",
+    "meta_claim": "Stricter gun laws, such as permits to buy, background checks, safe-storage rules and limits on assault weapons and large magazines, would cut US gun deaths substantially.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 83,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
+    "pillarCount": 4,
+    "evidenceCount": 18,
     "firstCrux": "How much of the US firearm death rate comes from gun availability and laws versus other factors?",
     "tags": [
       "policy"
     ],
-    "keywords": "guns erpo buyback deadlier everytown gertz ihme kleck swanson indiana shooters alpers chapman dgus ncvs"
+    "aliases": [
+      "Do stricter gun laws significantly reduce gun violence and mass shootings?",
+      "Does gun control work?",
+      "Would an assault weapons ban reduce mass shootings?"
+    ],
+    "keywords": "handgun rifles donohue everytown kleck erpo aneja conner dealer doherty hemenway ihme klarevas rudolph swanson"
   },
   {
     "id": "minimum-wage-effects",
@@ -626,7 +631,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "portugal recidivism emcdda overdose incarceration marijuana provisional hotline vera ticketed czech decriminalisation euda fentanyl greenwald"
+    "keywords": "portugal recidivism emcdda overdose incarceration provisional hotline marijuana vera ticketed czech decriminalisation euda fentanyl greenwald"
   },
   {
     "id": "death-penalty-deterrence",
@@ -653,24 +658,29 @@
   {
     "id": "police-reform",
     "title": "Policing Reform in America",
-    "question": "Should US policing be restructured, with funds shifted to social services?",
-    "meta_claim": "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
-    "confidence_score": 79,
-    "balance": 79,
-    "weight": 58,
+    "question": "Can America cut police violence without letting crime rise?",
+    "meta_claim": "US cities can reduce killings and other harms by police, through accountability, limits on force and non-police responders, without giving up the gains against violent crime.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 77,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Do accountability measures like body cameras reduce police use of force without raising officer risk?",
+    "pillarCount": 4,
+    "evidenceCount": 16,
+    "firstCrux": "Do body cameras, oversight and prosecutions reduce police use of force without raising officer risk?",
     "tags": [
       "policy"
     ],
-    "keywords": "denver cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed fy2022"
+    "aliases": [
+      "Should US policing be restructured, with funds shifted to social services?",
+      "Should we defund the police?",
+      "Does police reform reduce crime?"
+    ],
+    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver feloniously cahoots louisville roland tanaya portland"
   },
   {
     "id": "mandatory-voting",
@@ -719,24 +729,29 @@
   {
     "id": "immigration-wage-impact",
     "title": "Immigration and Wages",
-    "question": "Does large-scale immigration significantly cut low-skilled native wages?",
+    "question": "Does immigration push down wages for low-paid American workers?",
     "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
     "confidence_score": 41,
     "balance": 41,
-    "weight": 67,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
+    "pillarCount": 3,
+    "evidenceCount": 14,
     "firstCrux": "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
     "tags": [
       "policy"
     ],
-    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad giovanni javier marielitos nonbudgetary reexamining benjamin birthplace"
+    "aliases": [
+      "Does large-scale immigration significantly cut low-skilled native wages?",
+      "Do immigrants take jobs from Americans?",
+      "Will deporting immigrants raise wages?"
+    ],
+    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe elizabeth"
   },
   {
     "id": "open-borders",
@@ -758,7 +773,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular countercyclical"
+    "keywords": "carens remittances clemens borjas bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular"
   },
   {
     "id": "universal-basic-income",
@@ -802,7 +817,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg deferral"
   },
   {
     "id": "standardized-testing-debate",
@@ -846,7 +861,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega clinton oklahoma whoever donald"
   },
   {
     "id": "surveillance-public-safety",
@@ -868,7 +883,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan gebru wrongfully"
+    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan criminology gebru"
   },
   {
     "id": "us-iran-conflict",
@@ -919,7 +934,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators beach palm acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
+    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
   },
   {
     "id": "tiktok-ban",
@@ -948,16 +963,16 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture upholds fisa forbes knight retrained broadcast gorsuch relicensed"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight retrained upholds broadcast relicensed usds"
   },
   {
     "id": "immigration-border-crisis",
     "title": "The US Immigration & Border Crisis",
-    "question": "Is enforcement plus asylum limits the best way to manage US immigration?",
-    "meta_claim": "The current approach to US immigration — combining border enforcement, asylum restrictions, and deportation — is the most effective way to manage immigration and protect national interests.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 69,
+    "question": "Are a closed border and mass deportations the right way to handle illegal immigration?",
+    "meta_claim": "The approach the US has taken since January 2025 (shutting off asylum at the border, record detention and a large-scale deportation drive) is the right way to handle illegal immigration.",
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -965,12 +980,17 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Did border crossings fall because of enforcement, or because of other factors?",
+    "evidenceCount": 14,
+    "firstCrux": "Did border crossings fall because of US enforcement, or because of other factors, and will the fall last?",
     "tags": [
       "policy"
     ],
-    "keywords": "fy2023 southwest trac syracuse fy2022 backlog binational venezuelan apprehensions boatlift mariel patrol neglect afghans aics"
+    "aliases": [
+      "Is enforcement plus asylum limits the best way to manage US immigration?",
+      "Should the US deport all illegal immigrants?",
+      "Is mass deportation a good idea?"
+    ],
+    "keywords": "trac southwest apprehensions patrol detained backlog marc rosenblum syracuse apprehended binational fy2023 asphyxia ians neck"
   },
   {
     "id": "social-media-elections",
@@ -1014,7 +1034,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima lewis norad waltz kenneth submarine andropov"
+    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima norad waltz kenneth lewis submarine andropov"
   },
   {
     "id": "school-phone-bans",
@@ -1479,7 +1499,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads annonc ayers"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine jamainternmed kung mammography odyssey usmle lesions rads annonc ayers brormann"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1944,7 +1964,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "placer bloom andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip gentrification"
+    "keywords": "placer bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip"
   },
   {
     "id": "college-value-proposition",
@@ -2013,7 +2033,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2190,7 +2210,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
+    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore advisors"
   },
   {
     "id": "global-housing-bubble",
@@ -2212,7 +2232,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals lows sellers belt hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
+    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia starter lopez metro airbnb batzer bearish"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2306,7 +2326,7 @@
       "Rent stabilization for tenants",
       "Rent freezes"
     ],
-    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm citywide decontrol appreciation luttmer yorker glaeser"
+    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm decontrol appreciation citywide luttmer yorker glaeser"
   },
   {
     "id": "degrowth-economics",
@@ -2416,7 +2436,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa deportation castro julio cbps footage nonfatal patrol spokesperson superintendent venturella guns"
+    "keywords": "celis hennepin scene sosa deportation castro julio cbps nonfatal patrol footage spokesperson superintendent venturella shooters"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2571,7 +2591,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
+    "keywords": "esafety commenced anglosphere assent babel rausch scandinavia snapchat twitch undifferentiated abrahamsson kick pediatricians reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2775,7 +2795,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters morgans restrainer"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters mammals morgans"
   },
   {
     "id": "immigration-national-identity",
@@ -2797,7 +2817,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam retiree hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
+    "keywords": "putnam borjas retiree hunkering italians jews complementarity diploma dispersed norc resettlement refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2841,7 +2861,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian zelensky putin donetsk manpower rusi ceasefire moscow emboldens haass jamestown kupchan kyiv facto refurbished"
+    "keywords": "ukrainian zelensky troops putin donetsk manpower rusi ceasefire facto moscow emboldens haass jamestown kupchan kyiv"
   },
   {
     "id": "trump-tariffs",
@@ -2907,7 +2927,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "pahlka callers fy2025 slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
+    "keywords": "pahlka fy2025 callers slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
   },
   {
     "id": "open-weight-ai-models",
@@ -2929,7 +2949,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bench bengio restrictionist yoshua"
+    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bengio restrictionist yoshua casper"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -2988,7 +3008,7 @@
       "City center entry fees",
       "Motorist charges on central streets"
     ],
-    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas mayors roadworks unaudited zpass wheels depreciation"
+    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass mayors wheels depreciation"
   },
   {
     "id": "right-to-repair",
@@ -3049,19 +3069,19 @@
     "id": "second-amendment-individual-right",
     "title": "The Second Amendment: Individual Right?",
     "question": "Does the Second Amendment protect an individual right to bear arms?",
-    "meta_claim": "The Second Amendment protects an individual right to bear arms, not merely a collective/militia right.",
-    "confidence_score": 52,
-    "balance": 52,
-    "weight": 69,
+    "meta_claim": "The Second Amendment protects an individual right to keep and bear arms for self-defense, not merely a right tied to militia service, and that right limits what guns governments may ban and where they may ban carrying them.",
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does the amendment's militia clause limit the right, or only explain its purpose?",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "Did 'bear arms' in the 1700s mean mainly military service, or also private carrying for self-defense?",
     "tags": [
       "policy",
       "second-amendment",
@@ -3069,7 +3089,12 @@
       "gun-rights",
       "originalism"
     ],
-    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace coeme"
+    "aliases": [
+      "Does the Second Amendment protect an individual right?",
+      "Is an assault weapons ban constitutional?",
+      "Does the Second Amendment only protect militias?"
+    ],
+    "keywords": "heller bruen emerson kavanaugh kopel rahimi saul marijuana mcdonald soldier wallace corpus baron hemani wolford"
   },
   {
     "id": "self-driving-car-safety",
@@ -3096,7 +3121,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode groves kusano paddock"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla gode groves kusano paddock pe24031"
   },
   {
     "id": "net-neutrality",
@@ -3127,7 +3152,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte dunn facetime"
+    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona duarte dunn facetime gibson"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3181,7 +3206,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha randal"
+    "keywords": "frvt metropolitan nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha"
   },
   {
     "id": "gmo-crops-safety",
@@ -3549,7 +3574,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised wang acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
+    "keywords": "evali hospitalised acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350 pub8"
   },
   {
     "id": "sex-work-decriminalization",
