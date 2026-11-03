@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries theorem"
+    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric montreal tragedy subsistence folk malthus nash fisheries leviathan"
   },
   {
     "id": "ai-2027",
@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann superhuman looming metr philanthropy"
+    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann bench looming philanthropy serial superhuman"
   },
   {
     "id": "jones-act",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses mail factcheck"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses factcheck mail"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -505,7 +505,7 @@
       "Health insurance premiums 2026",
       "Extend the ACA tax credits"
     ],
-    "keywords": "enrollees paragon improper bronze r48290 phantom aspe kffs blase moreno maga planners sicker backfills colleran"
+    "keywords": "enrollees paragon improper deductibles bronze r48290 phantom aspe kffs blase moreno maga planners sicker backfills"
   },
   {
     "id": "nuclear-energy-safety",
@@ -559,7 +559,7 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein treatable"
   },
   {
     "id": "gun-control-effectiveness",
@@ -868,7 +868,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega clinton whoever oklahoma"
+    "keywords": "npvic compact trifecta gore hillary mega clinton oklahoma whoever"
   },
   {
     "id": "surveillance-public-safety",
@@ -890,7 +890,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan criminology gebru"
+    "keywords": "detroit smartlink medell montevideo buolamwini farrington gebru lineup munyo piza rossi shades welsh zhan criminology"
   },
   {
     "id": "us-iran-conflict",
@@ -970,7 +970,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight retrained upholds broadcast relicensed usds"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight upholds broadcast retrained relicensed usds"
   },
   {
     "id": "immigration-border-crisis",
@@ -1202,12 +1202,12 @@
   },
   {
     "id": "ai-risk",
-    "title": "Existential Risk from AGI",
-    "question": "Does AGI pose a real risk of human extinction within the next century?",
-    "meta_claim": "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 67,
+    "title": "Existential Risk from Advanced AI",
+    "question": "Is advanced AI a real threat to human survival?",
+    "meta_claim": "Advanced AI poses a real, non-negligible risk of human extinction or permanent loss of human control this century, because capable systems can end up misaligned, pursuing goals their developers did not intend, and safety methods may not keep pace.",
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1215,12 +1215,19 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does scheming-like behavior in AI tests reflect a deep drive to seek power, or artifacts of contrived setups?",
+    "evidenceCount": 16,
+    "firstCrux": "As AI gets more capable, does it dodge oversight and escape tests more often, even when nothing invites it?",
     "tags": [
       "technology"
     ],
-    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger humean"
+    "aliases": [
+      "Does AGI pose a real risk of human extinction within the next century?",
+      "Could AI destroy humanity?",
+      "Is AI an existential risk?",
+      "Could AI escape human control?",
+      "Could a misaligned superintelligence wipe out humanity?"
+    ],
+    "keywords": "apollo kapoor narayanan amodei astra rlhf turner redwood sonnet circled opus sandbox boat deliberative mini"
   },
   {
     "id": "ai-content-labeling",
@@ -1242,7 +1249,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers chegini conspicuous ecfr iptc"
+    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan zauderer artists trustworthy writers chegini conspicuous ecfr iptc"
   },
   {
     "id": "big-tech-antitrust",
@@ -1352,38 +1359,16 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters consolidation"
+    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters scaffolding"
   },
   {
     "id": "ai-in-education",
     "title": "AI in Education: Revolution or Risk?",
-    "question": "Will AI in education close achievement gaps and outweigh its risks?",
-    "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 65,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Does AI tutoring help disadvantaged students most, or the already advantaged?",
-    "tags": [
-      "technology"
-    ],
-    "keywords": "khanmigo unaided mooc quiz bastani estudia kestin kosmyna kulik mindspark ruiperez unguarded valiente fletcher reich"
-  },
-  {
-    "id": "ai-regulation",
-    "title": "Should AI Be Regulated Like Drugs or Nuclear Energy?",
-    "question": "Should AI be regulated like drugs or nuclear energy?",
-    "meta_claim": "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 75,
+    "question": "Does AI in schools help students learn more than it harms them?",
+    "meta_claim": "AI tutors and chatbots in schools will help students learn more than they harm them, and help the students furthest behind the most, outweighing the risks of cheating and of students letting AI do their thinking.",
+    "confidence_score": 44,
+    "balance": 44,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1392,11 +1377,43 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
-    "firstCrux": "Will AI capabilities keep scaling toward catastrophe-relevant thresholds, or plateau?",
+    "firstCrux": "Do students who learn with AI do better or worse when tested without it?",
     "tags": [
       "technology"
     ],
-    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu dario demis godfather gsm8k hassabis kefauver mmmu"
+    "aliases": [
+      "Will AI in education close achievement gaps and outweigh its risks?",
+      "Should AI be used in schools?",
+      "Is ChatGPT bad for students?"
+    ],
+    "keywords": "schoolwork bastani khanmigo kulik ruip valiente fletcher reich unaided muralidharan nfer learners delhi estudia kestin"
+  },
+  {
+    "id": "ai-regulation",
+    "title": "Binding Safety Rules for Powerful AI",
+    "question": "Should the most powerful AI models face binding government safety rules?",
+    "meta_claim": "The most capable AI models should face binding government safety rules, such as required testing, incident reporting and the power to halt a dangerous model, rather than rely on voluntary commitments from the companies that make them.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 79,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 4,
+    "evidenceCount": 22,
+    "firstCrux": "Can today's most powerful AI models do enough damage, in cyberattacks or bioweapons, to justify binding rules now?",
+    "tags": [
+      "technology"
+    ],
+    "aliases": [
+      "Should AI be regulated by the government?",
+      "Should states or Washington regulate AI?",
+      "Should AI companies be allowed to police themselves?"
+    ],
+    "keywords": "summit newsom seoul globalist hinton zhipu thalidomide amodei multimodal tape calif hassabis knapp noah omnibus"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1418,29 +1435,34 @@
     "tags": [
       "technology"
     ],
-    "keywords": "technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel rogue"
+    "keywords": "technocratic crispr moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel rogue angry"
   },
   {
     "id": "ai-superintelligence-timeline",
     "title": "Will Artificial Superintelligence Arrive Before 2035?",
     "question": "Could artificial superintelligence arrive before 2035?",
-    "meta_claim": "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation. The AI 2027 scenario is one named fast path to it, not the only one.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 63,
+    "meta_claim": "AI progress in 2025 and 2026 makes artificial superintelligence, AI that outperforms the best humans at nearly every cognitive task, a real possibility before 2035: not a certainty, and not a fringe view.",
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 70,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Will capability gains from more compute hit a ceiling before general reasoning?",
+    "evidenceCount": 16,
+    "firstCrux": "Will the length of task AI agents can finish keep doubling every few months, or level off before human expert level?",
     "tags": [
       "technology"
     ],
-    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt mamba mirage multilingual openreview ouyang schaeffer shazeer smoothly"
+    "aliases": [
+      "Will superintelligent AI arrive before 2035?",
+      "Is AGI coming soon?",
+      "When will AI be smarter than humans?"
+    ],
+    "keywords": "astra lecun amodei fable sooner bricken dziri shazeer chollet hoffmann predecessor decoder kaplan opus harness"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1528,7 +1550,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "brave browser cookies encryption reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger"
+    "keywords": "brave cookies encryption reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger liccardi"
   },
   {
     "id": "climate-change",
@@ -1949,7 +1971,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs surkalim fibrinogen glaser suburban"
+    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole glaser kiecolt luchetti sage suburbs surkalim fibrinogen suburban"
   },
   {
     "id": "remote-work-permanence",
@@ -2040,7 +2062,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan disappointing funder opensecrets pakistan"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2084,7 +2106,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "forked hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
+    "keywords": "forked hashrate moat terra luna glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -2203,7 +2225,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes mbas"
+    "keywords": "tuition repayment deciles nebraska catherine bennett forbearance crfb alleviates bard disbursed forgave fullwiler heroes mbas"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2511,7 +2533,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "happiness nonreligious euthyphro atheist divine communist atrocities courtois edgell happiest unaffiliated unbelief zagonari cambodia flourishing"
+    "keywords": "happiness nonreligious euthyphro atheist divine communist atrocities courtois edgell flourishing happiest unaffiliated unbelief zagonari cambodia"
   },
   {
     "id": "meritocracy-myth",
@@ -2644,7 +2666,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied subversion turkey unraveling"
+    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion contentious defamation deliberative dissatisfied turkey unraveling"
   },
   {
     "id": "geoengineering-climate",
@@ -2688,7 +2710,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
+    "keywords": "sanddollar enaira wallet bahamas mbridge nigeria convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
   },
   {
     "id": "masculinity-crisis",
@@ -2710,7 +2732,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate ceos herself naep clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "keywords": "despair deaton anne tate herself naep ceos clearinghouse mens afflicting congregations fraternal hierarchies misogynistic proficiency"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2732,7 +2754,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa tape deloitte schiff hampshire robocall politicians kramer leica nikon hollywood adobe bueno crying liars"
+    "keywords": "c2pa deloitte schiff tape hampshire robocall politicians kramer leica nikon hollywood adobe bueno crying liars"
   },
   {
     "id": "declining-birth-rates",
@@ -2803,7 +2825,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "keywords": "olympic ncaa rapporteur cisgender skeletal medals swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2964,7 +2986,7 @@
     "id": "open-weight-ai-models",
     "title": "Releasing Open-Weight Frontier AI Models",
     "question": "Does publishing the weights of frontier AI models do more good than harm?",
-    "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
+    "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm: wider access, outside safety research, self-hosted defence and competition with Chinese AI outweigh the extra help it gives malicious actors.",
     "confidence_score": 51,
     "balance": 51,
     "weight": 76,
@@ -2975,12 +2997,17 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 4,
-    "evidenceCount": 17,
+    "evidenceCount": 19,
     "firstCrux": "Do safety-stripped open models give bad actors real help on dangerous tasks beyond what search provides?",
     "tags": [
       "technology"
     ],
-    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bengio restrictionist yoshua casper"
+    "aliases": [
+      "Should frontier AI models be released open-weight?",
+      "Should AI models be open source?",
+      "Are open-source AI models dangerous?"
+    ],
+    "keywords": "deepseek ntia caisi toner uplift biorisk licence casper kaunismaa amateur lecun mistral novice bioattack hendrycks"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -3210,7 +3237,7 @@
       "intellectual-property",
       "law"
     ],
-    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim regurgitate reshef shutterstock guild memorization thirteen bibas bookseller"
+    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim memorization regurgitate reshef shutterstock guild thirteen bibas bookseller"
   },
   {
     "id": "facial-recognition-policing",
@@ -3519,7 +3546,7 @@
     "aliases": [
       "Will killer robots start an AI arms race?"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible primer abstentions atrocities belarus governmental milder unoda"
+    "keywords": "icrc preemptive lamberth scharre sparrow dumb if11150 if11294 impermissible governmental primer abstentions atrocities belarus milder"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3716,7 +3743,7 @@
       "Is a glass of red wine a day good for your heart?",
       "Is moderate drinking good for you?"
     ],
-    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted mendelian zhao carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
+    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted mendelian carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi oesophageal"
   },
   {
     "id": "modern-monetary-theory",
