@@ -50,8 +50,9 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["congressional-term-limits", 0, "High re-election rates can reflect satisfied constituents"],
   ["congressional-term-limits", 1, "The best natural experiment — 15 states that adopted"],
   ["return-to-office-productivity", 1, "The serendipity argument is the most romanticized"],
-  ["ai-deepfakes-truth-collapse", 0, "The liar's dividend concern is real but overstated"],
-  ["ai-deepfakes-truth-collapse", 1, "The detection pessimism overstates the case."],
+  // Rewritten in round 15 (pillars reordered: detection, liar's dividend, provenance).
+  ["ai-deepfakes-truth-collapse", 0, "Detection is not just pixel-peeping"],
+  ["ai-deepfakes-truth-collapse", 1, "The liar's dividend is real but smaller than feared"],
   ["occupational-licensing-reform", 0, "The 'no quality benefit' finding is real for low-stakes trades"],
   ["occupational-licensing-reform", 1, "Mobility frictions are a design flaw"],
   ["privacy-vs-convenience", 0, "The 'resistance is futile' framing overstates"],
@@ -68,7 +69,7 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["us-national-debt-crisis", 2, "Reports of the dollar's demise have been greatly exaggerated"],
   ["congressional-term-limits", 2, "The bar is far higher than popularity suggests."],
   ["facial-recognition-policing", 2, "A governance gap is an argument for governance, not abolition."],
-  ["ai-deepfakes-truth-collapse", 2, "The transition challenge is real but the trajectory is positive."],
+  ["ai-deepfakes-truth-collapse", 2, "The fix is arriving where it matters first."],
 ];
 
 // Crux flips that once pointed the wrong way. supporter_flip is what would

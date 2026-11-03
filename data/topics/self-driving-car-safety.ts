@@ -28,6 +28,7 @@ export const selfDrivingCarSafetyData = {
   },
   simple_case: [
     "About 40,000 Americans die on the roads each year. The answer bears on whether cities let robotaxis in, whether states and Congress loosen the rules for cars with no steering wheel, and whether the companies' own crash numbers are enough to go on.",
+    "Waymo is the only operator with a long published record; Tesla, Zoox and others are earlier on. Most of the evidence on either side comes from Waymo's own data and from federal crash reports.",
   ],
   tags: ["autonomous-vehicles", "robotaxi", "safety", "waymo", "transportation"],
   pillars: [

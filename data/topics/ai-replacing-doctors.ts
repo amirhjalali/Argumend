@@ -28,6 +28,7 @@ export const aiReplacingDoctorsData = {
   },
   simple_case: [
     "The answer bears on who reads your scans and answers your questions at 2 a.m., on how many doctors medical schools train, and on who is liable when a machine gets a diagnosis wrong.",
+    "AI already reads mammograms alongside radiologists in Sweden and Germany, and most doctors use it for notes and lookups. What is open is how much of the doctor's own judgment it can take over, and how soon.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=60",

@@ -32,6 +32,7 @@ export const aiEnergyWaterFootprintData = {
   },
   simple_case: [
     "The answer bears on electricity bills: in the PJM grid, which serves 13 states and Washington, D.C., the market monitor blamed data centres for $6.5 billion of a $16.4 billion bill for power capacity in 2027-28. It also bears on whether coal and gas plants close on schedule, and on the water supply of towns where new data centres are going up.",
+    "Data centres are still a small share of the world's electricity, and each prompt keeps getting cheaper to run. What both sides watch is the total, where it is built, and who carries its costs.",
   ],
   tags: ["ai", "energy", "water", "data-centers", "sustainability"],
   pillars: [

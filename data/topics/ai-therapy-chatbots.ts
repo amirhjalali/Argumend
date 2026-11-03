@@ -30,6 +30,7 @@ export const aiTherapyChatbotsData = {
   },
   simple_case: [
     "The answer bears on the states writing laws about AI therapy, as Illinois did when it banned it in August 2025; on how the FDA treats these apps; and on the many people, teenagers especially, who cannot find or afford a therapist and are turning to a chatbot instead.",
+    "There are far fewer therapists than patients seeking one. Chatbots are cheap and always awake; they are also unlicensed, and some have failed people in crisis.",
   ],
   pillars: [
     // =========================================================================
