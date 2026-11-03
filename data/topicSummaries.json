@@ -107,7 +107,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "lynn bartenders danny flsa meyers waitstaff allegretto ushg waiters waitresses dining customarily goodwill lucrative patrons"
+    "keywords": "lynn bartenders flsa meyers waitstaff danny allegretto ushg waiters waitresses dining customarily goodwill lucrative patrons"
   },
   {
     "id": "ai-therapy-chatbots",
@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol stagnant pell naep nordhaus rosen vijan admin cutler turner haircut helland marron tabarrok ginsberg"
+    "keywords": "baumol stagnant pell naep nordhaus rosen vijan cutler admin haircut helland marron tabarrok ginsberg liscow"
   },
   {
     "id": "moloch",
@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann bench looming serial superhuman untenable"
+    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming serial superhuman untenable besiroglu"
   },
   {
     "id": "jones-act",
@@ -471,7 +471,7 @@
       "Independent redistricting commissions",
       "Gerrymandering ban"
     ],
-    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki deadlocked newsom ajps arora"
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki deadlocked ajps arora ebowe"
   },
   {
     "id": "aca-enhanced-subsidies",
@@ -561,7 +561,7 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein treatable molecular"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein treatable molecular simplification"
   },
   {
     "id": "gun-control-effectiveness",
@@ -843,7 +843,7 @@
       "Did wealth taxes fail in Europe?",
       "Is the Zucman tax a good idea?"
     ],
-    "keywords": "jakobsen saez jaros marius kleven lhart rauh propublica berg brin cantons hankey kalanick kroner ostry"
+    "keywords": "jakobsen switzerland saez jaros marius kleven lhart rauh propublica berg brin cantons hankey kalanick kroner"
   },
   {
     "id": "standardized-testing-debate",
@@ -865,7 +865,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "pell coaching gpas galla prep allensworth alvero briggs nacac derek sttf chetty deming antonio domingue"
+    "keywords": "pell coaching gpas galla prep allensworth alvero briggs nacac derek sttf deming antonio domingue eabi9031"
   },
   {
     "id": "electoral-college-reform",
@@ -887,7 +887,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "compact morley npvic chiafalo trifecta gore infirmities inadvertent bush abigail ashley cabal faithless foleys hillary"
+    "keywords": "compact morley npvic chiafalo trifecta gore infirmities inadvertent bush ashley cabal faithless foleys hillary impenetrable"
   },
   {
     "id": "surveillance-public-safety",
@@ -966,36 +966,39 @@
       "Is the government still hiding the Epstein files?",
       "Did institutions cover up the Epstein case?"
     ],
-    "keywords": "maxwell acostas redacted palm brunel conspirators mountbatten windsor beach suspicion jazeera blackmail dershowitz disgrace mandelson"
+    "keywords": "maxwell acostas palm brunel conspirators mountbatten windsor beach suspicion jazeera blackmail dershowitz disgrace mandelson starr"
   },
   {
     "id": "tiktok-ban",
-    "title": "Should TikTok Be Banned?",
-    "question": "Is TikTok enough of a security threat to justify a ban or forced sale?",
-    "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 80,
+    "title": "The TikTok Ban and Sale",
+    "question": "Was TikTok's Chinese ownership a big enough threat to force a sale?",
+    "meta_claim": "TikTok's Chinese ownership was a real national-security threat, and forcing ByteDance to sell TikTok's U.S. business was justified.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 5,
-    "evidenceCount": 24,
-    "firstCrux": "Can ByteDance staff in China still access Americans' TikTok data despite Project Texas safeguards?",
+    "pillarCount": 4,
+    "evidenceCount": 25,
+    "firstCrux": "Before the sale, could Beijing get at Americans' TikTok data or steer their feeds?",
     "tags": [
       "policy"
     ],
     "aliases": [
+      "Is TikTok enough of a security threat to justify a ban or forced sale?",
+      "Should TikTok be banned?",
+      "Did the TikTok deal get China out of TikTok?",
       "Government Bans on Social Media Platforms",
       "Can national security justify banning foreign-owned apps like TikTok?",
       "Should governments ban social media platforms?",
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture forbes fisa knight upholds broadcast retrained relicensed subsidiaries"
+    "keywords": "garland oracle divestiture retrained redseer gorsuch usds curiam outage broadcast bondi buzzfeed chow moolenaar roundtable"
   },
   {
     "id": "immigration-border-crisis",
@@ -1022,7 +1025,7 @@
       "Should the US deport all illegal immigrants?",
       "Is mass deportation a good idea?"
     ],
-    "keywords": "trac patrol southwest apprehensions backlog migrant propublica marc rosenblum apprehended eoir paso syracuse ices quick"
+    "keywords": "trac patrol southwest apprehensions migrant propublica marc rosenblum apprehended eoir paso syracuse ices asphyxia beltran"
   },
   {
     "id": "social-media-elections",
@@ -1207,7 +1210,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "yoti circumvention coppa anxious ofcom murthy anglophone birthdate drama inman pinpoint tweens candice esafety penguin"
+    "keywords": "yoti circumvention coppa anxious ofcom murthy circumvent anglophone birthdate drama inman pinpoint tweens candice esafety"
   },
   {
     "id": "social-media-mental-health",
@@ -1258,7 +1261,7 @@
       "Could AI escape human control?",
       "Could a misaligned superintelligence wipe out humanity?"
     ],
-    "keywords": "apollo kapoor narayanan amodei astra rlhf opus turner hyperfocused redwood sonnet circled sandbox boat deliberative"
+    "keywords": "apollo kapoor narayanan amodei astra rlhf opus hyperfocused redwood sonnet circled sandbox boat deliberative mini"
   },
   {
     "id": "ai-content-labeling",
@@ -1287,22 +1290,22 @@
     "title": "Breaking Up Big Tech",
     "question": "Should Big Tech be broken up or heavily regulated?",
     "meta_claim": "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 60,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 76,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Are users of free platforms net harmed once privacy, innovation and attention costs are weighed?",
+    "pillarCount": 4,
+    "evidenceCount": 18,
+    "firstCrux": "Did Google and Meta stay on top by building better products, or by paying and buying rivals out of the way?",
     "tags": [
       "technology"
     ],
-    "keywords": "zuboff analytica amit flurry goldberg kamepalli mehta shoshana shriver zingales brynjolfsson rajan gatekeepers bauer collis"
+    "keywords": "mehta headwind boasberg chrome monopolist genai brynjolfsson wrested android monopolized crippling brinkema gses kamepalli perplexity"
   },
   {
     "id": "cancel-culture",
@@ -1324,7 +1327,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "metoo undeserving censorship afraid boycotts brady eeoc kaufmann shor cspi tweeting aguirre bavel chappelle civis"
+    "keywords": "metoo undeserving censorship outrage afraid boycotts brady eeoc kaufmann shor cspi tweeting aguirre bavel chappelle"
   },
   {
     "id": "media-bias-democracy",
@@ -1346,7 +1349,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "slant allsides goel budak crowdsourced groseclose milyo nyhan flaxman husz echo gentzkow regrets ceren fifteen"
+    "keywords": "slant allsides goel budak crowdsourced groseclose milyo nyhan flaxman husz echo gentzkow outrage regrets ceren"
   },
   {
     "id": "space-colonization-feasibility",
@@ -1417,7 +1420,7 @@
       "Should AI be used in schools?",
       "Is ChatGPT bad for students?"
     ],
-    "keywords": "bastani khanmigo kulik ruip schoolwork valiente fletcher nigeria reich unaided muralidharan nfer learners delhi chalkboards"
+    "keywords": "bastani khanmigo kulik ruip schoolwork valiente nigeria reich fletcher unaided muralidharan nfer learners delhi chalkboards"
   },
   {
     "id": "ai-regulation",
@@ -1444,7 +1447,7 @@
       "Should states or Washington regulate AI?",
       "Should AI companies be allowed to police themselves?"
     ],
-    "keywords": "newsom summit seoul multimodal vetoed globalist hinton zhipu thalidomide altman amodei delhi tape calif hassabis"
+    "keywords": "summit seoul multimodal vetoed globalist hinton zhipu thalidomide altman amodei delhi calif hassabis knapp vocabulary"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1466,7 +1469,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "technocratic crispr moores sadness dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel rogue"
+    "keywords": "gdpr technocratic crispr moores sadness dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel"
   },
   {
     "id": "ai-superintelligence-timeline",
@@ -1493,7 +1496,7 @@
       "Is AGI coming soon?",
       "When will AI be smarter than humans?"
     ],
-    "keywords": "astra lecun amodei fable sooner bricken dziri harness shazeer chollet hoffmann predecessor decoder kaplan opus"
+    "keywords": "astra lecun amodei fable sooner bricken dziri harness shazeer chollet decoder hoffmann predecessor opus coder"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1585,7 +1588,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "brave cookies encryption reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger liccardi"
+    "keywords": "gdpr brave cookies encryption reauthorized fingerprinting carpenter whatsapp acxiom adppa aguiar clearview duckduckgo inria kagal"
   },
   {
     "id": "climate-change",
@@ -1707,7 +1710,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "cas9 ccr5 jiankui nuffield anzalone mosaic sickle asrm hfea komor lulu monogenic nana shenzhen editors"
+    "keywords": "cas9 ccr5 jiankui nuffield anzalone mosaic sickle asrm hfea komor lulu monogenic nana shenzhen sandel"
   },
   {
     "id": "space-exploration-value",
@@ -1729,7 +1732,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "asteroid dart debris spinoff spacex spin planetary landsat modis mars collisions irreplaceable mckinsey perseverance constellation"
+    "keywords": "asteroid dart debris spinoff spacex spin planetary landsat modis mars collisions fy2024 irreplaceable mckinsey perseverance"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1932,7 +1935,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters endocrinology pharmacotherapy reclassification waist amgen"
+    "keywords": "semaglutide wegovy novo pharmacy nordisk quadrupled novocare substudy dieters endocrinology pharmacotherapy reclassification waist amgen copay"
   },
   {
     "id": "fluoride-water-supplies",
@@ -2004,7 +2007,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "supermarket semaglutide kcal regained microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks"
+    "keywords": "supermarket semaglutide kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks endocrinology"
   },
   {
     "id": "loneliness-epidemic",
@@ -2058,7 +2061,7 @@
       "Is hybrid work permanent?",
       "Are return-to-office mandates winning?"
     ],
-    "keywords": "placer swaa workdays kastle moodys bloom gibbs mengel siemroth teleworked liang andy jassy lila margalit"
+    "keywords": "placer swaa workdays kastle bloom moodys gibbs mengel siemroth teleworked liang andy jassy lila margalit"
   },
   {
     "id": "college-value-proposition",
@@ -2112,27 +2115,29 @@
   {
     "id": "billionaire-wealth",
     "title": "Should Billionaires Exist?",
-    "question": "Should taxes or structural reform prevent billionaire-scale wealth?",
+    "question": "Should policy stop billionaire-sized fortunes?",
     "meta_claim": "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 59,
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does extreme wealth concentration cause declining social mobility, or do both share other causes?",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do the biggest fortunes come mostly from building companies, or from market power, inheritance and compounding?",
     "tags": [
       "economics"
     ],
     "aliases": [
+      "Should taxes or structural reform prevent billionaire-scale wealth?",
+      "Should billionaires exist?",
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs poliovirus entrepreneurial polio afghanistan disappointing opensecrets pakistan"
+    "keywords": "signers enns gilens rauh forbes yagan zidar zwick hendren mehta nathaniel monopoly deceased jimmy kline"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2263,7 +2268,7 @@
       "Does new luxury housing lower rents?",
       "Should the government build public housing?"
     ],
-    "keywords": "mast auckland bedroom gyourko rental glaeser asquith louie mondragon wieland jchs backlog reed salary dwelling"
+    "keywords": "mast auckland bedroom gyourko glaeser asquith louie mondragon wieland jchs reed salary dwelling greenaway mcgrevy"
   },
   {
     "id": "four-day-work-week",
@@ -2364,7 +2369,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers hmrc redfin tourist fraser garcia starter metro airbnb batzer bearish cmas cmhc fhfa"
+    "keywords": "sellers hmrc redfin tourist fraser garcia starter metro airbnb batzer bearish cmas cmhc fhfa jacksonville"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2392,7 +2397,7 @@
       "Interest on the debt now costs more than defense",
       "Will the US default on its debt?"
     ],
-    "keywords": "crfb reinhart rogoffs fy2026 outlays brics herndon pollin rachel unmatched moodys renminbi trustees cofer penny"
+    "keywords": "crfb reinhart rogoffs fy2026 outlays brics herndon pollin rachel unmatched renminbi trustees moodys cofer penny"
   },
   {
     "id": "return-to-office-productivity",
@@ -2577,7 +2582,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa castro julio cbps nonfatal patrol footage spokesperson superintendent venturella shooters sues"
+    "keywords": "celis hennepin scene sosa castro julio cbps nonfatal patrol footage superintendent venturella shooters spokesperson sues"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2644,7 +2649,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "chetty dream abramitzky boustan duckworth dweck gatsby grit hendren hubris hunter mindset schmidt gregory sandel"
+    "keywords": "abramitzky boustan duckworth dweck gatsby grit hubris hunter mindset schmidt gregory hendren sandel solidarity surname"
   },
   {
     "id": "consciousness-hard-problem",
@@ -2732,7 +2737,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety sadness commenced anglosphere babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson assent pediatricians reddit"
+    "keywords": "esafety sadness commenced anglosphere babel kick rausch scandinavia twitch undifferentiated abrahamsson assent pediatricians reddit snapchat"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2858,7 +2863,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa deloitte schiff tape hampshire robocall kramer leica nikon hollywood adobe bueno crying liars vall"
+    "keywords": "c2pa deloitte schiff hampshire robocall kramer leica nikon hollywood adobe bueno crying liars vall eval"
   },
   {
     "id": "declining-birth-rates",
@@ -3233,7 +3238,7 @@
       "e-waste",
       "cybersecurity"
     ],
-    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas luyi monopolize sheep workshop"
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas luyi sheep workshop cyberattack"
   },
   {
     "id": "assisted-dying-euthanasia",
@@ -3530,20 +3535,20 @@
   {
     "id": "social-security-retirement-age",
     "title": "Raising the Retirement Age",
-    "question": "Is raising the retirement age a fair, necessary fix for Social Security?",
+    "question": "Should the retirement age be raised to keep Social Security solvent?",
     "meta_claim": "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
-    "confidence_score": 50,
-    "balance": 50,
-    "weight": 75,
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "How much of Social Security's funding gap would raising the retirement age close, versus revenue options?",
+    "pillarCount": 3,
+    "evidenceCount": 9,
+    "firstCrux": "How much of Social Security's gap would a later retirement age close, compared with taxing high earners?",
     "tags": [
       "economics",
       "social-security",
@@ -3552,7 +3557,11 @@
       "aging",
       "inequality"
     ],
-    "keywords": "actuary trustees solvency crfb oasdi payable insolvent"
+    "aliases": [
+      "Is raising the retirement age a fair, necessary fix for Social Security?",
+      "Should the full retirement age go up to 70?"
+    ],
+    "keywords": "crfb solvency trustees appendix oasi caseload quartile"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3579,7 +3588,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk gravelle wojciech bequest deathbed if11812 jane saxton illiquid ranch forgone peterson unrealized"
+    "keywords": "kopczuk gravelle wojciech bequest deathbed if11812 jane saxton forgone illiquid ranch peterson unrealized"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3656,7 +3665,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 11,
-    "firstCrux": "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
+    "firstCrux": "When a feed pushes a harmful post, is that the platform's own act, or still just publishing someone else's speech?",
     "tags": [
       "technology",
       "section-230",
@@ -3665,7 +3674,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh eifert abetted anhaltspunkte antiterrorism backpages belegen copia disincentives empirisch isis"
+    "keywords": "fosta overblocking rohingya aggravated disincentives netzdg overseas eifert netchoice nylah moody abetted anhaltspunkte antiterrorism backpage"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3861,7 +3870,7 @@
       "global-health",
       "longtermism"
     ],
-    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory kremer maertens miguel pryce utilitas haushofer bankman"
+    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory kremer maertens miguel pryce utilitas haushofer malaria"
   },
   {
     "id": "alcohol-no-safe-level",
