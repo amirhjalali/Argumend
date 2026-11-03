@@ -1,200 +1,326 @@
 export const transgenderAthletesSportsData = {
   id: "transgender-athletes-sports",
-  title: "Transgender Athletes in Competitive Sports",
+  title: "Transgender Athletes in Women's Sports",
   question:
-    "Should transgender women on hormone therapy compete in women's sports?",
+    "Should transgender women and girls be allowed to compete in female sports?",
   meta_claim:
-    "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
+    "Transgender women and girls should be allowed to compete in female sports categories, because hormone therapy, or transition before puberty, removes enough of the physical advantage that male puberty brings.",
   status: "contested" as const,
   category: "policy" as const,
+  // As of 3 November 2026: the US Supreme Court upheld state laws limiting
+  // girls' and women's school sports to biological females (West Virginia v.
+  // B.P.J. and Little v. Hecox, 30 June 2026, 6-3); 27 states have such laws.
+  // World Athletics has required a one-time SRY gene test since 1 September
+  // 2025, and the IOC will from the 2028 Los Angeles Games.
+  last_updated: "2026-11-03",
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In March 2026 the IOC limited the female category at its events, from the 2028 Games, to those it calls biological females, as shown by a one-time SRY gene screen; grassroots sport is exempt. In 2023 World Athletics barred transgender women who had been through male puberty from female World Rankings events. The fight is over what fairness and inclusion each require, and at which levels of sport.",
-    confidence: 92,
+      "On 30 June 2026 the US Supreme Court ruled, 6–3, that states may keep girls' and women's school teams for biological females; 27 states have such laws. World Athletics has required a one-time SRY gene test for its female category since September 2025, and the IOC will from the 2028 Games. The fight now is over what transition does to athletic advantage, and whether one line should cover an Olympic final, a college meet and an 11-year-old on a middle-school team.",
+    confidence: 95,
     source:
-      "International Olympic Committee, policy on the protection of the female category (26 March 2026), as published by the Olympic Council of Asia; World Athletics Council decision (March 2023)",
-    sourceUrl: "https://oca.asia/news/7029-ioc-announces-new-policy-on-protection-of-female-athletes.html",
+      "Supreme Court of the United States, West Virginia v. B. P. J., No. 24-43, with Little v. Hecox, No. 24-38 (30 June 2026), syllabus; World Athletics press release (30 July 2025); IOC policy on the female category (26 March 2026)",
+    sourceUrl: "https://www.supremecourt.gov/opinions/25pdf/24-43_2b35.pdf",
   },
   simple_case: [
-    "The answer bears on who may enter female events, from school leagues to the Olympics, and on whether open categories could serve both aims.",
+    "The answer decides who may enter girls' and women's events from school leagues to the Olympics, and whether a transgender girl who never went through male puberty can play on the girls' team.",
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Retained Physiological Advantages
+    // PILLAR 1: What transition does and does not undo
     // =========================================================================
     {
       id: "retained-physiological-advantages",
-      title: "Retained Physiological Advantages",
+      title: "What Hormone Therapy Does and Doesn't Undo",
       short_summary:
-        "Research shows that some physiological advantages from male puberty — including skeletal structure, lung capacity, and certain muscle characteristics — persist after hormone therapy, while others (muscle mass, hemoglobin) diminish significantly. The debate centers on whether residual advantages are competitively meaningful across different sports.",
+        "Male puberty builds a performance gap of roughly 10% to 50% depending on the sport. Testosterone suppression brings hemoglobin to female levels within months, but muscle and strength fall slowly and partly, and height and frame do not change. Small lab studies of transgender women athletes point both ways. How much edge remains, and in which sports, is the empirical core of the fight.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The science clearly shows that male puberty confers physiological advantages that hormone therapy does not fully reverse. A 2020 British Journal of Sports Medicine study (Roberts et al.) found that transgender women retained approximately a 12% running-speed advantage over cisgender women after two years of hormone therapy — down from about 21% before transition, but still substantial. Skeletal advantages — height, bone density, shoulder width, hip structure, hand and foot size — are permanently established during puberty and are unaffected by hormone therapy. Lung volumes, which are substantially greater in males largely because of skeletal frame and stature, are not reduced by estrogen therapy. These are not marginal differences; in elite sport, the gap between gold and fourth place is often under 1%. Allowing athletes with these retained advantages to compete in the women's category undermines the entire purpose of sex-segregated sport, which exists to ensure fair competition for female athletes.",
+        "Male puberty builds an edge that hormones do not take back. Hilton and Lundberg's 2021 review in Sports Medicine puts the male-female gap at 10% to 50% depending on the sport, and finds that a year of testosterone suppression cuts lean mass, muscle area and strength by only about 5%. Height and skeletal frame do not change at all. Harper's 2021 systematic review found strength still above female levels after three years. In US Air Force fitness tests, transgender women ran 1.5 miles about 12% faster than other women after two years on hormones. Elite medals are decided by margins under 1%. A residual edge of several percent is not natural variation; it is the gap the female category was created to remove.",
       proponent_rebuttal:
-        "The research is more nuanced than critics acknowledge. The same Air Force dataset showed that after two years of hormone therapy, transgender women's push-up and sit-up performance fell within cisgender female ranges. Harper et al.'s 2021 BJSM systematic review found that testosterone suppression brings hemoglobin to cisgender-female levels within about four months and significantly reduces muscle mass and strength over the first year; the proponent case is that the residual strength gap narrows further and may matter little outside strength-dominated sports, though that same review found strength and muscle area still measurably above cisgender-female levels at 36 months. The retained running-speed advantage, meanwhile, comes from a military fitness-test population (US Air Force), not elite athletes, and measures running in non-competitive conditions. Natural variation within cisgender women is enormous — elite female basketball players are taller than most men; Michael Phelps's wingspan exceeds his height by 3 inches, giving him a structural advantage no one proposes banning. Sport has never been perfectly fair; it rewards genetic outliers. The question is not whether any advantage exists but whether it falls within the natural variation of the women's category.",
+        "The evidence is thinner and more mixed than that. The 12% running figure comes from Air Force fitness tests, not trained athletes, and the same data showed push-up and sit-up scores falling into the female range within two years. Hemoglobin, which drives endurance, reaches female levels within about four months. The only IOC-funded lab study of transgender women athletes, Hamilton et al. in 2024, found them stronger in handgrip than other women but lower in jump height relative to body mass and in relative aerobic capacity. A taller frame moved by less muscle is not a simple advantage, and in some events it is a handicap. Sport already accepts large natural gaps among women. The fair test is sport by sport: does the edge that remains exceed the spread among the women in that event?",
       crux: {
         id: "sport-specific-advantage-data",
-        title: "The Sport-Specific Advantage Quantification",
+        title: "The Sport-Specific Advantage Test",
         question:
           "After two-plus years on hormones, do retained advantages exceed normal variation among women in that sport?",
         description:
-          "If comprehensive, sport-specific studies show that transgender women who have completed 2+ years of hormone therapy retain performance advantages that exceed the natural variation within elite cisgender women in that sport, then inclusion policies undermine competitive fairness. If retained advantages fall within the range of natural variation among cisgender women, the fairness objection is weakened.",
+          "If transgender women who have spent two or more years on testosterone suppression keep a performance edge larger than the spread among women at the same level of a sport, inclusion on hormone criteria cannot deliver fair competition in that sport. If the remaining edge falls within that spread, or reverses in some events, the fairness objection weakens there.",
         methodology:
-          "Conduct prospective studies tracking transgender women athletes across multiple sports (running, swimming, cycling, weightlifting, basketball, etc.) through at least 3 years of hormone therapy. Measure sport-specific performance metrics against matched cisgender female athletes at equivalent competition levels. Compare the magnitude of any trans-cis performance gap to the within-cis variation (e.g., the gap between the 5th and 95th percentile cisgender female athletes in each sport). Include both recreational and elite populations.",
+          "Follow trained transgender women athletes in several sports (sprinting, distance running, swimming, cycling, weightlifting, team sports) from before suppression through at least three years. Measure event results and lab markers against cisgender women matched for age, training and level, and compare any gap with the spread between the 5th and 95th percentile of women at that level.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Prospective studies that follow transgender women athletes through at least three years of hormone therapy in several sports, comparing their results with matched cisgender women and with the spread among elite women in each sport.",
         },
         cost_to_verify:
-          "$5-15M (Multi-year, multi-sport prospective cohort study with sufficient sample sizes)",
+          "$5-15M (multi-year, multi-sport prospective cohort with enough athletes per sport)",
         falsification: {
           supporter_flip:
-            "If prospective sport-specific studies tracking transgender women athletes through 3+ years of hormone therapy found performance gaps against matched cisgender women larger than the natural variation among elite women in that sport, the claim that hormone therapy sufficiently removes male-puberty advantages would fail there.",
+            "If prospective studies of trained transgender women found, after three years of suppression, a performance gap over matched women larger than the spread among women at the same level, as Hilton and Lundberg's review predicts, hormone-based eligibility would fail the fairness test in those sports.",
           skeptic_flip:
-            "If sport-specific studies of elite athletes, rather than the Air Force fitness tests behind the 12% running figure, found hemoglobin reaching female levels within about four months and strength falling into female ranges after two years, the case for permanent advantage would weaken.",
+            "If sport-by-sport studies of trained athletes kept finding what Hamilton's 2024 lab study did, lower jump height and aerobic capacity relative to body mass than other women, the case for a blanket rule would give way to rules set event by event.",
           common_ground:
-            "Both sides agree hormone therapy reduces some male-puberty advantages, such as hemoglobin and muscle mass, while skeletal ones persist, and that the Air Force data showed a roughly 12% running edge after two years.",
+            "Both sides agree hemoglobin reaches female levels within months of suppression, that strength and muscle fall more slowly and only partly, that height and frame do not change, and that no large study of trained transgender athletes exists.",
           live_disagreement:
-            "Whether the advantages that remain after hormone therapy are competitively meaningful in a given sport or fall within the natural variation of the women's category — an answer that may differ between strength, endurance and skill sports.",
+            "Whether the edge that remains after hormone therapy is competitively decisive in a given sport or falls within the spread of the women's field, an answer that may differ between strength, endurance and skill sports.",
         },
       },
       evidence: [
         {
-          id: "bjsm-speed-advantage",
-          title: "Trans Women Retain ~12% Running Speed Advantage After 2 Years HRT (2020)",
+          id: "hilton-lundberg-review-2021",
+          title: "Hilton & Lundberg 2021: male edge of 10–50%; a year of suppression cuts muscle and strength about 5%",
           description:
-            "A study by Roberts, Smalley and Ahrendt published in the British Journal of Sports Medicine analyzing US Air Force fitness test data found that transgender women retained approximately a 12% advantage in 1.5-mile run times over cisgender women after two years of hormone therapy (and ~9% after one year), compared to a ~21% pre-transition advantage. The speed advantage persisted even after testosterone had been suppressed to female-typical levels for the full period. However, push-up and sit-up performance differences disappeared, converging with cisgender female norms within two years.",
+            "A review in Sports Medicine by Emma Hilton and Tommy Lundberg found that the male-female performance gap 'becomes significant at puberty and often amounts to 10–50% depending on sport.' Pooling longitudinal studies of transgender women on testosterone suppression, it found that the 'loss of lean body mass, muscle area and strength typically amounts to approximately 5% after 12 months of treatment', so the muscular advantage is 'only minimally reduced'. The main text notes that 'height and skeletal parameters remain unaltered in transgender women.' The authors conclude: 'These data significantly undermine the delivery of fairness and safety presumed by the criteria set out in transgender inclusion policies.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
             replicability: 7,
-            directness: 8,
-          },
-          source: "British Journal of Sports Medicine",
-          sourceUrl: "https://doi.org/10.1136/bjsports-2020-102329",
-          reasoning:
-            "Published in a leading sports medicine journal with a large sample from military fitness tests. The finding of persistent speed advantage is significant and directly relevant. However, the military fitness test population differs from elite athletes, and running in a fitness test context differs from competitive racing. The convergence of strength measures complicates a simple 'advantage persists' narrative.",
-        },
-        {
-          id: "skeletal-structure-permanence",
-          title: "Skeletal Advantages from Male Puberty Are Permanent and Unaffected by HRT",
-          description:
-            "Male puberty produces permanent skeletal changes: average height increases of 5 inches over females, broader shoulders, narrower hips (advantageous for running biomechanics), larger hands and feet (advantageous in swimming and ball sports), and greater bone density. These characteristics are established by age 18-20 and are not reversed by estrogen therapy or testosterone suppression. In sports where height, reach, or skeletal leverage confer advantage (basketball, volleyball, swimming, combat sports), these structural differences can be decisive.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 10,
             directness: 7,
           },
-          source: "Endocrine Reviews; Journal of Clinical Endocrinology & Metabolism",
-          sourceUrl: "https://doi.org/10.1210/endrev/bnaa034",
+          source:
+            "Hilton & Lundberg, 'Transgender Women in the Female Category of Sport: Perspectives on Testosterone Suppression and Performance Advantage', Sports Medicine 51(2):199-214 (2021)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7846503/",
           reasoning:
-            "The permanence of skeletal characteristics after puberty is established endocrine physiology with near-perfect replicability. However, directness for the policy question is moderate because skeletal dimensions vary enormously within both sexes — some cisgender women are taller and have larger frames than some transgender women. The competitive relevance depends on the specific sport.",
+            "A peer-reviewed review that gathers the treatment studies in one place, so it is the clearest statement of the retained-advantage case. Most of the studies it pools tracked non-athletes, so it infers athletic effects from muscle and strength measures rather than measuring results in sport. The physiology it cites is not itself in dispute; its conclusion about policy is.",
+        },
+        {
+          id: "hamilton-ioc-lab-study-2024",
+          title: "IOC-funded lab study 2024: trans women athletes had stronger grip, but lower relative jump and aerobic capacity, than other women",
+          description:
+            "Hamilton and colleagues at the University of Brighton, funded by an IOC research grant, tested 23 transgender women, 21 cisgender women, 12 transgender men and 19 cisgender men, all athletes, in one lab visit (British Journal of Sports Medicine, April 2024). The transgender women had similar testosterone to the cisgender women and 'higher absolute handgrip strength (TW 40.7±6.8 kg, CW 34.2±3.7 kg, p=0.01)', but a lower lung-function ratio, 'lower relative jump height (TW 0.7±0.2 cm/kg; CW 1.0±0.2 cm/kg)' and lower aerobic capacity relative to body mass. The authors note the small sample and call for longitudinal studies.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 4,
+            directness: 6,
+          },
+          source:
+            "Hamilton et al., 'Strength, power and aerobic capacity of transgender athletes: a cross-sectional study', British Journal of Sports Medicine 58(11):586-597 (2024), doi:10.1136/bjsports-2023-108029",
+          sourceUrl: "https://doi.org/10.1136/bjsports-2023-108029",
+          reasoning:
+            "The only lab study that tested trained transgender women against trained women, which is why it matters. It is small and cross-sectional: 23 volunteers at one visit, with no before-and-after measures, so it cannot say what transition changed. Measures scaled to body mass favour lighter athletes, and the absolute grip gap points the other way. The IOC, which funded it, adopted a ban two years later, so it did not settle the question even for its sponsor.",
+        },
+        {
+          id: "bjsm-speed-advantage",
+          title: "Air Force data 2020: trans women ran 12% faster than other women after two years on hormones",
+          description:
+            "Roberts, Smalley and Ahrendt, in the British Journal of Sports Medicine, used US Air Force fitness test records. Before hormones, transgender women ran the 1.5-mile test about 21% faster than cisgender women; after one year about 9% faster, and after two years about 12% faster. Push-up and sit-up differences disappeared within two years.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source:
+            "Roberts, Smalley & Ahrendt, 'Effect of gender affirming hormones on athletic performance in transwomen and transmen', British Journal of Sports Medicine (2020)",
+          sourceUrl: "https://doi.org/10.1136/bjsports-2020-102329",
+          reasoning:
+            "Real before-and-after records, not a model, from a population with regular mandated testing. It shows a running edge that shrinks but persists at two years. Air Force members are not trained athletes and a fitness test is not a race, which limits directness, and the strength measures converged, so the picture is mixed rather than one-way.",
         },
         {
           id: "muscle-mass-convergence",
-          title: "Hemoglobin Normalizes Quickly While Muscle Declines Partially After HRT (2021)",
+          title: "Harper review 2021: hemoglobin reaches female levels in four months; strength stays higher at three years",
           description:
-            "A 2021 systematic review by Harper et al. in the British Journal of Sports Medicine found that testosterone-suppressing hormone therapy brings hemoglobin and hematocrit — which affect oxygen-carrying capacity and endurance — to levels equivalent to cisgender women within about four months. Lean body mass, muscle area, and strength all decrease significantly over the first year of therapy, but the review found these values remain above those of cisgender women even after 36 months, concluding that strength 'may be well preserved' during the first three years of hormone therapy. The endurance-relevant changes are rapid; the strength-relevant changes are slower and incomplete.",
+            "A 2021 systematic review by Harper and colleagues in the British Journal of Sports Medicine found that testosterone suppression brings hemoglobin and hematocrit, which carry oxygen and drive endurance, to female levels within about four months. Lean mass, muscle area and strength fell over the first year but remained above those of cisgender women at 36 months; the review says strength 'may be well preserved' over the first three years.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 7,
+            directness: 6,
           },
-          source: "British Journal of Sports Medicine; Systematic Review",
+          source:
+            "Harper et al., 'How does hormone transition in transgender women change body composition, muscle strength and haemoglobin?', British Journal of Sports Medicine (2021)",
           sourceUrl: "https://doi.org/10.1136/bjsports-2020-103106",
           reasoning:
-            "Systematic reviews represent a high level of evidence synthesis. The finding that hemoglobin fully normalizes supports the inclusion case for endurance-dominated events, while the finding that muscle mass and strength remain above cisgender female levels at three years partly cuts against it for strength-dominated events. The mixed result suggests that advantage is sport-dependent and that policy may need to be discipline-specific rather than categorical.",
+            "A systematic review, the highest common level of evidence here, by an author who is herself a transgender distance runner and researcher. It supports inclusion for endurance events, where hemoglobin matters most, and cuts against it for strength events. The studies it pools are of non-athletes, so it tells you about bodies, not race results.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 2: Inclusion & Dignity
+    // PILLAR 2: Where to draw the line: before puberty, college, the Olympics
+    // =========================================================================
+    {
+      id: "puberty-and-level-of-play",
+      title: "Where to Draw the Line: Before Puberty, in College, at the Olympics",
+      short_summary:
+        "The rules now differ by level. The IOC's ban exempts grassroots sport, while the 27 state laws reach school sport from middle school up. The plaintiff in the Supreme Court case, B.P.J., started puberty blockers before male puberty. Whether a girl who never went through male puberty has any edge, and whether a rule written for Olympic finals should govern a school cross-country team, is a separate fight from the elite one.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "One clear line by sex is the only rule that can be applied fairly. Testing each child's hormones and comparing her with every girl in her event is, in the Supreme Court majority's words, 'an almost impossible task for a judge to perform on an equitable basis.' School sport is where most girls compete for places on teams, podium spots, records and college recruitment, so it needs protection more than the Olympics does. The science on transition before puberty is thin, and the majority called the claim of no retained advantage 'the subject of ongoing medical and scientific debate.' Legislatures in 27 states weighed that uncertainty and drew the line at biological sex. Title IX was written to give girls their own teams, and the Court held that its word 'sex' means biological sex.",
+      proponent_rebuttal:
+        "The reasons for the female category do not reach a child who never went through male puberty. Handelsman's 2018 review in Endocrine Reviews, written with World Athletics' medical director, found that 'prior to puberty, there is no sex difference in circulating testosterone concentrations or athletic performance.' B.P.J. took puberty blockers, then estrogen, and never went through male puberty, yet is barred from girls' cross-country. Justice Sotomayor's opinion notes that in five years B.P.J. was the only transgender girl publicly identified in West Virginia seeking to play girls' sports, so the law answers a problem the state could barely find. Even the IOC exempts grassroots and recreational sport. A rule built for the Olympics is being applied to girls whose bodies the elite case does not describe.",
+      crux: {
+        id: "pre-puberty-transition",
+        title: "The Transition-Before-Puberty Test",
+        question:
+          "Does a transgender girl who never went through male puberty have an athletic edge over other girls?",
+        description:
+          "The elite case against inclusion rests on what testosterone builds during male puberty. Transgender girls who start puberty blockers at its onset never go through it. If they still outperform girls of the same age and training, a single rule by sex is justified at every level; if they do not, the main argument for excluding them falls away, and what remains is the line-drawing question.",
+        methodology:
+          "Follow transgender girls who began puberty blockers at Tanner stage 2 through age 18, measuring sprint times, jump height, grip strength, aerobic capacity and body size each year against girls matched for age, maturity and training. Report results by event, with the spread among the matched girls.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Yearly sprint, jump, strength and aerobic tests of transgender girls who started puberty blockers at its onset, compared through age 18 with girls matched for age, maturity and training.",
+        },
+        cost_to_verify:
+          "$2-6M (multi-site cohort through adolescence; the number of eligible girls is small)",
+        falsification: {
+          supporter_flip:
+            "If transgender girls who began puberty blockers at its onset still outran or outjumped girls matched for age and training by more than the girls' own spread, the case for including them in girls' sport would lose its main support.",
+          skeptic_flip:
+            "If transgender girls who never went through male puberty tested within the range of matched girls on speed, strength and aerobic capacity, as Handelsman's review of prepubertal children implies, a rule that bars them would rest on line-drawing alone.",
+          common_ground:
+            "Both sides agree the male performance gap opens at puberty, that B.P.J. began puberty blockers before male puberty, and that almost no research has measured transgender girls who transitioned that early.",
+          live_disagreement:
+            "Whether a girl who never went through male puberty keeps any edge, and whether one rule by sex for all ages is fairer than rules that differ for children, recreational play and elite competition, which is partly a question about who should decide.",
+        },
+      },
+      evidence: [
+        {
+          id: "handelsman-prepuberty-no-difference",
+          title: "Handelsman review 2018: no sex gap in testosterone or performance before puberty; at least 8–12% after",
+          description:
+            "David Handelsman, Angelica Hirschberg and Stéphane Bermon, then head of health and science at the IAAF (now World Athletics), reviewed the hormonal basis of the sex gap in Endocrine Reviews. Their abstract states: 'Prior to puberty, there is no sex difference in circulating testosterone concentrations or athletic performance.' From puberty on, male testosterone levels produce 'at least an 8% to 12% ergogenic advantage in men.'",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Handelsman, Hirschberg & Bermon, 'Circulating Testosterone as the Hormonal Basis of Sex Differences in Athletic Performance', Endocrine Reviews 39(5) (2018)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6391653/",
+          reasoning:
+            "A peer-reviewed review co-written by the athletics governing body's own health and science chief, which makes it hard to dismiss as advocacy. It speaks to boys and girls as groups; none of the work it reviews measured transgender girls on puberty blockers, which is why directness is 6.",
+        },
+        {
+          id: "scotus-bpj-2026",
+          title: "Supreme Court 2026, 6–3: states may limit girls' teams to biological females without case-by-case exceptions",
+          description:
+            "In West Virginia v. B.P.J. and Little v. Hecox (30 June 2026), Justice Kavanaugh's majority held that Title IX's word 'sex' means biological sex and that the West Virginia and Idaho laws pass intermediate scrutiny. States 'are not required to conduct an individual-by-individual comparison' of athletes. Whether transgender athletes on blockers or hormones keep an advantage 'is the subject of ongoing medical and scientific debate,' and legislatures and schools 'are better equipped' to draw the lines. Justice Sotomayor, joined by Justices Kagan and Jackson, agreed the Title IX claim failed but dissented on equal protection, saying unresolved factual questions should have gone back to the trial court.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 7,
+            replicability: 10,
+            directness: 5,
+          },
+          source:
+            "Supreme Court of the United States, West Virginia v. B. P. J., No. 24-43, and Little v. Hecox, No. 24-38 (30 June 2026)",
+          sourceUrl: "https://www.supremecourt.gov/opinions/25pdf/24-43_2b35.pdf",
+          reasoning:
+            "Settles the US legal question: states may draw the line at biological sex, and 27 have. It does not settle the empirical one; the majority said its conclusion would stand even if the no-advantage claim were true, and left the science to legislatures. That is why directness to the map's question, whether inclusion is right, is 5.",
+        },
+        {
+          id: "ncaa-2025-policy",
+          title: "NCAA 2025: women's college competition limited to athletes assigned female at birth",
+          description:
+            "On 6 February 2025, the day after a presidential executive order directed that Title IX be read to bar transgender women from female sports, the NCAA replaced its sport-by-sport eligibility rules with a policy limiting competition in women's sports to student-athletes assigned female at birth. Transgender women may still practice with women's teams and receive team benefits, but may not compete.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 5,
+            replicability: 9,
+            directness: 5,
+          },
+          source: "NCAA, 'NCAA announces transgender student-athlete participation policy change' (6 February 2025)",
+          sourceUrl:
+            "https://www.ncaa.org/news/2025/2/6/media-center-ncaa-announces-transgender-student-athlete-participation-policy-change.aspx",
+          reasoning:
+            "An authoritative rule for the largest US college sports body. It was adopted under direct federal pressure rather than after a new review of the evidence, so it shows where policy went, not what the science found; independence and directness are 5.",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 3: Fairness to female athletes vs. the harm of exclusion
     // =========================================================================
     {
       id: "inclusion-dignity",
-      title: "Inclusion, Dignity & Anti-Discrimination",
+      title: "Fairness to Female Athletes vs. the Harm of Exclusion",
       short_summary:
-        "Inclusion advocates argue that excluding transgender athletes from competition consistent with their gender identity is linked to psychological harm, violates anti-discrimination principles, and sends a message that transgender people are not accepted in public life. The question is whether competitive fairness in sport justifies this exclusion or whether alternative frameworks can honor both values.",
-      icon_name: "Users" as const,
+        "Both sides claim to be protecting someone from harm. One side counts lost places, medals and safety for female athletes; the other counts the depression and isolation that follow being shut out of sport. Neither harm has been measured well, and weighing one against the other is a judgment no count supplies.",
+      icon_name: "Scale" as const,
       skeptic_premise:
-        "Inclusion is important but cannot override the fundamental purpose of sex-segregated sport, which is to ensure fair competition for female athletes. Women fought for decades for Title IX and equal sporting opportunities. Allowing athletes with male-puberty advantages to compete in women's categories effectively eliminates the protected category that sex-segregated sport was designed to create. This is not about transgender dignity; it is about fairness for the millions of cisgender women and girls who compete in sport. Excluding transgender women from the women's category is not excluding them from sport — they can compete in men's or open categories, or alternative frameworks can be developed. The rights of transgender athletes must be balanced against the rights of cisgender female athletes, and the current framing treats the former as absolute while dismissing the latter.",
+        "Women fought for decades for their own category, and Title IX built it. Every place on a podium or a team that goes to an athlete with a male-puberty edge is a place a woman loses, along with the records, scholarships and selection that follow. A 2024 report to the UN General Assembly by its Special Rapporteur on violence against women counted more than 890 medals lost by female athletes in 29 sports. In contact sports the risk is injury, not just a lost race. Exclusion from the female category is not exclusion from sport: transgender women can compete in men's or open events. Inclusion matters, but the women's category exists for one purpose, and a policy that serves a few athletes by defeating that purpose for millions of girls has the balance backwards.",
       proponent_rebuttal:
-        "Telling transgender women to compete in the men's category is not a neutral solution — it is a statement that they are not women, which directly contradicts their identity. A 2024 systematic review and meta-analysis in BMC Psychology (Chan et al., pooling 12 studies and 21,565 participants) found that discrimination and exclusion in sport were associated with elevated depression, psychological distress, and suicide risk, while athletes who felt welcomed reported markedly better mental health — though, being observational, these studies establish association rather than proof that any specific eligibility rule causes harm. Sport is not just about elite competition; it is about community, physical health, and belonging. The vast majority of transgender athletes are recreational, not elite, and pose no competitive threat. Policies that exclude all transgender women to address a primarily elite-level concern deny many people the social and health benefits of sport participation. Moreover, across the roughly two decades (2004–2025) of inclusive Olympic eligibility, no transgender woman won an Olympic medal, so the predicted elite-level 'domination' of women's sport did not materialize — even though governing bodies including World Athletics (2023) and the IOC (2026) have since moved to exclusion.",
+        "Telling transgender women to compete with men is not neutral; it tells them they are not women, and in practice it ends their sport. A 2024 meta-analysis in BMC Psychology, pooling 12 studies and 21,565 participants, linked discrimination and exclusion in sport to higher depression, distress and suicide risk, and found that athletes who felt welcomed fared markedly better. Most transgender athletes are recreational, not elite. The predicted takeover did not happen: across roughly two decades of IOC eligibility, from 2004 to 2025, no transgender woman won an Olympic medal. The 890-medal figure came from campaign groups and lists no audited cases. A rule that bars every transgender woman from local leagues to answer a handful of elite cases imposes a certain harm to prevent a rare one.",
       crux: {
         id: "harm-balancing-test",
         title: "The Comparative Harm Assessment",
         question:
           "Is the harm of excluding transgender athletes greater than the competitive harm of including them?",
         description:
-          "If excluding transgender athletes from gender-consistent competition produces demonstrably greater harm (psychological, social, physical health) than the competitive fairness harm to cisgender athletes from inclusion, then inclusion policies are justified on balance. If the competitive harm to cisgender athletes — including lost scholarships, records, and podium positions — is substantial and quantifiable, exclusion (or alternative categories) may be warranted despite the inclusion harm.",
+          "If excluding transgender athletes from the category matching their gender causes more harm (to mental health, participation and belonging) than inclusion causes to other women (lost places, records, scholarships, safety), inclusion is justified on balance. If the competitive and safety harms are large and measurable, exclusion or a separate category may be warranted despite the cost.",
         methodology:
-          "Conduct a comprehensive comparative impact study: (1) Survey transgender athletes excluded from gender-consistent competition on mental health, sport participation rates, and quality of life; (2) Analyze competition results in jurisdictions with inclusive policies to quantify the actual competitive impact on cisgender women (podium displacements, record changes, scholarship redistribution); (3) Compare the magnitudes of harm using a standardized framework.",
+          "(1) Survey transgender athletes kept out of the category matching their gender on mental health, participation and quality of life, against those included; (2) audit results in places with inclusive rules for podium displacement, records and scholarships, case by case and by level; (3) record injuries in contact sports by category; (4) set the measured harms side by side, acknowledging that weighing them takes a value judgment.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Surveys of mental health and sport participation among trans people kept out of women's events, set beside results under open rules: podium places, records and scholarships lost by other women. Weighing one loss against the other takes a judgment no count supplies.",
         },
         cost_to_verify:
-          "$1-3M (Multi-national survey and competition data analysis over 3-5 years)",
+          "$1-3M (multi-national survey and competition audit over 3-5 years)",
         falsification: {
           supporter_flip:
-            "If competition results under inclusive policies showed substantial, quantifiable displacement of cisgender women — lost podium places, records and scholarships — the competitive harm could outweigh the harm of exclusion, weakening the case for inclusion in the women's category.",
+            "If an independent, case-by-case audit of results under inclusive rules found women losing places, records and scholarships in substantial numbers, or a measurable rise in injuries in contact sports, the competitive harm could outweigh the harm of exclusion.",
           skeptic_flip:
-            "If more studies matched the 2024 meta-analysis linking exclusion from sport to elevated depression and suicide risk, and inclusive eligibility kept producing few top-level results, as in two decades without a transgender woman Olympic medalist, the harm of exclusion would weigh more heavily.",
+            "If audited results under inclusive rules found few displaced women, and new studies confirmed that exclusion from sport raises depression and suicide risk among transgender athletes, the harm of exclusion would weigh more heavily than the harm it prevents.",
           common_ground:
-            "Both sides agree sport matters for health and belonging as well as competition, and that the women's category exists to give female athletes fair competition.",
+            "Both sides agree sport matters for health and belonging as well as winning, that the women's category exists to give female athletes fair competition, and that no audited count of displaced women exists.",
           live_disagreement:
-            "Whether the harm of exclusion outweighs the competitive harm to cisgender women from inclusion, and whether elite-level concerns justify rules that also reach recreational players.",
+            "Whether the harm of exclusion outweighs the competitive harm to other women, and whether elite-level concerns justify rules that also reach recreational and school players.",
         },
       },
       evidence: [
         {
           id: "mental-health-impact-exclusion",
-          title: "Discrimination in Sport Linked to Worse Mental Health for Transgender Athletes (2024)",
+          title: "BMC Psychology meta-analysis 2024: discrimination in sport linked to higher depression and suicide risk",
           description:
-            "A 2024 systematic review and meta-analysis in BMC Psychology (Chan et al.) pooled 12 studies covering 21,565 participants and found that roughly a third experienced discrimination in sports participation and healthcare, and that such discrimination and exclusion were associated with elevated depression, psychological distress, and suicide risk. The review reported that transgender athletes who felt welcomed and included by their teams had markedly better mental-health outcomes, framing inclusive sport participation as a protective factor and exclusion as a contributor to harm.",
+            "A 2024 systematic review and meta-analysis in BMC Psychology (Chan et al.) pooled 12 studies with 21,565 participants. Roughly a third reported discrimination in sport or healthcare, and discrimination and exclusion were associated with higher depression, psychological distress and suicide risk. Transgender athletes who felt welcomed by their teams had markedly better mental health.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 6,
-            directness: 6,
+            directness: 5,
           },
-          source: "BMC Psychology; Systematic Review and Meta-Analysis",
+          source: "Chan et al., BMC Psychology (2024), systematic review and meta-analysis",
           sourceUrl: "https://doi.org/10.1186/s40359-023-01493-9",
           reasoning:
-            "A meta-analysis pooling more than 21,000 participants is a relatively strong evidence base for the association between discrimination/exclusion and poorer mental health. However, the included studies are largely observational and measure discrimination broadly rather than exclusion from a specific competition category, so they establish correlation rather than causation and are only indirectly about eligibility policy itself.",
+            "A large pooled sample for the association between exclusion and poor mental health. The studies are observational and measure discrimination broadly, not eligibility rules, so they show correlation and say little about the effect of any one rule; directness is 5.",
         },
         {
           id: "no-olympic-domination",
-          title: "No Transgender Woman Won Olympic Gold During the Two Decades of Inclusive Eligibility (2004–2025)",
+          title: "No transgender woman won an Olympic medal in two decades of IOC eligibility (2004–2025)",
           description:
-            "From the 2004 Stockholm Consensus (originally requiring genital surgery) through the 2015 shift to a 12-month testosterone-suppression standard, the IOC permitted transgender women to compete in women's events for roughly two decades. In that window, no transgender woman won an Olympic medal in any sport; the most prominent elite case, weightlifter Laurel Hubbard, failed all three of her lifts and placed last at the 2020 Tokyo Games. This cuts against predictions that inclusive eligibility would lead transgender athletes to 'dominate' women's sport at the elite level. The argument is necessarily weak as positive evidence — the number of openly transgender elite athletes is tiny, so an absence of medalists is also consistent with simple small-sample chance — and the eligibility window has since closed, with the IOC moving to exclusion from 2026 (see “The Open Category Compromise”).",
+            "From the 2004 Stockholm Consensus (which first required surgery) through the 2015 shift to a testosterone limit, the IOC let transgender women compete in women's events for about two decades. In that time no transgender woman won an Olympic medal; the best-known case, weightlifter Laurel Hubbard, failed all three lifts at the Tokyo Games. The IOC ended that eligibility in March 2026.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 10,
-            directness: 7,
+            replicability: 9,
+            directness: 5,
           },
-          source: "International Olympic Committee; Associated Press",
-          sourceUrl: "https://apnews.com/article/ioc-olympic-transgender-female-eligibility-520cd9cee152a312767a667acf77dbc8",
+          source: "International Olympic Committee results; Associated Press",
+          sourceUrl:
+            "https://apnews.com/article/ioc-olympic-transgender-female-eligibility-520cd9cee152a312767a667acf77dbc8",
           reasoning:
-            "The Olympic competition record is a verifiable, high-reliability fact. The absence of transgender Olympic medalists despite two decades of eligibility is significant evidence against the 'domination' narrative. However, directness is moderate because the small number of transgender elite athletes means the sample is too small for statistical conclusions, and the absence of domination at the Olympic level does not necessarily apply to sub-elite or youth competition.",
+            "The record is checkable and it cuts against predictions of elite takeover. It is weak as positive evidence: very few openly transgender athletes reached Olympic level, so an empty medal list is also what chance would produce, and it says nothing about school or club sport.",
         },
         {
           id: "un-rapporteur-medals-count",
-          title: "UN Rapporteur's Report Cites Over 890 Medals Lost by Female Athletes (2024)",
+          title: "UN Special Rapporteur 2024: over 890 medals lost by female athletes, on figures from campaign groups",
           description:
-            "A report to the UN General Assembly by the Special Rapporteur on violence against women and girls, Reem Alsalem (A/79/325, 27 August 2024), puts a number on the competitive side of this crux: 'According to information received, by 30 March 2024, over 600 female athletes in more than 400 competitions have lost more than 890 medals in 29 different sports.' Its footnote attributes the count to submissions from the Women's Liberation Front, the International Consortium on Female Sport and Lavender Patch. The report concludes that 'males must not compete in the female categories of sport.'",
+            "A report to the UN General Assembly by the Special Rapporteur on violence against women and girls, Reem Alsalem (A/79/325, 27 August 2024), states: 'According to information received, by 30 March 2024, over 600 female athletes in more than 400 competitions have lost more than 890 medals in 29 different sports.' A footnote attributes the count to submissions from the Women's Liberation Front, the International Consortium on Female Sport and Lavender Patch. The report concludes that 'males must not compete in the female categories of sport.'",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -203,111 +329,96 @@ export const transgenderAthletesSportsData = {
             directness: 7,
           },
           source:
-            "UN General Assembly, 'Violence against women and girls in sports', report of the Special Rapporteur on violence against women and girls, its causes and consequences, A/79/325 (27 August 2024), para. 11",
+            "UN General Assembly, 'Violence against women and girls in sports', report of the Special Rapporteur, A/79/325 (27 August 2024), para. 11",
           sourceUrl: "https://documents.un.org/api/symbol/access?s=A/79/325&l=en&t=pdf",
           reasoning:
-            "The one attempt in an official document to count the competitive harm this crux weighs, which is why it is here. It is weak as a measurement: the figure comes from submissions by groups that campaign against inclusion, the report does not list the competitions, their level or how each case was counted, and no independent audit has checked it, so independence and replicability are low. A medal tally also says nothing about the size of the harm set against it, the mental-health effects of exclusion, so it informs the comparison rather than settling it.",
+            "The only attempt in an official document to count the competitive harm this crux weighs. It is weak as a measurement: the figure comes from groups that campaign against inclusion, the report does not list the competitions or their level, and no one has audited it. It informs the comparison without settling it.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 3: The Open Category Model
+    // PILLAR 4: The open category
     // =========================================================================
     {
       id: "open-category-model",
-      title: "The Open Category Compromise",
+      title: "An Open Category: Compromise or Exclusion?",
       short_summary:
-        "Some researchers and sporting bodies have proposed replacing the current binary male/female categories with an 'open' category (anyone can enter) and a 'restricted' category (biological females only), potentially resolving the tension between inclusion and fairness. The question is whether such a model is practically workable and socially acceptable.",
+        "The big governing bodies have closed the female category: World Athletics by gene test since 2025, the NCAA in 2025, the IOC from 2028. Some propose an open category anyone can enter beside a protected female one. The one elite pilot, at a 2023 World Aquatics meet, drew no entries.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The open category model is not exclusion — it is the only framework that simultaneously protects female athletes' competitive fairness and provides transgender athletes a pathway to competition at every level. World Athletics, the governing body of track and field, explored this approach and found it had support from athletes, administrators, and human rights organizations. An open category allows anyone to compete regardless of sex, gender identity, or hormone levels, while the restricted category ensures that athletes without male-puberty advantages compete on a level playing field. This is analogous to weight classes in combat sports or parasport categories — not discrimination, but classification that enables fair competition. The alternative — either excluding transgender athletes entirely or including them in a category where they may have advantages — satisfies no one. The open category is the pragmatic middle ground.",
+        "The open category model is not exclusion; it is the one design that protects female athletes and still gives transgender athletes a place to compete at every level. A protected female category keeps the competition women were promised. An open category lets anyone enter regardless of sex, identity or hormone levels. That is classification, like weight classes in boxing or the classes of parasport, not a verdict on anyone's identity. World Athletics and World Aquatics both drew this line and kept the door open. The alternatives each fail someone: inclusion in the female category fails women, and a flat ban with nowhere else to go fails transgender athletes. Where events have the numbers, the open category serves both aims.",
       proponent_rebuttal:
-        "The 'open category' model is a rebranding of exclusion. Telling transgender women they can compete in an 'open' category rather than the women's category still denies them recognition of their gender identity in sport. An open category would be dominated by cisgender men, making it functionally the men's category with a different name. Transgender women would have no realistic chance of competitive success in an open category, meaning they would effectively be excluded from meaningful competition. Furthermore, implementing additional categories creates logistical challenges for sporting events, particularly at the youth and recreational level where resources are limited. The premise that we need a third category to accommodate less than 1% of athletes fundamentally misunderstands that the goal is inclusion within existing women's sport, not segregation into a separate category.",
+        "An open category is exclusion with a new label. It still denies transgender women recognition as women in sport. Because it is open to men, it would in practice be the men's category under another name, where transgender women who have suppressed testosterone have little chance of success. The test case bears this out: when World Aquatics staged open-category races at its October 2023 Berlin World Cup, nobody entered. School and community events struggle to fill the categories they have; adding a third for a tiny group means it will rarely exist. Inclusion means a place in the women's game, not a separate event that nobody runs.",
       crux: {
         id: "open-category-feasibility",
         title: "The Open Category Pilot Test",
         question:
           "Would splitting sports into an open and a restricted female category work and be accepted?",
         description:
-          "If pilot programs of the open/restricted category model in specific sports demonstrate that (1) transgender athletes participate in meaningful numbers, (2) competitive quality in the restricted category is maintained, and (3) participants in both categories report satisfaction with the framework, then the model is a viable compromise. If transgender athletes reject the open category as stigmatizing, or if the logistics prove unworkable, alternative approaches are needed.",
+          "If open and protected female categories, run side by side, draw transgender, non-binary and intersex athletes in real numbers while keeping the female category's standards and both groups' acceptance, the model is a workable compromise. If transgender athletes stay away, or events cannot staff the extra category, other approaches are needed.",
         methodology:
-          "Implement pilot open/restricted category programs in 3-5 sports across multiple countries over 2 competitive seasons. Measure participation rates in each category (including transgender, non-binary, and intersex athletes), competitive quality metrics, athlete satisfaction surveys, logistical costs, and media/public perception. Compare outcomes with sports maintaining traditional male/female categories.",
+          "Run open and protected female categories in three to five sports across several countries for two seasons, at elite, club and school level. Measure entries in each category (including transgender, non-binary and intersex athletes), standards in the female category, athlete satisfaction and the cost of staging, against sports that keep male and female categories only.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Run open and restricted categories in three to five sports for two seasons and measure who enters each (including transgender, non-binary and intersex athletes), standards in the restricted category, athlete satisfaction and cost, against sports that keep male and female categories.",
         },
         cost_to_verify:
-          "$2-5M (Multi-sport, multi-nation pilot program over 2-3 years)",
+          "$2-5M (multi-sport, multi-nation pilot over 2-3 years)",
         falsification: {
           supporter_flip:
-            "If pilots in 3-5 sports over two seasons showed transgender athletes taking part in open categories in meaningful numbers and reporting satisfaction, with competition in the restricted category intact, the case that inclusion must mean the women's category would weaken.",
+            "If pilots at club and school level drew transgender athletes into open categories in meaningful numbers, with high satisfaction among them and female-category standards intact, the claim that inclusion requires a place in the women's category would weaken.",
           skeptic_flip:
-            "If pilot open categories ended up dominated by cisgender men, leaving transgender women little realistic chance of competitive success, and youth and recreational events struggled to staff extra categories, the open-category model would lose much of its appeal as a fair alternative.",
+            "If open categories at every level kept drawing no transgender entrants, as World Aquatics' Berlin races did, or ended up filled by men, the open category would look like a ban with a door painted on it.",
           common_ground:
-            "Both sides agree the major governing bodies have moved to restrict the female category: World Athletics in 2023, the NCAA in 2025 and the IOC in 2026.",
+            "Both sides agree the major governing bodies have closed the female category to athletes who went through male puberty: World Athletics in 2023 and by gene test since 2025, the NCAA in 2025, and the IOC from 2028.",
           live_disagreement:
-            "Whether an open category is fair classification, like weight classes or parasport categories, that gives transgender athletes a real pathway, or a rebranding of exclusion that would function as the men's category under another name.",
+            "Whether an open category is fair classification, like weight classes or parasport classes, that gives transgender athletes a real pathway, or a relabelled exclusion that would function as the men's category.",
         },
       },
       evidence: [
         {
           id: "world-athletics-framework",
-          title: "World Athletics Tightens Eligibility Rules for Transgender Athletes (2023)",
+          title: "World Athletics: female category closed to male puberty in 2023, one-time SRY gene test since September 2025",
           description:
-            "In March 2023, World Athletics announced that transgender women who have experienced male puberty would be excluded from international women's track and field competitions, regardless of subsequent hormone therapy. President Sebastian Coe stated the decision prioritized 'fairness and the integrity of the female category' while acknowledging the 'tension between inclusion and fairness.' The policy applies to international competition only; national federations retain discretion for domestic events. World Athletics convened a working group to explore alternative categories including an open category.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 7,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "World Athletics",
-          sourceUrl: "https://worldathletics.org/news/press-releases/council-meeting-march-2023-russia-belarus-female-eligibility",
-          reasoning:
-            "World Athletics is the international governing body for the sport, making this an authoritative policy decision. The decision was based on their assessment of scientific evidence. Independence is somewhat lower because governing bodies face political pressure from multiple directions. The policy directly addresses the competitive fairness question but does not resolve the inclusion dimension.",
-        },
-        {
-          id: "ioc-2021-framework",
-          title: "IOC Reverses Course: From the 2021 Inclusion Framework to a 2026 Female-Category Ban",
-          description:
-            "The IOC's 2021 Framework on Fairness, Inclusion and Non-Discrimination abandoned a uniform testosterone threshold and devolved eligibility to individual sports federations, stating that 'no athlete should be excluded from competition on the sole basis of their transgender identity.' That inclusion-leaning approach has since been reversed at the highest level: in March 2026, under President Kirsty Coventry, the IOC adopted a 'Policy on the Protection of the Female (Women's) Category' that bars athletes with a Y-chromosome (SRY-positive) genetic screen from the female category at IOC events, with a narrow exception for certain DSD conditions that do not confer a testosterone-driven advantage. The policy is slated to apply from the 2028 Los Angeles Games and cites evidence that male-puberty advantages persist despite testosterone suppression. The trajectory illustrates how rapidly elite policy has moved from devolved inclusion toward categorical exclusion.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 7,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "International Olympic Committee",
-          sourceUrl: "https://www.olympics.com/ioc/news/international-olympic-committee-announces-new-policy-on-the-protection-of-the-female-women-s-category-in-olympic-sport",
-          reasoning:
-            "Both the 2021 framework and the 2026 reversal are authoritative, verifiable IOC policy statements. The 2026 policy materially changes the empirical landscape this map describes: the highest-level Olympic body has now adopted categorical exclusion from the female category rather than devolved, sport-by-sport inclusion. Side is coded 'against' because the governing body's current position weighs against open hormone-based inclusion; the superseded 2021 framework is retained for historical context. Independence is moderate because the IOC faces intense lobbying and political pressure from all directions, and the genetic-screening mechanism itself is scientifically and ethically contested.",
-        },
-        {
-          id: "ncaa-2025-policy",
-          title: "NCAA Restricts Women's College Sport to Athletes Assigned Female at Birth (2025)",
-          description:
-            "On 6 February 2025, the day after a US federal executive order directed that Title IX be read to bar transgender women from female sports, the NCAA replaced its prior sport-by-sport eligibility approach with a policy limiting competition in women's collegiate sports to student-athletes assigned female at birth. Transgender women may still practice with women's teams and receive associated benefits but may not compete in the women's category. The change was effective immediately for all NCAA member schools and is expected to face Title IX litigation. It marks a decisive shift in US collegiate sport from conditional inclusion toward categorical exclusion, paralleling the World Athletics (2023) and IOC (2026) moves.",
+            "In March 2023 World Athletics barred transgender women who had been through male puberty from female World Rankings competitions, whatever their hormone levels, and set up a working group to study other options, including an open category. From 1 September 2025, athletes in its female category must take 'a once-in-a-lifetime test for the SRY gene', by cheek swab or blood test. President Sebastian Coe: 'We are saying, at elite level, for you to compete in the female category, you have to be biologically female.' National federations set rules for domestic events.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 6,
             replicability: 9,
-            directness: 7,
+            directness: 6,
           },
-          source: "NCAA; CBS News",
-          sourceUrl: "https://www.ncaa.org/news/2025/2/6/media-center-ncaa-announces-transgender-student-athlete-participation-policy-change.aspx",
+          source:
+            "World Athletics Council decision (March 2023); World Athletics press release on the SRY gene test (30 July 2025)",
+          sourceUrl: "https://worldathletics.org/news/press-releases/sry-gene-test-athletes-female-category",
           reasoning:
-            "The NCAA decision is a verifiable, authoritative policy change governing the largest body of US collegiate athletics. Side is coded 'against' because the policy excludes hormone-based inclusion from the female category. Independence is lower because the change was adopted under direct federal political pressure rather than as an independent evidence assessment, and its legality under Title IX is unresolved. It is included to keep the institutional landscape current: as of 2025–2026, the dominant trend among elite and collegiate governing bodies is toward exclusion, which the map's earlier inclusion-leaning framing should not obscure.",
+            "The governing body of the sport where the performance gap is easiest to measure. Its rule shows a sport choosing a protected female category at elite level; it adds no new data on advantage, and its open-category study has not produced an event.",
+        },
+        {
+          id: "ioc-2021-framework",
+          title: "IOC reversal: from the 2021 inclusion framework to SRY screening for women's events from LA 2028",
+          description:
+            "The IOC's 2021 framework devolved eligibility to each sport and said 'no athlete should be excluded from competition on the sole basis of their transgender identity.' On 26 March 2026 its Executive Board, under President Kirsty Coventry, limited every female category at the Olympic Games and other IOC events to 'biological females', determined 'in the first instance by SRY gene screening', a one-time test. The policy applies from the 2028 Los Angeles Games, is not retroactive and 'does not apply to any grassroots or recreational sports programmes.' Coventry: 'At the Olympic Games, even the smallest margins can be the difference between victory and defeat.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 6,
+            replicability: 9,
+            directness: 6,
+          },
+          source:
+            "International Olympic Committee, policy on the protection of the female category (26 March 2026), as published by the Olympic Council of Asia; IOC Framework on Fairness, Inclusion and Non-Discrimination (2021)",
+          sourceUrl: "https://oca.asia/news/7029-ioc-announces-new-policy-on-protection-of-female-athletes.html",
+          reasoning:
+            "The top of world sport moved from sport-by-sport inclusion to a single genetic line in five years. The grassroots exemption shows the IOC treating elite and community sport differently, which matters for the line-drawing pillar. The announcement cites no new study, and genetic screening is itself contested on scientific and privacy grounds, so independence and directness are 6.",
         },
         {
           id: "world-aquatics-open-no-entries",
-          title: "World Aquatics' Open-Category Pilot Drew No Entries (2023)",
+          title: "World Aquatics' open-category races at the 2023 Berlin World Cup drew no entries",
           description:
-            "After restricting elite women's events in 2022, World Aquatics created a pilot open category of 50m and 100m races in every stroke for its Swimming World Cup meet in Berlin, 6-8 October 2023. When registration closed it said that 'no entries have been received for the Open Category events', adding: 'Even if there is no current demand at the elite level, the working group is planning to look at the possibility of including Open Category races at Masters events in the future.'",
+            "After restricting elite women's events in 2022, World Aquatics added open-category 50m and 100m races in every stroke to its Swimming World Cup meet in Berlin, 6-8 October 2023. When registration closed it said that 'no entries have been received for the Open Category events', adding: 'Even if there is no current demand at the elite level, the working group is planning to look at the possibility of including Open Category races at Masters events in the future.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -316,62 +427,90 @@ export const transgenderAthletesSportsData = {
             directness: 7,
           },
           source: "Reuters via ESPN, 'World Aquatics: No entries in \"open category\" at Berlin event' (3 October 2023)",
-          sourceUrl: "https://www.espn.com/olympics/story/_/id/38554503/world-aquatics-no-entries-open-category-berlin-event",
+          sourceUrl:
+            "https://www.espn.com/olympics/story/_/id/38554503/world-aquatics-no-entries-open-category-berlin-event",
           reasoning:
-            "The only open category a major federation has actually run as a pilot, and it failed this crux's first test, that transgender athletes take part in meaningful numbers. That fits the inclusion side's claim that an open category is not a pathway athletes want. It is one meet at elite level, where very few transgender swimmers compete in any case, so an empty field may say more about numbers than about rejection of the model, and World Aquatics kept the idea open for Masters events; replicability is 4.",
+            "The only open category a major federation has run, and it failed the first test of this crux: that transgender athletes enter. It is one elite meet, where very few transgender swimmers compete anyway, so an empty field may reflect numbers as much as rejection; replicability is 4.",
         },
       ],
     },
   ],
+  aliases: [
+    "Should transgender women on hormone therapy compete in women's sports?",
+    "Transgender Athletes in Competitive Sports",
+    "Should trans women play women's sports?",
+    "Is it fair for transgender girls to play on girls' teams?",
+  ],
   references: [
     {
-      title: "How Does Transgender Participation Affect Women's Sport? — BJSM (2021)",
+      title: "West Virginia v. B. P. J. and Little v. Hecox, Nos. 24-43 and 24-38 — Supreme Court of the United States (30 June 2026)",
+      url: "https://www.supremecourt.gov/opinions/25pdf/24-43_2b35.pdf",
+    },
+    {
+      title: "IOC announces new policy on protection of female athletes — Olympic Council of Asia (26 March 2026)",
+      url: "https://oca.asia/news/7029-ioc-announces-new-policy-on-protection-of-female-athletes.html",
+    },
+    {
+      title: "World Athletics introduces SRY gene test for athletes wishing to compete in the female category (30 July 2025)",
+      url: "https://worldathletics.org/news/press-releases/sry-gene-test-athletes-female-category",
+    },
+    {
+      title: "World Athletics Council decision on female eligibility (March 2023)",
+      url: "https://worldathletics.org/news/press-releases/council-meeting-march-2023-russia-belarus-female-eligibility",
+    },
+    {
+      title: "NCAA transgender student-athlete participation policy change (6 February 2025)",
+      url: "https://www.ncaa.org/news/2025/2/6/media-center-ncaa-announces-transgender-student-athlete-participation-policy-change.aspx",
+    },
+    {
+      title: "Strength, power and aerobic capacity of transgender athletes: a cross-sectional study — Hamilton et al., BJSM (2024)",
+      url: "https://doi.org/10.1136/bjsports-2023-108029",
+    },
+    {
+      title: "Transgender Women in the Female Category of Sport — Hilton & Lundberg, Sports Medicine (2021)",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7846503/",
+    },
+    {
+      title: "Circulating Testosterone as the Hormonal Basis of Sex Differences in Athletic Performance — Handelsman, Hirschberg & Bermon, Endocrine Reviews (2018)",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6391653/",
+    },
+    {
+      title: "Effect of gender affirming hormones on athletic performance in transwomen and transmen — Roberts et al., BJSM (2020)",
       url: "https://doi.org/10.1136/bjsports-2020-102329",
+    },
+    {
+      title: "How does hormone transition in transgender women change body composition, muscle strength and haemoglobin? — Harper et al., BJSM (2021)",
+      url: "https://doi.org/10.1136/bjsports-2020-103106",
     },
     {
       title: "IOC Framework on Fairness, Inclusion and Non-Discrimination (2021, since superseded)",
       url: "https://olympics.com/ioc/news/ioc-updates-framework-on-fairness-inclusion-and-non-discrimination",
     },
-    {
-      title: "IOC Policy on the Protection of the Female (Women's) Category (2026)",
-      url: "https://www.olympics.com/ioc/news/international-olympic-committee-announces-new-policy-on-the-protection-of-the-female-women-s-category-in-olympic-sport",
-    },
-    {
-      title: "NCAA Transgender Student-Athlete Participation Policy Change (February 2025)",
-      url: "https://www.ncaa.org/news/2025/2/6/media-center-ncaa-announces-transgender-student-athlete-participation-policy-change.aspx",
-    },
-    {
-      title: "World Athletics Council Decision on Female Eligibility (March 2023)",
-      url: "https://worldathletics.org/news/press-releases/council-meeting-march-2023-russia-belarus-female-eligibility",
-    },
-    {
-      title:
-        "How Does Hormone Transition Change Body Composition, Muscle Strength and Haemoglobin? — BJSM Systematic Review (2021)",
-      url: "https://doi.org/10.1136/bjsports-2020-103106",
-    },
-    {
-      title: "Effects of Testosterone Suppression on Body Composition — Endocrine Reviews (2021)",
-      url: "https://doi.org/10.1210/endrev/bnaa034",
-    },
   ],
   questions: [
     {
       id: "q1",
-      title: "Does hormone therapy fully reverse the physiological advantages of male puberty?",
+      title: "Does hormone therapy undo the advantages of male puberty?",
       content:
-        "Research shows a mixed picture: muscle mass and hemoglobin approach female ranges after 2-3 years, but skeletal structure, lung capacity, and some speed advantages persist. The answer may be sport-specific — advantages matter more in some sports than others.",
+        "Partly. Hemoglobin reaches female levels within about four months of testosterone suppression. Muscle and strength fall about 5% in the first year and stay above female levels at three years. Height and frame do not change. The one lab study of trained transgender women, in 2024, found stronger grip but lower jump height and aerobic capacity relative to body mass than other women. How much edge remains differs by sport.",
     },
     {
       id: "q2",
-      title: "How should fairness to cisgender women be balanced against inclusion of transgender athletes?",
+      title: "What did the Supreme Court decide about transgender athletes in 2026?",
       content:
-        "This is fundamentally a values question, not a scientific one. Both competitive fairness and inclusive participation are legitimate values. The tension between them cannot be resolved by science alone — it requires a societal decision about which value takes priority when they conflict, and whether creative policy solutions (like open categories) can honor both.",
+        "On 30 June 2026, in West Virginia v. B.P.J. and Little v. Hecox, the Court ruled 6–3 that Title IX and the Equal Protection Clause let states limit girls' and women's school teams to biological females, without case-by-case exceptions for athletes on puberty blockers or hormones. It left the science to legislatures, calling the question of retained advantage 'the subject of ongoing medical and scientific debate.' 27 states have such laws. The ruling permits these bans; it does not require them.",
     },
     {
       id: "q3",
-      title: "Are there policy models that protect both inclusion and competitive integrity?",
+      title: "Should the same rule apply before puberty and at the Olympics?",
       content:
-        "The policy landscape has shifted sharply toward exclusion at the elite level. World Athletics excluded transgender women who experienced male puberty from international competition in 2023; the NCAA limited US women's collegiate sport to athletes assigned female at birth in 2025; and the IOC, which devolved eligibility to federations in its 2021 framework, adopted a Policy on the Protection of the Female Category in 2026 (effective LA 2028) barring SRY-positive athletes via genetic screening. Open/restricted category models and sport-by-sport advantage analysis remain proposed compromises, but as of 2026 no inclusive consensus model is ascendant, and the genetic-screening approach is itself scientifically and ethically contested.",
+        "The rules already differ. The IOC's 2026 ban exempts grassroots and recreational sport, while the state laws upheld by the Supreme Court reach school sport from middle school up. Before puberty there is little or no sex gap in performance, and B.P.J., the plaintiff in the Supreme Court case, began puberty blockers before male puberty. One side says a single clear line is the only fair and workable rule; the other says the elite case does not describe girls who never went through male puberty.",
+    },
+    {
+      id: "q4",
+      title: "Would an open category solve it?",
+      content:
+        "An open category anyone can enter, beside a protected female one, is the most discussed compromise. Supporters call it classification, like weight classes. Critics call it the men's category under another name. The one elite trial, open races at a 2023 World Aquatics meet in Berlin, drew no entries.",
     },
   ],
 };
