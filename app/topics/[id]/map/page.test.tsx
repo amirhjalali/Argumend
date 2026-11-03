@@ -7,6 +7,7 @@ vi.mock("next/navigation", () => ({
 }));
 
 import TopicDiagramPage, { generateMetadata, generateStaticParams } from "./page";
+import { generateMetadata as generateTopicMetadata } from "../page";
 import type { DiagramModel } from "@/lib/diagram/model";
 
 const params = (id: string) => ({ params: Promise.resolve({ id }) });
@@ -16,6 +17,19 @@ describe("/topics/[id]/map — the diagram route", () => {
     const metadata = await generateMetadata(params("climate-change"));
     expect(metadata.robots).toEqual({ index: false, follow: true });
     expect(metadata.alternates?.canonical).toBe("https://argumend.org/topics/climate-change");
+  });
+
+  it("previews as the map's own social card, the one its topic page uses", async () => {
+    for (const id of ["climate-change", "nuclear-energy-safety"]) {
+      const diagram = await generateMetadata(params(id));
+      const page = await generateTopicMetadata({ params: Promise.resolve({ id }) });
+      const images = diagram.openGraph?.images as Array<{ url: string }>;
+      const pageImages = page.openGraph?.images as Array<{ url: string }>;
+      expect(images[0].url).toBe(pageImages[0].url);
+      expect(images[0].url).not.toMatch(/title=Maps/);
+      expect(diagram.twitter?.images).toEqual([images[0].url]);
+      expect(diagram.openGraph?.url).toBe(`https://argumend.org/topics/${id}`);
+    }
   });
 
   it("exists for legacy maps only; debate maps have no diagram", async () => {
