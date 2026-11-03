@@ -314,23 +314,23 @@
     "title": "Nuclear Energy for Climate",
     "question": "Should nuclear power be expanded to help decarbonize electricity?",
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 61,
+    "confidence_score": 53,
+    "balance": 53,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
+    "pillarCount": 3,
+    "evidenceCount": 10,
     "firstCrux": "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
     "firstCruxStanding": "value-difference",
     "tags": [
       "policy"
     ],
-    "keywords": "chernobyls lcoe torch unscear yucca lazard safest standalone fukushima millennia mountain overruns vogtle corrosion earthquakes"
+    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore safest"
   },
   {
     "id": "universal-healthcare",
@@ -3386,7 +3386,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean lobbyists carey jenkins mclaughlin moncrief niemi olson powell rogowski thornton carroll qualifications rutgers beholden"
+    "keywords": "burkean lobbyists carey mclaughlin moncrief niemi olson powell rogowski thornton carroll jenkins qualifications rutgers beholden"
   },
   {
     "id": "effective-altruism",

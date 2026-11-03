@@ -18,8 +18,8 @@ export const nuclearEnergySafetyData = {
   // ── The summary above the crux sheet: what the map turns on ──
   simple_case: [
     "Both sides accept that nuclear plants deliver firm, low-carbon power, with the US fleet at about a 93% capacity factor in 2021-2023, that routine operation kills far fewer people than coal or gas, and that recent Western builds ran badly over budget and behind schedule.",
-    "They split over whether nuclear's cost and build-time problems can be fixed with scale and standardization, or leave renewables plus storage the faster route per dollar; and over how much weight a rare, severe accident and thousands of years of waste stewardship should carry against the steady toll of the fossil fuels nuclear would displace.",
-    "The first is a question the next builds can answer; the second is a weighing of values that the deaths-per-terawatt-hour tally informs but does not decide.",
+    "They split over whether nuclear's cost and build-time problems can be fixed with scale and standardization, or leave renewables plus storage the faster route per dollar; over whether a near-zero-carbon grid needs firm plants such as nuclear to ride out wind and solar lulls, or can lean on storage, transmission and overbuild for less; and over how much weight a rare, severe accident and thousands of years of waste stewardship should carry against the steady toll of the fossil fuels nuclear would displace.",
+    "The first two are questions that the next builds and grid models can answer; the last is a weighing of values that the deaths-per-terawatt-hour tally informs but does not decide.",
   ],
   pillars: [
     {
@@ -223,7 +223,7 @@ export const nuclearEnergySafetyData = {
           id: "cost-overruns",
           title: "New Nuclear Has Massive Cost Overruns",
           description:
-            "Vogtle Units 3 and 4 entered service on July 31, 2023 and April 29, 2024. Georgia Power's net capital investment at December 31, 2024 was $10.663B, against an originally certified $4.418B capital cost for its share. These are Georgia Power's figures, not the all-owner project total, and exclude financing costs.",
+            "Vogtle Units 3 and 4 entered service on July 31, 2023 and April 29, 2024. Georgia Power's net capital investment at December 31, 2024 was $10.663 billion, against an originally certified $4.418 billion capital cost for its share. These are Georgia Power's figures, not the all-owner project total, and exclude financing costs.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -254,6 +254,82 @@ export const nuclearEnergySafetyData = {
           sourceUrl: "https://www.lazard.com/media/uounhon4/lazards-lcoeplus-june-2025.pdf",
           reasoning:
             "The dated standalone-generation comparison favors solar and wind. It is not an equal-reliability portfolio comparison: firming and grid costs must also be considered. The US nuclear estimate is tied to limited Vogtle-based assumptions, rather than a measured worldwide new-reactor price.",
+        },
+      ],
+    },
+    {
+      id: "grid-reliability",
+      title: "Grid Reliability",
+      short_summary:
+        "Wind and solar are intermittent; the dispute is whether a near-zero-carbon grid still needs firm plants such as nuclear to stay reliable at reasonable cost.",
+      icon_name: "Zap" as const,
+      skeptic_premise:
+        "Intermittency is a cost to manage, not a reason to build reactors. Batteries, wider transmission, overbuilt wind and solar, hydro and flexible demand can cover the gaps. CSIRO and AEMO's GenCost 2025-26 finds that for Australia to reach net zero efficiently, solar PV and onshore wind deliver 93% of electricity, supported by hydro, storage, transmission and gas or hydrogen, and that large-scale nuclear costs slightly more than gas with carbon capture. Paying for firm reactors buys reliability that a cheaper portfolio can already supply.",
+      proponent_rebuttal:
+        "The last few percent of emissions are the expensive part. Across nearly 1,000 modeled cases, Sepulveda and colleagues (Joule, 2018) found that without firm low-carbon resources (nuclear, gas with carbon capture, bioenergy) costs rise rapidly as CO2 limits approach zero, that having them available cuts the cost of a fully decarbonized system by 10% to 62%, and that batteries and demand flexibility do not substitute for them. Multi-day wind and solar lulls are what hours-long batteries cannot cover; even the GenCost pathway keeps gas or hydrogen in the mix for that job.",
+      crux: {
+        id: "firm-power-need",
+        title: "Intermittent Renewables and Firm Power",
+        question:
+          "Does a clean grid need firm power like nuclear, or can storage, transmission and overbuild do it for less?",
+        description:
+          "Intermittency of wind and solar is the most common case for nuclear. Test whether a near-zero-carbon grid that meets the same reliability standard costs less with firm low-carbon plants such as nuclear in the mix, or with variable renewables backed by storage, transmission, overbuild and demand flexibility alone.",
+        methodology:
+          "Run capacity-expansion models of the same regions with and without firm low-carbon resources, on many weather years including multi-day wind and solar droughts, under one reliability standard. Count storage, transmission, curtailment and backup fuel. Compare the least-cost results across independent models and against the delivered costs of grids that already run on very high wind and solar shares.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Independent capacity-expansion models, run on decades of hourly weather and the same reliability standard, that price a near-zero-carbon grid with and without firm low-carbon plants, using current storage and transmission costs including multi-day storage; checked against the audited costs of grids that pass 90% wind and solar.",
+        },
+        cost_to_verify: "Modeling studies exist; a grid past 90% wind and solar with audited system costs does not yet.",
+        falsification: {
+          supporter_flip:
+            "If models with current storage costs, including multi-day storage, kept finding that near-zero-carbon grids cost no more without firm plants, and a large grid ran past 90% wind and solar reliably at no higher system cost, the intermittency case for building nuclear would fall away.",
+          skeptic_flip:
+            "If independent models with current battery, long-duration storage and transmission costs kept finding that firm low-carbon plants lower the cost of a near-zero-carbon grid, and high-renewable grids kept leaning on fossil backup in long wind and solar lulls, the case that storage and overbuild make firm power unnecessary would weaken.",
+          common_ground:
+            "Both sides agree that wind and solar output varies with weather, that a reliable grid has to cover multi-day lulls as well as nightly ones, and that storage, transmission and flexible demand reduce how much firm capacity is needed.",
+          live_disagreement:
+            "Whether the cheapest way to cover the last stretch of decarbonization, especially multi-day wind and solar lulls, is firm low-carbon plants such as nuclear, or more storage, transmission and overbuild; the answer turns on future storage costs and on each region's weather and hydro.",
+        },
+      },
+      evidence: [
+        {
+          id: "firm-resources-lower-cost",
+          title: "Firm Low-Carbon Resources Cut Zero-Carbon Grid Costs 10-62%",
+          description:
+            "Sepulveda, Jenkins, de Sisternes and Lester (Joule, 2018) modeled 912 scenarios for a New England-like and a Texas-like US system. Having firm low-carbon resources (nuclear, gas with carbon capture, bioenergy) available reduced the cost of fully decarbonized electricity by 10% to 62%. Without them, costs rose rapidly as CO2 limits approached zero, and batteries and demand flexibility did not substitute for them.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Sepulveda, Jenkins, de Sisternes & Lester, 'The Role of Firm Low-Carbon Electricity Resources in Deep Decarbonization of Power Generation', Joule 2(11), 2403-2420 (2018)",
+          sourceUrl: "https://doi.org/10.1016/j.joule.2018.08.006",
+          reasoning:
+            "Peer-reviewed and run across a wide range of cost assumptions, so the direction of the result is robust within the model. But it is a model, not observed grid data; storage is limited to lithium-ion batteries, and the authors note that multi-day storage, which they did not model, could itself serve as a firm resource. 'Firm' groups nuclear with gas plus carbon capture and bioenergy, so the result supports firm power, not nuclear in particular, and battery and solar costs have fallen since its 2017 baseline.",
+        },
+        {
+          id: "gencost-firmed-renewables",
+          title: "Australia's Least-Cost Net-Zero Grid Is 93% Wind and Solar",
+          description:
+            "CSIRO and AEMO's GenCost 2025-26 finds that for Australia's electricity sector to efficiently support net zero by 2050, solar PV and onshore wind deliver 93% of supply, supported by hydro, storage, transmission and gas or hydrogen, with gas at 3% to 7% of generation. It puts that system at $141 to $152 per MWh in 2050 including all firming costs, and finds large-scale nuclear slightly higher in cost than gas with carbon capture, with small modular reactors the highest cost.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "CSIRO & AEMO, GenCost 2025-26 Final Report, Executive Summary (July 2026), 2050 generation technology competitiveness",
+          sourceUrl:
+            "https://www.csiro.au/-/media/Energy/GenCost-2025-26-Final/GenCost_2025-26_Final-exec-summ.pdf",
+          reasoning:
+            "Australia's national science agency and grid operator, with system-wide integration costs counted (its system levelised cost) and an open-source model and input data published. Critics such as the Centre for Independent Studies have disputed its assumed nuclear capacity factors and plant lifetimes as too low. It is one country's projection to 2050, and its least-cost mix still keeps gas or hydrogen as firm backup, so it argues against nuclear as the firm resource rather than against firm capacity altogether.",
         },
       ],
     },
