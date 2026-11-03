@@ -46,6 +46,10 @@ export const schoolPhoneBansData = {
         methodology:
           "Randomly assign 200 schools (100 treatment, 100 control) across diverse socioeconomic contexts to implement a strict phone ban (phones locked in pouches at arrival) versus a permissive phone policy for a full academic year. Measure standardized test scores, classroom engagement (via trained observer coding), disciplinary incidents, and attendance. Include pre-treatment covariates to ensure balance. Stratify randomization by school socioeconomic status to analyze heterogeneous effects.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials that assign schools to adopt a phone ban or not, measuring test scores, attendance and wellbeing over at least a school year, alongside studies of statewide bans where every school changed at once.",
+        },
         cost_to_verify:
           "$3-8M (Multi-school randomized trial with assessment infrastructure, requiring school district cooperation)",
         falsification: {

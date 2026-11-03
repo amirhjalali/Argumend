@@ -239,6 +239,10 @@ export const socialMediaElectionsData = {
         methodology:
           "Conduct pre-registered field experiments during competitive elections, randomly assigning voters to receive micro-targeted political ads versus standard demographic-targeted ads versus no ads. Measure vote choice and turnout using validated voter file records (not self-reports). Separately test persuasion and demobilization messaging. Replicate across at least three elections and two countries to establish generalizability.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Large preregistered field experiments run with platforms during real campaigns, randomly withholding targeted ads from some voters and checking vote choice and turnout against public voter files, as the 2020 Meta election research did for feeds and account deactivation.",
+        },
         cost_to_verify:
           "$2-5M (Multi-election field experiments with voter file validation, requiring campaign cooperation and IRB approval)",
         falsification: {

@@ -46,6 +46,10 @@ export const returnToOfficeProductivityData = {
         equation:
           "\\Delta P = P_{in\\text{-}office} - P_{remote} \\pm \\text{selection\\_bias\\_correction}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized assignment of comparable teams inside one firm to remote, hybrid and in-office work for a year or more, measuring output, promotions, mentoring and project delivery, as Nicholas Bloom's trial at Trip.com did for hybrid work.",
+        },
         cost_to_verify:
           "$5-10M (Multi-firm randomized controlled trial with objective productivity instrumentation)",
         falsification: {
@@ -282,6 +286,10 @@ export const returnToOfficeProductivityData = {
         equation:
           "\\text{RTO}_{strictness} = \\beta_1 P_{remote} + \\beta_2 CRE_{\\%costs} + \\beta_3 L_{layoffs} + \\beta_4 C_{style} + \\varepsilon",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare which firms imposed office mandates with their prior productivity data, lease commitments and layoff plans, using company filings and studies of S&P 500 mandates, and check what happened to output and attrition afterward.",
+        },
         cost_to_verify:
           "$500K (Econometric analysis of public company data with supplemental surveys)",
         falsification: {
