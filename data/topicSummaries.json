@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol pell stagnant nordhaus rosen vijan cutler naep tuition admin turner haircut helland marron tabarrok"
+    "keywords": "baumol pell stagnant nordhaus rosen vijan admin cutler naep tuition turner haircut helland marron tabarrok"
   },
   {
     "id": "moloch",
@@ -471,7 +471,7 @@
       "Independent redistricting commissions",
       "Gerrymandering ban"
     ],
-    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom cements deadlocked kagan"
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki cements deadlocked kagan newsom"
   },
   {
     "id": "aca-enhanced-subsidies",
@@ -608,7 +608,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "cengiz krueger eitc dube lindner oxfam zipperer bunching inwegen jardim neumark plotnick vigdor wascher wething"
+    "keywords": "cengiz krueger eitc dube lindner oxfam zipperer inwegen jardim neumark plotnick vigdor wascher wething budgetary"
   },
   {
     "id": "drug-decriminalization",
@@ -751,7 +751,7 @@
       "Do immigrants take jobs from Americans?",
       "Will deporting immigrants raise wages?"
     ],
-    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe elizabeth"
+    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe giovanni"
   },
   {
     "id": "open-borders",
@@ -795,29 +795,35 @@
     "tags": [
       "policy"
     ],
-    "keywords": "openresearch dividend kela stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee bartik"
+    "keywords": "openresearch kela stockton roosevelt alaskas manitoba mincome wives tanf denver givedirectly banerjee bartik dauphin krause"
   },
   {
     "id": "wealth-tax",
-    "title": "Wealth Tax on Billionaires",
-    "question": "Would an annual wealth tax on billionaires be effective and reduce inequality?",
-    "meta_claim": "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
-    "confidence_score": 48,
-    "balance": 48,
-    "weight": 66,
+    "title": "Would a Billionaire Wealth Tax Work?",
+    "question": "Would a billionaire wealth tax raise real money, or drive the rich away?",
+    "meta_claim": "A tax on the net worth of billionaires would raise substantial revenue without driving away enough of the tax base, or doing enough economic harm, to defeat its purpose.",
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Did Europe's wealth taxes fail due to fixable design flaws, or problems inherent in taxing wealth yearly?",
+    "pillarCount": 3,
+    "evidenceCount": 15,
+    "firstCrux": "Did Europe's wealth taxes raise little because of fixable flaws, or because taxing wealth yearly always leaks?",
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg deferral"
+    "aliases": [
+      "Would an annual wealth tax on billionaires be effective and reduce inequality?",
+      "Should California pass Prop 40, the billionaire tax?",
+      "Did wealth taxes fail in Europe?",
+      "Is the Zucman tax a good idea?"
+    ],
+    "keywords": "jakobsen saez jaros marius kleven lhart rauh berg brin cantons hankey kalanick kroner ostry thiel"
   },
   {
     "id": "standardized-testing-debate",
@@ -839,7 +845,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dartmouth coaching prep briggs nacac derek sttf chetty deming gazette ibisworld overlooking princetonian sats technavio"
+    "keywords": "dartmouth coaching prep briggs nacac derek sttf chetty deming ibisworld overlooking princetonian sats technavio gazette"
   },
   {
     "id": "electoral-college-reform",
@@ -963,7 +969,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight retrained upholds broadcast relicensed usds"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture forbes fisa knight retrained upholds broadcast relicensed usds"
   },
   {
     "id": "immigration-border-crisis",
@@ -1986,7 +1992,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper"
+    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac looney qualifications steeper handbook"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2033,7 +2039,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial afghanistan funder opensecrets pakistan super theirs"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2210,7 +2216,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore advisors"
+    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl m2sl breakeven larry admirably ambitious supercore advisors"
   },
   {
     "id": "global-housing-bubble",
@@ -2298,7 +2304,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost ring beers debswana"
+    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost beers debswana foundry"
   },
   {
     "id": "rent-control-effectiveness",
@@ -2772,7 +2778,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "keywords": "olympic ncaa cisgender medals rapporteur skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2883,7 +2889,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc penn krugman truce usmca scattered alberto"
+    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc krugman truce usmca scattered alberto carmakers"
   },
   {
     "id": "rfk-health-policy",
@@ -2975,7 +2981,7 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
+    "keywords": "bbeling hildebrandt jessica stern stiglitz abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera profession"
   },
   {
     "id": "congestion-pricing",
@@ -3318,7 +3324,7 @@
       "medicine",
       "placebo"
     ],
-    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine reuptake"
+    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus monotherapy pigott prespecified reboxetine reuptake riat"
   },
   {
     "id": "social-security-retirement-age",
@@ -3372,7 +3378,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch taxable chairman forgone"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated forgone illiquid instantaneously ranch chairman taxable"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3431,7 +3437,7 @@
       "security",
       "law-enforcement"
     ],
-    "keywords": "wiretap intercept calea rivest abelson bellovin cybertipline diffie doormats inventor investigatory ncmec schneier telephony venetic"
+    "keywords": "wiretap intercept calea rivest abelson bellovin cybertipline diffie doormats investigatory ncmec schneier telephony venetic cisa"
   },
   {
     "id": "section-230-reform",
@@ -3547,7 +3553,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
+    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard faraone hyperactivity larsson mcgeechan oldest skoglund underdiagnosis"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3628,7 +3634,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson raja rogowski thornton carroll jenkins powell"
+    "keywords": "burkean caucus lobbyists apollonio carey carroll mclaughlin moncrief niemi olson raja rogowski thornton jenkins powell"
   },
   {
     "id": "effective-altruism",
@@ -3712,7 +3718,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature hoover jurkatis misdescribe neednt pcepilfe powar"
+    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature jurkatis misdescribe neednt pcepilfe powar tymoigne"
   },
   {
     "id": "dark-matter-vs-mond",
