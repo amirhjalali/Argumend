@@ -129,7 +129,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "therabot facct nedas woebot sycophancy tessa bots dartmouth psychotherapy roleplay heinz moore ckiger darcy fitzpatrick"
+    "keywords": "therabot facct nedas woebot sycophancy tessa bots psychotherapy dartmouth roleplay heinz moore ckiger darcy fitzpatrick"
   },
   {
     "id": "carbon-capture-viability",
@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries theorem"
+    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric subsistence tragedy montreal folk malthus nash fisheries theorem"
   },
   {
     "id": "ai-2027",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs arkansass blendon"
+    "keywords": "nebraska arkansas snap sommers childless corinth leive prager pukelis wherry zaki kffs arkansass blendon caretakers"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses mail factcheck"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tribal campuses mail factcheck unconfirmed"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -437,7 +437,7 @@
       "Pelosi stock trades",
       "Congress insider trading"
     ],
-    "keywords": "belmont burr hoek sacerdote sehgal hainmueller perlmutter schulp yahoo ziobrowski rally nancy maybe shouldnt toomey"
+    "keywords": "belmont burr hoek sehgal sacerdote hainmueller perlmutter schulp ziobrowski rally yahoo eggers nancy maybe shouldnt"
   },
   {
     "id": "partisan-gerrymandering",
@@ -471,7 +471,7 @@
       "Independent redistricting commissions",
       "Gerrymandering ban"
     ],
-    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom cements deadlocked kagan"
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom cements deadlocked ajps"
   },
   {
     "id": "aca-enhanced-subsidies",
@@ -505,7 +505,7 @@
       "Health insurance premiums 2026",
       "Extend the ACA tax credits"
     ],
-    "keywords": "enrollees paragon improper bronze r48290 phantom aspe kffs blase moreno maga planners sicker backfills bernie"
+    "keywords": "paragon improper bronze r48290 phantom aspe kffs blase moreno maga planners sicker backfills bernie colleran"
   },
   {
     "id": "nuclear-energy-safety",
@@ -751,38 +751,44 @@
       "Do immigrants take jobs from Americans?",
       "Will deporting immigrants raise wages?"
     ],
-    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe elizabeth"
+    "keywords": "mexican peri borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens farmworkers diploma chloe elizabeth"
   },
   {
     "id": "open-borders",
     "title": "The Case for Open Borders",
-    "question": "Should immigration restrictions be greatly relaxed or eliminated?",
-    "meta_claim": "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 52,
+    "question": "Should rich countries open their borders, or at least let in far more people?",
+    "meta_claim": "Greatly relaxing or eliminating immigration restrictions in rich countries would produce large economic gains and is morally justified.",
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 71,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "highly_speculative",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
+    "pillarCount": 4,
+    "evidenceCount": 18,
     "firstCrux": "How large would the real gains from freer migration be once fiscal, wage and transition costs are counted?",
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens borjas bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular"
+    "aliases": [
+      "Should immigration restrictions be greatly relaxed or eliminated?",
+      "Should borders be open?",
+      "Open borders",
+      "Should anyone be free to move to another country?"
+    ],
+    "keywords": "clemens pritchett borjas wellman carens enlargement feudal haitian montenegro diploma remittances becker edelberg fetzer halla"
   },
   {
     "id": "universal-basic-income",
     "title": "Universal Basic Income",
-    "question": "Should developed nations adopt a universal basic income?",
+    "question": "Should every adult get a basic income from the government, no strings attached?",
     "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 74,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -790,12 +796,18 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 15,
-    "firstCrux": "Can any realistic funding plan pay for UBI without growth-damaging debt or tax rates?",
+    "evidenceCount": 17,
+    "firstCrux": "Would a permanent UBI reduce work more than the small effects seen in temporary pilots?",
     "tags": [
       "policy"
     ],
-    "keywords": "openresearch dividend kela stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee bartik"
+    "aliases": [
+      "Should developed nations adopt a universal basic income?",
+      "Should the government give everyone a basic income?",
+      "Does universal basic income work?",
+      "UBI"
+    ],
+    "keywords": "roosevelt dividend marinescu openresearch wives alaskas penn denver wharton manitoba mincome stockton unemployed tanf banerjee"
   },
   {
     "id": "wealth-tax",
@@ -912,7 +924,7 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq memorandum tehran fordow"
+    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran fordow islamabad"
   },
   {
     "id": "epstein-files",
@@ -934,7 +946,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
+    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz perpetrators prostitution starr notified cvra"
   },
   {
     "id": "tiktok-ban",
@@ -963,7 +975,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight retrained upholds broadcast relicensed usds"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight upholds broadcast retrained relicensed usds"
   },
   {
     "id": "immigration-border-crisis",
@@ -1059,7 +1071,7 @@
     "aliases": [
       "What happens in a school lockdown if every phone is locked away?"
     ],
-    "keywords": "yondr beland pouches victoria ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom lockable"
+    "keywords": "yondr beland pouches victoria literacy lorenzo abrahamsson bullying classroom discriminatory adrian cgms cyberbullying dexcom lockable"
   },
   {
     "id": "pandemic-preparedness",
@@ -1125,7 +1137,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination brine feet groundwater wastewater cubic irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1389,7 +1401,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu dario demis godfather gsm8k hassabis kefauver mmmu"
+    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing altman baidu bards dario demis godfather gsm8k hassabis"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1411,7 +1423,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "gasoline technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel"
+    "keywords": "gasoline technocratic crispr linux moores sadness dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman"
   },
   {
     "id": "ai-superintelligence-timeline",
@@ -1433,7 +1445,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt mamba mirage multilingual openreview ouyang schaeffer shazeer smoothly"
+    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt mamba mirage multilingual openreview ouyang schaeffer shazeer chinchilla"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1986,7 +1998,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper"
+    "keywords": "apprenticeship attendees vocational bootcamp cirr electrician pipefitters steamfitters hvac leavers looney plumbers qualifications steeper handbook"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2008,7 +2020,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas alumni midwestern peabody charitable"
+    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas midwestern peabody alumni charitable"
   },
   {
     "id": "billionaire-wealth",
@@ -2055,7 +2067,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "easterly moyo pepfar subramanian deaton givewell rajan givedirectly tuna untie dambisa mozambique angus econometrica haushofer"
+    "keywords": "easterly moyo pepfar subramanian deaton givewell rajan givedirectly tuna untie dambisa econometrica mozambique angus haushofer"
   },
   {
     "id": "cryptocurrency-value",
@@ -2144,7 +2156,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
+    "keywords": "auckland greenaway mcgrevy tokyo gyourko vienna glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
   },
   {
     "id": "four-day-work-week",
@@ -2171,24 +2183,30 @@
   {
     "id": "student-debt-forgiveness",
     "title": "Student Debt Forgiveness",
-    "question": "Is broad student debt forgiveness justified and economically beneficial?",
+    "question": "Should the government cancel student debt?",
     "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
-    "confidence_score": 64,
-    "balance": 64,
-    "weight": 72,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 11,
-    "firstCrux": "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
+    "pillarCount": 4,
+    "evidenceCount": 14,
+    "firstCrux": "Would broad forgiveness mostly go to borrowers who would have repaid anyway?",
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
+    "aliases": [
+      "Is broad student debt forgiveness justified and economically beneficial?",
+      "Should student loans be forgiven?",
+      "Student loan forgiveness",
+      "Is student loan forgiveness fair?"
+    ],
+    "keywords": "repayment tuition catherine nebraska yannelis cfpb undue cents clayton defrauded grad paycheck ppps decile looney"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2254,7 +2272,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "brics reinhart rogoff refinanced herndon pollin comprises outlays rachel crfb cofer expansionary glut rags renminbi"
+    "keywords": "brics reinhart rogoff refinanced herndon pollin rachel comprises outlays crfb cofer expansionary glut rags renminbi"
   },
   {
     "id": "return-to-office-productivity",
@@ -2348,7 +2366,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason biocapacity biophysical garment giorgos greek haberl"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason prosperity biocapacity biophysical garment giorgos greek"
   },
   {
     "id": "free-will",
@@ -2436,7 +2454,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa deportation castro julio cbps nonfatal patrol footage spokesperson superintendent venturella shooters"
+    "keywords": "celis hennepin scene sosa castro julio cbps nonfatal patrol footage spokesperson superintendent venturella shooters evans"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2503,7 +2521,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "chetty dream abramitzky boustan duckworth dweck gatsby gregory grit hendren hubris hunter schmidt mindset sandel"
+    "keywords": "chetty intergenerational dream abramitzky boustan duckworth dweck gatsby gregory grit hendren hubris hunter mindset schmidt"
   },
   {
     "id": "consciousness-hard-problem",
@@ -2591,7 +2609,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety commenced anglosphere assent babel rausch scandinavia snapchat twitch undifferentiated abrahamsson kick pediatricians reddit threads"
+    "keywords": "esafety sadness commenced anglosphere assent babel rausch scandinavia snapchat twitch undifferentiated abrahamsson kick pediatricians reddit"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2613,7 +2631,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied subversion turkey unraveling"
+    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos composed contentious defamation dissatisfied eighth subversion"
   },
   {
     "id": "geoengineering-climate",
@@ -2657,7 +2675,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
+    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker bahamian interoperable outer payee"
   },
   {
     "id": "masculinity-crisis",
@@ -2679,7 +2697,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate ceos herself naep clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "keywords": "despair deaton anne tate ceos herself naep clearinghouse mens afflicting chromosome congregations fraternal hierarchies misogynistic"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2728,7 +2746,7 @@
       "Should governments help people have the children they want?",
       "Do housing and childcare costs explain low fertility?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth"
+    "keywords": "unfpa childbearing duflo dupas kremer pcap desa fieldwork totl ninth"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2754,25 +2772,31 @@
   },
   {
     "id": "transgender-athletes-sports",
-    "title": "Transgender Athletes in Competitive Sports",
-    "question": "Should transgender women on hormone therapy compete in women's sports?",
-    "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
-    "confidence_score": 39,
-    "balance": 39,
-    "weight": 67,
+    "title": "Transgender Athletes in Women's Sports",
+    "question": "Should transgender women and girls be allowed to compete in female sports?",
+    "meta_claim": "Transgender women and girls should be allowed to compete in female sports categories, because hormone therapy, or transition before puberty, removes enough of the physical advantage that male puberty brings.",
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 69,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 10,
+    "pillarCount": 4,
+    "evidenceCount": 13,
     "firstCrux": "After two-plus years on hormones, do retained advantages exceed normal variation among women in that sport?",
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "aliases": [
+      "Should transgender women on hormone therapy compete in women's sports?",
+      "Transgender Athletes in Competitive Sports",
+      "Should trans women play women's sports?",
+      "Is it fair for transgender girls to play on girls' teams?"
+    ],
+    "keywords": "olympic medal cisgender ncaa aerobic handelsman harper hilton lundberg rapporteur hemoglobin ahrendt bermon coventry grip"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2817,16 +2841,16 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam borjas retiree hunkering italians jews complementarity diploma dispersed norc resettlement refugee scandinavian"
+    "keywords": "putnam borjas retiree hunkering italians jews complementarity norc resettlement diploma dispersed scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
     "title": "Affirmative Action & Meritocracy",
-    "question": "Are race-conscious admissions and hiring needed for equal opportunity?",
+    "question": "Should colleges and employers weigh race to give people an equal shot?",
     "meta_claim": "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 79,
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 78,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2839,7 +2863,13 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sffa arcidiacono quotas disapprove campuses reanalyses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler"
+    "aliases": [
+      "Are race-conscious admissions and hiring needed for equal opportunity?",
+      "Was the Supreme Court right to end affirmative action?",
+      "Is affirmative action fair?",
+      "Should colleges consider race in admissions?"
+    ],
+    "keywords": "arcidiacono sffa bleemer freeman huang kinsler ransom disapproved campuses athletes aucejo gurin hanna hotz lovenheim"
   },
   {
     "id": "ukraine-peace-terms",
@@ -2883,7 +2913,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc penn krugman truce usmca scattered alberto"
+    "keywords": "fence ieepa yard cavallo piie reed aluminum chris penn usitc wharton krugman truce usmca scattered"
   },
   {
     "id": "rfk-health-policy",
@@ -2949,7 +2979,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bengio restrictionist yoshua casper"
+    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bengio yoshua casper hendrycks"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -3094,7 +3124,7 @@
       "Is an assault weapons ban constitutional?",
       "Does the Second Amendment only protect militias?"
     ],
-    "keywords": "heller bruen emerson kavanaugh kopel rahimi saul marijuana mcdonald soldier wallace corpus baron hemani wolford"
+    "keywords": "heller bruen emerson kopel rahimi saul kavanaugh marijuana mcdonald soldier wallace corpus baron hemani wolford"
   },
   {
     "id": "self-driving-car-safety",
@@ -3152,7 +3182,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona duarte dunn facetime gibson"
+    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante secretly bona duarte dunn facetime gibson isps"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3260,7 +3290,7 @@
       "iter",
       "decarbonization"
     ],
-    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
+    "keywords": "tritium laser livermore tokamaks sparc chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
   },
   {
     "id": "vaccine-mandates",
@@ -3291,7 +3321,7 @@
       "School vaccination requirements",
       "Required childhood immunizations"
     ],
-    "keywords": "osha measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel kraaijeveld"
+    "keywords": "osha measles jacobson waned justia arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel"
   },
   {
     "id": "ssri-antidepressant-efficacy",
@@ -3458,7 +3488,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
+    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia disincentives"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3601,7 +3631,7 @@
       "hiv",
       "harm-reduction"
     ],
-    "keywords": "prostitution indoor gonorrhea govt repressive christchurch cunningham dreher neumayer shah abel beehive brothel brunton fitzgerald"
+    "keywords": "prostitution indoor gonorrhea govt repressive christchurch dreher neumayer cunningham shah abel beehive brothel brunton fitzgerald"
   },
   {
     "id": "congressional-term-limits",
@@ -3712,7 +3742,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature hoover jurkatis misdescribe neednt pcepilfe powar"
+    "keywords": "gilt latin fraught hyperinflation mmts sebasti tcherneva peru caricature countercyclical hoover jurkatis misdescribe neednt pcepilfe"
   },
   {
     "id": "dark-matter-vs-mond",
