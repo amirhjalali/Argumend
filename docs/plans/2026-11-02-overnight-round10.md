@@ -52,3 +52,32 @@ prod health 152 maps, deployed ~Oct 25. Reviewers:
 **03:40 UTC, wave 2 (fix).** Five worktree branches: r10/perf, r10/seo, r10/paste,
 r10/copy, r10/citations. The sitemap expansion is its own last commit on r10/seo so
 it can be dropped (it was on the founder-decision list).
+
+**04:00 UTC, wave 2 integrated** (all five branches merged into
+`ux/round10-2026-11-02`, pushed as a checkpoint). typecheck, lint, 4,319 tests and
+`bun run build` green; the local standalone build serves `/_next/image` as a 10KB
+webp (was the 649KB JPEG) and 308s flagship `/map` URLs to the topic page.
+- perf: the real cause of unresized images was Next's tracer missing libvips under
+  sharp 0.35's new entry point (`next.config.js` now traces it); sharp a direct
+  dependency; zod off every page; React Flow attribution contrast. Also bumped
+  sharp 0.35.5 and drizzle-orm 0.45.2 for open advisories. Linux/Coolify not
+  verifiable here: after deploy, `curl -sI` the image URL and expect image/webp.
+- seo: og images on /ai, /privacy, /terms and diagram pages; four-position `/map`
+  URLs redirect; 404 has no canonical; FAQPage answers are verbatim context, never
+  questions; descriptions ≤160 with a guard test; category/page titles. Sitemap
+  expansion (~300 URLs) is its own merge commit: revert it to keep the pruned sitemap.
+- paste: nuclear paste names nuclear-energy-safety (eval 148→149/168, wrong 0→0);
+  cards ranked against the crux; button above the fold; "Closely related" list;
+  library search, tab fade, page 2+ without "Start here".
+- copy: "Hidden assumption" tag; agreed facts never chosen as a side's best card
+  (87 cards on 54 maps; 22 of 415 cruxes now show no pair); one crux intro; Jev post
+  dates; /learn dedupe; moon-landing dosimeter card moved to the side it supports.
+- citations: geoengineering and microplastics claims re-sourced; CHAMACOS 5.6;
+  Appen node; three blog verdicts made neutral; TAME, Section 122, USMCA, Australia
+  ban, Ukraine "late 2026", V-Dem 2026 updated; six new cards on four thin maps.
+- Claude: capitalism-after-ai "nobody states out loud" overclaim; gap tests' 1s
+  waits flaked under load (now 5s).
+
+**04:05 UTC, wave 3.** Follow-ups (library tag ordering, paste agreed-fact cards,
+yes/no summaries) and sources (miscited RUSI card in ukraine-peace-terms, Starship,
+robotaxi cities, GLP-1 prices), plus a visual QA pass on the local build.
