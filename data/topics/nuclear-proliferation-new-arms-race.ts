@@ -305,9 +305,9 @@ export const nuclearProliferationNewArmsRaceData = {
         },
         {
           id: "petrov-false-alarm",
-          title: "Petrov Incident: Human Judgment Prevented Nuclear War in 1983",
+          title: "Petrov Incident (1983): A Duty Officer Reported a Launch Warning as a False Alarm",
           description:
-            "On September 26, 1983, Soviet early warning systems detected what appeared to be five US ICBM launches. Soviet duty officer Stanislav Petrov judged the warning to be a false alarm based on his intuition that a genuine first strike would involve hundreds of missiles, not five. He was correct — the detection was caused by sunlight reflecting off clouds. Had Petrov followed protocol and reported an incoming attack, Soviet leadership might have launched a retaliatory strike. This incident demonstrates both the value of human judgment in nuclear decision-making and the danger of relying on automated systems.",
+            "Shortly after midnight on 26 September 1983, the Soviet satellite early-warning system reported five US Minuteman ICBM launches. Duty officer Stanislav Petrov reported it to his superiors as a false alarm: five missiles was far fewer than Soviet doctrine expected in a first strike, and the system could not confirm the missiles' trails. Petrov later explained that the satellite can give false reports when sunlight reflected from US territory misleads it. Protocol required him to relay the attack warning immediately, leaving an eight-to-ten-minute window to retaliate, though Chatham House notes that officers higher up the chain might have reached the same conclusion. This incident demonstrates both the value of human judgment in nuclear decision-making and the danger of relying on automated systems.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -315,8 +315,8 @@ export const nuclearProliferationNewArmsRaceData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Bulletin of the Atomic Scientists; BBC; Petrov interviews",
-          sourceUrl: "https://thebulletin.org/2023/09/the-petrov-incident-40-years-on/",
+          source: "Lewis, Williams, Pelopidas & Aghlani, 'Too Close for Comfort: Cases of Near Nuclear Use and Options for Policy', Chatham House (April 2014), Serpukhov-15 case study",
+          sourceUrl: "https://www.chathamhouse.org/sites/default/files/field/field_document/20140428TooCloseforComfortNuclearUseLewisWilliamsPelopidasAghlani.pdf",
           reasoning:
             "The Petrov incident is a well-documented historical case that directly illustrates the tension between automated systems and human judgment in nuclear command. Its relevance to AI integration is strong but indirect — it demonstrates the importance of human judgment in a pre-AI era, not the specific risks of AI-enabled systems.",
         },

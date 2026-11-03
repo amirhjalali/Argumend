@@ -572,7 +572,7 @@ export const usIranConflictData = {
           title:
             "Multiple Post-JCPOA Diplomatic Initiatives Have Stalled (2019-2024)",
           description:
-            "EU-coordinated talks to revive the JCPOA reached a near-final draft in 2022 but collapsed in mid-2022, with Iran's demand that the IRGC be removed from the US Foreign Terrorist Organization list emerging as a central obstacle that the Biden administration refused. Subsequent indirect US-Iran talks via Oman, and later Qatari mediation, yielded prisoner exchanges and informal understandings but no restored nuclear agreement.",
+            "EU-coordinated talks to revive the JCPOA reached a near-final draft in 2022 but collapsed in mid-2022, with Iran's demand that the IRGC be removed from the US Foreign Terrorist Organization list described as the 'last and biggest hurdle'; Washington would consider delisting only in return for a public Iranian commitment to de-escalate in the region, which Tehran refused. Subsequent indirect US-Iran talks via Oman, and later Qatari mediation, yielded prisoner exchanges and informal understandings but no restored nuclear agreement.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -581,9 +581,9 @@ export const usIranConflictData = {
             directness: 7,
           },
           source:
-            "USIP Iran Primer, 'Iran Deal: The IRGC is the Final Hurdle' (2022); contemporaneous reporting",
+            "USIP Iran Primer, 'Iran Deal: The IRGC is the Final Hurdle' (7 April 2022, updated 27 April 2022; Internet Archive copy, as the Iran Primer site no longer serves it); contemporaneous reporting",
           sourceUrl:
-            "https://iranprimer.usip.org/blog/2022/apr/07/iran-deal-irgc-final-hurdle",
+            "https://web.archive.org/web/20220513004745/https://iranprimer.usip.org/blog/2022/apr/07/iran-deal-irgc-final-hurdle",
           reasoning:
             "Corrected: the 2022 effort was a JCPOA-revival negotiation that stalled over the IRGC delisting demand — not specifically an 'interim deal freezing enrichment at 60%' (that framing conflated later informal proposals). Failure must be contextualized: talks proceeded under maximum-pressure sanctions, which Iran argues prevents good-faith bargaining, so whether these were genuine or performative remains the contested question.",
         },

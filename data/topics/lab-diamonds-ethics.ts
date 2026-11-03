@@ -225,7 +225,7 @@ export const labDiamondsEthicsData = {
         {
           id: "renewable-powered-lab-diamonds",
           title:
-            "Renewable-Powered Lab Diamonds Achieve Under 20 kg CO₂ per Carat",
+            "Renewable-Powered Lab Diamonds Can Be Certified Climate Neutral",
           description:
             "Diamond Foundry, a US-based lab-grown producer, runs its Wenatchee, Washington facility on 100% hydroelectric power from the Columbia River and markets itself as the first 'carbon-neutral' diamond producer. SCS Global Services' SCS-007 jewelry sustainability standard certifies qualifying lab-grown (and natural) diamonds as 'Certified Climate Neutral,' showing that net-zero-carbon production is technically achievable. By comparison, the industry-commissioned Trucost study put efficient mined production at ~160 kg CO₂ per polished carat, so a renewable-powered grower's footprint is dramatically lower than both coal-grid lab production and mining. As grids decarbonize, more lab producers can approach similar footprints.",
           side: "for" as const,

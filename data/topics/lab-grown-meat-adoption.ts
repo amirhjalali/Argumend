@@ -112,6 +112,24 @@ export const labGrownMeatData = {
           reasoning:
             "The funding figures come from GFI (with Net Zero Insights), an industry-advocacy nonprofit that promotes alternative proteins, so its data should be read with mild caution even though here it documents a downturn that cuts against its own optimism (which raises confidence). The exact 2024 total is reported in a band (~$139-144M) because a single large late-stage round shifts the headline number, so the figure is given as approximate rather than precise. Sharp investment declines are informative market signals, though capital-intensive deep-tech often sees boom-bust funding cycles and a retrenchment is not by itself proof the technology cannot scale. Independence trimmed from 8 to 7 to reflect GFI's advocacy role.",
         },
+        {
+          id: "humbird-scale-up-economics",
+          title: "Humbird (2021): Even a 6,800-Tonne-a-Year Plant Would Make Cell Mass at About $37/kg, Because Cell Biology Caps Reactor Size and Density",
+          description:
+            "Chemical engineer David Humbird's techno-economic analysis in Biotechnology and Bioengineering (August 2021) modelled cultured-meat plants at commercial scale and found that slow growth, metabolic inefficiency and shear damage limit how large bioreactors can be and how densely cells can grow, while capital costs and medium components stay high. 'The overall cost of production estimated for a fed-batch cell-culture process is $37/kg wet cell mass' (about $17 a pound) for a facility that 'produces 6.8 kTA of wet cell mass'; a perfusion design came out at '$51/kg wet cell mass.' Cheap plant-hydrolysate media bring the fed-batch figure to about $22/kg. He concludes that better metabolic efficiency and low-cost media are 'necessary but insufficient conditions for displacement of conventional meat by cultured meat.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 8,
+          },
+          source:
+            "David Humbird, 'Scale-up economics for cultured meat', Biotechnology and Bioengineering 118(8): 3239–3250 (2021)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8362201/",
+          reasoning:
+            "Peer-reviewed and aimed directly at the crux: it argues the cost floor comes from cell biology and sterile-process capital, not from immaturity that volume will fix. Like Nahmias et al. on the other side, it is a model of plants that do not exist, so replicability is 5; the two models differ mainly in assumed cell density and process design, which only built plants can settle. Funded by Open Philanthropy, a funder of alternative-protein work, which if anything cuts against a motive to find a high floor.",
+        },
       ],
     },
     {
@@ -169,6 +187,24 @@ export const labGrownMeatData = {
             "This peer-reviewed review synthesizes 26 empirical consumer-acceptance studies and supports the general finding that a large minority of consumers express unwillingness, though exact percentages vary by study, framing and country and the specific '35-50%' band is an approximation across surveys rather than a single reported figure. An earlier version cited 'Bryant & Barnett, Meat Science (2020)' — a conflation of their 2018 Meat Science systematic review with this 2020 Applied Sciences update; corrected to the 2020 paper that the year refers to. Stated intent surveys are directionally informative but may overstate resistance, since many who say they won't try a product do try it once available.",
         },
         {
+          id: "state-cultivated-meat-sale-bans",
+          title: "Florida (2024) and Texas (2025) Made It Illegal to Sell Cultivated Meat",
+          description:
+            "Florida's SB 1084, approved by the governor on 1 May 2024 (chapter 2024-137, effective 1 July 2024), includes 'prohibiting the manufacture for sale, sale, holding or offering for sale, or distribution of cultivated meat in this state.' Texas SB 261, 'Relating to a prohibition on the offering for sale and the sale of cell-cultured protein for human consumption; providing civil and criminal penalties', was signed on 20 June 2025 and took effect on 1 September 2025.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Florida Senate, SB 1084 (2024), ch. 2024-137; Texas Legislature Online, SB 261 (89th Legislature, 2025)",
+          sourceUrl: "https://www.flsenate.gov/Session/Bill/2024/1084",
+          reasoning:
+            "Primary legislative records. They show resistance hardening into law in two of the largest US food markets, before any product reached price parity, which is evidence against the view that unfamiliarity simply fades with exposure: consumers there cannot get exposure. Directness is 5 because a ban reflects lawmakers and incumbent-industry politics as much as shoppers' disgust, and laws can be repealed or struck down.",
+        },
+        {
           id: "bioprinting-advances-2025",
           title: "Cultivated Steak Reaches Consumer Acceptance Parity in a Blind Taste Test",
           description:
@@ -184,6 +220,24 @@ export const labGrownMeatData = {
           sourceUrl: "https://www.greenqueen.com.hk/aleph-farms-cultivated-meat-lab-grown-beef-steak-taste-test/",
           reasoning:
             "An earlier version claimed cultivated meat was 'virtually indistinguishable from beef, chicken, and pork' citing only an unsourced industry report — that overstated the evidence and has been softened. The strongest real result (Aleph Farms) shows consumer-acceptance parity in a single company-run blind test, not blinded indistinguishability of the product itself; independent academic tasting studies find acceptance 'fairly divided.' Because the headline figures come from an interested producer, independence and replicability stay low.",
+        },
+        {
+          id: "rolland-tasting-information-acceptance",
+          title: "Rolland, Markus & Post (2020): Information and a Tasting Raised Acceptance Among 193 Dutch Adults, Who Rated a Burger Labeled 'Cultured' as Tastier",
+          description:
+            "In a PLoS One experiment, 'Hundred ninety-three citizens from the Netherlands participated', split into three groups given information on societal benefits, personal benefits or taste and quality. Each then 'tasted two pieces of hamburger, labeled 'conventional' or 'cultured', although both pieces were in fact conventional.' Participants 'evaluated its taste to be better than the conventional one' despite 'no objective difference', and 'provision of information and the tasting experience increased acceptance of cultured meat.' '58% of the respondents were willing to pay a premium', averaging about 37% over the regular price.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 3,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Rolland, Markus & Post, 'The effect of information content on acceptance of cultured meat in a tasting context', PLoS One 15(4): e0231176 (2020)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7162467/",
+          reasoning:
+            "Peer-reviewed evidence that the barrier is partly a framing and familiarity effect: the label alone did not spoil the taste, and information plus tasting moved acceptance. Weighted low: Mark Post, the co-author, made the 2013 burger and co-founded Mosa Meat (independence 3); 193 Dutch volunteers is a small, likely favorable sample; nobody ate real cultivated meat; and stated willingness to pay is the measure both sides agree outruns purchases, so directness is 5.",
         },
       ],
     },

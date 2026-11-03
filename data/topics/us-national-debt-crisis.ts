@@ -1,7 +1,9 @@
 // Treasury's Monthly Treasury Statement, Table 9 (receipts and outlays by
 // function), fiscal year 2026 to 30 September, from the Fiscal Data API.
+// src_line_nbr is requested so the API does not sum the receipts and outlays
+// "Total" rows into one.
 const MTS_FY2026 =
-  "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/mts/mts_table_9?filter=record_date:eq:2026-09-30&fields=classification_desc,current_fytd_rcpt_outly_amt,prior_fytd_rcpt_outly_amt&page[size]=60";
+  "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/mts/mts_table_9?filter=record_date:eq:2026-09-30&fields=src_line_nbr,classification_desc,current_fytd_rcpt_outly_amt,prior_fytd_rcpt_outly_amt&sort=src_line_nbr&page[size]=60";
 
 export const usNationalDebtCrisisData = {
   id: "us-national-debt-crisis",
@@ -111,7 +113,7 @@ export const usNationalDebtCrisisData = {
       skeptic_premise:
         "Japan has maintained gross debt-to-GDP above 200% for more than a decade without a crisis, and its ratio is now falling, from about 229% in 2020 to a projected 199% in 2026, as nominal growth picked up. The most cited danger line, Reinhart and Rogoff's growth cliff above 90%, did not survive a check of their spreadsheet: corrected, average growth above 90% was 2.2%, not -0.1%. What matters is r against g. In September 2026 the average interest rate on US debt was 3.53%, while nominal GDP grew 5.9% over the year to the third quarter. When the rate stays below growth, the debt ratio can level off even with modest deficits. CBO's projections assume Congress never changes current law, and Congress changes it constantly.",
       proponent_rebuttal:
-        "The trend is the problem, not any single number. The government borrowed $2.0 trillion in fiscal 2026 with no war and no recession, which CRFB's president called the highest deficit ever outside of one. CBO's February 2026 baseline has debt held by the public passing the post-war record by 2030 and reaching 120% of GDP, over $56 trillion, by 2036, with deficits of $3.1 trillion a year by then. Spending on Social Security and health care grows on autopilot; revenue does not keep up. Today's r below g rests on old cheap debt: the 10-year Treasury yield was 4.91% on 2 November 2026, and each year more of the debt rolls over at rates like that. Japan finances itself from domestic savers and a central bank that bought much of its debt; the US relies on foreign and market buyers who can demand more.",
+        "The trend is the problem, not any single number. The government borrowed $2.0 trillion in fiscal 2026 with no war and no recession, which CRFB's president called the highest deficit ever outside of one. CBO's February 2026 baseline has debt held by the public passing the post-war record by 2030 and reaching 120% of GDP, $56 trillion, by 2036, with deficits of $3.1 trillion a year by then. Spending on Social Security and health care grows on autopilot; revenue does not keep up. Today's r below g rests on old cheap debt: the 10-year Treasury yield was 4.91% on 2 November 2026, and each year more of the debt rolls over at rates like that. Japan finances itself from domestic savers and a central bank that bought much of its debt; the US relies on foreign and market buyers who can demand more.",
       crux: {
         id: "r-vs-g-sustainability",
         title: "The r vs g Sustainability Test",
@@ -146,7 +148,7 @@ export const usNationalDebtCrisisData = {
           title:
             "CBO February 2026: debt held by the public passes its post-war record by 2030 and reaches 120% of GDP by 2036",
           description:
-            "In its February 2026 Budget and Economic Outlook, the Congressional Budget Office projects that under current law debt held by the public, 99% of GDP at the end of fiscal 2025, will surpass the 106% record set after World War II by fiscal 2030 and reach 120% of GDP, over $56 trillion, by 2036. Deficits grow from $1.8 trillion (5.8% of GDP) in 2025 to $3.1 trillion (6.7%) in 2036.",
+            "In its February 2026 Budget and Economic Outlook, the Congressional Budget Office projects that under current law debt held by the public, 99% of GDP at the end of fiscal 2025, will surpass the 106% record set after World War II by fiscal 2030 and reach 120% of GDP, $56 trillion, by 2036. Deficits grow from $1.8 trillion (5.8% of GDP) in 2025 to $3.1 trillion (6.7%) in 2036.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -246,14 +248,14 @@ export const usNationalDebtCrisisData = {
       id: "interest-payment-spiral",
       title: "The interest bill",
       short_summary:
-        "Net interest reached $1.05 trillion in fiscal 2026, more than defense and nearly one-fifth of revenue. The average rate on the debt has more than doubled since 2021 as cheap pandemic-era debt matures, and about a quarter of the debt rolls over each year. Whether the bill levels off or compounds depends on where rates settle.",
+        "Net interest reached $1.05 trillion in fiscal 2026, more than defense and nearly one-fifth of revenue. The average rate on the debt has more than doubled since 2021 as cheap pandemic-era debt matures, and $9.1 trillion, about 30% of the debt held by the public, was refinanced in fiscal 2025 alone. Whether the bill levels off or compounds depends on where rates settle.",
       image_url:
         "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=60",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Nominal interest payments are misleading without context: what matters is interest measured against the size of the economy and against growth. Net interest of $1.05 trillion is about 3.2% of a $33 trillion economy, and about 70% of the debt held by the public is owned at home, so most of that interest moves money within the country rather than out of it. A currency-issuing government cannot be forced into involuntary default in its own currency, and Treasuries remain the safe asset the world runs to in a crisis. If a genuine spiral threatened, the Fed and Congress have tools. The real risk is a self-fulfilling loss of confidence, not arithmetic doom.",
+        "Nominal interest payments are misleading without context: what matters is interest measured against the size of the economy and against growth. Net interest of $1.05 trillion is about 3.2% of a $33 trillion economy, and about 70% of the debt held by the public was owned at home at the end of 2024, so most of that interest moves money within the country rather than out of it. A currency-issuing government cannot be forced into involuntary default in its own currency, and Treasuries remain the safe asset the world runs to in a crisis. If a genuine spiral threatened, the Fed and Congress have tools. The real risk is a self-fulfilling loss of confidence, not arithmetic doom.",
       proponent_rebuttal:
-        "The interest bill is the fastest-growing part of the budget, and it compounds. Net interest rose from $970 billion in fiscal 2025 to $1,052 billion in 2026, passing defense ($965 billion) and nearly matching Medicare ($1,073 billion). The average rate on the debt was 1.57% at the end of 2021 and 3.53% in September 2026; about $9 trillion matures each year and is refinanced at market rates, and the 10-year yield was 4.91% on 2 November, above the 4.1% CBO assumed for 2026. CBO projects interest at 4.6% of GDP, $2.1 trillion a year, by 2036. Each dollar of interest is borrowed, which adds to next year's interest. Moody's cited exactly this when it stripped the US of its last AAA rating in May 2025.",
+        "The interest bill is the fastest-growing part of the budget, and it compounds. Net interest rose from $970 billion in fiscal 2025 to $1,052 billion in 2026, passing defense ($965 billion) and nearly matching Medicare ($1,073 billion). The average rate on the debt was 1.57% at the end of 2021 and 3.53% in September 2026; $9.1 trillion matured and was refinanced at market rates in fiscal 2025, and the 10-year yield was 4.91% on 2 November, above the 4.1% CBO assumed for 2026. CBO projects interest at 4.6% of GDP, $2.1 trillion a year, by 2036. Each dollar of interest is borrowed, which adds to next year's interest. Moody's cited exactly this when it stripped the US of its last AAA rating in May 2025.",
       crux: {
         id: "interest-rate-rollover-risk",
         title: "The Debt Rollover Stress Test",
@@ -344,9 +346,9 @@ export const usNationalDebtCrisisData = {
         },
         {
           id: "rollover-wave-coming",
-          title: "About $9 trillion of Treasury debt matures and must be refinanced each year (GAO)",
+          title: "GAO: Treasury refinanced $9.1 trillion of maturing debt in fiscal 2025",
           description:
-            "About $9.2 trillion of Treasury debt, roughly a quarter of the total, matured and had to be refinanced in fiscal year 2025, with a similar ~$9.7 trillion due in FY2026. Much of this is short-term bills rolled continuously, so it reprices quickly at prevailing rates; the share locked in at near-zero pandemic-era rates is a smaller subset.",
+            "GAO reports that in fiscal year 2025 Treasury held 444 auctions of bills, notes and bonds 'to borrow $1.9 trillion for government operations and refinance $9.1 trillion of maturing debt.' That is about 30% of the $30.3 trillion of debt held by the public at the end of the fiscal year (Treasury, Debt to the Penny, 30 September 2025).",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -355,17 +357,17 @@ export const usNationalDebtCrisisData = {
             directness: 6,
           },
           source:
-            "GAO, 'Federal Debt Management' (GAO-26-107529); US Treasury auction data",
+            "GAO, 'Federal Debt Management: Treasury Is Meeting Borrowing Needs but the Deteriorating Fiscal Outlook Poses Risks' (GAO-26-107529, March 2026); Treasury Debt to the Penny",
           sourceUrl: "https://www.gao.gov/products/gao-26-107529",
           reasoning:
-            "The maturity wall is real and large, but mostly short-dated bills rolled routinely, so the cost depends on where short rates settle rather than on a one-time repricing.",
+            "The maturity wall is real and large, but most of it is short-dated bills rolled routinely, so the cost depends on where short rates settle rather than on a one-time repricing; the share locked in at near-zero pandemic-era rates is smaller.",
         },
         {
           id: "real-rates-historically-low",
           title:
             "Rachel & Summers 2019: the neutral real interest rate in rich countries fell by at least 3 points over a generation",
           description:
-            "Rachel and Summers estimate the neutral real rate in the industrial world has fallen by at least 300 basis points over a generation, driven by demographics and a global savings glut, and argue it would be significantly negative absent expansionary fiscal policy. If those forces persist, the rates the government pays will come back down as the post-2022 shock fades.",
+            "Rachel and Summers estimate the neutral real rate in the industrial world has fallen by at least 300 basis points over a generation, driven by shifts in saving and investment propensities, and argue it would 'in all likelihood be significantly negative but for offsetting fiscal policies.' If those forces persist, the rates the government pays will come back down as the post-2022 shock fades.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -386,14 +388,14 @@ export const usNationalDebtCrisisData = {
       id: "reserve-currency-privilege",
       title: "The dollar's privilege",
       short_summary:
-        "The world holds dollars, so it buys Treasuries, which lets the US borrow more cheaply than its numbers alone would allow. The dollar's share of global reserves has drifted down from about 70% in 2000 to 56.7% in mid-2026, but the euro, at 20.6%, is the only rival of any size.",
+        "The world holds dollars, so it buys Treasuries, which lets the US borrow more cheaply than its numbers alone would allow. The dollar's share of global reserves has drifted down from a peak of 72% in 2001 to 56.7% in mid-2026, but the euro, at 20.6%, is the only rival of any size.",
       image_url:
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
         "Reports of the dollar's demise have been greatly exaggerated for decades. Its share of global reserves has slipped slowly, to 56.7% in the second quarter of 2026, but the euro holds 20.6% and the renminbi 2.1%. The euro has no single treasury behind it, and the yuan is not freely convertible. The dollar's role rests on deep markets, the rule of law, network effects and the lack of any asset that can absorb the world's savings at comparable scale. BRICS announcements have produced little actual displacement of dollar flows. Even in a world of several currencies, the dollar would likely remain first among them, and its privilege would fade slowly enough for policy to adjust.",
       proponent_rebuttal:
-        "The privilege is what has let the US run deficits other countries could not, and it breeds complacency. It is not permanent: the dollar's share has fallen from about 70% to under 57%, foreign holders own a smaller share of US debt than a decade ago, and China has cut its Treasury holdings by over 40% from their peak. Sanctions use, debt-ceiling standoffs and a credit downgrade give reserve managers reasons to diversify, and network effects that took decades to build can unwind quickly once a tipping point is passed. If foreign demand for Treasuries fell sharply, borrowing costs would rise just as the debt is largest.",
+        "The privilege is what has let the US run deficits other countries could not, and it breeds complacency. It is not permanent: the dollar's share has fallen from a 72% peak in 2001 to under 57%, foreign holders own a smaller share of US debt than they did a few years ago, and China has cut its Treasury holdings by over 40% from their peak. Sanctions use, debt-ceiling standoffs and a credit downgrade give reserve managers reasons to diversify, and network effects that took decades to build can unwind quickly once a tipping point is passed. If foreign demand for Treasuries fell sharply, borrowing costs would rise just as the debt is largest.",
       crux: {
         id: "reserve-currency-erosion-rate",
         title: "The Dollar Dominance Trajectory Test",
@@ -418,7 +420,7 @@ export const usNationalDebtCrisisData = {
           skeptic_flip:
             "If COFER, SWIFT and commodity-pricing data showed the dollar's share falling at an accelerating rate, and a deep, liquid alternative began absorbing meaningful global savings, enduring dollar privilege would be hard to count on.",
           common_ground:
-            "The dollar's reserve share has drifted down slowly from about 70% in 2000 to about 57%, and no rival currently offers comparable depth, liquidity and safety at the scale global reserves require.",
+            "The dollar's reserve share has drifted down slowly from a 72% peak in 2001 to about 57%, and no rival currently offers comparable depth, liquidity and safety at the scale global reserves require.",
           live_disagreement:
             "Whether dollar erosion is a slow, self-limiting drift or could tip suddenly past a confidence threshold, which only the realized trajectory across reserves, payments and commodity pricing can reveal.",
         },
@@ -444,9 +446,9 @@ export const usNationalDebtCrisisData = {
         },
         {
           id: "no-credible-alternative",
-          title: "No other sovereign bond market matches the $28-30 trillion Treasury market (Federal Reserve)",
+          title: "Federal Reserve: 'the depth and liquidity of U.S. financial markets is unmatched,' with over $28 trillion of Treasuries outstanding",
           description:
-            "The US Treasury market is the deepest and most liquid sovereign bond market in the world, with roughly $28 trillion in marketable debt outstanding in 2024 and about $30 trillion by 2025. No other market comes close in the volume, depth, and safety that global reserve managers require.",
+            "The Federal Reserve's 2025 review of the dollar's international role says 'the depth and liquidity of U.S. financial markets is unmatched,' and contrasts the EU's joint debt with 'the over $28 trillion of U.S. Treasuries outstanding.' Foreign investors held $9 trillion, 32% of marketable Treasuries, in the first quarter of 2025. The dollar's share of reserves has declined from its 2001 peak of 72%, to 58% in 2024.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -465,7 +467,7 @@ export const usNationalDebtCrisisData = {
           id: "brics-dedollarization-efforts",
           title: "BRICS members are building alternatives to dollar settlement, so far at small scale",
           description:
-            "China, Russia, and other BRICS members are building bilateral local-currency trade settlement, yuan-denominated oil and commodity arrangements, and the mBridge cross-border CBDC platform (China, Hong Kong, Thailand, UAE, with the BIS) to reduce dollar dependency.",
+            "BRICS members are building local-currency trade settlement and linked payment rails, and the mBridge platform connects the central bank digital currencies of China, Hong Kong, Thailand, the UAE and Saudi Arabia. The Atlantic Council describes BRICS payment work as 'complementing – rather than replacing – the existing international payment and settlement system.'",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -477,14 +479,14 @@ export const usNationalDebtCrisisData = {
           sourceUrl:
             "https://www.atlanticcouncil.org/programs/geoeconomics-center/dollar-dominance-monitor/",
           reasoning:
-            "Shows intent and infrastructure, but transaction volumes remain small relative to dollar flows (mBridge cumulative volume was only about $55 billion by late 2025). A signal of direction, not displacement.",
+            "Shows intent and infrastructure, but transaction volumes remain small relative to dollar flows (mBridge cumulative volume was about $55 billion by November 2025). A signal of direction, not displacement.",
         },
         {
           id: "foreign-holdings-declining-share",
           title:
-            "Foreigners held about 30% of US debt held by the public in December 2024, down from nearly 50% in the early 2010s (CRS)",
+            "Foreigners held 30% of US debt held by the public in December 2024, down from 35% four years earlier (CRS)",
           description:
-            "Foreign holders owned about 30% of US debt held by the public in December 2024, down from nearly 50% in the early 2010s. China's holdings fell to about $759 billion in December 2024, down roughly 42% from their $1.32 trillion peak in 2013. The marginal buyer is increasingly domestic.",
+            "CRS reports that 'in December 2024, foreigners held 30% of the publicly held debt,' down from 35% in December 2020, and that the foreign share 'has declined in recent years.' China held $759.0 billion in December 2024; Treasury's TIC data put its peak at $1,316.7 billion in November 2013, so its holdings are down about 42%. The marginal buyer is increasingly domestic.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -493,8 +495,9 @@ export const usNationalDebtCrisisData = {
             directness: 6,
           },
           source:
-            "US Treasury, Treasury International Capital (TIC) data; CRS, 'Foreign Holdings of Federal Debt' (RS22331, 2025)",
-          sourceUrl: "https://www.congress.gov/crs-product/RS22331",
+            "CRS, 'Foreign Holdings of Federal Debt' (RS22331, 23 May 2025); US Treasury, TIC major foreign holders history (mfhhis01)",
+          sourceUrl:
+            "https://www.everycrsreport.com/files/2025-05-23_RS22331_14d7d7a44a6f940f863a68cf786aa3b0b14304ba.html",
           reasoning:
             "A falling foreign share could raise borrowing costs if domestic buyers cannot fill the gap, though they have so far. Part of the decline reflects total debt growing faster than foreign holdings, not outright selling.",
         },
@@ -509,7 +512,7 @@ export const usNationalDebtCrisisData = {
       skeptic_premise:
         "The gap is a choice, and it has been widened on purpose. CRFB estimates the 2025 reconciliation law alone adds $4.7 trillion to the debt. Federal revenue was about $5.4 trillion in fiscal 2026 against $7.4 trillion of spending, and the shortfall can be closed on the revenue side without cutting what retirees were promised. Social Security's combined funds are projected to run out in 2034, after which incoming taxes cover about 83% of scheduled benefits; raising or lifting the cap on wages subject to payroll tax is one of the known options. Treating a revenue choice as an inevitable spending crisis frames the answer before the question is asked.",
       proponent_rebuttal:
-        "The pressure comes from programs that grow on their own. Social Security ($1.67 trillion) and Medicare ($1.07 trillion) together took 37% of federal spending in fiscal 2026, and both grow with an aging population. The one big new revenue source of 2025, tariffs imposed under emergency powers, was struck down by the Supreme Court in February 2026, and customs duties fell $22 billion as refunds flowed. Every year without a plan makes the eventual change larger: when Social Security's retirement fund runs dry in late 2032, benefits fall to what incoming taxes can pay unless Congress acts. A crisis does not need a bond-market panic; it can arrive as a forced, abrupt adjustment.",
+        "The pressure comes from programs that grow on their own. Social Security ($1.67 trillion) and Medicare ($1.07 trillion) together took 37% of federal spending in fiscal 2026, and both grow with an aging population. The one big new revenue source of 2025, tariffs imposed under emergency powers, was struck down by the Supreme Court in February 2026, and customs receipts ended fiscal 2026 $22 billion below the year before, with refunds under way. Every year without a plan makes the eventual change larger: when Social Security's retirement fund runs dry in late 2032, benefits fall to what incoming taxes can pay unless Congress acts. A crisis does not need a bond-market panic; it can arrive as a forced, abrupt adjustment.",
       crux: {
         id: "who-closes-the-gap",
         title: "The Burden-Sharing Choice",
@@ -544,7 +547,7 @@ export const usNationalDebtCrisisData = {
           title:
             "CRFB on CBO's 2026 baseline: the 2025 reconciliation law adds $4.7 trillion to the debt; tariffs were counted to cut $3 trillion",
           description:
-            "In its analysis of CBO's February 2026 outlook, CRFB wrote that the 2025 reconciliation law (the One Big Beautiful Bill Act) alone will add $4.7 trillion to the debt, while tariffs subtract $3 trillion. On 20 February 2026 the Supreme Court held the tariffs imposed under the International Emergency Economic Powers Act unlawful, and on 4 March the Court of International Trade ordered them refunded.",
+            "In its analysis of CBO's February 2026 outlook, CRFB wrote that the 2025 reconciliation law (the One Big Beautiful Bill Act) alone will add $4.7 trillion to the debt, while tariffs subtract $3 trillion. On 20 February 2026 the Supreme Court held the tariffs imposed under the International Emergency Economic Powers Act unlawful, and on 4 March the Court of International Trade ordered Customs to settle import entries without the IEEPA duties, opening the way to refunds.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -553,7 +556,7 @@ export const usNationalDebtCrisisData = {
             directness: 6,
           },
           source:
-            "CRFB, 'CBO's February 2026 Budget and Economic Outlook'; Cleary Gottlieb Trade Watch (March 2026) on the ruling and refund order",
+            "CRFB, 'CBO's February 2026 Budget and Economic Outlook'; Clark Hill on Learning Resources v. Trump (20 Feb 2026); Quinn Emanuel on the Atmus Filtration refund order (5 Mar 2026)",
           sourceUrl:
             "https://www.crfb.org/papers/cbos-february-2026-budget-and-economic-outlook",
           reasoning:

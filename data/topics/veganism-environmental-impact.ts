@@ -108,7 +108,7 @@ export const veganismEnvironmentalData = {
             directness: 6,
           },
           source: "FAO land statistics; Mottet et al., Global Food Security 14, 1–8 (2017)",
-          sourceUrl: "https://www.sciencedirect.com/science/article/pii/S2211912417300013",
+          sourceUrl: "https://doi.org/10.1016/j.gfs.2017.01.001",
           reasoning:
             "Valid point about land suitability, verified: FAO data put permanent pasture at ~two-thirds of agricultural land, and Mottet et al. quantify ~57% of feed land as non-arable (note: '57% of feed land' is a narrower figure than the broad 'two-thirds of all grazing land' framing). Directness lowered slightly: the Poore & Nemecek analysis already accounts for land convertibility, so this caveat trims rather than overturns the 76% land-reduction estimate.",
         },

@@ -53,8 +53,8 @@ export const inflationMonetaryPolicyData = {
       url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     },
     {
-      title: "Kevin Warsh sworn in as Federal Reserve chair, succeeding Jerome Powell (22 May 2026)",
-      url: "https://cbsaustin.com/news/nation-world/gallery/kevin-warsh-sworn-in-as-federal-reserve-chair-president-donald-trump-white-house",
+      title: "Federal Reserve: Kevin Warsh takes oath of office as chairman (22 May 2026)",
+      url: "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
     },
   ],
   questions: [
@@ -94,12 +94,12 @@ export const inflationMonetaryPolicyData = {
       id: "money-supply-expansion",
       title: "The money",
       short_summary:
-        "M2 grew about 40% between February 2020 and March 2022, the fastest two-year expansion since World War II, and much of it reached households directly as checks and loans rather than sitting in bank reserves as after 2008. Whether that money caused the inflation or only allowed it is the oldest fight in economics, replayed.",
+        "M2 grew about 40% between February 2020 and March 2022, the fastest two-year expansion in the Fed's M2 data, which begin in 1959, and much of it reached households directly as checks and loans rather than sitting in bank reserves as after 2008. Whether that money caused the inflation or only allowed it is the oldest fight in economics, replayed.",
       image_url:
         "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=60",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The relationship between money supply and inflation broke down decades ago. The Fed's balance sheet quintupled after 2008 and inflation ran below 2% for most of the next decade. During the pandemic the velocity of money collapsed, from about 1.30 to about 0.98, so much of the new money sat in savings accounts and financial markets. Inflation rose around the world in 2021 and 2022, including in countries with far smaller stimulus, which points to global causes: energy, food, shipping and a sudden shift in what people bought. The US spent more than most and saw somewhat more inflation, but the Fed's own economists put that extra at about 3 points, a fraction of the rise.",
+        "The relationship between money supply and inflation broke down decades ago. The Fed's balance sheet quintupled after 2008 and inflation ran below 2% for most of the next decade. During the pandemic the velocity of money collapsed, from about 1.44 to about 1.13, so much of the new money sat in savings accounts and financial markets. Inflation rose around the world in 2021 and 2022, including in countries with far smaller stimulus, which points to global causes: energy, food, shipping and a sudden shift in what people bought. The US spent more than most and saw somewhat more inflation, but the Fed's own economists put that extra at about 3 points, a fraction of the rise.",
       proponent_rebuttal:
         "The 2020-21 expansion was different in kind from 2008. After 2008 new money stayed as bank reserves; in 2020-21 about $814 billion in stimulus checks and roughly $800 billion in PPP loans went straight to households and firms, and M2 grew 40% in 24 months. Velocity fell at the trough of the lockdowns and recovered as the economy reopened, so the money met returning demand. San Francisco Fed economists estimate US fiscal support raised inflation by about 3 percentage points by the end of 2021, the gap between the US and its peers. When M2 shrank in 2022-23, from $21.8 trillion to $20.7 trillion, inflation fell. Monetarists concede the link is loose and the size was not predictable from money alone; their claim is that the money and spending turned a set of price shocks into a broad, lasting rise.",
       crux: {
@@ -125,7 +125,7 @@ export const inflationMonetaryPolicyData = {
           skeptic_flip:
             "If new studies confirmed that stimulus checks and PPP put money in consumers' hands rather than bank reserves, unlike post-2008 QE, and that M2 velocity recovered as the economy reopened, the swollen money stock would look like fuel for returning demand rather than inert.",
           common_ground:
-            "M2 grew about 40% in two years, a post-war record, and money growth alone does not mechanically produce inflation, as the post-2008 QE years show.",
+            "M2 grew about 40% in two years, a record in data back to 1959, and money growth alone does not mechanically produce inflation, as the post-2008 QE years show.",
           live_disagreement:
             "How much of the 2021-2022 price rise the money and fiscal overhang caused, rather than merely accommodated, given a loose and lagged link between money and prices.",
         },
@@ -136,7 +136,7 @@ export const inflationMonetaryPolicyData = {
           title:
             "M2 grew 40.5% from February 2020 to March 2022, from $15.5 trillion to $21.8 trillion, then shrank (FRED)",
           description:
-            "M2 money supply (FRED series M2SL, seasonally adjusted) grew from $15,492.8 billion in February 2020 to $21,770.7 billion in March 2022, a 40.5% increase and the fastest two-year expansion in the post-war era. It then fell to $20,737.8 billion by April 2023, as inflation came down. It was $23,413.9 billion in September 2026.",
+            "M2 money supply (FRED series M2SL, seasonally adjusted) grew from $15,492.8 billion in February 2020 to $21,770.7 billion in March 2022, a 40.5% increase and the fastest two-year expansion in the series, which begins in 1959. It then fell to $20,737.8 billion by April 2023, as inflation came down. It was $23,413.9 billion in September 2026.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -206,9 +206,9 @@ export const inflationMonetaryPolicyData = {
         },
         {
           id: "velocity-collapse",
-          title: "M2 velocity fell from about 1.30 to 0.98 in early 2020: much of the new money did not circulate",
+          title: "M2 velocity fell from about 1.44 to 1.13 in the first half of 2020: much of the new money did not circulate",
           description:
-            "M2 velocity (GDP divided by M2, FRED series M2V) fell sharply from roughly 1.30 in Q4 2019 to about 0.98 in Q2 2020, meaning a large portion of the new money did not circulate through the economy.",
+            "M2 velocity (GDP divided by M2, FRED series M2V) fell sharply from 1.435 in Q4 2019 to 1.126 in Q2 2020, meaning a large portion of the new money did not circulate through the economy. It recovered only partly, to about 1.25 by the end of 2022.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -232,9 +232,9 @@ export const inflationMonetaryPolicyData = {
         "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=60",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The initial inflation spike was overwhelmingly supply-driven, and the leading empirical decomposition backs this up: Bernanke and Blanchard (2023) attribute most of the 2021 surge to shocks to prices given wages, meaning commodity spikes and sector-specific shortages, not to an overheated labor market. COVID shut factories, ports and logistics worldwide; the Drewry World Container Index rose from about $1,500 to a peak near $10,377 per 40-foot box in September 2021. Semiconductor shortages halted car production, and energy surged with Russia's invasion of Ukraine. As supply chains normalized through 2022-23, inflation fell from 9.1% to about 3% without a recession. A demand-driven inflation historically takes high unemployment to cure, as in Volcker's 1980s campaign.",
+        "The initial inflation spike was overwhelmingly supply-driven, and the leading empirical decomposition backs this up: Bernanke and Blanchard (2023) attribute most of the 2021 surge to shocks to prices given wages, meaning commodity spikes and sector-specific shortages, not to an overheated labor market. COVID shut factories, ports and logistics worldwide; the Drewry World Container Index rose from a 2019 average of $1,420 to a peak of $10,377 per 40-foot box in September 2021. Semiconductor shortages halted car production, and energy surged with Russia's invasion of Ukraine. As supply chains normalized through 2022-23, inflation fell from 9.1% to about 3% without a recession. A demand-driven inflation historically takes high unemployment to cure, as in Volcker's 1980s campaign.",
       proponent_rebuttal:
-        "Supply disruptions were real but cannot explain why inflation spread and lasted. Calibrating a production-network model to December 2019 to June 2022, New York Fed economists find aggregate demand shocks explain roughly two-thirds of the inflation, and the fiscal stimulus half or more of that demand effect. Even Bernanke and Blanchard conclude that labor-market tightness becomes the more persistent driver as one-off shocks fade, the part that needed restrictive policy. Core services excluding housing, a 'supercore' measure largely insulated from shipping and factories, ran near a 6.8% annualized pace in 2022. Shipping costs were back down by mid-2022; inflation was not.",
+        "Supply disruptions were real but cannot explain why inflation spread and lasted. Calibrating a production-network model to December 2019 to June 2022, New York Fed economists find aggregate demand shocks explain roughly two-thirds of the inflation, and the fiscal stimulus half or more of that demand effect. Even Bernanke and Blanchard conclude that labor-market tightness becomes the more persistent driver as one-off shocks fade, the part that needed restrictive policy. Core services excluding housing, a 'supercore' measure largely insulated from shipping and factories, where wages are the largest cost, was still rising about 5% a year in late 2022. Shipping costs were back down by mid-2022; inflation was not.",
       crux: {
         id: "supply-vs-demand-decomposition",
         title: "The Inflation Decomposition Analysis",
@@ -257,7 +257,7 @@ export const inflationMonetaryPolicyData = {
           supporter_flip:
             "If a sectoral breakdown showed 'supercore' services inflation tracking energy and shipping costs one-for-one rather than running hot on its own, and the fall from 9.1% to about 3% came without any labor-market loosening, supply shocks would look like the main driver rather than demand.",
           skeptic_flip:
-            "If decompositions confirmed supercore inflation peaking near a 6.8% annualized rate in categories insulated from factory and shipping bottlenecks, and demand shocks explaining most inflation across methods, demand would look like the larger driver.",
+            "If decompositions confirmed supercore inflation running above 5% a year in late 2022 in categories insulated from factory and shipping bottlenecks, and demand shocks explaining most inflation across methods, demand would look like the larger driver.",
           common_ground:
             "Commodity prices and shipping costs spiked in 2021 and had largely normalized by 2022 while inflation persisted; and tight labor markets mattered more for how long inflation lasted than for how it started.",
           live_disagreement:
@@ -304,9 +304,9 @@ export const inflationMonetaryPolicyData = {
         },
         {
           id: "shipping-costs-spike",
-          title: "Shipping a 40-foot container rose from about $1,500 to $10,377 at the September 2021 peak (Drewry)",
+          title: "Shipping a 40-foot container rose from a 2019 average of $1,420 to $10,377 at the September 2021 peak (Drewry)",
           description:
-            "The Drewry World Container Index surged from roughly $1,500 pre-pandemic to a peak of about $10,377 per 40-foot container in September 2021, reflecting severe supply chain disruption.",
+            "Drewry's World Container Index rose from average 2019 (pre-pandemic) rates of $1,420 to a peak of $10,377 per 40-foot container in September 2021, more than seven times as much, reflecting severe supply chain disruption. By July 2023 it was 86% below that peak.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -314,16 +314,17 @@ export const inflationMonetaryPolicyData = {
             replicability: 9,
             directness: 6,
           },
-          source: "Drewry Supply Chain Advisors — World Container Index",
-          sourceUrl: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+          source: "Drewry World Container Index weekly assessment, as published by FreshPlaza (7 July 2023)",
+          sourceUrl:
+            "https://www.freshplaza.com/north-america/article/9544117/drewry-wci-composite-index-now-86-below-the-peak-reached-in-september-2021/",
           reasoning:
             "Direct evidence of supply-side cost pressure. Shipping costs normalized by mid-2022 while inflation persisted, which limits what it explains about the later inflation.",
         },
         {
           id: "core-services-inflation",
-          title: "'Supercore' services inflation ran near a 6.8% annualized pace in 2022, in categories shipping barely touches",
+          title: "'Supercore' services inflation was still about 5% a year in late 2022, in categories shipping barely touches",
           description:
-            "Core services excluding housing ('supercore') inflation ran near 6-7% during 2022, with a 3-month annualized peak around 6.8% in mid-2022, in a category largely insulated from global supply chain disruptions.",
+            "The PCE price index for services excluding energy and housing ('supercore') rose about 5% over the year through the second half of 2022, peaking near 5.3% in October, in a category largely insulated from global supply chain disruptions. Jerome Powell, then Fed chair, said in November 2022 that it makes up more than half of the core PCE index and that because 'wages make up the largest cost in delivering these services,' the labor market 'holds the key to understanding inflation in this category.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -331,10 +332,10 @@ export const inflationMonetaryPolicyData = {
             replicability: 7,
             directness: 7,
           },
-          source: "BLS CPI (services less rent of shelter); analysis in CEA / Brookings commentary",
-          sourceUrl: "https://www.bls.gov/cpi/",
+          source: "BEA PCE price index, services excluding energy and housing (FRED IA001260M); Jerome H. Powell, 'Inflation and the Labor Market' (30 November 2022)",
+          sourceUrl: "https://fred.stlouisfed.org/series/IA001260M",
           reasoning:
-            "BLS does not publish an official 'supercore' index; the figure is built from CPI components. Services prices are hard to blame on shipping or factories, which points to demand and tight labor markets.",
+            "The yearly rates are computed from the BEA index, which is revised over time. Services prices are hard to blame on shipping or factories, which points to demand and tight labor markets.",
         },
         {
           id: "inflation-fell-without-recession",
@@ -366,7 +367,7 @@ export const inflationMonetaryPolicyData = {
       skeptic_premise:
         "The Fed's 'transitory' framing was a reasonable real-time assessment, not a failure. In mid-2021 inflation was concentrated in reopening-sensitive categories, used cars, airfares and hotels, that were expected to normalize. The Fed had a dual mandate and could not risk tightening early enough to derail the jobs recovery. Once inflation broadened, it pivoted to the fastest rate-raising cycle in 40 years. Inflation fell from 9.1% to about 3% while unemployment stayed near 4%, and long-run inflation expectations stayed anchored. A 2021 tightening might have caused a recession that never had to happen.",
       proponent_rebuttal:
-        "The Fed kept rates at zero and was still buying $120 billion a month in assets into early 2022, ending purchases only in March 2022 with CPI above 7%. The 'transitory' label hardened into groupthink that delayed action by six to nine months, and the Fed then had to compress an extraordinary tightening into a short window, from 0-0.25% in March 2022 to 5.25-5.50% by mid-2023. Larry Summers warned in February 2021 that the $1.9 trillion American Rescue Plan risked inflationary pressures 'of a kind we have not seen in a generation', and standard Taylor Rule benchmarks implied liftoff in 2021. The lasting cost is in the price level: inflation came down, but prices did not, and they are about 30% above February 2020.",
+        "The Fed kept rates at zero and bought $120 billion a month in assets until November 2021, then tapered, ending purchases only in March 2022 with CPI above 7%. The 'transitory' label hardened into groupthink that delayed action by six to nine months, and the Fed then had to compress an extraordinary tightening into a short window, from 0-0.25% in March 2022 to 5.25-5.50% by mid-2023. Larry Summers warned in February 2021 that the $1.9 trillion American Rescue Plan risked inflationary pressures 'of a kind we have not seen in a generation', and standard Taylor Rule benchmarks implied liftoff in 2021. The lasting cost is in the price level: inflation came down, but prices did not, and they are about 30% above February 2020.",
       crux: {
         id: "counterfactual-early-tightening",
         title: "The Counterfactual Early-Tightening Test",
@@ -389,7 +390,7 @@ export const inflationMonetaryPolicyData = {
           supporter_flip:
             "If DSGE counterfactuals robustly found that Q3 2021 tightening would have caused a recession with little inflation benefit, because much of the surge came from supply shocks monetary policy cannot offset, the Fed's late start would look defensible rather than costly.",
           skeptic_flip:
-            "If Taylor Rule counterfactuals confirmed that liftoff was due in 2021 rather than March 2022, while zero rates and $120B a month in asset buying ran into early 2022 with CPI above 7%, the 'transitory' framing would be hard to defend against Summers's February 2021 overheating warning.",
+            "If Taylor Rule counterfactuals confirmed that liftoff was due in 2021 rather than March 2022, while zero rates and asset buying ran into March 2022 with CPI above 7%, the 'transitory' framing would be hard to defend against Summers's February 2021 overheating warning.",
           common_ground:
             "The Fed ran its fastest tightening in 40 years (0-0.25% to 5.25-5.50%), long-term inflation expectations stayed broadly anchored, and inflation fell with unemployment near 4%.",
           live_disagreement:
@@ -418,7 +419,7 @@ export const inflationMonetaryPolicyData = {
           id: "taylor-rule-divergence",
           title: "Standard Taylor Rules called for rate increases in 2021 while the Fed held at zero (Atlanta Fed)",
           description:
-            "Standard Taylor Rule specifications imply the fed funds rate should have been materially positive, commonly estimated in the low single digits, by late 2021, while the actual rate remained at 0-0.25%. Exact prescriptions vary with the chosen inflation gauge and inputs.",
+            "Standard Taylor Rule specifications, which the Atlanta Fed's utility lets anyone compute, imply the fed funds rate should have been materially positive by late 2021, while the actual rate remained at 0-0.25%. Exact prescriptions vary with the chosen inflation gauge and inputs.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -476,7 +477,7 @@ export const inflationMonetaryPolicyData = {
       skeptic_premise:
         "This is the supply story again, and the data say so. Headline inflation is 3.7% because energy prices jumped 20.4%; strip out food and energy and inflation is 2.6%, with food at home up only 1.8%. Interest rates cannot pump more oil or reopen shipping lanes; raising them into an energy shock slows hiring and investment while leaving the cause untouched. The lesson of 2022 is that supply shocks fade on their own. A central bank that tightens into one risks the recession the soft landing avoided.",
       proponent_rebuttal:
-        "The lesson of 2021 is that waiting is what lets a price shock spread. Consumer prices have risen faster than 2% a year in every month since March 2021, so households and firms have learned to expect increases, and an energy shock is more likely to feed into fares, freight and wages than it was in 2021. Core inflation of 2.6% is above target, not at it. The committee raised rates 12-0 in September to support what it called 'a timelier return' to 2%, and two members wanted another increase in October. Acting early, while expectations hold, is cheaper than the catch-up of 2022.",
+        "The lesson of 2021 is that waiting is what lets a price shock spread. Consumer prices have risen faster than 2% a year in every month BLS has reported since March 2021, so households and firms have learned to expect increases, and an energy shock is more likely to feed into fares, freight and wages than it was in 2021. Core inflation of 2.6% is above target, not at it. The committee raised rates 12-0 in September to support what it called 'a timelier return' to 2%, and two members wanted another increase in October. Acting early, while expectations hold, is cheaper than the catch-up of 2022.",
       crux: {
         id: "look-through-or-tighten",
         title: "The Second-Shock Test",

@@ -39,12 +39,12 @@ export interface StudyInstrument {
 export const STUDY_INSTRUMENTS: Record<StudyTopic, StudyInstrument> = {
   "gun-control-effectiveness": {
     topic: "gun-control-effectiveness",
-    question: "Do stricter gun laws significantly reduce gun violence and mass shootings?",
+    question: "Do stricter gun laws save lives?",
     label: "gun laws",
     statements: [
       { id: "owners-responsible", text: "Most gun owners in America are responsible and law-abiding." },
       { id: "safe-storage", text: "Laws requiring guns to be stored safely away from children are reasonable." },
-      { id: "worse-than-peers", text: "The US has a more serious gun-violence problem than other wealthy countries." },
+      { id: "family-crisis-order", text: "Families should be able to ask a judge to pause a relative's access to guns during a mental-health crisis." },
       { id: "self-defense-right", text: "People have a right to own a gun to protect themselves and their families." },
       { id: "laws-without-confiscation", text: "Some gun laws could reduce gun deaths without taking guns away from law-abiding owners." },
     ],
@@ -77,13 +77,13 @@ export const STUDY_INSTRUMENTS: Record<StudyTopic, StudyInstrument> = {
   },
   "immigration-border-crisis": {
     topic: "immigration-border-crisis",
-    question: "Is enforcement plus asylum limits the best way to manage US immigration?",
+    question: "Are a closed border and mass deportations the right way to handle illegal immigration?",
     label: "immigration and the border",
     statements: [
       { id: "controlled-immigration-good", text: "Immigration, when it is properly controlled, is good for the country." },
       { id: "control-border", text: "The US needs to control who comes across its southern border." },
-      { id: "come-to-work", text: "Most immigrants come to the US to work and make a better life." },
-      { id: "faster-asylum", text: "Asylum cases should be decided in months, not years." },
+      { id: "deport-serious-criminals", text: "People in the US illegally who have committed serious crimes should be deported." },
+      { id: "long-residents-stay", text: "Immigrants who have lived here for many years without committing crimes should be allowed to stay." },
       { id: "persecuted-may-seek", text: "People who face real persecution at home should be able to seek asylum in the US." },
     ],
     cruxOptions: [
@@ -95,21 +95,21 @@ export const STUDY_INSTRUMENTS: Record<StudyTopic, StudyInstrument> = {
       },
       {
         id: "record-then-fell",
-        text: "Did encounters at the southern border reach a record high in 2023 and then fall sharply?",
+        text: "Did apprehensions at the southern border fall from a record high in 2023 to the lowest on record in 2026?",
         crux: false,
         mapRef: "enforcement-deterrence-causation",
       },
       {
         id: "court-backlog",
-        text: "Is the immigration court backlog very large, with waits of years?",
+        text: "Did the immigration court backlog reach millions of cases, with waits of years?",
         crux: false,
         mapRef: "asylum-grant-rate-analysis",
       },
       {
-        id: "economy-overall",
-        text: "Does immigration add to the size of the US economy as a whole?",
+        id: "near-million-deportations",
+        text: "Has the government carried out close to a million deportations since January 2025?",
         crux: false,
-        mapRef: "wage-impact-analysis",
+        mapRef: "deportation-targets",
       },
     ],
   },
