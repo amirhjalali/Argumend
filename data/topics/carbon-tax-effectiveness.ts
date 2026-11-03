@@ -20,7 +20,7 @@ export const carbonTaxEffectivenessData = {
     "Both sides accept that observed emission declines have real non-tax drivers like recessions, other rules and technology that any estimate must net out, that deployed carbon prices have sat well below the Paris-consistent range so real-world abatement has been modest, and that carbon leakage is real and the tax has met genuine backlash, including Australia's 2014 repeal.",
     "They split over how much of the cuts observed in places like Sweden and British Columbia the carbon tax itself caused; whether raising prices to the recommended $50-100 a ton would deliver deep cuts or see responses level off; and whether leakage and repeal erase the global benefit or leave most of it standing.",
   ],
-  last_updated: "2026-06-16",
+  last_updated: "2026-11-03",
   tags: ["carbon-tax", "climate", "emissions", "economics", "policy"],
   pillars: [
     {
@@ -207,6 +207,24 @@ export const carbonTaxEffectivenessData = {
             "https://web.archive.org/web/20260614223945/https://www.worldbank.org/en/news/press-release/2017/05/29/new-global-pathway-on-carbon-pricing-can-shift-finance-to-sustainable-investments-world-bank",
           reasoning:
             "Authoritative expert commission establishing the required price corridor. It cuts against the meta-claim only in the sense that deployed prices fall short — it is a model-based normative target, so replicability is moderate. Cited honestly as showing the gap, not that pricing fails in principle.",
+        },
+        {
+          id: "green-ex-post-meta-review",
+          title: "Review of 37 Ex-Post Studies: Carbon Pricing Cut Emissions 0-2% a Year",
+          description:
+            "Jessica Green's 2021 meta-review in Environmental Research Letters examined ex-post quantitative evaluations of carbon pricing policies around the world since 1990 and found only 37 studies that assess the actual effects on emissions, the vast majority of them focused on Europe. 'The majority of studies suggest that the aggregate reductions from carbon pricing on emissions are limited—generally between 0% and 2% per year,' with considerable variation across sectors; carbon taxes performed better than emissions trading schemes, and EU-ETS studies showed average annual reductions of 0% to 1.5%. For comparison, the IPCC puts the 1.5°C pathway at a 45% cut below 2010 levels by 2030. Green concludes that 'the evidence indicates that carbon pricing has a limited impact on emissions.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Jessica F. Green, 'Does carbon pricing reduce emissions? A review of ex-post analyses,' Environmental Research Letters 16, 043004 (published 24 March 2021)",
+          sourceUrl: "https://iopscience.iop.org/article/10.1088/1748-9326/abdae9",
+          reasoning:
+            "This is the skeptic side's strongest measured evidence: the instrument's real-world record, pooled across the ex-post literature, shows small annual cuts. It does not settle the crux. Most of the schemes studied priced carbon well below the $50-100 corridor, as both sides accept, so the result fits 'the price was too low' as well as 'pricing is the wrong tool,' and it says nothing direct about how abatement would respond at much higher prices. Thirty-seven studies concentrated in Europe is a thin and uneven base, and the size of the effect is itself disputed: a 2024 Nature Communications meta-analysis of 80 causal evaluations across 21 schemes (Döbbeling-Hildebrandt et al.) found 'immediate and substantial emission reductions' for at least 17 of them, with significant reductions of 5% to 21% across the schemes (4% to 15% after correcting for publication bias), 'despite the low level of prices in most instances.'",
         },
       ],
     },

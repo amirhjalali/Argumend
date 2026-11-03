@@ -2832,9 +2832,9 @@
     "title": "Carbon Tax Effectiveness",
     "question": "Is a carbon tax an effective, efficient way to cut emissions?",
     "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 72,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2842,7 +2842,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "How much of the observed emission cuts did carbon taxes actually cause?",
     "tags": [
       "economics",
@@ -2851,7 +2851,7 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth profession jazeera"
+    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth profession"
   },
   {
     "id": "congestion-pricing",
