@@ -135,6 +135,25 @@ export const acaEnhancedSubsidiesData = {
             "Shows those who stayed paid more and took on more risk, a cost the enrollment count alone misses. It describes people still enrolled, so it speaks to affordability more than to who left.",
         },
         {
+          id: "enrollee-survey-uninsured",
+          title: "KFF Survey, Early 2026: 9% of Last Year's Enrollees Now Uninsured, Most Citing Cost",
+          description:
+            "KFF surveyed 1,117 adults who had marketplace coverage in 2025, between February 12 and March 2, 2026. \"About one in 10 (9%) of those who had Marketplace coverage in 2025 have dropped it entirely and are now uninsured.\" Among those who switched plans or dropped coverage, 71% said expense was a major reason; 51% of re-enrollees said their costs were \"a lot higher\" than in 2025, and 55% had cut or planned to cut spending on food or other basics to pay for care.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 8,
+          },
+          source:
+            "KFF survey of 2025 marketplace enrollees (March 19, 2026), as reported by Medical Economics (March 20, 2026)",
+          sourceUrl:
+            "https://www.medicaleconomics.com/view/kff-survey-half-of-returning-aca-enrollees-say-costs-are-a-lot-higher-1-in-10-now-uninsured",
+          reasoning:
+            "Real enrollees reached by a survey are by definition not phantom sign-ups, so the people it finds uninsured and citing cost are the priced-out group the crux asks about. A survey cannot reach people who never knew they were enrolled, so it says nothing about how many of those there were.",
+        },
+        {
           id: "new-mexico-backfill",
           title: "New Mexico Replaced the Lost Federal Help and Its Sign-Ups Rose 18%",
           description:
