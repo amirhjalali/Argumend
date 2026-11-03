@@ -135,7 +135,7 @@ export const longevityScienceData = {
           id: "senolytic-human-trial",
           title: "Senolytic Drugs Tested in Early Human Trials for Pulmonary Fibrosis (2019/2023)",
           description:
-            "An open-label, single-arm pilot study (2019, n=14) of the senolytic combination dasatinib + quercetin in patients with idiopathic pulmonary fibrosis (IPF) reported improvements in physical function (6-minute walk distance, gait speed) — but it had no placebo control, so the result cannot be attributed to the drug. A subsequent randomized, placebo-controlled Phase I pilot (2023, n=12), powered for feasibility and tolerability, found the intervention feasible and well tolerated but found NO statistically significant changes in frailty, pulmonary, or physical function. Senolytic clinical evidence in aging therefore remains preliminary and, in the only controlled IPF trial to date, did not demonstrate functional benefit.",
+            "An open-label, single-arm pilot study (2019, n=14) of the senolytic combination dasatinib + quercetin in patients with idiopathic pulmonary fibrosis (IPF) reported improvements in physical function (6-minute walk distance, gait speed) — but it had no placebo control, so the result cannot be attributed to the drug. A subsequent randomized, placebo-controlled Phase I pilot (2023, n=12), powered for feasibility and tolerability, found the intervention feasible and well tolerated and reported that frailty, pulmonary and physical function, though the trial was 'under-powered to evaluate change', did 'not appear to differ meaningfully between groups.' Senolytic clinical evidence in aging therefore remains preliminary and, in the only controlled IPF trial to date, did not demonstrate functional benefit.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -143,10 +143,10 @@ export const longevityScienceData = {
             replicability: 4,
             directness: 5,
           },
-          source: "EBioMedicine (2019 open-label pilot; 2023 Phase I placebo-controlled pilot)",
-          sourceUrl: "https://doi.org/10.1016/j.ebiom.2023.104714",
+          source: "Justice et al., EBioMedicine 40 (2019), open-label pilot; Nambiar et al., 'Senolytics dasatinib and quercetin in idiopathic pulmonary fibrosis', EBioMedicine 90:104481 (2023), randomized placebo-controlled pilot",
+          sourceUrl: "https://doi.org/10.1016/j.ebiom.2023.104481",
           reasoning:
-            "The encouraging 6-minute walk improvement comes from an uncontrolled single-arm pilot, which cannot establish causation; the one randomized placebo-controlled trial (2023) was designed only for feasibility/tolerability and found no significant functional effect. This is genuinely first-in-human work, but at best it is supportive of safety, not efficacy, for aging. Replicability is low because the controlled follow-up did not reproduce the functional gains, and the IPF population is not representative of healthy aging. Larger powered RCTs are needed before this counts as evidence of clinical benefit.",
+            "The encouraging 6-minute walk improvement comes from an uncontrolled single-arm pilot, which cannot establish causation; the one randomized placebo-controlled trial (2023) was designed only for feasibility/tolerability and found no meaningful between-group difference in function. This is genuinely first-in-human work, but at best it is supportive of safety, not efficacy, for aging. Replicability is low because the controlled follow-up did not reproduce the functional gains, and the IPF population is not representative of healthy aging. Larger powered RCTs are needed before this counts as evidence of clinical benefit.",
         },
       ],
     },
@@ -438,7 +438,7 @@ export const longevityScienceData = {
           id: "grimage-mortality-prediction",
           title: "GrimAge Epigenetic Clock Predicts Mortality in Large Cohorts (2019)",
           description:
-            "The GrimAge epigenetic clock, developed by Steve Horvath's lab at UCLA, predicts time to death, time to cancer, and time to coronary heart disease in multiple independent cohorts totaling over 15,000 individuals. For each 1-year increase in GrimAge acceleration (biological age exceeding chronological age), mortality risk increases by approximately 10%. This is the strongest evidence that DNA methylation-based aging biomarkers capture something biologically real about the aging process.",
+            "The GrimAge epigenetic clock, developed by Steve Horvath's lab at UCLA, predicts time to death, time to coronary heart disease and time to cancer in 'large scale validation data from thousands of individuals', and 'stands out among existing epigenetic clocks' in its predictive ability for time-to-death (Lu et al., 2019). Its age-adjusted form, AgeAccelGrim, is strongly associated with age-related conditions including comorbidity count. Supporters read this as strong evidence that DNA methylation-based aging biomarkers capture something biologically real about the aging process.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -446,8 +446,8 @@ export const longevityScienceData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Aging Cell; UCLA",
-          sourceUrl: "https://doi.org/10.1111/acel.12898",
+          source: "Lu et al. (Horvath lab, UCLA), 'DNA methylation GrimAge strongly predicts lifespan and healthspan', Aging 11(2):303-327 (2019)",
+          sourceUrl: "https://doi.org/10.18632/aging.101684",
           reasoning:
             "Validated across multiple independent cohorts with strong statistical associations. However, prediction is not causation — knowing that accelerated epigenetic aging predicts death does not prove that reversing epigenetic age will extend life. The biomarker could be a downstream consequence rather than a causal driver of aging.",
         },

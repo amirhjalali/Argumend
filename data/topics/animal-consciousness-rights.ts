@@ -169,7 +169,7 @@ export const animalConsciousnessRightsData = {
           id: "anthropomorphism-critique",
           title: "Animal Behavior Can Be Explained Without Invoking Consciousness — Morgan's Canon",
           description:
-            "Lloyd Morgan's Canon, a foundational principle of animal behavior science, states that animal behavior should not be interpreted as the product of higher mental processes (like consciousness) if it can be explained by simpler mechanisms (like conditioning, instinct, or reflexive responses). Critics of animal consciousness claims argue that tool use, apparent grief, and 'prosocial' behavior can all be explained by evolutionary adaptations that do not require subjective experience. Bees perform complex navigation and communication (waggle dance) through mechanisms that are well understood to be non-conscious. The assumption that behavioral complexity implies consciousness may be fundamentally mistaken.",
+            "Lloyd Morgan's Canon, a foundational principle of animal behavior science, states that animal behavior should not be interpreted as the product of higher mental processes (like consciousness) if it can be explained by simpler mechanisms (like conditioning, instinct, or reflexive responses). Critics of animal consciousness claims argue that tool use, apparent grief, and 'prosocial' behavior can all be explained by evolutionary adaptations that do not require subjective experience. Skeptics argue that even bees' complex navigation and waggle-dance communication can be explained by mechanisms that need not involve experience. The assumption that behavioral complexity implies consciousness may be fundamentally mistaken.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -177,8 +177,8 @@ export const animalConsciousnessRightsData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Animal Cognition; Cambridge University Press",
-          sourceUrl: "https://doi.org/10.1017/CBO9780511529627",
+          source: "C. Lloyd Morgan, An Introduction to Comparative Psychology (1894), p. 53, as discussed in the Stanford Encyclopedia of Philosophy, 'Animal Consciousness'",
+          sourceUrl: "https://plato.stanford.edu/entries/consciousness-animal/",
           reasoning:
             "Morgan's Canon is a well-established scientific principle that provides a legitimate check on anthropomorphic over-interpretation. The methodological concern is valid — behavioral complexity does not necessarily imply consciousness. However, critics of Morgan's Canon argue that in cases of convergent neural and behavioral evidence, invoking 'simpler' non-conscious explanations may itself be the less parsimonious interpretation.",
         },
