@@ -34,6 +34,14 @@
       "note": "r10 live review (2026-11-02): named the small-modular-reactor map, whose crux is passive safety, though the paste never mentions small or modular reactors."
     },
     {
+      "id": "nuclear-intermittent",
+      "form": "short",
+      "text": "We need nuclear because wind and solar are intermittent.",
+      "expected": ["nuclear-energy-safety"],
+      "related": ["nuclear-renaissance-smr"],
+      "note": "r11 (2026-11-03): routed here, but no crux was about intermittency until the grid-reliability crux was added. Added with that crux, so not a clean test of it."
+    },
+    {
       "id": "smr-vaporware",
       "form": "reply",
       "text": "SMRs have been 'five years away' for twenty years. NuScale's flagship project in Idaho got cancelled when the price per megawatt-hour went up by more than half. Show me one small modular reactor running on a Western grid and then we can talk.",
