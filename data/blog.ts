@@ -12,6 +12,108 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // Gerrymandering on Election Day: What the Redistricting War Is Actually About
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "gerrymandering-redistricting-war-election-day",
+    title: "Gerrymandering on Election Day: What the Redistricting War Is Actually About",
+    description:
+      "On November 3, 2026, voters in nine states cast House ballots in districts redrawn in the middle of the decade, and the fight over those lines is really four separate questions. Here is what both sides accept, where the evidence on seat effects, lost competition and commissions points, and the one question no data can settle.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-03T12:00:00Z",
+    readingTime: "11 min read",
+    tags: ["gerrymandering", "redistricting", "elections", "congress", "supreme court", "crux"],
+    category: "Analysis",
+    content: `## A fight over the lines, on the day the lines are used
+
+On November 3, 2026, Americans vote for the House of Representatives, and in nine states they do it in districts that did not exist eighteen months ago. Between August 2025 and June 2026, legislatures, a commission, a state court and California's voters redrew congressional maps in the middle of the decade, a job states normally do once, after the census. Texas went first, at President Trump's urging. California answered. By June 3, NBC News counted new maps in ten states and wrote that "Republicans are in position to gain up to 16 seats this fall, compared with six for the Democrats." On September 10 the Supreme Court kept Missouri's new map on hold while a referendum on it goes forward, which leaves nine in force today.
+
+This post does not report or predict any result. The count will say who holds which seats; it will not answer the questions the redistricting war is actually about, because one election mixes the effect of the lines with the effect of the year's vote. Those questions are four, and they are not all the same kind. Our map, [Should partisan gerrymandering be banned, including mid-decade redraws?](/topics/partisan-gerrymandering), lays them out with the evidence on each side. This is the short version.
+
+## What both sides accept
+
+Much of the heat comes from people arguing past ground they share.
+
+- **Federal courts will not police partisan maps.** In Rucho v. Common Cause (2019), Chief Justice Roberts wrote for a 5-4 majority: "We conclude that partisan gerrymandering claims present political questions beyond the reach of the federal courts." It added that "the avenue for reform established by the Framers, and used by Congress in the past, remains open."
+- **The 2025-26 round began as an open contest for seats.** In August 2025 President Trump said of Texas, "we are entitled to five more seats." California's Proposition 50, approved that November, suspended the maps drawn by the state's independent commission and replaced them with districts drawn by the Democratic legislature for the 2026, 2028 and 2030 elections, with Democrats hoping to gain "as many as five seats."
+- **Both parties gerrymander where they hold the pen,** and where voters live gives Republicans some advantage under any neutral map.
+- **Competitive seats have collapsed.** Cook Political Report data cited by NPR counted 124 swing seats after the 2002 redistricting and 99 after 2012; in 2022 NPR counted "only roughly 30 of 435" House seats as traditional swing seats, meaning districts won by Biden or Trump within five points.
+
+What they split over is how much the lines matter, why competition fell, whether a different mapmaker would fix it, and what a state should do while its rivals keep drawing. Each of those is a crux on the map.
+
+## Crux one: how many seats do the lines move?
+
+[The first crux](/topics/partisan-gerrymandering#crux-how-much-lines-decide) asks how many House seats partisan maps move nationally once both parties' gerrymanders are added up.
+
+The case that the lines decide a lot rests on this round. NBC's June tally found Republican-leaning maps in eight states, with up to three to five seats in Texas and up to four in Florida, against Democratic-leaning maps in California (up to four or five) and Utah (up to one). Reformers add that netting is luck, not design: a voter in a gerrymandered state loses a fair map whether or not another state offsets it. And the Supreme Court let Texas's map stand. On April 27, 2026, it summarily reversed a lower court that had found the map likely a racial gerrymander, in an order that, in Roll Call's words, "cements a new GOP-drawn congressional map for the Lone Star State" aimed at five Democratic-held seats. The three Democratic appointees dissented.
+
+The case that the lines decide less rests on a different method. Party tallies count each state's targeted seats; simulation studies compare each enacted map with thousands of computer-drawn maps that follow the state's own rules and use no partisan data, then score them all on the same past vote. Using that design on every 2020-cycle map, Kenny, McCartan, Simko, Kuriwaki and Imai found that "partisan gerrymandering is widespread," but that "most of the electoral bias it creates cancels at the national level, giving Republicans two additional seats on average." Geography and redistricting rules separately added "a moderate pro-Republican bias." A 2025 preprint from the same group went further on geography: shifts in where voters live reduced "the Republican geographic advantage from 14 to 10 seats," and "the pro-Republican bias declined from 16 to 10 seats" in total.
+
+The two sides are not reading one number differently; they are using different numbers. The NBC figures are ceilings that assume past voting patterns hold, and they are not scored against a neutral baseline. The simulation figures are scored against a neutral baseline, but they end before the mid-decade maps.
+
+**What would settle it:** a simulation study in the Kenny-Imai design that scores the nine maps in force for 2026, and every other state's map, against neutral plans on the same past vote, and reports the national net against the 2022 baseline.
+
+## Why the war widened in the spring
+
+One ruling changed the pace. On April 29, 2026, the Supreme Court decided Louisiana v. Callais 6-3, holding that Louisiana's map with a second majority-Black district was an unconstitutional use of race. Writing for the majority, Justice Alito said Section 2 of the Voting Rights Act "requires evidence giving rise to a strong inference of intentional discrimination." Justice Kagan answered in dissent: "Today's decision renders Section 2 all but a dead letter."
+
+Callais is about race, not party; its link to partisan maps runs through what states did next. Florida's legislature passed a new map the same day that, on 2024 presidential results, would shift four seats toward Republicans. Mississippi's governor called a special session, and Louisiana's governor and attorney general said the state could not hold congressional elections under its current map. For supporters of a ban, that is the point: with Section 2 narrowed and federal courts out of partisan cases since Rucho, legislation is the check that is left.
+
+## Crux two: lines or sorting?
+
+[The second crux](/topics/partisan-gerrymandering#crux-does-it-harm-democracy) asks whether gerrymandered maps, more than where voters live, explain the loss of competitive seats and the rise in polarization.
+
+The skeptics' strongest evidence is old and well regarded. In 2009 McCarty, Poole and Rosenthal, who built the standard measure of congressional ideology, wrote of the districting-polarization link: "We find very little evidence for such a link." Simulated neutral maps produced polarization not much below actual levels, because "congressional polarization is primarily a function of the differences in how Democrats and Republicans represent" the same kinds of districts, "rather than a function of which districts each party represents." The 2025 Imai-group preprint found that "shifts in political geography and gerrymandering reduced the number of highly competitive districts by over 25%" between the 2010 and 2020 cycles, and that geographic polarization drove most of that decline.
+
+The reformers' answer is that gerrymanders are not the only cause, only the one a law can reach. The same 2023 study that found the national seat effect small also found that "partisan gerrymandering reduces electoral competition" and makes the House less responsive to swings in the national vote. Dave Wasserman of the Cook Political Report told NPR that redistricting and sorting "feed off of each other and compound to absolutely eviscerate the number of swing seats."
+
+So both sides agree line-drawing contributes. They disagree about how much a ban would give back.
+
+**What would settle it:** for each state and cycle since 2000, the number of districts within five points under enacted maps against the number under simulated neutral maps on the same vote, plus the voting records of members whose districts became competitive compared with those whose districts stayed safe.
+
+## Crux three: do commissions draw better maps?
+
+[The third crux](/topics/partisan-gerrymandering#crux-who-draws-the-lines) asks whether independent commissions draw more competitive maps than legislatures, and hold up under partisan pressure.
+
+The best cross-state evidence favors them. Studying House elections from 1982 to 2018, Matthew Nelson found that, compared with legislative maps, "independent commissions are 2.25 times more likely to have competitive elections," and 3.01 times more likely to have semi-competitive ones, with a 52% drop in incumbent-party wins. Court-drawn districts were 1.51 times as likely to be competitive. In California, only 5.2% of districts had a competitive election before the commission; afterward the figure was 14.6%.
+
+The skeptics point to cases where the reform did less than promised. FairVote, a reform group, studied Arizona's House races from 1984 to 2012 and concluded that "neither of the two measures studied here point to a game changing or consistent increase in district competition"; in 2012, "three-fifths of the state's districts were safe." Virginia's new bipartisan commission deadlocked in 2021, missed its October 25 and November 8 deadlines for congressional maps, and handed the job to the state supreme court. Ohio's commission unanimously passed a 12-3 Republican-leaning map in October 2025, up from a 10-5 split, a map lawmakers of both parties called a "compromise." And California's voters set their own commission aside when Texas moved.
+
+The two records fit together better than the talking points suggest. Nelson found that political commissions, with legislators or elected officials on them, did not differ significantly from legislatures, and Virginia's and Ohio's were of that kind. The open question is whether truly independent commissions keep their edge when like states are compared, and whether they survive a party that decides to override them.
+
+**What would settle it:** a before-and-after comparison of House races in the states that adopted independent commissions (Arizona, California, Colorado, Michigan) against matched states that kept legislative maps, benchmarked to simulated neutral maps, from 2002 to 2024.
+
+## Crux four: disarm alone, or only together?
+
+[The fourth crux](/topics/partisan-gerrymandering#crux-disarm-alone) is the one no study will close. Should a state give up partisan maps while other states keep drawing them, or only under a national rule?
+
+The case for answering in kind is Proposition 50. California, the reform movement's model state, voted to suspend its commission's map for three elections in response to Texas. Barack Obama, in an ad for the measure, said: "Republicans want to steal enough seats in Congress to rig the next election and wield unchecked power for two more years." Arnold Schwarzenegger, who had pushed for the commission, said the measure would "take the power away from the people." On this view, a state that disarms alone hands seats to the other party, so restraint makes sense only if everyone is bound at once.
+
+The case for restraint turns that into an argument for a national rule. Rep. Kevin Kiley, a California Republican, has introduced H.R. 4889, which his office says "will nullify new maps adopted by states after the November 2024 election, that way all current maps are preserved." "A nationwide redistricting war is not what our country needs," Kiley said. Voters across parties sound wary of the redraws: a Noble Predictive Insights poll for Common Cause, fielded August 26 to September 2, 2025, found 51% of Republicans, 70% of Democrats and 60% of independents opposed "allowing political parties to engage in mid-decade redistricting," and 60% of 2024 Trump voters supported Congress stepping in. The poll was commissioned by an anti-gerrymandering group, and Kiley's bill would lock in the pre-2025 maps, gerrymandered or not.
+
+The map marks this crux as a difference in values. Seat effects and opinion can be measured. Whether a state owes its own voters fair maps regardless of what rival states do, or should fight with the same weapon until a rule binds both parties, is a judgment about fair play that no measurement settles. If two people agree on the seat numbers and still disagree here, more data will not help them, and it is worth saying so.
+
+## What would change minds
+
+Each side has named the evidence that would move it.
+
+- **Reformers would concede ground** if simulations of the 2026 maps showed a national net of a seat or two, if neutral maps produced few more competitive districts, or if matched studies found commission states gained no more close races once geography was accounted for.
+- **Skeptics would concede ground** if those simulations showed a net of five or more seats, if members from newly competitive districts voted measurably less partisan, or if independent commissions held up in matched comparisons.
+- **On the value question,** some reformers would grant that retaliation can serve the goal if moves like Proposition 50 led to a national rule faster than restraint did; some defenders of retaliation would reconsider if tit-for-tat redraws kept spreading with no national rule in sight while the net seat effect stayed small.
+
+## What to watch next
+
+Without guessing at any outcome, these will tell you more about the fight than tonight's seat count.
+
+- **Missouri's referendum.** The Missouri Supreme Court ruled that the referendum petition on the state's new map "was legal, sufficient, and timely," so the map will not take effect "unless and until approved by the voters at the November 2026 general election." That vote is part of this election.
+- **Maryland.** As of August, its legislature had approved a November 2026 ballot referral to loosen constitutional limits on congressional redistricting, and a lawsuit sought to block it.
+- **The neutral-map update.** The first simulation study to score the 2026 maps against neutral baselines will speak directly to crux one.
+- **More post-Callais redraws.** Ballotpedia noted an analysis by The Downballot identifying 12 districts across eight southern states where Republicans could seek to redraw before 2028.
+- **Congress.** Whether H.R. 4889 or any national rule gets a vote tests whether "only together" has a path.
+
+When the returns come in, remember what they cannot show: a party gaining a redrawn seat does not measure what the new line did, because the old district might have flipped in a strong year too. Three of the four questions can be answered with careful work on public data. You can follow the evidence on each, and what would settle it, on the [full map](/topics/partisan-gerrymandering). If you are in an argument about redistricting right now, [paste it in](/analyze) to see which of the four questions it is really about.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // We Gave a Model That Can't Talk 1,000 Arguments. Here Is What It Got Right.
   // ──────────────────────────────────────────────────────────────────────────
   {

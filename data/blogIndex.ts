@@ -36,6 +36,16 @@ export interface ArticleSummary {
 /** Pre-computed summaries — no `content`, so importing this stays lightweight. */
 export const articleSummaries: ArticleSummary[] = [
   {
+    slug: "gerrymandering-redistricting-war-election-day",
+    title: "Gerrymandering on Election Day: What the Redistricting War Is Actually About",
+    description:
+      "On November 3, 2026, voters in nine states cast House ballots in districts redrawn in the middle of the decade, and the fight over those lines is really four separate questions. Here is what both sides accept, where the evidence on seat effects, lost competition and commissions points, and the one question no data can settle.",
+    tags: ["gerrymandering", "redistricting", "elections", "congress", "supreme court", "crux"],
+    category: "Analysis",
+    publishedAt: "2026-11-03T12:00:00Z",
+    readingTime: "11 min read",
+  },
+  {
     slug: "we-gave-a-model-that-cant-talk-1000-arguments",
     title: "We Gave a Model That Can't Talk 1,000 Arguments. Here Is What It Got Right.",
     description:
