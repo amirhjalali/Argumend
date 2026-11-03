@@ -4,7 +4,28 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
+const fs = require('node:fs');
+const path = require('node:path');
+
 const isDev = process.env.NODE_ENV === 'development';
+
+// The image optimizer (/_next/image) needs sharp's libvips shared library in
+// the standalone output. Next's file tracer copies it only through a special
+// case keyed on sharp's old entry point (sharp/lib/index.js). sharp 0.35 moved
+// to dist/index.cjs, so the tracer copies sharp's .node binary but not
+// libvips-cpp.*, sharp fails to load at runtime, and Next silently serves
+// every image unresized, in its original format. List the libvips files
+// explicitly. The path comes from resolving sharp, so a symlinked
+// node_modules (as in a worktree checkout) traces the real files.
+const sharpLibvipsGlob = (() => {
+  try {
+    const sharpDir = path.dirname(path.dirname(fs.realpathSync(require.resolve('sharp'))));
+    const imgDir = path.join(path.dirname(sharpDir), '@img');
+    return `${path.relative(__dirname, imgDir).split(path.sep).join('/')}/sharp-libvips-*/lib/**/*`;
+  } catch {
+    return null;
+  }
+})();
 const authEntryEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === 'true';
 
 // Build Content-Security-Policy header value
@@ -63,6 +84,9 @@ const nextConfig = {
     '/topics': ['./data/argument/**/*.json'],
     '/ai': ['./data/argument/**/*.json'],
     '/sitemap.xml': ['./data/argument/**/*.json'],
+    // Every traced route, so the files reach the standalone tree as long as
+    // any route is dynamic (see sharpLibvipsGlob above).
+    ...(sharpLibvipsGlob ? { '/**': [sharpLibvipsGlob] } : {}),
   },
   devIndicators: {
     appIsrStatus: false,

@@ -23,6 +23,12 @@ describe("/ai metadata", () => {
     expect(metadata.description).toEqual(expect.any(String));
     expect(metadata.alternates?.canonical).toBe("https://argumend.org/ai");
   });
+
+  it("sets its own social card, since its openGraph replaces the root one", () => {
+    const images = metadata.openGraph?.images as Array<{ url: string }>;
+    expect(images[0].url).toMatch(/^https:\/\/argumend\.org\/api\/og\?title=/);
+    expect(metadata.twitter?.images).toEqual([images[0].url]);
+  });
 });
 
 describe("/ai with the real AI maps", () => {

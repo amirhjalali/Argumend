@@ -1,11 +1,33 @@
 import type { Metadata } from "next";
 import { RouteNotFound } from "@/components/RouteNotFound";
 import { ANALYZE_HREF } from "@/lib/nav";
+import { DEFAULT_SOCIAL_IMAGE } from "@/lib/og";
 
+const DESCRIPTION =
+  "The page you're looking for doesn't exist. Browse the maps or paste an argument on Argumend.";
+
+// Next merges this after every layout above the 404 (the root not-found is the
+// last metadata item), so these keys replace the inherited ones. `alternates:
+// null` drops the root layout's canonical (https://argumend.org), which would
+// tell crawlers the 404 is the home page; the openGraph object is replaced so
+// og:url and the Twitter title do not claim the home page or /topics either.
 export const metadata: Metadata = {
   title: "Page not found",
-  description:
-    "The page you're looking for doesn't exist. Browse the maps or paste an argument on Argumend.",
+  description: DESCRIPTION,
+  alternates: null,
+  openGraph: {
+    type: "website",
+    siteName: "ARGUMEND",
+    title: "Page not found | ARGUMEND",
+    description: DESCRIPTION,
+    images: [DEFAULT_SOCIAL_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Page not found | ARGUMEND",
+    description: DESCRIPTION,
+    images: [DEFAULT_SOCIAL_IMAGE.url],
+  },
 };
 
 export default function NotFound() {

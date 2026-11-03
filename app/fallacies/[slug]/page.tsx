@@ -6,6 +6,7 @@ import { ArticleLayout, RelatedReading, type RelatedItem } from "@/components/le
 import { mapLinkFor, pickNextMap } from "@/lib/learn/nextStep";
 import { readTime } from "@/lib/learn/readTime";
 import { buildGenericOgUrl } from "@/lib/og";
+import { fitMetaDescription } from "@/lib/seoText";
 
 // ---------------------------------------------------------------------------
 // Static params for all fallacy slugs
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const title = `${fallacy.name} — Logical Fallacy`;
-  const description = fallacy.shortDefinition.slice(0, 160);
+  const description = fitMetaDescription(fallacy.shortDefinition);
   const url = `https://argumend.org/fallacies/${fallacy.slug}`;
   const ogImage = buildGenericOgUrl({
     title: fallacy.name,

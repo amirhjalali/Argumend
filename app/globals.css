@@ -593,13 +593,16 @@ html {
   stroke: rgba(120, 113, 108, 0.7);
 }
 
-/* React Flow's attribution badge ships a half-white background, a pale box
-   in the corner of the dark diagram. Keep the credit, in the theme's colours. */
-.dark .react-flow__attribution {
-  background: rgb(var(--bg-canvas-rgb) / 0.7);
+/* React Flow's attribution badge ships a half-white background and a #999
+   link (2.7:1, an axe color-contrast failure), a pale box in the corner of the
+   dark diagram. Keep the credit, in the theme's colours: an opaque canvas
+   backing so the contrast does not depend on what is drawn behind it, and the
+   muted text colour (5.4:1 light, 5.7:1 dark). */
+.react-flow .react-flow__attribution {
+  background: rgb(var(--bg-canvas-rgb));
 }
 
-.dark .react-flow__attribution a {
+.react-flow .react-flow__attribution a {
   color: rgb(var(--text-muted-rgb));
 }
 

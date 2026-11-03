@@ -10,6 +10,12 @@ describe("global not-found metadata", () => {
     expect(rootLayoutSource).toContain("max-image-preview:large");
   });
 
+  it("emits no canonical and no og:url, so the 404 never claims the home page", () => {
+    expect(metadata.alternates).toBeNull();
+    expect(metadata.openGraph).toBeDefined();
+    expect(metadata.openGraph).not.toHaveProperty("url");
+  });
+
   it("uses the in-shell RouteNotFound with sentence-case copy and the nav constant", () => {
     const notFoundSource = readFileSync("app/not-found.tsx", "utf8");
     const globalErrorSource = readFileSync("app/global-error.tsx", "utf8");

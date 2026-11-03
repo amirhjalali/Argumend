@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { MAP_COUNT } from "@/data/topicIndex";
+import { CATEGORY_LABELS, MAP_COUNT } from "@/data/topicIndex";
+import { fitMetaDescription } from "@/lib/seoText";
 import { buildPageHref, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
 import TopicsPageClient from "./TopicsPageClient";
 import {
@@ -14,13 +15,28 @@ type TopicsPageProps = { searchParams: Promise<TopicsSearchParams> };
 
 export async function generateMetadata({ searchParams }: TopicsPageProps): Promise<Metadata> {
   const state = parseTopicsQuery(await searchParams);
-  const pageCount = Math.max(1, Math.ceil(countMatchingTopics(state) / TOPICS_PAGE_SIZE));
+  const matching = countMatchingTopics(state);
+  const pageCount = Math.max(1, Math.ceil(matching / TOPICS_PAGE_SIZE));
   const filters = queryForTopicsMetadata(state);
+
+  // Each category view, and each page of one, is its own canonical URL, so
+  // each gets its own title and description rather than the library's.
+  const category = state.category === "all" ? null : CATEGORY_LABELS[state.category];
+  const shelf = category ? `${category} maps` : "Maps";
+  const count = category ? matching : MAP_COUNT;
+  const pageNote = state.page > 1 ? ` Page ${state.page} of ${pageCount}.` : "";
+  const description = category
+    ? `${count} argument maps of contested ${category.toLowerCase()} questions: each side's strongest case, the evidence, and the questions it turns on.${pageNote}`
+    : state.page > 1
+      ? `${MAP_COUNT} argument maps of contested questions: each side's strongest case, the evidence, and the questions it turns on.${pageNote}`
+      : undefined;
 
   return {
     title: state.page > 1
-      ? `Maps — page ${state.page}`
-      : `Maps — ${MAP_COUNT} contested questions`,
+      ? `${shelf} — page ${state.page}`
+      : `${shelf} — ${count} contested questions`,
+    // The bare library keeps the layout's description.
+    ...(description ? { description: fitMetaDescription(description) } : {}),
     alternates: {
       canonical: buildPageHref("https://argumend.org/topics", state.page, filters),
     },

@@ -1,11 +1,13 @@
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { MAP_COUNT } from "@/data/topicIndex";
+import { MAP_COUNT, topicSummaries } from "@/data/topicIndex";
+import { loadTopicById } from "@/data/topicLoader";
+import { agreedFactCards, agreedFacts } from "@/lib/topicPage/legacy";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import type { Pillar } from "@/lib/schemas/topic";
 import { EXPECTED_MAP_COUNT } from "./mapDocuments";
 import type { RankedMap } from "./mapIndex";
-import { decideMatch, evidenceForPaste, findMaps, getMapIndex, MAP_MATCH, pickPillars } from "./maps";
+import { decideMatch, evidenceForPaste, findMaps, getMapIndex, MAP_MATCH, matchOnMap, pickPillars } from "./maps";
 import { ASSISTED_LIVING_PASTE, LEGACY_NUCLEAR_EXAMPLE, NUCLEAR_PASTE } from "./testPastes";
 import { PasteMapsResultSchema } from "./schemas";
 
@@ -387,6 +389,30 @@ describe("findMaps", () => {
     expect(match?.cards.length).toBe(2);
   });
 
+  it("prefers cards that speak to the crux shown over cards that only share the paste's words", async () => {
+    // r10 live review #2: under the passive-safety crux the reader was shown
+    // a public-opinion poll, filed under the same pillar, because the paste
+    // said "oppose" and "nuclear". The crux's own question now ranks cards too.
+    const match = (await matchOnMap(
+      "nuclear-renaissance-smr",
+      "Nuclear power is the only serious answer to climate change. Renewables can't run the grid when the wind stops, and Germany proved that shutting reactors just means burning more coal. The waste problem is overblown: all of America's spent fuel would fit on a single football field. People who oppose nuclear are stuck in the 1970s.",
+    ))!;
+    expect(match.crux?.question).toMatch(/passive safety/);
+    expect(match.cards.map((card) => card.id)).toContain("nuscale-design-certification");
+    expect(match.cards.map((card) => card.id)).not.toContain("public-support-rising");
+    expect(new Set(match.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+  });
+
+  it("still ranks a card by the paste when the paste is about what that card covers", async () => {
+    // The poll stays when the paste is about polls: the crux's question is
+    // added to the paste, it does not replace it.
+    const match = (await matchOnMap(
+      "nuclear-renaissance-smr",
+      "Nuclear is the only serious answer to climate change, and the new small reactors fix the old fears. Polls show Americans support nuclear now; the people who oppose nuclear are stuck in the 1970s.",
+    ))!;
+    expect(match.cards.map((card) => card.id)).toContain("public-support-rising");
+  });
+
   it("keeps a contrasting card's own crux when the selected crux has evidence on only one side", async () => {
     const result = await findMaps(
       "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
@@ -408,6 +434,28 @@ describe("findMaps", () => {
       match: { ...result.match, cards: [{ ...borrowed, crux: { question: borrowed.crux!.question, href: 12 } }] },
     }).success).toBe(false);
   });
+
+  it("never shows a card that restates an agreed fact as a side's card, on any pillar map", async () => {
+    // r10 follow-up (2026-11-02): the topic page never offers such a card as
+    // a side's best card (lib/topicPage/legacy.ts, restatesAgreement); the
+    // paste result did. Pasting the agreed fact itself is the hardest case:
+    // the card that restates it shares the most words with the paste.
+    const shown: string[] = [];
+    for (const { id } of topicSummaries) {
+      const topic = await loadTopicById(id);
+      if (!topic) continue;
+      const agreed = new Set([...agreedFactCards(topic)].map((card) => `${card.id}|${card.description}`));
+      if (agreed.size === 0) continue;
+      const pastes = [...agreedFacts(topic), ...topic.pillars.map((pillar) => pillar.crux.question ?? pillar.title)];
+      for (const paste of pastes) {
+        const match = await matchOnMap(id, paste);
+        for (const card of match?.cards ?? []) {
+          if (agreed.has(`${card.id}|${card.description}`)) shown.push(`${id}/${card.id} for “${paste.slice(0, 60)}”`);
+        }
+      }
+    }
+    expect(shown, shown.join("\n")).toEqual([]);
+  }, 60_000);
 
   it("surfaces the scoped GAO evidence for a FOSTA argument while keeping its question and a contrasting side", async () => {
     const result = await findMaps("FOSTA changed Section 230. Did it actually deter trafficking, or did liability cause platforms to remove lawful speech and useful safety tools?");

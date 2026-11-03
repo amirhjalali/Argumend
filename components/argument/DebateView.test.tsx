@@ -9,6 +9,7 @@ import {
   loadArgumentTopic,
 } from "@/lib/argument/draftTopics";
 import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
+import { HIDDEN_ASSUMPTION_NOTE } from "@/lib/topicPage/model";
 import type { ArgumentGraph, Claim, Evidence } from "@/types/argument";
 
 afterEach(() => {
@@ -248,7 +249,11 @@ describe("DebateView", () => {
       `This turns on ${["zero", "one", "two", "three", "four", "five", "six"][cruxes.length]} questions`,
     );
     expect(screen.getByText(TEST_META.hook)).not.toBeNull();
-    expect(screen.getByText(TEST_META.tldr)).not.toBeNull();
+    // One intro over the crux sheet: the map's own lede, then how the
+    // questions could close; no generic "Settle one…" line on top of it.
+    const intro = cruxSection.querySelector<HTMLElement>("[data-crux-lede]")!;
+    expect(intro.textContent?.startsWith(`${TEST_META.tldr} `)).toBe(true);
+    expect(cruxSection.textContent).not.toContain("Settle one and whole positions move.");
     expect(view.container.textContent).not.toContain("pieces of evidence ·");
 
     // The screenshot card remains understandable as a labeled landmark and
@@ -308,8 +313,13 @@ describe("DebateView", () => {
       if (claim!.implicit) {
         // The tag and what it means read as one unit in the summary.
         expect(
-          within(summary).getByText(/A hidden assumption/).parentElement?.textContent,
-        ).toMatch(/A hidden assumption: the map identifies a premise these positions rely on/);
+          within(summary).getByText("Hidden assumption:").parentElement?.textContent,
+        ).toBe(`Hidden assumption: ${HIDDEN_ASSUMPTION_NOTE}`);
+        // It sits right under the question it names, before the settle line.
+        expect(
+          within(summary).getByText("Hidden assumption:").parentElement?.previousElementSibling
+            ?.tagName,
+        ).toBe("H3");
       }
     }
 

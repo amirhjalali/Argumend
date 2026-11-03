@@ -40,7 +40,7 @@
  */
 import { loadTopicById } from "@/data/topicLoader";
 import type { Pillar, Topic } from "@/lib/schemas/topic";
-import { legacyTopicPage, type LegacyCrux, type LegacyEvidenceItem } from "@/lib/topicPage/legacy";
+import { canStandForSide, legacyTopicPage, type LegacyCrux, type LegacyEvidenceItem } from "@/lib/topicPage/legacy";
 import { standingLineFor } from "@/lib/topicPage/model";
 import type { ArgumentGraph, Claim, Evidence as GraphEvidence } from "@/types/argument";
 import { pickCruxes, type CruxText } from "./cruxChoice";
@@ -119,6 +119,12 @@ export const MAP_MATCH = {
   siblingNameShare: 0.6,
   /** …and the paste must use at least this many words of its name that the top map's name lacks. */
   siblingNameMargin: 2,
+  /**
+   * A word of the top map's name that the sibling's own text uses at least
+   * this share as strongly (saturated frequency) is shared vocabulary, not a
+   * word of the top map's name that tells the two apart.
+   */
+  siblingSharedWordShare: 0.5,
   /**
    * A map on another subject is listed beside the answer, or as a closest
    * map, only when the paste uses a word of its name (any of its names)
@@ -204,6 +210,7 @@ export function decideMatch(
   ownNameWord: (id: string) => boolean = () => false,
   sharesName: (id: string) => boolean = () => true,
   introMapId?: string,
+  usesAsMuch: (id: string, term: string, than: string) => boolean = () => false,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -252,11 +259,18 @@ export function decideMatch(
     // a rent-control paste opens the rent-control map, while a nuclear-power
     // article that mentions small modular reactors stays on the nuclear map
     // (it uses "climate", which only the nuclear map's name has).
+    // A word of the top map's name tells it from the sibling only when the
+    // sibling's own text barely uses it: "reactors" is in the small-reactor
+    // map's name, but the nuclear-power map discusses reactors throughout,
+    // so a nuclear-for-climate rant that says "reactors" and never "small"
+    // or "modular" opens the nuclear-power map (r10 live review #1).
     const topName = nameMatch(top.id);
     const contenders = siblings.filter((map) => {
       if (map.score < MAP_MATCH.siblingNameShare * top.score) return false;
       const siblingName = nameMatch(map.id);
-      const topOnly = [...topName].filter((term) => !siblingName.has(term)).length;
+      const topOnly = [...topName].filter(
+        (term) => !siblingName.has(term) && !usesAsMuch(map.id, term, top.id),
+      ).length;
       const siblingOnly = [...siblingName].filter((term) => !topName.has(term)).length;
       return topOnly === 0 && siblingOnly >= MAP_MATCH.siblingNameMargin;
     });
@@ -404,9 +418,22 @@ export function evidenceForPaste<T>(
 }
 
 /**
- * One card per side from the crux's own evidence, selected for this paste.
- * A side absent from that crux borrows from the others, with its origin
- * preserved. The sides answer the map's question or claim, not the crux.
+ * What a card is ranked against: the paste, and the question of the crux
+ * shown above the cards. A pillar's evidence can cover more than its crux
+ * asks (the small-reactor map files public-opinion polls under a crux about
+ * passive safety), so a card that speaks to the crux's own question is
+ * preferred over one that only shares the paste's words (r10 live review #2).
+ * With no crux, the paste alone, as before.
+ */
+function cardQuery(text: string, question: string | undefined): string {
+  return question ? `${question}\n${text}` : text;
+}
+
+/**
+ * One card per side from the crux's own evidence, selected for this paste
+ * and the crux's question. A side absent from that crux borrows from the
+ * others, with its origin preserved. The sides answer the map's question or
+ * claim, not the crux.
  */
 function cardsFrom(
   items: readonly LegacyEvidenceItem[],
@@ -414,14 +441,18 @@ function cardsFrom(
   cruxes: ReadonlyMap<LegacyEvidenceItem, Pick<PasteMapCrux, "question" | "href">>,
   text: string,
   corpusIdf: (term: string) => number,
+  question?: string,
 ): PasteMapCard[] {
   const fields = (item: LegacyEvidenceItem) => ({
     name: [item.title],
     body: [item.description, item.source],
     evidence: [],
   });
-  const own = evidenceForPaste(items, text, corpusIdf, fields);
-  const other = evidenceForPaste(others, text, corpusIdf, fields);
+  const query = cardQuery(text, question);
+  // A card restating an agreed fact is never a side's card, as on the topic
+  // page (lib/topicPage/legacy.ts); it stays in the map's evidence list.
+  const own = evidenceForPaste(items.filter(canStandForSide), query, corpusIdf, fields);
+  const other = evidenceForPaste(others.filter(canStandForSide), query, corpusIdf, fields);
   const picked = (["for", "against"] as const)
     .map((side) => own.find((item) => item.side === side) ?? other.find((item) => item.side === side))
     .filter((item): item is LegacyEvidenceItem => Boolean(item));
@@ -480,7 +511,7 @@ function pillarMatch(topic: Topic, text: string, corpusIdf: (term: string) => nu
     for (const item of owner.evidence) evidenceCruxes.set(item, origin);
   }
   const otherEvidence = cruxes.filter((item) => item !== entry).flatMap((item) => item.evidence);
-  let cards = cardsFrom(entry?.evidence ?? [], otherEvidence, evidenceCruxes, text, corpusIdf);
+  let cards = cardsFrom(entry?.evidence ?? [], otherEvidence, evidenceCruxes, text, corpusIdf, entry?.question);
   if (cards.length === 0) cards = cardsFrom(cruxes.flatMap((item) => item.evidence), [], evidenceCruxes, text, corpusIdf);
 
   return {
@@ -524,7 +555,7 @@ function flagshipCards(
     })
     .sort((a, b) => evidenceWeight(b.node) - evidenceWeight(a.node) || a.node.id.localeCompare(b.node.id));
 
-  const relevant = evidenceForPaste(ranked, text, corpusIdf, ({ node }) => ({
+  const relevant = evidenceForPaste(ranked, cardQuery(text, crux.question), corpusIdf, ({ node }) => ({
     name: [node.summary ?? node.statement],
     body: [node.relevance, node.source.title],
     evidence: [],
@@ -660,6 +691,24 @@ async function buildMatch(
   if (kind === "flagship") return flagshipMatch(map.id, text, corpusIdf);
   const topic = await loadTopicById(map.id);
   return topic ? pillarMatch(topic, text, corpusIdf) : null;
+}
+
+/**
+ * The match a paste would get if this map were named: its crux and cards.
+ * For tests and evals of what the result shows, apart from which map is
+ * named. Null for an unknown map.
+ */
+export async function matchOnMap(mapId: string, text: string): Promise<PasteMapMatch | null> {
+  const index = await getMapIndex();
+  const map = index.byId.get(mapId);
+  if (!map) return null;
+  const { document } = map;
+  return buildMatch(
+    { id: document.id, title: document.title, claim: document.claim, score: 0, wordScore: 0, wordsMatched: 0 },
+    document.kind,
+    text,
+    index,
+  );
 }
 
 const round = (value: number | null, places = 2) =>
@@ -808,6 +857,12 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
       return Boolean(anchors?.length && fitsMapSubject(anchors, subjectTermSet));
     },
     introMapId,
+    (id, term, than) => {
+      const own = index.byId.get(id)?.weightedFrequency.get(term) ?? 0;
+      const other = index.byId.get(than)?.weightedFrequency.get(term) ?? 0;
+      const { k1 } = index.params;
+      return own / (k1 + own) >= MAP_MATCH.siblingSharedWordShare * (other / (k1 + other));
+    },
   );
   const matchedMs = performance.now() - indexed;
 

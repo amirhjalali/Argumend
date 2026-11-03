@@ -101,6 +101,30 @@ describe("/topics: no scoreboard", () => {
   });
 });
 
+describe("/topics: category tabs on a phone", () => {
+  beforeEach(() => window.history.replaceState({}, "", "/topics"));
+  afterEach(cleanup);
+
+  it("fades the edge where more tabs are hidden, and clears the fade at the end", () => {
+    // r10 review #7: at 390px the row stopped at "Sci" with no sign it scrolls.
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    const nav = view.getByRole("navigation", { name: "Map categories" });
+    const strip = nav.querySelector("div.overflow-x-auto") as HTMLDivElement;
+    Object.defineProperty(strip, "clientWidth", { configurable: true, value: 358 });
+    Object.defineProperty(strip, "scrollWidth", { configurable: true, value: 900 });
+    act(() => { fireEvent.scroll(strip); });
+    expect(view.getByTestId("tabs-fade-right")).toBeTruthy();
+    expect(view.queryByTestId("tabs-fade-left")).toBeNull();
+
+    act(() => {
+      strip.scrollLeft = 542;
+      fireEvent.scroll(strip);
+    });
+    expect(view.queryByTestId("tabs-fade-right")).toBeNull();
+    expect(view.getByTestId("tabs-fade-left")).toBeTruthy();
+  });
+});
+
 describe("/topics: Start here", () => {
   beforeEach(() => window.history.replaceState({}, "", "/topics"));
   afterEach(cleanup);
@@ -284,6 +308,33 @@ describe("/topics: order and pagination", () => {
     expect(view.queryByRole("heading", { level: 2, name: "Policy" })).toBeNull();
   });
 
+  it("leads page 1 with Start here, and takes later pages straight to their list", () => {
+    // r10 review #8: page 2 repeated the intro and the pinned maps, so its
+    // list started ~1000px down on a phone, and the count read "of 149 maps,
+    // plus the 3 above".
+    const pinned = argumentTopicIds.length;
+    const total = filterLibrary(defaultState).length + pinned;
+    window.history.replaceState({}, "", "/topics");
+    const first = render(<TopicsPageClient initialState={defaultState} />);
+    expect(first.getByRole("heading", { name: "Start here" })).toBeTruthy();
+    expect(first.getByRole("status").textContent).toBe(`Showing 1–${TOPICS_PAGE_SIZE + pinned} of ${total} maps`);
+    cleanup();
+
+    window.history.replaceState({}, "", "/topics?page=2");
+    const second = render(<TopicsPageClient initialState={{ ...defaultState, page: 2 }} />);
+    expect(second.queryByRole("heading", { name: "Start here" })).toBeNull();
+    expect(second.container.querySelector('a[href="/ai"]')).toBeNull();
+    expect(second.queryByText(/contested questions\. Each map/)).toBeNull();
+    expect(second.getByRole("heading", { level: 1, name: "Maps" })).toBeTruthy();
+    expect(second.getByRole("status").textContent).toBe(
+      `Showing ${TOPICS_PAGE_SIZE + pinned + 1}–${TOPICS_PAGE_SIZE * 2 + pinned} of ${total} maps`,
+    );
+    // The pinned maps are not dealt into the later pages either.
+    for (const id of argumentTopicIds) {
+      expect(second.container.querySelector(`a[href="/topics/${id}"]`)).toBeNull();
+    }
+  });
+
   it("renders one crawlable page with stable next links", () => {
     window.history.replaceState({}, "", "/topics");
     const view = render(<TopicsPageClient initialState={defaultState} />);
@@ -419,15 +470,37 @@ describe("/topics metadata", () => {
     expect(metadata.alternates?.canonical).toBe(
       "https://argumend.org/topics?category=science&sort=title-asc&page=2",
     );
-    expect(metadata.title).toBe("Maps — page 2");
+    expect(metadata.title).toBe("Science maps — page 2");
+    expect(metadata.description).toMatch(/contested science questions.*Page 2 of 2\.$/);
     const first = await generateMetadata({ searchParams: Promise.resolve({}) });
     // The real count, not a rounded "150+".
     expect(first.title).toBe(`Maps — ${LIBRARY_ENTRIES.length} contested questions`);
+    // The bare library keeps the /topics layout's description.
+    expect(first.description).toBeUndefined();
     expect(metadata.pagination).toEqual({
       previous: "https://argumend.org/topics?category=science&sort=title-asc",
       next: null,
     });
     expect(metadata.robots).toBeUndefined();
+  });
+
+  it("titles and describes each category view, and each page, as itself", async () => {
+    const meta = (query: Record<string, string>) => generateMetadata({ searchParams: Promise.resolve(query) });
+    const science = await meta({ category: "science" });
+    const policy = await meta({ category: "policy" });
+    const scienceCount = LIBRARY_ENTRIES.filter((entry) => entry.category === "science").length;
+    expect(science.title).toBe(`Science maps — ${scienceCount} contested questions`);
+    expect(science.description).toBe(
+      `${scienceCount} argument maps of contested science questions: each side's strongest case, the evidence, and the questions it turns on.`,
+    );
+    expect(policy.title).not.toBe(science.title);
+    expect(policy.description).not.toBe(science.description);
+    const page2 = await meta({ page: "2" });
+    expect(page2.title).toBe("Maps — page 2");
+    expect(String(page2.description)).toMatch(/Page 2 of \d+\.$/);
+    for (const metadata of [science, policy, page2]) {
+      expect(String(metadata.description).length).toBeLessThanOrEqual(160);
+    }
   });
 
   it("keeps search results out of the index", async () => {

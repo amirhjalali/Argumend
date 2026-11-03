@@ -12,6 +12,7 @@ import { ArticleLayout, type RelatedItem } from "@/components/learn/ArticleLayou
 import { slugifyHeading, type TocHeading } from "@/components/TableOfContents";
 import { ReadingProgressBar } from "./client";
 import { buildGenericOgUrl } from "@/lib/og";
+import { fitMetaDescription, templatedTitle } from "@/lib/seoText";
 import { pickNextMap } from "@/lib/learn/nextStep";
 import { monthYear } from "@/lib/learn/readTime";
 
@@ -166,14 +167,18 @@ export async function generateMetadata(
       ? absoluteMediaUrl(media.hero.src)
       : buildGenericOgUrl({ title: article.title, subtitle: article.category });
 
+  // The meta description is cut to what a search result shows; the page and
+  // its structured data keep the post's full description.
+  const description = fitMetaDescription(article.description);
+
   return {
-    title: article.title,
-    description: article.description,
+    title: templatedTitle(article.title),
+    description,
     authors: [{ name: article.author }],
     keywords: article.tags,
     openGraph: {
       title: article.title,
-      description: article.description,
+      description,
       type: "article",
       publishedTime: article.publishedAt,
       authors: [article.author],
@@ -192,7 +197,7 @@ export async function generateMetadata(
     twitter: {
       card: "summary_large_image",
       title: article.title,
-      description: article.description,
+      description,
       images: [ogImage],
     },
     alternates: {

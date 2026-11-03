@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 
 const TITLE = "Paste an argument — find what it turns on";
 const DESCRIPTION =
-  "Paste a conversation, an article or your own draft. Argumend finds the map it is already on, the question it turns on, and the strongest evidence on each side. It never says who is right.";
+  "Paste a conversation, article or draft. Argumend finds its map, the question it turns on and the strongest evidence on each side. It never says who is right.";
 
 export const metadata: Metadata = {
   title: TITLE,

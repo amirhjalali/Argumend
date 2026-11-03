@@ -3,6 +3,7 @@ import { AiLivingMap } from "@/components/ai/AiLivingMap";
 import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
 import { aiPageAsOf, loadAiMaps } from "./loadAiMaps";
+import { buildGenericOgUrl } from "@/lib/og";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 /**
@@ -17,8 +18,9 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const TITLE = "The AI argument, on one page";
 const DESCRIPTION =
-  "What the fight over AI and work turns on now, what would settle each question, and the dated record of the evidence that has moved it. Across Argumend's AI maps; it never scores the sides.";
+  "What the fight over AI and work turns on now, what would settle each question, and the dated record of evidence that moved it. It never scores the sides.";
 const URL = `${SITE_URL}/ai`;
+const OG_IMAGE = buildGenericOgUrl({ title: TITLE, subtitle: "AI maps" });
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -30,11 +32,13 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: URL,
     siteName: SITE_NAME,
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
+    images: [OG_IMAGE],
   },
 };
 

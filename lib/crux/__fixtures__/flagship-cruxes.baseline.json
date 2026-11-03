@@ -47,7 +47,7 @@
       "score": 0.767,
       "contestedness": 0.5,
       "reach": 0.507,
-      "directReach": 0.197,
+      "directReach": 0.192,
       "discrimination": 1,
       "directDiscrimination": 0.2,
       "tractability": 1,
@@ -57,7 +57,7 @@
       "affectedPositions": [
         {
           "id": "p-institutional-who-decides",
-          "delta": 0.442
+          "delta": 0.402
         }
       ],
       "affectedClaims": [
@@ -81,7 +81,7 @@
         "Claim c-targeted-programs-can-help: Better-designed, targeted, employer-linked, long-horizon workforce programs can meaningfully improve displaced workers' earnings and employment, even though generic short retraining programs mostly do not.",
         "Status is contested because The WIA Gold Standard randomized evaluation found that staff-assisted intensive services increased earnings 7%-20%, while evidence on training itself was inconclusive within 30 months. That supports targeted case management, not generic retraining or effectiveness at the scale a national AI-displacement emergency would require..",
         "Component scores: score 0.767, contestedness 0.500, reach 0.507, discrimination 1.000, tractability 1.000, implicit boost 1.000, scoping bonus 0.774.",
-        "Position deltas: p-institutional-who-decides +0.442.",
+        "Position deltas: p-institutional-who-decides +0.402.",
         "Resolution: existing-evidence: randomized evaluations of well-funded, employer-linked programs for AI-displaced workers that follow earnings for years, at national scale and in a slack labor market as well as a tight one.",
         "Gates: c-displaced-workers-can-retrain-costlessly."
       ]

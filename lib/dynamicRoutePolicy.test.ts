@@ -8,6 +8,7 @@ import {
   FALLACY_ROUTE_SLUGS,
   GUIDE_ROUTE_IDS,
   WORKSHEET_ROUTE_IDS,
+  diagramlessMapPath,
   legacyHomeTopicPath,
   shouldServeNamedNotFound,
 } from "@/lib/dynamicRoutePolicy";
@@ -17,7 +18,8 @@ import { config as proxyConfig, proxy } from "@/proxy";
 const invalidDynamicRoutes = [
   "/topics/definitely-missing",
   "/topics/definitely-missing/map",
-  // New-model maps have no diagram; their page is the outline.
+  // New-model maps have no diagram: no page renders here (the proxy
+  // redirects these to the map's page before this check; see below).
   "/topics/ai-mass-unemployment/map",
   "/blog/definitely-missing",
   "/blog/category/definitely-missing",
@@ -139,6 +141,34 @@ describe("compact proxy catalogs", () => {
     expect([...WORKSHEET_ROUTE_IDS].sort()).toEqual(
       generateWorksheetParams().map(({ id }) => id).sort(),
     );
+  });
+});
+
+describe("diagram URLs of new-model maps (/topics/:id/map)", () => {
+  it("sends a new-model map's /map to its page", () => {
+    expect(diagramlessMapPath("/topics/ai-mass-unemployment/map")).toBe("/topics/ai-mass-unemployment");
+    expect(diagramlessMapPath("/topics/ai-mass-unemployment/map/")).toBe("/topics/ai-mass-unemployment");
+  });
+
+  it("leaves legacy diagrams, unknown ids and other paths alone", () => {
+    expect(diagramlessMapPath("/topics/climate-change/map")).toBeNull();
+    expect(diagramlessMapPath("/topics/definitely-missing/map")).toBeNull();
+    expect(diagramlessMapPath("/topics/ai-mass-unemployment")).toBeNull();
+    expect(diagramlessMapPath("/embed/ai-mass-unemployment")).toBeNull();
+  });
+
+  it("redirects permanently from the proxy, keeping the query", () => {
+    const response = proxy(new NextRequest("https://argumend.org/topics/ai-mass-unemployment/map?ref=x"));
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe("https://argumend.org/topics/ai-mass-unemployment?ref=x");
+    // The destination passes straight through: one hop.
+    const next = proxy(new NextRequest("https://argumend.org/topics/ai-mass-unemployment?ref=x"));
+    expect(next.headers.get("x-middleware-next")).toBe("1");
+  });
+
+  it("still serves the 404 for an unknown id's /map", () => {
+    const response = proxy(new NextRequest("https://argumend.org/topics/definitely-missing/map"));
+    expect(response.status).toBe(404);
   });
 });
 

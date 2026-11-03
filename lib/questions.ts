@@ -1,4 +1,5 @@
 import type { Topic } from "@/lib/schemas/topic";
+import { META_DESCRIPTION_MAX, fitMetaDescription } from "@/lib/seoText";
 
 type QuestionTopic = Pick<Topic, "id">;
 
@@ -560,10 +561,21 @@ export function getQuestionVariations(topic: QuestionTopic): QuestionVariation[]
   return questions.map((question, index) => ({
     slug: questionToSlug(question),
     question,
-    metaDescription: `${question} Explore the arguments on each side, where they agree, and what would change a mind.`,
+    metaDescription: questionMetaDescription(question),
     topicId: topic.id,
     primary: index === 0,
   }));
+}
+
+/**
+ * The question, then what its page holds, within the length a search result
+ * shows: the shorter wording for a long question, and a word-boundary cut
+ * only if even that does not fit.
+ */
+function questionMetaDescription(question: string): string {
+  const full = `${question} Explore the arguments on each side, where they agree, and what would change a mind.`;
+  if (full.length <= META_DESCRIPTION_MAX) return full;
+  return fitMetaDescription(`${question} The arguments on each side, where they agree, and what would change a mind.`);
 }
 
 /** Every phrasing of a topic's question ("Also asked as"), primary first. */

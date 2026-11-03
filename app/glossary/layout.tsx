@@ -5,7 +5,7 @@ import { glossaryPageTerms } from "@/data/glossaryPageTerms";
 export const metadata: Metadata = {
   title: "Glossary — Critical Thinking & Argument Mapping Terms",
   description:
-    `Definitions of ${glossaryPageTerms.length} key terms in critical thinking and argument mapping, A to Z: steel-manning, crux, what would settle it, logical fallacies, Bayesian reasoning, evidence weighting, and more.`,
+    `Definitions of ${glossaryPageTerms.length} key terms in critical thinking and argument mapping, A to Z: steel-manning, crux, fallacies, Bayesian reasoning, evidence weighting and more.`,
   keywords: [
     "critical thinking glossary",
     "argument mapping terms",

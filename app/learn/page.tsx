@@ -20,7 +20,7 @@ const TITLE = "How to disagree better";
 const LEDE =
   "People who disagree usually share more facts than they think, and the fight turns on a question or two. Learn to find it, starting with the question that matters most: what would change your mind?";
 const DESCRIPTION =
-  "Argumend's library on disagreeing well: cruxes, steel-manning, evidence, fallacies and a glossary, with guides, essays and lesson plans. Start with what would change your mind.";
+  "Argumend's library on disagreeing well: cruxes, steel-manning, evidence, fallacies, a glossary, guides and essays. Start with what would change your mind.";
 const URL = `${SITE_URL}/learn`;
 const OG_IMAGE = buildGenericOgUrl({ title: TITLE, subtitle: "Learn" });
 
@@ -46,6 +46,12 @@ export const metadata: Metadata = {
 
 /** The essay the hub opens with: the reader's own crux test. */
 const START_ESSAY = "what-would-change-your-mind";
+/** The idea "Start here" opens with; listed there, so not again under Core ideas. */
+const START_IDEA = "cruxes";
+/** The guide "Start here" opens; listed there, so not again under Guides. */
+const START_GUIDE = "how-to-read-an-argument-map";
+/** The core idea that introduces fallacies; it leads the Fallacies section, not Core ideas. */
+const FALLACIES_IDEA = "fallacies";
 const FEATURED_FALLACIES = [
   "ad-hominem",
   "straw-man",
@@ -62,6 +68,16 @@ function essayItem(slug: string): CollectionItem {
     title: post.title,
     description: post.description,
     meta: `Essay · ${post.readingTime}`,
+  };
+}
+
+function guideItem(id: string): CollectionItem {
+  const guide = guides.find((g) => g.id === id)!;
+  return {
+    href: `/guides/${guide.id}`,
+    title: guide.title,
+    description: guide.subtitle,
+    meta: `Guide · ${guide.readTime}`,
   };
 }
 
@@ -85,7 +101,7 @@ function buildGroups(): Record<LearnHubSectionId, Omit<CollectionGroup, "id" | "
     start: {
       lede: "Four short pieces. Read them in any order.",
       items: [
-        conceptItem("cruxes"),
+        conceptItem(START_IDEA),
         {
           href: "/perspectives",
           title: "Perspectives",
@@ -94,47 +110,44 @@ function buildGroups(): Record<LearnHubSectionId, Omit<CollectionGroup, "id" | "
           meta: "Essay · a scroll story",
         },
         essayItem(START_ESSAY),
-        {
-          href: "/about#read-a-map",
-          title: "How to read a map",
-          description:
-            "Pick a map, read its cruxes and what would settle each one, and see how it has moved.",
-          meta: "About Argumend",
-        },
+        guideItem(START_GUIDE),
       ],
     },
     ideas: {
-      lede: "The ideas every map is built from.",
+      lede: "The ideas every map is built from. Cruxes come first, under Start here; fallacies have a section of their own.",
       items: [
-        ...concepts.map((concept) => conceptItem(concept.id)),
+        // Each piece is listed once: the crux idea is under Start here, the
+        // fallacies idea leads the Fallacies section.
+        ...concepts
+          .filter((concept) => concept.id !== START_IDEA && concept.id !== FALLACIES_IDEA)
+          .map((concept) => conceptItem(concept.id)),
         {
           href: "/questions#fact-or-value",
           title: "Fact or value?",
           description:
             "Every contested question asks about a fact, a value, the future or a cause, and each kind is settled by different things.",
-          meta: "Questions",
+          // It is a section of the questions index, not a question itself.
+          meta: "Idea · the four kinds of question",
         },
       ],
     },
     guides: {
-      lede: "Step-by-step practice, from reading a map to spotting manufactured doubt.",
-      items: guides.map((guide) => ({
-        href: `/guides/${guide.id}`,
-        title: guide.title,
-        description: guide.subtitle,
-        meta: `Guide · ${guide.readTime}`,
-      })),
+      lede: "Step-by-step practice, from finding the crux to spotting manufactured doubt.",
+      items: guides.filter((guide) => guide.id !== START_GUIDE).map((guide) => guideItem(guide.id)),
     },
     fallacies: {
       lede: `${fallacies.length} common ways an argument goes wrong, each with an example and a way to answer it.`,
-      items: FEATURED_FALLACIES.map((slug) => {
-        const fallacy = fallacies.find((f) => f.slug === slug)!;
-        return {
-          href: `/fallacies/${fallacy.slug}`,
-          title: fallacy.name,
-          description: fallacy.shortDefinition,
-        };
-      }),
+      items: [
+        conceptItem(FALLACIES_IDEA),
+        ...FEATURED_FALLACIES.map((slug) => {
+          const fallacy = fallacies.find((f) => f.slug === slug)!;
+          return {
+            href: `/fallacies/${fallacy.slug}`,
+            title: fallacy.name,
+            description: fallacy.shortDefinition,
+          };
+        }),
+      ],
       more: { href: "/fallacies", label: `All ${fallacies.length} fallacies` },
     },
     glossary: {

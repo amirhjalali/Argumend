@@ -22,6 +22,15 @@ import type { ResolutionKind } from "@/types/argument";
  */
 export type SettleMode = "evidence" | "agreement" | "standing" | "unstated";
 
+/**
+ * The line under an implicit crux, after a "Hidden assumption" tag. It says
+ * the question just above is the assumption, and claims only what the map
+ * shows (the positions depend on the answer), not that nobody ever says it
+ * (commit ba28380 dropped that overclaim).
+ */
+export const HIDDEN_ASSUMPTION_NOTE =
+  "The positions depend on how this question is answered, even where they do not argue it directly.";
+
 /** The engine's line for a crux no evidence can settle (docs/CRUX_ENGINE.md). */
 export const STANDING_DISAGREEMENT_LINE =
   "Nothing does — this is a standing value disagreement; the map holds both horns.";

@@ -8,6 +8,7 @@ import {
 import { CruxMovementTrack } from "@/components/argument/CruxMovement";
 import { numberWord, type HomeCrux } from "@/components/home/homeModel";
 import { Section, TextAction } from "@/components/ui";
+import { HIDDEN_ASSUMPTION_NOTE } from "@/lib/topicPage/model";
 
 interface FeaturedTopicHeroProps {
   /** Crux #1 of the map home's primary button opens (see homeModel). */
@@ -82,7 +83,8 @@ export function WorkedCrux({ crux }: { crux: HomeCrux }) {
             <p
               className={`${ENTRY_COLUMN} mt-2 max-w-2xl font-serif text-[1rem] italic leading-snug text-muted dark:text-stone-400`}
             >
-              A hidden assumption: the map identifies a premise these positions rely on.
+              <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption:</span>{" "}
+              {HIDDEN_ASSUMPTION_NOTE}
             </p>
           ) : null}
           <p className={`${ENTRY_COLUMN} max-w-2xl`}>

@@ -18,7 +18,7 @@ export const selfDrivingCarSafetyData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that a safety comparison only means something when the human benchmark is matched to the cities, roads, speeds and crash-reporting thresholds the fleet actually drives, that driverless systems have produced novel severe failures like the Cruise pedestrian drag and Tesla FSD crashes in glare and fog, and that today's fleets are geofenced to a handful of mapped cities, lean on remote human agents, and have not been validated for highways, snow or rural roads.",
+    "Both sides accept that a safety comparison only means something when the human benchmark is matched to the cities, roads, speeds and crash-reporting thresholds the fleet actually drives, that driverless systems have produced novel severe failures like the Cruise pedestrian drag and Tesla FSD crashes in glare and fog, and that today's fleets are geofenced to mapped service areas in a limited set of cities, lean on remote human agents, and have no published safety record on rural roads or in heavy snow.",
     "They split over whether the edge reported for Waymo by Swiss Re and peer-reviewed studies survives a fully like-for-like, independently audited comparison; whether rare but severe failures erase the average safety advantage; and whether simulation and step-by-step expansion can justify broad deployment before road miles prove self-driving cars safer.",
     "The last also turns on how much proof to demand before deploying, given the lives lost to delay, which is a value choice.",
   ],
@@ -200,7 +200,7 @@ export const selfDrivingCarSafetyData = {
         "Even granting a local safety edge, the 'deploy broadly' half of the claim runs into proof, scale, and human-in-the-loop limits.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "'Already safer' implies a general fact, but RAND showed that statistically proving an AV is safer than humans on fatalities could require hundreds of millions to hundreds of billions of test miles — decades of driving — so the broad claim outruns the evidence. Today's fleets remain geofenced to a handful of cities, lean on remote human fleet-response agents for hard situations, and have not been validated for highways, snow, or rural roads. Broad deployment asks society to scale before the long-mileage proof exists.",
+        "'Already safer' implies a general fact, but RAND showed that statistically proving an AV is safer than humans on fatalities could require hundreds of millions to hundreds of billions of test miles — decades of driving — so the broad claim outruns the evidence. Today's fleets remain geofenced to mapped service areas in a limited set of cities, lean on remote human fleet-response agents for hard situations, and have no published safety record on rural roads or in heavy snow. Broad deployment asks society to scale before the long-mileage proof exists.",
       proponent_rebuttal:
         "Waiting for billions of road miles per design before deploying anything is itself a choice with a body count: human error is the critical factor in ~94% of crashes, and ~40,000 Americans die on roads annually. Statistical proof can be supplemented with simulation, scenario testing, and staged geographic rollout — exactly the path operators are on, expanding city by city after each domain is validated. Remote agents that suggest rather than steer are a safety backstop during scaling, not evidence the cars cannot drive; broad deployment can be incremental and evidence-gated rather than all-at-once.",
       crux: {
@@ -224,7 +224,7 @@ export const selfDrivingCarSafetyData = {
           skeptic_flip:
             "If studies counted the cost of delay, with human error critical in ~94% of crashes and about 40,000 Americans dying on roads each year, and found waiting for RAND's hundreds of millions of miles cost more lives than staged deployment, indefinite waiting would look like a costly choice.",
           common_ground:
-            "Both sides agree today's fleets are still geofenced to a handful of mapped cities, lean on remote human fleet-response agents, and have not been validated for highways, snow, or rural roads.",
+            "Both sides agree today's fleets are still geofenced to mapped service areas in a limited set of cities, lean on remote human fleet-response agents, and have no published safety record on rural roads or in heavy snow.",
           live_disagreement:
             "Whether validated-domain expansion plus simulation can ethically substitute for the impractically large road mileage needed to prove general fatality-rate superiority — which comparing achievable expansion rates against the RAND statistical model, and tracking real outcomes as domains widen, would test.",
         },
@@ -252,7 +252,7 @@ export const selfDrivingCarSafetyData = {
           id: "geofence-remote-ops",
           title: "Fleets Remain Geofenced and Lean on Remote Human Agents",
           description:
-            "As of 2025-2026 driverless ride-hailing operated in only a handful of mapped cities (e.g. Phoenix, San Francisco, Los Angeles, Austin), and Waymo's own documentation confirms its vehicles request input from remote human 'fleet response' agents in complex situations — the agents provide guidance while the Waymo Driver remains in control of the vehicle at all times. The reliance on remote assistance was aired publicly at the US Senate Commerce Committee's Feb 4, 2026 hearing on self-driving cars.",
+            "Driverless ride-hailing runs only inside mapped, geofenced service areas: as of September 2026 Waymo counted 14 cities where it provides fully autonomous trips, and its latest safety analysis (through June 2026) draws on five of them (Atlanta, Austin, Los Angeles, Phoenix and San Francisco). Waymo's own documentation confirms its vehicles request input from remote human 'fleet response' agents in complex situations — the agents provide information while the Waymo Driver 'is in control of the vehicle at all times.' The reliance on remote assistance was aired publicly at the US Senate Commerce Committee's Feb 4, 2026 hearing on self-driving cars.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -261,7 +261,7 @@ export const selfDrivingCarSafetyData = {
             directness: 6,
           },
           source:
-            "Waymo, 'How fleet response supports the Waymo Driver' (operational blog); US Senate Commerce Committee hearing 'Hit the Road, Mac: The Future of Self-Driving Cars' (Feb 4, 2026), Waymo Chief Safety Officer testimony",
+            "Waymo, 'How fleet response supports the Waymo Driver' (operational blog); Waymo, 'Welcoming our first riders in Denver, San Diego, and Tampa' (Sep 1, 2026) and safety-data update (Sep 24, 2026); US Senate Commerce Committee hearing 'Hit the Road, Mac: The Future of Self-Driving Cars' (Feb 4, 2026), Waymo Chief Safety Officer testimony",
           sourceUrl: "https://waymo.com/blog/2024/05/fleet-response/",
           reasoning:
             "Establishes the real limit on 'broadly' — narrow geofenced domains plus human-in-the-loop backstops. The remote-agent role comes from Waymo's own disclosure (so independence is lowered to 5), corroborated by Senate hearing testimony rather than a primary safety dataset; it constrains the deployment claim without proving cars are unsafe.",

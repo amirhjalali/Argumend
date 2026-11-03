@@ -9,7 +9,7 @@ test("the home paste hands its text to the offline map flow once", async ({ page
   });
 
   await page.goto("/");
-  const example = page.getByRole("button", { name: "Try an example" });
+  const example = page.getByRole("button", { name: "See an example" });
   await waitForHydration(example);
   await example.click();
   await expect(page.getByRole("textbox", { name: "Text to analyze" })).toHaveValue(

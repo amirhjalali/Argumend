@@ -32,6 +32,10 @@ vi.mock("@/lib/jev/client", async () => {
 
 import { POST } from "./route";
 
+// The gap row is fire-and-forget; under a loaded full-suite run it can take
+// longer than vi.waitFor's 1s default to land.
+const WAIT = { timeout: 5000 };
+
 let counter = 0;
 function post(text: string) {
   counter += 1;
@@ -74,7 +78,7 @@ describe("POST /api/map-reply gap-metric logging", () => {
   it("writes one counts-only row that carries none of the paste", async () => {
     const response = await POST(post(RENT_CONTROL_THREAD));
     expect(response.status).toBe(200);
-    await vi.waitFor(() => expect(dbState.inserted).toHaveLength(1));
+    await vi.waitFor(() => expect(dbState.inserted).toHaveLength(1), WAIT);
     const row = GapObservationSchema.parse(dbState.inserted[0]);
     expect(row.lane).toBe("map-reply");
     expect(row.topicId).toBe("rent-control-effectiveness");
@@ -97,7 +101,7 @@ describe("POST /api/map-reply gap-metric logging", () => {
     const response = await POST(post(RENT_CONTROL_THREAD));
     expect(response.status).toBe(200);
     expect((await response.json()).ok).toBe(true);
-    await vi.waitFor(() => expect(warn).toHaveBeenCalled());
+    await vi.waitFor(() => expect(warn).toHaveBeenCalled(), WAIT);
     warn.mockRestore();
   });
 
@@ -106,7 +110,7 @@ describe("POST /api/map-reply gap-metric logging", () => {
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     const response = await POST(post(RENT_CONTROL_THREAD));
     expect(response.status).toBe(200);
-    await vi.waitFor(() => expect(warn).toHaveBeenCalled());
+    await vi.waitFor(() => expect(warn).toHaveBeenCalled(), WAIT);
     expect(dbState.inserted).toHaveLength(0);
     warn.mockRestore();
   });
@@ -124,7 +128,7 @@ describe("POST /api/map-reply gap-metric logging", () => {
       const response = await freshPost(post(RENT_CONTROL_THREAD));
       expect(response.status).toBe(200);
       expect((await response.json()).ok).toBe(true);
-      await vi.waitFor(() => expect(warn).toHaveBeenCalled());
+      await vi.waitFor(() => expect(warn).toHaveBeenCalled(), WAIT);
       expect(dbState.inserted).toHaveLength(0);
     } finally {
       warn.mockRestore();

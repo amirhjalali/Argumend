@@ -197,11 +197,15 @@ export const moonLandingData = {
         question:
           "Do Apollo's flight paths and speeds explain the low radiation doses its dosimeters recorded?",
         description:
-          "By reviewing telemetry data from radiation measurements during the Apollo missions and cross-referencing with unmanned probe data, we can calculate exact exposure.",
+          "Radiation readings from the Apollo missions can be cross-checked against belt-intensity data from uncrewed probes to estimate how much dose each crew should have received.",
         methodology:
           "Review raw telemetry data from unmanned probes (Explorer satellites) regarding belt intensity vs. Apollo flight logs. Calculate total exposure.",
         equation: "D_{total} = \\int_{t_{start}}^{t_{end}} I(r(t)) \\, dt",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Recompute each crew's dose from the published Apollo trajectories and belt-intensity data from uncrewed probes, then compare it with the recorded dosimeter readings: computed doses near the recorded 0.16–1.14 rad point to the routes and speeds explaining them, computed doses far higher point to a problem with the record.",
+        },
         cost_to_verify: "$0 (Data analysis of public records)",
         falsification: {
           supporter_flip:
@@ -274,7 +278,9 @@ export const moonLandingData = {
           title: "Apollo Dosimeters Recorded Non-Lethal Radiation Doses",
           description:
             "NASA's mission dosimetry records show crew-averaged skin doses of 0.16 to 1.14 rad across the nine Apollo lunar missions, averaging 0.46 rad. Much of the dose came from the Van Allen belts, but no crew exceeded recommended annual limits for radiation workers. Transit risk was real and actively monitored; the measured doses contradict the claim that belt passage was necessarily lethal.",
-          side: "against" as const,
+          // Rewritten from a skeptic card ("Van Allen Belts Are Lethal") in
+          // b6939eb; the side was left on "against" though it points to yes.
+          side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 7,

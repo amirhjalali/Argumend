@@ -10,15 +10,15 @@ export const spaceColonizationFeasibilityData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Mars has no breathable air, about 38% of Earth's gravity, an average temperature around −60°C and soil laced with toxic perchlorates. As of 2025 no rocket had landed cargo there, though NASA's MOXIE made about 122 grams of oxygen from Martian air across 16 runs. Both sides accept these facts. What divides them is whether transport and life support can turn an outpost into a colony that survives without Earth within 50 years.",
+      "Mars has no breathable air, about 38% of Earth's gravity, an average temperature around −60°C and soil laced with toxic perchlorates. Only robotic landers and rovers have touched down there (NASA's Perseverance rover weighs 1,025 kg), though NASA's MOXIE made about 122 grams of oxygen from Martian air across 16 runs. Both sides accept these facts. What divides them is whether transport and life support can turn an outpost into a colony that survives without Earth within 50 years.",
     confidence: 84,
     source:
-      "NASA Mars facts; NASA JPL MOXIE mission summary (2023); SpaceX Starship status (2025)",
+      "NASA Mars facts; NASA JPL MOXIE mission summary (2023); NASA Perseverance rover specifications",
     sourceUrl: "https://science.nasa.gov/mars/facts/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that as of 2025 no rocket has landed cargo on Mars and orbital refueling has not been demonstrated, that launch costs have fallen sharply, that no closed life-support system has yet run without resupply — Biosphere 2 needed outside oxygen — and that MOXIE proved the oxygen-from-CO₂ chemistry at tiny scale.",
+    "Both sides accept that as of October 2026 Starship had reached orbit only once, ship-to-ship refueling had not been demonstrated and nothing larger than a robotic rover had landed on Mars, that launch costs have fallen sharply, that no closed life-support system has yet run without resupply — Biosphere 2 needed outside oxygen — and that MOXIE proved the oxygen-from-CO₂ chemistry at tiny scale.",
     "They split over whether SpaceX's Starship will demonstrate orbital refueling and Mars cargo landings this decade, and whether in-situ resource use and closed-loop life support can scale into a Mars or Moon settlement that survives being cut off from Earth, or leave a resupply-dependent outpost.",
   ],
   pillars: [
@@ -26,12 +26,12 @@ export const spaceColonizationFeasibilityData = {
       id: "transport-technology",
       title: "Transportation Technology",
       short_summary:
-        "SpaceX projects Starship will carry 100+ tonnes to Mars, but as of 2025 it has demonstrated a booster catch, not a full orbital flight with payload deploy. Getting humans there and back alive is a harder problem still.",
+        "SpaceX projects Starship will carry 100+ tonnes to Mars. It first reached orbit and deployed a payload in September 2026, but as of October 2026 it had not demonstrated the orbital refueling a Mars trip needs, and SpaceX has put its Mars mission behind a lunar landing. Getting humans there and back alive is a harder problem still.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Even SpaceX's Starship—the most advanced heavy-lift vehicle in development—had, as of 2025, demonstrated a Super Heavy booster catch (Flight 5, Oct 2024) but not a full orbital flight with payload deployment, and orbital propellant transfer remains undemonstrated. A conventional Mars transit takes 6-9 months, and the RAD instrument aboard the Mars Science Laboratory implies on the order of 0.66 Sv of dose-equivalent for a round trip with comparable shielding—a meaningful fraction of a career limit before any surface stay is counted. The cost of standing up a colony is plausibly in the hundreds of billions, with no demonstrated economic return to amortize it.",
+        "Even SpaceX's Starship—the most advanced heavy-lift vehicle in development—reached orbit for the first time only on Flight 14 (September 2026), after 13 suborbital test flights; as of October 2026 ship-to-ship propellant transfer, which a Mars trip depends on, had not been demonstrated, and in February 2026 SpaceX put off its planned 2026 Mars mission to prioritize a lunar landing. A conventional Mars transit takes 6-9 months, and the RAD instrument aboard the Mars Science Laboratory implies on the order of 0.66 Sv of dose-equivalent for a round trip with comparable shielding—a meaningful fraction of a career limit before any surface stay is counted. The cost of standing up a colony is plausibly in the hundreds of billions, with no demonstrated economic return to amortize it.",
       proponent_rebuttal:
-        "Reusable rockets have already driven launch costs down by roughly an order of magnitude over the past 15 years, and Falcon 9 turned booster reuse from a stunt into routine—so the trajectory of the technology, not just one vehicle, is encouraging. Starship is designed for 100-150 tonnes to orbit (a SpaceX target, not yet flown with payload), and a peer-reviewed Scientific Reports (2025) trajectory study finds 90-104 day Earth-Mars transfers that stay within NASA's ~600 mSv career radiation limit—contingent on Starship-class performance and in-space refueling that have not yet been demonstrated. SpaceX projects uncrewed Mars landings around 2026-2027 and crewed missions later; those dates are company projections, but the engineering path to them is concrete rather than speculative.",
+        "Reusable rockets have already driven launch costs down by roughly an order of magnitude over the past 15 years, and Falcon 9 turned booster reuse from a stunt into routine—so the trajectory of the technology, not just one vehicle, is encouraging. Starship is designed for 100-150 tonnes to orbit (a SpaceX target; its first orbital flight, in September 2026, deployed 26 Starlink V3 satellites), and a peer-reviewed Scientific Reports (2025) trajectory study finds 90-104 day Earth-Mars transfers that stay within NASA's ~600 mSv career radiation limit—contingent on Starship-class performance and in-space refueling that have not yet been demonstrated. SpaceX says it will attempt Mars after an uncrewed lunar landing it targets for March 2027; those dates are company projections, but the engineering path to them is concrete rather than speculative.",
       crux: {
         id: "starship-mars-landing",
         title: "Successful Uncrewed Mars Landing",
@@ -51,7 +51,7 @@ export const spaceColonizationFeasibilityData = {
           skeptic_flip:
             "If Starship-class vehicles carried the ~10× launch-cost cut and routine booster reuse of reusable rockets on to orbital refueling, at the performance where the radiation and transit math closes, 'we can't even get there' would lose its footing.",
           common_ground:
-            "Both sides agree that as of 2025 no rocket has landed cargo on Mars and orbital propellant transfer hasn't been demonstrated, while launch costs have fallen sharply.",
+            "Both sides agree that as of October 2026 nothing larger than a robotic rover had landed on Mars and ship-to-ship propellant transfer hadn't been demonstrated, while launch costs have fallen sharply.",
           live_disagreement:
             "Whether Starship-class transport (orbital refueling + Mars cargo landing) will actually be demonstrated this decade, or stall — which only SpaceX's mission record will settle.",
         },
@@ -61,7 +61,7 @@ export const spaceColonizationFeasibilityData = {
           id: "starship-progress",
           title: "SpaceX Starship: Rapid Iteration Toward Mars Capability",
           description:
-            "SpaceX's Starship has flown multiple integrated test flights since 2023 and has caught the Super Heavy booster at the launch tower (first achieved on Flight 5, October 2024). SpaceX advertises a target payload of 100-150 tonnes to low Earth orbit, and Starship is the baseline for NASA's Artemis HLS lunar lander. As of 2025, however, Starship had not yet completed a full orbital flight with payload deployment, and SpaceX's uncrewed Mars cargo target of 2026-2027 is a company projection, not a demonstrated capability.",
+            "SpaceX's Starship has flown 14 integrated test flights since 2023, has caught the Super Heavy booster at the launch tower on three of them (first on Flight 5, October 2024), and on Flight 14 (28 September 2026) reached orbit for the first time and deployed 26 Starlink V3 satellites. SpaceX advertises a target payload of 100-150 tonnes to low Earth orbit, and Starship is the baseline for NASA's Artemis HLS lunar lander. As of October 2026, however, ship-to-ship propellant transfer had not been demonstrated, and in February 2026 SpaceX put off its planned 2026 Mars mission to prioritize an uncrewed lunar landing targeted for March 2027, so a Mars cargo landing remains a company projection, not a demonstrated capability.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -70,10 +70,10 @@ export const spaceColonizationFeasibilityData = {
             directness: 7,
           },
           source:
-            "SpaceX, \"Starship\" vehicle page (advertised payload); NASA Artemis HLS contract award",
+            "SpaceX, \"Starship\" vehicle page (advertised payload); NASA Artemis HLS contract award; Space.com (29 Oct 2026) and Astronomy (30 Sep 2026) on Flight 14; Wall Street Journal via AIAA (9 Feb 2026) on the Mars delay",
           sourceUrl: "https://www.spacex.com/vehicles/starship/",
           reasoning:
-            "Booster-catch hardware progress is real and independently observed, but the 100-150 t payload figure and the 2026-2027 Mars timeline are unverified vendor projections from SpaceX itself. Weights de-inflated for low independence and for post-cutoff, undemonstrated claims.",
+            "Booster catches and the first orbital flight are real and independently observed, but the 100-150 t payload figure and any Mars timeline are unverified vendor projections from SpaceX itself. Weights de-inflated for low independence and for post-cutoff, undemonstrated claims.",
         },
         {
           id: "three-month-transit",

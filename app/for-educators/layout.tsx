@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | ARGUMEND",
   },
   description:
-    "Bring structured argument mapping to your classroom. Ready-made lesson plans, cross-curricular integration, and tools to teach critical thinking through evidence-based debate analysis. Free for IB, AP, and A-Level courses.",
+    "Argument mapping for your classroom: ready-made lesson plans and tools to teach critical thinking through evidence-based debate. Free for IB, AP and A-Level.",
   keywords: [
     "critical thinking lesson plans",
     "argument mapping classroom",

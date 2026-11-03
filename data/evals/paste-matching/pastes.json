@@ -26,6 +26,14 @@
       "related": ["nuclear-renaissance-smr"]
     },
     {
+      "id": "nuclear-only-answer",
+      "form": "rant",
+      "text": "Nuclear power is the only serious answer to climate change. Renewables can't run the grid when the wind stops, and Germany proved that shutting reactors just means burning more coal. The waste problem is overblown: all of America's spent fuel would fit on a single football field. People who oppose nuclear are stuck in the 1970s.",
+      "expected": ["nuclear-energy-safety"],
+      "related": ["nuclear-renaissance-smr"],
+      "note": "r10 live review (2026-11-02): named the small-modular-reactor map, whose crux is passive safety, though the paste never mentions small or modular reactors."
+    },
+    {
       "id": "smr-vaporware",
       "form": "reply",
       "text": "SMRs have been 'five years away' for twenty years. NuScale's flagship project in Idaho got cancelled when the price per megawatt-hour went up by more than half. Show me one small modular reactor running on a Western grid and then we can talk.",

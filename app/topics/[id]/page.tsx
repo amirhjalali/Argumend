@@ -21,6 +21,8 @@ import {
 } from "@/lib/site";
 import { mapDescription, mapDisplayTitle } from "@/lib/mapNaming";
 import { getRelatedMaps } from "@/lib/relatedMaps";
+import { buildTopicFaqPage } from "@/lib/topicPage/faqStructuredData";
+import { fitMetaDescription, templatedTitle } from "@/lib/seoText";
 
 // ---------------------------------------------------------------------------
 // Static Generation
@@ -59,14 +61,15 @@ export async function generateMetadata({
     // The question alone; the layout's title template adds "| ARGUMEND".
     const pageTitle = argumentTopic.meta.title;
     const url = `https://argumend.org/topics/${argumentTopic.meta.id}`;
+    const description = fitMetaDescription(argumentTopic.meta.tagline);
     return {
-      title: pageTitle,
-      description: argumentTopic.meta.tagline,
+      title: templatedTitle(pageTitle),
+      description,
       alternates: { canonical: url },
       openGraph: {
         type: "article",
         title: `${pageTitle} | ARGUMEND`,
-        description: argumentTopic.meta.tagline,
+        description,
         url,
         siteName: "ARGUMEND",
         images: [{ url: ogImage, width: 1200, height: 630, alt: argumentTopic.meta.title }],
@@ -74,7 +77,7 @@ export async function generateMetadata({
       twitter: {
         card: "summary_large_image",
         title: pageTitle,
-        description: argumentTopic.meta.tagline,
+        description,
         images: [ogImage],
       },
     };
@@ -99,8 +102,10 @@ export async function generateMetadata({
   // otherwise the short label.
   return {
     // The map's headline alone, as on the flagship maps: the /topics layout's
-    // template adds "| ARGUMEND", like every other page title on the site.
-    title: pageTitle,
+    // template adds "| ARGUMEND", like every other page title on the site,
+    // unless the question is long enough that the suffix would push it past
+    // what a search result shows (templatedTitle).
+    title: templatedTitle(pageTitle),
     description,
     keywords: [
       topic.title,
@@ -217,6 +222,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
     ? absoluteMediaUrl(media.hero.src)
     : buildTopicOgUrl(topic.id);
   const related = await getRelatedMaps(topic.id);
+  const faqPage = buildTopicFaqPage(topic.questions);
 
   // Honest dates: published constant, modified from topic.last_updated if present.
   const datePublished = CONTENT_FIRST_PUBLISHED;
@@ -266,19 +272,10 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           ...(citations.length ? { citation: citations } : {}),
         }}
       />
-      {topic.questions?.length ? (
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: topic.questions.map((q) => ({
-              "@type": "Question",
-              name: q.title,
-              acceptedAnswer: { "@type": "Answer", text: q.content },
-            })),
-          } as unknown as Record<string, unknown>}
-        />
-      ) : null}
+      {/* Only questions whose context says something besides the question
+          itself; the answer is that context, cut before its closing question
+          (lib/topicPage/faqStructuredData.ts). */}
+      {faqPage ? <JsonLd data={faqPage} /> : null}
       {/* Server-rendered like the flagship maps: the same template, the same
           shell, and only the reflection and action buttons hydrate. */}
       <AppShell layout="reading">

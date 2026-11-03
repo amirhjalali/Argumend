@@ -97,7 +97,7 @@ export const socialMediaAgeLimitsData = {
           id: "australia-age-verification",
           title: "Australia Passes Social Media Ban for Under-16s",
           description:
-            "Australia's Online Safety Amendment (Social Media Minimum Age) Act 2024 passed Parliament on 29 November 2024, requiring certain platforms to take 'reasonable steps' to prevent under-16s from holding accounts, with civil penalties up to AUD$49.5 million. Enforcement was scheduled to begin roughly 12 months after passage (late 2025). Effectiveness data is still emerging, and compliance mechanisms remain uncertain.",
+            "Australia's Online Safety Amendment (Social Media Minimum Age) Act 2024 passed Parliament on 29 November 2024, requiring certain platforms to take 'reasonable steps' to prevent under-16s from holding accounts, with civil penalties up to AUD$49.5 million. The ban took effect on 10 December 2025. By mid-January 2026, eSafety Commissioner Julie Inman Grant reported that platforms had deactivated or restricted about 4.7 million accounts identified as belonging to children, while saying there were no long-term trends yet. An account count does not show how many children left social media or whether their wellbeing changed.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -106,7 +106,7 @@ export const socialMediaAgeLimitsData = {
             directness: 5,
           },
           source:
-            "Parliament of Australia, Online Safety Amendment (Social Media Minimum Age) Act 2024",
+            "Parliament of Australia, Online Safety Amendment (Social Media Minimum Age) Act 2024; Associated Press via PBS NewsHour, 'Social media platforms removed 4.7 million accounts after Australia banned them for children younger than 16' (16 January 2026)",
           sourceUrl:
             "https://www.legislation.gov.au/C2024A00127/asmade/text",
           reasoning:

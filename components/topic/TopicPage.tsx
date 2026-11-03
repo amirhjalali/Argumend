@@ -37,6 +37,7 @@ import { OpenCruxFromHash } from "./OpenCruxFromHash";
 import { TopicActions } from "./TopicActions";
 import {
   cruxSheetHeading,
+  HIDDEN_ASSUMPTION_NOTE,
   type CruxEntryData,
   type PositionCardData,
   type TopicPageData,
@@ -272,19 +273,28 @@ export function AgreementBlock({ heading, items }: { heading: string; items: str
 
 export function CruxSheet({ page, cruxes }: { page: TopicPageData; cruxes: CruxEntryView[] }) {
   if (cruxes.length === 0) return null;
+  // One intro, not two. A map's own lede leads, with the tally of how the
+  // questions could close after it; the generic "Settle one…" line is only
+  // for a map that has no lede of its own.
+  const lede = page.cruxLede
+    ? [page.cruxLede, page.cruxTally].filter(Boolean).join(" ")
+    : undefined;
   return (
     <Section
       id="cruxes"
       title={cruxSheetHeading(cruxes.length)}
-      lede={page.cruxTally ? `Settle one and whole positions move. ${page.cruxTally}` : undefined}
+      lede={!lede && page.cruxTally ? `Settle one and whole positions move. ${page.cruxTally}` : undefined}
       className="mt-8"
     >
-      {page.cruxLede && (
-        <p className="-mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300">
-          {page.cruxLede}
+      {lede && (
+        <p
+          data-crux-lede=""
+          className="-mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300"
+        >
+          {lede}
         </p>
       )}
-      <ol data-crux-sheet="" className={`${page.cruxLede ? "mt-5" : ""} ${CRUX_SHEET}`}>
+      <ol data-crux-sheet="" className={`${lede ? "mt-5" : ""} ${CRUX_SHEET}`}>
         {cruxes.map((crux, index) => (
           <CruxEntry key={crux.anchor} crux={crux} index={index} />
         ))}
@@ -342,6 +352,16 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
               </span>
             )}
           </h3>
+          {/* The question above is the assumption; the line says so without
+              claiming nobody ever states it (see commit ba28380). */}
+          {crux.implicit && (
+            <span
+              className={`${ENTRY_COLUMN} mb-2 mt-1.5 block font-serif text-[0.9375rem] italic leading-snug text-muted dark:text-stone-400`}
+            >
+              <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption:</span>{" "}
+              {HIDDEN_ASSUMPTION_NOTE}
+            </span>
+          )}
           <span className={ENTRY_COLUMN}>
             <SettleAnswer
               mode={settle.mode}
@@ -357,14 +377,6 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
             )}
           </span>
           {crux.track && <span className={`${ENTRY_COLUMN} mt-3.5 flex`}>{crux.track}</span>}
-          {crux.implicit && (
-            <span
-              className={`${ENTRY_COLUMN} mt-3 font-serif text-[0.9375rem] italic leading-snug text-muted dark:text-stone-400`}
-            >
-              <span className="label-caps !text-[0.9375rem] not-italic">A hidden assumption:</span>{" "}
-              the map identifies a premise these positions rely on.
-            </span>
-          )}
         </summary>
         {hasBody && (
           <div className={`${ENTRY_GRID} pb-6 pr-4`}>
@@ -563,8 +575,10 @@ export function TopicFolds({ folds }: { folds: TopicFold[] }) {
 
 /**
  * A map's authored questions and the context behind each, as the content of
- * a "Common questions" fold. They are also the page's FAQPage structured
- * data, which Google only accepts when the questions are visible on the page.
+ * a "Common questions" fold. Those whose context is more than the question
+ * restated are also the page's FAQPage structured data (answer = the context
+ * before its closing question; lib/topicPage/faqStructuredData.ts), which
+ * Google only accepts when the questions are visible on the page.
  */
 export function CommonQuestions({
   questions,

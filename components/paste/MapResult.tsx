@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
 import { Button, TextAction, textActionClasses } from "@/components/ui";
@@ -288,24 +288,23 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
  * the argument is really about is the reader's call.
  */
 function RelatedLine({ related }: { related: readonly PasteMapCandidate[] }) {
+  const labelId = useId();
   if (related.length === 0) return null;
+  // A short list, one map per line: inline links joined by ";" wrapped
+  // badly and left a stray "?;" after titles that are questions (r10 #5).
   return (
-    <p className="mt-4 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-      Closely related:{" "}
-      {/* Each link carries its own ";" in one box: the links are inline-flex,
-          so a free-standing separator could wrap to the start of a line. */}
-      {related.map((map, index) => (
-        <Fragment key={map.id}>
-          <span className="inline-flex items-center">
-            <Link href={map.href} className={textActionClasses("text-[0.9375rem]")}>
+    <div className="mt-4 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+      <p id={labelId}>Closely related</p>
+      <ul aria-labelledby={labelId} className="mt-0.5 space-y-1.5">
+        {related.map((map) => (
+          <li key={map.id}>
+            <Link href={map.href} className={textActionClasses("text-left text-[0.9375rem]")}>
               {map.title}
             </Link>
-            {index < related.length - 1 ? ";" : null}
-          </span>
-          {index < related.length - 1 ? " " : null}
-        </Fragment>
-      ))}
-    </p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

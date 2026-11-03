@@ -38,6 +38,11 @@ import { createSiteSearch } from "@/lib/siteSearch";
  * top-1 on the palette and library and 4 of 7 no-map cases over their limit;
  * after (evidence keywords, a few "Also asked as" phrasings, prefixes only on
  * names, one best guess when no name answers the query) 38/42, and 1 of 7.
+ *
+ * r10 follow-up (2026-11-02): "climate" and "ai" joined the dev set. Before
+ * the library dropped its tag-first reorder, dev scored 55/55 top-1 on the
+ * header search and questions but 53/55 on the library (carbon tax led
+ * "climate"; the flagship AI map was third for "ai"); after, 55/55 on all.
  */
 
 interface EvalCase {
@@ -169,6 +174,40 @@ describe("the site-search eval set", () => {
       const results = RUNNERS[surface](query);
       expect(results[0], surface).toBe(expected);
       for (const id of unrelated) expect(results, surface).not.toContain(id);
+    }
+  });
+
+  it("lists the map named for a bare one-word subject before maps that only share the word", () => {
+    // r10 review #6: "nuclear" listed the deterrence map above nuclear power,
+    // and the AI-regulation map (whose question compares AI to nuclear
+    // energy) above the small-reactor and fusion maps.
+    for (const surface of ["palette", "library"] as Surface[]) {
+      const results = RUNNERS[surface]("nuclear");
+      expect(results[0], surface).toBe("nuclear-energy-safety");
+      expect(results.indexOf("ai-regulation"), surface).toBeGreaterThan(results.indexOf("nuclear-proliferation-new-arms-race"));
+    }
+  });
+
+  it("orders the library's maps the way the header search orders them", () => {
+    // r10 follow-up (2026-11-02): the library lifted every map tagged with
+    // the query over better name matches, so "climate" led with the
+    // carbon-tax map and "ai" put the flagship AI map third, while the header
+    // search did not. Both now take the one ranking in lib/siteSearch.ts.
+    // The header search's index also holds articles and concepts, which
+    // shifts word weights a little, so near-ties deep in a long list can
+    // swap; the first three maps must not differ.
+    for (const { query } of [...SETS.dev, ...SETS.holdout]) {
+      expect(library(query).slice(0, 3), query).toEqual(palette(query).slice(0, 3));
+    }
+  });
+
+  it("still lists every map carrying a tag when the search is that tag", () => {
+    // Old tag URLs (/topics/tag/public-health) redirect to ?q=<tag>.
+    for (const tag of new Set(topicSummaries.flatMap((topic) => topic.tags))) {
+      const listed = new Set(library(tag));
+      for (const topic of topicSummaries.filter((t) => t.tags.includes(tag))) {
+        expect(listed.has(topic.id), `${tag}: ${topic.id}`).toBe(true);
+      }
     }
   });
 

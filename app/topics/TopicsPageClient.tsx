@@ -118,9 +118,13 @@ export default function TopicsPageClient({
     ? paginate(filteredTopics, 1, TOPICS_PAGE_SIZE)
     : pagination;
   const paginationParams = useMemo(() => queryForTopicsState(state), [state]);
-  // Start here leads every page of the unfiltered library; the list below
-  // it then holds the other maps, and the count says so.
-  const startHere = showsStartHere(state, savedFilterOn);
+  // In the unfiltered library the new-model maps lead page 1 as "Start
+  // here", and the list holds the other maps. Later pages go straight to
+  // their list: repeating the group put the first row ~1000px down on a
+  // phone (r10 review #8). The count numbers Start here as the first rows.
+  const startHereMode = showsStartHere(state, savedFilterOn);
+  const startHere = startHereMode && visiblePage === 1;
+  const pinnedCount = startHereMode ? DEBATE_MAP_ENTRIES.length : 0;
 
   // Count per category, new-model maps included on their shelf.
   const categoryCounts = useMemo(() => {
@@ -211,6 +215,34 @@ export default function TopicsPageClient({
     return out;
   }, [grouped, visiblePagination]);
 
+  // Which edges of the category strip hide tabs, for the fades over them.
+  const tabStripRef = useRef<HTMLDivElement>(null);
+  const [tabOverflow, setTabOverflow] = useState({ left: false, right: false });
+  const measureTabOverflow = () => {
+    const strip = tabStripRef.current;
+    if (!strip) return;
+    const left = strip.scrollLeft > 1;
+    const right = strip.scrollLeft + strip.clientWidth < strip.scrollWidth - 1;
+    setTabOverflow((current) =>
+      current.left === left && current.right === right ? current : { left, right },
+    );
+  };
+  useEffect(() => {
+    const strip = tabStripRef.current;
+    if (!strip) return;
+    // A chosen category past the cut edge (?category=science on a phone) is
+    // scrolled into the strip, not left hidden behind the fade.
+    const active = strip.querySelector<HTMLElement>('[aria-current="page"]');
+    if (active) {
+      const overRight = active.offsetLeft + active.offsetWidth - (strip.scrollLeft + strip.clientWidth);
+      if (overRight > 0) strip.scrollLeft += overRight + 48;
+      else if (active.offsetLeft < strip.scrollLeft) strip.scrollLeft = Math.max(0, active.offsetLeft - 48);
+    }
+    measureTabOverflow();
+    window.addEventListener("resize", measureTabOverflow);
+    return () => window.removeEventListener("resize", measureTabOverflow);
+  }, [activeCategory]);
+
   const tabClass = (active: boolean) =>
     `relative inline-flex min-h-11 shrink-0 items-center gap-1 whitespace-nowrap px-1 text-sm transition-colors after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:rounded-full ${
       active
@@ -228,17 +260,31 @@ export default function TopicsPageClient({
             { label: "Maps" },
           ]}
           title="Maps"
-          lede={`${LIBRARY_ENTRIES.length} contested questions. Each map sets out the strongest case on every side and the questions that would settle it.`}
-          className="!mb-8 sm:!mb-10"
+          lede={visiblePage === 1
+            ? `${LIBRARY_ENTRIES.length} contested questions. Each map sets out the strongest case on every side and the questions that would settle it.`
+            : undefined}
+          meta={visiblePage > 1 ? `Page ${visiblePage} of ${visiblePagination.pageCount}` : undefined}
+          className={visiblePage === 1 ? "!mb-8 sm:!mb-10" : "!mb-6"}
         />
 
         {startHere && <StartHere />}
 
         {/* Category tabs: one quiet row at every width. On phones it scrolls
             sideways inside its own strip instead of wrapping into a wall of
-            pills. */}
-        <nav aria-label="Map categories" className="-mx-4 border-b border-stone-300/70 px-4 dark:border-divider sm:mx-0 sm:px-0">
-          <div className="flex gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            pills, and a fade at the cut edge says there is more (r10 #7):
+            at 390px the row stopped at "Sci" with nothing to show it scrolls. */}
+        <nav aria-label="Map categories" className="relative -mx-4 border-b border-stone-300/70 px-4 dark:border-divider sm:mx-0 sm:px-0">
+          {tabOverflow.left ? (
+            <span aria-hidden="true" data-testid="tabs-fade-left" className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[var(--bg-canvas)] to-transparent" />
+          ) : null}
+          {tabOverflow.right ? (
+            <span aria-hidden="true" data-testid="tabs-fade-right" className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[var(--bg-canvas)] to-transparent" />
+          ) : null}
+          <div
+            ref={tabStripRef}
+            onScroll={measureTabOverflow}
+            className="relative flex gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
             <Link
               href="/topics"
               onClick={(event) => { event.preventDefault(); chooseCategory("all"); }}
@@ -312,10 +358,10 @@ export default function TopicsPageClient({
               <>
                 Showing{" "}
                 <span className="font-medium text-primary dark:text-stone-200">
-                  {`${visiblePagination.startIndex + 1}–${visiblePagination.endIndex}`}
+                  {`${startHere ? 1 : visiblePagination.startIndex + 1 + pinnedCount}–${visiblePagination.endIndex + pinnedCount}`}
                 </span>{" "}
-                {startHere
-                  ? `of ${filteredTopics.length} maps, plus the ${DEBATE_MAP_ENTRIES.length} above`
+                {startHereMode
+                  ? `of ${filteredTopics.length + pinnedCount} maps`
                   : `of ${filteredTopics.length} matching ${filteredTopics.length === 1 ? "map" : "maps"} (${LIBRARY_ENTRIES.length} total)`}
               </>
             )}

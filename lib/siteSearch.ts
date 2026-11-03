@@ -244,6 +244,18 @@ function nameCoverage(words: QueryWord[], runs: string[][]): { coverage: number;
 }
 
 /**
+ * For a one-word query, the share of a result's names (question, old title,
+ * phrasings, id, aliases) that hold the word itself (not a longer form of
+ * it). At `ABOUT_SHARE` or more, the result is about that word's subject.
+ */
+const ABOUT_SHARE = 0.5;
+
+function aboutShare(word: QueryWord, runs: string[][]): number {
+  if (runs.length === 0) return 0;
+  return runs.filter((terms) => terms.some((term) => wordCredit(word, term) === 1)).length / runs.length;
+}
+
+/**
  * Weak results: the name holds under half of the query (a match only in a
  * map's claim, tags or first crux), or the query has a word no map uses at
  * all ("abortion rights": the maps found are about rights, not abortion). A
@@ -276,6 +288,8 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
   });
   ms.addAll(items as readonly SearchableItem[] as SearchableItem[]);
   const byId = new Map(items.map((item) => [item.id, item]));
+  /** The caller's order: the library's editorial order, most-read subjects first. */
+  const positionById = new Map(items.map((item, position) => [item.id, position]));
   const runsById = new Map(items.map((item) => [item.id, nameRuns(item)]));
   const tagsById = new Map(items.map((item) => [item.id, new Set(
     (item.tags ?? "").split(/\s+/).map((tag) => searchTerms(tag).join(" ")),
@@ -344,6 +358,7 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
       }
     }
     const unknownWord = queryWords.some((word) => word.unknown);
+    const singleWord = queryWords.length === 1 && !unknownWord;
     const allWordCount = new Set(queryWords.map((word) => word.term)).size;
     const queryKey = queryWords.map((word) => word.term).join(" ");
     // A result has to hold at least half of what was typed.
@@ -380,6 +395,7 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
           (item.flagship && coverage === 1 ? FLAGSHIP_LIFT : 1);
         return [{
           item, score,
+          about: singleWord && aboutShare(queryWords[0], runsById.get(item.id) ?? []) >= ABOUT_SHARE,
           weak: unknownWord || (coverage < 0.5 && !exactTag),
           answers: !unknownWord && (coverage > 0.5 || exactTag),
           completeName: !unknownWord && coverage === 1,
@@ -387,6 +403,20 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
         }];
       });
     scored.sort((a, b) => b.score - a.score);
+    // A bare one-word query ("nuclear") names a subject, and every map whose
+    // name holds the word answers it fully, so BM25's field-length noise
+    // decided the order: the deterrence map came before nuclear power (r10
+    // review #6). Maps whose names are mostly about the word come first, in
+    // the caller's editorial order; the rest keep their scores' order.
+    if (singleWord) {
+      scored.sort((a, b) =>
+        a.about !== b.about
+          ? (a.about ? -1 : 1)
+          : a.about
+            ? (positionById.get(a.item.id) ?? 0) - (positionById.get(b.item.id) ?? 0)
+            : 0,
+      );
+    }
     // Once a name answers the whole query, a shared generic word alone is
     // noise: "AI jobs" should not list every AI map and every jobs map.
     const specificQuery = queryWords.some((word) => !CATEGORY_QUERY_TERMS.has(word.term));

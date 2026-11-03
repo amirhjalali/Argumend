@@ -2,6 +2,7 @@ import "@/test/setup-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, within } from "@testing-library/react";
 import type { HomeCrux } from "@/components/home/homeModel";
+import { HIDDEN_ASSUMPTION_NOTE } from "@/lib/topicPage/model";
 
 vi.mock("next/image", () => ({ default: () => null }));
 
@@ -34,7 +35,7 @@ describe("FeaturedTopicHero (home beat 2)", () => {
     expect(within(section).getByRole("heading", { level: 3, name: base.question })).toBeTruthy();
     expect(section.textContent).toContain("the first of five on");
     expect(section.textContent).toContain(base.topicTitle);
-    expect(section.textContent).toContain("A hidden assumption");
+    expect(section.textContent).toContain(`Hidden assumption: ${HIDDEN_ASSUMPTION_NOTE}`);
     expect(within(section).getByText("What would settle it")).toBeTruthy();
     expect(section.textContent).toContain("A replicated field test of the mechanism.");
     expect(section.textContent).toContain("Why it is still open.");
@@ -67,6 +68,6 @@ describe("FeaturedTopicHero (home beat 2)", () => {
     const text = view.container.textContent ?? "";
     expect(text).toContain("Nothing does");
     expect(text).toContain("Where the sides part.");
-    expect(text).not.toContain("A hidden assumption");
+    expect(text).not.toContain("Hidden assumption");
   });
 });

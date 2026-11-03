@@ -10,7 +10,7 @@ import { buildGenericOgUrl } from "@/lib/og";
 
 const TITLE = "Logical Fallacies: A Field Guide to Bad Arguments";
 const DESCRIPTION =
-  "A clear, balanced guide to the most common logical fallacies — ad hominem, straw man, false dilemma, slippery slope, and more. Learn how each one misleads and how to counter it.";
+  "A clear guide to the most common logical fallacies — ad hominem, straw man, false dilemma, slippery slope and more: how each misleads, and how to counter it.";
 const URL = "https://argumend.org/fallacies";
 const OG_IMAGE = buildGenericOgUrl({
   title: "Logical Fallacies",

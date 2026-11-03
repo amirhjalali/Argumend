@@ -141,12 +141,12 @@ export const glp1WeightLossDrugsData = {
       id: "access-equity-cost",
       title: "Access, Equity & Cost",
       short_summary:
-        "GLP-1 drugs cost $800-1,350/month in the US, creating a two-tier obesity treatment system where wealthy patients get pharmaceutical intervention while lower-income populations — who bear the highest obesity burden — are left behind.",
+        "GLP-1 drugs carry US list prices of roughly $1,000-1,350 a month, and even the manufacturers' cash prices for the injections run about $200-700, creating a two-tier obesity treatment system where wealthy patients get pharmaceutical intervention while lower-income populations — who bear the highest obesity burden — are left behind.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "GLP-1 drugs are creating a two-tier healthcare system where the wealthy get thin while the poor stay sick. At list prices of $800-1,350 per month in the US, a year of treatment costs $10,000-16,000. As of 2025, most commercial insurers and many state Medicaid programs do not cover anti-obesity medications. Medicare is explicitly prohibited by law from covering weight-loss drugs, excluding 50+ million seniors. Meanwhile, obesity disproportionately affects Black (49.9% prevalence), Hispanic (45.6%), and low-income communities — the very populations least able to afford $1,000/month prescriptions. If 40% of American adults who qualify eventually seek treatment, the annual cost to the healthcare system would exceed $1 trillion. Novo Nordisk's revenue from semaglutide alone reached $21 billion in 2024, making Ozempic one of the best-selling drugs in history while patients ration doses or go without. This is not democratized medicine — it is pharmaceutical wealth extraction.",
+        "GLP-1 drugs are creating a two-tier healthcare system where the wealthy get thin while the poor stay sick. Wegovy's US list price is about $1,350 a month and Ozempic's about $1,000 until Novo cuts both to $675 in January 2027, so a year at list price costs $12,000-16,000, and even the manufacturers' discounted cash prices for the injections ran about $200-700 a month as of mid-2026. As of January 2026 only 13 state Medicaid programs covered GLP-1s for obesity, four having dropped coverage since October 2025, and coverage in most large employer plans remains limited. Medicare is barred by statute from covering weight-loss drugs; the $50-copay CMS demonstration that began in July 2026 sidesteps the ban only temporarily and is scheduled to expire at the end of 2027. Meanwhile, obesity disproportionately affects Black (49.9% prevalence), Hispanic (45.6%), and low-income communities — the very populations least able to afford $1,000/month prescriptions. If 40% of American adults who qualify eventually seek treatment, the annual cost to the healthcare system would exceed $1 trillion. Novo Nordisk's revenue from semaglutide alone reached $21 billion in 2024, making Ozempic one of the best-selling drugs in history while patients ration doses or go without. This is not democratized medicine — it is pharmaceutical wealth extraction.",
       proponent_rebuttal:
-        "The cost argument against GLP-1s ignores the staggering economic burden of untreated obesity: $173 billion annually in direct US healthcare costs, plus $150+ billion in lost productivity. An obese adult costs the healthcare system $1,861 more per year than a normal-weight adult. If GLP-1 drugs prevent even a fraction of obesity-related hospitalizations, surgeries, diabetes management, and cardiovascular interventions, they pay for themselves. Coverage is rapidly expanding: as of 2025, major insurers including UnitedHealthcare, Cigna, and Blue Cross have added anti-obesity medication coverage. The Treat and Reduce Obesity Act has been reintroduced in Congress to lift the Medicare coverage ban. Competition is driving prices down — Novo Nordisk faces challenges from Eli Lilly's tirzepatide, emerging oral formulations, and compounding pharmacies producing semaglutide at a fraction of the branded cost. Drug costs always decline as patents expire and generics enter the market. The alternative — bariatric surgery at $20,000-35,000 per procedure — is far more expensive and carries greater surgical risk.",
+        "The cost argument against GLP-1s ignores the staggering economic burden of untreated obesity: $173 billion annually in direct US healthcare costs, plus $150+ billion in lost productivity. An obese adult costs the healthcare system $1,861 more per year than a normal-weight adult. If GLP-1 drugs prevent even a fraction of obesity-related hospitalizations, surgeries, diabetes management, and cardiovascular interventions, they pay for themselves. Coverage and prices are moving: since July 2026 eligible Medicare enrollees can get Wegovy, Zepbound or the new GLP-1 pills for a $50 monthly copay under a CMS demonstration, the manufacturers sell the injections directly to cash-pay patients for roughly $200-700 a month, and Novo will halve Wegovy's list price to $675 in January 2027. The Treat and Reduce Obesity Act has been reintroduced in Congress to lift the Medicare coverage ban permanently. Competition is driving prices down — Novo Nordisk faces challenges from Eli Lilly's tirzepatide, oral formulations such as the Wegovy pill and Lilly's Foundayo, and compounding pharmacies producing semaglutide at a fraction of the branded cost. Drug costs always decline as patents expire and generics enter the market. The alternative — bariatric surgery at $20,000-35,000 per procedure — is far more expensive and carries greater surgical risk.",
       crux: {
         id: "cost-effectiveness-analysis",
         title: "The Population-Level Cost-Effectiveness Test",
@@ -173,7 +173,7 @@ export const glp1WeightLossDrugsData = {
       evidence: [
         {
           id: "drug-pricing-us",
-          title: "GLP-1 Drugs Cost $800-1,350/Month in the US vs. $50-200 Abroad",
+          title: "US GLP-1 List Prices Run ~$1,000/Month, Far Above Peer Nations",
           description:
             "GLP-1 drugs carry US list prices of roughly $1,000 per month, or upwards of $11,000 per year before rebates, according to KFF analysis. The same drugs cost far less in most European countries, Canada, and other OECD nations where governments negotiate drug prices, and a RAND Corporation study found US prices for GLP-1 agonists run several times higher than in peer nations. KFF reports that gross Medicare Part D spending on these drugs has risen sharply, with Ozempic alone reaching billions of dollars annually, making semaglutide one of the highest-spend drugs in the program.",
           side: "against" as const,
@@ -207,9 +207,9 @@ export const glp1WeightLossDrugsData = {
         },
         {
           id: "insurance-coverage-gaps",
-          title: "Medicare Cannot Cover Weight-Loss Drugs; Medicaid Coverage Varies by State",
+          title: "Medicare Bars Weight-Loss Drugs by Statute; Medicaid Coverage Varies by State",
           description:
-            "Federal law (the Social Security Act) prohibits Medicare from covering drugs used solely for weight loss, excluding tens of millions of seniors from GLP-1 coverage for obesity, even though Medicare does cover these drugs for indications like type 2 diabetes and cardiovascular disease. KFF analysis finds that only a small minority of state Medicaid programs cover GLP-1s for obesity treatment under fee-for-service, and that several states have eliminated coverage amid budget pressures. Among commercial and Marketplace plans, coverage for the obesity-approved drugs is rare and typically requires prior authorization.",
+            "Federal law (the Social Security Act) prohibits Medicare from covering drugs used solely for weight loss, even though Medicare does cover these drugs for indications like type 2 diabetes and cardiovascular disease. A CMS demonstration has sidestepped the ban since July 2026, offering eligible enrollees GLP-1s for obesity at a $50 monthly copay, but it is temporary and scheduled to expire at the end of 2027 unless extended or replaced. KFF finds that 13 state Medicaid programs covered GLP-1s for obesity treatment under fee-for-service as of January 2026, after four states eliminated coverage amid budget pressures, and that coverage in ACA Marketplace plans and most large employer firms remains limited; when covered, the drugs typically require prior authorization.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -217,10 +217,10 @@ export const glp1WeightLossDrugsData = {
             replicability: 8,
             directness: 9,
           },
-          source: "KFF; Centers for Medicare & Medicaid Services",
+          source: "KFF (Jan 2026); Centers for Medicare & Medicaid Services; CNBC (Jun 30, 2026) on the Medicare Bridge demonstration",
           sourceUrl: "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
           reasoning:
-            "The Medicare weight-loss coverage exclusion is a verifiable statutory fact. KFF's authoritative analysis documents that only a small minority of state Medicaid programs cover GLP-1s for obesity and that some states have rolled coverage back. This is direct evidence that access is systematically skewed by income and insurance status, with the populations bearing the highest obesity burden facing the greatest barriers.",
+            "The Medicare weight-loss coverage exclusion is a verifiable statutory fact, now bridged only by a temporary demonstration. KFF's authoritative analysis documents that only a small minority of state Medicaid programs cover GLP-1s for obesity and that some states have rolled coverage back. This is direct evidence that access is systematically skewed by income and insurance status, with the populations bearing the highest obesity burden facing the greatest barriers.",
         },
         {
           id: "competition-price-trends",
@@ -462,7 +462,7 @@ export const glp1WeightLossDrugsData = {
       id: "q2",
       title: "Should cost or clinical criteria determine who gets GLP-1 drugs?",
       content:
-        "With GLP-1 drugs costing $10,000-16,000 per year in the US and Medicare legally prohibited from covering weight-loss medications, access is determined more by wealth and insurance status than clinical need. Black and Hispanic Americans have the highest obesity prevalence but the lowest rates of GLP-1 prescriptions. If these drugs are as effective as trials suggest, is restricting access to those who can afford them an ethical failure on the scale of rationing insulin? Or would universal coverage at current prices bankrupt healthcare systems that should instead invest in prevention?",
+        "With GLP-1 list prices of $12,000-16,000 a year in the US and Medicare barred by statute from covering weight-loss medications outside a temporary demonstration, access is determined more by wealth and insurance status than clinical need. Black and Hispanic Americans have the highest obesity prevalence but the lowest rates of GLP-1 prescriptions. If these drugs are as effective as trials suggest, is restricting access to those who can afford them an ethical failure on the scale of rationing insulin? Or would universal coverage at current prices bankrupt healthcare systems that should instead invest in prevention?",
     },
     {
       id: "q3",
