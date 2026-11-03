@@ -274,7 +274,7 @@ export const minneapolisShootingData = {
           id: "sosa-celis-charges",
           title: "ICE Agent Charged in the Nonfatal 14 January Shooting of Julio Sosa-Celis (18 May 2026)",
           description:
-            "On 18 May 2026 Hennepin County charged ICE agent Christian Castro 'with four counts of second-degree assault with a dangerous weapon and one count of falsely reporting a crime' over the 14 January shooting of Julio Sosa-Celis in north Minneapolis, a week after Renée Good's death. The complaint alleges he fired through the closed front door of an occupied duplex, striking Sosa-Celis in the leg, and 'Prosecutors say surveillance video and ShotSpotter audio contradict Castro's account that he fired in self-defense.' The Justice Department had earlier asked that its own charges against Sosa-Celis be dismissed with prejudice, writing that 'newly discovered evidence in this matter is materially inconsistent with the allegations in the complaint affidavit.' An ICE spokesperson called the state charges 'unlawful and nothing more than a political stunt.' The charges are allegations; Castro has not been convicted.",
+            "On 18 May 2026 Hennepin County charged ICE agent Christian Castro over the 14 January shooting of Julio Sosa-Celis in north Minneapolis, a week after Renée Good's death. Castro 'faces four counts of second-degree assault and one count of falsely reporting a crime.' The county alleges he fired through the closed front door of an occupied duplex, striking Sosa-Celis in the leg, and 'Prosecutors say surveillance video and ShotSpotter audio contradict Castro's account that he fired in self-defense.' Federal charges against Sosa-Celis had already been dropped after the US Attorney found that newly discovered evidence was 'materially inconsistent with the allegations' in an FBI affidavit. A DHS spokesperson 'criticized the charges as politically motivated and said the agency is investigating whether agents involved in the case made false statements.' The charges are allegations; Castro has not been convicted.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -283,11 +283,11 @@ export const minneapolisShootingData = {
             directness: 4,
           },
           source:
-            "MPR News, 'Minnesota prosecutors announce charges against ICE agent' (18 May 2026); FOX 9, 'ICE agent charged in Minneapolis shooting of Venezuelan man' (18 May 2026)",
+            "MPR News, 'Minnesota prosecutors announce charges against ICE agent in nonfatal shooting' (18 May 2026)",
           sourceUrl:
             "https://www.mprnews.org/story/2026/05/18/watch-minnesota-prosecutors-announce-charges-against-ice-agent",
           reasoning:
-            "A third shooting in the same operation in which, by prosecutors' account and the Justice Department's own dismissal motion, an agent's first version of events did not match the evidence. That bears on supervision and on how far agents' initial accounts can be trusted, which is part of this crux. It is a nonfatal shooting with its own facts, the charges are unproven, and ICE disputes the state's authority to bring them, so directness is 4.",
+            "A third shooting in the same operation in which, by prosecutors' account and the US Attorney's own dismissal of the charges against the man who was shot, an agent's first version of events did not match the evidence. That bears on supervision and on how far agents' initial accounts can be trusted, which is part of this crux. It is a nonfatal shooting with its own facts, the charges are unproven, and ICE disputes the state's authority to bring them, so directness is 4.",
         },
         {
           id: "gao-dhs-force-policy-doj",
