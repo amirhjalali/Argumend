@@ -270,6 +270,8 @@ describe("sitemap", () => {
       "/blog/tag",
       // Behind NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY and noindex while flagged.
       "/reply",
+      // Behind NEXT_PUBLIC_ENABLE_STUDY, noindex, Prolific participants only.
+      "/study",
       "/saved",
       "/d/",
       "/analysis",

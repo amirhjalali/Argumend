@@ -12,6 +12,12 @@ import { trackPageView } from "@/lib/analytics";
 // The path goes through sanitizeAnalyticsPath (lib/analyticsConfig.ts): query
 // parameters outside the allow-list, such as the ?q= a search writes into the
 // URL, never reach GA.
+
+/** Paths that send no analytics page view. */
+export function isUntrackedPath(pathname: string): boolean {
+  return pathname === "/study" || pathname.startsWith("/study/");
+}
+
 export function GAPageView() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -19,6 +25,10 @@ export function GAPageView() {
 
   useEffect(() => {
     if (!pathname) return;
+    // The study's URL carries a participant's Prolific id (PROLIFIC_PID); no
+    // page view is sent for /study at all
+    // (docs/plans/2026-11-03-study-plan.md, "Data handling").
+    if (isUntrackedPath(pathname)) return;
     trackPageView(pathname, search);
   }, [pathname, search]);
 
