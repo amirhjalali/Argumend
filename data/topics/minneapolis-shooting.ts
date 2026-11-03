@@ -32,6 +32,10 @@ export const minneapolisShootingData = {
         equation:
           "P(\\text{excessive force}) = f(\\text{threat level}, \\text{response proportionality}, \\text{de-escalation attempts})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Release of all body-camera footage, dispatch audio and the agents' written reports from the time, synchronized with bystander video into one timeline and reviewed by an independent investigator, such as a state prosecutor, rather than the agency involved.",
+        },
         cost_to_verify: "$0 (Footage exists but access blocked)",
         falsification: {
           supporter_flip:

@@ -173,6 +173,10 @@ export const jonesActData = {
         methodology:
           "Match container and bulk shipments to Puerto Rico, Hawaii, and Guam against foreign-origin shipments of like goods over like distances; control for volume, fuel, and port fees; attribute the residual delivered-cost gap to the U.S.-build/flag/crew requirement.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare freight rates and shelf prices for the same goods delivered to Puerto Rico or Hawaii from the mainland and from nearby foreign ports, adjusting for distance and volume, using shipping invoices and studies such as the GAO's.",
+        },
         cost_to_verify: "$0–$50K (customs, PIERS/port, and freight-rate data)",
         falsification: {
           supporter_flip:
@@ -279,6 +283,10 @@ export const jonesActData = {
         methodology:
           "Combine mode-choice elasticities with per-ton-mile emissions factors (EPA/BTS) and a repeal-scenario coastal rate. Compare the U.S. short-sea freight share against European cabotage-liberalized coastlines as an upper-bound benchmark.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Freight-rate data and shippers' route choices used to estimate how much cargo would move by ship along US coasts if domestic shipping cost what foreign shipping does, with the shift converted into fuel, emissions and road congestion using Department of Transportation figures.",
+        },
         cost_to_verify: "$100K (freight mode-choice modeling)",
         falsification: {
           supporter_flip:

@@ -64,6 +64,10 @@ export const molochData = {
         equation:
           "\\text{Cooperation sustainable} \\iff \\delta \\geq \\frac{T - R}{T - P}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "For a given rivalry, the record of how often the same players meet again, whether they can see and punish defection, and how past agreements in that domain held up, as arms-control treaties and fishing quotas show.",
+        },
         cost_to_verify: "$0 (game-theoretic modeling of observed payoff structures)",
         falsification: {
           supporter_flip:

@@ -31,6 +31,10 @@ export const nuclearProliferationNewArmsRaceData = {
         methodology:
           "Analyze the correlation between arms control verification regimes and nuclear force sizing decisions by comparing periods with active verification (1991-2023) versus periods without (1949-1972, 2023-present). Measure whether the absence of inspections leads to higher warhead estimates, increased modernization spending, and more aggressive force postures. Interview current and former nuclear planners from US, Russia, and allied nations.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare US and Russian force planning, budget requests and stated uncertainty about each other's arsenals in the years after New START inspections stopped with the years they ran, and ask declassified intelligence assessments how much their confidence in warhead counts changed.",
+        },
         cost_to_verify:
           "$2-5M (Strategic studies analysis requiring classified data access and expert interviews)",
         falsification: {
@@ -139,6 +143,10 @@ export const nuclearProliferationNewArmsRaceData = {
         methodology:
           "Track annual estimates of deployed and total warhead counts for all nine nuclear states using SIPRI, FAS, and national intelligence assessments. Measure not just warhead counts but qualitative indicators: number of warhead types, delivery system diversity, missile defense deployments, and development of destabilizing first-strike capabilities (hypersonic glide vehicles, MIRVed systems, counterforce accuracy improvements).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Annual stockpile estimates from the Federation of American Scientists and SIPRI, tracking total and deployed warheads by country over the next decade, together with a count of genuinely new weapon types set against like-for-like replacements of retiring systems.",
+        },
         cost_to_verify:
           "$500K (Annual open-source intelligence analysis plus satellite imagery interpretation)",
         falsification: {
@@ -247,6 +255,10 @@ export const nuclearProliferationNewArmsRaceData = {
         methodology:
           "Model decision timelines under various hypersonic attack scenarios using publicly available data on flight times, radar detection capabilities, and national command authority communication chains. Conduct classified tabletop exercises with former nuclear command personnel to assess whether current decision processes can function within compressed timelines. Analyze the history of false alarms to determine whether AI-enhanced warning would reduce or increase false alarm rates.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Independently modeled warning times for each delivery system, set against the time leaders' launch procedures actually require, plus war-game and exercise records showing how often decision makers on those clocks fall back on pre-delegated or automated options.",
+        },
         cost_to_verify:
           "$5-10M (Classified wargaming and simulation exercises with expert participants)",
         falsification: {
