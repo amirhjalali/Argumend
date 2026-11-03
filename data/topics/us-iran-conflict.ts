@@ -318,6 +318,24 @@ export const usIranConflictData = {
             "The proxies' slow, staggered entry, rather than the coordinated response Tehran had threatened, suggests that years of pressure — combined with the destruction of Hezbollah's leadership in 2024 and the Houthi deal — may have degraded the 'Axis of Resistance' as a cohesive force. However, Hezbollah and the Houthis did enter the fighting within a month, so the evidence shows weakened coordination, not a network that stayed out; the early delay may also reflect self-interested calculations by proxy groups rather than a loss of capability.",
         },
         {
+          id: "hezbollah-donation-appeal-2019",
+          title: "Under 2019 sanctions, Hezbollah publicly appealed to its base for money",
+          description:
+            "In a televised speech in March 2019, as the US tightened sanctions on Iran and on Hezbollah itself, Hassan Nasrallah said: 'I announce today that we are in need of the support of our popular base', adding that the 'financial difficulties that we may face are a result of this (financial) war' (Al Jazeera, 9 March 2019). Bloomberg reported in April 2019 that he was anticipating a US move to tighten sanctions on Iranian oil exports, Hezbollah's main financial and military backer, and that supporters said the group was 'struggling to pay members and has reduced some benefits'. The same report quoted analysts saying tighter sanctions were unlikely to make Iran quickly shrink its regional footprint, and Hezbollah went on to fight Israel in 2023-2024 and again from March 2026.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 4,
+          },
+          source:
+            "Al Jazeera, 'Lebanon's Hezbollah appeals for donations to combat sanctions' (9 March 2019); Bloomberg, 'Hezbollah donation boxes show Trump's sanctions are hurting Iran' (via Gulf News, April 2019)",
+          sourceUrl: "https://www.aljazeera.com/news/2019/3/9/lebanons-hezbollah-appeals-for-donations-to-combat-sanctions",
+          reasoning:
+            "The best direct sign that maximum pressure reached a proxy's finances: the group's own leader said so on television. It is weighted low. Directness is 4 because a cash squeeze is not a loss of fighting capacity, and the crux turns on capacity; replicability is 5 because the 'struggling to pay members' claim comes from supporters quoted in one wire report, not from audited figures. Hezbollah's later wars show the squeeze did not stop it fighting, which the card states.",
+        },
+        {
           id: "proxies-widen-war-2026",
           title: "Proxies Widened the 2026 War: A Lebanon War and Houthi Strikes on Riyadh",
           description:
