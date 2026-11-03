@@ -111,6 +111,24 @@ export const molochData = {
           reasoning:
             "A genuine formal counterweight; its bite depends entirely on whether real interactions have the long horizons it requires.",
         },
+        {
+          id: "dal-bo-continuation-experiment",
+          title: "Dal Bó: lab players defect less when the game may go on",
+          description:
+            "In laboratory prisoner's dilemmas ended by a random continuation rule, with finitely repeated games run as controls, Pedro Dal Bó (American Economic Review, 2005) found that the prospect of further rounds significantly reduced opportunistic behaviour, and that its impact closely followed theoretical predictions.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 5,
+          },
+          source:
+            "Dal Bó, 'Cooperation under the Shadow of the Future: Experimental Evidence from Infinitely Repeated Games', American Economic Review 95(5): 1591–1604 (2005)",
+          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/000282805775014434",
+          reasoning:
+            "Controlled evidence that people respond to an open-ended future as the repeated-game argument says, which supports the skeptic's point that rivalries need not play out as one-shot defection. It is a lab game, not a measured real-world rivalry, and it does not say which domains have long enough horizons, so directness is 5.",
+        },
       ],
     },
     {
@@ -220,6 +238,24 @@ export const molochData = {
           reasoning:
             "The strongest single counter to Moloch's inevitability — rigorous, empirical, Nobel-recognized. Its limit is scale and the trust conditions Ostrom's principles require.",
         },
+        {
+          id: "cox-design-principles-review",
+          title: "Review of 91 studies finds Ostrom's design principles well supported",
+          description:
+            "Cox, Arnold and Villamayor Tomás (Ecology and Society, 2010) analysed 91 studies of community-based natural resource management, covering forests, fisheries, irrigation and pasture, and found that the design principles 'are well supported empirically.' They add that they 'did not formally analyze large, noncommunity-based systems' and remain uncertain whether the principles apply to systems at a variety of scales.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "Cox, Arnold & Villamayor Tomás, 'A Review of Design Principles for Community-based Natural Resource Management', Ecology and Society 15(4): 38 (2010)",
+          sourceUrl: "https://www.ecologyandsociety.org/vol15/iss4/art38/",
+          reasoning:
+            "A systematic check, across many cases published after Ostrom's book, that the conditions under which communities escape the commons trap hold up, which counters the claim that races to the bottom are the default. By the authors' own account it does not cover large systems, the part of this crux in dispute, so directness is 5.",
+        },
       ],
     },
     {
@@ -327,6 +363,23 @@ export const molochData = {
             "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2023?lang=en",
           reasoning:
             "Strong, broadly accepted economic history that directly contradicts the 'technology always feeds Moloch' generalization.",
+        },
+        {
+          id: "un-wpp-2024-fertility",
+          title: "UN: fertility is below replacement in more than half of all countries",
+          description:
+            "The UN's World Population Prospects 2024 found that in more than half of all countries and areas, the average number of live births per woman is below 2.1, with women having one child fewer on average than around 1990. It projects world population to peak at around 10.3 billion in the mid-2080s.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "UN DESA, World Population Prospects 2024, as reported by UN News (July 2024)",
+          sourceUrl: "https://news.un.org/en/story/2024/07/1151971",
+          reasoning:
+            "Authoritative global data showing reproduction is not expanding to consume the surplus, the step the Malthusian mechanism needs. It says nothing about AI labs' safety spending or about copyable minds, where supporters say the logic returns, and fertility trends can change, so directness is 5.",
         },
       ],
     },

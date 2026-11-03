@@ -247,9 +247,9 @@
     "title": "Meditations on Moloch",
     "question": "Does competition erode human values unless strong coordination stops it?",
     "meta_claim": "Competition and coordination failure — Scott Alexander's 'Moloch' — systematically push civilization toward equilibria that sacrifice human values for competitive advantage, and durably escaping those multipolar traps requires a coordination mechanism strong enough to override the incentives that create them.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 72,
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -257,12 +257,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 5,
-    "evidenceCount": 18,
+    "evidenceCount": 21,
     "firstCrux": "Is a given rivalry a one-off game where defecting pays, or a repeated one where cooperation can last?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "singleton malthusian ostrom bostrom axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash theorem"
+    "keywords": "ostrom singleton malthusian bostrom axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash fisheries"
   },
   {
     "id": "ai-2027",
@@ -2496,7 +2496,7 @@
       "Should governments help people have the children they want?",
       "Do housing and childcare costs explain low fertility?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer desa pcap fieldwork totl ninth yougov"
+    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth yougov"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
