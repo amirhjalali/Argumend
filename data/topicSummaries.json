@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash fisheries theorem"
+    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries theorem"
   },
   {
     "id": "ai-2027",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat affidavit louisiana turnout brennan cantoni kansass pons tenth tribal"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat louisiana turnout brennan cantoni kansass pons tenth tribal campuses"
   },
   {
     "id": "nuclear-energy-safety",
@@ -479,7 +479,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "firearm guns erpo buyback deadlier everytown gertz ihme kleck shooters swanson indiana alpers chapman dgus"
+    "keywords": "guns erpo buyback deadlier everytown gertz ihme kleck swanson indiana shooters alpers chapman dgus ncvs"
   },
   {
     "id": "minimum-wage-effects",
@@ -568,7 +568,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "denver star cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed"
+    "keywords": "denver cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed fy2022"
   },
   {
     "id": "mandatory-voting",
@@ -869,7 +869,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "fy2023 southwest trac syracuse fy2022 backlog binational venezuelan apprehensions boatlift mariel patrol neglect afghans aics"
+    "keywords": "fy2023 southwest trac syracuse fy2022 backlog binational apprehensions boatlift mariel patrol venezuelan neglect afghans aics"
   },
   {
     "id": "social-media-elections",
@@ -1844,7 +1844,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin boise ctrip gentrification nashville"
+    "keywords": "bloom andy gibbs jassy mengel moodys schoar shinde siemroth atkin boise ctrip gentrification nashville ying"
   },
   {
     "id": "college-value-proposition",
@@ -1979,7 +1979,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna sued cftc chainalysis gensler silvergate"
+    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna cftc chainalysis gensler silvergate usdc"
   },
   {
     "id": "gig-economy-regulation",
@@ -2024,7 +2024,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable duplexes dwelling huds"
+    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
   },
   {
     "id": "four-day-work-week",
@@ -2069,7 +2069,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition discharge repayment nebraska bennett cent forbearance crfb alleviates catherine disbursed forgave fullwiler heroes mbas"
+    "keywords": "tuition repayment nebraska bennett cent forbearance crfb alleviates catherine disbursed forgave fullwiler heroes mbas miscounting"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2113,7 +2113,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers lows belt hmrc redfin tourist fraser garcia lopez starter metro airbnb batzer bearish"
+    "keywords": "rentals sellers lows belt hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2301,10 +2301,10 @@
     "id": "minneapolis-shooting",
     "title": "Minneapolis ICE Shooting",
     "question": "Did federal agents use excessive force in the fatal Minneapolis shooting?",
-    "meta_claim": "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account.",
-    "confidence_score": 72,
-    "balance": 72,
-    "weight": 55,
+    "meta_claim": "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account. As of November 2026 no one has been charged, the federal civil rights investigation has made no finding public, and Minnesota is suing for evidence it says federal agencies are withholding.",
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 61,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2312,12 +2312,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 6,
+    "evidenceCount": 11,
     "firstCrux": "Does the full sequence of events back the federal self-defense account, or the bystander video and witnesses?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "deportation scene chokeholds ohara probation superintendent apprehension bystanders carotid patrol evans fleeing handgun sworn undercount"
+    "keywords": "celis hennepin scene sosa deportation julio cbps castro footage patrol spokesperson superintendent venturella guns nonfatal"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2972,7 +2972,7 @@
       "gun-rights",
       "originalism"
     ],
-    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace firearms"
+    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace alito"
   },
   {
     "id": "self-driving-car-safety",
@@ -3084,7 +3084,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt nistir affidavit clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha"
+    "keywords": "frvt nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha randal"
   },
   {
     "id": "gmo-crops-safety",
@@ -3196,7 +3196,7 @@
       "medicine",
       "placebo"
     ],
-    "keywords": "remission relapse hamilton kirsch star amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine"
+    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine reuptake"
   },
   {
     "id": "social-security-retirement-age",
@@ -3282,7 +3282,7 @@
       "Government licenses to work in a trade",
       "Licenses for hair braiding and beauty salons"
     ],
-    "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher interior"
+    "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher"
   },
   {
     "id": "encryption-backdoors",
