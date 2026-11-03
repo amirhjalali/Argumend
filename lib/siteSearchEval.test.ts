@@ -172,6 +172,17 @@ describe("the site-search eval set", () => {
     }
   });
 
+  it("lists the map named for a bare one-word subject before maps that only share the word", () => {
+    // r10 review #6: "nuclear" listed the deterrence map above nuclear power,
+    // and the AI-regulation map (whose question compares AI to nuclear
+    // energy) above the small-reactor and fusion maps.
+    for (const surface of ["palette", "library"] as Surface[]) {
+      const results = RUNNERS[surface]("nuclear");
+      expect(results[0], surface).toBe("nuclear-energy-safety");
+      expect(results.indexOf("ai-regulation"), surface).toBeGreaterThan(results.indexOf("nuclear-proliferation-new-arms-race"));
+    }
+  });
+
   it("keeps broad category searches available", () => {
     for (const [surface, search] of Object.entries(RUNNERS)) {
       expect(search("economic policy").length, surface).toBeGreaterThan(0);
