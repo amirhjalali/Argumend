@@ -8,11 +8,11 @@ export const adhdOverdiagnosisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "By 2022, 11.4% of US children aged 3-17, about 7 million, had ever been diagnosed with ADHD, against a community-epidemiology estimate near 5%. The youngest children in a school year are about 38% more likely to be diagnosed than the oldest, and twin studies put ADHD's heritability near 74%. Both sides accept these figures. The fight is over how much of the gap is false positives and how much is cases that were once missed.",
+      "By 2022, 11.4% of US children aged 3-17, about 7 million, had ever been diagnosed with ADHD, against a worldwide pooled community-survey estimate near 5%. The youngest children in a school year are about 38% more likely to be diagnosed than the oldest, and twin studies put ADHD's heritability near 74%. Both sides accept these figures. The fight is over how much of the gap is false positives and how much is cases that were once missed.",
     confidence: 88,
     source:
-      "CDC, Data and Statistics on ADHD (2022 National Survey of Children's Health); relative-age meta-analysis, European Child & Adolescent Psychiatry (2024); Faraone & Larsson, Molecular Psychiatry (2019)",
-    sourceUrl: "https://www.cdc.gov/adhd/data/index.html",
+      "Danielson et al. (CDC/HRSA), J. Clin. Child & Adolescent Psychology (2024), 2022 National Survey of Children's Health; Polanczyk et al., Am. J. Psychiatry (2007); relative-age meta-analysis, European Child & Adolescent Psychiatry (2024); Faraone & Larsson, Molecular Psychiatry (2019)",
+    sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11334226/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -31,7 +31,7 @@ export const adhdOverdiagnosisData = {
       skeptic_premise:
         "Rising diagnosis rates are exactly what improving recognition of a real, previously-missed disorder looks like. Rigorous epidemiology puts true ADHD prevalence near 5% in children and ~2.5-3% in adults — but historically far fewer were diagnosed, especially girls, women, and adults, so a diagnosed rate climbing toward the true rate is closing an underdiagnosis gap, not manufacturing disease. ADHD lies on a continuum (like blood pressure) with no sharp natural cutoff, so a count of diagnoses alone cannot establish that the additional cases are false positives rather than genuine impairment that was previously ignored.",
       proponent_rebuttal:
-        "Diagnosed ADHD keeps rising faster than any plausible change in underlying biology: CDC parent-survey data put ever-diagnosed ADHD at 11.4% of US children aged 3-17 in 2022 (about 7 million kids, up roughly 1 million since 2016), and an estimated 15.5 million US adults had a current diagnosis by late 2023, with most of those first diagnosed as adults. A 2021 JAMA Network Open scoping review of 334 studies found 'convincing evidence that ADHD is overdiagnosed in children and adolescents,' driven by successive broadenings of the diagnostic criteria that pull in milder, less-impaired cases — and for those milder cases the harms of a diagnosis may outweigh the benefits.",
+        "Diagnosed ADHD keeps rising faster than any plausible change in underlying biology: CDC parent-survey data put ever-diagnosed ADHD at 11.4% of US children aged 3-17 in 2022 (about 7 million kids, up roughly 1 million since 2016), and an estimated 15.5 million US adults had a current diagnosis in 2023, about half of them first diagnosed as adults. A 2021 JAMA Network Open scoping review of 334 studies found that 'convincing evidence was found that ADHD is overdiagnosed in children and adolescents,' driven by successive broadenings of the diagnostic criteria that pull in milder, less-impaired cases — and for those milder cases the harms of a diagnosis may outweigh the benefits.",
       crux: {
         id: "true-vs-diagnosed-prevalence",
         title: "True Prevalence vs. Diagnosed Prevalence Gap",
@@ -63,7 +63,7 @@ export const adhdOverdiagnosisData = {
           id: "jama-scoping-review",
           title: "JAMA Review: 'Convincing Evidence' of Overdiagnosis",
           description:
-            "A 2021 systematic scoping review (334 studies) concluded there is 'convincing evidence that ADHD is overdiagnosed in children and adolescents,' that broadening diagnostic criteria expanded the pool toward milder cases, and that for those milder cases the harms of diagnosis may outweigh the benefits.",
+            "A 2021 systematic scoping review (334 studies) reported that 'convincing evidence was found that ADHD is overdiagnosed in children and adolescents,' that broadening diagnostic criteria expanded the pool toward milder cases, and that for those milder cases the harms of diagnosis may outweigh the benefits.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -81,7 +81,7 @@ export const adhdOverdiagnosisData = {
           id: "cdc-prevalence-rise",
           title: "Diagnosed Rate Reached 11.4% of US Children (2022)",
           description:
-            "CDC parent-survey data show 11.4% of US children aged 3-17 (about 7 million) had ever been diagnosed with ADHD in 2022 — up roughly 1 million from 2016 — versus a community-epidemiology estimate of true prevalence around 5%.",
+            "A CDC and HRSA analysis of the 2022 National Survey of Children's Health (Danielson et al., 2024) found 11.4% of US children aged 3-17 (7.1 million) had ever received an ADHD diagnosis, as reported by parents, and that 'approximately 1 million more children had ever received an ADHD diagnosis in 2022 than in 2016.' For comparison, a 2007 meta-analysis of 102 community and school surveys worldwide (Polanczyk et al., American Journal of Psychiatry) put the pooled prevalence of ADHD in under-18s at 5.29%, and a 2014 update found no rise over three decades in children who meet criteria when standardized procedures are used.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -89,8 +89,9 @@ export const adhdOverdiagnosisData = {
             replicability: 8,
             directness: 6,
           },
-          source: "CDC, Data and Statistics on ADHD (2022 National Survey of Children's Health)",
-          sourceUrl: "https://www.cdc.gov/adhd/data/index.html",
+          source:
+            "Danielson ML et al., 'ADHD Prevalence Among U.S. Children and Adolescents in 2022', Journal of Clinical Child & Adolescent Psychology 53(3):343-360 (2024); Polanczyk G et al., American Journal of Psychiatry 164(6):942-948 (2007); Polanczyk GV et al., International Journal of Epidemiology 43(2):434-442 (2014)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11334226/",
           reasoning:
             "Authoritative US government surveillance data. Directness is limited because a diagnosed rate exceeding the ~5% community estimate is consistent with overdiagnosis but does not by itself prove the extra cases are false positives rather than previously-missed real cases — that inference is what the crux tests.",
         },
@@ -155,7 +156,7 @@ export const adhdOverdiagnosisData = {
           id: "relative-age-effect",
           title: "Youngest in Class ~38% More Likely Diagnosed",
           description:
-            "A 2024 meta-analysis found the youngest children in a school year had a pooled relative risk of 1.38 for ADHD diagnosis (and 1.28 for medication) versus the oldest — a context artifact of relative immaturity, not biology.",
+            "A 2024 meta-analysis found the youngest children in a school year had a pooled relative risk of 1.38 for ADHD diagnosis (and 1.28 for medication) versus the oldest, though the estimates were highly heterogeneous. The authors treat it as a relative-age bias in assessment and urge clinicians to weigh relative immaturity, while noting the same effect may leave the oldest children in a class under-identified.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -173,7 +174,7 @@ export const adhdOverdiagnosisData = {
           id: "adhd-heritability",
           title: "ADHD Is ~74% Heritable",
           description:
-            "Twin, family, and adoption studies converge on ADHD heritability of about 74%, with identified genome-wide significant risk loci — placing ADHD among the most genetically influenced psychiatric conditions and supporting it as a real, biologically grounded disorder.",
+            "Twin, family, and adoption studies converge on ADHD heritability of about 74%, and genome-wide association studies have implicated several risk loci at genome-wide significance, supporting ADHD as a real, biologically grounded disorder.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -230,7 +231,7 @@ export const adhdOverdiagnosisData = {
           id: "milder-cases-harm",
           title: "For Milder Cases, Harms May Outweigh Benefits",
           description:
-            "Within the JAMA scoping review, the studies that examined milder/borderline cases supported a 'diminishing returns' pattern: treatment benefits (e.g., academic outcomes) were clearest for severe symptoms, while for milder cases the harms of diagnosis may outweigh the benefits.",
+            "Within the JAMA scoping review, the studies that examined milder/borderline cases supported a 'diminishing returns' pattern: treatment benefits (e.g., academic outcomes) were clearest for severe symptoms, while for milder cases the harms of diagnosis may outweigh the benefits. Only 5 of the 334 studies addressed these milder cases directly.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -267,7 +268,7 @@ export const adhdOverdiagnosisData = {
           id: "underdiagnosis-girls",
           title: "Girls and Women Are Systematically Underdiagnosed",
           description:
-            "The childhood boy:girl diagnosis ratio of roughly 3-4:1 narrows toward ~1:1 in adulthood, and Swedish data show females diagnosed on average about 4 years later than males — indicating large numbers of girls and women were missed, the signature of underdiagnosis rather than overdiagnosis in that group.",
+            "A Stockholm County register study of 85,330 people with ADHD (Skoglund et al., 2023) found females were first diagnosed or medicated at 23.5 years on average versus 19.6 for males, about 4 years later, and had higher rates of psychiatric comorbidity and health care use before diagnosis. Agnew-Blais's commentary notes this delay came 'despite also having high rates of prior contact with the mental health care system,' which points to girls and women being missed, the signature of underdiagnosis rather than overdiagnosis in that group.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
