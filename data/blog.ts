@@ -3898,7 +3898,9 @@ The Iran question is not one where you can afford to outsource your thinking to 
       "government spending",
     ],
     category: "Analysis",
-    content: `## Your Grocery Bill Is Not Lying to You
+    content: `**Update, 3 November 2026.** Inflation is back. Consumer prices rose 3.7% in the year to September 2026, with energy up 20.4% while prices excluding food and energy rose 2.6%; what cost $100 in February 2020 now costs $130. The Federal Reserve, under its new chair Kevin Warsh, raised its target range a quarter point to 3.75-4% in September and held in October, with two officials wanting another increase. That reruns the argument below in real time: is an energy shock something to look through, or the start of inflation that spreads? A few figures below have also been corrected against the [inflation map](/topics/inflation-monetary-policy), which now adds the 2026 shock as its own question.
+
+## Your Grocery Bill Is Not Lying to You
 
 You already know something happened. The eggs that cost $1.50 in 2020 hit $4.80 by early 2023. Rent in the median American city climbed 26% between 2020 and 2024. A used Honda Civic that would have sold for $15,000 in 2019 was listed at $24,000 in 2022. The Bureau of Labor Statistics reported that cumulative CPI inflation from January 2020 to December 2024 reached roughly 22% — meaning a dollar at the start of the pandemic bought only about 82 cents' worth of goods by the end of 2024.
 
@@ -3910,23 +3912,23 @@ This is a case where the evidence does not cleanly support a single-cause story.
 
 ## Explanation 1: The Money Supply Argument
 
-The monetarist case is straightforward and draws on decades of macroeconomic theory. Between March 2020 and March 2022, the M2 money supply — the broadest commonly tracked measure of money in the U.S. economy — grew from approximately $15.4 trillion to $21.7 trillion, an increase of roughly 41%. This was the fastest monetary expansion in American history outside of wartime. The Federal Reserve cut the federal funds rate to near zero, purchased over $4.6 trillion in Treasury and mortgage-backed securities through quantitative easing, and backstopped lending programs across the financial system.
+The monetarist case is straightforward and draws on decades of macroeconomic theory. Between February 2020 and March 2022, the M2 money supply — the broadest commonly tracked measure of money in the U.S. economy — grew from approximately $15.5 trillion to $21.8 trillion, an increase of about 40%. This was the fastest monetary expansion in American history outside of wartime. The Federal Reserve cut the federal funds rate to near zero, purchased over $4.6 trillion in Treasury and mortgage-backed securities through quantitative easing, and backstopped lending programs across the financial system.
 
 At the same time, the federal government injected approximately $5.2 trillion in pandemic fiscal stimulus through three major bills: the CARES Act ($2.2 trillion), the Consolidated Appropriations Act ($900 billion), and the American Rescue Plan ($1.9 trillion). This included direct checks to most American households totaling $3,200 per adult, enhanced unemployment benefits that for many workers exceeded their previous wages, and forgivable loans to businesses through the Paycheck Protection Program.
 
 The classical monetarist prediction — more money chasing the same goods produces higher prices — appeared to play out almost exactly as textbooks describe. Personal savings rates spiked from roughly 7% pre-pandemic to over 33% in April 2020. As the economy reopened, that pent-up purchasing power flooded into a market that couldn't absorb it. Federal Reserve Economic Data (FRED) shows that personal consumption expenditures surged past their pre-pandemic trend line by mid-2021 and stayed elevated through 2023.
 
-The most rigorous attempt to decompose inflation's causes came from Ben Bernanke and Olivier Blanchard in their widely cited 2023 paper "What Caused the U.S. Pandemic-Era Inflation?" presented at the Brookings Institution. Their model found that demand-side factors — fueled by fiscal stimulus and accommodative monetary policy — accounted for roughly a third of the inflation overshoot by 2022, with their contribution growing over time as supply-side pressures faded. Critically, they found that the labor market tightness driven by excess demand became the dominant inflationary force by late 2022 and into 2023.
+The most rigorous attempt to decompose inflation's causes came from Ben Bernanke and Olivier Blanchard in their widely cited 2023 paper "What Caused the U.S. Pandemic-Era Inflation?" presented at the Brookings Institution. Their model found that most of the 2021 surge came from shocks to prices — commodity price spikes and sector-specific supply and demand-composition shocks — rather than from an overheated labor market. Critically, they projected that as those shocks faded, labor market tightness driven by excess demand would become the more persistent inflationary force, requiring restrictive policy. Not every decomposition agrees: a 2023 New York Fed study found that demand shocks explain roughly two-thirds of US inflation from December 2019 to June 2022, with fiscal stimulus half or more of that.
 
 Former Treasury Secretary Larry Summers warned as early as February 2021 that the American Rescue Plan was "the least responsible macroeconomic policy we've had in the last 40 years." He argued that injecting $1.9 trillion into an economy already recovering was like pouring gasoline on a fire. Subsequent data suggests his warning had substantial merit: countries that provided less fiscal stimulus, particularly in Europe, experienced lower peak inflation rates, though they also endured deeper economic contractions.
 
-**The strongest version of this argument:** The unprecedented scale of monetary and fiscal expansion made significant inflation nearly inevitable. You cannot increase the money supply by 41% and inject $5.2 trillion in deficit-financed spending without generating substantial price increases. The only real question was how quickly and how severely prices would rise.
+**The strongest version of this argument:** The unprecedented scale of monetary and fiscal expansion made significant inflation nearly inevitable. You cannot increase the money supply by 40% and inject $5.2 trillion in deficit-financed spending without generating substantial price increases. The only real question was how quickly and how severely prices would rise.
 
 ## Explanation 2: Supply Chain Disruptions
 
 The supply-side story is equally well-documented and begins earlier in the causal chain. COVID-19 shut down factories across Asia, disrupted global shipping networks, and created bottlenecks at every stage of production. The effects cascaded.
 
-The cost of shipping a 40-foot container from Shanghai to Los Angeles rose from roughly $1,500 in early 2020 to over $20,000 by September 2021 — a 13-fold increase. The average time for goods to move from Asian factories to American store shelves increased from approximately 40 days to over 100 days. At the peak of the crisis, over 100 container ships were anchored outside the ports of Los Angeles and Long Beach, waiting days or weeks to unload.
+The cost of shipping a 40-foot container from Shanghai to Los Angeles rose from roughly $1,500 before the pandemic to about $10,377 at the September 2021 peak on Drewry's World Container Index — about seven times as much. The average time for goods to move from Asian factories to American store shelves increased from approximately 40 days to over 100 days. At the peak of the crisis, over 100 container ships were anchored outside the ports of Los Angeles and Long Beach, waiting days or weeks to unload.
 
 Semiconductor shortages crippled the auto industry. Cars and trucks require hundreds of chips each, and when fabrication plants in Taiwan, South Korea, and Japan reduced output, automakers had to slash production. New vehicle production fell by roughly 3.5 million units in 2021 alone. With fewer new cars available, used car prices exploded — the Manheim Used Vehicle Value Index rose 47% year-over-year by January 2022.
 
@@ -3962,7 +3964,7 @@ The Bernanke-Blanchard decomposition, the most cited academic attempt to untangl
 
 **Act 1 (2021-early 2022):** Supply chain disruptions and commodity price shocks were the primary drivers. Energy, food, and goods shortages accounted for the majority of above-target inflation. This was the phase dominated by used car prices, lumber, shipping costs, and semiconductor shortages.
 
-**Act 2 (mid 2022-2023):** Demand-side overheating, fueled by the cumulative effect of fiscal stimulus and loose monetary policy, became the dominant force. The labor market was historically tight, with unemployment at 3.4% and job openings far exceeding available workers. Wage growth accelerated. The supply-side story was fading, but prices kept rising because aggregate demand exceeded the economy's productive capacity.
+**Act 2 (mid 2022-2023):** Demand-side overheating, fueled by the cumulative effect of fiscal stimulus and loose monetary policy, becomes in their account the more persistent force. The labor market was historically tight, with unemployment at 3.4% and job openings far exceeding available workers. Wage growth accelerated. The supply-side story was fading, but prices kept rising because aggregate demand exceeded the economy's productive capacity.
 
 **Act 3 (2024-2025):** Inflation decelerated as the Fed's aggressive rate hikes (525 basis points in 16 months) cooled demand, supply chains normalized, and energy prices stabilized. CPI inflation fell from its 9.1% peak in June 2022 to roughly 2.5-3.0% by late 2024 — still above the Fed's 2% target but dramatically improved.
 
@@ -3980,7 +3982,7 @@ The correct response to "what caused inflation?" is not to pick a team. It is to
 
 ## Explore the Full Argument Map
 
-The inflation debate touches nearly every major economic policy question — from [government debt and fiscal responsibility](/topics/wealth-tax) to [housing costs](/topics/housing-affordability-crisis) to the role of [central banks in the modern economy](/topics/central-bank-digital-currency). At Argumend, we break these debates into structured argument maps where every claim is sourced, every counterargument is steel-manned, and the evidence is weighted so you can evaluate the reasoning yourself.
+The inflation debate touches nearly every major economic policy question — from [government debt and fiscal responsibility](/topics/us-national-debt-crisis) to [housing costs](/topics/housing-affordability-crisis) to the role of [central banks in the modern economy](/topics/central-bank-digital-currency). At Argumend, we break these debates into structured argument maps where every claim is sourced, every counterargument is steel-manned, and the evidence is weighted so you can evaluate the reasoning yourself.
 
 Because the question is not who to blame for inflation. The question is what the evidence shows — and whether you are willing to follow it even when it contradicts your preferred narrative.`,
   },
@@ -4538,7 +4540,9 @@ The loneliness question matters because it sits at the intersection of public he
       "will the us default on debt",
     ],
     category: "Analysis",
-    content: `## The Numbers That Should Have Your Attention
+    content: `**Update, 3 November 2026.** The figures below are from early 2026, and most have grown. On 2 November 2026 the federal government owed $40.5 trillion, $32.7 trillion of it to the public. In fiscal 2026 it paid $1.05 trillion in net interest, more than it spent on national defense ($965 billion) and about 19% of the $5.4 trillion it collected, and it ran a $2.0 trillion deficit with no war or recession. CBO's February 2026 outlook projects debt held by the public passing its World War II record of 106% of GDP by 2030 and reaching 120% by 2036. Moody's removed the last AAA rating from a major agency in May 2025. On the other side of the ledger, the average rate on all US debt was 3.53% in September 2026 while nominal GDP grew 5.9% over the year, so r was still below g; and the dollar's share of global reserves, 56.7% in the second quarter of 2026, has drifted rather than fallen. The [national debt map](/topics/us-national-debt-crisis) tracks these numbers with their sources and adds a fourth question this post leaves aside: who pays to close the gap.
+
+## The Numbers That Should Have Your Attention
 
 The United States national debt surpassed $36 trillion in early 2025. That number is so large it has lost its capacity to shock. So consider some numbers that might still land.
 
@@ -4584,7 +4588,7 @@ If both sides have serious arguments, what would it take for the pessimistic sce
 
 **Loss of reserve currency status.** The dollar's reserve currency status is the single most important structural advantage the US has in sustaining high debt levels. If that status eroded significantly — not disappearing overnight, but declining from 58% of reserves to, say, 35% — the reduced demand for Treasuries would mechanically raise borrowing costs.
 
-**A political crisis.** The debt ceiling has brought the US to the brink of technical default multiple times. A prolonged political standoff that resulted in a missed payment — even temporarily — could permanently damage the perception of US Treasuries as the global risk-free asset. Credit rating agencies have already responded: Standard & Poor's downgraded US debt in 2011, and Fitch followed in 2023.
+**A political crisis.** The debt ceiling has brought the US to the brink of technical default multiple times. A prolonged political standoff that resulted in a missed payment — even temporarily — could permanently damage the perception of US Treasuries as the global risk-free asset. Credit rating agencies have already responded: Standard & Poor's downgraded US debt in 2011, Fitch followed in 2023, and Moody's in May 2025.
 
 ## The BRICS De-Dollarization Narrative
 
