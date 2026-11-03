@@ -6,8 +6,8 @@ export const vaccineMandatesData = {
     "Governments are justified in requiring vaccination for school entry and for some jobs, with medical exemptions, because the protection of others and of children outweighs the cost to individual choice.",
   status: "contested" as const,
   category: "policy" as const,
-  // As of 3 November 2026: the US has recorded 4,588 confirmed measles cases
-  // this year (CDC, 22 October), double 2025's total; kindergarten MMR
+  // As of 3 November 2026: the US has recorded 4,852 confirmed measles cases
+  // this year (CDC, 29 October), more than double 2025's total; kindergarten MMR
   // coverage is 92.4% and exemptions a record 4.2% (2025-26); Florida's
   // health department is moving to drop four vaccines from its school rules;
   // a federal court has stayed the CDC's January 2026 childhood schedule and
@@ -19,11 +19,11 @@ export const vaccineMandatesData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "By 22 October 2026 the US had confirmed 4,588 measles cases this year, double the 2,289 of all 2025, with 479 hospitalisations. Kindergarten MMR coverage has slipped from 95.2% in 2019-20 to 92.4% in 2025-26. Florida is moving to drop four vaccines from its school requirements. The fight is over when the state may require a shot, and whether requiring one gets more children protected or costs the trust that gets them vaccinated.",
+      "By 29 October 2026 the US had confirmed 4,852 measles cases this year, more than double the 2,289 of all 2025, and 96% of them were linked to outbreaks. Kindergarten MMR coverage has slipped from 95.2% in 2019-20 to 92.4% in 2025-26. Florida is moving to drop four vaccines from its school requirements. The fight is over when the state may require a shot, and whether requiring one gets more children protected or costs the trust that gets them vaccinated.",
     confidence: 88,
     source:
-      "Contagion Live, 'Measles Update: October 23, 2026', on CDC data as of 22 October 2026; WLRN / News Service of Florida (9 October 2026) on Florida's proposed rule",
-    sourceUrl: "https://www.contagionlive.com/view/measles-update-october-23-2026",
+      "US CDC, 'Measles Cases and Outbreaks' (data as of 29 October 2026, updated 30 October); WLRN / News Service of Florida (9 October 2026) on Florida's proposed rule",
+    sourceUrl: "https://www.cdc.gov/measles/data-research/index.html",
   },
   simple_case: [
     "The answer decides whether a parent can enroll an unvaccinated child in school, whether a hospital can make its nurses take a shot, and how far measles spreads before the next school year.",
@@ -37,12 +37,12 @@ export const vaccineMandatesData = {
       id: "do-mandates-work",
       title: "Do Requirements Get More People Vaccinated?",
       short_summary:
-        "When California ended non-medical exemptions, kindergarten MMR coverage rose 3.3 points against a synthetic control, and COVID mandate announcements in Canada, France, Italy and Germany were followed by jumps of more than 60% in weekly first doses. Austria's adult mandate moved no one before it was scrapped. The dispute is how much of the gain a requirement causes, and among whom.",
+        "When California ended non-medical exemptions, kindergarten MMR coverage rose 3.3 points against a synthetic control, and announcements of COVID vaccine-pass requirements in Canadian provinces were followed by a rise of more than 60% in weekly first doses. Austria's adult mandate showed no discernible effect on uptake before it was suspended. The dispute is how much of the gain a requirement causes, and among whom.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "A requirement moves the parents who were persuadable anyway and hardens the ones who were not. Austria enacted Europe's first general adult COVID-19 mandate in February 2022, suspended it in March before a single fine was levied, and abolished it in June; a controlled time series found no uptake gain there. Workarounds blunt the rest: after California ended non-medical exemptions, medical exemptions rose, partly offsetting the gain. Coverage gains credited to mandates often coincide with a rollout maturing on its own, and the people a mandate is meant for are the ones most likely to refuse it.",
+        "A requirement moves the parents who were persuadable anyway and hardens the ones who were not. Austria put a general COVID-19 mandate for all adults into force in February 2022 and suspended it in March, before the first fines could be issued; a time-series analysis found no discernible rise in vaccination there after the mandate was announced. Workarounds blunt the rest: after California ended non-medical exemptions, medical exemptions rose, partly offsetting the gain. Coverage gains credited to mandates often coincide with a rollout maturing on its own, and the people a mandate is meant for are the ones most likely to refuse it.",
       proponent_rebuttal:
-        "Requirements work where they are measured: when California ended non-medical exemptions in 2016, kindergarten MMR coverage rose 3.3 points against a synthetic control, most in the counties that had been lowest. A difference-in-differences study across Canadian provinces and three European countries found mandate announcements were followed by a rise of more than 60% in weekly first doses, an estimated 6.5 million extra doses in Italy and 4.6 million in France. The reverse holds too: as US exemptions climbed to a record 4.2% in 2025-26, kindergarten coverage fell for every vaccine tracked, to 92.4% for MMR. Austria shows that an unenforced mandate does nothing, not that enforced school rules fail.",
+        "Requirements work where they are measured: when California ended non-medical exemptions in 2016, kindergarten MMR coverage rose 3.3 points against a synthetic control, most in the counties that had been lowest. A difference-in-differences study across Canadian provinces found that announcing a proof-of-vaccination requirement was followed by a rise of more than 60% in weekly first doses, and the same authors' estimates credit such requirements with about 6.5 million extra first doses in Italy and 4.6 million in France. The reverse holds too: as US exemptions climbed to a record 4.2% in 2025-26, kindergarten coverage fell for every vaccine tracked, to 92.4% for MMR. Austria shows that an unenforced mandate does nothing, not that enforced school rules fail.",
       crux: {
         id: "counterfactual-uptake",
         title: "The Counterfactual Uptake Test",
@@ -62,7 +62,7 @@ export const vaccineMandatesData = {
           supporter_flip:
             "If quasi-experimental designs consistently showed mandates produce little marginal uptake beyond the underlying trend, as one Austria time series found, and if coverage held steady in states that loosened school exemptions, the case for requirements would rest on coverage that would have come anyway.",
           skeptic_flip:
-            "If Florida's coverage for the four vaccines it drops fell against matched states, and well-controlled studies kept finding mandate announcements followed by first-dose jumps like the 60% seen across Canadian provinces, Italy and France, the claim that coercion cannot move the hesitant would fail.",
+            "If Florida's coverage for the four vaccines it drops fell against matched states, and well-controlled studies kept finding mandate announcements followed by first-dose jumps like the 60% seen across Canadian provinces, the claim that coercion cannot move the hesitant would fail.",
           common_ground:
             "Both sides agree committed refusers are hard to move and that school-entry requirements have historically achieved very high childhood coverage.",
           live_disagreement:
@@ -72,9 +72,9 @@ export const vaccineMandatesData = {
       evidence: [
         {
           id: "diff-in-diff-uptake",
-          title: "Mandate announcements were followed by 60%+ more weekly first doses (Nature Human Behaviour, 2022)",
+          title: "Vaccine-pass announcements in Canadian provinces were followed by 60%+ more weekly first doses (Nature Human Behaviour, 2022)",
           description:
-            "A difference-in-differences study exploiting staggered mandate timing across Canadian provinces (with France, Italy and Germany) found mandate announcements were followed by a rise of more than 60% in weekly first doses, with estimated cumulative gains of about 6.5 million doses in Italy, 4.6 million in France, 3.5 million in Germany and 979,000 in Canada.",
+            "A difference-in-differences study exploiting the staggered timing of proof-of-vaccination requirements for public venues and non-essential businesses across Canadian provinces found that a mandate's announcement was followed by a rise of more than 60% in weekly first doses; time-series analysis for France, Italy and Germany corroborated it. Counterfactual estimates as of 31 October 2021 put the cumulative gains at about 6.5 million first doses in Italy, 4.6 million in France, 3.5 million in Germany and 979,000 in Canada.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -110,7 +110,7 @@ export const vaccineMandatesData = {
           id: "kindergarten-exemptions-record-2026",
           title: "US kindergarten exemptions hit a record 4.2% in 2025-26 as coverage fell for every vaccine",
           description:
-            "CDC data for the 2025-26 school year, reported in August 2026, put kindergarten exemptions at a record 4.2%, up from 3.6% the year before, with exemption rates rising in 41 states and Washington, D.C. Coverage slipped for every childhood vaccine tracked nationally, to between 92.0% for DTaP and 92.4% for MMR and polio. Nearly half of states now exceed a 5% exemption rate.",
+            "CDC data for the 2025-26 school year, released in August 2026, put kindergarten exemptions at a record 4.2%, up from 3.6% the year before, with exemption rates rising in 41 states and Washington, D.C. Coverage for every reported vaccine fell to between 92.0% (DTaP) and 92.4% (MMR and polio), and 24 states had exemption rates above 5%. Public health officials often cite roughly 95% coverage as the level needed to limit measles outbreaks.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -119,17 +119,16 @@ export const vaccineMandatesData = {
             directness: 5,
           },
           source:
-            "WJLA, 'CDC: U.S. kindergarten vaccine exemptions hit record high as coverage falls nationwide' (17 August 2026), on CDC SchoolVaxView data",
-          sourceUrl:
-            "https://wjla.com/news/nation-world/cdc-us-kindergarten-vaccine-exemptions-hit-record-high-as-coverage-falls-nationwide",
+            "US CDC, SchoolVaxView, kindergarten vaccination coverage and exemptions, 2025-26 school year; WJLA (17 August 2026) for the 95% figure officials cite",
+          sourceUrl: "https://www.cdc.gov/schoolvaxview/data/index.html",
           reasoning:
             "Exemptions and coverage moving in opposite directions, state by state, is what the case for requirements predicts. It is a national trend, not a controlled comparison: the same years saw falling trust and changing federal advice, so the card shows the association, not how much loosening rules caused it.",
         },
         {
           id: "austria-mandate-failed",
-          title: "Austria's adult COVID mandate was suspended before a single fine (2022)",
+          title: "Austria's adult COVID mandate was suspended before any fine could be issued (2022)",
           description:
-            "Austria's general COVID-19 vaccine mandate for adults took effect in February 2022, was suspended in March before any fine was imposed, and was formally abolished in June 2022. A controlled time series found no discernible uptake increase in Austria; officials cited surveys suggesting it would not move committed refusers.",
+            "Austria's general COVID-19 vaccine mandate for every resident 18 and older entered into force on 5 February 2022; fines could not begin before 15 March, and on 12 March the government suspended it on the advice of its monitoring commission, which had concluded that a mandate was not proportionate at that time. A 2024 interrupted time-series study (uncontrolled for Austria, since the mandate covered all adults) observed no discernible increase in vaccination there after the mandate was announced, while age-targeted mandates in Greece and Italy did raise first doses.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -138,11 +137,11 @@ export const vaccineMandatesData = {
             directness: 7,
           },
           source:
-            "US Library of Congress Global Legal Monitor, 'Austria: General COVID-19 Vaccine Mandate Suspended' (2022); Lytras et al., Vaccine (2024), null result for Austria",
+            "US Library of Congress Global Legal Monitor, 'Austria: General COVID-19 Vaccine Mandate Suspended' (17 March 2022); Lytras et al., Vaccine (2024), doi:10.1016/j.vaccine.2023.12.025",
           sourceUrl:
             "https://www.loc.gov/item/global-legal-monitor/2022-03-17/austria-general-covid-19-vaccine-mandate-suspended/",
           reasoning:
-            "A concrete case where a national adult mandate moved no one and could not be sustained politically. It is a single country, and an unenforced mandate is a weak test of enforced ones, so replicability is lower.",
+            "A concrete case where a national adult mandate showed no measurable effect on uptake and was suspended within weeks. It is a single country with no control group, the same study found mandates worked in Greece and Italy, and an unenforced mandate is a weak test of enforced ones, so replicability is lower.",
         },
       ],
     },
@@ -154,12 +153,12 @@ export const vaccineMandatesData = {
       id: "harm-to-others",
       title: "Does the Shot Protect Other People?",
       short_summary:
-        "Coercion is easiest to defend when one person's shot protects the people around them. For measles, which needs about 95% coverage to stop spreading, it plainly does, and 2026's outbreaks follow the gaps. For COVID, vaccination cut onward spread by roughly half against Delta at first and waned within about 12 weeks.",
+        "Coercion is easiest to defend when one person's shot protects the people around them. For measles, where officials cite roughly 95% coverage as the level that limits outbreaks, it plainly does, and 2026's outbreaks follow the gaps. For COVID, vaccination cut onward spread by roughly half against Delta at first and waned within about 12 weeks.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "Compulsion is justified to stop harm to others, not to protect people from themselves, and for COVID the protection of others was small and brief. A UK contact-tracing study found two doses cut onward Delta transmission by about half at first, with the effect waning substantially within about 12 weeks; by the time 'no jab, no job' rules bit, the shot mainly protected the person who took it. A rule premised on 'protecting others' that outlasts the protection is paternalism under another name, and a shot that mainly protects the recipient should be the recipient's call.",
       proponent_rebuttal:
-        "For the diseases school rules target, the protection of others is large and measurable: measles needs about 95% coverage to stop spreading, and as US kindergarten coverage slid from 95.2% to 92.4%, cases climbed to 2,289 in 2025 and 4,588 by October 2026, 96% of them in outbreaks. Babies too young for the shot and children on chemotherapy depend on everyone else's. Even COVID vaccination cut onward transmission, by about 68% for Alpha and about half for Delta at first.",
+        "For the diseases school rules target, the protection of others is large and measurable: measles needs about 95% coverage to stop spreading, and as US kindergarten coverage slid from 95.2% to 92.4%, cases climbed to 2,289 in 2025 and 4,852 by 29 October 2026, 96% of them linked to outbreaks. Babies too young for the shot and children on chemotherapy depend on everyone else's. Even COVID vaccination cut onward transmission, by about 68% for Alpha and about half for Delta after two Pfizer doses.",
       crux: {
         id: "transmission-externality",
         title: "The Transmission Externality Test",
@@ -189,9 +188,9 @@ export const vaccineMandatesData = {
       evidence: [
         {
           id: "measles-resurgence-2026",
-          title: "US measles cases reached 4,588 by 22 October 2026, double 2025, as kindergarten coverage fell to 92.4%",
+          title: "US measles cases reached 4,852 by 29 October 2026, more than double 2025, as kindergarten coverage fell to 92.4%",
           description:
-            "As of 22 October 2026 the CDC had confirmed 4,588 measles cases in the US this year, roughly double the 2,289 reported for all of 2025, with 479 hospitalisations (10%) and three deaths. Of the cases, 96% were outbreak-associated, across 43 new outbreaks. Kindergarten MMR coverage has fallen from 95.2% in 2019-20 to 92.4% in 2025-26, leaving about 280,000 kindergartners without documented protection.",
+            "As of 29 October 2026 the CDC had confirmed 4,852 measles cases in the US this year, more than double the 2,289 reported for all of 2025, with three deaths. 96% of cases (4,666) were outbreak-associated, and 43 new outbreaks had been reported in 2026. A week earlier, at 4,588 cases, 479 people (10%) had been hospitalised. Kindergarten MMR coverage has fallen from 95.2% in 2019-20 to 92.4% in 2025-26, leaving about 280,000 kindergartners at risk.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -200,16 +199,16 @@ export const vaccineMandatesData = {
             directness: 7,
           },
           source:
-            "Contagion Live, 'Measles Update: October 23, 2026', on CDC surveillance data as of 22 October 2026",
-          sourceUrl: "https://www.contagionlive.com/view/measles-update-october-23-2026",
+            "US CDC, 'Measles Cases and Outbreaks' (as of 29 October 2026); hospitalisations from Contagion Live, 'Measles Update: October 23, 2026', on CDC data as of 22 October",
+          sourceUrl: "https://www.cdc.gov/measles/data-research/index.html",
           reasoning:
             "Surveillance data showing a highly contagious disease returning as coverage slips below the level that stops it spreading, mostly in outbreaks. This is the externality the case for requirements rests on. It does not by itself show that tighter requirements would reach the communities where the outbreaks began, which is the question on uptake.",
         },
         {
           id: "measles-elimination",
-          title: "School requirements underpinned US measles elimination in 2000",
+          title: "Vaccination eliminated measles from the US in 2000; two MMR doses are 97% effective (CDC)",
           description:
-            "The CDC attributes US measles elimination in 2000 to very high MMR coverage sustained by school-entry requirements; two doses are about 97% effective. Because measles is so contagious, about 95% of a community must be immune to stop sustained spread, which leaves infants too young to be vaccinated and immunocompromised children dependent on others' immunity.",
+            "The CDC records that measles was officially eliminated from the United States in 2000, meaning it no longer spread domestically, and credits 'a highly effective vaccination program'. Two doses of MMR are 97% effective at preventing measles and one dose 93%. The second dose is given at 4 to 6 years, before school entry, which is when school requirements check it.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -218,16 +217,16 @@ export const vaccineMandatesData = {
             directness: 7,
           },
           source:
-            "US CDC, 'Measles Cases and Outbreaks' and kindergarten vaccination coverage data (MMWR)",
+            "US CDC, 'Measles Cases and Outbreaks' and 'History of Measles'",
           sourceUrl: "https://www.cdc.gov/measles/data-research/index.html",
           reasoning:
-            "Authoritative surveillance data on the historical success of near-universal school vaccination. It shows that high coverage stopped measles; it credits requirements for that coverage, which is the inference the uptake question tests.",
+            "Authoritative data on what high two-dose coverage achieved. The CDC credits the vaccination program, not school rules specifically; how much of that coverage the requirements produced is the inference the uptake question tests.
         },
         {
           id: "vaccine-cuts-transmission",
           title: "Two COVID doses cut onward Delta spread by about half at first, then waned within 12 weeks (NEJM, 2022)",
           description:
-            "A large UK contact-tracing study (146,243 tested contacts) found two-dose vaccination cut onward transmission of the Alpha variant by about 68% and Delta by about 50% (BNT162b2) two weeks after the second dose, but protection against Delta transmission waned substantially within about 12 weeks.",
+            "A contact-testing study in England (146,243 tested contacts of 108,498 index patients) found two doses of the Pfizer-BioNTech vaccine (BNT162b2) in the index patient were associated with about 68% less onward transmission of the Alpha variant and about 50% less of Delta; for AstraZeneca the Delta reduction was about 24%. The Delta reduction declined after the second dose, reaching unvaccinated levels by 12 weeks for AstraZeneca and attenuating substantially for Pfizer.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -272,7 +271,7 @@ export const vaccineMandatesData = {
         "Critics argue the COVID mandates spent the trust that childhood vaccination depends on, and US exemptions have since hit a record. A 2024 evidence synthesis found mandates can trigger anger and resistance, but the research on trust is thin and runs both ways. Italy's 2017 law, which made ten vaccines compulsory, was followed by higher coverage and higher confidence in vaccine safety.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Coercion spends trust, and trust is what keeps people coming back for the next shot. An interdisciplinary group warned in 2022 that COVID mandates and passports could deepen distrust of public health and harden hesitancy beyond COVID; a 2024 evidence synthesis found most studies show mandates provoke psychological reactance, anger and resistance to a perceived threat to freedom. Since then, US kindergarten exemptions have climbed to a record and Florida's surgeon general now frames school requirements as a question of parents' rights. Each additional shot that people feel forced to take makes the next ask harder.",
+        "Coercion spends trust, and trust is what keeps people coming back for the next shot. An interdisciplinary group warned in 2022 that COVID mandates and passports could deepen distrust of public health and harden hesitancy beyond COVID; a 2024 evidence synthesis found most studies suggest mandates increase psychological reactance, the anger and resistance people feel at a perceived threat to their freedom. Since then, US kindergarten exemptions have climbed to a record and Florida's surgeon general now frames school requirements as a question of parents' rights. Each additional shot that people feel forced to take makes the next ask harder.",
       proponent_rebuttal:
         "The trust that collapsed after 2020 has many causes, and blaming it on mandates assumes what has to be shown: the 2024 evidence synthesis found the research on trust thin and running both ways, since people who already distrust government are the ones who oppose mandates. Where a country tried the hard approach on childhood vaccines, the backlash did not come: Italy's 2017 law raised compulsory infant vaccines from four to ten and barred unvaccinated children from nurseries, coverage rose, and a 2018 EU survey found Italians more confident in vaccine safety than in 2015. Measles deaths do more damage to trust than school rules do.",
       crux: {
@@ -306,7 +305,7 @@ export const vaccineMandatesData = {
           id: "italy-2017-mandate-confidence",
           title: "Italy made ten infant vaccines compulsory in 2017; coverage rose and confidence in vaccine safety improved",
           description:
-            "Italy's 2017 Lorenzin decree raised mandatory infant vaccines from four to ten, barred unvaccinated children from nurseries and kindergartens, and fined parents who did not comply. A 2021 policy analysis in Health Policy found preliminary data showing an increase in vaccination coverage. The European Commission's 2018 survey of vaccine confidence, led by the London School of Hygiene & Tropical Medicine's Vaccine Confidence Project, found Italy among the countries that had become more confident in vaccine safety since 2015.",
+            "Italy's 2017 Lorenzin decree raised mandatory infant vaccines from four to ten, barred unvaccinated children from nurseries and kindergartens, and fined parents who did not comply. A 2021 policy analysis in Health Policy found preliminary data showing an increase in vaccination coverage. The European Commission's 2018 report on vaccine confidence, by Heidi Larson's team, found Italy among the member states that had 'become more confident in the safety of vaccines since 2015', and among four where agreement with all four confidence statements had risen.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -315,7 +314,7 @@ export const vaccineMandatesData = {
             directness: 5,
           },
           source:
-            "Casula & Toth, 'The 2017 Italian reform on mandatory childhood vaccinations', Health Policy (2021); Reuters via Dawn (24 October 2018) on 'The State of Vaccine Confidence in the EU 2018'",
+            "Casula & Toth, 'The 2017 Italian reform on mandatory childhood vaccinations', Health Policy 125(1) (2021); Larson, de Figueiredo, Karafillakis & Rawal, 'State of Vaccine Confidence in the EU 2018', report for the European Commission",
           sourceUrl: "https://cris.unibo.it/handle/11585/801016",
           reasoning:
             "A national test of the hard approach on childhood vaccines in which neither coverage nor confidence fell. Before-and-after data from one country, with short follow-up and no control, so it shows a backlash is not inevitable rather than that mandates build trust.",
@@ -367,12 +366,12 @@ export const vaccineMandatesData = {
       id: "who-decides",
       title: "Who Decides, and Who May Opt Out?",
       short_summary:
-        "US courts have upheld vaccine requirements since 1905 while limiting which agencies can impose them. The live fights of 2026 are over exemptions and authority: Florida's health department moving to drop four school vaccines, New York's Amish asking the Supreme Court to restore a religious exemption, and a federal court freezing the CDC's January 2026 childhood schedule.",
+        "US courts have upheld vaccine requirements since 1905 while limiting which agencies can impose them. The live fights of 2026 are over exemptions and authority: Florida's health department moving to drop four school vaccines, New York's Amish asking the Supreme Court to restore a religious exemption, and a federal court's March 2026 stay of the CDC's January 2026 childhood schedule.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "A child's medical care belongs first to the parents, and a state that overrides a sincere religious or moral objection for a school seat is claiming more than the Constitution grants. Florida's surgeon general, Joseph Ladapo, argues that a public health system 'where parents are actively making decisions' is healthier than one built on orders; the requirements his department proposes to drop, for hepatitis B, chickenpox, Hib and pneumococcal disease, are agency rules, not laws any legislator voted for. New York removed its religious exemption in 2019 while keeping a medical one, and has fined Amish schools $118,000; the Amish argue a law that singles out religious objectors is not neutral. The Supreme Court stayed OSHA's vaccine-or-test rule for 80 million workers because no agency may make that call without Congress.",
+        "A child's medical care belongs first to the parents, and a state that overrides a sincere religious or moral objection for a school seat is claiming more than the Constitution grants. Florida's surgeon general, Joseph Ladapo, argues that a public health system 'where parents are actively making decisions' is healthier than one built on orders; the requirements his department proposes to drop, for hepatitis B, chickenpox, Hib and pneumococcal disease, are agency rules, not laws any legislator voted for. New York removed its religious exemption in 2019 while keeping a medical one, and has fined Amish schools $118,000; the Amish argue a law that singles out religious objectors is not neutral. The Supreme Court stayed OSHA's vaccine-or-test rule for about 84 million workers because no agency may make that call without Congress.",
       proponent_rebuttal:
-        "Requirements have been constitutional bedrock since Jacobson v. Massachusetts (1905), and the courts have kept drawing the line in the same place: on remand in June 2026 the Second Circuit again upheld New York's removal of the religious exemption, finding the rule 'does not require them to affirm any belief'. The OSHA ruling limited which body may act, and the Supreme Court upheld the federal health-worker mandate the same day. A child in kindergarten cannot consent or refuse, and the children who rely on herd protection, infants and those in cancer treatment, have no exemption to claim. Doctors at Florida's hearing put it plainly: 'These four vaccines were not selected because the evidence changed.'",
+        "Requirements have been constitutional bedrock since Jacobson v. Massachusetts (1905), and the courts have kept drawing the line in the same place: on remand in June 2026 the Second Circuit again upheld New York's removal of the religious exemption, finding the rule 'does not require them to affirm any belief'. The OSHA ruling limited which body may act, and the Supreme Court upheld the federal health-worker mandate the same day. A child in kindergarten cannot consent or refuse, and the children who rely on herd protection, infants and those in cancer treatment, have no exemption to claim. The head of the American Academy of Family Physicians' board put it plainly at Florida's hearing: 'These four vaccines were not selected because the evidence changed.'",
       crux: {
         id: "exemption-outbreak-test",
         title: "The Exemption and Outbreak Test",
@@ -458,9 +457,9 @@ export const vaccineMandatesData = {
         },
         {
           id: "nfib-osha",
-          title: "Supreme Court stayed OSHA's vaccine-or-test rule for 80 million workers; OSHA withdrew it (January 2022)",
+          title: "Supreme Court stayed OSHA's vaccine-or-test rule for about 84 million workers (January 2022)",
           description:
-            "In NFIB v. OSHA (2022), the Supreme Court stayed, 6–3, OSHA's vaccine-or-test rule for employers with 100 or more workers (more than 80 million employees), holding that OSHA may regulate occupational hazards but not the broad public-health risks of daily life without clear congressional authorisation. The stay (13 January 2022) was not a final merits ruling; OSHA withdrew the rule as an enforceable standard on 26 January 2022. The same day as the stay, the Court let the federal mandate for health-care workers take effect.",
+            "In NFIB v. OSHA (2022), the Supreme Court stayed, 6–3, OSHA's vaccine-or-test rule for employers with 100 or more workers (roughly 84 million employees), holding that OSHA may regulate occupational hazards but not the broad public-health risks of daily life without clear congressional authorisation. The stay (13 January 2022) was not a final merits ruling. The same day, in Biden v. Missouri, the Court let the federal mandate for workers at Medicare- and Medicaid-funded health facilities take effect.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
