@@ -37,8 +37,8 @@ Topic is crossed with arm (3 × 3 = 9 cells). Each participant gets one topic an
 
 | map | why |
 |---|---|
-| `gun-control-effectiveness` | Classic party-sorted issue. The map has two cruxes with settle tests, eight cards on both sides, and an unusually clean "both sides agree" block (the US rate is far higher; 393 million guns; 74% of mass shooters bought legally). |
-| `immigration-border-crisis` | Party-sorted, current (encounters peaked in FY2023 and fell after 2023–2025 restrictions), three cruxes, ten cards, three common-ground facts. |
+| `gun-control-effectiveness` | Classic party-sorted issue. Since its 3 Nov rewrite ("Do stricter gun laws save lives?") the map has four cruxes (the US gap, suicide and access, state laws and homicide, mass shootings) and 18 cards on both sides, with a clean "both sides agree" block (the US rate is far higher; about 400 million guns; most gun deaths are suicides; 74% of mass shooters bought legally). |
+| `immigration-border-crisis` | Party-sorted and current. Since its 3 Nov rewrite ("Are a closed border and mass deportations the right way to handle illegal immigration?") it has three cruxes (what closed the border, asylum, who is being deported) and 14 cards, brought to fiscal 2026. |
 | `transgender-athletes-sports` | Among the most tribal issues of 2025–26, three cruxes, ten cards, recent policy (World Athletics 2023, NCAA Feb 2025, IOC Mar 2026). The perception-gap item set has room for real misperception here. |
 
 Not chosen: `ai-mass-unemployment`. It is the flagship and a strong map, but worry about AI and
@@ -46,8 +46,9 @@ jobs is not sorted by party the way these three are, and the perception gap is m
 parties. Running it would also mix two page templates (it is an ArgumentGraph map, rendered by
 `DebateView`) into arm (a). It is the obvious second study if this one finds anything.
 
-All three are legacy-template maps, so arm (a) is one template throughout. Their pages were read
-on 3 Nov 2026; a map edit before launch changes the stimulus (see "Freeze").
+All three are legacy-template maps, so arm (a) is one template throughout. A map edit before launch
+changes the stimulus (see "Stimuli" and "Freeze"): the guns and immigration maps were rewritten on
+3 Nov 2026 after the first draft of this plan, and the trans-athletes map is being rewritten now.
 
 ### Randomization
 
@@ -96,13 +97,14 @@ answer is a choice or a whole number; there is no free text anywhere.
 computed from the sample). Each set mixes items one party is stereotyped to reject with items both
 are likely to accept, which is where perception gaps have been found before:
 
-- Guns: most gun owners are responsible and law-abiding; safe-storage laws are reasonable; the US
-  has a worse gun-violence problem than other wealthy countries; people have a right to own a gun to
-  protect their families; some gun laws could reduce deaths without taking guns from law-abiding owners.
+- Guns: most gun owners are responsible and law-abiding; safe-storage laws are reasonable; families
+  should be able to ask a judge to pause a relative's gun access during a mental-health crisis;
+  people have a right to own a gun to protect their families; some gun laws could reduce deaths
+  without taking guns from law-abiding owners.
 - Immigration: properly controlled immigration is good for the country; the US needs to control
-  who crosses its southern border; most immigrants come to work and make a better life; asylum
-  cases should be decided in months, not years; people facing real persecution should be able to
-  seek asylum.
+  who crosses its southern border; people here illegally who have committed serious crimes should
+  be deported; immigrants who have lived here for years without committing crimes should be allowed
+  to stay; people facing real persecution should be able to seek asylum.
 - Transgender athletes: transgender people deserve dignity and respect; fair competition for female
   athletes matters; the health and social benefits of sport should be open to everyone; Olympic and
   school rules need not be the same; male puberty gives advantages hormone therapy does not fully remove.
@@ -255,9 +257,19 @@ in `data/study/stimuli.ts`, written for this study to these rules (all tested in
 - **No direct quotations**, because the map's quotes were not re-checked against their sources for
   this study; the texts paraphrase.
 - **No winner.** Neither text says which side is right.
-- **Length.** Within ±15% of what arm (a) shows before anything is expanded, measured inside
-  `/study` on 3 Nov 2026 (570, 592 and 664 words for guns, immigration and trans athletes; that
-  count includes the page's labels and its repeated crux questions). The texts run 508–610 words.
+- **Length.** Within ±15% of what arm (a) shows before anything is expanded (`ARM_A_VISIBLE_WORDS`,
+  which records how each count was taken). Current targets: 758 and 690 words for the rewritten
+  guns and immigration maps (estimated from a server render, no browser available at the time) and
+  664 for trans athletes (a browser count from before its rewrite). The counts include the page's
+  labels and its repeated crux questions. The texts run 582–724 words.
+- **Regenerate and freeze after the final map versions, before the pilot.** Arms (b) and (c), the
+  statements, the crux options and the length targets are all built against a specific version of
+  each map. Any map edit can break them: a cited card disappears, a number changes, the map's
+  question or cruxes change. That happened once already (the guns and immigration rewrites of
+  3 Nov 2026; the texts were rebuilt the same day). So, once the three maps are final: rebuild
+  anything `data/study/stimuli.test.ts` flags, re-measure arm (a) in a browser at 390px and 1440px
+  inside `/study`, re-read every text against its map, record the map file hashes and the commit
+  here, and freeze. No map edits from then until the main study closes.
 - **Labelled internally by arm.** The participant is never told which kind of text they got until
   the debrief.
 
@@ -400,8 +412,10 @@ during collection; `npx tsx scripts/study-report.ts --study <id> --out <dir>` af
 4. **Deploy**: set the variables above in Coolify, rebuild (the page flag is build-time), run the
    migration, open `/study` with a test id to check the flow end to end, then turn the flags off
    again until launch.
-5. **Freeze**: no edits to the three maps between the pilot and the end of the main study (an edit
-   changes arm (a)); upload this file to OSF or AsPredicted; note the commit hash here.
+5. **Freeze**: once the three maps are final, regenerate and re-check the study texts and measures
+   against them (see "Stimuli"), then make no edits to the three maps between the pilot and the end
+   of the main study (an edit changes arm (a)); upload this file to OSF or AsPredicted; note the
+   commit hash here.
 6. **Run**: pilot → read `--health` and the pilot's ρ → adjust N only as the plan allows, log it →
    main study → close → full report → apply the decision rules as written.
 7. **Afterwards**: delete the tables when the analysis is done (within two years at most), and add the
