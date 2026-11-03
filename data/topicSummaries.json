@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies misalignment sanders chronobiology clin fritz outdoor"
+    "keywords": "sunrise circadian indiana doleac entrain kotchen monday robberies misalignment sanders chronobiology clin fritz outdoor sandhu"
   },
   {
     "id": "tipping-culture",
@@ -686,7 +686,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee dauphin"
+    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn wharton manitoba mincome wives tanf denver givedirectly banerjee"
   },
   {
     "id": "wealth-tax",
@@ -708,7 +708,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral richest"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg austria deferral richest"
   },
   {
     "id": "standardized-testing-debate",
@@ -1784,7 +1784,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
+    "keywords": "linoleic aldehyde hexane frying blasbalg pufa sydney solvent arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
   },
   {
     "id": "obesity-personal-responsibility",
@@ -2014,9 +2014,9 @@
     "title": "Housing Supply & Affordability",
     "question": "Would building more homes make housing affordable?",
     "meta_claim": "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
-    "confidence_score": 75,
-    "balance": 75,
-    "weight": 65,
+    "confidence_score": 73,
+    "balance": 73,
+    "weight": 68,
     "verdict": {
       "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
@@ -2024,13 +2024,21 @@
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do rules that limit building explain why housing costs rose so much more in some cities than others?",
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo gyourko vienna glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
+    "aliases": [
+      "Why is housing so expensive?",
+      "Is there a housing shortage?",
+      "YIMBY vs NIMBY",
+      "Does upzoning lower rents?",
+      "Does new luxury housing lower rents?",
+      "Should the government build public housing?"
+    ],
+    "keywords": "mast auckland bedroom gyourko rental vienna glaeser asquith louie mondragon wieland jchs backlog reed salary"
   },
   {
     "id": "four-day-work-week",
@@ -2052,7 +2060,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "burnout collar ambivalent cipd overtime qinglong shao salaried chartered frontline absenteeism aubry eurostat everybody insee"
+    "keywords": "burnout collar ambivalent cipd overtime qinglong shao chartered frontline salaried absenteeism aubry eurostat everybody insee"
   },
   {
     "id": "student-debt-forgiveness",
@@ -2103,7 +2111,7 @@
       "Why are prices so high?",
       "Should the Fed raise rates when oil prices spike?"
     ],
-    "keywords": "drewry bernanke blanchard velocity supercore overheated atlanta louis jord kalemli nechio reyes silva t10yie walcl"
+    "keywords": "drewry bernanke blanchard velocity supercore overheated atlanta louis jord kalemli nechio reyes shelter silva t10yie"
   },
   {
     "id": "global-housing-bubble",
@@ -2228,7 +2236,7 @@
       "Rent freezes",
       "Should New York freeze the rent?"
     ],
-    "keywords": "kholodilin mcquade qian citywide diamond eviction ahern ambrosius collinson giacoletti luttmer palmer pathak autor glaeser"
+    "keywords": "kholodilin mcquade qian diamond citywide eviction ahern ambrosius collinson giacoletti luttmer palmer pathak autor glaeser"
   },
   {
     "id": "degrowth-economics",
@@ -2786,7 +2794,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo chris piie aluminum reed usitc penn krugman truce usmca scattered alberto"
+    "keywords": "fence ieepa yard cavallo chris piie aluminum usitc penn reed wharton krugman truce usmca scattered"
   },
   {
     "id": "rfk-health-policy",
@@ -2911,7 +2919,7 @@
       "City center entry fees",
       "Motorist charges on central streets"
     ],
-    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass mayors wheels depreciation"
+    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass depreciation mayors wheels"
   },
   {
     "id": "right-to-repair",
@@ -3189,7 +3197,7 @@
       "School vaccination requirements",
       "Required childhood immunizations"
     ],
-    "keywords": "osha measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel kraaijeveld"
+    "keywords": "osha austria measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel"
   },
   {
     "id": "ssri-antidepressant-efficacy",
@@ -3638,6 +3646,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli schombert bullet phys priori"
+    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma bullet lelli schombert phys priori"
   }
 ]
