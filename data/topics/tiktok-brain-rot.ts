@@ -9,6 +9,19 @@ export const tiktokBrainRotData = {
     "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
   status: "contested" as const,
   category: "science" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "PISA reading scores across OECD countries fell 10 points in 2022, about twice any earlier change between rounds, and COVID school closures account for a large share of the drop. The widely shared claim that attention spans have shrunk to 8 seconds, below a goldfish's, has no study behind it. Both sides accept those facts. The fight is over how much of the decline, if any, short-form video causes.",
+    confidence: 84,
+    source:
+      "OECD, PISA 2022 Results (Volume I); Maybin, BBC News (2017), on the 8-second figure",
+    sourceUrl:
+      "https://www.oecd.org/en/publications/pisa-2022-results-volume-i_53f23881-en.html",
+  },
+  simple_case: [
+    "The answer bears on whether schools and parents should treat short-form video as a risk to restrict, or as entertainment to manage like any other.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Attention Span Research

@@ -11,6 +11,19 @@ export const billionaireWealthData = {
     "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "By the Federal Reserve's accounts, the top 1% of U.S. households hold roughly 30% of household net worth and the bottom half about 2.5%. Billionaire-founded firms employ very large numbers of people; Amazon reported about 1.56 million in 2024. Both sides accept those facts. The fight is over whether wealth on that scale harms mobility and democracy, and what, if anything, policy should do about it.",
+    confidence: 88,
+    source:
+      "Federal Reserve, Distributional Financial Accounts; Amazon SEC 10-K (FY2024)",
+    sourceUrl:
+      "https://www.federalreserve.gov/releases/z1/dataviz/dfa/distribute/chart/",
+  },
+  simple_case: [
+    "The answer bears on proposals such as an annual wealth tax and limits on political spending, and on whether the next fortune on this scale is something to encourage or prevent.",
+  ],
   pillars: [
     {
       id: "economic-impact",

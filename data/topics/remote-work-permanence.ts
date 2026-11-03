@@ -7,6 +7,19 @@ export const remoteWorkPermanenceData = {
     "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "U.S. office vacancy hit a record 19.8% in early 2024, by Moody's count. Even as Amazon, JPMorgan and Goldman Sachs pushed staff back toward full-time attendance, 7.8% of U.S. job postings in October 2024 advertised remote or hybrid work, roughly three times the pre-pandemic share. Both sides accept those numbers. The fight is over whether workers' demand or employers' mandates sets the pattern for the decade ahead.",
+    confidence: 85,
+    source:
+      "Moody's Analytics office vacancy data, via Bloomberg (2024); Indeed Hiring Lab (November 2024)",
+    sourceUrl:
+      "https://www.hiringlab.org/2024/11/19/november-labor-market-update-remote-work/",
+  },
+  simple_case: [
+    "The answer bears on where knowledge workers live, what becomes of downtown offices and the city budgets that lean on them, and how companies hire.",
+  ],
   pillars: [
     {
       id: "mandates-worker-leverage",

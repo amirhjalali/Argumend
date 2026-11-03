@@ -7,6 +7,19 @@ export const genderAffirmingCareMinorsData = {
     "Evidence-based gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental health outcomes and should be accessible.",
   status: "contested" as const,
   category: "science" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "England's Cass Review (2024) and earlier reviews in Finland and Sweden rated the evidence for puberty blockers and hormones in adolescents as low quality, and the UK has since limited blockers to research settings. The American Academy of Pediatrics, the Endocrine Society and other major U.S. medical bodies still support access. Both sides accept those facts. The fight is over what that evidence justifies for teenagers seeking care now.",
+    confidence: 88,
+    source:
+      "The Cass Review (2024); Finnish COHERE (2020); Swedish National Board of Health and Welfare (2022); UK Department of Health (2024); American Academy of Pediatrics",
+    sourceUrl:
+      "https://cass.independent-review.uk/home/publications/final-report/",
+  },
+  simple_case: [
+    "The answer bears on the laws and clinical rules that now govern this care in the U.S. and Europe, and on what families are told when they ask for it.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Medical Evidence
