@@ -135,6 +135,22 @@ export function legacyHomeTopicPath(searchParams: URLSearchParams): string | nul
 }
 
 /**
+ * Where a diagram URL for a new-model map (/topics/<id>/map) should go: the
+ * map's own page, /topics/<id>. New-model (ArgumentGraph) maps have no
+ * diagram, so a shared or guessed /map link would otherwise 404. Null for
+ * every other path, including legacy maps (whose diagram exists) and
+ * unknown ids (which still 404).
+ */
+export function diagramlessMapPath(pathname: string): string | null {
+  const segments = pathnameSegments(pathname);
+  if (!segments || segments.length !== 3) return null;
+  const [section, id, view] = segments;
+  if (section !== "topics" || view !== "map") return null;
+  if (topicIds.has(id) || !debateTopicIds.has(id)) return null;
+  return `/topics/${encodeURIComponent(id)}`;
+}
+
+/**
  * Returns true only for known user-facing dynamic URLs that can be rejected
  * without loading page data. The proxy rewrites these to the global named 404
  * before React starts streaming, preserving a truthful status and SSR markup.
@@ -159,7 +175,8 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
   if (segments.length === 2 && segments[0] === "topics") {
     return !topicIds.has(segments[1]) && !debateTopicIds.has(segments[1]);
   }
-  // The diagram of a legacy map (/topics/:id/map). New-model maps have none.
+  // The diagram of a legacy map (/topics/:id/map). New-model maps have none;
+  // the proxy redirects theirs to the map's page (diagramlessMapPath) first.
   if (segments.length === 3 && segments[0] === "topics" && segments[2] === "map") {
     return !topicIds.has(segments[1]);
   }

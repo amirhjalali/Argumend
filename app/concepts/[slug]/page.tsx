@@ -13,6 +13,7 @@ import { readTime } from "@/lib/learn/readTime";
 import { leadSentences } from "@/lib/learn/summary";
 import { firstSentence } from "@/lib/topicPage/legacy";
 import { buildGenericOgUrl } from "@/lib/og";
+import { fitMetaDescription } from "@/lib/seoText";
 import { ORGANIZATION_ID, SITE_NAME, SITE_URL } from "@/lib/site";
 
 // ---------------------------------------------------------------------------
@@ -39,18 +40,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const firstParagraph = concept.description.split("\n\n")[0];
+  const description = fitMetaDescription(concept.description.split("\n\n")[0]);
   const ogImage = buildGenericOgUrl({ title: concept.title, subtitle: "Key Concept" });
 
   return {
     title: `${concept.title} — Key Concept`,
-    description: firstParagraph.slice(0, 160),
+    description,
     alternates: {
       canonical: `https://argumend.org/concepts/${concept.id}`,
     },
     openGraph: {
       title: `${concept.title} — Key Concept`,
-      description: firstParagraph.slice(0, 160),
+      description,
       url: `https://argumend.org/concepts/${concept.id}`,
       type: "article",
       siteName: SITE_NAME,
@@ -59,7 +60,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: "summary_large_image",
       title: `${concept.title} — Key Concept`,
-      description: firstParagraph.slice(0, 160),
+      description,
       images: [ogImage],
     },
   };
@@ -96,7 +97,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "DefinedTerm",
     name: concept.title,
-    description: paragraphs[0]?.slice(0, 160),
+    description: paragraphs[0] ? fitMetaDescription(paragraphs[0]) : undefined,
     url: `https://argumend.org/concepts/${concept.id}`,
     termCode: concept.id,
     inDefinedTermSet: {

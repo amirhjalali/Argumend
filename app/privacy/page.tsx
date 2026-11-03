@@ -4,6 +4,7 @@ import { AppShell } from "@/components/AppShell";
 import { PageContainer, PageHeader } from "@/components/ui";
 import { LegalSection as Section, LEGAL_LINK as LINK, Pending } from "@/components/legal/LegalParts";
 import { LegalDraftNotice } from "@/components/LegalDraftNotice";
+import { buildGenericOgUrl } from "@/lib/og";
 import {
   ALL_AI_PROVIDER_IDS,
   DIAGNOSIS_PROVIDER_IDS,
@@ -17,15 +18,25 @@ import {
   LEGAL_LAST_UPDATED_LABEL,
 } from "@/lib/site";
 
+const OG_IMAGE = buildGenericOgUrl({ title: "Privacy Policy", subtitle: "Legal" });
+
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "What Argumend collects, what happens to text you paste into the analysis tools, which AI providers receive it, and how long anything is kept. Draft, pending legal review.",
+    "What Argumend collects, what happens to text you paste, which AI providers receive it, and how long anything is kept. Draft, pending legal review.",
   openGraph: {
     title: "Privacy Policy | ARGUMEND",
     description:
       "What happens to the text you paste into Argumend, which AI providers receive it, and what we store.",
     url: "https://argumend.org/privacy",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Privacy Policy" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | ARGUMEND",
+    description:
+      "What happens to the text you paste into Argumend, which AI providers receive it, and what we store.",
+    images: [OG_IMAGE],
   },
   alternates: {
     canonical: "https://argumend.org/privacy",

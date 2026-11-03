@@ -1,5 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { legacyHomeTopicPath, shouldServeNamedNotFound } from "@/lib/dynamicRoutePolicy";
+import {
+  diagramlessMapPath,
+  legacyHomeTopicPath,
+  shouldServeNamedNotFound,
+} from "@/lib/dynamicRoutePolicy";
 import { apiJson } from "@/app/api/v1/_shared/http";
 import { ogErrorResponse } from "@/lib/og";
 
@@ -37,6 +41,15 @@ export function proxy(request: NextRequest) {
       return NextResponse.redirect(new URL(destination, request.url), 308);
     }
     return NextResponse.next();
+  }
+
+  // A new-model map has no diagram: its /map URL is a permanent redirect to
+  // the map's page (query kept), not a 404.
+  const mapPage = diagramlessMapPath(request.nextUrl.pathname);
+  if (mapPage) {
+    const destination = request.nextUrl.clone();
+    destination.pathname = mapPage;
+    return NextResponse.redirect(destination, 308);
   }
 
   if (!shouldServeNamedNotFound(request.nextUrl.pathname)) {

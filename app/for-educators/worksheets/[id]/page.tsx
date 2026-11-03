@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PrintWorksheetButton } from "./PrintWorksheetButton";
 import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
+import { fitMetaDescription } from "@/lib/seoText";
 
 // ---------------------------------------------------------------------------
 // Worksheet Data
@@ -329,24 +330,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonical = `https://argumend.org/for-educators/worksheets/${ws.id}`;
   // The layout's template adds "| ARGUMEND"; the name here would repeat it.
   const title = `${ws.title} — for teachers`;
+  const description = fitMetaDescription(ws.instructions);
 
   return {
     title,
-    description: ws.instructions,
+    description,
     robots: { index: true, follow: true },
     alternates: {
       canonical,
     },
     openGraph: {
       title,
-      description: ws.instructions,
+      description,
       url: canonical,
       images: [DEFAULT_SOCIAL_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description: ws.instructions,
+      description,
       images: [DEFAULT_SOCIAL_IMAGE_URL],
     },
   };

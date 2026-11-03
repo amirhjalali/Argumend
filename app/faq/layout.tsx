@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "FAQ — Common questions",
   description:
-    "Common questions about Argumend: what a crux is, why a map never says who is right, how evidence is weighed, what the paste tool does with your text, and how maps are kept up to date.",
+    "What a crux is, why a map never says who is right, how evidence is weighed, what the paste tool does with your text, and how maps are kept up to date.",
   keywords: ["Argumend FAQ", "argument mapping FAQ", "what is a crux", "how evidence is weighed"],
   openGraph: {
     title: "FAQ — Common questions about Argumend",

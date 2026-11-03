@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { ORGANIZATION_ID, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const DESCRIPTION =
-  "Argumend maps hard questions around their cruxes: the questions a fight turns on, and what would settle each one. How to read a map, how maps are made, the rules it keeps (never a winner, sources shown), why it exists, and how to help.";
+  "Argumend maps hard questions around their cruxes and what would settle each. How to read a map, how maps are made, its rules (never a winner), and how to help.";
 
 export const metadata: Metadata = {
   title: {
