@@ -82,9 +82,9 @@ export const geneEditingEmbryosData = {
         },
         {
           id: "crispr-precision-improvement-2023",
-          title: "Newer Editors (Base, Prime) Reduce Off-Target Editing vs. Original Cas9",
+          title: "Newer Editors Avoid Double-Strand Breaks; Prime Editing Showed Far Fewer Off-Target Edits Than Cas9",
           description:
-            "Base editing (Komor et al., Nature 2016) and prime editing (Anzalone et al., Nature 2019) avoid the double-strand breaks that drive much of Cas9's collateral damage. Subsequent whole-genome-sequencing studies in cultured human cells have reported little or no detectable guide-RNA-independent off-target mutation from prime editors, consistent with greater precision than first-generation Cas9. These remain cell-line and stem-cell findings, not whole-embryo or lifetime safety data, and editing efficiency in embryos can be low and uneven.",
+            "Base editing (Komor et al., Nature 2016) and prime editing (Anzalone et al., Nature 2019) edit DNA without the double-strand breaks that cause much of Cas9's collateral damage. In human cell lines, Anzalone and colleagues reported that prime editing 'induces much lower off-target editing than Cas9 nuclease at known Cas9 off-target sites.' These remain cell-culture findings at a limited set of sites, not whole-embryo or lifetime safety data, and editing efficiency in embryos can be low and uneven.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -101,7 +101,7 @@ export const geneEditingEmbryosData = {
           id: "sickle-cell-crispr-success",
           title: "CRISPR Treatment for Sickle Cell Approved by FDA",
           description:
-            "In December 2023, the FDA approved Casgevy (exagamglogene autotemcel), the first CRISPR/Cas9-based therapy, for sickle cell disease. The treatment edits patients' own blood stem cells (BCL11A) to reactivate fetal hemoglobin. In the pivotal trial, 29 of 31 evaluable patients (93.5%) were free of severe vaso-occlusive crises for at least 12 consecutive months. This is somatic (non-heritable) editing, but demonstrates the therapeutic potential.",
+            "In December 2023, the FDA approved Casgevy (exagamglogene autotemcel), for sickle cell disease in patients 12 and older; the FDA called it the first approved treatment to use this kind of genome editing (CRISPR/Cas9). The treatment edits patients' own blood stem cells (BCL11A) to reactivate fetal hemoglobin. In the pivotal trial, 29 of 31 evaluable patients (93.5%) were free of severe vaso-occlusive crises for at least 12 consecutive months. This is somatic (non-heritable) editing, but demonstrates the therapeutic potential.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -118,7 +118,7 @@ export const geneEditingEmbryosData = {
           id: "pgt-m-alternative",
           title: "PGT-M Already Screens for Most Genetic Diseases",
           description:
-            "Preimplantation genetic testing for monogenic conditions (PGT-M) can screen IVF embryos for essentially any known single-gene disorder, selecting unaffected embryos for transfer instead of editing the genome. The ASRM's 2023 committee opinion describes it as an established, widely available clinical option. For most carrier couples, PGT-M removes the need for germline editing entirely.",
+            "Preimplantation genetic testing for monogenic conditions (PGT-M) lets IVF patients test embryos for a known familial single-gene variant and transfer only unaffected ones, instead of editing the genome. The ASRM's 2023 committee opinion updates professional guidance on its clinical use and on helping patients understand and get access to it. On this view, for carrier couples who can produce unaffected embryos, selection already does what editing would, without changing anyone's genome.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -176,7 +176,7 @@ export const geneEditingEmbryosData = {
           id: "nuffield-council-report",
           title: "Nuffield Council: Germline Editing Could Be Ethically Acceptable",
           description:
-            "The UK's Nuffield Council on Bioethics concluded in its July 2018 report 'Genome editing and human reproduction' that heritable genome editing could be ethically acceptable, on two conditions: that it is intended to secure the welfare of the future person, and that it does not increase disadvantage, discrimination, or division in society. The report called for broad public deliberation and robust regulation, not an outright ban.",
+            "The UK's Nuffield Council on Bioethics concluded in its July 2018 report 'Genome editing and human reproduction' that heritable genome editing could be ethically acceptable if two overarching principles are met: that it is intended to secure the welfare of the future person, and that it does not increase disadvantage, discrimination, or division in society. The report called for broad public deliberation and robust regulation, not an outright ban.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
