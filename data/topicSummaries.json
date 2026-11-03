@@ -2384,8 +2384,8 @@
     "title": "The Hard Problem of Consciousness",
     "question": "Does explaining consciousness require more than brain processes?",
     "meta_claim": "Consciousness — subjective experience or 'what it is like' to be something — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
-    "confidence_score": 65,
-    "balance": 65,
+    "confidence_score": 61,
+    "balance": 61,
     "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -2394,12 +2394,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "After a complete functional account, is 'why does it feel like something?' a real question left over?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical illusionism"
+    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical"
   },
   {
     "id": "artificial-reproduction-ethics",
