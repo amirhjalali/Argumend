@@ -1075,7 +1075,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow chamber regrets crowdsourced msnbc multipartisan unmoderated vetted"
+    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow chamber regrets crowdsourced msnbc multipartisan unmoderated missouri"
   },
   {
     "id": "space-colonization-feasibility",
@@ -3204,17 +3204,17 @@
     "title": "Reforming Section 230",
     "question": "Should Section 230 be significantly reformed or repealed?",
     "meta_claim": "Section 230 should be significantly reformed or repealed.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 61,
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 11,
     "firstCrux": "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
     "tags": [
       "technology",
@@ -3224,7 +3224,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "aggravated fosta anderson ninth clerk backpages copia nera netchoice reconsideration subsection disincentives myanmar remanded restitution"
+    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth clerk eifert abetted anhaltspunkte antiterrorism backpages belegen copia"
   },
   {
     "id": "autonomous-weapons-ban",
