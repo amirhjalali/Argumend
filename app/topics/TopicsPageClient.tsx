@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Search, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import { CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
 import { AppShell } from "@/components/AppShell";
@@ -227,6 +227,13 @@ export default function TopicsPageClient({
       current.left === left && current.right === right ? current : { left, right },
     );
   };
+  // The chevrons over the fades page the strip; tabbing through the links
+  // scrolls it already, so they are for pointer and touch only.
+  const scrollTabs = (direction: 1 | -1) => {
+    const strip = tabStripRef.current;
+    if (!strip) return;
+    strip.scrollBy({ left: direction * Math.round(strip.clientWidth * 0.7), behavior: "smooth" });
+  };
   useEffect(() => {
     const strip = tabStripRef.current;
     if (!strip) return;
@@ -274,11 +281,31 @@ export default function TopicsPageClient({
             pills, and a fade at the cut edge says there is more (r10 #7):
             at 390px the row stopped at "Sci" with nothing to show it scrolls. */}
         <nav aria-label="Map categories" className="relative -mx-4 border-b border-stone-300/70 px-4 dark:border-divider sm:mx-0 sm:px-0">
+          {/* A fade alone read as a clipped word ("Sci…", r13 review), so each
+              cut edge also carries a chevron that pages the strip. */}
           {tabOverflow.left ? (
-            <span aria-hidden="true" data-testid="tabs-fade-left" className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[var(--bg-canvas)] to-transparent" />
+            <span aria-hidden="true" data-testid="tabs-fade-left" className="pointer-events-none absolute inset-y-0 left-0 z-10 flex w-16 items-center justify-start bg-gradient-to-r from-[var(--bg-canvas)] from-40% to-transparent pl-1 sm:pl-0">
+              <button
+                type="button"
+                tabIndex={-1}
+                onClick={() => scrollTabs(-1)}
+                className="pointer-events-auto flex h-11 w-8 items-center justify-start text-muted hover:text-primary dark:text-stone-400 dark:hover:text-stone-200"
+              >
+                <ChevronLeft className="h-4 w-4" strokeWidth={2} />
+              </button>
+            </span>
           ) : null}
           {tabOverflow.right ? (
-            <span aria-hidden="true" data-testid="tabs-fade-right" className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[var(--bg-canvas)] to-transparent" />
+            <span aria-hidden="true" data-testid="tabs-fade-right" className="pointer-events-none absolute inset-y-0 right-0 z-10 flex w-16 items-center justify-end bg-gradient-to-l from-[var(--bg-canvas)] from-40% to-transparent pr-1 sm:pr-0">
+              <button
+                type="button"
+                tabIndex={-1}
+                onClick={() => scrollTabs(1)}
+                className="pointer-events-auto flex h-11 w-8 items-center justify-end text-muted hover:text-primary dark:text-stone-400 dark:hover:text-stone-200"
+              >
+                <ChevronRight className="h-4 w-4" strokeWidth={2} />
+              </button>
+            </span>
           ) : null}
           <div
             ref={tabStripRef}

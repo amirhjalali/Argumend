@@ -271,7 +271,7 @@ describe("PasteClient with every lane off (production today)", () => {
     fireEvent.change(view.getByLabelText("The argument to read"), { target: { value: ASSISTED_LIVING_PASTE } });
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
-    await waitFor(() => view.getByRole("heading", { name: "No map, rather than the wrong map" }));
+    await waitFor(() => view.getByRole("heading", { name: "No map clearly fits, so we won’t guess one" }));
     expect(view.queryByRole("heading", { name: "Closest maps" })).toBeNull();
     expect(view.getByRole("heading", { name: "Read it yourself" })).toBeTruthy();
     for (const question of [
@@ -309,7 +309,7 @@ describe("PasteClient with every lane off (production today)", () => {
     const first = render(<PasteClient lanes={OFFLINE} />);
     fireEvent.change(first.getByLabelText("The argument to read"), { target: { value: "Our argument about pineapple on pizza should stay private." } });
     fireEvent.click(first.getByRole("button", { name: "Find what it turns on" }));
-    await waitFor(() => first.getByRole("heading", { name: "No map, rather than the wrong map" }));
+    await waitFor(() => first.getByRole("heading", { name: "No map clearly fits, so we won’t guess one" }));
     fireEvent.change(first.getByLabelText("You would think again if…"), { target: { value: "we tried it together" } });
     first.unmount();
     const returned = render(<StrictMode><PasteClient lanes={OFFLINE} /></StrictMode>);

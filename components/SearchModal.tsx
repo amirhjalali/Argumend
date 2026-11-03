@@ -458,8 +458,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           aria-modal="true"
           aria-label="Search Argumend"
         >
-          {/* Search Input */}
-          <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60 dark:border-[var(--border-divider)]">
+          {/* Search Input. The input sits inside the panel's own frame, so its
+              focus shows once, as this row's divider turning the focus colour,
+              not as a second ring inside the panel's border. */}
+          <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60 dark:border-[var(--border-divider)] has-[input:focus-visible]:border-b-focus has-[input:focus-visible]:shadow-[inset_0_-1px_0_rgb(var(--focus-ring-rgb))]">
             <Search className="h-5 w-5 text-deep dark:text-accent-text flex-shrink-0" strokeWidth={1.8} />
             <input
               ref={inputRef}
@@ -468,7 +470,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               value={query}
               onChange={(e) => updateQuery(e.target.value)}
               placeholder="Search maps, articles, concepts…"
-              className="min-w-0 flex-1 bg-transparent text-lg text-primary dark:text-stone-200 placeholder:text-stone-500 outline-none font-sans"
+              className="min-w-0 flex-1 bg-transparent text-lg text-primary dark:text-stone-200 placeholder:text-stone-500 outline-none focus-visible:outline-none font-sans"
               autoComplete="off"
               spellCheck={false}
               aria-label="Search Argumend"

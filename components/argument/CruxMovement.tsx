@@ -44,10 +44,14 @@ const STATUS_REPEAT_LABEL: Partial<Record<CruxLedgerStatus, string>> = {
   open: "Still open",
 };
 
-/** Track labels read with the month after them: states hold "since", events do not. */
+/**
+ * Track labels read with the month after them: states hold "since", events do
+ * not. "Narrowed" alone left a first-time reader asking what narrowed; it is
+ * the disagreement (smaller than it was, still open).
+ */
 const STATUS_SHORT_LABEL: Record<CruxLedgerStatus, string> = {
   open: "Open since",
-  narrowed: "Narrowed",
+  narrowed: "Disagreement narrowed",
   resolved: "Resolved",
   unresolvable: "Unresolvable since",
 };
@@ -134,13 +138,17 @@ export function CruxMovementTrack({ movement }: { movement: CruxMovementEntry[] 
   const showStart = formatMonth(first) !== formatMonth(since);
 
   return (
-    <span className="flex items-center gap-2" data-testid="crux-movement-track">
+    <span
+      className="flex flex-wrap items-center gap-x-2 gap-y-1.5"
+      data-testid="crux-movement-track"
+    >
+      {/* The start says what the month is: the earliest evidence on record. */}
       {showStart && (
         <time
           dateTime={first}
           className="text-xs leading-none tabular-nums text-muted dark:text-stone-400"
         >
-          <span className="sr-only">Evidence from </span>
+          <span>Evidence from </span>
           {formatMonth(first)}
         </time>
       )}
