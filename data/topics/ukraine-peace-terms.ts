@@ -244,7 +244,7 @@ export const ukrainePeaceTermsData = {
         "Whether to lift sanctions as part of a deal hinges on whether Russia can sustain another year of attrition. A 2024 RUSI forecast had Russia exhausting most of its stored Soviet-era armor by 2026, and the pressure camp reads recruitment data the same way; the restraint camp says an autocracy can absorb pain Ukraine cannot — and Russia has evaded sanctions throughout.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Lifting sanctions and freezing the war now throws away leverage at the exact moment Russia is breaking. RUSI's Watling and Reynolds estimated in February 2024 that roughly 80% of the tanks and armored vehicles Russia delivers are refurbished from war stocks rather than newly built, forecast that by 2026 Russia 'will have exhausted most of the available stocks,' and wrote that beyond 2026 attrition 'will begin to materially degrade Russian combat power.' Recruitment fell 20% in Q1 2026 to roughly 800 sign-ups per day even as bonuses spiked, and for the first time Russia is losing more soldiers than it recruits. Sweden's intelligence service says Russia is faking macro data to appear more resilient than it is. Russia must lose decisively, or Beijing, Tehran, and Pyongyang learn that aggression pays.",
+        "Lifting sanctions and freezing the war now throws away leverage at the exact moment Russia is breaking. RUSI's Watling and Reynolds estimated in February 2024 that roughly 80% of the tanks and armored vehicles Russia delivers are refurbished from war stocks rather than newly built, forecast that by 2026 Russia 'will have exhausted most of the available stocks,' and wrote that beyond 2026 attrition 'will begin to materially degrade Russian combat power.' Recruitment fell 20% in Q1 2026 to roughly 800 sign-ups per day even as sign-on payments hit record highs, and Western officials told Bloomberg that in January 2026 Russia's battlefield losses outran its replacements by about 9,000. Sweden's military intelligence chief says Russia presents its economic data to look more resilient than it is, with real inflation nearer its 15% key rate than the official 5.86%. Russia must lose decisively, or Beijing, Tehran, and Pyongyang learn that aggression pays.",
       proponent_rebuttal:
         "Willingness, not capability, is the dominant variable — a Russian autocracy can absorb casualties and economic pain that a democratic Ukraine cannot, and Ukrainian manpower is the binding constraint, not Russian matériel. Sanctions have not coerced Russia despite years of maximum pressure; using sanctions relief as an incentive is the only lever that makes a durable deal attractive to Moscow. Betting Ukrainian lives on a forecast that Russia's attrition curve crosses around 2026 is reckless when that prediction has been made and missed before. Stop treating sanctions relief as a bargaining chip to be withheld and use it to buy peace.",
       crux: {
@@ -294,9 +294,9 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "recruitment-fell-20-percent",
-          title: "Russian Recruitment Fell 20% in Q1 2026 Despite Spiking Bonuses",
+          title: "Russian Recruitment Fell 20% in Q1 2026 Despite Record Sign-On Payments",
           description:
-            "Russian recruitment fell roughly 20% in Q1 2026 to about 800 sign-ups per day, even as regional sign-on bonuses rose to a median of 1.55 million rubles (~$20K). The Telegraph reported that for the first time in the war Russia was losing more soldiers (~40,000/month) than it could recruit (~35,000 contract signings). This trend is cited as evidence Russia's manpower model is reaching its limits.",
+            "Janis Kluge (SWP) estimated in April 2026 that Russian recruitment fell by about 20% in Q1 2026, to roughly 800 sign-ups per day, even as regional sign-on payments kept rising: the average payment in his dataset reached an all-time high of 1.47 million rubles in March (median 1.55 million). In February 2026 Western officials told Bloomberg that Russia sustained around 9,000 more battlefield losses in January than it was able to replace, after losses roughly equalled monthly recruitment in December; that assessment could not be independently verified. This trend is cited as evidence Russia's manpower model is reaching its limits.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -304,10 +304,10 @@ export const ukrainePeaceTermsData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Janis Kluge (SWP) Substack; The Moscow Times; The Telegraph",
+          source: "Janis Kluge (SWP) Substack; Bloomberg (Western officials, February 2026)",
           sourceUrl: "https://janiskluge.substack.com/p/russian-recruitment-fell-by-20-in",
           reasoning:
-            "Kluge's quantitative recruitment tracking is well-regarded and partly cross-checkable against regional bonus data. The casualty-vs-recruitment comparison relies on contested loss estimates, lowering replicability. Directly bears on whether Russia can sustain the fight.",
+            "Kluge's quantitative recruitment tracking is well-regarded and partly cross-checkable against regional bonus data. The losses-vs-recruitment comparison rests on anonymous Western officials' loss estimates that could not be independently verified, lowering replicability. Directly bears on whether Russia can sustain the fight.",
         },
         {
           id: "willingness-dominates-capability",
@@ -328,20 +328,20 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "sweden-faked-data",
-          title: "Sweden's Intelligence: Russia Faking Macro Data to Appear More Resilient",
+          title: "Sweden's Military Intelligence: Russia Presents Its Economy as More Resilient Than It Is",
           description:
-            "In April 2026, Sweden's military intelligence service (MUST) publicly claimed Russia is faking macroeconomic data to appear more resilient to sanctions and war than it is, with real inflation tracking closer to the 15% policy rate than the official 5.86%. Independent estimates from BOFIT and Re:Russia corroborate significant fiscal stress, suggesting sanctions are working and relief should not be conceded prematurely.",
+            "On 20 April 2026, Thomas Nilsson, head of Sweden's Military Intelligence and Security Service (MUST), said Russia presents its economic figures so that it appears more resilient to war and sanctions than it really is. MUST judges that real inflation is closer to the Bank of Russia's 15% key rate than to the central bank's official 5.86%, that the budget deficit is larger than reported, and that oil would need to stay above $100 a barrel for a year to close it. Nilsson said the economy faces either a long recession or a shock, on a downward path to financial disaster either way. If that assessment holds, sanctions are biting and relief should not be conceded prematurely.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
-            independence: 7,
+            independence: 6,
             replicability: 6,
             directness: 7,
           },
-          source: "Euronews; Sweden MUST; BOFIT",
+          source: "Euronews, reporting Sweden's Military Intelligence and Security Service (MUST)",
           sourceUrl: "https://www.euronews.com/my-europe/2026/04/21/russia-faked-economic-data-to-appear-more-resilient-to-its-war-and-sanctions-intel-report-",
           reasoning:
-            "An intelligence-agency claim is harder to independently verify (lower replicability) but is corroborated by independent economists at BOFIT and Re:Russia. It supports the argument that sanctions leverage is real and undermines the case for lifting sanctions in a settlement.",
+            "An intelligence-agency assessment given to the press is hard to verify independently (lower replicability), and the reporting cites no outside economist confirming it, though the 15% key rate it leans on is the Bank of Russia's own published figure. It supports the argument that sanctions leverage is real and undermines the case for lifting sanctions in a settlement.",
         },
       ],
     },

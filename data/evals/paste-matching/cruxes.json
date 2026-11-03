@@ -59,6 +59,13 @@
       "expected": "climate-effectiveness"
     },
     {
+      "id": "nuc-intermittent",
+      "map": "nuclear-energy-safety",
+      "text": "We need nuclear because wind and solar are intermittent. When the wind stops for a week in winter, batteries that last four hours won't keep the lights on.",
+      "expected": "grid-reliability",
+      "note": "r11 (2026-11-03): added with the grid-reliability crux, so not a clean test of it."
+    },
+    {
       "id": "imm-site",
       "map": "immigration-wage-impact",
       "text": "When a construction site can hire guys off the books for half the rate, of course the native workers' pay goes down. Borjas showed it with the Mariel data.",

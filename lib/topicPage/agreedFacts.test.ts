@@ -39,10 +39,31 @@ describe("agreed facts and best cards", () => {
     const { cruxes, weighing } = legacyTopicPage(topic);
     const trace = cruxes.find((crux) => crux.pillarId === "physical-trace")!;
     expect(trace.evidence.find((e) => e.id === "hubble-limitation")?.restatesAgreement).toBe(true);
-    // Still listed with the evidence, never offered as a best card.
-    expect(trace.bestCards.against).toBeUndefined();
+    // Still listed with the evidence, never offered as a best card: the
+    // skeptics' best card is their own claim, the pre-Apollo surface echoes.
+    expect(trace.bestCards.against?.id).toBe("surface-echoes-1962");
     expect(trace.bestCards.for?.id).toBe("lrrr-independent");
-    expect(weighing.strongest).toBeUndefined();
+    expect(weighing.strongest?.againstTitle).not.toMatch(/cannot see/i);
+  });
+
+  it("moon landing: every crux shows a card from each side (round-11 review)", async () => {
+    const topic = (await loadTopicById("moon-landing"))!;
+    const { cruxes, weighing } = legacyTopicPage(topic);
+    // With no pair the page's first crux showed no "other side's best card"
+    // at all, which read as broken. Each side now has a card of its own.
+    for (const crux of cruxes) {
+      expect(crux.bestCards.for, crux.pillarId).toBeDefined();
+      expect(crux.bestCards.against, crux.pillarId).toBeDefined();
+    }
+    expect(weighing.strongest).toBeDefined();
+    // The skeptic cards are weighed as what they are: claims whose evidence
+    // bears only indirectly on the crux, never stronger than the yes side's.
+    const cards = topic.pillars.flatMap((p) => p.evidence ?? []);
+    for (const id of ["surface-echoes-1962", "orion-belt-quote"]) {
+      const card = cards.find((c) => c.id === id)!;
+      expect(card.side, id).toBe("against");
+      expect(card.weight.directness, id).toBeLessThanOrEqual(3);
+    }
   });
 
   it("moon landing: the dosimeter card that points to yes sits on the yes side", async () => {
@@ -99,7 +120,7 @@ describe("agreed facts and best cards", () => {
     };
     const line = AGREED_FACT_THRESHOLDS.card;
     expect(await score("moon-landing", "hubble-limitation")).toBeGreaterThanOrEqual(line);
-    for (const id of ["lrrr-independent", "lro-imagery", "moon-rocks", "dosimeter-records", "trajectory-analysis"]) {
+    for (const id of ["lrrr-independent", "lro-imagery", "moon-rocks", "dosimeter-records", "trajectory-analysis", "surface-echoes-1962", "orion-belt-quote"]) {
       expect(await score("moon-landing", id), id).toBeLessThan(line);
     }
   });

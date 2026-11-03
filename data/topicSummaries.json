@@ -314,23 +314,23 @@
     "title": "Nuclear Energy for Climate",
     "question": "Should nuclear power be expanded to help decarbonize electricity?",
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 61,
+    "confidence_score": 53,
+    "balance": 53,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
+    "pillarCount": 3,
+    "evidenceCount": 10,
     "firstCrux": "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
     "firstCruxStanding": "value-difference",
     "tags": [
       "policy"
     ],
-    "keywords": "chernobyls lcoe torch unscear yucca lazard safest standalone fukushima millennia mountain overruns vogtle corrosion earthquakes"
+    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore safest"
   },
   {
     "id": "universal-healthcare",
@@ -693,7 +693,7 @@
       "Is Military Action Against Iran Justified?",
       "Should the US strike Iran?"
     ],
-    "keywords": "jcpoa hezbollahs houthis iranian iraq fordow soleimani barrels assassination militia amasses centrifuge irgc isfahan natanz"
+    "keywords": "jcpoa hezbollahs houthis iranian iraq fordow soleimani assassination militia amasses centrifuge irgc isfahan natanz jordan"
   },
   {
     "id": "epstein-files",
@@ -855,7 +855,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "biosurveillance cutler wastewater cepi kariko replenished weissman warp sars biontech marani botched givewell h1n1 pfizer"
+    "keywords": "biosurveillance cutler wastewater cepi kariko replenished weissman warp sars biontech marani pfizer botched givewell h1n1"
   },
   {
     "id": "china-taiwan-invasion",
@@ -1097,7 +1097,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "starship spacex biosphere moxie aboard colonists isru kingdon payload artemis lunar aiaa barbara booster energetic"
+    "keywords": "starship spacex biosphere moxie aboard colonists isru kingdon payload lunar artemis aiaa barbara booster energetic"
   },
   {
     "id": "lab-grown-meat-adoption",
@@ -1623,7 +1623,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regain substudy dieters nordisk pharmacotherapy reclassification waist comorbidities epic novo amgen copay cuisine diarrhea"
+    "keywords": "semaglutide regain wegovy novo pharmacy nordisk novocare substudy dieters pharmacotherapy reclassification waist comorbidities epic amgen"
   },
   {
     "id": "fluoride-water-supplies",
@@ -1778,7 +1778,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas rays alumni midwestern peabody charitable"
+    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas alumni midwestern peabody charitable"
   },
   {
     "id": "billionaire-wealth",
@@ -2167,8 +2167,8 @@
     "title": "The Moon Landing",
     "question": "Did the Moon landings happen?",
     "meta_claim": "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
-    "confidence_score": 88,
-    "balance": 88,
+    "confidence_score": 80,
+    "balance": 80,
     "weight": 82,
     "verdict": {
       "label": "Evidence largely converges on the claim",
@@ -2177,12 +2177,12 @@
     "status": "settled",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 12,
     "firstCrux": "Do laser echoes from the Moon need astronaut-placed reflectors, or could natural features explain them?",
     "tags": [
       "science"
     ],
-    "keywords": "dosimeters astronaut retroreflectors acquiescence dosimetry hubble jodrell allen mcdonald laser luna reconnaissance arrays astromaterials bounced"
+    "keywords": "dosimeters orion laser astronaut reflector artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell crimean"
   },
   {
     "id": "minneapolis-shooting",
@@ -2563,7 +2563,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters restrainer mammals"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters restrainer morgans"
   },
   {
     "id": "immigration-national-identity",
@@ -2630,7 +2630,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian tripwire zelensky putin manpower rusi emboldens haass jamestown kupchan refurbished unjust facto armor bonuses"
+    "keywords": "ukrainian tripwire zelensky putin manpower rusi emboldens haass jamestown kupchan refurbished unjust facto armor ceasefire"
   },
   {
     "id": "trump-tariffs",
@@ -2653,7 +2653,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence yard ieepa piie cavallo chris aluminum usitc krugman truce usmca scattered aerospace conditionalist decile"
+    "keywords": "fence yard ieepa piie cavallo chris aluminum usitc krugman truce usmca scattered conditionalist decile hawley"
   },
   {
     "id": "rfk-health-policy",
@@ -2860,7 +2860,7 @@
       "gun-rights",
       "originalism"
     ],
-    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia wallace firearms soldier"
+    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace firearms"
   },
   {
     "id": "self-driving-car-safety",
@@ -3386,7 +3386,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean lobbyists carey jenkins mclaughlin moncrief niemi olson powell rogowski thornton carroll qualifications rutgers beholden"
+    "keywords": "burkean lobbyists carey mclaughlin moncrief niemi olson powell rogowski thornton carroll jenkins qualifications rutgers beholden"
   },
   {
     "id": "effective-altruism",

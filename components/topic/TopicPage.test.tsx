@@ -249,7 +249,7 @@ describe("the one-tap reflection", () => {
 
     const options = scope.getAllByRole("button", { pressed: false });
     // One per crux, plus "None of these would".
-    expect(options).toHaveLength(3);
+    expect(options).toHaveLength(4);
     fireEvent.click(options[1]);
 
     const stored = JSON.parse(

@@ -28,6 +28,6 @@ test("home paste reaches the result when session storage is blocked", async ({ p
   await expect(page).toHaveURL(/\/analyze$/);
   const result = page.getByRole("region", { name: "Result" });
   await expect(result.getByRole("heading", { name: "This argument is already mapped" })).toBeVisible();
-  await expect(result.getByRole("link", { name: /^Open the map at/ })).toHaveAttribute("href", /^\/topics\/nuclear-energy-safety#crux-/);
+  await expect(result.getByRole("link", { name: "Open the map at the first crux" })).toHaveAttribute("href", /^\/topics\/nuclear-energy-safety#crux-/);
   expect(submissions).toEqual(["POST"]);
 });
