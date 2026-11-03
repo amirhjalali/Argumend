@@ -269,6 +269,27 @@
       "expected": "choice-theory",
       "holdout": true,
       "note": "Debatable: 'cash doesn't make people want kids' is the preferences side of the choice-theory crux; the demographic-doom-loop crux is the runner-up reading."
+    },
+    {
+      "id": "mwr-paperwork",
+      "map": "medicaid-work-requirements",
+      "text": "She works at a daycare and still lost Medicaid because the state website didn't log her hours. These rules don't catch people who won't work, they catch people who can't fight the paperwork.",
+      "expected": "coverage-losses",
+      "note": "Added 2026-11-03 (r14) with the round-12 map; label fixed before running the picker."
+    },
+    {
+      "id": "dcb-ohio-tariff",
+      "map": "data-centers-electricity-bills",
+      "text": "Ohio made the data center companies pay for 85% of the power they reserve even if they don't use it. Without rules like that, the new lines and substations get billed to the rest of us.",
+      "expected": "who-pays",
+      "note": "Added 2026-11-03 (r14) with the round-12 map; label fixed before running the picker."
+    },
+    {
+      "id": "poc-maiden-name",
+      "map": "proof-of-citizenship-voting",
+      "text": "My birth certificate has my maiden name and I don't own a passport. If registering means producing citizenship papers that match, a lot of married women just won't get registered.",
+      "expected": "eligible-citizens-blocked",
+      "note": "Added 2026-11-03 (r14) with the round-13 map; label fixed before running the picker."
     }
   ]
 }

@@ -367,7 +367,8 @@
     ],
     "aliases": [
       "Data center electricity costs",
-      "Do data centers raise power bills"
+      "Do data centers raise power bills",
+      "Are hyperscale server campuses behind my utility's rate hike?"
     ],
     "keywords": "pjms megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
   },
@@ -402,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat affidavit louisiana turnout brennan cantoni kansass pons campuses tenth"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat affidavit louisiana turnout brennan cantoni kansass pons tenth tribal"
   },
   {
     "id": "nuclear-energy-safety",
@@ -424,6 +425,10 @@
     "firstCruxStanding": "value-difference",
     "tags": [
       "policy"
+    ],
+    "aliases": [
+      "What do we do with nuclear waste that stays dangerous for thousands of years?",
+      "Was Germany wrong to shut down its nuclear plants?"
     ],
     "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore safest"
   },
@@ -449,7 +454,8 @@
       "policy"
     ],
     "aliases": [
-      "Universal medical coverage"
+      "Universal medical coverage",
+      "Would universal healthcare mean waiting months to see a specialist?"
     ],
     "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix simplification treatable"
   },
@@ -3357,6 +3363,9 @@
       "international-law",
       "warfare"
     ],
+    "aliases": [
+      "Will killer robots start an AI arms race?"
+    ],
     "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible primer abstentions atrocities belarus governmental milder unoda"
   },
   {
@@ -3386,9 +3395,10 @@
     ],
     "aliases": [
       "How much water does each ChatGPT query use?",
+      "How much water does an AI chatbot drink?",
       "Will AI data centers use as much electricity as whole countries?"
     ],
-    "keywords": "onsite freshwater gallons lbnl islam yang eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
+    "keywords": "onsite freshwater gallons lbnl islam yang eesi gco2e masley offsite shehabi thermoelectric thirsty hyperscaler cubic"
   },
   {
     "id": "adhd-overdiagnosis",

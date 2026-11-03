@@ -2,6 +2,11 @@ export const nuclearEnergySafetyData = {
   id: "nuclear-energy-safety",
   title: "Nuclear Energy for Climate",
   question: "Should nuclear power be expanded to help decarbonize electricity?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "What do we do with nuclear waste that stays dangerous for thousands of years?",
+    "Was Germany wrong to shut down its nuclear plants?",
+  ],
   meta_claim:
     "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
   status: "contested" as const,
