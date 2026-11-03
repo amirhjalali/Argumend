@@ -32,6 +32,7 @@ export const alcoholNoSafeLevelData = {
   },
   simple_case: [
     "The answer shapes what doctors tell patients about a nightly glass of wine, whether bottles carry cancer warnings, and whether the next US guidelines put a number back.",
+    "The two sides split over whether cancer risk starts from the first drink, whether light drinkers really outlive people who never drank, and whether a small but real risk deserves the words 'low risk'.",
   ],
   pillars: [
     // =========================================================================

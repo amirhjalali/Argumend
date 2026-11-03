@@ -33,6 +33,7 @@ export const pfasForeverChemicalsData = {
   },
   simple_case: [
     "The answer decides what your water bill pays for, whether the D.C. Circuit and EPA keep or cut the 2024 limits, and whether states keep banning PFAS from pans, carpets and clothing.",
+    "The two sides split over which health links survive once kidney function is accounted for, whether harm reaches the blood levels most people carry, and whether to regulate PFAS as one class or a few compounds at a time.",
   ],
   pillars: [
     // =========================================================================

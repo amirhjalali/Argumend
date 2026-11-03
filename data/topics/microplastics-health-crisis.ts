@@ -30,6 +30,7 @@ export const microplasticsHealthCrisisData = {
   },
   simple_case: [
     "The answer shapes whether governments cap plastic production or ban plastic food packaging, what a UN plastics treaty covers, and whether a water filter or glass containers are worth your money.",
+    "The two sides split over how much of the plastic reported in human tissue is really there, whether it causes disease or collects in tissue that was already diseased, and whether to act before harm in people is shown.",
   ],
   pillars: [
     // =========================================================================

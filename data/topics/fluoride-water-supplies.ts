@@ -32,6 +32,7 @@ export const fluorideWaterSuppliesData = {
   },
   simple_case: [
     "The answer decides whether your town's water board keeps fluoridating, what dentists tell parents in towns that stop, and what EPA does with the fluoride standard it began reassessing in January 2026.",
+    "The two sides split over how much fluoridated water still adds to fluoride toothpaste, whether a margin of about two between the US target and the level linked to lower IQ is enough, and whether school programmes can reach the children tap water reaches.",
   ],
   pillars: [
     // =========================================================================
