@@ -1,478 +1,602 @@
 export const glp1WeightLossDrugsData = {
   id: "glp1-weight-loss-drugs",
-  title: "GLP-1 Weight Loss Drugs",
+  title: "GLP-1 Drugs: Ozempic, Wegovy and Zepbound",
   question: "Are GLP-1 drugs like Ozempic a safe, lasting answer to obesity?",
   meta_claim:
-    "GLP-1 receptor agonists like Ozempic and Mounjaro represent a safe, effective long-term solution to the obesity epidemic that should be widely accessible, not a dangerous shortcut that medicalizes a lifestyle problem.",
+    "GLP-1 drugs such as semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound) are a safe and lasting treatment for obesity that improves health, and are worth paying for widely.",
   status: "contested" as const,
   category: "science" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  // As of 3 November 2026: a Medicare demonstration has covered obesity
+  // drugs since July 2026 (KFF); the November 2025 White House deal set a
+  // $245 Medicare price and a $50 copay; Novo cuts Wegovy's list price to
+  // $675 on 1 January 2027; the FDA asked in January 2026 for the
+  // suicidal-ideation warning to come off Wegovy, Saxenda and Zepbound; the
+  // BMJ's January 2026 meta-analysis is the newest review of regain.
+  last_updated: "2026-11-03",
+  // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In the STEP 1 trial, semaglutide, the GLP-1 drug sold as Ozempic, produced 14.9% average weight loss over 68 weeks, against 2.4% on placebo; a year after stopping, participants had regained about two-thirds of what they lost. The longest randomized trials run only about two to four years. What remains open is what decades of use would bring, and whether a price of roughly $1,000 a month pays for itself.",
-    confidence: 88,
+      "In trials, people on the newest obesity drugs lost 14% to 20% of their body weight in about 72 weeks. But those who stop regain most of it within about a year, and in US health records about two in three patients without diabetes stopped within 12 months. Since July 2026 Medicare has been paying for them for obesity. The fight is over whether a drug many people may need for life is safe for decades, worth its price, and a real answer to obesity.",
+    confidence: 86,
     source:
-      "STEP 1 trial, NEJM (2021), and its one-year extension, Diabetes, Obesity and Metabolism; KFF on GLP-1 costs",
-    sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
+      "Aronne et al., SURMOUNT-5, NEJM (2025); Wilding et al., STEP 1 extension, Diabetes, Obesity and Metabolism (2022); Rodriguez et al., JAMA Network Open (2025); KFF (January 2026) on the Medicare demonstration",
+    sourceUrl: "https://doi.org/10.1056/NEJMoa2416394",
   },
-  // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that the longest randomized trials of GLP-1 drugs like Ozempic and Mounjaro run only two to four years, that most lost weight returns within a year of stopping, that the roughly $1,000-a-month price is high, and that pairing the drugs with diet and resistance training beats the drug alone.",
-    "They split over whether ten or more years of continuous use stays net-beneficial; whether prevented hospitalizations and illnesses offset the drug bill over a decade; whether intensive lifestyle programs can match drug-level weight loss durably at scale; and what share of prescriptions are clinically appropriate rather than cosmetic.",
-    "Each is a question long-run cohorts, claims data and head-to-head trials could answer.",
+    "The answer bears on what doctors offer the roughly four in ten American adults with obesity, on tens of billions of dollars of Medicare and Medicaid spending, and on whether the shots replace diet and exercise or sit beside them.",
+    "Most of the long trials were paid for by the two companies that sell the drugs, Novo Nordisk and Eli Lilly.",
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Clinical Efficacy & Long-Term Safety
+    // PILLAR 1: Beyond the scale (what the drugs do)
+    // =========================================================================
+    {
+      id: "health-outcomes",
+      title: "Beyond the Scale: Do They Make People Healthier?",
+      short_summary:
+        "The weight loss is not in doubt: 15% to 20% on average, more than any earlier drug. The open question is how far it turns into fewer heart attacks, less kidney failure and longer lives, and for whom. The outcome trials so far enrolled people who were already sick.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "Weight is a stand-in; what matters is whether people live longer and healthier lives, and that evidence is narrower than the headlines. SELECT, the heart trial behind the claim that semaglutide protects the heart, enrolled only people who already had heart disease. Over about 40 months, 6.5% of them had a heart attack, stroke or heart death on the drug and 8.0% on placebo: about 1.5 fewer events per 100 people treated. One in six on semaglutide (16.6%) stopped because of side effects, twice the placebo rate. The kidney trial, FLOW, was in people with diabetes and kidney disease. No trial has yet shown that the tens of millions of otherwise healthy people with obesity who are now eligible will have fewer heart attacks or deaths. And the companies that sell the drugs paid for every one of these trials.",
+      proponent_rebuttal:
+        "These are hard outcomes, not just pounds. In SELECT, 17,604 adults with heart disease and obesity but no diabetes had 20% fewer heart attacks, strokes and heart deaths on semaglutide, the first obesity drug ever shown to do that. In FLOW, people with diabetes and kidney disease had 24% fewer major kidney events and 20% fewer deaths from any cause. The weight loss itself held for four years in SELECT and kept growing in head-to-head trials: tirzepatide cut 20.2% of body weight at 72 weeks, against 13.7% for semaglutide. Earlier diets and drugs never reached these numbers. Obesity drives diabetes, heart disease, fatty liver, sleep apnea and arthritis; a drug that removes a fifth of a person's weight attacks all of them at once. Demanding a mortality trial in every subgroup before treating would hold these drugs to a bar few medicines meet.",
+      crux: {
+        id: "hard-outcomes",
+        title: "The Hard-Outcomes Test",
+        question:
+          "Do GLP-1 drugs prevent heart attacks, kidney failure and early death in people with obesity who are not yet sick?",
+        description:
+          "SELECT and FLOW showed fewer heart and kidney events in people who already had heart disease or diabetic kidney disease. Whether the same holds for the much larger group with obesity and no such disease decides how much of the drugs' promise is proven and how much is extrapolated from weight loss.",
+        methodology:
+          "Randomized outcome trials in people with obesity but without established heart disease or diabetes, with heart attacks, strokes, kidney failure and death as endpoints, followed for at least five years; plus large real-world cohorts comparing users with similar non-users, checked against those trials.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial of tirzepatide or semaglutide in people with obesity but no heart disease or diabetes, reporting heart attacks, strokes, kidney failure and deaths over five years or more, with independent adjudication of events.",
+        },
+        cost_to_verify:
+          "$500M-1B (a large cardiovascular outcomes trial; industry-funded trials of this kind are under way)",
+        falsification: {
+          supporter_flip:
+            "If outcome trials in people with obesity but no heart disease found no reduction in heart attacks, strokes or deaths after five years, the case that the drugs make healthy people with obesity healthier would rest on weight loss alone.",
+          skeptic_flip:
+            "If those trials found reductions like SELECT's 20%, or FLOW's 20% fewer deaths from any cause, in people who were not yet sick, the objection that the benefit is proven only for people with heart or kidney disease would fail.",
+          common_ground:
+            "Both sides agree the drugs cause large weight loss, 14% to 20% on average in trials, and that SELECT showed fewer heart attacks, strokes and heart deaths in people who already had heart disease.",
+          live_disagreement:
+            "Whether that benefit extends to the much larger group with obesity and no heart disease, and how big it is in absolute terms for them.",
+        },
+      },
+      evidence: [
+        {
+          id: "select-cardiovascular",
+          title: "SELECT 2023: Semaglutide Cut Heart Attacks, Strokes and Heart Deaths by 20% in People With Heart Disease",
+          description:
+            "A double-blind trial of 17,604 adults aged 45 or older with existing heart disease, a BMI of 27 or more and no diabetes. Over a mean 39.8 months, a heart attack, stroke or heart death occurred in 6.5% of patients on semaglutide 2.4 mg and 8.0% on placebo (hazard ratio 0.80). Side effects led 16.6% on semaglutide to stop the drug for good, against 8.2% on placebo.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source:
+            "Lincoff et al., 'Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes', New England Journal of Medicine (2023); funded by Novo Nordisk",
+          sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2307563",
+          reasoning:
+            "A large, well-run outcome trial: the strongest evidence that the drugs improve health, not just weight. The absolute difference is 1.5 events per 100 people over about three years, the population already had heart disease, and Novo Nordisk funded it.",
+        },
+        {
+          id: "flow-kidney-2024",
+          title: "FLOW 2024: Semaglutide Cut Major Kidney Events by 24% and Deaths by 20% in Diabetic Kidney Disease",
+          description:
+            "In 3,533 people with type 2 diabetes and chronic kidney disease, weekly semaglutide 1.0 mg lowered the risk of kidney failure, a halving of kidney function, or death from kidney or heart causes by 24% over a median 3.4 years (331 against 410 first events). Death from any cause was 20% lower. The trial stopped early for benefit.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "Perkovic et al., 'Effects of Semaglutide on Chronic Kidney Disease in Patients with Type 2 Diabetes', New England Journal of Medicine (2024); funded by Novo Nordisk",
+          sourceUrl: "https://doi.org/10.1056/NEJMoa2403347",
+          reasoning:
+            "A hard-outcome result, including fewer deaths. Directness to obesity is limited: everyone had diabetes and kidney disease, and the dose was the diabetes dose, not the obesity dose.",
+        },
+        {
+          id: "surmount-5-head-to-head",
+          title: "SURMOUNT-5 2025: Tirzepatide Cut 20.2% of Body Weight in 72 Weeks, Semaglutide 13.7%",
+          description:
+            "In the first head-to-head trial of the two leading drugs, 751 adults with obesity but no diabetes took the highest tolerated dose of tirzepatide or semaglutide for 72 weeks. Weight fell 20.2% on tirzepatide and 13.7% on semaglutide; waists shrank 18.4 cm and 13.0 cm. The most common side effects in both groups were gastrointestinal, mostly mild to moderate and during dose increases.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 6,
+            replicability: 8,
+            directness: 6,
+          },
+          source:
+            "Aronne et al., 'Tirzepatide as Compared with Semaglutide for the Treatment of Obesity', New England Journal of Medicine (2025); funded by Eli Lilly",
+          sourceUrl: "https://doi.org/10.1056/NEJMoa2416394",
+          reasoning:
+            "Confirms weight loss of a size no earlier drug reached. The trial was open-label and paid for by the maker of the winning drug, and weight loss is a stand-in: it does not by itself show fewer heart attacks or deaths.",
+        },
+        {
+          id: "step-1-trial",
+          title: "STEP 1 2021: Semaglutide 14.9% Weight Loss Over 68 Weeks, Against 2.4% on Placebo",
+          description:
+            "The trial that led to Wegovy's approval enrolled 1,961 adults with a BMI of 30 or more, or 27 with a weight-related condition, and no diabetes. On weekly semaglutide 2.4 mg plus lifestyle advice, they lost 14.9% of body weight over 68 weeks, against 2.4% on placebo. Gastrointestinal side effects (nausea, diarrhea, vomiting) were reported by 74% on semaglutide, mostly mild to moderate and fading over time.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 7,
+            replicability: 9,
+            directness: 6,
+          },
+          source:
+            "Wilding et al., 'Once-Weekly Semaglutide in Adults with Overweight or Obesity', New England Journal of Medicine (2021); funded by Novo Nordisk",
+          sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
+          reasoning:
+            "The benchmark weight-loss result, replicated across the STEP program. Directness is moderate because the question is health, not weight, and the trial ran 68 weeks.",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 2: Long-term safety (what could go wrong)
     // =========================================================================
     {
       id: "clinical-efficacy-safety",
-      title: "Clinical Efficacy & Long-Term Safety",
+      title: "Safe for Decades? What We Know and Don't",
       short_summary:
-        "Large RCTs show GLP-1 agonists produce 15-22% body weight loss and reduce cardiovascular events by 20%, but questions remain about long-term safety beyond 4 years, muscle mass loss, and what happens when patients stop taking the drugs.",
-      icon_name: "Microscope" as const,
+        "Drugs in this class have been prescribed for diabetes since 2005, and the FDA found no link to suicidal thoughts. But people now take far higher doses for obesity, and may take them for life. Muscle loss, a rare eye condition and gut problems are known; what decades of use bring is not.",
+      icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The clinical evidence for GLP-1 drugs, while impressive in the short term, is fundamentally incomplete. The longest randomized trials run only 2-4 years — a blink in a condition patients would need to treat for life. The STEP 1 trial showed participants regained two-thirds of lost weight within one year of discontinuation, meaning these drugs do not cure obesity but create pharmaceutical dependency. Up to 40% of weight lost on semaglutide is lean muscle mass, not fat, which accelerates sarcopenia and increases fall risk — particularly dangerous for older adults. Reports of gastroparesis, pancreatitis, bowel obstruction, and suicidal ideation continue to accumulate in FDA adverse event databases. The SELECT trial's cardiovascular benefit was modest (a 20% relative risk reduction translating to a 1.5% absolute risk reduction) and was conducted in a population already on standard cardiac care. We are conducting the largest uncontrolled experiment in pharmaceutical history on tens of millions of people based on 3-4 years of data.",
+        "Tens of millions of people may take these drugs for decades on the strength of trials that ran two to four years. The known harms are real. In the STEP 1 body-scan substudy, lean mass fell 9.7% while fat fell 19.3%, so roughly a third of the weight lost was not fat, which matters for older people at risk of frailty. In 2025 Europe's drug regulator recommended adding a rare cause of sudden vision loss, NAION, to semaglutide's label. Most patients have nausea or diarrhea at first, and the labels warn of pancreatitis, gallbladder disease and, from rodent studies, thyroid tumors. Rare harms surface only after years and millions of users, as they did for other blockbuster drugs. We do not know what 20 years of suppressing appetite does, and the people taking the drugs now are the ones who will find out.",
       proponent_rebuttal:
-        "The clinical evidence for GLP-1 receptor agonists is among the strongest in obesity medicine history. The STEP program enrolled over 10,000 participants across multiple Phase 3 trials, demonstrating 15-17% weight loss with semaglutide 2.4mg. Tirzepatide (Mounjaro) showed even greater efficacy: the SURMOUNT-1 trial demonstrated 22.5% weight loss at the highest dose. The SELECT trial — a landmark 17,604-patient cardiovascular outcomes trial — proved that semaglutide reduces major adverse cardiovascular events by 20%, the first time any anti-obesity medication has demonstrated cardioprotection. The concern about muscle loss is valid but manageable: resistance training preserves lean mass, and the metabolic benefits of losing 15-20% body weight far outweigh the risks of continued obesity, which kills over 2.8 million people annually worldwide. GLP-1 agonists have been prescribed for diabetes since 2005 — nearly two decades of real-world safety data. Weight regain after discontinuation is not a flaw of the drug; it confirms that obesity is a chronic disease requiring ongoing treatment, just like hypertension or diabetes.",
+        "This is not a new drug class. Exenatide was approved for diabetes in 2005 and liraglutide in 2010, so there are two decades and millions of patient-years of safety data. When reports of suicidal thoughts appeared, the FDA reviewed 91 placebo-controlled trials with 107,910 patients and a claims study of 2.2 million new users, found no increased risk, and in January 2026 asked for the warning to come off Wegovy, Saxenda and Zepbound. Europe classes NAION as 'very rare': up to 1 in 10,000 people. Lean mass falls with any large weight loss, from dieting or surgery, and in STEP 1 the share of the body that was lean actually rose. In SELECT, serious adverse events were less common on semaglutide than on placebo at every BMI level over four years. Untreated obesity, set against those known risks, is the larger danger.",
       crux: {
         id: "long-term-safety-profile",
-        title: "The Long-Term Safety & Discontinuation Test",
+        title: "The Long-Term Safety Test",
         question:
           "Does ten or more years of continuous use stay net-beneficial, or reveal cumulative risks?",
         description:
-          "The definitive question is whether GLP-1 agonists remain safe and effective over 10+ years of continuous use, and whether the metabolic benefits persist or reverse upon discontinuation. If long-term use reveals cumulative risks (thyroid cancer, pancreatic disease, irreversible gastroparesis) that rival the morbidity of untreated obesity, the risk-benefit calculus changes fundamentally.",
+          "Trials of the obesity doses have run up to about four years. Whether risks such as muscle and bone loss, pancreatic or thyroid disease, or eye damage accumulate over decades, enough to rival the harms of untreated obesity, is what long follow-up has to show.",
         methodology:
-          "Conduct a 10-year prospective cohort study comparing GLP-1 users vs. matched controls on: all-cause mortality, cardiovascular events, cancer incidence (particularly thyroid and pancreatic), gastrointestinal complications, body composition (DXA scans for lean mass vs. fat mass), and metabolic markers. Include a discontinuation arm tracking outcomes for 3+ years after stopping treatment. Cross-reference with FDA FAERS data and international pharmacovigilance databases.",
+          "A ten-year cohort of GLP-1 users at obesity doses against matched non-users, tracking deaths, heart events, thyroid and pancreatic cancer, gut complications, fractures, eye disease and body composition by DXA scan, with an arm followed after stopping; cross-checked against FDA and European adverse-event reporting.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "A ten-year cohort of GLP-1 users against matched controls, tracking deaths, heart events, thyroid and pancreatic cancer, gut complications and lean mass, with an arm followed for three years after stopping.",
         },
         cost_to_verify:
-          "$50-100M (Large prospective cohort study with 10-year follow-up and imaging)",
+          "$50-100M (large prospective cohort with 10-year follow-up and imaging)",
         falsification: {
           supporter_flip:
-            "If 10+-year data revealed cumulative harms (thyroid or pancreatic cancer, irreversible gastroparesis, dangerous muscle/bone loss) that rival the morbidity of untreated obesity, the 'benefits far outweigh risks' case would flip — short-term efficacy wouldn't justify lifelong use.",
+            "If ten-year data showed cumulative harms, such as more fractures and frailty from lost muscle and bone, or more pancreatic or thyroid cancer, on a scale that rivals the harms of untreated obesity, short-term trial results would not justify lifelong use.",
           skeptic_flip:
-            "If long-term follow-up extended the roughly two decades of diabetes safety data and the net benefit seen in the cardiovascular outcomes trial, 'unknown long-term risk' would weigh less against the known, large harm of untreated obesity.",
+            "If long follow-up kept matching the record so far, with SELECT's four years of fewer serious adverse events than placebo and the FDA's review of 107,910 trial patients finding no psychiatric signal, unknown long-term risk would weigh less against the known harm of obesity.",
           common_ground:
-            "Both sides agree the longest randomized trials run only ~2-4 years, and that most lost weight returns within a year of stopping the drug.",
+            "Both sides agree trials of obesity doses have run only up to about four years, that much of the early side-effect burden is gastrointestinal, and that some lean mass is lost along with fat.",
           live_disagreement:
-            "Whether 10+ years of continuous use proves net-beneficial or surfaces cumulative risks that change the calculus — which only long-horizon cohort data can answer.",
+            "Whether ten or more years of continuous use stays net-beneficial, which only long cohorts can answer, and how much to weigh rare harms not yet seen against the known harms of obesity.",
         },
       },
       evidence: [
         {
-          id: "step-1-trial",
-          title: "STEP 1 Trial: Semaglutide Produces 14.9% Weight Loss Over 68 Weeks",
+          id: "fda-suicidal-ideation-2026",
+          title: "FDA 2026: No Suicide Risk in 91 Trials and 107,910 Patients; Warning to Come Off Wegovy and Zepbound",
           description:
-            "The landmark STEP 1 randomized controlled trial enrolled 1,961 adults with obesity (BMI >= 30) or overweight with comorbidities. Participants receiving semaglutide 2.4mg weekly lost 14.9% of body weight compared to 2.4% with placebo over 68 weeks. One-third of participants lost more than 20% of their body weight. Gastrointestinal adverse events (nausea, diarrhea, vomiting) occurred in 74% of the semaglutide group but were mostly mild to moderate and declined over time.",
+            "On 13 January 2026 the FDA asked manufacturers to remove the suicidal ideation and behavior warning from the labels of Saxenda, Wegovy and Zepbound. Its meta-analysis of 91 placebo-controlled trials (107,910 patients) 'did not show an increased risk' and found no rise in anxiety or depression. A claims-based study of 2,243,138 new users found no increased risk of intentional self-harm compared with users of another diabetes drug class.",
           side: "for" as const,
-          weight: {
-            sourceReliability: 10,
-            independence: 8,
-            replicability: 9,
-            directness: 9,
-          },
-          source: "New England Journal of Medicine",
-          sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
-          reasoning:
-            "Published in the NEJM, the gold standard of medical journals, and replicated across the STEP trial program. The trial was industry-funded by Novo Nordisk, which slightly reduces independence, but the results have been independently verified. The magnitude of weight loss is unprecedented for any anti-obesity medication.",
-        },
-        {
-          id: "select-cardiovascular",
-          title: "SELECT Trial: Semaglutide Reduces Cardiovascular Events by 20%",
-          description:
-            "The SELECT trial, a double-blind RCT of 17,604 adults aged 45+ with overweight/obesity and established cardiovascular disease (but not diabetes), found that semaglutide 2.4mg reduced the risk of major adverse cardiovascular events (MACE) by 20% over a median 39.8-month follow-up. This includes a 28% reduction in nonfatal heart attacks. The absolute risk reduction was 1.5 percentage points (6.5% vs. 8.0%). This was the first time any anti-obesity medication demonstrated cardiovascular benefit.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 10,
-            independence: 7,
-            replicability: 8,
-            directness: 9,
-          },
-          source: "New England Journal of Medicine",
-          sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2307563",
-          reasoning:
-            "A massive, well-designed cardiovascular outcomes trial published in the NEJM. The 20% MACE reduction is clinically meaningful, though the absolute risk reduction of 1.5% over 3.3 years is more modest. Industry-funded but independently adjudicated. The cardiovascular benefit may extend beyond weight loss, as the effect appeared before significant weight change.",
-        },
-        {
-          id: "weight-regain-discontinuation",
-          title: "STEP 1 Extension: Two-Thirds of Weight Regain Within One Year of Stopping",
-          description:
-            "The STEP 1 trial extension followed participants for one year after discontinuation of semaglutide. Participants regained approximately two-thirds of the weight they had lost, going from 17.3% weight loss at 68 weeks to only 5.6% net weight loss at 120 weeks. Improvements in cardiometabolic risk factors (waist circumference, blood pressure, HbA1c) also partially reversed. This suggests that GLP-1 drugs require indefinite use — potentially decades — to maintain benefits.",
-          side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 6,
           },
-          source: "Diabetes, Obesity and Metabolism (Wiley)",
-          sourceUrl: "https://dom-pubs.pericles-prod.literatumonline.com/doi/10.1111/dom.14725",
+          source:
+            "FDA Drug Safety Communication, 'FDA Requests Removal of Suicidal Behavior and Ideation Warning from GLP-1 RA labeling' (13 January 2026)",
+          sourceUrl:
+            "https://www.fda.gov/drugs/drug-safety-communications/fda-requests-removal-suicidal-behavior-and-ideation-warning-glucagon-peptide-1-receptor-agonist-glp",
           reasoning:
-            "Published in a respected peer-reviewed journal with rigorous methodology. The weight regain data is robust and consistent across multiple GLP-1 discontinuation studies. This is the strongest evidence that GLP-1s create long-term pharmaceutical dependency rather than resolving the underlying condition.",
+            "The regulator's own large review closes one widely feared risk. It covers one harm only, and the trials it pooled were mostly short.",
         },
         {
           id: "muscle-mass-loss",
-          title: "Up to 40% of GLP-1 Weight Loss Is Lean Muscle Mass, Not Fat",
+          title: "STEP 1 Body Scans: Lean Mass Fell 9.7% as Fat Fell 19.3%",
           description:
-            "Body composition analyses from GLP-1 trials using DXA scans reveal that roughly 25-40% of total weight lost is lean body mass rather than fat. The DXA substudy of the STEP 1 semaglutide trial reported a ~10.4 kg fat-mass reduction and a ~6.9 kg lean-mass reduction — about 40% of total weight lost coming from lean tissue (though lean mass as a proportion of body weight still improved as fat loss predominated). For a patient losing 35 pounds, this could mean losing 10-14 pounds of lean tissue. In older adults, this can accelerate sarcopenia — age-related muscle wasting — increasing fall risk, frailty, and potentially long-term mortality. Resistance exercise can partially mitigate this, but many patients do not receive exercise counseling.",
+            "In a DXA body-scan substudy of 140 STEP 1 participants, those on semaglutide lost 15.0% of body weight over 68 weeks. Total fat mass fell 19.3% and visceral fat 27.4%; total lean mass fell 9.7%. Because fat fell faster, the proportion of the body that was lean rose by 3.0 percentage points.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
-            directness: 8,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
           },
-          source: "Journal of the Endocrine Society (STEP 1 DXA substudy); The Lancet Diabetes & Endocrinology",
-          sourceUrl: "https://academic.oup.com/jes/article/5/Supplement_1/A16/6240360",
+          source:
+            "Wilding et al., 'Impact of Semaglutide on Body Composition in Adults With Overweight or Obesity: Exploratory Analysis of the STEP 1 Study', Journal of the Endocrine Society 5 (Supplement 1) (2021)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8089287/",
           reasoning:
-            "DXA substudy data from STEP 1 confirms that a substantial share (~40%) of weight lost is lean mass. This is a genuine clinical concern, particularly for older patients at risk of sarcopenia. However, context cuts both ways: lean mass as a proportion of total body weight still improved, untreated severe obesity itself causes functional impairment, and the net effect of 15-20% weight loss on mobility and metabolic health is generally positive even accounting for some lean-mass loss. Independence is moderated because the substudy derives from the industry-funded STEP 1 trial.",
+            "Real lean-mass loss, which matters most for older people. It cuts both ways: the body's lean share improved, lean mass includes water and organs as well as muscle, and any large weight loss costs some lean tissue. A small, exploratory substudy of an industry trial.",
+        },
+        {
+          id: "ema-naion-2025",
+          title: "EMA 2025: Rare Optic-Nerve Damage (NAION) Added to Semaglutide's Label as 'Very Rare'",
+          description:
+            "After reviewing all available data, the European Medicines Agency's safety committee recommended on 6 June 2025 that semaglutide's product information list non-arteritic anterior ischemic optic neuropathy (NAION), a cause of sudden vision loss, as a side effect with a frequency of 'very rare', meaning it may affect up to 1 in 10,000 people. Patients with sudden loss of vision should contact their doctor without delay, and treatment should stop if NAION is confirmed.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "European Medicines Agency, 'Meeting highlights from the Pharmacovigilance Risk Assessment Committee (PRAC) 2-5 June 2025' (6 June 2025)",
+          sourceUrl:
+            "https://www.ema.europa.eu/en/news/meeting-highlights-pharmacovigilance-risk-assessment-committee-prac-2-5-june-2025",
+          reasoning:
+            "A regulator confirming a harm that trials missed: the pattern skeptics warn about. The risk is very rare, and it was found after millions of patient-years, which also shows surveillance working.",
+        },
+        {
+          id: "select-four-year-safety",
+          title: "SELECT 2024: Weight Loss Held for Four Years, With Fewer Serious Adverse Events Than Placebo",
+          description:
+            "A prespecified analysis of SELECT found weight loss on semaglutide continued for 65 weeks and held for up to four years: at 208 weeks weight was down 10.2%, against 1.5% on placebo. In every BMI group, serious adverse events were less frequent on semaglutide than on placebo (for example 43.23 against 50.48 per 100 years of observation in people with a BMI under 30). Stopping the drug was more common on semaglutide.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 6,
+            replicability: 7,
+            directness: 7,
+          },
+          source:
+            "Ryan et al., 'Long-term weight loss effects of semaglutide in obesity without diabetes in the SELECT trial', Nature Medicine 30:2049-2057 (2024)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11271387/",
+          reasoning:
+            "The longest randomized safety record at an obesity dose. Four years is still short of lifelong use, the population had heart disease, and the authors include Novo Nordisk staff.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 2: Access, Equity & Cost
+    // PILLAR 3: A drug for life? (lasting)
+    // =========================================================================
+    {
+      id: "medicalization-root-causes",
+      title: "A Drug for Life? What Happens When People Stop",
+      short_summary:
+        "Stop the drug and the weight comes back: about two-thirds within a year in STEP 1, and faster than after diet programs. Most real-world patients without diabetes stop within a year. Defenders say obesity is chronic, like high blood pressure, and the drugs work for as long as people take them; critics say a treatment most people quit is not a lasting answer.",
+      icon_name: "Target" as const,
+      skeptic_premise:
+        "A lasting answer should last. One year after stopping semaglutide, STEP 1 participants had regained two-thirds of what they lost, and their blood pressure and blood sugar gains largely reversed. Switched to placebo in SURMOUNT-4, people regained 14% of their body weight in a year. A 2026 BMJ review of 37 studies found weight returns at about 0.4 kg a month after stopping, faster than after diet programs, with heart-risk markers back to baseline within about 1.4 years. In US health records, 64.8% of patients without diabetes stopped within a year, often because of side effects or cost. A drug that works only while taken, and that most people stop, is a subscription, not a cure. Diet, activity and food policy have to carry the load anyway.",
+      proponent_rebuttal:
+        "Nobody calls blood-pressure pills a failure because pressure rises when you stop them. Obesity is a chronic disease, and in SURMOUNT-4 people who kept taking tirzepatide lost a further 5.5% and ended 25.3% lighter after 88 weeks; 89.5% kept at least four-fifths of their loss. In SELECT, weight stayed down for four years on the drug. The alternative has been tested: Look AHEAD, the largest lifestyle trial, put 5,145 people with diabetes through intensive diet and exercise for nearly ten years, got 6.0% weight loss against 3.5%, and found no reduction in heart attacks or strokes. People stop the drugs mostly because of cost and coverage, and those are falling. Lifestyle change helps, and the drugs are given alongside it; they do not replace it.",
+      crux: {
+        id: "lifestyle-vs-pharmacotherapy",
+        title: "The Lifelong-Use Test",
+        question:
+          "Can people keep the weight off without staying on the drug for life?",
+        description:
+          "If benefits vanish when people stop, and most people stop, the drugs are a lasting answer only for those who stay on them for good. Tapering to lower doses, switching to pills, or pairing the drugs with intensive lifestyle support might let people keep the loss with less drug; whether they do is untested at scale.",
+        methodology:
+          "Randomized trials comparing continued full dose, tapered maintenance doses, switching to an oral drug, and stopping with intensive lifestyle support, followed for at least three years; plus real-world data on how long people stay on treatment once cost barriers fall.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Three-year randomized trials comparing full-dose maintenance, lower maintenance doses, oral drugs and stopping with intensive lifestyle support, measuring weight, heart-risk markers and how many people stay on treatment.",
+        },
+        cost_to_verify:
+          "$30-50M (multi-arm maintenance trial over three years)",
+        falsification: {
+          supporter_flip:
+            "If maintenance trials found that even low doses or intensive lifestyle support after stopping could not hold the weight off, and real-world patients kept quitting within a year even with cheap coverage, the drugs would be a lasting answer only for the minority who stay on them indefinitely.",
+          skeptic_flip:
+            "If lower maintenance doses or pills held most of the loss for years, and people stayed on treatment once cost was no barrier, the objection that the benefit vanishes when people stop would lose most of its force.",
+          common_ground:
+            "Both sides agree that most of the weight returns within about a year of stopping, that people who stay on the drug keep the loss for at least four years, and that combining the drugs with diet and exercise beats the drug alone.",
+          live_disagreement:
+            "Whether a treatment that works only while taken, and that most people stop within a year, counts as a lasting answer, or as lifelong care for a chronic disease like any other.",
+        },
+      },
+      evidence: [
+        {
+          id: "weight-regain-discontinuation",
+          title: "STEP 1 Extension: Two-Thirds of Lost Weight Back One Year After Stopping",
+          description:
+            "When STEP 1 ended at week 68, all treatment, including lifestyle support, stopped. In the 327 participants followed for another year, those who had been on semaglutide had lost 17.3% of body weight by week 68 and regained 11.6 percentage points by week 120, a net loss of 5.6%. Most heart-risk improvements reverted toward baseline.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 9,
+            directness: 9,
+          },
+          source:
+            "Wilding et al., 'Weight regain and cardiometabolic effects after withdrawal of semaglutide: The STEP 1 trial extension', Diabetes, Obesity and Metabolism 24:1553-1564 (2022)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9542252/",
+          reasoning:
+            "Clear evidence that the benefit depends on staying on the drug. The analyses were exploratory, and lifestyle support stopped at the same time, so it shows what happens with no support at all. The authors read it as confirming that obesity is chronic.",
+        },
+        {
+          id: "surmount-4-withdrawal",
+          title: "SURMOUNT-4 2024: Switched to Placebo, People Regained 14% of Body Weight; Those Who Stayed On Lost 5.5% More",
+          description:
+            "After 36 weeks on tirzepatide (average loss 20.9%), 670 adults were randomized to continue or switch to placebo for 52 weeks. Those switched regained 14.0% of body weight; those who continued lost a further 5.5%. At week 88, 89.5% on tirzepatide had kept at least 80% of their loss, against 16.6% on placebo. Overall loss from the start was 25.3% on tirzepatide and 9.9% on placebo.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 6,
+            replicability: 7,
+            directness: 8,
+          },
+          source:
+            "Aronne et al., 'Continued Treatment With Tirzepatide for Maintenance of Weight Reduction in Adults With Obesity: The SURMOUNT-4 Randomized Clinical Trial', JAMA 331(1):38-48 (2024); funded by Eli Lilly",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10714284/",
+          reasoning:
+            "Shows both halves of the argument: staying on works and stopping reverses it. It counts for the drug as a long-term treatment and against it as a short course. Only people who tolerated 36 weeks of tirzepatide were randomized, and Lilly funded the trial.",
+        },
+        {
+          id: "bmj-regain-2026",
+          title: "BMJ 2026: After Stopping, Weight Returns at About 0.4 kg a Month, Faster Than After Diet Programs",
+          description:
+            "A systematic review of 37 studies (9,341 participants) by Oxford researchers found that after weight-loss drugs were stopped, weight came back at an average 0.4 kg a month, and all heart-risk markers were projected to return to baseline within 1.4 years. Regain was faster after drugs than after behavioral weight programs, by 0.3 kg a month, regardless of how much weight was lost. The authors urged 'caution in short term use of these drugs without a more comprehensive approach to weight management.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 8,
+          },
+          source:
+            "West et al., 'Weight regain after cessation of medication for weight management: systematic review and meta-analysis', BMJ (January 2026)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12776922/",
+          reasoning:
+            "Independent, recent and on point. Average follow-up after stopping was 32 weeks, so the long-run picture is projected, and it pools older drugs with the newer ones.",
+        },
+        {
+          id: "real-world-discontinuation",
+          title: "JAMA Network Open 2025: 64.8% of Patients Without Diabetes Stopped Within a Year",
+          description:
+            "In electronic health records of 125,474 US adults with overweight or obesity who started liraglutide, semaglutide or tirzepatide between 2018 and 2023, 64.8% of those without type 2 diabetes stopped within a year, against 46.5% of those with diabetes. Moderate or severe gut side effects raised the chance of stopping; more weight loss and, among patients with diabetes, higher income lowered it. Among those without diabetes who stopped, 36.3% restarted within a year.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source:
+            "Rodriguez et al., 'Discontinuation and Reinitiation of Dual-Labeled GLP-1 Receptor Agonists Among US Adults With Overweight or Obesity', JAMA Network Open 8(1):e2457349 (2025)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11786232/",
+          reasoning:
+            "Real-world behavior, not trial behavior. Much of the period predates cheaper cash prices and Medicare coverage, and the drugs were in shortage for part of it, so stopping may fall as cost barriers do.",
+        },
+        {
+          id: "lifestyle-intervention-failure",
+          title: "Look AHEAD 2013: Ten Years of Intensive Diet and Exercise, 6.0% Weight Loss, No Fewer Heart Attacks",
+          description:
+            "In 16 US centers, 5,145 overweight or obese adults with type 2 diabetes were randomized to an intensive lifestyle program of reduced calories and more activity, or to diabetes education. Weight loss was 8.6% against 0.7% at one year and 6.0% against 3.5% at the end. The trial stopped for futility at a median 9.6 years: heart deaths, heart attacks, strokes and angina hospitalizations were no lower (hazard ratio 0.95).",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Look AHEAD Research Group, 'Cardiovascular effects of intensive lifestyle intervention in type 2 diabetes', New England Journal of Medicine 369:145-154 (2013)",
+          sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa1212914",
+          reasoning:
+            "The largest test of the lifestyle alternative, publicly funded, and it did not produce drug-sized or durable weight loss. It was in people with diabetes, and the lifestyle group did gain on blood sugar and fitness, so it does not show lifestyle change is worthless.",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 4: Worth the price? (what to do)
     // =========================================================================
     {
       id: "access-equity-cost",
-      title: "Access, Equity & Cost",
+      title: "Worth the Price, and Who Pays?",
       short_summary:
-        "GLP-1 drugs carry US list prices of roughly $1,000-1,350 a month, and even the manufacturers' cash prices for the injections run about $200-700, creating a two-tier obesity treatment system where wealthy patients get pharmaceutical intervention while lower-income populations — who bear the highest obesity burden — are left behind.",
+        "Prices are falling fast: a November 2025 White House deal set Medicare's price at $245 a month, and Wegovy's list price drops to $675 in January 2027. A 2025 lifetime model still found the drugs far from cost-effective at the net prices of the time. With Medicare paying since July 2026 and several states dropping Medicaid coverage, the fight is over whether wide coverage pays for itself.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "GLP-1 drugs are creating a two-tier healthcare system where the wealthy get thin while the poor stay sick. Wegovy's US list price is about $1,350 a month and Ozempic's about $1,000 until Novo cuts both to $675 in January 2027, so a year at list price costs $12,000-16,000, and even the manufacturers' discounted cash prices for the injections ran about $200-700 a month as of mid-2026. As of January 2026 only 13 state Medicaid programs covered GLP-1s for obesity, four having dropped coverage since October 2025, and coverage in most large employer plans remains limited. Medicare is barred by statute from covering weight-loss drugs; the $50-copay CMS demonstration that began in July 2026 sidesteps the ban only temporarily and is scheduled to expire at the end of 2027. Meanwhile, obesity disproportionately affects Black (49.9% prevalence), Hispanic (45.6%), and low-income communities — the very populations least able to afford $1,000/month prescriptions. If 40% of American adults who qualify eventually seek treatment, the annual cost to the healthcare system would exceed $1 trillion. Novo Nordisk's revenue from semaglutide alone reached $21 billion in 2024, making Ozempic one of the best-selling drugs in history while patients ration doses or go without. This is not democratized medicine — it is pharmaceutical wealth extraction.",
+        "Even after the discounts, paying for these drugs for everyone eligible would be one of the largest new costs in American health care. Medicaid's gross spending on GLP-1s rose from about $1 billion in 2019 to almost $9 billion in 2024, and four states, California, New Hampshire, Pennsylvania and South Carolina, have dropped coverage for obesity. A 2025 lifetime model in JAMA Health Forum found that, at the net prices of the time, semaglutide cost $467,676 and tirzepatide $197,023 per quality-adjusted life year, far above the usual $100,000 bar. A Health Affairs analysis put the extra cost of Medicare coverage in the tens of billions of dollars over ten years. Because most people stop within a year and regain the weight, much of the spending buys benefits that disappear. Money spent this way is not spent on prevention, food policy or other care.",
       proponent_rebuttal:
-        "The cost argument against GLP-1s ignores the staggering economic burden of untreated obesity: $173 billion annually in direct US healthcare costs, plus $150+ billion in lost productivity. An obese adult costs the healthcare system $1,861 more per year than a normal-weight adult. If GLP-1 drugs prevent even a fraction of obesity-related hospitalizations, surgeries, diabetes management, and cardiovascular interventions, they pay for themselves. Coverage and prices are moving: since July 2026 eligible Medicare enrollees can get Wegovy, Zepbound or the new GLP-1 pills for a $50 monthly copay under a CMS demonstration, the manufacturers sell the injections directly to cash-pay patients for roughly $200-700 a month, and Novo will halve Wegovy's list price to $675 in January 2027. The Treat and Reduce Obesity Act has been reintroduced in Congress to lift the Medicare coverage ban permanently. Competition is driving prices down — Novo Nordisk faces challenges from Eli Lilly's tirzepatide and oral formulations such as the Wegovy pill and Lilly's Foundayo; during the 2022-2025 shortage, compounding pharmacies sold semaglutide at a fraction of the branded cost. Drug costs always decline as patents expire and generics enter the market. The alternative — bariatric surgery at $20,000-35,000 per procedure — is far more expensive and carries greater surgical risk.",
+        "The price is collapsing, and the cost of doing nothing is enormous. Obesity cost the US about $173 billion in medical spending in 2019, $1,861 more a year for each adult with obesity than one at a healthy weight. Under the November 2025 White House deal, Medicare pays $245 a month for Ozempic, Wegovy, Mounjaro and Zepbound, enrollees pay $50, and cash prices fell to about $350. Novo Nordisk cuts Wegovy's list price by about 50%, to $675, on 1 January 2027. The 2025 model found tirzepatide would need only a 30.5% further discount from its net price to clear $100,000 per year of healthy life, and the Medicare price set since then is far below the list prices of 2025. Obesity is most common among Black (49.9%) and Hispanic (45.6%) adults, so restricting coverage rations the most effective treatment away from the people who need it most.",
       crux: {
         id: "cost-effectiveness-analysis",
-        title: "The Population-Level Cost-Effectiveness Test",
+        title: "The Cost-Effectiveness Test",
         question:
           "Do prevented hospitalizations and illnesses offset the drugs' cost over ten years?",
         description:
-          "If providing GLP-1 drugs to the eligible obese population reduces total healthcare expenditure over a 10-year horizon — factoring in drug costs, reduced hospitalizations, prevented comorbidities, and productivity gains — then broad coverage is economically justified regardless of the per-unit drug price. If total spending increases without proportional health gains, the drugs represent a net cost that diverts resources from other interventions.",
+          "If broad coverage at today's lower prices prevents enough diabetes, heart disease, joint replacements and hospital stays to offset much of the drug bill over a decade, wide coverage is a good buy. If spending rises without proportionate health gains, partly because most people stop, the money would do more elsewhere.",
         methodology:
-          "Conduct a comprehensive health economics analysis using claims data from insurers who have implemented GLP-1 coverage. Compare total healthcare costs (drug costs + hospitalizations + comorbidity management + lost productivity) for matched cohorts of GLP-1 users vs. non-users over 5+ years. Model population-level scenarios for 10%, 25%, and 50% uptake among eligible adults. Use QALY (Quality-Adjusted Life Year) calculations to determine cost per QALY gained.",
+          "Compare total spending (drugs, hospital stays, complications) and health outcomes for matched patients who start GLP-1 drugs and patients who do not, over five to ten years, using Medicare demonstration and insurer claims at the prices actually paid after rebates; recompute cost per quality-adjusted life year at those prices.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Long-run claims data from insurers and Medicare comparing total spending, hospital stays and complications for matched patients who stay on GLP-1 drugs and patients who do not, over five to ten years, using the price actually paid after rebates.",
         },
         cost_to_verify:
-          "$5-10M (Large-scale health economics study with multi-year claims data analysis)",
+          "$5-10M (health economics study using multi-year claims data)",
         falsification: {
           supporter_flip:
-            "If population claims data showed broad GLP-1 coverage raises total healthcare spending over a decade without proportional health gains — the drug cost swamping savings from prevented comorbidities — the economic case for universal coverage would fail.",
+            "If Medicare and insurer claims showed total spending rising over a decade at the new prices without proportionate drops in diabetes, heart disease and hospital stays, partly because most patients stop, the case for covering everyone eligible would fail.",
           skeptic_flip:
-            "If claims data found prevented diabetes, heart disease and joint disease offsetting much of the ~$1,000 a month drug cost, 'too expensive' would give way to a closer question about net cost.",
+            "If claims data at the $245 Medicare price showed prevented diabetes, heart disease and joint disease offsetting most of the drug bill, or a cost per year of healthy life under $100,000, the 'too expensive' objection would give way.",
           common_ground:
-            "Both sides agree the per-patient price (~$1,000+/month) is high and that, applied to tens of millions, the gross drug bill is enormous.",
+            "Both sides agree prices have fallen sharply since 2025 and that, applied to tens of millions of people, even the lower prices add up to tens of billions of dollars.",
           live_disagreement:
-            "Whether the prevented hospitalizations and comorbidities offset the drug cost over a 10-year horizon — which only long-run claims analysis at realistic uptake could determine.",
+            "Whether the prevented illness offsets the drug bill over ten years at the new prices, and who should pay for people who need the drugs but cannot afford them.",
         },
       },
       evidence: [
         {
-          id: "drug-pricing-us",
-          title: "US GLP-1 List Prices Run ~$1,000/Month, Far Above Peer Nations",
-          description:
-            "GLP-1 drugs carry US list prices of roughly $1,000 per month, or upwards of $11,000 per year before rebates, according to KFF analysis. The same drugs cost far less in most European countries, Canada, and other OECD nations where governments negotiate drug prices, and a RAND Corporation study found US prices for GLP-1 agonists run several times higher than in peer nations. KFF reports that gross Medicare Part D spending on these drugs has risen sharply, with Ozempic alone reaching billions of dollars annually, making semaglutide one of the highest-spend drugs in the program.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "KFF Health Policy; RAND Corporation",
-          sourceUrl: "https://www.kff.org/health-costs/medicare-spending-on-ozempic-and-other-glp-1s-is-skyrocketing/",
-          reasoning:
-            "KFF and RAND are independent, nonpartisan health policy organizations. The KFF analysis documents the ~$1,000/month list price (upwards of $11,000/year before rebates) and the steep rise in Medicare GLP-1 spending. The stark US pricing premium is the strongest argument that access barriers are artificial and policy-driven, not inherent to the drug. Directness is moderated slightly because net prices after rebates are lower than list prices.",
-        },
-        {
-          id: "obesity-healthcare-costs",
-          title: "Obesity Costs the US $173 Billion Annually in Direct Healthcare",
-          description:
-            "The CDC estimates that obesity-related conditions cost the US healthcare system $173 billion annually in direct medical costs as of 2019, a figure projected to exceed $200 billion by 2025. An individual with obesity incurs $1,861 more in annual healthcare costs than a normal-weight person. Obesity is linked to type 2 diabetes ($413 billion annual cost), cardiovascular disease ($407 billion), 13 types of cancer, and osteoarthritis. If GLP-1 drugs reduce obesity rates even modestly, the downstream savings in prevented comorbidities could offset drug costs.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 7,
-          },
-          source: "CDC; Milken Institute; American Medical Association",
-          sourceUrl: "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
-          reasoning:
-            "CDC data is authoritative and independently verifiable. The economic burden of obesity is well-documented across multiple sources. However, the directness score is lower because this evidence shows the cost of the problem, not that GLP-1s are the most cost-effective solution — behavioral interventions, food policy, and bariatric surgery are alternatives.",
-        },
-        {
-          id: "insurance-coverage-gaps",
-          title: "Medicare Bars Weight-Loss Drugs by Statute; Medicaid Coverage Varies by State",
-          description:
-            "Federal law (the Social Security Act) prohibits Medicare from covering drugs used solely for weight loss, even though Medicare does cover these drugs for indications like type 2 diabetes and cardiovascular disease. A CMS demonstration has sidestepped the ban since July 2026, offering eligible enrollees GLP-1s for obesity at a $50 monthly copay, but it is temporary and scheduled to expire at the end of 2027 unless extended or replaced. KFF finds that 13 state Medicaid programs covered GLP-1s for obesity treatment under fee-for-service as of January 2026, after four states eliminated coverage amid budget pressures, and that coverage in ACA Marketplace plans and most large employer firms remains limited; when covered, the drugs typically require prior authorization.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 9,
-          },
-          source: "KFF (Jan 2026); Centers for Medicare & Medicaid Services; CNBC (Jun 30, 2026) on the Medicare Bridge demonstration",
-          sourceUrl: "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
-          reasoning:
-            "The Medicare weight-loss coverage exclusion is a verifiable statutory fact, now bridged only by a temporary demonstration. KFF's authoritative analysis documents that only a small minority of state Medicaid programs cover GLP-1s for obesity and that some states have rolled coverage back. This is direct evidence that access is systematically skewed by income and insurance status, with the populations bearing the highest obesity burden facing the greatest barriers.",
-        },
-        {
           id: "competition-price-trends",
-          title: "Competition and Compounding Are Driving GLP-1 Prices Down",
+          title: "White House Deal, November 2025: Medicare Pays $245 a Month, Enrollees $50; Cash Price About $350",
           description:
-            "Market dynamics are beginning to reduce GLP-1 costs. Eli Lilly's tirzepatide competes directly with semaglutide, and Amgen, Viking Therapeutics, and others have GLP-1 candidates in late-stage trials. In March 2025 Novo Nordisk began selling every Wegovy dose to cash-paying patients for $499 a month through its NovoCare Pharmacy, less than half the list price. In February 2026 it announced a single US list price of $675 a month for Wegovy, Ozempic and Rybelsus from January 1, 2027, cuts of about 50% for Wegovy and 35% for Ozempic. The FDA approved an oral Wegovy pill in December 2025, with a starting dose Novo said would be available for $149 a month. Compounding pharmacies were allowed to sell copies of semaglutide while it was on the FDA shortage list; the FDA declared that shortage resolved on February 21, 2025 and ended the allowance that spring.",
+            "Under agreements with Novo Nordisk and Eli Lilly announced on 6 November 2025, 'the Medicare prices of Ozempic, Wegovy, Mounjaro, and Zepbound will be $245,' and Medicare beneficiaries will pay a $50 monthly copay. On the TrumpRx cash site, Ozempic falls from $1,000 to $350 a month, Wegovy from $1,350 to $350, and Zepbound from $1,086 to an average of $346. KFF reports that a short-term demonstration lets Medicare Part D enrollees get obesity drugs from July 2026. Separately, Novo Nordisk will cut the list price of Wegovy, Ozempic and Rybelsus to $675 a month from 1 January 2027, reductions of about 50% for Wegovy and 35% for Ozempic.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 6,
+            independence: 5,
             replicability: 7,
             directness: 7,
           },
-          source: "Novo Nordisk (February 2026 list-price release; March 2025 NovoCare Pharmacy launch); FDA",
-          sourceUrl: "https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916504",
-          reasoning:
-            "The list-price cut and cash prices are the manufacturer's own announcements, so independence is limited, and Novo says the list-price change does not affect its direct-to-patient self-pay prices; the cheap compounding route closed once the FDA declared the semaglutide shortage over. However, the competitive pipeline is real and verifiable through ClinicalTrials.gov. Further price declines are plausible but uncertain in timing and magnitude.",
-        },
-      ],
-    },
-
-    // =========================================================================
-    // PILLAR 3: Drugs Versus Lifestyle and Prevention
-    // =========================================================================
-    {
-      id: "medicalization-root-causes",
-      title: "Drugs Versus Lifestyle and Prevention",
-      short_summary:
-        "Critics argue lifelong prescriptions are the wrong default when lifestyle programs and food policy could prevent and reverse weight gain without a drug bill; proponents counter that lifestyle programs have rarely sustained large weight loss, and that policy reform will take decades patients do not have. Where responsibility for obesity lies, with individuals or with their environment and biology, is the question of a separate map, \"Is obesity mainly a matter of personal choice?\"; this pillar asks whether the drugs are needed when the alternatives exist.",
-      icon_name: "Target" as const,
-      skeptic_premise:
-        "GLP-1 drugs are a technological band-aid where prevention would do more. Rather than reshaping what people eat through regulation, taxation, food policy and well-run lifestyle programs, society is choosing to put 100+ million people on lifelong injectable drugs, enriching pharmaceutical companies while leaving the conditions that produce new patients intact. Countries like Japan (3.6% obesity rate) and South Korea show that population-level obesity can be kept low through policy and food culture, without drugs. Each prescription treats one person; prevention reaches the next generation before anyone needs treatment.",
-      proponent_rebuttal:
-        "Prevention and lifestyle programs have a poor record of sustaining large weight loss: most participants regain the weight within a few years, and the largest lifestyle trial, Look AHEAD, did not reduce cardiovascular events. The drugs act on the appetite signaling that makes lost weight so hard to keep off, which is why they succeed where diet and exercise advice alone has not. This is no different from treating hypertension with ACE inhibitors rather than only advising patients to reduce salt intake. Food policy reform is important but is a decades-long political project that has struggled against industry lobbying, and patients living with obesity today cannot wait for it. Medication and prevention are not rivals: the drugs help the people who already need treatment while policy works on the rest.",
-      crux: {
-        id: "lifestyle-vs-pharmacotherapy",
-        title: "The Lifestyle Intervention Ceiling Test",
-        question:
-          "Can intensive lifestyle programs match drug-level weight loss durably and at scale?",
-        description:
-          "If the best available lifestyle interventions (intensive behavioral therapy, dietary counseling, supervised exercise) can produce and sustain comparable weight loss and health outcomes to GLP-1 drugs over 5+ years in real-world conditions, then pharmacotherapy is unnecessary medicalization. If lifestyle interventions consistently fail to match pharmacotherapy outcomes at the population level, the drugs fill a gap that no current alternative covers.",
-        methodology:
-          "Conduct a 5-year pragmatic randomized trial comparing four arms: (1) intensive lifestyle intervention alone, (2) GLP-1 pharmacotherapy alone, (3) combined lifestyle + GLP-1, and (4) standard care. Primary outcomes: sustained weight loss at 5 years, cardiovascular events, quality of life, and total healthcare costs. Recruit from diverse socioeconomic backgrounds to test real-world generalizability. Include body composition (DXA), metabolic markers, and patient-reported outcomes.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "Run a five-year pragmatic randomized trial of intensive lifestyle treatment, GLP-1 drugs, both together, and standard care across income groups, comparing sustained weight loss, cardiovascular events, quality of life and total cost.",
-        },
-        cost_to_verify:
-          "$30-50M (Multi-center 5-year pragmatic RCT with four arms and diverse enrollment)",
-        falsification: {
-          supporter_flip:
-            "If the best lifestyle interventions (intensive behavioral therapy, supervised diet and exercise) could match GLP-1 weight loss and health outcomes sustainably over 5+ years in real-world conditions, the case for the drugs as the lasting answer would weaken to 'medication is one option, not a necessity.'",
-          skeptic_flip:
-            "If large head-to-head studies found lifestyle programs unable to sustain 15-20% weight loss at population scale while the drugs could, the case that prevention and lifestyle programs make the drugs unnecessary would weaken.",
-          common_ground:
-            "Both sides agree lifestyle change is valuable and that combining it with the drug (resistance training, diet) improves outcomes versus the drug alone.",
-          live_disagreement:
-            "Whether intensive lifestyle intervention can match drug-level weight loss durably at scale — which only a long, head-to-head pragmatic trial in real-world conditions could settle.",
-        },
-      },
-      evidence: [
-        {
-          id: "lifestyle-intervention-failure",
-          title: "95% of Dieters Regain Lost Weight Within 5 Years",
-          description:
-            "A comprehensive meta-analysis published in the American Journal of Clinical Nutrition found that lifestyle interventions (diet and exercise) produce an average of 5-10% weight loss in the first 6 months, but 80-95% of individuals regain the lost weight within 2-5 years. The Look AHEAD trial — the largest lifestyle intervention RCT ever conducted with 5,145 participants — was stopped early after 9.6 years because intensive lifestyle intervention did not reduce cardiovascular events compared to standard care, despite producing modest sustained weight loss (6% vs. 3.5%). The biological mechanisms driving weight regain include persistent hormonal changes (elevated ghrelin, reduced leptin) that increase hunger for years after weight loss.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 9,
-          },
-          source: "American Journal of Clinical Nutrition; NEJM (Look AHEAD Trial)",
-          sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa1212914",
-          reasoning:
-            "The Look AHEAD trial is the definitive RCT on lifestyle intervention for obesity with cardiovascular outcomes. Its failure to reduce cardiovascular events despite sustained weight loss is powerful evidence that lifestyle intervention alone is insufficient. The high weight regain rate is among the most replicated findings in obesity research.",
-        },
-        {
-          id: "genetic-heritability-obesity",
-          title: "Twin, Family and Adoption Studies Put the Heritability of Obesity at 40-70%",
-          description:
-            "Twin, family and adoption studies estimate the heritability of obesity at between 40% and 70%. A systematic review of 88 twin-study estimates (140,525 twins) found BMI heritability ranging from 0.47 to 0.90, with a median of 0.75. Nearly 60 genome-wide association studies have identified more than 1,100 independent loci associated with obesity traits, and the genes near them point to a key role for the brain in controlling body weight. The first locus found, FTO, carries a BMI-raising allele held by 40-45% of people of European ancestry, adding about 1 kg for a person 1.7 m tall; a healthy diet or more physical activity attenuates its effect on obesity risk by 30-40%. This genetic architecture helps explain why people in the same food environment end up at very different body weights.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 7,
-          },
           source:
-            "Loos & Yeo, \"The genetics of obesity: from discovery to biology,\" Nature Reviews Genetics (2022); Elks et al., \"Variability in the heritability of body mass index,\" Frontiers in Endocrinology (2012)",
-          sourceUrl: "https://doi.org/10.1038/s41576-021-00414-z",
+            "White House fact sheet (6 November 2025); KFF, 'Medicaid Coverage of and Spending on GLP-1s' (16 January 2026); Novo Nordisk (24 February 2026)",
+          sourceUrl:
+            "https://www.whitehouse.gov/fact-sheets/2025/11/fact-sheet-president-donald-j-trump-announces-major-developments-in-bringing-most-favored-nation-pricing-to-american-patients/",
           reasoning:
-            "Heritability estimates from twin and family studies are highly replicated across populations and decades of research. This is strong evidence that obesity has a substantial biological basis, which supports treating it with drugs that act on appetite biology. Directness is moderate: heritability measures how much of the variation within a population is genetic, not how much any one person's weight is fixed, and the same review shows lifestyle can blunt genetic risk.",
+            "The price drop is real and large, which changes every cost-effectiveness estimate made before it. The figures come from the government and the manufacturer, net prices to insurers are not public, and the Medicare demonstration is temporary.",
         },
         {
-          id: "japan-korea-obesity-rates",
-          title: "Japan and South Korea Maintain Low Obesity Rates Through Policy and Culture",
+          id: "cost-effectiveness-2025",
+          title: "JAMA Health Forum 2025: At Net Prices of the Time, $197,023 (Tirzepatide) and $467,676 (Semaglutide) per Year of Healthy Life",
           description:
-            "Japan has an adult obesity rate of 3.6% and South Korea 5.3%, compared to 42.4% in the United States. Japan's 2008 Metabo Law mandates annual waist measurements for adults 40-74, with companies and local governments penalized for high obesity rates. School lunch programs in both countries emphasize whole foods prepared by on-site nutritionists. South Korea spends $30 per student per school meal, emphasizing traditional cuisine. These nations demonstrate that population-level obesity prevention is achievable through cultural norms, food policy, and systemic incentives rather than pharmaceutical intervention.",
+            "A lifetime simulation of 126 million eligible US adults found that per 100,000 people treated, tirzepatide would avert 20,854 cases of diabetes and 10,655 of heart disease, and semaglutide 19,211 and 8,263. But at their then net prices the cost per quality-adjusted life year was $197,023 for tirzepatide and $467,676 for semaglutide. To reach $100,000 per QALY, prices would need further discounts of 30.5% for tirzepatide and 81.9% for semaglutide.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
+            independence: 9,
+            replicability: 6,
+            directness: 8,
+          },
+          source:
+            "Hwang, Laiteerapong, Huang & Kim, 'Lifetime Health Effects and Cost-Effectiveness of Tirzepatide and Semaglutide in US Adults', JAMA Health Forum 6(3):e245586 (2025)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11909610/",
+          reasoning:
+            "Independent and directly on the crux. It is a model, sensitive to assumptions about how long people stay on the drug, and it predates the November 2025 price deal, which may close much of the gap for tirzepatide.",
+        },
+        {
+          id: "insurance-coverage-gaps",
+          title: "KFF, January 2026: Medicaid GLP-1 Spending Hit Almost $9 Billion; Four States Dropped Obesity Coverage",
+          description:
+            "Gross Medicaid spending on GLP-1 drugs, before rebates, rose from about $1 billion in 2019 to almost $9 billion in 2024, and prescriptions from about 1 million to over 8 million. As of January 2026, 13 state Medicaid programs covered GLP-1s for obesity under fee-for-service, down from 16 in October 2025; California, New Hampshire, Pennsylvania and South Carolina have eliminated coverage. Federal law still bars Medicare from covering drugs used solely for weight loss outside the temporary demonstration.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "KFF, 'Medicaid Coverage of and Spending on GLP-1s' (16 January 2026)",
+          sourceUrl: "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
+          reasoning:
+            "Shows budgets straining before broad coverage arrived: states are pulling back. The spending figures are gross, before rebates, and include use for diabetes.",
+        },
+        {
+          id: "obesity-healthcare-costs",
+          title: "CDC: Obesity Cost $173 Billion in Medical Spending in 2019, $1,861 More per Adult",
+          description:
+            "The CDC estimates obesity accounted for nearly $173 billion in US medical spending in 2019. Adults with obesity had annual medical costs $1,861 higher than adults at a healthy weight, and $3,097 higher for severe obesity. Adult obesity prevalence was 41.9% in 2017 to March 2020, highest among non-Hispanic Black (49.9%) and Hispanic (45.6%) adults.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "CDC, 'Adult Obesity Facts' (updated 14 May 2024)",
+          sourceUrl: "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+          reasoning:
+            "Sizes the problem the drugs address. It does not show the drugs recover those costs: averted spending accrues slowly, and only while people stay on treatment.",
+        },
+        {
+          id: "medicare-coverage-cost",
+          title: "Health Affairs 2024: Medicare Coverage Could Add $3.1 to $6.1 Billion a Year",
+          description:
+            "Using Medicare claims and real-world adherence, the authors estimated that if anti-obesity drugs had been covered in 2025 and 5% or 10% of newly eligible patients were prescribed one, Part D costs would rise by $3.1 billion or $6.1 billion a year. They concluded the policy would likely raise Medicare costs 'by the low to middle tens of billions of dollars over ten years,' though costs could fall by as much as 62.5% as the drugs gain approval for other conditions.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
             replicability: 6,
             directness: 7,
           },
-          source: "WHO Global Health Observatory; The Lancet Public Health; OECD Health Data",
-          sourceUrl: "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/prevalence-of-obesity-among-adults-bmi-=-30-(age-standardized-estimate)-(-)",
+          source:
+            "Ippolito & Levy, 'Expanding Medicare Coverage Of Anti-Obesity Medicines Could Increase Annual Spending By $3.1 Billion To $6.1 Billion', Health Affairs 43(9) (2024)",
+          sourceUrl: "https://doi.org/10.1377/hlthaff.2024.00356",
           reasoning:
-            "WHO and OECD obesity data is authoritative and standardized. However, replicability is lower because Japan and Korea's food cultures, genetics, and social structures differ fundamentally from the US — transplanting their policies may not produce comparable results. These countries also have rising obesity trends despite their policies, suggesting environmental factors are overwhelming cultural defenses.",
+            "An independent budget estimate. It used prices from before the November 2025 deal, and its own sensitivity range shows how much new approvals for heart, kidney and sleep apnea uses shift the marginal cost.",
         },
-      ],
-    },
-
-    // =========================================================================
-    // PILLAR 4: Societal & Ethical Implications
-    // =========================================================================
-    {
-      id: "societal-ethical-implications",
-      title: "Societal & Ethical Implications",
-      short_summary:
-        "GLP-1 drugs raise profound questions about body image norms, off-label cosmetic use, pharmaceutical industry influence on medical guidelines, and whether framing obesity as a disease reduces stigma or deepens it.",
-      icon_name: "Users" as const,
-      skeptic_premise:
-        "The GLP-1 explosion is reshaping societal norms in troubling ways. Epic's health-record data show GLP-1 prescriptions per 100,000 US adults roughly quadrupling, from about 1,900 in mid-2021 to about 9,000 in early 2026, while measured adult obesity fell only from 42.3% to 40.7% — a surge critics read as partly off-label or cosmetic use, though no source measures that share directly. Social media is saturated with influencer promotion of 'Ozempic face' and rapid transformation narratives. The American Academy of Pediatrics now recommends GLP-1s for children as young as 12, raising serious concerns about medicalizing adolescent body image during a mental health crisis. Novo Nordisk funded obesity research organizations that successfully lobbied to reclassify obesity as a disease in 2013, directly creating the regulatory pathway for their own drugs. The 'obesity is a chronic disease' framing, while reducing some stigma, also tells 42% of American adults they are permanently ill and need lifelong medication — a message that primarily serves pharmaceutical revenue. The diet and wellness industry has been replaced by something more powerful: a pharmaceutical industry selling the same promise with a prescription pad.",
-      proponent_rebuttal:
-        "The disease model of obesity is not a pharmaceutical marketing invention — it is backed by the American Medical Association, WHO, World Obesity Federation, and every major endocrinology society based on decades of metabolic, genetic, and neurological research. Reclassifying obesity as a disease has reduced employment discrimination, expanded insurance coverage, and funded research that produced GLP-1 drugs in the first place. Off-label use for vanity is a regulatory and prescribing problem, not an indictment of the medication itself — the same is true of every drug from Adderall to testosterone. The AAP recommendation for adolescents reflects the reality that severe childhood obesity leads to type 2 diabetes, fatty liver disease, and joint damage that cause lifelong disability. Delaying treatment in children on ideological grounds, when effective pharmacotherapy exists, causes concrete harm. As for pharmaceutical profit: insulin manufacturers also profit enormously, but no one argues we should stop treating diabetes. Effective medicine costs money. The question is whether it works, and the evidence overwhelmingly says yes.",
-      crux: {
-        id: "off-label-cosmetic-use",
-        title: "The Off-Label Use & Indication Creep Assessment",
-        question:
-          "What share of prescriptions are clinically appropriate, and what share cosmetic?",
-        description:
-          "If a substantial portion of GLP-1 prescriptions (>25%) are for patients who do not meet clinical obesity criteria and are driven by cosmetic desire rather than medical necessity, this represents indication creep that distorts clinical evidence, strains drug supply, increases costs, and normalizes pharmaceutical weight management for healthy individuals. If prescribing remains clinically appropriate, the concern is overblown.",
-        methodology:
-          "Analyze a nationally representative prescription claims database (e.g., IQVIA, Symphony Health) to determine the BMI distribution, comorbidity profiles, and indication codes for all GLP-1 agonist prescriptions over 2022-2026. Compare on-label vs. off-label prescribing rates. Survey prescribing physicians on their clinical rationale. Cross-reference with patient-reported outcomes to assess whether off-label users experience meaningful health benefits.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "National prescription claims data for 2022 to 2026 showing the BMI, comorbidities and indication codes behind each GLP-1 prescription, with on-label and off-label rates and prescribers' stated reasons.",
-        },
-        cost_to_verify:
-          "$0-500K (Claims database analysis using existing prescription data)",
-        falsification: {
-          supporter_flip:
-            "If claims data showed a large share (>25%) of GLP-1 prescriptions go to people who don't meet clinical obesity criteria — driven by cosmetic thinness rather than medical need — the 'this is responsible medicine' framing would weaken, exposing indication creep that strains supply and inflates cost.",
-          skeptic_flip:
-            "If prescription data showed GLP-1 use tracking BMI and comorbidity criteria, with few prescriptions going to people outside clinical obesity, the fear of 'Hollywood Ozempic' cosmetic misuse would lose its footing.",
-          common_ground:
-            "Both sides agree demand has surged, supply has been strained, and high-profile cosmetic use exists; the dispute is how common off-label cosmetic prescribing actually is.",
-          live_disagreement:
-            "What share of real prescriptions are clinically appropriate versus cosmetic indication creep — measurable directly from BMI and indication data in prescription claims.",
-        },
-      },
-      evidence: [
         {
           id: "off-label-prescribing-rates",
-          title: "GLP-1 Prescriptions Quadrupled Since 2021 While Measured Obesity Barely Fell",
+          title: "Epic 2026: GLP-1 Prescriptions Rose From 1,900 to 9,000 per 100,000 Adults as Obesity Fell From 42.3% to 40.7%",
           description:
-            "GLP-1 prescribing has surged far faster than diagnosed obesity. Epic's analysis of its nationwide electronic health record network found that GLP-1 prescriptions roughly quadrupled between 2021 and early 2026 (rising from about 1,900 to 9,000 prescriptions per 100,000 adults) even as measured obesity prevalence in the same population edged down from 42.3% to 40.7%. Critics argue this rapid uptake, amplified by telehealth platforms that prescribe with minimal clinical evaluation and by social-media-driven cosmetic demand, indicates substantial off-label and non-medically-necessary use, though precise nationwide off-label rates remain hard to pin down.",
-          side: "against" as const,
+            "In Epic's nationwide health-record data, GLP-1 prescriptions rose from about 1,900 to 9,000 per 100,000 adult patients between the second quarter of 2021 and the first quarter of 2026. Over the same period the share of adults with obesity fell from 42.3% to 40.7%, and the share at a healthy BMI rose from 25.1% to 25.6%.",
+          side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 7,
             replicability: 6,
-            directness: 6,
+            directness: 5,
           },
-          source: "Epic (electronic health record network); JAMA Health Forum; Bloomberg",
-          sourceUrl: "https://www.epic.com/epic/post/glp-1-prescriptions-quadruple-since-2021-alongside-decline-in-obesity/",
+          source:
+            "Epic Research, 'GLP-1 Prescriptions Quadruple Since 2021, Alongside Decline in Obesity' (21 May 2026)",
+          sourceUrl:
+            "https://www.epic.com/epic/post/glp-1-prescriptions-quadruple-since-2021-alongside-decline-in-obesity/",
           reasoning:
-            "Epic's EHR network is a large, real-world data source and its prescribing-surge figures are verifiable on the cited page. However, the precise share of off-label or cosmetic prescribing is not directly measured by this source, so the original 30-50% and '1 in 8 with no obesity diagnosis' figures have been removed as unverified and the weights lowered accordingly. The prescribing surge is documented; the inference that much of it is medically unjustified remains contested.",
-        },
-        {
-          id: "disease-reclassification",
-          title: "AMA Recognizes Obesity as a Disease (2013), Expanding Treatment Coverage",
-          description:
-            "In June 2013, the American Medical Association voted to classify obesity as a disease, overriding its own Council on Science and Public Health which recommended against the designation. This reclassification opened regulatory pathways for obesity drug approval, expanded insurance coverage arguments, and provided the conceptual framework for treating obesity with pharmacotherapy. Critics note that organizations like the Obesity Action Coalition, which lobbied for the reclassification, received funding from Novo Nordisk and other pharmaceutical companies. Supporters counter that the disease classification is supported by WHO (ICD E66), the Endocrine Society, and the pathophysiology of metabolic dysfunction.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 6,
-            replicability: 8,
-            directness: 7,
-          },
-          source: "JAMA; AMA Proceedings; The BMJ",
-          sourceUrl: "https://jamanetwork.com/journals/jama/fullarticle/1710486",
-          reasoning:
-            "The AMA vote is a matter of public record and the pharmaceutical funding connections are documented. However, the independence score is moderated because many independent medical organizations globally have reached the same classification. The question of whether obesity 'is' a disease is partly definitional, but the regulatory and commercial consequences of the classification are concrete and significant.",
-        },
-        {
-          id: "pediatric-recommendations",
-          title: "AAP Recommends GLP-1 Drugs for Adolescents 12+ with Severe Obesity",
-          description:
-            "In January 2023, the American Academy of Pediatrics released its first comprehensive obesity treatment guidelines in 15 years, recommending pharmacotherapy including GLP-1 agonists for adolescents aged 12+ with obesity (BMI >= 95th percentile). The STEP TEENS trial showed semaglutide produced 16.1% weight loss in adolescents versus 0.6% weight gain with placebo. Supporters note that childhood severe obesity leads to type 2 diabetes, nonalcoholic fatty liver disease, and orthopedic complications. Critics worry about medicalizing adolescent body image, unknown effects on growth and development, and creating lifelong pharmaceutical dependency starting in childhood.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 7,
-            replicability: 8,
-            directness: 7,
-          },
-          source: "American Academy of Pediatrics; NEJM (STEP TEENS)",
-          sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2208601",
-          reasoning:
-            "The AAP is the authoritative body for pediatric medicine, and the STEP TEENS trial was published in the NEJM. However, independence is moderated because Novo Nordisk funded STEP TEENS. The directness is moderate because adolescent data does not directly settle the adult debate about medicalization — it opens a distinct ethical question about treating children with chronic medications.",
+            "An early sign that the drugs may be bending the national curve. It is a correlation in patients who use Epic-based health systems, not a population survey, and it cannot show the drugs caused the decline or what share of prescriptions went to people without obesity.",
         },
       ],
     },
   ],
+  aliases: [
+    "GLP-1 Weight Loss Drugs",
+    "Is Ozempic safe long term?",
+    "Should Medicare pay for Wegovy and Zepbound?",
+    "Do you have to take Ozempic forever?",
+  ],
   references: [
     {
-      title: "Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP 1) - NEJM",
+      title: "Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP 1) - NEJM (2021)",
       url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
     },
     {
-      title: "Semaglutide and Cardiovascular Outcomes in Obesity (SELECT Trial) - NEJM",
+      title: "Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes (SELECT) - NEJM (2023)",
       url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2307563",
     },
     {
-      title: "Medicare Spending on Ozempic and Other GLP-1s Is Skyrocketing - KFF",
-      url: "https://www.kff.org/health-costs/medicare-spending-on-ozempic-and-other-glp-1s-is-skyrocketing/",
+      title: "Tirzepatide as Compared with Semaglutide for the Treatment of Obesity (SURMOUNT-5) - NEJM (2025)",
+      url: "https://doi.org/10.1056/NEJMoa2416394",
     },
     {
-      title: "Clinical Practice Guideline for the Evaluation and Treatment of Pediatric Obesity - AAP",
-      url: "https://publications.aap.org/pediatrics/article/151/2/e2022060640/190443",
+      title: "Weight regain after cessation of medication for weight management - BMJ (2026)",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12776922/",
+    },
+    {
+      title: "FDA Requests Removal of Suicidal Behavior and Ideation Warning from GLP-1 RA labeling (January 2026)",
+      url: "https://www.fda.gov/drugs/drug-safety-communications/fda-requests-removal-suicidal-behavior-and-ideation-warning-glucagon-peptide-1-receptor-agonist-glp",
+    },
+    {
+      title: "Medicaid Coverage of and Spending on GLP-1s - KFF (January 2026)",
+      url: "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
     },
   ],
   questions: [
     {
       id: "q1",
-      title: "Are GLP-1 drugs a lifelong commitment or a temporary tool?",
+      title: "Do you have to take GLP-1 drugs for life?",
       content:
-        "Discontinuation studies show patients regain two-thirds of lost weight within a year of stopping GLP-1 drugs, mirroring the pattern seen with blood pressure and diabetes medications. Does this mean obesity is a chronic disease requiring indefinite treatment, or does it expose a fundamental limitation of pharmacotherapy that fails to address the underlying drivers of weight gain? If 100 million Americans eventually take GLP-1s for life, what are the implications for healthcare systems, pharmaceutical dependency, and the definition of health itself?",
+        "Stop semaglutide and about two-thirds of the lost weight returns within a year; switched to placebo in SURMOUNT-4, people regained 14% of their body weight. People who stay on keep the loss for at least four years. Is that a lifelong treatment for a chronic disease, like blood-pressure pills, or a sign the drugs do not address what drives weight gain?",
     },
     {
       id: "q2",
-      title: "Should cost or clinical criteria determine who gets GLP-1 drugs?",
+      title: "Should Medicare and Medicaid pay for GLP-1 drugs for obesity?",
       content:
-        "With GLP-1 list prices of $12,000-16,000 a year in the US and Medicare barred by statute from covering weight-loss medications outside a temporary demonstration, access is determined more by wealth and insurance status than clinical need. Black and Hispanic Americans have the highest obesity prevalence but the lowest rates of GLP-1 prescriptions. If these drugs are as effective as trials suggest, is restricting access to those who can afford them an ethical failure on the scale of rationing insulin? Or would universal coverage at current prices bankrupt healthcare systems that should instead invest in prevention?",
+        "Medicare has paid for obesity drugs under a temporary demonstration since July 2026, at a $245 negotiated price and a $50 copay, while four states have dropped Medicaid coverage as spending neared $9 billion a year. A 2025 model found the drugs far from cost-effective at the net prices of the time. Is wide coverage a good investment at the new prices, or a cost that crowds out other care?",
     },
     {
       id: "q3",
-      title: "Do GLP-1 drugs reduce obesity stigma or reinforce it?",
+      title: "Do GLP-1 drugs help healthy people with obesity live longer?",
       content:
-        "The 'obesity is a disease' framework underlying GLP-1 treatment has two contradictory effects: it destigmatizes obesity by framing it as a medical condition rather than a moral failing, but it simultaneously reinforces the message that larger bodies are inherently pathological and in need of pharmaceutical correction. The explosion of 'Ozempic body' social media content, off-label cosmetic use, and the narrowing of acceptable body sizes in popular culture suggest that GLP-1 drugs may be intensifying weight-based discrimination even as they treat the condition. Can a drug reduce stigma while its marketing depends on the desirability of thinness?",
+        "SELECT showed 20% fewer heart attacks, strokes and heart deaths, but only in people who already had heart disease. No trial has yet reported hard outcomes in people with obesity and no such disease. Should doctors treat that larger group on the strength of weight loss, or wait for outcome trials?",
     },
   ],
 };
