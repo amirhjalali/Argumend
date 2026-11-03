@@ -226,7 +226,7 @@ export const glp1WeightLossDrugsData = {
           id: "competition-price-trends",
           title: "Competition and Compounding Are Driving GLP-1 Prices Down",
           description:
-            "Market dynamics are beginning to reduce GLP-1 costs. Eli Lilly's tirzepatide competes directly with semaglutide, and Amgen, Pfizer, Viking Therapeutics, and others have GLP-1 candidates in late-stage trials. Compounding pharmacies have legally produced semaglutide at $100-300/month during FDA-declared shortages. Novo Nordisk announced a 40% list price reduction for some Ozempic doses in 2024 and launched a direct-to-consumer program. Oral semaglutide (Rybelsus) eliminates injection manufacturing costs. Analysts project branded GLP-1 prices will decline 30-50% by 2030 as competition intensifies.",
+            "Market dynamics are beginning to reduce GLP-1 costs. Eli Lilly's tirzepatide competes directly with semaglutide, and Amgen, Viking Therapeutics, and others have GLP-1 candidates in late-stage trials. In March 2025 Novo Nordisk began selling every Wegovy dose to cash-paying patients for $499 a month through its NovoCare Pharmacy, less than half the list price. In February 2026 it announced a single US list price of $675 a month for Wegovy, Ozempic and Rybelsus from January 1, 2027, cuts of about 50% for Wegovy and 35% for Ozempic. The FDA approved an oral Wegovy pill in December 2025, with a starting dose Novo said would be available for $149 a month. Compounding pharmacies were allowed to sell copies of semaglutide while it was on the FDA shortage list; the FDA declared that shortage resolved on February 21, 2025 and ended the allowance that spring.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -234,10 +234,10 @@ export const glp1WeightLossDrugsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Bloomberg; Morgan Stanley Healthcare Research; FDA",
-          sourceUrl: "https://www.fda.gov/drugs/human-drug-compounding/compounding-and-fda-questions-and-answers",
+          source: "Novo Nordisk (February 2026 list-price release; March 2025 NovoCare Pharmacy launch); FDA",
+          sourceUrl: "https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916504",
           reasoning:
-            "Market trends and analyst projections are partially speculative. Compounding pharmacy access depends on ongoing FDA shortage declarations and may be restricted. However, the competitive pipeline is real and verifiable through ClinicalTrials.gov. Price declines are plausible but uncertain in timing and magnitude.",
+            "The list-price cut and cash prices are the manufacturer's own announcements, so independence is limited, and Novo says the list-price change does not affect its direct-to-patient self-pay prices; the cheap compounding route closed once the FDA declared the semaglutide shortage over. However, the competitive pipeline is real and verifiable through ClinicalTrials.gov. Further price declines are plausible but uncertain in timing and magnitude.",
         },
       ],
     },
