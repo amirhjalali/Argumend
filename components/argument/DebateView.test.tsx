@@ -313,11 +313,11 @@ describe("DebateView", () => {
       if (claim!.implicit) {
         // The tag and what it means read as one unit in the summary.
         expect(
-          within(summary).getByText("Hidden assumption").parentElement?.textContent,
-        ).toBe(`Hidden assumption ${HIDDEN_ASSUMPTION_NOTE}`);
+          within(summary).getByText("Hidden assumption:").parentElement?.textContent,
+        ).toBe(`Hidden assumption: ${HIDDEN_ASSUMPTION_NOTE}`);
         // It sits right under the question it names, before the settle line.
         expect(
-          within(summary).getByText("Hidden assumption").parentElement?.previousElementSibling
+          within(summary).getByText("Hidden assumption:").parentElement?.previousElementSibling
             ?.tagName,
         ).toBe("H3");
       }

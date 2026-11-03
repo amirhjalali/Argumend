@@ -27,7 +27,7 @@ export function EvidenceKey({
     >
       {MARKS.map((mark) => (
         <div key={mark.side} className="flex items-center gap-1.5">
-          <dt className={`font-sans text-[13px] ${mark.className}`}>
+          <dt className={`inline-flex w-4 justify-center font-sans text-[13px] font-semibold ${mark.className}`}>
             <span aria-hidden="true">{mark.glyph}</span>
             <span className="sr-only">{mark.name}</span>
           </dt>

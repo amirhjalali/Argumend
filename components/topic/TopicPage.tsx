@@ -358,7 +358,7 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
             <span
               className={`${ENTRY_COLUMN} mb-2 mt-1.5 block font-serif text-[0.9375rem] italic leading-snug text-muted dark:text-stone-400`}
             >
-              <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption</span>{" "}
+              <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption:</span>{" "}
               {HIDDEN_ASSUMPTION_NOTE}
             </span>
           )}

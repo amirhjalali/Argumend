@@ -83,7 +83,7 @@ export function WorkedCrux({ crux }: { crux: HomeCrux }) {
             <p
               className={`${ENTRY_COLUMN} mt-2 max-w-2xl font-serif text-[1rem] italic leading-snug text-muted dark:text-stone-400`}
             >
-              <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption</span>{" "}
+              <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption:</span>{" "}
               {HIDDEN_ASSUMPTION_NOTE}
             </p>
           ) : null}

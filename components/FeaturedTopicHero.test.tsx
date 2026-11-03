@@ -35,7 +35,7 @@ describe("FeaturedTopicHero (home beat 2)", () => {
     expect(within(section).getByRole("heading", { level: 3, name: base.question })).toBeTruthy();
     expect(section.textContent).toContain("the first of five on");
     expect(section.textContent).toContain(base.topicTitle);
-    expect(section.textContent).toContain(`Hidden assumption ${HIDDEN_ASSUMPTION_NOTE}`);
+    expect(section.textContent).toContain(`Hidden assumption: ${HIDDEN_ASSUMPTION_NOTE}`);
     expect(within(section).getByText("What would settle it")).toBeTruthy();
     expect(section.textContent).toContain("A replicated field test of the mechanism.");
     expect(section.textContent).toContain("Why it is still open.");

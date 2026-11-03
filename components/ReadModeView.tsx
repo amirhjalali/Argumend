@@ -67,7 +67,11 @@ export function ReadModeView({
     {
       id: "weighing",
       title: "How the evidence weighs",
-      hint: "One strong card from each side, and how every card is weighed.",
+      // Only promise a pair when there is one: on some maps (moon landing) a
+      // side's only cards restate an agreed fact and are never shown as its best.
+      hint: weighing.strongest
+        ? "One strong card from each side, and how every card is weighed."
+        : "How every card on this map is weighed.",
       content: <EvidenceWeighs weighing={weighing} labels={labels} />,
     },
     {

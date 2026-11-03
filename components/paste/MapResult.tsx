@@ -295,7 +295,7 @@ function RelatedLine({ related }: { related: readonly PasteMapCandidate[] }) {
   return (
     <div className="mt-4 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
       <p id={labelId}>Closely related</p>
-      <ul aria-labelledby={labelId} className="mt-0.5">
+      <ul aria-labelledby={labelId} className="mt-0.5 space-y-1.5">
         {related.map((map) => (
           <li key={map.id}>
             <Link href={map.href} className={textActionClasses("text-left text-[0.9375rem]")}>
