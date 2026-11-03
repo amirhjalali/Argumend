@@ -1,11 +1,13 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
 import { PAGE_GUTTER, PAGE_WIDTHS, TextAction } from "@/components/ui";
 import { MobileArgumentList } from "@/components/MobileArgumentList";
 import { useIsHydrated, useIsMobile } from "@/hooks/useMediaQuery";
 import type { DiagramModel } from "@/lib/diagram/model";
+import { trackEvent } from "@/lib/analytics";
 
 // React Flow (+CSS) ships only to desktop sessions of this route. Phones get
 // the outline, which is server-rendered from the same model.
@@ -35,6 +37,11 @@ function DiagramLoading() {
 export function TopicDiagram({ diagram }: { diagram: DiagramModel }) {
   const hydrated = useIsHydrated();
   const isMobile = useIsMobile();
+
+  // "Open the map": counted once per visit to the diagram route.
+  useEffect(() => {
+    trackEvent({ action: "diagram_view", topicId: diagram.topicId });
+  }, [diagram.topicId]);
 
   return (
     <div className="flex flex-col md:h-[calc(100svh-3.5rem-1px)]">

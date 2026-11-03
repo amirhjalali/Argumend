@@ -91,6 +91,12 @@ describe("/privacy", () => {
     }
     expect(text).toContain("Google Analytics");
     expect(text).toContain("Google");
+    // The analytics section names the build's provider (none in tests), the
+    // Cloudflare beacon, and that searches and pastes reach it only as counts.
+    expect(text).toContain("This version of the site loads none of them.");
+    expect(text).toContain("Cloudflare");
+    expect(text).toContain("what you typed into a search box");
+    expect(text).not.toMatch(/whether the sidebar is open/);
     expect(
       view.getAllByRole("link", { name: LEGAL_CONTACT_EMAIL })[0].getAttribute("href"),
     ).toBe(`mailto:${LEGAL_CONTACT_EMAIL}`);

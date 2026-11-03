@@ -227,12 +227,17 @@ or a live provider is unavailable, the API returns a programmatic result marked
 with a stable fallback code; provider error details are logged server-side and
 are not exposed to clients.
 
-Google Analytics is disabled by default, including in local development and
-preview deployments. Enable it explicitly by setting a measurement ID:
+Analytics is disabled by default, including in local development and preview
+deployments. Enable one provider at build time: Google Analytics 4, or the
+cookieless Plausible or Umami. A measurement ID alone selects GA:
 
 ```bash
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
+
+`docs/ANALYTICS.md` lists every event (counts only, never pasted or searched
+text), the exact variables for each provider and for Google Search Console
+verification, and the five numbers to read weekly.
 
 Every map has a canonical crux-first reading page at `/topics/<topic-id>`. The
 three flagship ArgumentGraph maps and legacy topic maps share that page

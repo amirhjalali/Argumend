@@ -28,16 +28,44 @@ const sharpLibvipsGlob = (() => {
 })();
 const authEntryEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === 'true';
 
+// The origin of a cookieless analytics script, when one is configured
+// (NEXT_PUBLIC_ANALYTICS_PROVIDER=plausible|umami). Both send their events
+// back to the origin that served the script. This repeats the https-only
+// check in lib/analyticsConfig.ts, which next.config.js cannot import;
+// next.config.test.ts asserts the two agree.
+function cookielessAnalyticsOrigin(env = process.env) {
+  const provider = (env.NEXT_PUBLIC_ANALYTICS_PROVIDER || '').trim().toLowerCase();
+  const src =
+    provider === 'plausible'
+      ? env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC
+      : provider === 'umami'
+        ? env.NEXT_PUBLIC_UMAMI_SCRIPT_SRC
+        : undefined;
+  if (!src || !src.trim()) return null;
+  try {
+    const url = new URL(src.trim());
+    return url.protocol === 'https:' && !url.username && !url.password ? url.origin : null;
+  } catch {
+    return null;
+  }
+}
+const analyticsOrigin = cookielessAnalyticsOrigin();
+const analyticsSource = analyticsOrigin ? ` ${analyticsOrigin}` : '';
+
 // Build Content-Security-Policy header value
 // Cloudflare Web Analytics: the proxy injects its beacon script from
 // static.cloudflareinsights.com, and the beacon reports to cloudflareinsights.com.
+// Google Analytics 4 (Google's CSP guide, "without any Ads features"): gtag.js
+// from www.googletagmanager.com; hits go to region-specific hosts such as
+// region1.google-analytics.com and region1.analytics.google.com, so the
+// wildcards are needed — www.google-analytics.com alone drops most hits.
 const cspDirectives = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com${isDev ? " 'unsafe-eval'" : ''}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com${analyticsSource}${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' https://images.unsplash.com https://www.google-analytics.com data:",
+  "img-src 'self' https://images.unsplash.com https://*.google-analytics.com https://www.googletagmanager.com data:",
   "font-src 'self'",
-  "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com",
+  `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://cloudflareinsights.com${analyticsSource}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

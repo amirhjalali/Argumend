@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
-import { Suspense } from "react";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { JsonLd } from "@/components/JsonLd";
-import { GAPageView } from "@/components/GAPageView";
+import { AnalyticsScripts } from "@/components/AnalyticsScripts";
+import { resolveAnalyticsConfig, siteVerificationMetadata } from "@/lib/analyticsConfig";
 import { MAP_COUNT_LABEL as L } from "@/data/topicIndex";
 import {
   ORGANIZATION_ID,
@@ -63,7 +62,10 @@ const italicFaces = (
   )
   .join("");
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+// One provider or none, from NEXT_PUBLIC_ variables set at build time
+// (lib/analyticsConfig.ts, docs/ANALYTICS.md). None by default.
+const ANALYTICS = resolveAnalyticsConfig();
+
 
 export const viewport: Viewport = {
   themeColor: [
@@ -127,6 +129,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  // <meta name="google-site-verification"> when
+  // NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION is set at build time.
+  ...siteVerificationMetadata(),
   manifest: "/manifest.webmanifest",
   icons: {
     icon: "/icon.png",
@@ -152,33 +157,13 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: italicFaces }} />
       </head>
       <body className={`${ebGaramond.variable} ${plusJakartaSans.variable} antialiased`}>
-        {GA_MEASUREMENT_ID ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
-              `}
-            </Script>
-          </>
-        ) : null}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:flex focus:min-h-11 focus:items-center focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-[#3d3a36] focus:shadow-lg"
         >
           Skip to content
         </a>
-        {GA_MEASUREMENT_ID ? (
-          <Suspense fallback={null}>
-            <GAPageView measurementId={GA_MEASUREMENT_ID} />
-          </Suspense>
-        ) : null}
+        {ANALYTICS ? <AnalyticsScripts config={ANALYTICS} /> : null}
         <ThemeProvider>
           {children}
         </ThemeProvider>
