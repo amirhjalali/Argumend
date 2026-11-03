@@ -11,16 +11,25 @@ export const climateChangeData = {
   meta_claim: "Climate change is primarily caused by human activity.",
   status: "settled" as const,
   category: "science" as const,
+  // As of 3 November 2026: the Indicators of Global Climate Change update
+  // (Forster et al., ESSD, June 2025) puts human-caused warming in 2024 at
+  // 1.36 °C of the 1.52 °C observed; the National Academies (September 2025)
+  // called the evidence of harm "beyond scientific dispute"; the EPA rescinded
+  // the 2009 endangerment finding for vehicles in February 2026 on legal
+  // rather than scientific grounds, after a Department of Energy working group
+  // of five contrarian scientists argued in July 2025 that models run hot.
+  last_updated: "2026-11-03",
   keystone_fact: {
     statement:
-      "Atmospheric CO₂ is at its highest level in at least 800,000 years, and its carbon has grown isotopically lighter, from roughly −6.5‰ before the industrial era to about −8‰ today. Satellites and Argo floats show Earth absorbing roughly 0.5–1.0 W/m² more energy than it radiates. Both sides work from these measurements. The fight is over what they rule out, and whether some natural factor is under-measured enough to matter.",
+      "Of the 1.52 °C the world had warmed by 2024, researchers attribute 1.36 °C to human activity, and the rate of human-caused warming has reached about 0.27 °C a decade. The carbon in the air has grown isotopically lighter, from about −6.5‰ before the industrial era to −8‰ today, the signature of fossil fuel. The part scientists still argue over is how much warming each tonne buys and how fast; in February 2026 the US government withdrew its legal finding that greenhouse gases endanger health without contesting that science.",
     confidence: 97,
-    source: "NOAA Global Monitoring Laboratory; Scripps CO₂ Program (Keeling); Loeb et al., Geophysical Research Letters (2021), NASA/NOAA CERES and Argo",
-    sourceUrl: "https://gml.noaa.gov/ccgg/isotopes/c13tellsus.html",
+    source:
+      "Forster et al., 'Indicators of Global Climate Change 2024', Earth System Science Data 17:2641-2680 (19 June 2025); NOAA Global Monitoring Laboratory; Morgan Lewis on the EPA's February 2026 rescission",
+    sourceUrl: "https://essd.copernicus.org/articles/17/2641/2025/",
   },
   simple_case: [
-    "Both sides accept that CO₂ has varied naturally over Earth's history and now stands at its highest level in at least 800,000 years, that the sun drives Earth's climate while volcanoes and orbital cycles measurably affect it, and that early climate models had real uncertainties.",
-    "They split over whether the falling carbon-isotope ratio, alongside dropping oxygen and acidifying oceans, pins the added CO₂ on fossil fuels rather than volcanoes or ocean outgassing; whether short-term swings like the 1998–2014 slowdown reflect model error or natural variability; and whether the satellite and ocean-float energy budget leaves room for an under-measured natural factor large enough to matter.",
+    "The answer bears on what the US government may regulate, on what the next decade of emissions is expected to cost, and on which claims about the sun, the models and the data a reader should take seriously.",
+    "What is argued about now is mostly size and speed: how much the world warms for each doubling of CO₂, whether some of the models run hotter than the thermometers, and whether natural variability is larger than the measured energy budget leaves room for.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
@@ -80,16 +89,16 @@ export const climateChangeData = {
   pillars: [
     {
       id: "isotopic-fingerprint",
-      title: "The Isotopic Fingerprint",
+      title: "Where Did the Extra CO₂ Come From?",
       short_summary:
-        "Carbon isotope ratios in atmospheric CO₂ prove fossil fuel origin.",
+        "Fossil carbon is lighter in carbon-13 than the carbon in the air, so burning it should make the air isotopically lighter. It has: from about −6.5‰ before 1850 to −8‰ today. Oxygen is falling at the ratio combustion predicts and the ocean is acidifying, which an ocean releasing CO₂ would not do.",
       image_url:
         "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=800&q=60",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "CO₂ levels have fluctuated naturally throughout Earth's history. The current rise could be from ocean outgassing, volcanic activity, or other natural carbon cycle variations. Correlation with industrialization doesn't prove causation.",
+        "CO₂ has risen and fallen on its own throughout Earth's history, long before anyone burned coal, and warm oceans release it. The rise since 1850 tracks industrialisation, but so does almost everything else about the modern world, and matching two curves is not proving one caused the other.",
       proponent_rebuttal:
-        "Fossil fuels have a distinct isotopic signature—they're depleted in ¹³C because plants preferentially absorb lighter ¹²C. Since 1850, atmospheric δ¹³C has dropped precisely as predicted if fossil carbon is the source. This isn't correlation—it's a chemical fingerprint. Additionally, oxygen levels are dropping at the exact ratio expected from combustion (O₂ consumed per CO₂ produced), and ocean pH is declining as CO₂ dissolves. Three independent chemical signatures all point to burning fossil fuels.",
+        "The added carbon can be identified, not just counted. Plants take up the lighter carbon-12 in preference to carbon-13, so coal and oil made from ancient plants are depleted in carbon-13; as that carbon enters the air, the atmosphere's ratio falls, and since 1850 it has fallen as burning fossil fuel predicts. Two other chemical signatures line up: atmospheric oxygen is dropping at the ratio combustion consumes it, and surface-ocean pH has fallen about 0.1 units. An ocean releasing CO₂ would become less acidic, not more, and volcanoes emit roughly 0.3-0.6 billion tonnes of CO₂ a year against about 40 billion tonnes from human activity.",
       crux: {
         id: "suess-effect",
         title: "The Suess Effect Measurement",
@@ -121,7 +130,7 @@ export const climateChangeData = {
       evidence: [
         {
           id: "isotope-measurements",
-          title: "δ¹³C Decline Matches Fossil Fuel Signature",
+          title: "Atmospheric carbon-13 fell from about −6.5‰ to −8‰, the fossil-fuel signature (NOAA, Scripps)",
           description:
             "Atmospheric δ¹³C has declined from roughly -6.5‰ before the industrial era to about -8‰ today, as predicted from fossil fuel combustion (the Suess effect).",
           side: "for" as const,
@@ -139,7 +148,7 @@ export const climateChangeData = {
         },
         {
           id: "oxygen-decline",
-          title: "Atmospheric O₂ Declining at Combustion Ratio",
+          title: "Atmospheric oxygen is falling at the ratio burning consumes it (Scripps O₂ Program)",
           description:
             "Oxygen levels dropping at exactly the ratio expected from burning fossil fuels (1 O₂ consumed per CO₂ produced).",
           side: "for" as const,
@@ -156,7 +165,7 @@ export const climateChangeData = {
         },
         {
           id: "ocean-acidification",
-          title: "Ocean pH Declining (Acidification)",
+          title: "Surface-ocean pH has fallen about 0.1 units, which outgassing would not do (NOAA PMEL)",
           description:
             "Surface-ocean pH has dropped about 0.1 units (from ~8.2 to ~8.1) since pre-industrial times—a ~30% increase in acidity—as CO₂ dissolves to form carbonic acid.",
           side: "for" as const,
@@ -173,7 +182,7 @@ export const climateChangeData = {
         },
         {
           id: "natural-co2-claim",
-          title: "CO₂ Could Be From Natural Sources",
+          title: "Volcanoes and ocean outgassing release CO₂ too — about 60-90 times less than people do",
           description: "Volcanic activity and ocean outgassing could explain CO₂ rise.",
           side: "against" as const,
           weight: {
@@ -192,16 +201,16 @@ export const climateChangeData = {
     },
     {
       id: "temperature-attribution",
-      title: "The Temperature Attribution",
+      title: "Does the Warming Look Like Greenhouse Warming?",
       short_summary:
-        "Observed warming patterns match greenhouse gas predictions, not natural cycles.",
+        "Greenhouse warming leaves marks that solar warming would not: the stratosphere cools while the surface warms, and the Arctic warms about four times faster than the globe. Both are observed. The live argument is about shorter swings, such as the 1998-2014 slowdown, and whether they show the models are off.",
       image_url:
         "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Climate models are unreliable—they failed to predict the 'hiatus' of 1998-2014 and consistently run hotter than observations. The warming could be natural variability we don't fully understand. Medieval Warm Period and Roman Climate Optimum show temperatures can shift without human influence.",
+        "The case rests on models that missed things they should have caught. Temperatures stalled from 1998 to 2014 while emissions kept climbing, and the models did not predict it; a subset of the newest generation still runs hotter than the thermometers. Climate shifted before, too: the Medieval Warm Period and the Roman Climate Optimum came and went with no industry at all. A theory that explains the warm years and calls the flat ones natural variability is hard to catch out.",
       proponent_rebuttal:
-        "Climate models successfully hindcast the entire 20th century temperature record, including the mid-century cooling from aerosols. The 'hiatus' was within model uncertainty bounds and is now understood as a short-term slowdown linked to a negative Pacific Decadal Oscillation phase; later reanalyses (e.g. Karl et al. 2015) found little or no actual slowdown once data biases were corrected. The Medieval Warm Period and Roman Climate Optimum were real but largely regional—IPCC AR6 finds no globally synchronous warm epoch in the past 2,000 years, whereas today's warming is globally coherent and, in rate, unprecedented over that span. Crucially, models predict specific 'fingerprints': stratospheric cooling while the troposphere warms (greenhouse signature), nights warming faster than days, and polar amplification. All three fingerprints are observed. IPCC AR6 estimates human-induced warming of about 1.1°C since 1850–1900, with natural forcings contributing only roughly −0.1°C to +0.1°C—so natural factors alone cannot explain the observed trend; only adding anthropogenic forcing matches reality.",
+        "The attribution does not rest on models alone, and where it does, they have been tested against things they did not know in advance. Models reproduce the whole 20th-century record, including the mid-century cooling caused by aerosols. The 'hiatus' was within model uncertainty bounds and is now understood as a short-term slowdown linked to a negative Pacific Decadal Oscillation phase; later reanalyses (e.g. Karl et al. 2015) found little or no actual slowdown once data biases were corrected. The Medieval Warm Period and Roman Climate Optimum were real but largely regional—IPCC AR6 finds no globally synchronous warm epoch in the past 2,000 years, whereas today's warming is globally coherent and, in rate, unprecedented over that span. Crucially, models predict specific 'fingerprints': stratospheric cooling while the troposphere warms (greenhouse signature), nights warming faster than days, and polar amplification. All three fingerprints are observed. IPCC AR6 estimates human-induced warming of about 1.1°C since 1850–1900, with natural forcings contributing only roughly −0.1°C to +0.1°C—so natural factors alone cannot explain the observed trend; only adding anthropogenic forcing matches reality.",
       crux: {
         id: "fingerprint-detection",
         title: "The Fingerprint Detection Test",
@@ -233,7 +242,7 @@ export const climateChangeData = {
       evidence: [
         {
           id: "stratospheric-cooling",
-          title: "Stratosphere Cooling While Surface Warms",
+          title: "The stratosphere is cooling while the surface warms — a pattern the sun cannot make (PNAS, 2023)",
           description:
             "Stratospheric temperatures have declined while surface warms—unique signature of greenhouse effect, not solar warming.",
           side: "for" as const,
@@ -251,7 +260,7 @@ export const climateChangeData = {
         },
         {
           id: "nights-faster",
-          title: "Nights Warmed Faster Than Days (20th-century trend)",
+          title: "Nights warmed faster than days through the late 20th century, as a greenhouse blanket predicts",
           description:
             "Over 1950–2000 the diurnal temperature range narrowed as minimum (night) temperatures rose faster than maximum (day) temperatures—consistent with a greenhouse 'blanket' effect.",
           side: "for" as const,
@@ -269,7 +278,7 @@ export const climateChangeData = {
         },
         {
           id: "polar-amplification",
-          title: "Arctic Warming ~4x Faster Than Global Average",
+          title: "The Arctic has warmed nearly four times faster than the globe since 1979 (Rantanen et al., 2022)",
           description:
             "Since 1979 the Arctic has warmed nearly four times faster than the global mean—polar amplification consistent with greenhouse-driven warming and ice-albedo feedback.",
           side: "for" as const,
@@ -287,7 +296,7 @@ export const climateChangeData = {
         },
         {
           id: "model-uncertainty",
-          title: "Climate Models Have Uncertainty Ranges",
+          title: "A subset of the newest climate models runs hotter than the thermometers (IPCC AR6)",
           description:
             "Models show spread in predictions, and a subset of high-sensitivity CMIP6 models run warmer than observations.",
           side: "against" as const,
@@ -306,16 +315,16 @@ export const climateChangeData = {
     },
     {
       id: "natural-factors-elimination",
-      title: "The Natural Factors Elimination",
+      title: "Could It Be the Sun, or Volcanoes?",
       short_summary:
-        "Solar activity, volcanic cycles, and orbital variations cannot explain the observed warming trend.",
+        "Direct satellite measurements since 1978 show solar output flat or slightly falling while temperatures rose, cosmic-ray flux shows no matching trend, and orbital cycles currently push toward cooling. Earth is absorbing roughly 1 W/m² more energy than it radiates, and no measured natural forcing fills that gap.",
       image_url:
         "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The Sun drives Earth's climate—small changes in solar output could have outsized effects through cosmic ray modulation or UV-ozone interactions. We've only been measuring solar irradiance directly since 1978. Historical correlations between solar cycles and climate are well-documented. Perhaps we're underestimating natural variability.",
+        "Everything about Earth's climate begins with the sun, and small changes in its output can be amplified through cosmic rays seeding clouds or ultraviolet light altering ozone. Direct satellite measurement goes back only to 1978, a short record for a star. The sun has moved climate before: the Maunder Minimum of 1645-1715 coincided with Europe's bitterest winters. The honest worry is not that the sun explains everything, but that natural variability may be larger than the budget allows for.",
       proponent_rebuttal:
-        "Solar irradiance has been flat or slightly declining since 1980 while temperatures accelerated upward—the correlation broke. Cosmic ray flux shows no trend matching temperature. Volcanic eruptions cause temporary cooling (Pinatubo 1991 clearly visible), confirming models work, but there's no volcanic trend to explain warming. Orbital (Milankovitch) cycles operate on 10,000+ year timescales and currently favor slight cooling. When you sum all natural factors, the net contribution to warming since 1850–1900 is near zero—IPCC AR6 puts natural forcings at roughly −0.1°C to +0.1°C. The energy imbalance (~0.5–1 W/m²) measured by satellites and Argo floats requires an additional forcing—greenhouse gases are the only candidate that fits.",
+        "The sun was the first suspect, and it was checked. Solar irradiance has been flat or slightly declining since 1980 while temperatures accelerated upward, so the correlation broke. Cosmic ray flux shows no trend matching temperature. Volcanic eruptions cause temporary cooling (Pinatubo 1991 clearly visible), confirming models work, but there's no volcanic trend to explain warming. Orbital (Milankovitch) cycles operate on 10,000+ year timescales and currently favor slight cooling. When you sum all natural factors, the net contribution to warming since 1850–1900 is near zero—IPCC AR6 puts natural forcings at roughly −0.1°C to +0.1°C. The energy imbalance (~0.5–1 W/m²) measured by satellites and Argo floats requires an additional forcing—greenhouse gases are the only candidate that fits.",
       crux: {
         id: "energy-budget-closure",
         title: "The Energy Budget Closure Test",
@@ -346,7 +355,7 @@ export const climateChangeData = {
       evidence: [
         {
           id: "solar-flat",
-          title: "Solar Irradiance Flat Since 1980",
+          title: "Solar output has been flat or slightly falling since 1978 while temperatures rose (NASA)",
           description:
             "Total solar irradiance has shown no upward trend since satellite measurements began, while temperatures rose sharply.",
           side: "for" as const,
@@ -365,7 +374,7 @@ export const climateChangeData = {
         },
         {
           id: "pinatubo-test",
-          title: "Pinatubo Eruption Validates Models",
+          title: "A NASA model predicted Pinatubo's 0.5 °C cooling before the data came in, and got it right (1992)",
           description:
             "Climate models accurately predicted the temporary cooling from the 1991 Mt. Pinatubo eruption.",
           side: "for" as const,
@@ -383,7 +392,7 @@ export const climateChangeData = {
         },
         {
           id: "energy-imbalance",
-          title: "Earth's Energy Imbalance Measured",
+          title: "Satellites and ocean floats measure Earth absorbing about 1 W/m² more than it radiates",
           description:
             "Satellites and Argo floats show Earth absorbing roughly 0.5–1.0 W/m² more than it radiates—and the imbalance has been rising—so energy is accumulating in the climate system.",
           side: "for" as const,
@@ -402,7 +411,7 @@ export const climateChangeData = {
         },
         {
           id: "solar-correlation-historical",
-          title: "Historical Solar-Climate Correlations",
+          title: "The sun has shifted climate before, as in the Maunder Minimum of 1645-1715",
           description:
             "Past periods like the Maunder Minimum (c. 1645–1715) show genuine solar-climate connections.",
           side: "against" as const,
@@ -417,6 +426,124 @@ export const climateChangeData = {
             "https://www.climate.gov/news-features/climate-qa/couldnt-sun-be-cause-global-warming",
           reasoning:
             "Historical solar influence is real but small, and modern TSI has been flat/declining since 1979 while warming accelerated—so it cannot explain the post-1980 divergence.",
+        },
+      ],
+    },
+    {
+      id: "how-much-warming",
+      title: "How Much Warming, and Why Is This Still Argued About?",
+      short_summary:
+        "Doubling CO₂ warms the world somewhere between about 1.8 °C and 5.7 °C depending on the model, and that spread is where the real scientific argument lives. In February 2026 the US withdrew its legal finding that greenhouse gases endanger health, on legal grounds rather than by contesting the attribution.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "The disagreement that matters is not whether CO₂ warms the planet but by how much, and there the honest answer is a wide range. A Department of Energy working group of five scientists argued in July 2025 that the several dozen global climate models 'offer little guidance', giving average surface warming for a doubling of CO₂ anywhere from 1.8 °C to 5.7 °C, that models run hot against the past few decades, and that US records do not show the rising trends in hurricanes, tornadoes, floods and droughts commonly attributed to warming. A range that wide, used to justify policy costed to the trillion, is a weaker basis than the public is told. If the sensitivity sits at the low end, much of the alarm is misplaced even though the attribution holds.",
+      proponent_rebuttal:
+        "The uncertainty is about how fast, not whether, and it has narrowed where it can be measured. The annual Indicators of Global Climate Change update attributes 1.36 °C of the 1.52 °C observed in 2024 to human activity, with human-caused warming now rising about 0.27 °C a decade, the fastest in the instrumental record. The National Academies, reviewing the evidence in September 2025, concluded that the harm to health and welfare from human-caused greenhouse gases 'is beyond scientific dispute' and that improved observations 'confirm unequivocally' that emissions are warming the surface. Uncertainty is not reassurance: the same spread that allows a low sensitivity allows a high one, and the energy imbalance has been running at the top of expectations. When the EPA withdrew the endangerment finding in February 2026, it did so on statutory interpretation and declined to find that climate change does not endanger health.",
+      crux: {
+        id: "climate-sensitivity-constraint",
+        title: "The Sensitivity Narrowing Test",
+        question:
+          "How much does the world warm for each doubling of CO₂, and is the range narrowing?",
+        description:
+          "Models put equilibrium warming for a doubling of CO₂ between roughly 1.8 °C and 5.7 °C. Narrowing that range decides how much warming the next few decades of emissions buy. It is a question about magnitude, which both sides treat as open, not about whether human emissions drive the warming.",
+        methodology:
+          "Combine the instrumental energy budget (forcing, measured imbalance from CERES and Argo, observed warming) with paleoclimate constraints and emergent constraints on cloud feedback, as the World Climate Research Programme assessment did, and check each year's new observations against the models' spread rather than against their mean.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "The measured energy imbalance, the forcing history and the observed warming read together each year against paleoclimate and cloud-feedback constraints, to see whether the plausible range for a doubling of CO₂ keeps shrinking and where inside it the observations fall.",
+        },
+        cost_to_verify: "$5-20M (satellite and ocean observation programmes plus model intercomparison)",
+        falsification: {
+          supporter_flip:
+            "If a decade of energy-budget and cloud-feedback constraints kept landing near the bottom of the 1.8-5.7 °C range, and observed warming kept undershooting the models, the case for the higher projections would weaken even with attribution intact.",
+          skeptic_flip:
+            "If the measured energy imbalance and new constraints kept ruling out the low end, as the doubling of the imbalance since 2000 suggests, the argument that the models exaggerate would be hard to hold.",
+          common_ground:
+            "Both sides agree the model range for a doubling of CO₂ spans roughly 1.8 °C to 5.7 °C, that some of the newest models run hotter than observations, and that the measured energy imbalance is the key constraint.",
+          live_disagreement:
+            "Where inside that range the real sensitivity sits, and whether the spread is wide enough to make strong projections unreliable.",
+        },
+      },
+      evidence: [
+        {
+          id: "igcc-2024-attribution",
+          title:
+            "Of 1.52 °C of warming in 2024, 1.36 °C is attributed to human activity (Earth System Science Data, 2025)",
+          description:
+            "The 2025 Indicators of Global Climate Change update, led by Piers Forster and following IPCC AR6 methods, reports the 2024 observed global surface temperature at 1.52 °C above 1850-1900 and the best estimate of human-caused warming at 1.36 °C. Over the decade 2015-2024, observed warming was 1.24 °C and human-induced warming 1.22 °C. Human-induced warming is rising 'at a rate that is unprecedented in the instrumental record', reaching 0.27 °C per decade over 2015-2024.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 9,
+          },
+          source:
+            "Forster et al., 'Indicators of Global Climate Change 2024: annual update', Earth System Science Data 17:2641-2680 (19 June 2025)",
+          sourceUrl: "https://essd.copernicus.org/articles/17/2641/2025/",
+          reasoning:
+            "An annual, open-data update by the researchers who wrote the IPCC's physical-science chapters, using published methods anyone can rerun. It quantifies the human share directly: almost all of the observed warming, with the rest internal variability. It inherits the attribution methods' own uncertainties, which the paper states as ranges.",
+        },
+        {
+          id: "national-academies-2025",
+          title:
+            "National Academies (September 2025): the evidence of harm is 'beyond scientific dispute'",
+          description:
+            "In 'Effects of Human-Caused Greenhouse Gas Emissions on U.S. Climate, Health, and Welfare', released on 17 September 2025 in response to the EPA's proposal to rescind the 2009 endangerment finding, the National Academies of Sciences, Engineering, and Medicine concluded that the evidence of current and future harm from human-caused greenhouse gases 'is beyond scientific dispute', that 'improved observations confirm unequivocally that greenhouse gas emissions are warming Earth's surface', and that no known natural factor explains the observed changes. It found the 2009 finding accurate and reinforced by stronger evidence.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "National Academies of Sciences, Engineering, and Medicine, 'Effects of Human-Caused Greenhouse Gas Emissions on U.S. Climate, Health, and Welfare' (17 September 2025)",
+          sourceUrl:
+            "https://www.nationalacademies.org/news/national-academies-publish-new-report-reviewing-evidence-for-greenhouse-gas-emissions-and-u-s-climate-health-and-welfare",
+          reasoning:
+            "A committee review of the literature by the body US law treats as the scientific court of last resort, published into a live political fight and against the administration's position. It is an assessment of other people's evidence rather than new measurement, and the committee's composition was itself attacked from both directions.",
+        },
+        {
+          id: "doe-working-group-2025",
+          title:
+            "DOE working group (July 2025): models give 'little guidance', warming per CO₂ doubling spans 1.8-5.7 °C",
+          description:
+            "A five-member Climate Working Group assembled by Energy Secretary Chris Wright — John Christy, Judith Curry, Steven Koonin, Ross McKitrick and Roy Spencer — published 'A Critical Review of Impacts of Greenhouse Gas Emissions on the U.S. Climate' on 29 July 2025. It argued that the world's several dozen global climate models 'offer little guidance' on how much the climate responds to CO₂, with average surface warming for a doubling ranging from 1.8 °C to 5.7 °C; that models run 'hot' against the past few decades; that most extreme weather events in the US show no long-term trend; and that CO₂-induced warming 'appears to be less damaging economically than commonly believed'. The EPA's final February 2026 rescission did not rely on it.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 4,
+            independence: 3,
+            replicability: 5,
+            directness: 5,
+          },
+          source:
+            "US Department of Energy, 'Department of Energy Issues Report Evaluating Impact of Greenhouse Gasses on U.S. Climate' (29 July 2025); DieselNet summary of the report's findings",
+          sourceUrl:
+            "https://www.energy.gov/articles/department-energy-issues-report-evaluating-impact-greenhouse-gasses-us-climate-invites",
+          reasoning:
+            "The fullest recent statement of the dissenting case, and its central point — that the sensitivity range is wide — is uncontested. Independence and reliability are low: the authors were picked by a department seeking a specific policy outcome, the report had no formal peer review, and critics including Zeke Hausfather argued it selects data points that fit its narrative. Its own text accepts that CO₂ warms the planet.",
+        },
+        {
+          id: "energy-imbalance-doubled-2025",
+          title:
+            "Earth's energy imbalance has more than doubled in two decades, and ran above model expectations in 2023 (AGU Advances, 2025)",
+          description:
+            "Mauritsen and colleagues reported in AGU Advances in June 2025 that Earth's energy imbalance, the gap between sunlight absorbed and heat radiated away, has more than doubled in recent decades and is rising faster than models projected; in 2023 the observed imbalance was about twice the IPCC's best estimate. The authors warn that the satellite record that measures it is at risk as CERES instruments are decommissioned, with the replacement, Libera, not due to launch until 2027.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Mauritsen et al., 'Earth's Energy Imbalance More Than Doubled in Recent Decades', AGU Advances 6:e2024AV001636 (June 2025); Stockholm University Department of Meteorology",
+          sourceUrl:
+            "https://www.su.se/english/divisions/department-of-meteorology/news/articles/2025-06-10-earths-energy-imbalance-more-than-doubled-in-recent-decades.-new-publication-by-misu",
+          reasoning:
+            "A direct measurement of heat accumulating, running at the high end rather than the low end of what models expected, which cuts against the claim that projections are systematically too warm. It also shows the models are imperfect in both directions, and the explanation for the acceleration — clouds, aerosols or feedbacks — is not settled.",
         },
       ],
     },
