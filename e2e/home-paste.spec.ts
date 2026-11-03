@@ -20,7 +20,7 @@ test("the home paste hands its text to the offline map flow once", async ({ page
   await expect(page).toHaveURL(/\/analyze$/);
   const result = page.getByRole("region", { name: "Result" });
   await expect(result.getByRole("heading", { name: "This argument is already mapped" })).toBeVisible();
-  await expect(result.getByRole("link", { name: /^Open the map at/ })).toHaveAttribute(
+  await expect(result.getByRole("link", { name: "Open the map at the first crux" })).toHaveAttribute(
     "href",
     "/topics/nuclear-energy-safety#crux-climate-effectiveness",
   );
