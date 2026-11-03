@@ -105,20 +105,32 @@ export function SettleAnswer({
   condition,
   resolved,
   label: labelOverride,
+  quiet = false,
+  conditionClassName = "",
 }: {
   mode: SettleMode;
   kind?: ResolutionKind;
   condition?: string;
   resolved: boolean;
   label?: string;
+  /**
+   * The answer one step below its question rather than level with it: the
+   * topic page's crux sheet, where the question has to lead.
+   */
+  quiet?: boolean;
+  /** Extra classes on the answer line (the topic page clamps it while closed). */
+  conditionClassName?: string;
 }) {
+  const size = quiet
+    ? "text-[1rem] leading-[1.5] sm:text-[1.0625rem]"
+    : "text-[1.0625rem] leading-[1.5] sm:text-[1.1875rem]";
   if (mode === "standing") {
     return (
       <span className="mt-3 block" data-settle="standing">
         <span className="label-caps block text-[#8B5A3C] dark:text-[#cfa88a]">
           {labelOverride ?? "What would settle it"}
         </span>
-        <span className="mt-1 block font-serif text-[1.0625rem] italic leading-[1.5] text-[#7a4e34] dark:text-[#d9b89d] sm:text-[1.1875rem]">
+        <span className={`mt-1 block font-serif italic text-[#7a4e34] dark:text-[#d9b89d] ${size} ${conditionClassName}`}>
           {standingLineFor(kind)}
         </span>
       </span>
@@ -141,12 +153,14 @@ export function SettleAnswer({
         {label}
       </span>
       <span
-        className={`mt-1 block font-serif text-[1.0625rem] leading-[1.5] sm:text-[1.1875rem] ${
+        className={`mt-1 block font-serif ${size} ${conditionClassName} ${
           mode === "unstated"
             ? "italic text-muted dark:text-stone-400"
             : resolved
               ? "text-stone-600 dark:text-stone-400"
-              : "text-stone-800 dark:text-stone-200"
+              : quiet
+                ? "text-stone-700 dark:text-stone-300"
+                : "text-stone-800 dark:text-stone-200"
         }`}
       >
         {condition ? asSentence(condition) : "Not yet specified."}
