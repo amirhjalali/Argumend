@@ -2135,22 +2135,22 @@
     "title": "Does Return-to-Office Actually Improve Productivity?",
     "question": "Do return-to-office mandates improve productivity and innovation?",
     "meta_claim": "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
-    "confidence_score": 27,
-    "balance": 27,
-    "weight": 64,
+    "confidence_score": 33,
+    "balance": 33,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 13,
     "firstCrux": "Does fully remote work lower total output once coordination and knowledge transfer are counted?",
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks frey gudith klocke"
+    "keywords": "allen teammates bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks emanuel frey"
   },
   {
     "id": "lab-diamonds-ethics",
