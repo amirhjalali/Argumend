@@ -61,8 +61,9 @@ export interface ArticleStimulus {
  *   their summaries. That undercounted the Playwright figure by about 8% on
  *   the old trans page, so treat these as estimates.
  * - transgender-athletes-sports: still the Playwright count (innerText of
- *   `[data-study-stimulus=map] article`) from before its rewrite, which is in
- *   progress; refresh with it.
+ *   `[data-study-stimulus=map] article`) from before its round-15 rewrite;
+ *   the texts were brought up to the rewritten map on 3 Nov 2026, but the
+ *   count has not been re-measured.
  *
  * All three must be re-measured in a browser on the final map versions at
  * the freeze (docs/plans/2026-11-03-study-plan.md, "Stimuli").
@@ -108,11 +109,11 @@ const gunChatbot: ChatbotStimulus = {
         },
         {
           lead: "Australia.",
-          text: "After its 1996 buyback of about 650,000 guns, Australia went from 13 fatal mass shootings in 18 years to none for two decades.",
+          text: "After its 1996 buyback of about 660,000 guns, Australia went from 13 fatal mass shootings in 18 years to none for two decades.",
         },
         {
           lead: "Weapon type.",
-          text: "In high-fatality mass shootings from 1990 to 2017, attacks with large-capacity magazines had a 62% higher average death toll. Everytown, a gun-control group, found assault-weapon mass shootings from 2015 to 2022 averaged 11.5 killed, against 5.1 with other guns.",
+          text: "In high-fatality mass shootings from 1990 to 2017, attacks with large-capacity magazines had a 62% higher average death toll. Everytown, a gun-control group, found mass shootings from 2016 to 2025 with assault weapons or large magazines averaged 24.4 people shot, against 5.6 when neither was used.",
         },
         {
           lead: "Carry laws.",
@@ -134,7 +135,7 @@ const gunChatbot: ChatbotStimulus = {
         },
         {
           lead: "Defensive use.",
-          text: "A 2021 survey of 16,708 gun owners estimated about 1.67 million defensive uses a year, most without a shot fired. Government crime surveys find far fewer, roughly 60,000 to 120,000.",
+          text: "A 2021 survey of 16,708 gun owners estimated about 1.67 million defensive uses a year, most without a shot fired. Government crime surveys find far fewer, about 108,000 to 116,000.",
         },
         {
           lead: "Substitution.",
@@ -219,7 +220,7 @@ const gunArticle: ArticleStimulus = {
       "Americans hold about 400 million guns and there is no national registry, so a new law on sales reaches the existing stockpile slowly.",
     ),
     p(
-      "Supporters of stricter laws often cite Australia, which banned semi-automatic rifles and bought back about 650,000 guns after 1996 and then went two decades without a fatal mass shooting. The study's authors cautioned that they could not show the law caused the change, because deaths by other means also fell.",
+      "Supporters of stricter laws often cite Australia, which banned semi-automatic rifles and bought back about 660,000 guns after 1996 and then went two decades without a fatal mass shooting. The study's authors cautioned that they could not show the law caused the change, because deaths by other means also fell.",
     ),
     h("The suicide question"),
     p(
@@ -240,7 +241,7 @@ const gunArticle: ArticleStimulus = {
     ),
     h("Mass shootings"),
     p(
-      "Mass shootings are a small share of gun deaths but drive much of the debate. One study found that high-fatality mass shootings from 1990 to 2017 involving large-capacity magazines had a 62% higher average death toll. A Justice Department-funded evaluation of the 1994 assault weapons ban concluded that its effects, if renewed, were likely to be small. Everytown, a gun-control advocacy group, found that mass shootings involving assault weapons from 2015 to 2022 killed an average of 11.5 people, against 5.1 with other guns. Opponents of bans note that about 24.6 million Americans have owned AR-15-style rifles, among the most common guns in the country, and that in a Mother Jones database of mass shootings since 1982 about 74% of the guns were obtained legally.",
+      "Mass shootings are a small share of gun deaths but drive much of the debate. One study found that high-fatality mass shootings from 1990 to 2017 involving large-capacity magazines had a 62% higher average death toll. A Justice Department-funded evaluation of the 1994 assault weapons ban concluded that its effects, if renewed, were likely to be small. Everytown, a gun-control advocacy group, found that in mass shootings from 2016 to 2025, attacks involving assault weapons or large magazines averaged 24.4 people shot, against 5.6 when neither was used. Opponents of bans note that about 24.6 million Americans have owned AR-15-style rifles, among the most common guns in the country, and that in a Mother Jones database of mass shootings since 1982 about 74% of the guns were obtained legally.",
     ),
     p(
       "Guns are also used in self-defense. A 2021 survey of gun owners estimated about 1.67 million defensive uses a year; government crime surveys produce far lower estimates.",
@@ -323,7 +324,7 @@ const immigrationChatbot: ChatbotStimulus = {
         },
         {
           lead: "Enforcement hasn't lasted before.",
-          text: "Roughly $333 billion was spent on enforcement from 1986 into the early 2020s, and crossings still surged repeatedly. The 2025 act adds $45 billion for detention centers, a 308% annual increase in ICE's detention budget, mostly for people with no criminal record.",
+          text: "An estimated $532.5 billion has gone to the enforcement agencies since 2003, and crossings still surged in 2019 and again from 2021 to 2023. The 2025 act adds $45 billion for detention centers, a 308% annual increase in ICE's detention budget, mostly for people with no criminal record.",
         },
       ],
     },
@@ -376,7 +377,7 @@ const immigrationArticle: ArticleStimulus = {
   dek: "Apprehensions at the southwest border hit a record low in fiscal 2026. What caused the drop, and who is being deported, remain in dispute.",
   blocks: [
     p(
-      "Border Patrol made 98,708 arrests at the southwest border in the year to September 2026, the fewest on record, according to preliminary Department of Homeland Security figures. In fiscal 2023 it had made 2.05 million, and fiscal 2025, at 237,565, had already been the lowest year since 1970. Nationwide encounters in fiscal 2026 were 379,243. Fiscal 2026 was the first year in which Border Patrol released none of the migrants it apprehended at the border.",
+      "Border Patrol made 98,708 arrests at the southwest border in the year to September 2026, the fewest on record, according to preliminary Department of Homeland Security figures. In fiscal 2023 it had made 2.05 million, and fiscal 2025, at around 238,000, had already been the lowest year since 1970. Nationwide encounters in fiscal 2026 were 379,243. Fiscal 2026 was the first year in which Border Patrol released none of the migrants it apprehended at the border.",
     ),
     p(
       "Inside the country, the government carried out about 980,000 deportations between January 2025 and July 2026, according to an estimate by the Migration Policy Institute, which said the figure was consistent with the department's public statements.",
@@ -386,10 +387,10 @@ const immigrationArticle: ArticleStimulus = {
       "Supporters of the administration's approach credit enforcement. After the new administration ended releases and CBP One appointments in January 2025, monthly apprehensions fell below 10,000 from February and stayed there. DHS also reports about 250 miles of new barrier since January 2025 and an estimated 80% fall in migrant deaths.",
     ),
     p(
-      "Critics point out that much of the decline came earlier. Monthly apprehensions fell from 249,740 in December 2023 to 47,324 in December 2024, after a June 2024 Biden administration rule limiting asylum between ports of entry and stepped-up enforcement by Mexico. Of the 237,565 apprehensions in fiscal 2025, 72% came before January 20.",
+      "Critics point out that much of the decline came earlier. Monthly apprehensions fell from 249,740 in December 2023 to 47,324 in December 2024, after a June 2024 Biden administration rule limiting asylum between ports of entry and stepped-up enforcement by Mexico. Customs and Border Protection itself credited that fall to the June 2024 rule.",
     ),
     p(
-      "Skeptics of enforcement also cite history: roughly $333 billion was spent on immigration enforcement from 1986 into the early 2020s, and crossings still surged in the late 1990s, the mid-2000s, 2019 and 2021 to 2023. Supporters reply that a law no one enforces invites the next surge, and that fewer crossings starve smuggling cartels of their fees.",
+      "Skeptics of enforcement also cite history: the American Immigration Council estimates that about $532.5 billion has been spent on the enforcement agencies since the Department of Homeland Security was created in 2003, and crossings still surged in 2019 and again from 2021 to 2023. Supporters reply that a law no one enforces invites the next surge, and that fewer crossings starve smuggling cartels of their fees.",
     ),
     h("Who is being deported"),
     p(
@@ -436,7 +437,7 @@ const transChatbot: ChatbotStimulus = {
   arm: "chatbot",
   topic: "transgender-athletes-sports",
   prompt:
-    "Give me both sides: should transgender women on hormone therapy be allowed to compete in women's sports?",
+    "Give me both sides: should transgender women and girls be allowed to compete in female sports?",
   blocks: [
     p(
       "This is a sensitive issue where views often reflect different priorities, fairness in competition and inclusion, as well as different readings of the science. Here's a balanced overview.",
@@ -458,8 +459,8 @@ const transChatbot: ChatbotStimulus = {
           text: "A 2024 meta-analysis of 12 studies with 21,565 participants found that discrimination and exclusion in sport were associated with higher depression, distress and suicide risk. Supporters add that most transgender athletes are recreational, not elite.",
         },
         {
-          lead: "Natural variation.",
-          text: "Sport has always rewarded physical outliers. Some cisgender women are taller and larger than some transgender women, elite female basketball players are taller than most men, and Michael Phelps's wingspan exceeds his height by three inches; nobody proposes banning those advantages.",
+          lead: "Mixed lab results.",
+          text: "The one lab study of trained transgender women athletes, funded by the IOC in 2024, found them stronger in handgrip than other women but lower in jump height and aerobic capacity relative to body mass. Its authors noted the small sample.",
         },
       ],
     },
@@ -472,12 +473,12 @@ const transChatbot: ChatbotStimulus = {
           text: "A 2020 study of US Air Force fitness tests found transgender women still ran about 12% faster than cisgender women after two years of hormone therapy, down from about 21% before transition. The gap persisted even though testosterone had been suppressed to female-typical levels for the whole period.",
         },
         {
-          lead: "Permanent skeletal differences.",
-          text: "Height, shoulder width, hand and foot size and bone structure set during male puberty are not reversed by hormone therapy. In elite sport, the gap between gold and fourth place is often under 1%.",
+          lead: "Advantages that stay.",
+          text: "A 2021 review put the male edge at 10% to 50% depending on the sport and found a year of testosterone suppression cuts muscle and strength by only about 5%. Height and skeletal frame do not change, and elite medals are decided by margins under 1%.",
         },
         {
           lead: "The purpose of the women's category.",
-          text: "Critics argue that sex-segregated sport exists to ensure fair competition for female athletes, and that letting athletes with male-puberty advantages compete undermines it. Women fought for decades for Title IX and equal opportunities in sport, and transgender women can still compete in men's or open categories.",
+          text: "Critics argue that sex-segregated sport exists to give female athletes fair competition, and that letting athletes with male-puberty advantages compete undermines it. Transgender women can still compete in men's or open events.",
         },
         {
           lead: "Lost opportunities.",
@@ -494,6 +495,10 @@ const transChatbot: ChatbotStimulus = {
           text: "Strength was still above female levels after three years in the 2021 review, but the speed data come from military fitness tests, not elite athletes. The answer may differ by sport.",
         },
         {
+          lead: "Before puberty.",
+          text: "There is no sex gap in testosterone or athletic performance before puberty, so the case for excluding a girl who began puberty blockers before male puberty is weaker. Almost no research has measured girls who transitioned that early.",
+        },
+        {
           lead: "Weighing harms.",
           text: "How to balance the harm of exclusion against the competitive harm to other women is partly a question of values.",
         },
@@ -505,7 +510,7 @@ const transChatbot: ChatbotStimulus = {
     },
     h("Where policy stands"),
     p(
-      "Major sports bodies have moved toward restriction: World Athletics in 2023, the NCAA in February 2025 (transgender women may still practice with women's teams, but not compete), and the IOC in March 2026, with a policy that applies from the 2028 Games.",
+      "Major sports bodies have moved toward restriction: World Athletics in 2023 (by a one-time gene test since September 2025), the NCAA in February 2025 (transgender women may still practice with women's teams, but not compete), and the IOC in March 2026, with a policy that applies from the 2028 Games. In June 2026 the US Supreme Court ruled 6–3 that states may keep girls' and women's school teams for biological females.",
     ),
     h("Bottom line"),
     p(
@@ -517,7 +522,11 @@ const transChatbot: ChatbotStimulus = {
     "no-olympic-domination",
     "mental-health-impact-exclusion",
     "bjsm-speed-advantage",
-    "skeletal-structure-permanence",
+    "hilton-lundberg-review-2021",
+    "hamilton-ioc-lab-study-2024",
+    "handelsman-prepuberty-no-difference",
+    "pre-puberty-transition",
+    "scotus-bpj-2026",
     "un-rapporteur-medals-count",
     "world-aquatics-open-no-entries",
     "world-athletics-framework",
@@ -536,13 +545,16 @@ const transArticle: ArticleStimulus = {
   dek: "Sports bodies have tightened eligibility for transgender women. What hormone therapy changes in the body is still debated.",
   blocks: [
     p(
-      "In March 2026, the International Olympic Committee adopted a policy limiting the female category at its events to athletes who pass a one-time SRY gene screen, a test for a gene on the Y chromosome. The rule applies from the 2028 Los Angeles Games, with a narrow exception for certain differences of sex development that do not confer a testosterone-driven advantage. Grassroots sport is exempt.",
+      "In March 2026, the International Olympic Committee adopted a policy limiting the female category at its events to athletes who pass a one-time SRY gene screen, a test for a gene on the Y chromosome. The rule applies from the 2028 Los Angeles Games and is not retroactive. Grassroots and recreational sport is exempt.",
     ),
     p(
       "The decision reversed the IOC's 2021 framework, which had left eligibility to individual sports federations and said no athlete should be excluded solely because of their transgender identity. From 2004, the IOC had allowed transgender women to compete in women's events under conditions that changed over time.",
     ),
     p(
-      "Other governing bodies moved first. In March 2023, World Athletics barred transgender women who had gone through male puberty from international women's competition, regardless of hormone therapy. Its president, Sebastian Coe, said the decision put fairness and the integrity of the female category first. In February 2025, the day after a federal executive order on Title IX, the NCAA limited competition in women's college sports to athletes assigned female at birth, a change expected to face legal challenges. Transgender women may still practice with women's teams.",
+      "Other governing bodies moved first. In March 2023, World Athletics barred transgender women who had gone through male puberty from international women's competition, regardless of hormone therapy. Since September 2025 its female category has required a one-time test for the SRY gene. Its president, Sebastian Coe, said that at elite level an athlete must be biologically female to compete in the female category. In February 2025, the day after a federal executive order on Title IX, the NCAA limited competition in women's college sports to athletes assigned female at birth. Transgender women may still practice with women's teams.",
+    ),
+    p(
+      "In June 2026 the US Supreme Court ruled 6–3, in West Virginia v. B.P.J., that states may keep girls' and women's school teams for biological females without comparing athletes one by one. Twenty-seven states have such laws.",
     ),
     h("What the research shows"),
     p("Much of the debate turns on what hormone therapy does to the advantages of male puberty."),
@@ -553,7 +565,10 @@ const transArticle: ArticleStimulus = {
       "A 2020 study of US Air Force fitness test data found that transgender women ran about 12% faster than other women after two years of hormone therapy, down from about 21% before, even though their testosterone had been suppressed to typical female levels for the whole period. Differences in push-ups and sit-ups disappeared within two years. Advocates for inclusion note that military fitness tests are not elite competition.",
     ),
     p(
-      "Skeletal traits set during puberty, including height, shoulder width and hand and foot size, are not reversed by hormone therapy.",
+      "A 2021 review in Sports Medicine put the male performance edge at 10% to 50% depending on the sport and found that a year of testosterone suppression cut muscle and strength by only about 5%. Height and skeletal frame do not change. A small 2024 lab study funded by the IOC found transgender women athletes stronger in handgrip than other women but lower in jump height and aerobic capacity relative to body mass.",
+    ),
+    p(
+      "Before puberty there is no sex difference in testosterone or athletic performance, a 2018 review found, and almost no research has measured transgender girls who began puberty blockers before male puberty.",
     ),
     h("Fairness and inclusion"),
     p(
@@ -573,7 +588,10 @@ const transArticle: ArticleStimulus = {
     "ncaa-2025-policy",
     "muscle-mass-convergence",
     "bjsm-speed-advantage",
-    "skeletal-structure-permanence",
+    "hilton-lundberg-review-2021",
+    "hamilton-ioc-lab-study-2024",
+    "handelsman-prepuberty-no-difference",
+    "scotus-bpj-2026",
     "un-rapporteur-medals-count",
     "mental-health-impact-exclusion",
     "no-olympic-domination",

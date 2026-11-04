@@ -115,7 +115,7 @@ export const STUDY_INSTRUMENTS: Record<StudyTopic, StudyInstrument> = {
   },
   "transgender-athletes-sports": {
     topic: "transgender-athletes-sports",
-    question: "Should transgender women on hormone therapy compete in women's sports?",
+    question: "Should transgender women and girls be allowed to compete in female sports?",
     label: "transgender athletes in women's sports",
     statements: [
       { id: "dignity", text: "Transgender people deserve to be treated with dignity and respect." },
