@@ -3,7 +3,7 @@ export const deathPenaltyDeterrenceData = {
   title: "The Death Penalty",
   question: "Should America keep the death penalty?",
   meta_claim:
-    "The United States should keep capital punishment for the worst murders, because it delivers justice the crime deserves and may deter killings, and its risks of error and unfairness can be held to an acceptable level.",
+    "The United States should keep capital punishment for the worst killings, because it delivers justice the crime deserves and may deter killings, and its risks of error and unfairness can be held to an acceptable level.",
   status: "contested" as const,
   category: "policy" as const,
   // As of 3 November 2026: DPIC counted 47 executions in 2025 (19 in
@@ -45,7 +45,7 @@ export const deathPenaltyDeterrenceData = {
         id: "deterrence-causal-identification",
         title: "The Deterrence Test",
         question:
-          "Do executions prevent murders that would otherwise have happened?",
+          "Do executions prevent killings that would otherwise have happened?",
         description:
           "Separate any effect of executions on murder from everything else that moves murder rates: policing, guns, the economy. Raw comparisons between states cannot do this, because death-penalty states differ from the others in many ways. Natural experiments, in which a state adopts, abolishes or suspends the penalty while similar states do not, come closest.",
         methodology:
@@ -511,7 +511,6 @@ export const deathPenaltyDeterrenceData = {
   ],
   aliases: [
     "Is the death penalty a justified punishment?",
-    "Does the death penalty deter murder?",
   ],
   references: [
     {
