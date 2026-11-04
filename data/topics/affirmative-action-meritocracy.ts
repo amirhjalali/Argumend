@@ -17,7 +17,7 @@ export const affirmativeActionMeritocracyData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "The Supreme Court ended race-conscious college admissions in 2023. In the first class admitted after the ruling, Black and Hispanic enrollment at MIT fell 15 points combined, while Yale's Black share did not move. In January 2025 the President revoked the 1965 order that required affirmative action by federal contractors. The fight now is over whether race-neutral admissions can keep doors open, and whether 'merit' measures such as test scores are fair to begin with.",
+      "The Supreme Court ended race-conscious college admissions in 2023. In the first class admitted after the ruling, Black and Hispanic enrollment at MIT fell 15 points combined, while Yale's Black share did not move. In January 2025 the President revoked the 1965 order that required affirmative action by federal contractors. The fight now is over whether race-neutral admissions can keep doors open, and whether 'merit' measures such as test scores are fair in the first place.",
     confidence: 90,
     source:
       "Supreme Court of the United States, SFFA v. Harvard (2023); Liam Knox, 'An Early Look at Diversity Post–Affirmative Action', Inside Higher Ed (6 September 2024); The White House, 'Ending Illegal Discrimination and Restoring Merit-Based Opportunity' (21 January 2025)",
@@ -35,7 +35,7 @@ export const affirmativeActionMeritocracyData = {
       id: "systemic-disadvantage-vs-merit",
       title: "What Do Test Scores and Credentials Measure?",
       short_summary:
-        "Test scores track family income closely. They also predict college grades well, and a 2025 study at Ivy-Plus colleges found they do so as accurately for disadvantaged students as for others. Meanwhile legacy, athlete and other preferences tilt admissions toward the rich. Whether 'merit' is a fair yardstick, or a record of head starts, is where the dispute begins.",
+        "Test scores track family income closely. They also predict college grades well, and a 2025 study at Ivy-Plus colleges found they do so as accurately for disadvantaged students as for others. Meanwhile legacy, athlete and other preferences tilt admissions toward the rich. Whether 'merit' is a fair yardstick, or a record of head starts, is the heart of the dispute.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Merit can be measured, and the measures work for everyone. Friedman, Sacerdote, Staiger and Tine found that at Ivy-Plus colleges SAT and ACT scores are about four times more predictive of first-year grades than high school GPA, and that they 'show no calibration bias': disadvantaged students with a given score do not outperform it. Brown, Dartmouth, Harvard, Stanford and Yale cited such research when they brought back testing. Race is a poor proxy for disadvantage, and using it penalizes other applicants: in Harvard's own data, Asian American applicants would have been admitted about 19% more often had they been treated as white. Chief Justice Roberts put the principle plainly: 'Eliminating racial discrimination means eliminating all of it.' The remedy for unequal schools is better schools, not adjusted scores at the gate.",

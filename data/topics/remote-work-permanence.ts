@@ -382,7 +382,7 @@ export const remoteWorkPermanenceData = {
           id: "kastle-occupancy-downtown",
           title: "Kastle, October 2026: Big-City Offices at 56% of Pre-Pandemic Use",
           description:
-            "Kastle's 10-city average office occupancy, measured by access-card swipes, was 56.1% of the pre-pandemic baseline in the week ending 21 October 2026, with the Tuesday peak at 66.1%.",
+            "Kastle's 10-city average office occupancy, measured by access-card swipes, was 56.1% of the pre-pandemic baseline in the week ending 21 October 2026, with the busiest day of the week at 66.1%.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,

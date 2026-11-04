@@ -152,7 +152,7 @@ export const schoolPhoneBansData = {
         question:
           "Can a ban that covers only the school day measurably improve students' mental health?",
         description:
-          "A school-hours ban could help through less harassment, more face-to-face time and a break from the feed, or leave mental health unchanged while evening and weekend use goes on. Following the same students from before a ban to two or more years after, against students whose schools did not change, separates the ban's effect from the first-year disruption.",
+          "A school-hours ban could ease anxiety, depression and loneliness through less harassment, more face-to-face time and a break from the feed, or leave mental health unchanged while evening and weekend use goes on. Following the same students from before a ban to two or more years after, against students whose schools did not change, separates the ban's effect from the first-year disruption.",
         methodology:
           "Cluster-randomized or staggered-adoption studies following the same students for at least two years, scoring depression (PHQ-A), anxiety (GAD-7), loneliness and bullying, alongside phone-logged total use to see whether school-hour reductions are made up in the evening.",
         verification_status: "theoretical" as const,

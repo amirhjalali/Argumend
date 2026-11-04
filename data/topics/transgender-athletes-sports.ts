@@ -149,10 +149,10 @@ export const transgenderAthletesSportsData = {
       id: "puberty-and-level-of-play",
       title: "Where to Draw the Line: Before Puberty, in College, at the Olympics",
       short_summary:
-        "The rules now differ by level. The IOC's ban exempts grassroots sport, while the 27 state laws reach school sport from middle school up. The plaintiff in the Supreme Court case, B.P.J., started puberty blockers before male puberty. Whether a girl who never went through male puberty has any edge, and whether a rule written for Olympic finals should govern a school cross-country team, is a separate fight from the elite one.",
+        "The rules now differ by level. The IOC's ban exempts grassroots sport, while the 27 state laws reach school teams from middle school up. The plaintiff in the Supreme Court case, B.P.J., went on puberty blockers before male puberty. Whether a girl who never went through male puberty has any edge, and whether a rule written for Olympic finals should govern a school cross-country team, is a separate fight from the elite one.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "One clear line by sex is the only rule that can be applied fairly. Testing each child's hormones and comparing her with every girl in her event is, in the Supreme Court majority's words, 'an almost impossible task for a judge to perform on an equitable basis.' School sport is where most girls compete for places on teams, podium spots, records and college recruitment, so it needs protection more than the Olympics does. The science on transition before puberty is thin, and the majority called the claim of no retained advantage 'the subject of ongoing medical and scientific debate.' Legislatures in 27 states weighed that uncertainty and drew the line at biological sex. Title IX was written to give girls their own teams, and the Court held that its word 'sex' means biological sex.",
+        "One clear line by sex is the only rule that can be applied fairly. Testing each child's hormones and comparing her with every girl in her event is, in the Supreme Court majority's words, 'an almost impossible task for a judge to perform on an equitable basis.' Most girls compete at school, for places on teams, podium spots, records and college recruitment, so that level needs protection more than the Olympics does. The science on transition before puberty is thin, and the majority called the claim of no retained advantage 'the subject of ongoing medical and scientific debate.' Legislatures in 27 states weighed that uncertainty and drew the line at biological sex. Title IX was written to give girls their own teams, and the Court held that its word 'sex' means biological sex.",
       proponent_rebuttal:
         "The reasons for the female category do not reach a child who never went through male puberty. Handelsman's 2018 review in Endocrine Reviews, written with World Athletics' medical director, found that 'prior to puberty, there is no sex difference in circulating testosterone concentrations or athletic performance.' B.P.J. took puberty blockers, then estrogen, and never went through male puberty, yet is barred from girls' cross-country. Justice Sotomayor's opinion notes that in five years B.P.J. was the only transgender girl publicly identified in West Virginia seeking to play girls' sports, so the law answers a problem the state could barely find. Even the IOC exempts grassroots and recreational sport. A rule built for the Olympics is being applied to girls whose bodies the elite case does not describe.",
       crux: {
@@ -161,13 +161,13 @@ export const transgenderAthletesSportsData = {
         question:
           "Does a transgender girl who never went through male puberty have an athletic edge over other girls?",
         description:
-          "The elite case against inclusion rests on what testosterone builds during male puberty. Transgender girls who start puberty blockers at its onset never go through it. If they still outperform girls of the same age and training, a single rule by sex is justified at every level; if they do not, the main argument for excluding them falls away, and what remains is the line-drawing question.",
+          "The elite case against inclusion rests on what testosterone builds during male puberty. Transgender girls who take puberty blockers from its onset never go through it. If they still outperform girls of the same age and training, a single rule by sex is justified at every level; if they do not, the main argument for excluding them falls away, and what remains is the line-drawing question.",
         methodology:
           "Follow transgender girls who began puberty blockers at Tanner stage 2 through age 18, measuring sprint times, jump height, grip strength, aerobic capacity and body size each year against girls matched for age, maturity and training. Report results by event, with the spread among the matched girls.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Yearly sprint, jump, strength and aerobic tests of transgender girls who started puberty blockers at its onset, compared through age 18 with girls matched for age, maturity and training.",
+            "Yearly sprint, jump, strength and aerobic tests of transgender girls who took puberty blockers from its onset, compared through age 18 with girls matched for age, maturity and training.",
         },
         cost_to_verify:
           "$2-6M (multi-site cohort through adolescence; the number of eligible girls is small)",
@@ -504,7 +504,7 @@ export const transgenderAthletesSportsData = {
       id: "q3",
       title: "Should the same rule apply before puberty and at the Olympics?",
       content:
-        "The rules already differ. The IOC's 2026 ban exempts grassroots and recreational sport, while the state laws upheld by the Supreme Court reach school sport from middle school up. Before puberty there is little or no sex gap in performance, and B.P.J., the plaintiff in the Supreme Court case, began puberty blockers before male puberty. One side says a single clear line is the only fair and workable rule; the other says the elite case does not describe girls who never went through male puberty.",
+        "The rules already differ. The IOC's 2026 ban exempts grassroots and recreational sport, while the state laws upheld by the Supreme Court reach school teams from middle school up. Before puberty there is little or no sex gap in performance, and B.P.J., the plaintiff in the Supreme Court case, began puberty blockers before male puberty. One side says a single clear line is the only fair and workable rule; the other says the elite case does not describe girls who never went through male puberty.",
     },
     {
       id: "q4",

@@ -7,6 +7,7 @@ export const openBordersData = {
     "Greatly relaxing or eliminating immigration restrictions in rich countries would produce large economic gains and is morally justified.",
   status: "highly_speculative" as const,
   category: "policy" as const,
+  notAbout: ["Brexit"],
   // As of 3 November 2026: Gallup's 2025 World Poll counts about 900 million
   // adults who would like to move abroad for good; US southwest border
   // encounters in fiscal 2025 were the lowest since 1970 (Pew); Brookings/AEI

@@ -55,7 +55,7 @@ export const encryptionBackdoorsData = {
           skeptic_flip:
             "If an exceptional-access design survived years of open adversarial red-teaming, keeping forward secrecy with split, audited key custody and no shown way to abuse it at scale, in the manner of modern HSM key-management schemes, the case that secure backdoors cannot exist would weaken.",
           common_ground:
-            "Both sides agree any exceptional-access mechanism adds an attack surface and that the relevant question is the size of the residual risk, not whether risk is literally zero.",
+            "Both sides agree any exceptional-access path adds an attack surface and that the relevant question is the size of the residual risk, not whether risk is literally zero.",
           live_disagreement:
             "Whether a deployable design exists whose added systemic risk is acceptably bounded — resolvable only by publishing a concrete reference implementation and subjecting it to sustained independent red-team review, which has not yet happened.",
         },

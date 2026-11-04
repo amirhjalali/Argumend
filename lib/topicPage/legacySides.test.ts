@@ -50,7 +50,7 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["open-weight-ai-models", 3, "The fact that China releases capable open weights"],
   ["declining-birth-rates", 0, "A shrinking population is a problem to manage, not a catastrophe."],
   ["congressional-term-limits", 0, "High re-election rates can reflect satisfied constituents"],
-  ["congressional-term-limits", 1, "The best natural experiment — 15 states that adopted"],
+  ["congressional-term-limits", 1, "The best natural experiment — the states that adopted"],
   ["return-to-office-productivity", 1, "The serendipity argument is the most romanticized"],
   // Rewritten in round 15 (pillars reordered: detection, liar's dividend, provenance).
   ["ai-deepfakes-truth-collapse", 0, "Detection is not just pixel-peeping"],
