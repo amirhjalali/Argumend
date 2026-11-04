@@ -165,7 +165,8 @@ test("uncovered family and school arguments stay unmapped while vaccine requirem
   await submit.click();
   const vaccineMap = result.locator('a[href="/topics/vaccine-mandates"]');
   await expect(vaccineMap).toBeVisible();
-  await expect(result.locator('a[href^="/topics/"]')).toHaveCount(1);
+  // The paste fits two of the map's cruxes, so their links show too; no other map may appear.
+  await expect(result.locator('a[href^="/topics/"]:not([href^="/topics/vaccine-mandates"])')).toHaveCount(0);
   await expect(page.getByRole("region", { name: "This argument is already mapped" })).toHaveCount(0);
   await vaccineMap.click();
   await expect(page).toHaveURL(/\/topics\/vaccine-mandates$/);
@@ -300,7 +301,8 @@ test("a family-policy argument keeps audited birth-rate evidence without unrelat
   await expect(result.locator('a[href="/topics/declining-birth-rates"]')).toBeVisible();
   await expect(result.locator('a[href="/topics/universal-basic-income"]')).toHaveCount(0);
   await expect(result.locator('a[href="/topics/space-exploration-value"]')).toHaveCount(0);
-  await expect(result.getByRole("link", { name: "Open the map at this crux", exact: true }))
+  // The paste now also fits the doom-loop crux, so the result offers two questions.
+  await expect(result.getByRole("link", { name: "Open the map at the first crux", exact: true }))
     .toHaveAttribute("href", "/topics/declining-birth-rates#crux-choice-theory");
   await expect(result.locator('a[href="https://www.unfpa.org/sites/default/files/pub-pdf/EN_State%20of%20World%20Population%20report%202025.pdf"]')).toBeVisible();
   await expect(result.locator('a[href="https://www.pewresearch.org/social-trends/2024/07/25/the-experiences-of-u-s-adults-who-dont-have-children/"]')).toBeVisible();
