@@ -185,7 +185,7 @@ export const lonelinessEpidemicData = {
       id: "health-impact-evidence",
       title: "Does Loneliness Make People Sick?",
       short_summary:
-        "Lonely and isolated people die earlier: about 26% to 29% higher odds across 70 studies. That is where the '15 cigarettes a day' line comes from. But lonely people are also more often sick, poor or depressed to begin with, and a 2024 genetic study found loneliness looked causal for only six of 26 diseases. Whether loneliness itself does the harm is the second split.",
+        "Lonely and isolated people die earlier: about 26% to 29% higher odds across 70 studies. That is where the '15 cigarettes a day' line comes from. But lonely people are also more often sick, poor or depressed in the first place, and a 2024 genetic study found loneliness looked causal for only six of 26 diseases. Whether loneliness itself does the harm is the second split.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Loneliness travels with illness, poverty and depression, so its link to early death is mostly a marker, not a cause. People who are sick, disabled or depressed see fewer people. In a 2024 study of 476,100 UK Biobank participants, loneliness was linked to 30 of 56 diseases in the ordinary data, but when the authors used genetic variants to test cause and effect, only six of 26 diseases showed a potentially causal link, among them depression and sleep apnoea. They concluded loneliness 'may serve as a potential surrogate marker rather than a causal risk factor' for most diseases. The '15 cigarettes a day' comparison sets a feeling beside a toxin whose harm runs through known chemistry. Treating loneliness as a disease risks spending health money on befriending schemes instead of the illnesses that cause both.",
@@ -212,7 +212,7 @@ export const lonelinessEpidemicData = {
           skeptic_flip:
             "If people randomly assigned to a program that cut loneliness had fewer heart events and deaths than the control group, the view that loneliness is only a marker of other problems would be hard to hold.",
           common_ground:
-            "Both sides agree that lonely and isolated people die earlier on average, and that they are more often sick, poor, disabled or depressed to begin with.",
+            "Both sides agree that lonely and isolated people die earlier on average, and that they are more often sick, poor, disabled or depressed in the first place.",
           live_disagreement:
             "How much of the extra risk loneliness itself causes, and so whether money spent reducing loneliness buys better health or only better company.",
         },

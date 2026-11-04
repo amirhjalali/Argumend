@@ -337,13 +337,13 @@ export const masculinityCrisisData = {
         question:
           "Do programs aimed at boys and young men do more for them than the same money spent on help for everyone?",
         description:
-          "Becoming a Man is one targeted program with strong trial results. The test is whether programs designed for boys, from later school starts to mentoring and male teachers, beat sex-neutral programs of the same cost on boys' outcomes, without leaving girls worse off.",
+          "Becoming a Man is one targeted program with strong trial results. The test is whether programs designed for boys, from a year's delay in starting school to mentoring and male teachers, beat sex-neutral programs of the same cost on boys' outcomes, without leaving girls worse off.",
         methodology:
           "Randomized or lottery-based comparisons of boy-specific programs (delayed school entry, cognitive behavioural programs for boys, male mentors) against sex-neutral programs of equal cost, measuring graduation, arrests, employment and mental health for boys and girls separately.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Randomized comparisons of programs built for boys, such as Becoming a Man or a later school start, against sex-neutral programs of the same cost, reporting graduation, arrests, work and mental health for boys and girls separately.",
+            "Randomized comparisons of programs built for boys, such as Becoming a Man or a one-year delay in starting school, against sex-neutral programs of the same cost, reporting graduation, arrests, work and mental health for boys and girls separately.",
         },
         cost_to_verify: "$2-5M (Multi-site randomized comparison)",
         falsification: {

@@ -6,6 +6,7 @@ export const partisanGerrymanderingData = {
     "Drawing congressional districts for partisan advantage, including redrawing them mid-decade, should be banned nationwide, with maps drawn by independent commissions or neutral rules, because partisan maps cost voters competitive elections and no state can safely give them up alone.",
   status: "contested" as const,
   category: "policy" as const,
+  notAbout: ["ranked choice voting", "ranked-choice voting"],
   // As of 3 November 2026: ten states redrew U.S. House maps between August
   // 2025 and June 2026 (Texas, Missouri, North Carolina, Ohio, California,
   // Utah, Florida, Tennessee, Louisiana, Alabama); Missouri cannot use its new
