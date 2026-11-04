@@ -24,6 +24,7 @@ export const universalBasicIncomeData = {
   },
   simple_case: [
     "The answer bears on whether governments send everyone cash with no conditions, which taxes rise to pay for it, and what happens to food stamps, housing aid and other programs aimed at the poor.",
+    "The sides split over whether unconditional cash makes people work less, whether it does more good than aid targeted at those in need, and whether any country can afford it at a level that matters.",
   ],
   pillars: [
     // =========================================================================
