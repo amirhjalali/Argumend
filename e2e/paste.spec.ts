@@ -167,8 +167,9 @@ test("uncovered family and school arguments stay unmapped while vaccine requirem
   await expect(vaccineMap).toBeVisible();
   // The paste fits two of the map's cruxes, so their links show too; no other map may appear.
   await expect(result.locator('a[href^="/topics/"]:not([href^="/topics/vaccine-mandates"])')).toHaveCount(0);
-  await expect(page.getByRole("region", { name: "This argument is already mapped" })).toHaveCount(0);
-  await vaccineMap.click();
+  // The rewritten vaccine map now matches this paste outright, so the full map result shows.
+  await expect(page.getByRole("region", { name: "This argument is already mapped" })).toBeVisible();
+  await vaccineMap.first().click();
   await expect(page).toHaveURL(/\/topics\/vaccine-mandates$/);
   await expect(page.getByRole("heading", { level: 1, name: "Should vaccines be mandatory for school and work?" })).toBeVisible();
 });
