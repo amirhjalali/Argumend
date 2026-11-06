@@ -30,6 +30,27 @@ describe("buildDiagram: the page's story as a tree", () => {
     );
   });
 
+  it("gives each crux one settle line, in words the page already shows", () => {
+    const { cruxes } = legacyTopicPage(topic);
+    const branches = childrenOf(diagram, "question");
+    cruxes.forEach((crux, i) => {
+      const node = branches[i];
+      if (node.kind !== "crux") throw new Error("not a crux");
+      const line = node.settleLine!;
+      expect(line, crux.anchor).toBeDefined();
+      if (crux.settle.mode === "standing") {
+        expect(line.tone).toBe("standing");
+        expect(line.text.startsWith("Nothing does")).toBe(true);
+      } else {
+        expect(line.text).toBe(crux.settle.note);
+        const status = topic.pillars.find((p) => p.id === crux.pillarId)!.crux.verification_status;
+        expect(line.tone).toBe(status === "verified" ? "testable" : "open");
+      }
+    });
+    // This map has a value fork, so both kinds of line are exercised.
+    expect(cruxes.some((c) => c.settle.mode === "standing")).toBe(true);
+  });
+
   it("puts supporters then skeptics under each crux, quoting that pillar's case", () => {
     topic.pillars.forEach((pillar, i) => {
       const crux = childrenOf(diagram, "question")[i];

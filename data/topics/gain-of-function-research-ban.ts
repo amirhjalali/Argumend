@@ -15,9 +15,9 @@ export const gainOfFunctionResearchBanData = {
       "Documented escapes of dangerous pathogens from labs run from the 2003–2004 SARS escapes in Singapore, Taiwan and Beijing to the CDC's 2014 anthrax incident; none of them caused a global pandemic. The Biological Weapons Convention, which governs dangerous biology, is the only major arms-control treaty with no verification mechanism. The sides part over how likely the next escape is, what gain-of-function research buys, and whether a worldwide ban could be enforced.",
     confidence: 90,
     source:
-      "Bulletin of the Atomic Scientists (2023); Arms Control Association, 'Biological Weapons Convention (BWC) At A Glance'",
+      "Martin Furmanski, Bulletin of the Atomic Scientists (31 March 2014); CDC, after-action report on the June 2014 anthrax incident (11 July 2014); Arms Control Association, 'Biological Weapons Convention (BWC) At A Glance'",
     sourceUrl:
-      "https://thebulletin.org/2023/02/biosafety-and-biosecurity-risks-of-gain-of-function-research/",
+      "https://thebulletin.org/2014/03/threatened-pandemics-and-laboratory-escapes-self-fulfilling-prophecies/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -106,7 +106,7 @@ export const gainOfFunctionResearchBanData = {
           id: "historical-lab-escapes",
           title: "Documented Lab Escapes of Dangerous Pathogens (1970s-Present)",
           description:
-            "Multiple documented pathogen escapes from research laboratories have occurred, including: the 1977 H1N1 re-emergence, whose near-identical match to a 1950s strain points to a human source (a lab accident or vaccine trial) rather than natural evolution; the 2003-2004 SARS escapes in Singapore, Taiwan, and Beijing; the 2014 CDC anthrax and forgotten smallpox vials incidents; and the 1979 Sverdlovsk anthrax release in the Soviet Union. While none caused a global pandemic, they demonstrate that containment failures are not hypothetical — they are a documented reality of biological research.",
+            "Multiple documented pathogen escapes from research laboratories have occurred, including: the 1977 H1N1 re-emergence, which virologists attribute to a laboratory escape of a 1949-1950 virus, possibly from work on an attenuated vaccine; six SARS escapes from virology labs in 2003-2004 (one each in Singapore and Taiwan, four at the same laboratory in Beijing); and the June 2014 incident in which CDC personnel were unintentionally exposed to potentially viable anthrax. The 1977 virus \"spread rapidly worldwide\" (mostly among people under 20); the others did not spread widely. Together they demonstrate that containment failures are not hypothetical — they are a documented reality of biological research.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -114,8 +114,8 @@ export const gainOfFunctionResearchBanData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Bulletin of the Atomic Scientists; Science Magazine",
-          sourceUrl: "https://thebulletin.org/2023/02/biosafety-and-biosecurity-risks-of-gain-of-function-research/",
+          source: "Martin Furmanski, 'Threatened pandemics and laboratory escapes: Self-fulfilling prophecies', Bulletin of the Atomic Scientists (31 March 2014); CDC, after-action report on the June 2014 anthrax incident (11 July 2014)",
+          sourceUrl: "https://thebulletin.org/2014/03/threatened-pandemics-and-laboratory-escapes-self-fulfilling-prophecies/",
           reasoning:
             "These are well-documented historical events confirmed by multiple independent sources. They directly demonstrate that lab escapes happen despite safety protocols, making the risk concrete rather than theoretical. The directness score is high because these incidents are exactly the type of failure that a GOF ban would aim to prevent.",
         },

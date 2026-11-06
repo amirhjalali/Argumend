@@ -1,8 +1,9 @@
 import { createRequire } from "node:module";
 import { describe, expect, it } from "vitest";
+import { resolveAnalyticsConfig } from "./lib/analyticsConfig";
 
 const require = createRequire(import.meta.url);
-const nextConfig = require("./next.config.js") as {
+type NextConfigShape = {
   redirects: () => Promise<
     Array<{ source: string; destination: string; permanent: boolean }>
   >;
@@ -10,6 +11,45 @@ const nextConfig = require("./next.config.js") as {
     Array<{ source: string; headers: Array<{ key: string; value: string }> }>
   >;
 };
+const nextConfig = require("./next.config.js") as NextConfigShape;
+
+/** next.config.js evaluated again, under whatever process.env holds now. */
+function loadFreshConfig(): NextConfigShape {
+  const path = require.resolve("./next.config.js");
+  const cached = require.cache[path];
+  require.cache[path] = undefined;
+  try {
+    return require("./next.config.js") as NextConfigShape;
+  } finally {
+    if (cached) require.cache[path] = cached;
+  }
+}
+
+function withEnv<T>(env: Record<string, string>, run: () => T): T {
+  const previous = Object.fromEntries(Object.keys(env).map((key) => [key, process.env[key]]));
+  Object.assign(process.env, env);
+  try {
+    return run();
+  } finally {
+    for (const [key, value] of Object.entries(previous)) {
+      if (value === undefined) Reflect.deleteProperty(process.env, key);
+      else process.env[key] = value;
+    }
+  }
+}
+
+async function pagePolicy(config: NextConfigShape): Promise<string> {
+  const rules = await config.headers();
+  return (
+    rules
+      .find((rule) => rule.source.includes("?!embed/"))
+      ?.headers.find(({ key }) => key === "Content-Security-Policy")?.value ?? ""
+  );
+}
+
+function directiveOf(policy: string, name: string): string {
+  return policy.split("; ").find((d) => d.startsWith(`${name} `)) ?? "";
+}
 
 describe("offline account routing", () => {
   it("redirects direct account entry points to device-local bookmarks", async () => {
@@ -195,6 +235,59 @@ describe("Next.js response headers", () => {
     // The two policies differ only in who may frame the page.
     const [page, embed] = policies;
     expect(embed.replace("frame-ancestors *", "frame-ancestors 'none'")).toBe(page);
+  });
+
+  it("lets GA4 report to its regional collection hosts, not only www.google-analytics.com", async () => {
+    const policy = await pagePolicy(nextConfig);
+    // GA4 sends hits to region1.google-analytics.com / region1.analytics.google.com.
+    expect(directiveOf(policy, "connect-src")).toContain("https://*.google-analytics.com");
+    expect(directiveOf(policy, "connect-src")).toContain("https://*.analytics.google.com");
+    expect(directiveOf(policy, "script-src")).toContain("https://www.googletagmanager.com");
+    expect(directiveOf(policy, "img-src")).toContain("https://*.google-analytics.com");
+  });
+
+  it("allows no cookieless analytics origin unless one is configured", async () => {
+    const policy = await pagePolicy(nextConfig);
+    expect(policy).not.toMatch(/plausible|umami/);
+  });
+
+  it.each([
+    [
+      "plausible",
+      {
+        NEXT_PUBLIC_ANALYTICS_PROVIDER: "plausible",
+        NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC: "https://plausible.io/js/pa-abc123.js",
+      },
+      "https://plausible.io",
+    ],
+    [
+      "umami",
+      {
+        NEXT_PUBLIC_ANALYTICS_PROVIDER: "umami",
+        NEXT_PUBLIC_UMAMI_SCRIPT_SRC: "https://stats.argumend.org/script.js",
+        NEXT_PUBLIC_UMAMI_WEBSITE_ID: "94db1cb1-74f4-4a40-ad6c-962362670409",
+      },
+      "https://stats.argumend.org",
+    ],
+  ])("adds a configured %s origin to script-src and connect-src, the same origin the layout loads", async (_name, env, origin) => {
+    const config = withEnv(env, () => loadFreshConfig());
+    const policy = await pagePolicy(config);
+    expect(directiveOf(policy, "script-src")).toContain(origin);
+    expect(directiveOf(policy, "connect-src")).toContain(origin);
+    // lib/analyticsConfig.ts, which the layout uses, resolves the same script.
+    const resolved = resolveAnalyticsConfig(env);
+    expect(resolved && "scriptSrc" in resolved ? new URL(resolved.scriptSrc).origin : null).toBe(origin);
+  });
+
+  it("refuses a plain-http analytics origin, as the layout does", async () => {
+    const env = {
+      NEXT_PUBLIC_ANALYTICS_PROVIDER: "umami",
+      NEXT_PUBLIC_UMAMI_SCRIPT_SRC: "http://stats.example.com/script.js",
+      NEXT_PUBLIC_UMAMI_WEBSITE_ID: "94db1cb1-74f4-4a40-ad6c-962362670409",
+    };
+    const policy = await pagePolicy(withEnv(env, () => loadFreshConfig()));
+    expect(policy).not.toContain("stats.example.com");
+    expect(resolveAnalyticsConfig(env)).toBeNull();
   });
 
   it("caches stable machine-discovery documents at the edge", async () => {

@@ -208,7 +208,7 @@ export const privacyVsConvenienceData = {
           title:
             "Carpenter v. United States (2018): Supreme Court Requires Warrants for Cell Location Data",
           description:
-            "In a landmark 5-4 decision, the Supreme Court held in Carpenter v. United States that the government's acquisition of 127 days of historical cell-site location information constituted a search under the Fourth Amendment requiring a warrant. Chief Justice Roberts wrote that individuals maintain a 'reasonable expectation of privacy in the whole of their physical movements' and that cell phone location data provides 'an intimate window into a person's life.' The decision has been applied by lower courts to restrict warrantless access to other digital records, including IP address logs and email metadata.",
+            "In a landmark 5-4 decision, the Supreme Court held in Carpenter v. United States that the government's acquisition of 127 days of historical cell-site location information constituted a search under the Fourth Amendment requiring a warrant. Chief Justice Roberts wrote that individuals maintain a 'reasonable expectation of privacy in the whole of their physical movements' and that cell phone location data provides 'an intimate window into a person's life.' The Court called its decision 'a narrow one', expressly not addressing real-time location data, 'tower dumps', conventional tools such as security cameras, or 'other business records that might incidentally reveal location information', so its reach to other digital records has been left to later cases.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,

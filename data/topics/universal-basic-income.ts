@@ -1,436 +1,515 @@
 export const universalBasicIncomeData = {
   id: "universal-basic-income",
   title: "Universal Basic Income",
-  question: "Should developed nations adopt a universal basic income?",
+  question:
+    "Should every adult get a basic income from the government, no strings attached?",
   meta_claim:
     "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
   status: "contested" as const,
   category: "policy" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  // As of 3 November 2026: the OpenResearch employment paper is published
+  // (Quarterly Journal of Economics, 2026), now reporting a 4.2-point fall in
+  // labor-force participation; Germany's three-year pilot (DIW, 2025) and the
+  // 12-year Kenya UBI found no net fall in work; Baby's First Years (NBER,
+  // 2025) found no effect of $333 a month on four-year-olds' development.
+  last_updated: "2026-11-03",
+  // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In the largest US cash trial, OpenResearch's $1,000 a month for three years, recipients were 2 percentage points less likely to be employed and worked about 1.3 fewer hours a week. Andrew Yang's plan to pay every US adult $1,000 a month carried a gross cost of roughly $2.8 trillion a year. Both sides work from these numbers. The fight is over whether a permanent universal basic income could be paid for, and whether people would work less once the checks never stop.",
-    confidence: 82,
+      "In the largest US cash trial, $1,000 a month for three years, recipients' labor-force participation fell 4.2 points and their own earnings by about $1,900 a year; the time went mostly to leisure. A German pilot and a 12-year guarantee in Kenya found no fall in work. A check like that for every US adult would cost about $2.8 trillion a year. The fight is over whether a permanent payment to everyone would change work more than the trials did, and whether the money would do more good aimed at the poor.",
+    confidence: 85,
     source:
-      "Vivalt et al., 'The Employment Effects of a Guaranteed Income,' NBER Working Paper 32719 (2024); Tax Foundation analysis of Yang's Freedom Dividend",
+      "Vivalt, Rhodes, Bartik, Broockman, Krause & Miller, 'The Employment Effects of a Guaranteed Income', NBER Working Paper 32719, rev. August 2026, published in the Quarterly Journal of Economics 141(4) (2026); Tax Foundation on the Freedom Dividend's gross cost",
     sourceUrl: "https://www.nber.org/papers/w32719",
   },
-  // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that a meaningful national UBI is enormously expensive on a gross basis and must be paid for through new taxes, program cuts or borrowing; that short pilots, from Finland and Stockton to Kenya and OpenResearch, cannot fully show how people behave when the income is permanent; and that unconditional cash is not mainly spent on alcohol or tobacco.",
-    "They split over whether any realistic funding mix, from a VAT to consolidating welfare programs, covers the cost without growth-damaging debt or tax rates; whether a lifelong, nationwide payment would cut work more than the pilots did; and whether sending everyone the same check beats spending the same money on targeted programs like SNAP, Medicaid or TANF.",
+    "The answer bears on whether governments send everyone cash with no conditions, which taxes rise to pay for it, and what happens to food stamps, housing aid and other programs aimed at the poor.",
+    "The fight is over what no-strings cash does to jobs, whether it beats programs aimed at the poor, and whether its price can be met.",
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Economic Impact & Fiscal Feasibility
-    // =========================================================================
-    {
-      id: "economic-impact-fiscal-feasibility",
-      title: "Economic Impact & Fiscal Feasibility",
-      short_summary:
-        "A universal $1,000/month payment to all US adults would cost approximately $3.1 trillion annually. Proponents argue this can be funded through VAT, consolidating existing welfare programs, and economic growth effects. Skeptics contend the costs are prohibitive and would require either unsustainable deficits or economy-damaging tax increases. Real-world programs like Alaska's Permanent Fund Dividend ($1,000-$2,000/year since 1982) operate at far smaller scales than proposed national UBI.",
-      icon_name: "Scale" as const,
-      skeptic_premise:
-        "A $1,000/month UBI for all ~258 million US adults would cost roughly $3.1 trillion annually on a gross basis — comparable to the entire federal discretionary budget and a large share of current federal revenue. Andrew Yang's Freedom Dividend (which used a lower ~236 million adult base, for a ~$2.8 trillion gross cost) relied on a new 10% VAT plus four other taxes; the nonpartisan Tax Foundation estimated those five taxes would raise only about $1.3 trillion per year (the VAT contributing ~$952 billion), and that even after offsetting spending cuts and economic feedback the proposal would still increase the federal deficit by about $1.5 trillion each year while reducing economic output by about 3 percent. The Penn Wharton Budget Model estimated that a deficit-financed $6,000/year UBI would raise federal debt by 63.5% by 2027 and 81.1% by 2032, with GDP falling 6.1% and 9.3% respectively. Countries with generous social spending like Finland and Denmark already have tax-to-GDP ratios of 42-46% — attempting to layer UBI on top would push tax burdens toward levels rarely sustained by any large modern economy. Every dollar of UBI must come from somewhere: higher taxes reduce economic growth, borrowing crowds out private investment, and cutting existing programs harms their current beneficiaries.",
-      proponent_rebuttal:
-        "The $3.1 trillion gross cost is misleading because it ignores offsets and economic feedback effects. First, consolidating over 80 means-tested federal welfare programs (with combined administrative costs exceeding $100 billion annually) into a single universal payment eliminates bureaucratic overhead and benefit cliffs that trap people in poverty. Second, UBI functions as an economic stimulus — the Roosevelt Institute modeled that a $1,000/month UBI would grow GDP by 12.56% over 8 years due to increased consumer spending, generating substantial new tax revenue. Third, Alaska's Permanent Fund Dividend has operated since 1982 — funded entirely by oil revenues — distributing $1,000-$2,000 per person annually with no adverse fiscal effects and broad bipartisan support. A UBI funded through a combination of VAT, carbon tax, financial transaction tax, and reductions in corporate subsidies is fiscally achievable. The question is not whether we can afford UBI but whether we can afford not to address poverty, insecurity, and the coming wave of automation-driven displacement.",
-      crux: {
-        id: "fiscal-sustainability-test",
-        title: "The Fiscal Sustainability Assessment",
-        question:
-          "Can any realistic funding plan pay for UBI without growth-damaging debt or tax rates?",
-        description:
-          "If a national UBI can be funded through a realistic combination of new revenue sources and program consolidation without increasing the national debt-to-GDP ratio beyond sustainable levels (generally considered below 120%), the fiscal feasibility objection is overcome. If all realistic funding models require either economy-damaging tax rates or unsustainable borrowing, the fiscal objection stands.",
-        methodology:
-          "Commission a comprehensive fiscal modeling study using dynamic scoring (incorporating economic feedback effects) to evaluate at least 5 UBI funding scenarios: (1) VAT + program consolidation, (2) carbon tax + wealth tax, (3) financial transaction tax + corporate subsidy reform, (4) negative income tax phase-out design, and (5) hybrid approach. Model each over 10, 20, and 30 year horizons, accounting for behavioral responses, economic multiplier effects, reduced healthcare and criminal justice costs, and demographic changes. Compare against the fiscal trajectory of maintaining current programs under projected automation displacement.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "Dynamic-scoring models of at least five funding mixes (VAT with program consolidation, carbon and wealth taxes, a transaction tax, a negative income tax, a hybrid) over 10 to 30 years, reporting debt-to-GDP and the tax rates each requires.",
-        },
-        cost_to_verify:
-          "$1-3M (Comprehensive dynamic fiscal modeling requiring CBO-grade economic analysis)",
-        falsification: {
-          supporter_flip:
-            "If comprehensive dynamic-scoring studies found that every realistic funding mix (VAT, program consolidation, new taxes, growth feedback) still blows past sustainable debt levels or requires growth-killing tax rates, the fiscal feasibility case would fail — leaving UBI affordable only by gutting other priorities.",
-          skeptic_flip:
-            "If budget scoring found the net cost far below the $3.1T gross once 80+ means-tested programs and their overhead were folded in, and universal cash like Alaska's dividend ran on without fiscal harm, 'we can't afford it' would turn on design rather than on UBI itself.",
-          common_ground:
-            "Both sides agree a meaningful national UBI is enormously expensive on a gross basis and must be paid for by some mix of new taxes, program cuts, or borrowing.",
-          live_disagreement:
-            "Whether any realistic funding design covers UBI without pushing debt or tax rates to growth-damaging levels — which only CBO-grade dynamic modeling of competing funding mixes could settle.",
-        },
-      },
-      evidence: [
-        {
-          id: "yang-freedom-dividend-cost",
-          title: "Yang's Freedom Dividend: $2.8 Trillion Gross Cost, ~$1.5 Trillion Annual Deficit Gap",
-          description:
-            "Andrew Yang's 2020 presidential campaign proposed a $1,000/month 'Freedom Dividend' for all US adults aged 18+, a gross cost of roughly $2.8 trillion annually. The Tax Foundation analyzed the funding model — which relied on a new 10% Value Added Tax plus four other tax increases — and estimated the five proposed taxes would raise only about $1.3 trillion per year on a conventional basis (the broad-based VAT contributing roughly $952 billion). The Tax Foundation concluded that, even after accounting for offsetting spending reductions and economic feedback, the proposal would increase the federal budget deficit by about $1.5 trillion each year. It also estimated that the higher marginal tax rates on labor would reduce economic output by about 3 percent.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 8,
-            directness: 9,
-          },
-          source: "Tax Foundation; Yang2020 Campaign Policy Documents",
-          sourceUrl: "https://taxfoundation.org/blog/andrew-yang-value-added-tax-universal-basic-income/",
-          reasoning:
-            "The Tax Foundation is a credentialed, nonpartisan tax policy organization, and its analysis directly addresses the fiscal feasibility question with explicit revenue and deficit estimates. The ~$1.5 trillion annual deficit gap is significant. However, the result depends on conventional (rather than fully dynamic) scoring assumptions — more optimistic growth and program-consolidation assumptions would narrow the gap.",
-        },
-        {
-          id: "alaska-pfd-42-years",
-          title: "Alaska's Permanent Fund Dividend: 42+ Years of Universal Cash Payments",
-          description:
-            "Since 1982, Alaska's Permanent Fund Dividend (PFD) has distributed annual payments of $1,000-$2,000 to every resident, including children. The program is funded by investment returns from the state's $80+ billion sovereign wealth fund (seeded by oil revenues). The PFD has operated continuously through recessions, oil price crashes, and political transitions. Research by Damon Jones and Ioana Marinescu (2022) found no measurable reduction in labor supply, and the program enjoys over 75% public approval. However, the PFD amount ($1,000-$2,000/year) is far below proposed national UBI levels ($12,000-$24,000/year), limiting its relevance as a fiscal model.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 6,
-          },
-          source: "Jones & Marinescu (2022), Journal of Public Economics; Alaska Permanent Fund Corporation",
-          sourceUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0047272721001808",
-          reasoning:
-            "The Alaska PFD is the longest-running real-world universal cash transfer in a developed country, and the Jones/Marinescu study was published in a top economics journal. It demonstrates that universal payments are administratively feasible and politically durable. However, the small payment size (roughly 1/10th of proposed UBI levels) and unique funding source (oil wealth) significantly limit its directness as evidence for national UBI feasibility.",
-        },
-        {
-          id: "penn-wharton-debt-projection",
-          title: "Penn Wharton Model: Deficit-Financed UBI Would Raise Federal Debt 63.5% by 2027",
-          description:
-            "The Penn Wharton Budget Model at the University of Pennsylvania used its dynamic overlapping-generations model to simulate a $6,000/year UBI for every adult. If deficit-financed, the model projected the plan would increase federal debt by over 63.5% by 2027 and by 81.1% by 2032, with GDP falling by 6.1% by 2027 and 9.3% by 2032 as higher anticipated future taxes and reduced saving shrink the capital stock. The analysis concluded that an unconditional UBI of this scale produces meaningful economic contraction unless paired with large offsetting tax increases, which themselves further reduce output.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 9,
-          },
-          source: "Penn Wharton Budget Model, University of Pennsylvania",
-          sourceUrl: "https://budgetmodel.wharton.upenn.edu/issues/2018/3/29/options-for-universal-basic-income-dynamic-modeling",
-          reasoning:
-            "The Penn Wharton Budget Model is a highly regarded academic policy modeling center, and this analysis directly addresses fiscal feasibility with rigorous dynamic (OLG) scoring. However, it models a specific design (a flat $6,000 UBI with no phase-out) under deficit financing; negative income tax designs, smaller amounts, or fully tax-financed variants could produce substantially different debt and output results.",
-        },
-        {
-          id: "roosevelt-institute-gdp-growth",
-          title: "Roosevelt Institute: $1,000/Month UBI Could Grow GDP by 12.56% Over 8 Years",
-          description:
-            "A 2017 macroeconomic modeling study by the Roosevelt Institute projected that a $1,000/month UBI funded by deficit spending would grow GDP by 12.56% over 8 years, primarily through increased consumer spending (demand-side stimulus). Even a tax-funded version was projected to grow GDP by 2.62% due to the higher marginal propensity to consume among lower-income recipients. The model used the Levy Institute's stock-flow consistent macroeconomic framework. Critics noted the model assumed no supply-side constraints, no inflationary pressure, and relied on Keynesian multiplier effects that may not hold at full employment.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 6,
-            independence: 6,
-            replicability: 6,
-            directness: 7,
-          },
-          source: "Roosevelt Institute; Levy Economics Institute",
-          sourceUrl: "https://rooseveltinstitute.org/publications/macroeconomic-effects-universal-basic-income/",
-          reasoning:
-            "The Roosevelt Institute is a progressive-leaning think tank, which reduces independence somewhat. The Levy macro model is peer-reviewed but the specific assumptions (no supply constraints, full multiplier effects) are debatable. The study provides a useful upper bound on potential economic stimulus but critics have reasonable objections about inflationary effects and the unrealism of sustained deficit-funded UBI.",
-        },
-      ],
-    },
-
-    // =========================================================================
-    // PILLAR 2: Labor Market Effects & Work Incentives
+    // PILLAR 1: Do people work less? What the trials found
     // =========================================================================
     {
       id: "labor-market-work-incentives",
-      title: "Labor Market Effects & Work Incentives",
+      title: "Do People Work Less? What the Trials Found",
       short_summary:
-        "The central objection to UBI is that unconditional income reduces the incentive to work. The evidence is genuinely mixed. Pilots in Finland, Stockton, Canada, and Kenya found minimal employment reductions, and some found gains in full-time work or entrepreneurship — but the largest and most recent US trial (OpenResearch, $1,000/month for 3 years) found recipients worked modestly less (2 percentage points lower employment, ~1.3 fewer hours/week), echoing the 1970s negative-income-tax experiments. The debate hinges on whether these small reductions reflect harmful disincentives or welcome shifts toward caregiving, education, and job quality — and whether short-term pilots predict behavior under a permanent national program.",
+        "The biggest US trial found a real but moderate drop in work: participation down 4.2 points, one to two fewer hours a week, the time mostly spent on leisure. Germany's pilot found people worked about an hour less and changed jobs more; a 12-year basic income in Kenya and Alaska's dividend found no fall in total work. Every trial but Alaska's and Kenya's ended on a known date, which is the skeptics' main objection to all of them.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Basic economic theory predicts that unconditional income reduces the incentive to work — the 'income effect.' The 1970s US Negative Income Tax experiments (SIME/DIME in Seattle and Denver) found labor supply reductions of 5-7.9% for men, 15-20% for women, and significant increases in divorce rates. These were among the most rigorous social experiments ever conducted and directly contributed to the political death of guaranteed income proposals for decades. UBI pilot programs are structurally unable to capture long-term behavioral effects because participants know the program will end — creating an incentive to stay employed that would not exist under a permanent program. At scale, UBI could create a culture of dependency, reduce the labor force participation rate, and make critical but unpleasant jobs (sanitation, elder care, food processing) impossible to staff without dramatic wage increases that would fuel inflation.",
+        "People respond to incentives, and the best trial shows it. OpenResearch gave 1,000 low-income Americans $1,000 a month for three years. Their labor-force participation fell 4.2 percentage points against the control group, their own earnings fell by about $1,900 a year, and their partners cut hours by as much as they did. The authors looked hard for training, job search or better jobs filling the gap and found 'no impact on quality of employment'; the biggest gain in time use was leisure. The 1970s US negative-income-tax experiments found the same direction, with hours cut most by second earners. And these were temporary programs. A payment people know will last for life, paid to everyone at once, gives every reason to expect a larger response, not a smaller one.",
       proponent_rebuttal:
-        "The 1970s NIT experiments have been extensively reanalyzed. The labor supply reductions were modest (2-4 hours per week), concentrated among secondary earners (mostly mothers with young children choosing to stay home), and accompanied by increases in education enrollment and job search quality. The divorce finding has been debunked — it was a statistical artifact corrected by Cain and Wissoker (1990). Modern pilot programs tell a more nuanced story: Finland's 2017-2018 basic income experiment found no negative employment effect and significant improvements in well-being and trust. Stockton's SEED program found full-time employment among recipients rose from 28% to 40% over its first year. GiveDirectly's long-term cash transfer program in Kenya found no reduction in labor supply and increased entrepreneurship. The largest US trial — OpenResearch's $1,000/month, 3-year experiment (2024) — did find a real but modest reduction (employment 2 points lower, ~1.3 fewer hours/week), but much of it reflected recipients pursuing education, caregiving, more selective job search, and business creation rather than dropping out of work entirely. The fear that people will simply stop working ignores abundant evidence that humans are motivated by purpose, social connection, and status — not just survival pressure. UBI removes the poverty trap of means-tested benefits, where recipients lose benefits dollar-for-dollar as they earn more, effectively facing marginal tax rates above 80%.",
+        "The effect is moderate, and the trials that come closest to the real thing find even less. A 4.2-point fall in participation is far from mass exit; the same trial found hours down only 1 to 2 a week. In Kenya, villages promised a basic income for 12 years did not work less: wage work in farming fell but self-employment rose, with 'no net effect on total household labor supply.' Alaska has paid every resident a dividend since 1982; Jones and Marinescu found no effect on employment, and a rise in part-time work. Germany's three-year pilot of €1,200 a month found the share in work 'virtually identical' to the control group, about an hour less work a week, and more job changes and university enrollment. Some of the time freed goes to rest, care and retraining, which are not failures of policy.",
       crux: {
         id: "permanent-ubi-labor-supply",
         title: "The Permanent-Program Labor Supply Test",
         question:
           "Would a permanent UBI reduce work more than the small effects seen in temporary pilots?",
         description:
-          "If a permanent, nationwide UBI at a meaningful level ($1,000/month) causes aggregate labor force participation to decline by more than 3-5%, the economic costs likely outweigh the benefits. If labor participation remains stable or shifts toward higher-quality employment (more education, entrepreneurship, caregiving), the work disincentive objection is empirically refuted.",
+          "Most trials paid for two or three years and told recipients when it would end, so people may have kept jobs they would otherwise quit. Kenya's 12-year arm and Alaska's dividend are permanent or close to it, but in a poor rural economy and at a small sum. A national payment would also reach everyone at once, changing wages and prices. If labor-force participation fell by much more than the trials found, the cost and the political case would both change.",
         methodology:
-          "Conduct a large-scale (10,000+ participants), long-duration (5+ years) randomized controlled trial with guaranteed continuation, explicitly designed to eliminate the 'temporary program' bias. Include a saturation arm where entire communities receive UBI to capture general equilibrium effects (wage changes, business formation, local economic multipliers). Track not just employment rates but hours worked, job quality, wages, entrepreneurship, education enrollment, caregiving time, and volunteering. Compare against a control group receiving equivalent value in existing means-tested benefits.",
+          "A large randomized trial (10,000+ people) with payments guaranteed for at least ten years, at a meaningful level ($1,000 a month or a set share of median income), including whole communities paid at once to capture effects on local wages and prices. Track participation, hours, earnings, job quality, education, caregiving and business formation, against a control group on existing benefits.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "A randomized trial of 10,000 or more people over five years or longer with guaranteed continuation, including whole communities receiving the payment, tracking hours, job quality and labor-force participation.",
         },
         cost_to_verify:
-          "$50-150M (Large-scale, multi-year RCT with saturation sites and long-term follow-up)",
+          "$50-150M (large, long RCT with saturation sites and long follow-up)",
         falsification: {
           supporter_flip:
-            "If a large, long trial guaranteed to be permanent, removing the 'it'll end' bias of pilots, showed labor-force participation falling more than 3–5%, the work-disincentive objection would gain real support and the case for UBI would weaken.",
+            "If a large trial with payments guaranteed for a decade showed labor-force participation falling well beyond the 4.2 points OpenResearch found, with the time going mostly to leisure, the work-incentive objection would gain real support and the case for a universal payment would weaken.",
           skeptic_flip:
-            "If larger, longer pilots matched the small work reductions reported in Finland, Stockton, Kenya and OpenResearch, concentrated in caregiving, education and job search, and re-analysis traced the NIT divorce finding to a statistical artifact, the 1970s experiments would no longer stand for mass exit from work.",
+            "If a decade-long guarantee in a rich country matched Kenya's 12-year arm, with no net fall in household work, or Alaska's dividend, with no fall in employment, the fear that permanence multiplies the effect would lose its footing.",
           common_ground:
-            "Both sides agree short-term pilots can't fully capture how a permanent program would change behavior, since participants know the pilot ends.",
+            "Both sides agree the OpenResearch trial found a real fall in work of moderate size, that most pilots were temporary and known to end, and that no trial has tested a permanent payment to everyone in a rich country.",
           live_disagreement:
-            "Whether a permanent national UBI would replicate the pilots' small labor-supply effects or produce larger withdrawal once the income is known to be lifelong — which only a long, guaranteed-permanent trial could test.",
+            "Whether a lifelong payment to everyone would cut work by about as much as the trials found, or by much more once the income is known to be permanent and wages and prices adjust.",
         },
       },
       evidence: [
         {
-          id: "finland-basic-income-experiment",
-          title: "Finland Experiment (2017-2018): Small Employment Effect, Improved Well-being",
-          description:
-            "Finland's national basic income experiment provided 560 euros/month to 2,000 randomly selected unemployed individuals for two years (2017-2018). The final results, released on May 6, 2020 by the Ministry of Social Affairs and Health and Kela (Finland's social insurance institution), found: (1) only small employment effects — recipients worked on average about 6 days more over the period than the control group, (2) recipients reported significantly higher life satisfaction, (3) recipients had greater trust in institutions and other people, (4) recipients reported better mental wellbeing, with less mental strain, depression, sadness and loneliness, and (5) recipients felt more secure about their income and future. The experiment was limited to unemployed individuals (not universal) and lasted only two years.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "Ministry of Social Affairs and Health, Finland; Kela (Social Insurance Institution of Finland)",
-          sourceUrl: "https://stm.fi/en/-/perustulokokeilun-tulokset-tyollisyysvaikutukset-vahaisia-toimeentulo-ja-psyykkinen-terveys-koettiin-paremmaksi",
-          reasoning:
-            "This was a government-run, nationally representative RCT — the gold standard for causal inference. The null finding on employment directly addresses the work disincentive concern. However, the experiment was limited to already-unemployed individuals, lasted only 2 years, and the payment (560 euros) was below poverty-line income in Finland. These limitations reduce directness as evidence for a permanent, universal program.",
-        },
-        {
-          id: "stockton-seed-employment-increase",
-          title: "Stockton SEED (2019-2021): Full-Time Employment Rose from 28% to 40%",
-          description:
-            "The Stockton Economic Empowerment Demonstration (SEED) provided $500/month to 125 randomly selected residents of Stockton, California for 24 months (2019-2021). The independent first-year evaluation by Dr. Stacia West (University of Tennessee) and Dr. Amy Castro Baker (University of Pennsylvania) found that full-time employment among recipients rose from 28% to 40% over the first year (Feb 2019-Feb 2020) — a 12 percentage point gain versus a 5 point gain in the control group (32% to 37%). Recipients also showed reduced income volatility, improved mental health (reduced anxiety and depression), and increased goal-setting behavior. Most spending went to food (37%), home goods and clothing (22%), utilities (11%), and auto costs (10%) — contradicting fears of frivolous spending.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 5,
-            directness: 6,
-          },
-          source: "West & Castro Baker (2021), Preliminary Analysis: SEED's First Year (self-published research report, not peer-reviewed)",
-          sourceUrl: "https://www.stocktondemonstration.org/",
-          reasoning:
-            "SEED was a randomized controlled trial, and the counterintuitive finding that guaranteed income increased full-time employment supports the hypothesis that financial stability enables better job searching and risk-taking. But the weight is limited: the headline employment result comes from a self-published first-year report (not a peer-reviewed journal article), the treatment sample was very small (n=125), the employment gain was measured over a single year before the pandemic disrupted the second year, and participants knew the program was temporary. It is suggestive, not dispositive.",
-        },
-        {
-          id: "sime-dime-labor-reduction",
-          title: "Seattle/Denver NIT Experiments (1970s): 5-7.9% Male Labor Supply Reduction",
-          description:
-            "The Seattle-Denver Income Maintenance Experiments (SIME/DIME), conducted from 1970-1978, were the largest US negative income tax experiments, enrolling approximately 4,800 families. Results showed labor supply reductions of 5-7.9% for husbands, 15-20% for wives, and 12-15% for single female household heads. Hours worked declined by an average of 2-4 hours per week. Secondary earners (mostly wives) accounted for the largest reductions, largely withdrawing from low-wage work to focus on childcare. A widely reported finding of increased divorce was later shown to be a statistical error by Cain and Wissoker (1990). Subsequent reanalysis by Robins (1985) found smaller labor supply effects than originally reported.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "SRI International; US Department of Health and Human Services; Robins (1985)",
-          sourceUrl: "https://aspe.hhs.gov/reports/overview-final-report-seattle-denver-income-maintenance-experiment",
-          reasoning:
-            "SIME/DIME remains one of the largest and most rigorous social experiments in US history. The labor supply reductions, while real, were modest and concentrated among secondary earners choosing caregiving over low-wage work — which many would consider a positive outcome. The experiments directly test the work disincentive hypothesis but were conducted 50 years ago in a very different labor market, reducing current applicability.",
-        },
-        {
           id: "openresearch-unconditional-cash-2024",
-          title: "OpenResearch (2024): Largest US UBI Trial Found a Modest Reduction in Work",
+          title: "OpenResearch trial (QJE 2026): $1,000 a month cut labor-force participation 4.2 points and earnings $1,900 a year",
           description:
-            "The OpenResearch Unconditional Cash Study — funded by Sam Altman and run from late 2020 to late 2023 — is the largest and longest randomized UBI experiment in US history. It gave 1,000 low-income participants (ages 21-40) $1,000/month for three years, with a control group of 2,000 receiving $50/month. Results released in July 2024 found that recipients were on average 2 percentage points less likely to be employed and worked about 1.3 fewer hours per week, with partners also working somewhat less (a total household reduction of roughly 1.3-3.9 hours depending on subgroup). Single parents reduced employment by 3.9 percentage points and hours by 2.8. The reduction partly reflected recipients pursuing education/training, more selective job search, and caregiving, and Black and female recipients were significantly more likely to start businesses. Recipients did not, on average, move into higher-quality or higher-paying jobs, and the study found no significant gains in employment quality, physical health, or several other pre-registered outcomes.",
+            "The OpenResearch Unconditional Cash Study gave 1,000 low-income adults aged 21 to 40 in Illinois and Texas $1,000 a month from late 2020 to late 2023, with 2,000 controls receiving $50 a month. In the published version of the paper (Quarterly Journal of Economics, 2026), the transfer 'caused total individual income excluding the transfers to fall by about $1,900/year relative to the control group and a 4.2 percentage point decrease in labor market participation.' Participants cut work by 1 to 2 hours a week, and 'participants' partners reduced their work hours by a comparable amount.' The largest increase in time use was leisure. 'Despite asking detailed questions about amenities, we find no impact on quality of employment.' The authors conclude: 'our results suggest a moderate labor supply effect that does not appear offset by other productive activities.' Earlier drafts, from July 2024, reported a 2-point fall in employment.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 8,
+            replicability: 7,
             directness: 9,
           },
-          source: "Vivalt, Rhodes, Bartik, Broockman, Krause & Miller (2024), 'The Employment Effects of a Guaranteed Income,' NBER Working Paper 32719; OpenResearch Unconditional Cash Study",
+          source:
+            "Vivalt, Rhodes, Bartik, Broockman, Krause & Miller, 'The Employment Effects of a Guaranteed Income: Experimental Evidence from Two U.S. States', NBER Working Paper 32719 (rev. August 2026); Quarterly Journal of Economics 141(4) (2026)",
           sourceUrl: "https://www.nber.org/papers/w32719",
           reasoning:
-            "This is the most direct evidence available on the central labor-supply question: a large, long (3-year), well-powered US RCT at a meaningful payment level ($1,000/month), pre-registered and analyzed by credentialed independent economists. Unlike short pilots restricted to the unemployed (Finland) or tiny samples (Stockton, n=125), it captures behavior closer to a permanent program. The finding is genuinely mixed for both sides: the employment reduction is real and statistically significant (cutting against the 'no disincentive' claim), but it is modest and partly composed of education, caregiving, and entrepreneurship rather than pure withdrawal. The headline null findings on health and job quality also temper the strongest proponent well-being claims.",
+            "The largest, longest and best-measured US trial at a meaningful sum, pre-registered and published in a top journal, so it leads. It is still temporary (three years, with a known end) and targeted at low-income adults, not universal, which is why it cannot by itself say how a permanent national payment would work.",
         },
         {
           id: "givedirectly-kenya-long-term",
-          title: "GiveDirectly Kenya: Long-Term Cash Transfers with No Work Reduction",
+          title: "Kenya's 12-year basic income: no net fall in household work; farm wage work fell, self-employment rose",
           description:
-            "GiveDirectly's unconditional cash transfer program in rural Kenya, studied by Banerjee et al. (2020) and Egger et al. (2022) in peer-reviewed publications, found that lump-sum transfers of approximately $1,000 (roughly one year's income) produced: no reduction in labor supply, a 5% increase in consumption, increased business creation, and significant local economic multiplier effects (every $1 transferred generated $2.60 in local economic activity). A 12-year follow-up of long-term recipients is ongoing. The program demonstrates that unconditional cash does not reduce work effort even in a context with very low baseline incomes. However, rural Kenya differs dramatically from developed economies in relevant ways (informal labor markets, subsistence agriculture, limited social safety nets).",
+            "In about 200 Kenyan villages, from 2018, researchers compared a long-term basic income ($22.50 a month for 12 years), a short-term one ($22.50 a month for two years), a lump sum of $500 and a control. The study, by Tavneet Suri, Abhijit Banerjee, Alan Krueger, Paul Niehaus and Michael Faye, found 'Treated households are not working less': there was 'significant reduction in hours of wage work, all of which comes from work in agriculture', offset by more self-employment, so 'there is no net effect on total household labor supply.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
+            independence: 6,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Banerjee, Faye, Krueger, Niehaus & Suri, 'Universal Basic Income: Short-Term Results from a Long-Term Experiment in Kenya' (2023), as summarized by GiveDirectly",
+          sourceUrl: "https://www.givedirectly.org/2023-ubi-results/",
+          reasoning:
+            "The only randomized basic income promised for over a decade, so it speaks directly to the permanence objection. Rural Kenya, with farm and informal work and a small sum, differs from a rich economy, which limits directness. Niehaus and Faye co-founded GiveDirectly, which ran the payments, so independence is 6, though the study is led by independent economists.",
+        },
+        {
+          id: "germany-basic-income-pilot-2025",
+          title: "German pilot 2025: €1,200 a month for three years left employment 'virtually identical'; about an hour less work a week",
+          description:
+            "The German Institute for Economic Research (DIW), with the Vienna University of Economics and Business and the Institute for Employment Research, followed 122 people who received €1,200 a month for three years and 1,580 controls who received nothing. 'The proportion of people in the workforce remains virtually identical in both research groups.' Recipients worked 39 hours a week in paid work on average, 'one hour less than those without a basic income.' More of them changed jobs, mostly in the first 18 months, and enrollment in academic study rose significantly. The project reports 'significant effects on participants' satisfaction and mental health.'",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
+          },
+          source:
+            "Pilotprojekt Grundeinkommen (Mein Grundeinkommen e.V. with DIW Berlin), results published in DIW Weekly Report 15/2025",
+          sourceUrl: "https://www.pilotprojekt-grundeinkommen.de/en/labour",
+          reasoning:
+            "A rich-country randomized trial at a meaningful sum, run by a respected institute. The treatment group is small (122), and the project was funded by a basic income advocacy group's donors, so independence and replicability are moderate. Like OpenResearch, it had a known end date.",
+        },
+        {
+          id: "alaska-pfd-42-years",
+          title: "Alaska's dividend since 1982: no effect on employment, part-time work up 1.8 points (Jones & Marinescu 2022)",
+          description:
+            "Alaska has paid every resident, including children, an annual dividend from its oil-funded Permanent Fund since 1982, typically $1,000 to $2,000 a year. Using Current Population Survey data and a synthetic-control comparison, Damon Jones and Ioana Marinescu found the dividend had no effect on overall employment and raised part-time work by 1.8 percentage points, about 17%. They read the pattern as the cash boosting local demand, with larger job gains in sectors that serve local customers.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Jones & Marinescu, 'The Labor Market Impacts of Universal and Permanent Cash Transfers: Evidence from the Alaska Permanent Fund', American Economic Journal: Economic Policy 14(2):315-40 (2022)",
+          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/pol.20190299",
+          reasoning:
+            "The one universal, permanent cash payment in a rich economy, studied in a top field journal. The sum is a tenth or less of a full basic income and is paid once a year, so it says little about a payment meant to live on.",
+        },
+        {
+          id: "sime-dime-labor-reduction",
+          title: "Seattle and Denver NIT trials (1970s): men cut work 5–8%, wives 15–20%",
+          description:
+            "The Seattle-Denver Income Maintenance Experiments (1970-1978), the largest US negative income tax trials, enrolled about 4,800 families. Labor supply fell by about 5% to 8% for husbands, 15% to 20% for wives and 12% to 15% for single mothers, an average of 2 to 4 hours a week; second earners, mostly wives, withdrew most, largely to care for children. A widely reported rise in divorce was later traced to a statistical error (Cain and Wissoker, 1990).",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "US Department of Health and Human Services, Overview of the Final Report of the Seattle-Denver Income Maintenance Experiment",
+          sourceUrl: "https://aspe.hhs.gov/reports/overview-final-report-seattle-denver-income-maintenance-experiment",
+          reasoning:
+            "Large, rigorous and in the same direction as OpenResearch half a century later. The labor market, and how many wives worked, was very different in the 1970s, and the plans phased out with earnings, unlike a flat universal payment, so directness is 6.",
+        },
+        {
+          id: "finland-basic-income-experiment",
+          title: "Finland 2017–18: €560 a month to the unemployed added about six days of work over a year",
+          description:
+            "Finland paid 2,000 randomly chosen unemployed people €560 a month for two years, with no loss of payment if they took work. The final results (Ministry of Social Affairs and Health and Kela, May 2020) found small employment effects, recipients working on average about six days more than the control group in the second year, along with higher life satisfaction and less mental strain.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
             independence: 8,
             replicability: 7,
             directness: 5,
           },
-          source: "Egger et al. (2022), Econometrica; Banerjee et al. (2020), NBER Working Paper",
-          sourceUrl: "https://www.givedirectly.org/research-on-cash-transfers/",
+          source: "Ministry of Social Affairs and Health, Finland; Kela",
+          sourceUrl:
+            "https://stm.fi/en/-/perustulokokeilun-tulokset-tyollisyysvaikutukset-vahaisia-toimeentulo-ja-psyykkinen-terveys-koettiin-paremmaksi",
           reasoning:
-            "Published in Econometrica (a top economics journal) with rigorous experimental design. The $2.60 multiplier finding is particularly significant for fiscal feasibility arguments. However, directness is lower because rural Kenya is a fundamentally different economic context from the developed nations where UBI is primarily proposed — different labor markets, price levels, social norms, and baseline welfare provision.",
+            "A government-run randomized trial. It tested what happens when the unemployed keep their payment on taking a job, not a universal income, and the second year overlapped a new activation policy, so it speaks to benefit design more than to UBI.",
         },
         {
-          id: "canada-mincome-experiment",
-          title: "Canada Mincome (1974-1979): Labor Reduction Only Among Mothers and Teens",
+          id: "stockton-seed-employment-increase",
+          title: "Stockton 2019–21: full-time work rose from 28% to 40% among 125 recipients of $500 a month",
           description:
-            "The Manitoba Basic Annual Income Experiment (Mincome) ran from 1974-1979 in Winnipeg and the small town of Dauphin, Manitoba, providing a guaranteed income floor to approximately 1,300 families. The original data went unanalyzed for decades until economist Evelyn Forget recovered and published results in 2011. She found: primary earner labor supply reductions of only 1%, secondary earner (wives) reductions of 3%, and teenage labor reductions of 5% — with teens staying in school longer. In the Dauphin 'saturation site' (where all eligible families received payments), hospitalization rates dropped 8.5%, mental health visits declined, and high school completion rates increased. The experiment was cancelled by a new government before completion, and the original data nearly lost.",
+            "The Stockton Economic Empowerment Demonstration gave 125 randomly chosen residents $500 a month for two years. The first-year evaluation by Stacia West and Amy Castro Baker found full-time employment among recipients rose from 28% to 40% between February 2019 and February 2020, against 32% to 37% in the control group, with lower income volatility and less anxiety and depression.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 4,
+            directness: 4,
           },
-          source: "Forget (2011), Canadian Public Policy; University of Manitoba",
-          sourceUrl: "https://utpjournals.press/doi/abs/10.3138/cpp.37.3.283",
+          source:
+            "West & Castro Baker, 'Preliminary Analysis: SEED's First Year' (2021), self-published",
+          sourceUrl: "https://www.stocktondemonstration.org/",
           reasoning:
-            "Forget's recovery and analysis of the Mincome data is a valuable contribution, published in a peer-reviewed Canadian policy journal. The Dauphin saturation site provides rare evidence of community-wide effects (health improvements, education gains) that individual-level experiments cannot capture. However, the data was recovered decades later, the original experimental design was not completed, and 1970s rural Canada differs significantly from modern policy contexts.",
+            "Often cited, and suggestive that a cushion can help people find better work. Weak as evidence: 125 recipients, a self-published report, one pre-pandemic year, and a small sum. The far larger OpenResearch trial found the opposite direction.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 3: Social Outcomes & Well-being
+    // PILLAR 2: Does cash make lives better, and better than targeted help?
     // =========================================================================
     {
       id: "social-outcomes-wellbeing",
-      title: "Social Outcomes & Well-being",
+      title: "Does Cash Make Lives Better, and Better Than Targeted Help?",
       short_summary:
-        "Beyond employment and fiscal questions, UBI proponents argue it would produce transformative social benefits: reducing poverty, improving physical and mental health, strengthening education outcomes, and reducing crime. Skeptics counter that unconditional cash transfers are less effective than targeted programs and may enable harmful behaviors. Pilot programs consistently show well-being improvements, but long-term, population-level effects remain uncertain.",
+        "Cash is not wasted on drink, and it cuts poverty fast: US child poverty more than doubled in 2022 after a year of monthly child payments ended. But two large US trials found that $333 to $1,000 a month left measured health and young children's development unchanged after the first year. A universal check also goes to millionaires, while food stamps, Medicaid and housing vouchers aim at need.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "Targeted programs are more effective than unconditional cash because they address specific needs with accountability. SNAP ensures food spending, Medicaid covers healthcare, Section 8 provides housing — each verified to reach its intended purpose. Unconditional cash may be spent on alcohol, gambling, or other consumption that does not improve well-being. The 'scarcity mindset' theory (that poverty reduces cognitive bandwidth) is based on limited evidence that has faced replication challenges. UBI also fails to address structural causes of poverty — discrimination, inadequate schools, lack of affordable housing, healthcare deserts — that no amount of individual cash can fix. A universal payment is regressive in its simplicity: Jeff Bezos receives the same check as a homeless veteran. Means-tested programs, for all their bureaucratic flaws, at least concentrate resources on those who need them most.",
+        "Cash relieves stress in the moment but the trials show it does not change lives as promised. OpenResearch's $1,000 a month 'did not improve self-reported physical health, clinical biomarkers, or mental health after the first year.' Baby's First Years paid low-income mothers $333 a month from their child's birth; at age four there were no significant effects on language, executive function, behavior or brain activity. And a universal check is badly aimed: Jeff Bezos gets the same payment as a homeless veteran. SNAP, Medicaid and housing vouchers put money where need is and buy specific things that matter. Spending trillions on everyone instead of on the poor gives each poor family far less per dollar than a targeted program could.",
       proponent_rebuttal:
-        "The empirical evidence overwhelmingly shows that unconditional cash transfers are not wasted. A 2020 World Bank meta-analysis of 44 studies across 19 countries found that cash transfers do not increase spending on alcohol or tobacco — a finding robust across cultures, income levels, and program designs. Means-tested programs, while well-intentioned, impose enormous administrative costs (up to 30% of program budgets), create stigma and barriers that reduce uptake (by 2020 only 21 of every 100 families in poverty received TANF cash assistance, down from 68 in 1996), and generate poverty traps through high effective marginal tax rates when benefits phase out. The Finland experiment showed statistically significant improvements in life satisfaction and institutional trust. Stockton SEED recipients reported reduced anxiety and depression. The Mincome experiment's saturation site saw an 8.5% reduction in hospitalizations. These well-being effects have monetary value — the RAND Corporation estimated that each $1 reduction in poverty saves $7 in downstream social costs (healthcare, criminal justice, lost productivity). UBI addresses what targeted programs cannot: the chronic stress and decision fatigue of poverty itself.",
+        "Cash works where it is meant to: it cuts poverty, and people spend it well. When the expanded monthly child tax credit, a near-universal payment for families, ran in 2021, the Census Bureau's child poverty rate fell to 5.2%; it rose to 12.4% in 2022 after the payments stopped. A World Bank review of 19 studies found cash transfers reduce spending on alcohol and tobacco. Targeting fails the people it targets: in 2020 only 21 of every 100 families in poverty received TANF cash, against 68 in 1996, because of paperwork, time limits and stigma. Means-tested aid also claws back benefits as earnings rise, so work pays little. A universal payment can be taxed back from the rich through the income tax; what it cannot do is miss the eligible.",
       crux: {
         id: "wellbeing-vs-targeted-programs",
         title: "The UBI vs. Targeted Programs Comparison",
         question:
           "Does universal cash beat well-designed targeted programs, dollar for dollar?",
         description:
-          "If UBI produces measurably better social outcomes (poverty reduction, health, education, crime reduction) per dollar spent than an equivalent investment in targeted programs, the case for universality is strong. If targeted programs achieve equal or better outcomes with less spending, the efficiency argument favors the existing approach.",
+          "Cash cuts measured poverty, and people do not waste it. The trials find little lasting effect on health or child development. The question is what the same money would do as targeted help: SNAP, Medicaid, housing vouchers, child care. If equal spending on targeted programs reaches more of the poor and improves more outcomes, universality is an expensive way to help; if take-up gaps and benefit clawbacks waste most of the targeted money, cash wins.",
         methodology:
-          "Design a multi-arm RCT with at least 3,000 participants per arm: (1) UBI at $1,000/month, (2) equivalent value in optimized targeted benefits (SNAP + Medicaid + housing voucher + job training), (3) UBI + targeted services (hybrid), and (4) control. Track outcomes over 3-5 years including: poverty rate, income volatility, physical health (emergency room visits, chronic disease markers), mental health (PHQ-9 depression scale, GAD-7 anxiety), children's educational outcomes, criminal justice involvement, and subjective well-being (life satisfaction, stress levels). Calculate cost-effectiveness ratios including administrative costs for each arm.",
+          "A multi-arm trial with at least 3,000 people per arm: (1) $1,000 a month in cash, (2) the same value in targeted benefits (SNAP, Medicaid, housing voucher, job training), (3) both, and (4) a control. Track poverty, income swings, health and biomarkers, mental health, children's schooling, contact with the justice system and life satisfaction over 3 to 5 years, including the cost of administering each arm and the share of eligible people each reaches.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "A multi-arm trial with at least 3,000 people per arm comparing $1,000 a month in cash, the same value in targeted benefits (SNAP, Medicaid, housing vouchers, job training), both together, and a control, over 3 to 5 years.",
         },
         cost_to_verify:
-          "$80-200M (Multi-arm RCT with comprehensive outcome tracking over 3-5 years)",
+          "$80-200M (multi-arm RCT with outcome tracking over 3-5 years)",
         falsification: {
           supporter_flip:
-            "If head-to-head trials showed optimized targeted programs (SNAP + Medicaid + vouchers) deliver equal or better poverty, health, and education outcomes per dollar than unconditional cash, the case for universality over targeting would collapse to an efficiency loss.",
+            "If head-to-head trials found targeted benefits worth the same as the cash delivering better health, schooling and poverty outcomes, and reaching most of the eligible, the case for universal cash over targeted help would reduce to convenience.",
           skeptic_flip:
-            "If new trials, extending a 44-study World Bank review, found cash did not raise alcohol or tobacco spending and improved mental health, while means-tested programs reached only a fraction of the eligible, the worry that cash gets wasted would lose its footing.",
+            "If head-to-head trials found cash matching targeted benefits on health and schooling while reaching far more of the eligible, as TANF's 21-in-100 reach suggests, the efficiency case for targeting would weaken.",
           common_ground:
-            "Both sides agree the goal is improving the lives of the poor, and that unconditional cash is not, in the evidence, spent mainly on temptation goods.",
+            "Both sides agree cash is not mostly spent on alcohol or tobacco, that it cuts measured poverty while it lasts, that recent US trials found little lasting health effect, and that targeted programs miss many eligible families.",
           live_disagreement:
-            "Whether unconditional universal cash beats optimized targeted programs per dollar on poverty, health, and education — which only a multi-arm RCT directly comparing them could settle.",
+            "Whether the same money does more good sent to everyone as cash or aimed at the poor as food, health and housing help, which only a head-to-head trial could measure.",
         },
       },
       evidence: [
         {
-          id: "world-bank-cash-transfer-meta-analysis",
-          title: "World Bank Meta-Analysis: Cash Transfers Do Not Increase Alcohol/Tobacco Spending",
+          id: "openresearch-guaranteed-income-health-null",
+          title: "$1,000 a month for three years did not improve measured health after the first year (NBER 2024, rev. 2026)",
           description:
-            "A comprehensive 2020 meta-analysis by Evans and Popova, published by the World Bank, reviewed 44 studies of unconditional cash transfer programs across 19 countries in Africa, Asia, and Latin America. The study found a statistically significant decrease in spending on 'temptation goods' (alcohol and tobacco) among cash transfer recipients. Of the 44 studies, not a single one found a significant increase in temptation good spending. The authors concluded that 'concerns about the use of cash transfers for alcohol and tobacco consumption are not supported by the available evidence.'",
+            "In the OpenResearch trial, 1,000 low-income adults aged 21 to 40 received $1,000 a month from November 2020 to October 2023, against 2,000 controls receiving $50 a month. The NBER working paper by Miller, Rhodes, Bartik, Broockman, Krause and Vivalt (July 2024, revised August 2026) reports that the transfer 'produced large but short-lived improvements in stress and food security', but 'did not improve self-reported physical health, clinical biomarkers, or mental health after the first year, and we can rule out small effects on many outcomes.' It found no effects on the health of children in participants' households.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "Miller et al., 'Does Income Affect Health? Evidence from a Randomized Controlled Trial of a Guaranteed Income', NBER Working Paper 32711",
+          sourceUrl: "https://www.nber.org/papers/w32711",
+          reasoning:
+            "A large randomized trial with clinical biomarkers as well as self-reports. It is one trial, partly during the pandemic. Directness is 5: it tests cash against a $50 control, not against an equal-cost targeted program, so it shows cash fell short on health, not that SNAP or Medicaid would do better per dollar.",
+        },
+        {
+          id: "babys-first-years-age-four-2025",
+          title: "Baby's First Years 2025: $333 a month from birth had no significant effect on children's development at age four",
+          description:
+            "About 1,000 mothers with incomes below the poverty line, recruited in maternity wards in 2018-19, were randomly assigned to receive $333 or $20 a month, unconditionally, from their child's birth. After four years (891 children assessed), Noble, Magnuson, Duncan and colleagues report no statistically significant effects on the four pre-registered primary outcomes, language, executive function, social-emotional problems and high-frequency brain activity, or on three secondary outcomes. The payments continued until shortly after each child's sixth birthday, and later waves are still being collected.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "Noble, Magnuson, Duncan et al., 'The Effect of a Monthly Unconditional Cash Transfer on Children's Development at Four Years of Age: A Randomized Controlled Trial in the U.S.', NBER Working Paper 33844 (May 2025)",
+          sourceUrl: "https://www.nber.org/papers/w33844",
+          reasoning:
+            "A rigorous, pre-registered trial by researchers who expected an effect, which makes the null result weigh more. $333 a month is about a third of a full basic income, and the children are still young, so it narrows rather than ends the claim that cash improves children's lives.",
+        },
+        {
+          id: "ctc-child-poverty-2021-2022",
+          title: "Census: child poverty more than doubled, from 5.2% in 2021 to 12.4% in 2022, after monthly child payments ended",
+          description:
+            "The Census Bureau's Supplemental Poverty Measure, which counts tax credits and benefits, put child poverty at 5.2% in 2021, the year the expanded child tax credit was paid monthly to most families with children, and at 12.4% in 2022, after the expansion lapsed: 'The SPM child poverty rate more than doubled, from 5.2 percent in 2021 to 12.4 percent in 2022.' Refundable tax credits moved 6.4 million people out of poverty in 2022, down from 9.6 million in 2021.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 9,
+            directness: 5,
+          },
+          source: "US Census Bureau, 'Poverty in the United States: 2022', P60-280 (September 2023)",
+          sourceUrl: "https://www.census.gov/library/publications/2023/demo/p60-280.html",
+          reasoning:
+            "Official statistics showing how much near-universal cash moves the poverty count. The poverty measure counts the cash itself, so the fall is partly arithmetic; it does not show effects on work or children's long-run outcomes, and other pandemic aid also ended in 2022.",
+        },
+        {
+          id: "world-bank-cash-transfer-meta-analysis",
+          title: "World Bank economists 2017: across 19 studies, cash transfers cut spending on alcohol and tobacco",
+          description:
+            "David Evans and Anna Popova of the World Bank reviewed 19 studies with quantitative data on spending and 11 that asked recipients how they used the money. Their meta-analysis found that 'on average cash transfers have a significant negative effect on total expenditures on temptation goods', about −0.18 standard deviations, in Latin America, Africa and Asia and for both conditional and unconditional programs.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 9,
-            directness: 7,
+            replicability: 8,
+            directness: 5,
           },
-          source: "Evans & Popova (2017), World Bank Economic Review; Updated 2020",
-          sourceUrl: "https://academic.oup.com/wber/article/31/1/44/2897306",
+          source: "Evans & Popova, 'Cash Transfers and Temptation Goods', Economic Development and Cultural Change 65(2):189-221 (2017)",
+          sourceUrl: "https://ideas.repec.org/a/ucp/ecdecc/doi10.1086-689575.html",
           reasoning:
-            "This is a large-scale meta-analysis published in the World Bank's peer-reviewed journal, drawing on studies across 19 countries. The consistency of the finding (zero out of 44 studies showed increased temptation spending) is remarkably robust. Directness is somewhat lower because most studies examined developing-country contexts, not the developed nations where UBI is primarily proposed, though the consistency across diverse contexts strengthens generalizability.",
+            "A consistent result across many countries that disposes of the 'they'll waste it' objection. The studies are from poorer countries, and not wasting cash is a low bar; it does not show cash beats targeted help.",
         },
         {
-          id: "rand-poverty-cost-savings",
-          title: "RAND/Brookings: Each $1 Reducing Poverty Saves $7 in Social Costs",
+          id: "tanf-low-uptake-stigma",
+          title: "CBPP: in 2020 only 21 of every 100 families in poverty got TANF cash, down from 68 in 1996",
           description:
-            "Research from the RAND Corporation and Brookings Institution has estimated that childhood poverty costs the US economy $800 billion to $1.1 trillion annually in reduced adult productivity, increased healthcare spending, and higher criminal justice costs. The National Academy of Sciences' 2019 report 'A Roadmap to Reducing Child Poverty' estimated that the economic cost of child poverty amounts to approximately $1 trillion per year, and that each dollar invested in poverty reduction yields approximately $7 in long-term social cost savings. Programs that lifted families above the poverty line produced measurable reductions in emergency room visits, criminal recidivism, and need for remedial education.",
+            "The Center on Budget and Policy Priorities reports that in 2020, 21 of every 100 families in poverty received cash assistance from Temporary Assistance for Needy Families, down from 68 of every 100 in 1996, when welfare reform created the program. The decline reflects tighter eligibility, paperwork, work requirements, time limits and states moving the block grant to other uses.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
+            independence: 6,
+            replicability: 8,
             directness: 6,
           },
-          source: "National Academies of Sciences (2019); RAND Corporation; Brookings Institution",
-          sourceUrl: "https://nap.nationalacademies.org/catalog/25246/a-roadmap-to-reducing-child-poverty",
+          source: "Center on Budget and Policy Priorities, 'TANF Reaching Few Poor Families'",
+          sourceUrl: "https://www.cbpp.org/research/family-income-support/tanf-reaching-few-poor-families",
           reasoning:
-            "The National Academies report represents the scientific consensus on childhood poverty costs and is produced by the most prestigious independent scientific body in the US. The $7 return-on-investment figure provides a strong economic case for poverty reduction. However, directness is moderate because the evidence supports poverty reduction generally, not UBI specifically — targeted programs could achieve similar poverty reduction more efficiently.",
+            "Shows a targeted program can shrink until it misses most of its target. CBPP leans toward expanding aid, so independence is 6. TANF is the weakest of the targeted programs; SNAP and Medicaid reach far more of the eligible, so this is the targeting case at its worst, not its average.",
         },
         {
           id: "finland-wellbeing-improvements",
-          title: "Finland Experiment: Statistically Significant Improvements in Life Satisfaction and Trust",
+          title: "Finland 2020: basic income recipients reported higher life satisfaction and trust",
           description:
-            "The final evaluation of Finland's 2017-2018 basic income experiment, published by Kela in 2020, found that recipients scored significantly higher than the control group on multiple well-being measures: life satisfaction (on a 0-10 scale, recipients scored 0.4 points higher), trust in other people (7% higher), trust in institutions (8% higher), confidence in their ability to influence their own future (12% higher), and self-assessed health (better). Recipients also reported lower levels of loneliness, depression symptoms, and cognitive load (difficulty concentrating). These well-being effects persisted throughout the experiment and were statistically significant at conventional levels.",
+            "The final evaluation of Finland's 2017-2018 experiment found recipients scored higher than controls on life satisfaction, trust in other people and in institutions, and confidence in their future, and reported less loneliness, depression and difficulty concentrating.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 7,
-            directness: 8,
+            directness: 5,
           },
-          source: "Kangas et al. (2020), Final Evaluation of the Finnish Basic Income Experiment; Kela",
+          source: "Kangas et al., 'Final Evaluation of the Finnish Basic Income Experiment', Ministry of Social Affairs and Health (2020)",
           sourceUrl: "https://julkaisut.valtioneuvosto.fi/handle/10024/162219",
           reasoning:
-            "A government-commissioned, peer-reviewed evaluation of a nationally representative RCT — extremely high methodological quality. The well-being findings are statistically robust and directly relevant to the social outcomes question. The effect sizes are meaningful (0.4 points on life satisfaction is comparable to the effect of becoming employed). However, the 2-year duration and restriction to unemployed individuals limit generalizability to a permanent universal program.",
+            "A well-run randomized trial. Well-being was self-reported by people who knew they were receiving the payment, and the sample was unemployed people only, so it shows a more secure benefit feels better, not that it outperforms targeted services.",
         },
         {
-          id: "tanf-low-uptake-stigma",
-          title: "Only 21 of Every 100 Families in Poverty Receive TANF Benefits, Down from 68 in 1996",
+          id: "canada-mincome-experiment",
+          title: "Manitoba Mincome (1974–79): hospitalizations fell 8.5% in the town where everyone was eligible",
           description:
-            "The Center on Budget and Policy Priorities reported that in 2020, only 21 of every 100 families in poverty received Temporary Assistance for Needy Families (TANF) cash benefits — down from 68 per 100 in 1996 when welfare reform was enacted. The decline reflects increasingly restrictive eligibility requirements, documentation burdens, mandatory work requirements, time limits, and social stigma. A 2019 GAO study found that administrative costs consume 20-30% of means-tested program budgets. The Urban Institute estimated that the combined 'benefit cliff' across multiple means-tested programs creates effective marginal tax rates of 60-80% for families transitioning out of poverty, trapping them in a zone where earning more money results in less total income after benefit reductions.",
+            "The Mincome experiment guaranteed a minimum income to about 1,300 Manitoba families. Economist Evelyn Forget recovered the long-shelved data and reported in 2011 that in Dauphin, the 'saturation site' where every eligible family could receive payments, hospitalizations fell 8.5% relative to matched comparison towns, with fewer mental-health-related visits and more teenagers staying in school.",
           side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 5,
+          },
+          source: "Forget, 'The Town With No Poverty', Canadian Public Policy 37(3) (2011)",
+          sourceUrl: "https://utpjournals.press/doi/abs/10.3138/cpp.37.3.283",
+          reasoning:
+            "Rare community-wide evidence. The data were recovered decades later, the experiment was cut short, and the comparison is with other towns rather than random assignment, so it is suggestive, and it sits uneasily beside the recent US nulls on health.",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 3: Can any country pay for it?
+    // =========================================================================
+    {
+      id: "economic-impact-fiscal-feasibility",
+      title: "Can Any Country Pay for It?",
+      short_summary:
+        "$1,000 a month for every US adult costs about $2.8 to $3.1 trillion a year before offsets. Andrew Yang's plan paired it with a 10% VAT and four other taxes, and still left a gap of about $1.5 trillion a year. Dynamic models disagree on whether the economy would shrink or grow. Alaska pays its dividend from an oil fund, which no national plan can copy at full size.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "The arithmetic does not close. The Tax Foundation scored Yang's Freedom Dividend at $2.8 trillion a year gross. A 10% VAT would raise about $952 billion, and his five taxes together far less than the cost; even after the welfare programs it replaced and economic feedback, the plan would add about $1.5 trillion a year to the deficit, and higher taxes on work would shrink output by about 3%. The Penn Wharton Budget Model ran a smaller $6,000-a-year UBI through a dynamic model: deficit-financed, GDP falls 9.3% by 2032; payroll-tax financed, it still falls 1.7% as people work 3.2% less. Even paid from an outside fund, Alaska-style, the model has GDP 3.4% lower. Every dollar comes from taxes that discourage work, borrowing that crowds out investment, or cuts to programs people rely on.",
+      proponent_rebuttal:
+        "The gross figure overstates the real cost. Most adults would pay back much or all of their check in the taxes that fund it, so the net transfer, from richer to poorer, is a fraction of $2.8 trillion. A basic income replaces programs and their overhead, and removes the benefit clawbacks that punish work. Models differ by assumption: the Roosevelt Institute, using the Levy Institute's macroeconomic model, found a deficit-financed $1,000 a month would grow GDP by 12.56% over eight years by raising spending, and Penn Wharton's own tables show a payroll-tax version leaving federal debt nearly unchanged. Alaska has paid its dividend since 1982 without fiscal crisis. The question is design: the size of the check, how fast it phases out through the tax code, and which taxes fund it.",
+      crux: {
+        id: "fiscal-sustainability-test",
+        title: "The Fiscal Sustainability Assessment",
+        question:
+          "Can any realistic funding plan pay for UBI without growth-damaging debt or tax rates?",
+        description:
+          "Every serious estimate agrees the gross cost is enormous. The dispute is the net cost once most of the payment is taxed back from those who do not need it, the programs it would replace, and the growth effects of the taxes chosen. Models that assume people work less when taxed more find the economy shrinks; models driven by demand find it grows.",
+        methodology:
+          "Dynamic scoring, by CBO or a comparable model, of at least five designs: a VAT with program consolidation, a carbon and wealth tax mix, a transaction tax, a negative income tax that phases out with income, and a hybrid. Report for each the net transfer, the marginal tax rates it requires at each income level, debt-to-GDP after 10, 20 and 30 years, and the change in hours worked.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Dynamic-scoring models of at least five funding mixes (VAT with program consolidation, carbon and wealth taxes, a transaction tax, a negative income tax, a hybrid) over 10 to 30 years, reporting debt-to-GDP and the tax rates each requires.",
+        },
+        cost_to_verify:
+          "$1-3M (dynamic fiscal modeling at CBO standard)",
+        falsification: {
+          supporter_flip:
+            "If dynamic scoring of every realistic design, including a negative income tax that phases out through the tax code, found each one needing marginal tax rates or debt that shrink GDP for decades, the case for a meaningful UBI would rest on accepting that cost.",
+          skeptic_flip:
+            "If dynamic scoring found a phase-out design whose net cost was a modest share of the gross figure, funded without shrinking GDP, the claim that no country can afford UBI would turn into a dispute over design.",
+          common_ground:
+            "Both sides agree the gross cost of $1,000 a month per US adult is near $3 trillion a year, that the net cost depends on how much is taxed back, and that model results swing with assumptions about work and demand.",
+          live_disagreement:
+            "Whether any funding mix covers a meaningful UBI without growth-damaging taxes or debt, given that the models' answers depend on whether higher taxes mostly cut work or the payments mostly raise spending.",
+        },
+      },
+      evidence: [
+        {
+          id: "yang-freedom-dividend-cost",
+          title: "Tax Foundation: Yang's $1,000-a-month plan costs $2.8 trillion a year and leaves a $1.5 trillion annual gap",
+          description:
+            "The Tax Foundation scored Andrew Yang's 2020 Freedom Dividend, $1,000 a month for every adult, at a 'total gross cost' of '$2.8 trillion each year.' Its 10% VAT 'would raise $952 billion each year'; lifting the Social Security wage cap, a $40-a-ton carbon tax, a financial transactions tax and taxing capital gains as ordinary income would add roughly $340 billion more. After offsetting cuts to existing programs and economic feedback, the plan 'would end up increasing the budget deficit by about $1.5 trillion each year', and higher marginal tax rates would cut hours worked and 'ultimately reduce output by 3 percent.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Tax Foundation, 'Does Andrew Yang's Freedom Dividend Proposal Add Up?'",
+          sourceUrl: "https://taxfoundation.org/blog/andrew-yang-value-added-tax-universal-basic-income/",
+          reasoning:
+            "A transparent, line-by-line score of the best-known plan. The Tax Foundation favors low taxes, so independence is 6, and its model assumes taxes on work cut hours, which drives the output loss. A smaller check or a phase-out would narrow the gap.",
+        },
+        {
+          id: "penn-wharton-debt-projection",
+          title: "Penn Wharton 2018: a $6,000-a-year UBI cuts GDP 9.3% by 2032 if borrowed, 1.7% if payroll-tax funded",
+          description:
+            "The Penn Wharton Budget Model ran a $6,000-a-year payment to every adult, the plan the Roosevelt Institute had modeled, through its dynamic model. Deficit-financed, it would 'increase federal debt by over 63.5 percent by 2027 and by 81.1 percent by 2032', with GDP falling 6.1% by 2027 and 9.3% by 2032. Funded by a payroll tax, debt stays stable but hours worked fall 3.2% and GDP 1.7%. Even paid from an outside fund, as Alaska's is, households work 5.8% less and GDP falls 3.4%. The brief concludes UBI 'would substantially lower GDP, regardless of how the program is financed.'",
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 8,
-            directness: 7,
+            replicability: 6,
+            directness: 8,
           },
-          source: "Center on Budget and Policy Priorities; GAO; Urban Institute",
-          sourceUrl: "https://www.cbpp.org/research/family-income-support/tanf-reaching-few-poor-families",
+          source: "Penn Wharton Budget Model, 'Options for Universal Basic Income: Dynamic Modeling' (29 March 2018)",
+          sourceUrl: "https://budgetmodel.wharton.upenn.edu/issues/2018/3/29/options-for-universal-basic-income-dynamic-modeling",
           reasoning:
-            "CBPP, GAO, and Urban Institute are all highly credible nonpartisan policy organizations. The dramatic decline in TANF uptake (from 68% to 21%) despite persistent poverty directly supports the argument that means-testing creates barriers that a universal program would eliminate. The benefit cliff analysis is particularly relevant because UBI, by definition, has no phase-out cliff. However, this evidence supports the universality argument rather than proving UBI's specific efficacy.",
+            "A respected nonpartisan model that shows results under three funding choices, which makes its trade-offs clear. The output losses come from an assumed fall in hours worked of 3% to 6%; the externally financed result, 5.8% less work, is larger than Alaska's real dividend produced (no fall in employment), which suggests the model's behavioral assumptions may be strong.",
+        },
+        {
+          id: "roosevelt-institute-gdp-growth",
+          title: "Roosevelt Institute 2017: a deficit-financed $1,000 a month would grow GDP 12.56% over eight years",
+          description:
+            "Using the Levy Economics Institute's macroeconometric model over an eight-year horizon, the Roosevelt Institute projected that a deficit-financed $1,000-a-month UBI would raise GDP by 12.56%, driven by higher consumer spending among lower-income recipients, who spend more of each dollar. The authors write that 'the economy can not only withstand large increases in federal spending, but could also grow thanks to the stimulative effects of cash transfers.' Critics note the model assumes the economy has room to grow without inflation, which is untested at this scale.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Nikiforos, Steinbaum & Zezza, 'Modeling the Macroeconomic Effects of a Universal Basic Income', Roosevelt Institute (2017)",
+          sourceUrl: "https://rooseveltinstitute.org/publications/macroeconomic-effects-universal-basic-income/",
+          reasoning:
+            "The strongest published case that UBI need not shrink the economy. The Roosevelt Institute is progressive and the model is demand-driven, with no supply constraint or inflation response, so it marks the optimistic edge of the range. Penn Wharton, modeling a smaller plan with supply-side behavior, got the opposite sign.",
         },
       ],
     },
   ],
+  aliases: [
+    "Should developed nations adopt a universal basic income?",
+    "Should the government give everyone a basic income?",
+    "Does universal basic income work?",
+    "UBI",
+  ],
   references: [
     {
-      title: "Final Evaluation of the Finnish Basic Income Experiment 2017-2018 — Ministry of Social Affairs and Health, Finland",
-      url: "https://julkaisut.valtioneuvosto.fi/handle/10024/162219",
-    },
-    {
-      title: "Stockton Economic Empowerment Demonstration (SEED) — Final Research Findings",
-      url: "https://www.stocktondemonstration.org/",
-    },
-    {
-      title: "The Employment Effects of a Guaranteed Income: Experimental Evidence from Two U.S. States — Vivalt et al. (2024), NBER Working Paper 32719 (OpenResearch)",
+      title: "The Employment Effects of a Guaranteed Income — Vivalt et al., NBER w32719 (rev. 2026), Quarterly Journal of Economics (2026)",
       url: "https://www.nber.org/papers/w32719",
     },
     {
-      title: "The Labor Market Impacts of Universal and Permanent Cash Transfers: Evidence from the Alaska Permanent Fund — Jones & Marinescu (2022), Journal of Public Economics",
-      url: "https://www.sciencedirect.com/science/article/abs/pii/S0047272721001808",
+      title: "Does Income Affect Health? Evidence from a Randomized Controlled Trial of a Guaranteed Income — Miller et al., NBER w32711",
+      url: "https://www.nber.org/papers/w32711",
     },
     {
-      title: "General Equilibrium Effects of Cash Transfers: Experimental Evidence from Kenya — Egger et al. (2022), Econometrica",
-      url: "https://www.givedirectly.org/research-on-cash-transfers/",
+      title: "The Effect of a Monthly Unconditional Cash Transfer on Children's Development at Four Years of Age — Noble et al., NBER w33844 (2025)",
+      url: "https://www.nber.org/papers/w33844",
     },
     {
-      title: "Macroeconomic Effects of Universal Basic Income Programs — Roosevelt Institute (2017)",
-      url: "https://rooseveltinstitute.org/publications/macroeconomic-effects-universal-basic-income/",
+      title: "Kenya UBI study: results from a long-term experiment — GiveDirectly (2023)",
+      url: "https://www.givedirectly.org/2023-ubi-results/",
+    },
+    {
+      title: "Basic Income Pilot Project: Labour results — Pilotprojekt Grundeinkommen / DIW (2025)",
+      url: "https://www.pilotprojekt-grundeinkommen.de/en/labour",
+    },
+    {
+      title: "The Labor Market Impacts of Universal and Permanent Cash Transfers: Evidence from the Alaska Permanent Fund — Jones & Marinescu, AEJ: Economic Policy (2022)",
+      url: "https://www.aeaweb.org/articles?id=10.1257/pol.20190299",
+    },
+    {
+      title: "Poverty in the United States: 2022 — US Census Bureau (2023)",
+      url: "https://www.census.gov/library/publications/2023/demo/p60-280.html",
+    },
+    {
+      title: "Final Evaluation of the Finnish Basic Income Experiment 2017-2018 — Ministry of Social Affairs and Health, Finland",
+      url: "https://julkaisut.valtioneuvosto.fi/handle/10024/162219",
     },
     {
       title: "Options for Universal Basic Income: Dynamic Modeling — Penn Wharton Budget Model (2018)",
       url: "https://budgetmodel.wharton.upenn.edu/issues/2018/3/29/options-for-universal-basic-income-dynamic-modeling",
     },
     {
-      title: "Cash Transfers and Temptation Goods: A Review of Global Evidence — Evans & Popova, World Bank Economic Review (2017)",
-      url: "https://academic.oup.com/wber/article/31/1/44/2897306",
+      title: "Does Andrew Yang's 'Freedom Dividend' Proposal Add Up? — Tax Foundation",
+      url: "https://taxfoundation.org/blog/andrew-yang-value-added-tax-universal-basic-income/",
     },
     {
-      title: "A Roadmap to Reducing Child Poverty — National Academies of Sciences, Engineering, and Medicine (2019)",
-      url: "https://nap.nationalacademies.org/catalog/25246/a-roadmap-to-reducing-child-poverty",
+      title: "Macroeconomic Effects of Universal Basic Income Programs — Roosevelt Institute (2017)",
+      url: "https://rooseveltinstitute.org/publications/macroeconomic-effects-universal-basic-income/",
     },
     {
-      title: "The Town With No Poverty: The Health Effects of a Canadian Guaranteed Annual Income Field Experiment — Forget (2011), Canadian Public Policy",
-      url: "https://utpjournals.press/doi/abs/10.3138/cpp.37.3.283",
+      title: "Cash Transfers and Temptation Goods — Evans & Popova, Economic Development and Cultural Change (2017)",
+      url: "https://ideas.repec.org/a/ucp/ecdecc/doi10.1086-689575.html",
     },
     {
       title: "TANF Reaching Few Poor Families — Center on Budget and Policy Priorities",
@@ -441,28 +520,32 @@ export const universalBasicIncomeData = {
       url: "https://aspe.hhs.gov/reports/overview-final-report-seattle-denver-income-maintenance-experiment",
     },
     {
-      title: "Does Andrew Yang's 'Freedom Dividend' Proposal Add Up? — Tax Foundation Analysis",
-      url: "https://taxfoundation.org/blog/andrew-yang-value-added-tax-universal-basic-income/",
+      title: "The Town With No Poverty — Forget, Canadian Public Policy (2011)",
+      url: "https://utpjournals.press/doi/abs/10.3138/cpp.37.3.283",
+    },
+    {
+      title: "Stockton Economic Empowerment Demonstration (SEED)",
+      url: "https://www.stocktondemonstration.org/",
     },
   ],
   questions: [
     {
       id: "q1",
-      title: "Would people actually stop working if given $1,000/month?",
+      title: "Would people stop working if they got $1,000 a month?",
       content:
-        "The 1970s Seattle/Denver experiments found modest labor reductions (5-8% for primary earners), mostly among mothers choosing childcare over low-wage work. Modern pilots are mixed: Finland found no employment effect and Stockton saw full-time employment rise from 28% to 40%, while the largest US trial (OpenResearch, $1,000/month for 3 years, 2024) found a real but modest reduction — about 2 points lower employment and 1.3 fewer hours/week, partly driven by education, caregiving, and entrepreneurship. Alaska has paid residents $1,000-$2,000/year since 1982 with no measurable employment effect. Does guaranteed income destroy motivation, or does financial security enable people to make different — sometimes fewer-hours — career and family choices?",
+        "Not most of them, but some would work less. The largest US trial, $1,000 a month for three years, found labor-force participation 4.2 points lower and earnings about $1,900 a year lower than in the control group, with the extra time going mostly to leisure. Germany's three-year pilot found about an hour less work a week, and a 12-year basic income in Kenya and Alaska's dividend found no fall in total work. No trial has tested a permanent payment to everyone in a rich country.",
     },
     {
       id: "q2",
-      title: "Can any nation actually afford a meaningful UBI?",
+      title: "Can any country afford a universal basic income?",
       content:
-        "A $1,000/month UBI for all US adults costs roughly $3.1 trillion annually — more than the entire discretionary budget. The Penn Wharton model projects a 63.5% GDP-debt increase over a decade. Yet the Roosevelt Institute models a 12.56% GDP growth from demand-side stimulus. Alaska's PFD has run for 42+ years. Is the cost analysis fundamentally different when you account for consolidated welfare savings, reduced poverty costs ($1 trillion/year), and economic multiplier effects?",
+        "$1,000 a month for every US adult costs about $2.8 trillion a year gross. The Tax Foundation found Yang's plan, with a 10% VAT and four other taxes, would still add about $1.5 trillion a year to the deficit. The net cost is lower if most of the payment is taxed back from higher earners. Dynamic models disagree: Penn Wharton finds GDP falls under every funding option; the Roosevelt Institute finds a deficit-financed plan grows it.",
     },
     {
       id: "q3",
-      title: "Is universal cash more effective than targeted anti-poverty programs?",
+      title: "Is a basic income better than targeted programs like food stamps?",
       content:
-        "Only 21 of every 100 families in poverty receive TANF cash benefits, down from 68 in 1996. Means-tested programs consume 20-30% of budgets on administration and create 'benefit cliffs' with effective marginal tax rates of 60-80%. But targeted programs ensure money goes to specific needs: food, healthcare, housing. A World Bank meta-analysis of 44 studies found zero increases in 'temptation good' spending from cash transfers. Should we trust people with unconditional cash, or does accountability improve outcomes?",
+        "Cash is not wasted on alcohol or tobacco, and it cuts poverty: US child poverty fell to 5.2% in 2021 when monthly child payments ran, then rose to 12.4% when they stopped. But recent US trials found $333 to $1,000 a month did not improve measured health or young children's development, and a universal check goes to millionaires too. Targeted programs aim at need but miss many: only 21 of every 100 poor families got TANF cash in 2020.",
     },
   ],
 };

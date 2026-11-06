@@ -532,6 +532,9 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "medicaid-work-requirements": ["Do Medicaid work requirements actually get people working?"],
   "data-centers-electricity-bills": ["Are data centers raising my electric bill?"],
   "proof-of-citizenship-voting": ["Should you have to prove you are a citizen to register to vote?"],
+  "congress-stock-trading-ban": ["Should members of Congress be allowed to trade stocks?"],
+  "partisan-gerrymandering": ["Should gerrymandering be illegal?"],
+  "aca-enhanced-subsidies": ["Should the Obamacare subsidies be extended?"],
 };
 
 // ============================================================================

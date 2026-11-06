@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Copy, Check } from "lucide-react";
 import { copyTextToClipboard } from "@/lib/copyToClipboard";
+import { trackEvent } from "@/lib/analytics";
 
 // ---------------------------------------------------------------------------
 // Props
@@ -30,6 +31,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
 
   const handleCopy = async () => {
     const currentRequest = ++requestId.current;
+    trackEvent({ action: "share_click", platform: "copy" });
     setCopyResult(null);
     try {
       await copyTextToClipboard(url);
@@ -72,6 +74,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         rel="noopener noreferrer"
         className={btnClass}
         aria-label="Share on X (Twitter)"
+        onClick={() => trackEvent({ action: "share_click", platform: "x" })}
         title="Share on X"
       >
         <svg
@@ -91,6 +94,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         rel="noopener noreferrer"
         className={btnClass}
         aria-label="Share on LinkedIn"
+        onClick={() => trackEvent({ action: "share_click", platform: "linkedin" })}
         title="Share on LinkedIn"
       >
         <svg

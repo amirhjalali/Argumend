@@ -7,18 +7,30 @@ export const ukrainePeaceTermsData = {
     "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
   status: "contested" as const,
   category: "policy" as const,
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "Should Ukraine give up land for peace?",
+    "Should Ukraine accept a ceasefire on the current front line?",
+    "Can Ukraine still win the war?",
+  ],
+  // As of 3 November 2026: ISW counts a net Russian loss of 27.29 km² in
+  // October 2026, the second losing month in a row; the Kremlin still demands
+  // land it does not hold (ISW, 16 Oct); the December 2025 20-point draft
+  // has not been accepted by Russia; the US is exploring a limited Black Sea
+  // ceasefire (Rubio, 31 Oct).
+  last_updated: "2026-11-03",
   // One line under "This turns on four questions": the stakes, without
   // restating the four questions printed right below it.
   simple_case: [
-    "The answers decide whether freezing the lines would end the killing on acceptable terms or only buy time before the next invasion.",
+    "The answers decide whether freezing the lines would end the killing on acceptable terms or only buy time before the next invasion, and whether Europe pays for a long war or for guarding a long ceasefire.",
   ],
   // ── The opening: the fact under the title ──
   keystone_fact: {
     statement:
-      "By the Institute for the Study of War's count, the front line barely moved in autumn 2026: Russian forces lost a net 81 square kilometers in September and 27 in October. Some 3.47 million people live in the areas Russia occupies, by SWP's 2024 estimate, and a freeze would leave them there. The fight is over what a deal drawn along that line would buy.",
+      "By the Institute for the Study of War's count, the front line barely moved in autumn 2026: Russian forces lost a net 81 square kilometers in September and 27 in October. The Kremlin still demands land it has not captured, and some 3.47 million people live in the areas Russia already occupies, by SWP's 2024 estimate; a freeze would leave them there. The fight is over what a deal drawn along that line would buy.",
     confidence: 85,
     source:
-      "Institute for the Study of War / Critical Threats, Russian Offensive Campaign Assessments (October and November 2026); SWP Comment, 'Russia in the Occupied Territories of Ukraine' (Petrov, 2024)",
+      "Institute for the Study of War / Critical Threats, Russian Offensive Campaign Assessments (16 October and 1 November 2026); SWP Comment, 'Russia in the Occupied Territories of Ukraine' (Petrov, 2024)",
     sourceUrl:
       "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-1-2026",
   },
@@ -28,7 +40,7 @@ export const ukrainePeaceTermsData = {
     // =========================================================================
     {
       id: "territorial-concessions",
-      title: "Territorial Concessions vs. Sovereignty",
+      title: "Should Ukraine Trade Land for Peace?",
       short_summary:
         "The original US 28-point plan would have treated Crimea, Luhansk, and Donetsk as de facto Russian; the later 20-point draft would instead freeze the current line of contact, with any special zone subject to Ukraine's parliament or a referendum. Critics say any concession rewards aggression. The dispute turns on whether ratifying battlefield reality buys durable peace or merely buys time before the next invasion.",
       icon_name: "Scale" as const,
@@ -66,7 +78,7 @@ export const ukrainePeaceTermsData = {
       evidence: [
         {
           id: "isw-front-line-2026",
-          title: "ISW records a front line moving only marginally through 2026",
+          title: "ISW: Russia Lost a Net 27 km² in October 2026, Its Second Losing Month in a Row",
           description:
             "ISW's daily and monthly campaign assessments describe a front line moving only marginally through 2026. By ISW's count, Russian forces lost control of almost 300 square kilometers between March and September 2026, a period that included Ukraine's Operation Vivaldi north of Lyman. In September they seized 175.54 square kilometers but lost 256.35, a net loss of 80.81; in October they seized 139.85 and lost 167.14, a net loss of 27.29, or -0.88 square kilometers a day. On a typical day such as 4-5 October, ISW recorded Russian attacks in the Sumy, Kupyansk, Lyman, Slovyansk and Kostyantynivka directions that 'did not advance,' and Russian Defense Ministry flag-raising claims of new captures that 'do not reflect battlefield realities.' ISW judges that 'the Russian war effort is currently failing to achieve its operational and strategic objectives.'",
           side: "for" as const,
@@ -85,7 +97,7 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "28-point-plan-recognition",
-          title: "Original 28-Point Plan Recognized Occupied Territory as 'De Facto Russian'",
+          title: "Original 28-Point Plan Recognized Occupied Territory as 'de facto Russian'",
           description:
             "The November 2025 US 28-point plan, drafted by envoy Steve Witkoff with Russian input reportedly led by Kirill Dmitriev, said 'Crimea, Luhansk, and Donetsk will be recognized as de facto Russian, including by the United States,' froze Kherson and Zaporizhzhia along the line of contact, and said 'Ukrainian forces will withdraw from the part of Donetsk Oblast that they currently control,' which would become a demilitarized buffer zone 'internationally recognized as territory belonging to the Russian Federation.' CSIS put that land, which Russia had not captured, at about 2,500 square miles. Skeptics cite this as proof the framework rewards aggression, and the demand has outlived the plan: in October 2026 ISW described the Kremlin as 'repeatedly demanding that Ukraine cede territory, including areas which Russian forces do not currently control.'",
           side: "against" as const,
@@ -121,7 +133,7 @@ export const ukrainePeaceTermsData = {
           id: "miami-revisions-20-point",
           title: "December 2025: A 20-Point Draft Replaced the Forced Donetsk Withdrawal With a Freeze",
           description:
-            "After Ukraine rejected the 28-point plan, US and Ukrainian negotiators reworked it into a 20-point draft that Zelensky described point by point on 24 December 2025, saying it had been agreed between Kyiv's and Washington's negotiators and sent to Moscow. In it, 'the line of troop deployment as of the date of this agreement is de facto recognized as the line of contact' in Donetsk, Luhansk, Zaporizhzhia and Kherson; a working group would settle force redeployments and any special economic zones, and such a zone 'will require special approval by the Ukrainian parliament or a referendum.' Zelensky called the draft 'about 90% ready' before meeting Trump at Mar-a-Lago on 28 December and said afterwards that the two were 90% agreed, though both called the Donbas a 'very tough question.' Proponents read this as evidence that a settlement ratifying de facto control without the most punitive terms is negotiable.",
+            "After Ukraine rejected the 28-point plan, US and Ukrainian negotiators reworked it into a 20-point draft that Zelensky described point by point on 24 December 2025, saying it had been agreed between Kyiv's and Washington's negotiators and sent to Moscow. In it, 'the line of troop deployment as of the date of this agreement is de facto recognized as the line of contact' in Donetsk, Luhansk, Zaporizhzhia and Kherson; a working group would settle force redeployments and any special economic zones, and such a zone 'will require special approval by the Ukrainian parliament or a referendum.' On 26 December Zelensky called the draft 'about 90% ready'; after meeting Trump at Mar-a-Lago on 28 December he said the two were at 90% agreement on it, while both men called the territorial issues in the Donbas a 'very tough question' (CBS News). Russia has not accepted the draft. Proponents read this as evidence that a settlement ratifying de facto control without the most punitive terms is negotiable.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -129,7 +141,7 @@ export const ukrainePeaceTermsData = {
             replicability: 6,
             directness: 7,
           },
-          source: "The Moscow Times (translated transcript of Zelensky's 24 December 2025 briefing); CBS News (26-28 December 2025)",
+          source: "The Moscow Times (translated transcript of Zelensky's 24 December 2025 briefing); CBS News live updates, 'Trump and Zelenskyy say they're nearly in agreement on Ukraine peace plan' (28 December 2025)",
           sourceUrl: "https://www.themoscowtimes.com/2025/12/24/zelensky-reveals-new-20-point-plan-to-end-ukraine-war-a91532",
           reasoning:
             "The terms come from Zelensky's own description of a draft he helped negotiate, so independence is limited; the full text was not published. The removal of the forced withdrawal supports the proponent claim that a more balanced deal can be drafted. Weighted down on replicability because '90%' is a party's characterization, the Donbas was left unresolved, and Russia has not accepted the draft: in October 2026 ISW assessed that the Kremlin still refuses any territorial concessions of its own.",
@@ -142,7 +154,7 @@ export const ukrainePeaceTermsData = {
     // =========================================================================
     {
       id: "security-guarantees-nato",
-      title: "Security Guarantees & NATO",
+      title: "What Would Stop Russia Attacking Again?",
       short_summary:
         "Any settlement must answer what stops Russia from attacking again. At the January 2026 Paris talks the UK and France pledged to deploy forces in Ukraine after a ceasefire as part of a 'coalition of the willing' multinational force, but Russia flatly rejects any NATO troops in Ukraine — producing a security-guarantee paradox: guarantees weak enough for Russia to accept won't deter, and guarantees strong enough to deter won't be accepted.",
       icon_name: "Shield" as const,
@@ -214,7 +226,7 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "conversation-guarantee-paradox",
-          title: "Analysts Formalize the 'Security-Guarantee Paradox'",
+          title: "Rutland (2025): Guarantees Too Weak Won't Deter, and Too Strong Moscow Won't Sign",
           description:
             "In an August 2025 analysis for The Conversation, Wesleyan University's Peter Rutland summarized the structural dilemma: if too weak, security guarantees 'provide no real deterrence to future Russian aggression; too stringent, and they will never be accepted by Moscow in the first place.' This framing captures why the security question, not territory, may be the binding constraint on any durable deal — and why both the tripwire and the NATO bar are individually insufficient.",
           side: "against" as const,
@@ -231,7 +243,7 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "minsk-precedent-failure",
-          title: "2014-2022 Precedent: Weak Guarantees Failed to Prevent Full-Scale Invasion",
+          title: "2014-2022: The Minsk Agreements' Weak Guarantees Did Not Stop a Larger Invasion",
           description:
             "Between the 2014 annexation of Crimea and the 2022 full-scale invasion, the Minsk agreements provided weak, non-tripwire guarantees that failed to prevent Russia from rearming and launching a far larger war. Skeptics including Mark Galeotti argue the Putin regime now sees itself as a permanent war-fighting state at war with the West, making any pause a runway to re-attack rather than a settlement.",
           side: "against" as const,
@@ -254,9 +266,9 @@ export const ukrainePeaceTermsData = {
     // =========================================================================
     {
       id: "sanctions-attrition",
-      title: "Sanctions, Russian Capability & Attrition",
+      title: "Is Time on Ukraine's Side?",
       short_summary:
-        "Whether to lift sanctions as part of a deal hinges on whether Russia can sustain another year of attrition. A 2024 RUSI forecast had Russia exhausting most of its stored Soviet-era armor by 2026, and the pressure camp reads recruitment data the same way; the restraint camp says an autocracy can absorb pain Ukraine cannot — and Russia has evaded sanctions throughout.",
+        "Whether to lift sanctions as part of a deal hinges on whether Russia can keep fighting. In October 2026 it lost more soldiers than in any month of the war, by Ukraine's count, and ISW says it is recruiting fewer than it loses. The restraint camp answers that an autocracy can absorb pain Ukraine cannot, that Ukraine's own manpower is strained, and that forecasts of Russian exhaustion have been made and missed before.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Lifting sanctions and freezing the war now throws away leverage at the exact moment Russia is breaking. RUSI's Watling and Reynolds estimated in February 2024 that roughly 80% of the tanks and armored vehicles Russia delivers are refurbished from war stocks rather than newly built, forecast that by 2026 Russia 'will have exhausted most of the available stocks,' and wrote that beyond 2026 attrition 'will begin to materially degrade Russian combat power.' Recruitment fell 20% in Q1 2026 to roughly 800 sign-ups per day even as sign-on payments hit record highs, and Western officials told Bloomberg that in January 2026 Russia's battlefield losses outran its replacements by about 9,000. Sweden's military intelligence chief says Russia presents its economic data to look more resilient than it is, with real inflation nearer its 15% key rate than the official 5.86%. Russia must lose decisively, or Beijing, Tehran, and Pyongyang learn that aggression pays.",
@@ -325,8 +337,25 @@ export const ukrainePeaceTermsData = {
             "Kluge's quantitative recruitment tracking is well-regarded and partly cross-checkable against regional bonus data. The losses-vs-recruitment comparison rests on anonymous Western officials' loss estimates that could not be independently verified, lowering replicability. Directly bears on whether Russia can sustain the fight.",
         },
         {
+          id: "russian-losses-oct-2026",
+          title: "October 2026: Russia's Highest Monthly Losses of the War, and Recruitment Below Replacement",
+          description:
+            "ISW's 1 November 2026 assessment reports that Russian forces lost ground in October 2026 for the second month in a row and 'suffered their highest monthly losses of the war thus far.' Ukraine's General Staff counted about 54,400 Russian soldiers killed or seriously wounded in October, the fourth month in a row above 40,000. ISW judges that 'Russia's current force generation system continues to recruit fewer soldiers than needed to replace these losses,' and that Ukraine has seized the initiative in the Kupyansk, Lyman and Oleksandrivka directions after its Operation Vivaldi north of Lyman.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "ISW / Critical Threats, Russian Offensive Campaign Assessment (1 November 2026), citing Ukraine's General Staff for loss figures",
+          sourceUrl: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-1-2026",
+          reasoning:
+            "The most recent read on the attrition race, and it points the way the pressure camp predicts: Russian losses outrunning recruitment while the front tilts slightly toward Ukraine. The loss count comes from one side of the war, a two-month trend is short, and Russia has absorbed bad months before without changing its aims.",
+        },
+        {
           id: "willingness-dominates-capability",
-          title: "Restraint Camp: Russian Willingness Outlasts Ukrainian Manpower",
+          title: "Carnegie (March 2026): Ukraine Faces an 'increasingly acute' Manpower Shortage",
           description:
             "The restraint camp counters that Russia's autocracy can absorb pain Ukraine cannot, making willingness — not capability — the dominant variable. Carnegie's March 2026 study opens: 'Ukraine is facing an increasingly acute military manpower challenge,' citing severe shortages in frontline units, reduced voluntary recruitment, fatigue among long-serving personnel, record rates of absence without leave, and growing public unease with mobilization practices. In August 2026 Kyrylo Budanov, head of Ukraine's Presidential Office, said 'we cannot mobilise fewer than 30,000 people a month. This is the minimum number needed to maintain what we have.' Zelensky has refused to lower the mobilization age to 18: 'I do not believe that we should mobilize people from the age of 18,' he said in June 2025. If Ukrainian manpower fails first, prolonging the war worsens Ukraine's position.",
           side: "for" as const,
@@ -366,7 +395,7 @@ export const ukrainePeaceTermsData = {
     // =========================================================================
     {
       id: "ceasefire-vs-just-peace",
-      title: "Ceasefire-Now vs. Just-Peace & the Demonstration Effect",
+      title: "Would a Freeze Hold, and What Would It Teach Beijing?",
       short_summary:
         "Even if a freeze is achievable, would it be a stable Korea-style armistice or a fragile pause Putin exploits — and what does settling at current lines teach China about Taiwan? The dispute pits stopping the killing now against the risk that an unjust peace emboldens the next aggressor.",
       icon_name: "Gavel" as const,
@@ -404,7 +433,7 @@ export const ukrainePeaceTermsData = {
       evidence: [
         {
           id: "haass-kupchan-frozen-conflict",
-          title: "Haass and Kupchan: West Should Lay Groundwork for a DMZ Ceasefire",
+          title: "Haass and Kupchan: Prepare a Korea-Style Ceasefire Behind a Demilitarized Zone",
           description:
             "In Foreign Affairs, Richard Haass and Charles Kupchan argued the West should begin laying the groundwork for a ceasefire, with both sides pulling back to create a demilitarized zone — a Korea-style armistice without formal resolution, indefinite forward deployment of Western weapons (not necessarily troops), and continued non-recognition of de jure annexation. This is the most developed expert case that a managed freeze is the realistic stable equilibrium.",
           side: "for" as const,
@@ -421,7 +450,7 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "atlantic-council-unjust-peace",
-          title: "Atlantic Council: An Unjust Peace Emboldens China",
+          title: "Atlantic Council: An Unjust Peace in Ukraine Would Embolden China",
           description:
             "The Atlantic Council argued that an unjust peace in Ukraine would embolden China, framing the demonstration effect as a near-axiomatic strategic cost: a settlement read by Beijing as rewarding aggression raises the risk of a Taiwan move. This is the canonical Atlanticist case that the war's ending has global stakes beyond the Ukrainian theater and that conceding now buys a larger future conflict.",
           side: "against" as const,
@@ -438,7 +467,7 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "aei-china-operational-lessons",
-          title: "AEI: China's Lessons from Ukraine Are Operational, Not Strategic",
+          title: "AEI: China Is Drawing Operational, Not Strategic, Lessons From Ukraine",
           description:
             "AEI's China-Taiwan Update assessed that the lessons China is drawing from Ukraine are predominantly operational — drones, AI, electronic warfare, logistics — rather than a strategic conclusion that aggression pays. Combined with the restraint-camp argument that Taiwan is geographically and economically unlike Ukraine, this undercuts the reputational-deterrence premise behind the 'unjust peace emboldens China' claim.",
           side: "for" as const,
@@ -454,21 +483,21 @@ export const ukrainePeaceTermsData = {
             "AEI's tracking is detailed but the institution leans hawkish, making its situational-deterrence read a notable concession in the restraint direction. It directly challenges the demonstration-effect axiom, supporting the proponent view that settling has limited global spillover.",
         },
         {
-          id: "putin-stalling-jamestown",
-          title: "Jamestown: Putin Is Stalling a Nearly Finished Deal With Maximalist Demands",
+          id: "kremlin-demands-unheld-land",
+          title: "ISW (October 2026): The Kremlin Refuses Concessions and Demands Land Russia Does Not Hold",
           description:
-            "In April 2026, Jamestown Foundation analysts argued Putin — not Zelensky — is stalling a deal Zelensky had called 'about 90% ready,' fabricating a Ukrainian drone attack on his residence and weaponizing a Ukrainian corruption scandal to delegitimize Kyiv. Putin's stated demands at that point were maximalist: full withdrawal from all four claimed oblasts, a permanent NATO bar, a capped Ukrainian military, and sanctions relief. This supports the skeptic claim that Russia would not honor a freeze at current lines.",
+            "Peace talks in Geneva in February 2026 broke up after about two hours on their second day, with Moscow still demanding the parts of the Donbas that Ukrainian forces hold; Zelensky said Russia had greeted the talks with a missile strike, while Russia's negotiator Vladimir Medinsky said the next meeting would 'take place soon' (TIME). By October 2026 ISW assessed that 'the Kremlin has repeatedly refused to make any territorial concessions of its own, while repeatedly demanding that Ukraine cede territory, including areas which Russian forces do not currently control,' and that it remains committed to its original war aims by military means. In mid-October Putin said the 'security zone' Russian forces are trying to carve out in northern Ukraine is not a subject for negotiation. The talk in late October was of something narrower: on 31 October Secretary of State Marco Rubio cited 'growing international interest, including from the US, in a limited Black Sea ceasefire.'",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 6,
-            replicability: 6,
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
             directness: 8,
           },
-          source: "Jamestown Foundation; Time",
-          sourceUrl: "https://time.com/7379321/ukraine-russia-peace-talks-end-zelensky-trump-clash/",
+          source: "ISW / Critical Threats, Russian Offensive Campaign Assessments (16 October and 1 November 2026); TIME (Tiago Ventura, 18 February 2026) on the Geneva talks",
+          sourceUrl: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-october-16-2026",
           reasoning:
-            "Jamestown is credible but advocacy-adjacent (moderate independence). The Geneva talks collapsing after two hours amid a Russian missile strike is independently reported by Time. Directly bears on whether Putin would actually freeze at current lines or use a pause to re-attack.",
+            "If Moscow will not accept a freeze at current lines, the deal this map asks about is not on offer, which bears directly on whether pushing for one ends the war. ISW's read of Kremlin intent is an assessment, not a record of the talks, and stated demands can be bargaining positions that soften once a deal is close.",
         },
       ],
     },
@@ -481,6 +510,14 @@ export const ukrainePeaceTermsData = {
     {
       title: "Russian Offensive Campaign Assessment, October 16, 2026 — Institute for the Study of War / Critical Threats",
       url: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-october-16-2026",
+    },
+    {
+      title: "Trump and Zelenskyy say they're nearly in agreement on Ukraine peace plan — CBS News (28 December 2025)",
+      url: "https://www.cbsnews.com/amp/live-updates/trump-zelenskyy-meeting-florida",
+    },
+    {
+      title: "TIME on the Geneva peace talks (Tiago Ventura, 18 February 2026)",
+      url: "https://time.com/7379321/ukraine-russia-peace-talks-end-zelensky-trump-clash/",
     },
     {
       title: "Zelensky Reveals New 20-Point Plan to End Ukraine War — The Moscow Times",

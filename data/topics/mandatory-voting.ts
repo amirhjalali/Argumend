@@ -133,6 +133,24 @@ export const mandatoryVotingData = {
           reasoning:
             "Corrected the journal (Quarterly Journal of Political Science, not Journal of Politics) and the substance: Fowler finds a partisan/distributive shift toward Labor and higher pension spending, not 'more centrist platforms', so the original 'policy moderation' framing was a misreading. Plausible quasi-experimental design, but observational and Australia-specific.",
         },
+        {
+          id: "mv-austria-no-spending-effect",
+          title: "Austria, 1949–2010: Compulsory Voting Raised Turnout About 10 Points but Moved Neither Spending nor Election Results",
+          description:
+            "Hoffman, León and Lombardi used the fact that Austria's nine states adopted and dropped compulsory voting laws at different times as a quasi-experiment, covering state and national elections from 1949 to 2010. They find 'compulsory voting laws with weakly enforced fines increase turnout by roughly 10 percentage points', but no evidence that the higher turnout changed government spending, in level or composition, or electoral outcomes. Individual-level data suggest the voters the laws brought in were disproportionately non-partisan, less interested in politics and less informed, which the authors give as the reason the extra ballots did not shift results.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Hoffman, León & Lombardi, 'Compulsory Voting, Turnout, and Government Spending: Evidence from Austria', NBER Working Paper 22221 (2016); Journal of Public Economics 145 (2017): 103–115",
+          sourceUrl: "https://www.nber.org/papers/w22221",
+          reasoning:
+            "The same staggered-adoption design as Fowler's Australian study, peer-reviewed in a top public-economics journal, and it reaches the opposite policy result, which is why it bears directly on the crux. The Austrian fines were weakly enforced, so the turnout gain (about 10 points) was far smaller than Australia's (about 24 in Fowler), and a smaller shock may simply be too small to move spending. Replicability is 6: two good quasi-experiments now disagree, and which generalizes is the open question.",
+        },
       ],
     },
     {
@@ -224,6 +242,24 @@ export const mandatoryVotingData = {
           sourceUrl: "https://doi.org/10.1111/j.1540-6237.2009.00603.x",
           reasoning:
             "A large administrative sample with a clean source of randomisation, so the estimate itself is solid. It measures the size of the choice-independent component of the vote in a compulsory system, which is the mechanism the uninformed-voter objection points at; it does not compare that component against a voluntary-voting counterfactual, so it cannot show compulsion created it.",
+        },
+        {
+          id: "mv-brazil-sanctions-inequality",
+          title: "Brazil: Compulsory Voting Raised Turnout at Least Twice as Much Among the More Educated, Because Its Penalties Bite the Middle Class",
+          description:
+            "Cepaluni and Hidalgo (Political Analysis, 2016) used individual records for about 140 million Brazilian citizens and two age-based discontinuities in who must vote to estimate the law's effect by education. The effect on more-educated citizens was at least double the effect on less-educated ones, so compulsion widened the turnout gap rather than closing it, against what the authors call 'one of the most robust findings on political institutions', that compulsory voting reduces the participation gap. They attribute this to Brazil's non-monetary sanctions for abstaining, which mainly constrain middle- and upper-class citizens, and support the mechanism with a national survey.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 5,
+          },
+          source:
+            "Cepaluni & Hidalgo, 'Compulsory Voting Can Increase Political Inequality: Evidence from Brazil', Political Analysis 24(2): 273–280 (2016)",
+          sourceUrl: "https://dspace.mit.edu/handle/1721.1/106314",
+          reasoning:
+            "A very large sample and a clean regression-discontinuity design, so the estimate is credible for Brazil. It shows the benefit of compulsion is not automatic: what the penalty is, and who it binds, decides whether the extra voters are the under-represented ones, which undercuts reading Australia's result as a general cost-benefit verdict. Directness is 5 because Brazil's sanctions differ from Australia's $20 fine, and replicability 5 because it is one country.",
         },
       ],
     },

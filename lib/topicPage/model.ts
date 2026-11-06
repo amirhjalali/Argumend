@@ -167,11 +167,27 @@ export interface RelatedMap {
   title: string;
 }
 
+/**
+ * The map's illustration, shown as the plate that opens the page. Optional:
+ * a map without one opens on its question, and nothing stands in for it.
+ */
+export interface TopicHero {
+  src: string;
+  /** Intrinsic size, so the plate reserves its box before the image loads. */
+  width: number;
+  height: number;
+  alt: string;
+  /** CSS object-position for the shallow crop; the image's centre by default. */
+  focus?: string;
+}
+
 export interface TopicPageData {
   id: string;
   kind: "flagship" | "legacy";
   /** H1: the question, or a legacy title as authored. */
   title: string;
+  /** The opening plate (data/generatedMedia.ts, or a flagship's own hero). */
+  hero?: TopicHero;
   /** Breadcrumb label for this page. */
   crumb: string;
   /** A one-line qualifier under the H1 ("Scope: …" or "The claim: …"). */

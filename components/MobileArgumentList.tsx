@@ -7,6 +7,7 @@ import { TextAction } from "@/components/ui";
 import { EvidenceKey } from "@/components/EvidenceKey";
 import { INLINE_SUMMARY, SOURCE_LINK, SettleAnswer } from "@/components/topic/cruxPrimitives";
 import { cruxSheetHeading } from "@/lib/topicPage/model";
+import { SETTLE_TONE } from "@/lib/diagram/tones";
 import type {
   DiagramCruxNode,
   DiagramEvidenceNode,
@@ -145,6 +146,15 @@ function CruxSection({
           <span className="mt-0.5 block text-pretty font-serif text-[1.125rem] font-medium leading-[1.35] text-stone-900 dark:text-stone-100">
             {crux.label}
           </span>
+          {crux.settleLine && (
+            <span className="mt-1.5 flex items-baseline gap-2 text-[12.5px] leading-snug">
+              <span
+                aria-hidden="true"
+                className={`h-1.5 w-1.5 shrink-0 -translate-y-px rounded-full ${SETTLE_TONE[crux.settleLine.tone].dot}`}
+              />
+              <span className={SETTLE_TONE[crux.settleLine.tone].text}>{crux.settleLine.text}</span>
+            </span>
+          )}
         </span>
         <ChevronDown
           aria-hidden="true"
@@ -189,15 +199,25 @@ export function MobileArgumentList({ diagram }: { diagram: DiagramModel }) {
       (node): node is DiagramEvidenceNode => node.kind === "evidence" && node.parentId === sideId,
     );
 
+  const repeatsQuestion = Boolean(question && question.label !== diagram.title);
+  // Under the route's h1 directly, unless the question's own h2 sits between.
+  const CruxesHeading = repeatsQuestion ? "h3" : "h2";
+
   return (
     <div className="bg-[var(--bg-surface)]">
       <div className="mx-auto max-w-lg space-y-5 px-4 py-5">
-        {question && (
+        {/* The route's h1 already is the question; the outline repeats it only
+            when the two differ, and keeps the claim line either way. */}
+        {question && (repeatsQuestion || question.claim) && (
           <div>
-            <p className="label-caps !text-[0.9375rem] !text-deep dark:!text-accent-text">The question</p>
-            <h2 className="mt-1 text-balance font-serif text-[1.375rem] font-medium leading-snug text-stone-900 dark:text-stone-100">
-              {question.label}
-            </h2>
+            {repeatsQuestion && (
+              <>
+                <p className="label-caps !text-[0.9375rem] !text-deep dark:!text-accent-text">The question</p>
+                <h2 className="mt-1 text-balance font-serif text-[1.375rem] font-medium leading-snug text-stone-900 dark:text-stone-100">
+                  {question.label}
+                </h2>
+              </>
+            )}
             {question.claim && (
               <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-400">
                 <em className="font-medium not-italic text-stone-800 dark:text-stone-200">{question.claim.lead}:</em>{" "}
@@ -209,9 +229,9 @@ export function MobileArgumentList({ diagram }: { diagram: DiagramModel }) {
 
         {cruxes.length > 0 && (
           <section aria-labelledby="outline-cruxes" className="space-y-3">
-            <h3 id="outline-cruxes" className="label-caps">
+            <CruxesHeading id="outline-cruxes" className="label-caps">
               {cruxSheetHeading(cruxes.length)}
-            </h3>
+            </CruxesHeading>
             <EvidenceKey labels={diagram.evidenceLabels} />
             <ol className="space-y-3">
               {cruxes.map((crux) => (

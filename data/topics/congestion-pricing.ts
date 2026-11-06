@@ -7,6 +7,7 @@ export const congestionPricingData = {
     "Downtown driving charges",
     "City center entry fees",
     "Motorist charges on central streets",
+    "Should cities charge drivers at peak times to fund public transit?",
   ],
   meta_claim:
     "Congestion pricing is an effective policy for cutting urban traffic and funding transit.",

@@ -9,12 +9,12 @@ export const encryptionBackdoorsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The FBI first told Congress that encryption locked it out of 7,775 devices in 2017, then, after finding a software counting error, put the true number near 1,200. Both figures are on the record. The fight is over how many of the cases that remain cannot be solved without a built-in way in, and whether any such way in can be kept from attackers.",
+      "The FBI told Congress and the public that encryption locked it out of 7,775 devices in 2017; after it found programming errors in the count, an internal FBI estimate reported by The Washington Post in May 2018 put the true number near 1,200. Both figures are on the record. The fight is over how many of the cases that remain cannot be solved without a built-in way in, and whether any such way in can be kept from attackers.",
     confidence: 90,
     source:
-      "FBI's own 2018 correction, reported by The Washington Post (May 2018); EFF and New America / Open Technology Institute analyses",
+      "The Washington Post (22 May 2018), as reported by CSO Online, \"FBI 'Going Dark' whopper: Locked out of only 1,200 phones, not 7,775\" (23 May 2018)",
     sourceUrl:
-      "https://www.eff.org/deeplinks/2018/05/fbi-admits-it-inflated-number-supposedly-unhackable-devices",
+      "https://www.csoonline.com/article/565476/fbi-going-dark-whopper-locked-out-of-only-1200-phones-not-7775.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -55,7 +55,7 @@ export const encryptionBackdoorsData = {
           skeptic_flip:
             "If an exceptional-access design survived years of open adversarial red-teaming, keeping forward secrecy with split, audited key custody and no shown way to abuse it at scale, in the manner of modern HSM key-management schemes, the case that secure backdoors cannot exist would weaken.",
           common_ground:
-            "Both sides agree any exceptional-access mechanism adds an attack surface and that the relevant question is the size of the residual risk, not whether risk is literally zero.",
+            "Both sides agree any exceptional-access path adds an attack surface and that the relevant question is the size of the residual risk, not whether risk is literally zero.",
           live_disagreement:
             "Whether a deployable design exists whose added systemic risk is acceptably bounded — resolvable only by publishing a concrete reference implementation and subjecting it to sustained independent red-team review, which has not yet happened.",
         },
@@ -63,7 +63,7 @@ export const encryptionBackdoorsData = {
       evidence: [
         {
           id: "keys-under-doormats",
-          title: "15 Senior Cryptographers: Exceptional Access Undermines Security",
+          title: "15 Security Experts: Exceptional Access Undermines Security",
           description:
             "The peer-reviewed 'Keys Under Doormats' report concludes that mandating government exceptional access would force abandonment of forward secrecy, sharply increase system complexity ('the enemy of security'), and create concentrated high-value targets — raising risk for all users. Authors include RSA co-inventor Ron Rivest and public-key cryptography co-inventor Whitfield Diffie.",
           side: "against" as const,
@@ -124,7 +124,7 @@ export const encryptionBackdoorsData = {
         "Whether compelled access meaningfully improves investigations of terrorism, child exploitation, and organized crime — or whether the 'going dark' threat is overstated and criminals simply migrate to other tools.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The 'going dark' threat has been demonstrably overstated, and lawful access is often achievable without weakening encryption for everyone. The FBI repeatedly told Congress it was locked out of ~7,775 devices in 2017; it later admitted the true figure was roughly 1,200, the rest a counting error. Meanwhile targeted lawful hacking — exploiting a specific network rather than mandating a universal backdoor — produced one of the largest crime busts in history (EncroChat). A drop in automated platform reports is not the same as a drop in solvable cases; metadata, device forensics, informants, and targeted exploits remain.",
+        "The 'going dark' threat has been demonstrably overstated, and lawful access is often achievable without weakening encryption for everyone. The FBI repeatedly told Congress it was locked out of ~7,775 devices in 2017; after it admitted programming errors in the count, an internal estimate put the true figure near 1,200. Meanwhile targeted lawful hacking — exploiting a specific network rather than mandating a universal backdoor — produced one of the largest crime busts in history (EncroChat). A drop in automated platform reports is not the same as a drop in solvable cases; metadata, device forensics, informants, and targeted exploits remain.",
       proponent_rebuttal:
         "The harm is real and measurable. When Meta turned on default end-to-end encryption for Messenger, NCMEC's CyberTipline reports fell sharply — by roughly 7 million year-over-year — which NCMEC attributes largely to encryption blinding the platform to abuse it would otherwise report. End-to-end encryption can render lawfully seized devices and warrant-served accounts unreadable, leaving investigators with valid court orders they cannot execute. Determined offenders coordinate behind encryption that no warrant can pierce.",
       crux: {
@@ -158,7 +158,7 @@ export const encryptionBackdoorsData = {
           id: "ncmec-encryption-drop",
           title: "Meta E2E Encryption Coincided With Sharp Drop in Abuse Reports",
           description:
-            "NCMEC reported about 29.2 million CyberTipline reports in 2024 versus 36.2 million in 2023 — roughly 7 million fewer. NCMEC attributes the decline largely to Meta enabling default end-to-end encryption on Messenger (rolled out from December 2023 through summer 2024), which limits the platform's ability to detect and report child sexual abuse material.",
+            "NCMEC's CyberTipline received 36.2 million reports in 2023 and 20.5 million in 2024; counting 'bundled' reports as separate incidents, NBC News put the 2024 total at about 29.2 million, 'a drop of roughly 19%', with Meta 'reporting 6.9 million fewer incidents than in 2023'. NCMEC's chief legal officer Yiota Souras said its analytics suggest that 'Meta's drop in reports was almost entirely due to instituting end-to-end encryption on Facebook and Messenger.' NCMEC's own write-up also names bundling and fewer submissions from some providers as factors.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -167,8 +167,8 @@ export const encryptionBackdoorsData = {
             directness: 8,
           },
           source:
-            "National Center for Missing & Exploited Children, CyberTipline 2024 data; reporting by NBC News / Associated Press (June 2025)",
-          sourceUrl: "https://www.missingkids.org/cybertiplinedata",
+            "NBC News, 'Child exploitation watchdog says Meta encryption led to sharp decrease in tips and reports' (8 May 2025); NCMEC, 'NCMEC Releases New Data: 2024 in Numbers' (8 May 2025)",
+          sourceUrl: "https://www.nbcnews.com/tech/security/child-exploitation-watchdog-says-meta-encryption-led-sharp-decrease-ti-rcna205548",
           reasoning:
             "NCMEC is the authoritative US clearinghouse, so the report counts are reliable and the finding directly bears on the public-safety benefit. Weights are moderated because the link to encryption is correlational/attributional (other factors and reporting changes contribute), not a controlled measurement.",
         },
@@ -194,7 +194,7 @@ export const encryptionBackdoorsData = {
           id: "fbi-overcount",
           title: "FBI Overstated 'Going Dark' Locked Devices by ~6x",
           description:
-            "The FBI repeatedly told Congress and the National Academies it could not unlock 7,775 devices in 2017. In 2018 it admitted a software counting error inflated the figure; the true number was roughly 1,200. The Bureau still lacked an accurate count.",
+            "FBI Director Christopher Wray repeatedly cited 7,775 (often rounded to 7,800) as the number of encrypted devices the FBI could not access in fiscal 2017. In May 2018 the FBI said 'programming errors resulted in significant over-counting', and The Washington Post reported an internal estimate of about 1,200. The FBI said the actual number would be set by an audit still under way.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -203,9 +203,9 @@ export const encryptionBackdoorsData = {
             directness: 7,
           },
           source:
-            "Washington Post (May 2018); New America / Open Technology Institute; EFF analysis of the FBI's correction",
+            "CSO Online, \"FBI 'Going Dark' whopper: Locked out of only 1,200 phones, not 7,775\" (23 May 2018), reporting The Washington Post (22 May 2018); EFF, 'FBI Admits It Inflated Number of Supposedly Unhackable Devices' (May 2018)",
           sourceUrl:
-            "https://www.eff.org/deeplinks/2018/05/fbi-admits-it-inflated-number-supposedly-unhackable-devices",
+            "https://www.csoonline.com/article/565476/fbi-going-dark-whopper-locked-out-of-only-1200-phones-not-7775.html",
           reasoning:
             "Well-documented, widely confirmed admission by the FBI itself, undermining the central statistic used to justify mandated access. Directly relevant to whether the 'going dark' harm is as large as claimed. Independent reporting and advocacy corroborate the same figures.",
         },
@@ -252,7 +252,7 @@ export const encryptionBackdoorsData = {
           id: "uk-apple-tcn",
           title: "UK Order Forced Apple to Pull Encryption Rather Than Build a Backdoor",
           description:
-            "In early 2025 the UK issued a secret Technical Capability Notice under the Investigatory Powers Act demanding access to encrypted iCloud data. Rather than build a backdoor, Apple withdrew its Advanced Data Protection end-to-end encryption for UK users — illustrating that a compulsion regime can degrade available security and set cross-border precedent. The order's scope and legal challenge remained contested into 2026.",
+            "In early 2025 the UK issued a secret Technical Capability Notice under the Investigatory Powers Act demanding access to encrypted iCloud data. Rather than build a backdoor, Apple withdrew its Advanced Data Protection end-to-end encryption for UK users — illustrating that a compulsion regime can degrade available security and set cross-border precedent. In October 2025 the Financial Times reported a new UK order limited to British users; Apple's tribunal challenge had been scheduled for a January 2026 hearing.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -284,6 +284,23 @@ export const encryptionBackdoorsData = {
           sourceUrl: "https://nap.nationalacademies.org/read/25010/chapter/2",
           reasoning:
             "Authoritative, balanced, independent consensus study. Coded 'against' because its careful framing declines to endorse a mandate and emphasizes the unresolved security and governance costs, but it genuinely steelmans both sides — hence moderate directness.",
+        },
+        {
+          id: "wiretap-report-judicial-authorization",
+          title: "Every U.S. criminal wiretap is authorized by a judge and counted in public: 2,297 in 2024",
+          description:
+            "The interception power proponents point to as a model is governed case by case and in public. The federal courts' annual Wiretap Report covers every wiretap 'reported properly to the Administrative Office of the U.S. Courts': 'A total of 2,297 wiretaps were reported as authorized in 2024', 1,290 by federal judges and 1,007 by state judges, with follow-up reports on outcomes ('As of December 31, 2024, a total of 5,463 persons had been arrested ... and 717 persons had been convicted'). Proponents argue a lawful-access mandate for encrypted services could sit inside the same machinery of per-case warrants and published counts. The report shows that oversight of use exists; it says nothing about whether the underlying capability stays safe from others, and the skeptics' counterexample is the 2024 Salt Typhoon campaign, in which, the FBI and CISA said on 13 November 2024, PRC-affiliated hackers carried out 'the copying of certain information that was subject to U.S. law enforcement requests pursuant to court orders'.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 3,
+          },
+          source: "Administrative Office of the U.S. Courts, Wiretap Report 2024; FBI and CISA joint statement on PRC targeting of commercial telecommunications (13 November 2024)",
+          sourceUrl: "https://www.uscourts.gov/data-news/reports/statistical-reports/wiretap-reports/wiretap-report-2024",
+          reasoning:
+            "Official court statistics, reliable and published every year. Directness is 3, and the weight is low on purpose: the crux asks whether a mandated capability can be kept from authoritarian governments and thieves, and a count of authorized intercepts shows only that legitimate use is supervised, not that the capability is contained. It is included as the strongest documented record of the governance model proponents propose; a record of containment (no copycat mandates, no theft) would need evidence this report does not contain.",
         },
       ],
     },

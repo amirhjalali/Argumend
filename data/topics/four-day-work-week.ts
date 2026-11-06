@@ -67,7 +67,7 @@ export const fourDayWorkWeekData = {
           id: "iceland-trial",
           title: "Iceland's Public Sector Trials: 2,500 Workers Maintained Productivity on Shorter Hours (2015-2019)",
           description:
-            "Between 2015 and 2019, Iceland conducted two large-scale trials of reduced working hours (from 40 to 35-36 hours/week) involving over 2,500 public sector workers — approximately 1% of Iceland's entire working population. Participants included office workers, hospital staff, police officers, and social service workers. Productivity was maintained or improved across nearly all workplaces. The trials led to permanent changes: by 2024, 86% of Iceland's workforce had either moved to shorter hours or gained the right to negotiate them. Worker wellbeing improved significantly across stress, burnout, and work-life balance measures.",
+            "Between 2015 and 2019, Iceland conducted two large-scale trials of reduced working hours (from 40 to 35-36 hours/week) involving over 2,500 public sector workers — approximately 1% of Iceland's entire working population. Participants included office workers, hospital staff, police officers, and social service workers. Productivity was maintained or improved across nearly all workplaces. The trials fed into permanent changes: by June 2021, 86% of Iceland's working population had either moved to shorter hours or gained the right to shorten their hours. Worker wellbeing improved significantly across stress, burnout, and work-life balance measures.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -177,20 +177,20 @@ export const fourDayWorkWeekData = {
         },
         {
           id: "compressed-hours-stress",
-          title: "Compressed 4x10 Schedules Increase Daily Stress for 28% of Workers (2024)",
+          title: "Compressing the Same Hours Into Fewer Days Did Not Reliably Improve Health (Systematic Review, 2008)",
           description:
-            "A study published in the Journal of Occupational Health Psychology in 2024 compared two forms of four-day schedules: compressed (4x10 hours) and reduced (4x8 hours with no pay cut). Among 800 workers on compressed schedules, 28% reported higher daily stress than on their previous five-day schedule, particularly those in client-facing roles requiring real-time responsiveness. Workers on reduced-hour schedules showed almost universally positive wellbeing outcomes. The study concluded that the mechanism matters: genuine reduction in total hours improves wellbeing, but mere compression of the same hours into fewer days produces mixed results.",
+            "A systematic review by Bambra and colleagues in the Journal of Epidemiology and Community Health examined 40 observational studies of the Compressed Working Week, which packs the same weekly hours into fewer, longer days, among shift workers. Interventions 'did not always improve the health of shift workers', though the five prospective studies with a control group found no detrimental effects on self-reported health and work-life balance 'was generally improved'. The authors judged the studies' methodological quality 'not very high', mostly relying on self-reported outcomes. The review bears on compressed schedules, not on four-day weeks that cut total hours.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 7,
-            directness: 8,
+            replicability: 5,
+            directness: 4,
           },
-          source: "Journal of Occupational Health Psychology (2024)",
-          sourceUrl: "https://doi.org/10.1037/ocp0000398",
+          source: "Bambra, Whitehead, Sowden, Akers & Petticrew, 'A hard day's night? The effects of Compressed Working Week interventions on the health and work-life balance of shift workers: a systematic review', Journal of Epidemiology and Community Health 62(9) (2008)",
+          sourceUrl: "https://doi.org/10.1136/jech.2007.067249",
           reasoning:
-            "Published in a respected peer-reviewed journal with a meaningful sample size. The distinction between compressed and reduced schedules is critically important — many four-day week discussions conflate the two, but they have different wellbeing implications. This evidence does not refute the four-day week per se but shows that the '100:80:100' reduced-hours model is essential, not just a four-day calendar rearrangement.",
+            "A systematic review, but of low-quality, mostly self-reported observational studies of shift workers, so replicability is limited. It weighs only weakly against the wellbeing claim: compression alone did not reliably improve health, yet it did improve work-life balance with low risk of harm. Directness is low because it tests compressed schedules, not the reduced-hours '100:80:100' model, which is the distinction this card exists to draw.",
         },
         {
           id: "european-life-satisfaction",

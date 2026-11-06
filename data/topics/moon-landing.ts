@@ -111,7 +111,7 @@ export const moonLandingData = {
           id: "lrrr-independent",
           title: "Retroreflectors Ranged by Multiple Nations",
           description:
-            "Observatories in the USA, France, Germany, Italy, Japan, and China have independently bounced lasers off the Apollo 11, 14, and 15 retroreflector arrays. McDonald Observatory began routine ranging within weeks of Apollo 11.",
+            "Observatories in the USA, France, Germany, Italy, Japan, and China have independently bounced lasers off the Apollo 11, 14, and 15 retroreflector arrays. Lick Observatory reported the first returns from the Apollo 11 array on 1 August 1969, and stations in Arizona, France, Japan and Texas soon followed.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -129,7 +129,7 @@ export const moonLandingData = {
           id: "lro-imagery",
           title: "Lunar Reconnaissance Orbiter Photos",
           description:
-            "NASA's LRO has photographed all Apollo landing sites showing descent stages, equipment, and astronaut tracks.",
+            "NASA's Lunar Reconnaissance Orbiter camera has imaged the Apollo 11 landing site, where the descent stage the astronauts left behind is visible along with the trails made by their footprints.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -146,7 +146,7 @@ export const moonLandingData = {
           id: "moon-rocks",
           title: "842 Pounds of Lunar Samples",
           description:
-            "Six Apollo missions returned 382 kg (842 lbs) of lunar rocks and soil — about 2,200 samples — studied by labs worldwide. Isotopic and mineralogical composition differs from Earth rocks.",
+            "Six Apollo missions returned 382 kg (842 lbs) of lunar rocks and soil — about 2,200 separate samples from six sites. NASA distributes nearly 400 samples a year to scientists and educators, and the rocks record a lunar crust that formed 4.4 billion years ago.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -173,7 +173,7 @@ export const moonLandingData = {
           },
           source:
             "NASA Astronomy Picture of the Day, Hubble resolution at lunar distance",
-          sourceUrl: "https://apod.nasa.gov/apod/ap020628.html",
+          sourceUrl: "https://science.nasa.gov/image-article/apod-2002-june-28-lunar-module-at-taurus-littrow/",
           reasoning:
             "True statement of optics, but not evidence of fakery: Hubble's diffraction limit makes a few-meter object unresolvable at 384,000 km. Orbiters like LRO image the sites instead.",
         },
@@ -230,7 +230,7 @@ export const moonLandingData = {
       skeptic_premise:
         "The Van Allen belts contain lethal doses of protons and electrons. No human could survive the transit without meters of lead shielding.",
       proponent_rebuttal:
-        "Dose is a function of Intensity × Time. The Apollo trajectory crossed the thinner edge of the belts at ~25,000 mph, so the full belt transit took only minutes. Measured whole-mission skin doses ranged from 0.16 rad (Apollo 8) to 1.14 rad (Apollo 14) — most of it accrued during that brief belt crossing — orders of magnitude below the hundreds of rads needed to cause acute harm.",
+        "Dose is a function of Intensity × Time. The Apollo trajectories crossed the thinner regions of the belts at high speed, so the time spent in them was short. Measured whole-mission skin doses ranged from 0.16 rad (Apollo 8) to 1.14 rad (Apollo 14) — most of it accrued during that brief belt crossing — orders of magnitude below the hundreds of rads needed to cause acute harm.",
       crux: {
         id: "dosimeter-audit",
         title: "The Dosimeter Audit",
@@ -263,7 +263,7 @@ export const moonLandingData = {
           id: "dosimeter-records",
           title: "Astronaut Dosimeter Readings",
           description:
-            "Personal dosimeters worn by astronauts recorded roughly 0.16-1.14 rad total mission skin dose (Apollo 11 lowest, Apollo 14 highest), well below dangerous levels.",
+            "Crew-averaged skin doses recorded on the nine Apollo lunar missions ranged from 0.16 rad (Apollo 8, lowest) to 1.14 rad (Apollo 14, highest), well below dangerous levels.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -272,7 +272,7 @@ export const moonLandingData = {
             directness: 9,
           },
           source:
-            "NASA, Biomedical Results of Apollo / Apollo Experience Report — Protection Against Radiation (NASA Technical Reports Server)",
+            "J. Vernon Bailey, \"Radiation Protection and Instrumentation,\" in Biomedical Results of Apollo (NASA SP-368, 1975), NASA Technical Reports Server",
           sourceUrl: "https://ntrs.nasa.gov/citations/19760005583",
           reasoning:
             "Direct measurement, though NASA-controlled data. Recorded doses are consistent with the short, high-speed belt transits.",
@@ -281,7 +281,7 @@ export const moonLandingData = {
           id: "trajectory-analysis",
           title: "Optimal Trajectory Through Belts",
           description:
-            "Apollo trajectories were designed to cross the belts quickly through thinner regions, bypassing the inner belt entirely (with Apollo 14 the partial exception that passed nearer the trapped-radiation core).",
+            "Apollo trajectories were designed to cross the belts quickly through thinner regions, bypassing the inner belt entirely (except Apollo 14, which traveled through the heart of the trapped radiation belts).",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -297,9 +297,9 @@ export const moonLandingData = {
         },
         {
           id: "soviet-verification",
-          title: "Independent Tracking and Soviet Acquiescence",
+          title: "Jodrell Bank Tracked Apollo 11 and Luna 15 Together",
           description:
-            "Jodrell Bank Observatory (UK) independently received Apollo 11's transmissions and simultaneously tracked the Soviet Luna 15 probe in lunar orbit. The USSR, with every incentive to expose a fake, never disputed the landings' authenticity.",
+            "In July 1969 the telescopes at Jodrell Bank (UK) tracked Apollo 11's Eagle lander while also tracking the uncrewed Soviet Luna 15, which crashed on the Moon a few hours before the astronauts lifted off. In the control-room recordings the observatory released in 2009, transmissions from the Apollo 11 astronauts can be heard in the background.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -308,10 +308,10 @@ export const moonLandingData = {
             directness: 6,
           },
           source:
-            "Jodrell Bank Centre for Astrophysics — history of space tracking (Apollo 11 / Luna 15)",
-          sourceUrl: "https://www.jb.man.ac.uk/history/tracking/part2.html",
+            "Jodrell Bank Centre for Astrophysics, \"Recording of Russia's lunar gatecrash attempt released\" (3 July 2009)",
+          sourceUrl: "https://www.jb.man.ac.uk/news/2009/luna15-apollo11/",
           reasoning:
-            "Non-NASA tracking by a third-party observatory, plus the absence of any Soviet challenge despite Cold War incentive, are strongly independent corroboration.",
+            "Non-NASA tracking by a third-party observatory, recorded at the time, is independent corroboration.",
         },
         {
           id: "belt-intensity-claim",
@@ -338,7 +338,7 @@ export const moonLandingData = {
           id: "artemis-belt-dosimetry",
           title: "Artemis I Measured Its Belt Crossing with NASA, ESA and DLR Dosimeters",
           description:
-            "On the uncrewed Artemis I flight in November 2022, instruments from NASA, the European Space Agency and the German Aerospace Center (DLR) inside Orion recorded its passage through the inner proton belt, which took about 30 minutes. Over the 25-day mission most of the dose came from galactic cosmic rays; the inner belt contributed up to 23% of the total at one detector.",
+            "On the uncrewed Artemis I flight in November 2022, instruments from NASA, the European Space Agency and the German Aerospace Center (DLR) inside Orion recorded its passage through the inner proton belt. Over the following 25 days in interplanetary space most of the dose came from galactic cosmic rays; the inner belt contributed up to 23% of the total at one detector.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,

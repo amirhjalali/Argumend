@@ -99,27 +99,27 @@ export const drugDecriminalizationData = {
         },
         {
           id: "emcdda-european-comparison",
-          title: "EMCDDA: European Countries with Decriminalization Have Lower Problematic Use",
+          title: "Karolinska Study of EMCDDA Data: Softening or Toughening Cannabis Laws Did Not Measurably Change Youth Use in Europe",
           description:
-            "The European Monitoring Centre for Drugs and Drug Addiction finds that countries with decriminalized possession (Portugal, Czech Republic, Netherlands) generally report lower rates of problematic drug use and drug-related deaths than countries with strict penalties.",
+            "Gabri, Galanti, Orsini and Magnusson (Karolinska Institutet, PLoS ONE, 2022) took self-reported cannabis use among 15- to 34-year-olds from EMCDDA surveys in 11 European countries (1994-2017) and ran interrupted time-series models around each change in cannabis law, classed as more lenient (decriminalisation or depenalisation) or stricter. Pooled use fell slightly after changes in either direction: -0.22 percent a year after lenient changes (95% CI -1.21 to 0.77) and -0.44 after stricter ones (95% CI -0.91 to 0.03). The authors conclude: 'Our findings do not support any considerable impact of cannabis legislation on the prevalence of recreational cannabis use among youth and young adults in Europe.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 6,
-            directness: 6,
+            directness: 4,
           },
           source:
-            "EMCDDA (now EUDA) European Drug Report — annual statistical bulletin",
-          sourceUrl: "https://www.euda.europa.eu/publications/european-drug-report_en",
+            "Gabri AC, Galanti MR, Orsini N, Magnusson C, 'Changes in cannabis policy and prevalence of recreational cannabis use among adolescents and young adults in Europe: An interrupted time-series analysis', PLoS ONE 17(1): e0261885 (2022), using EMCDDA data",
+          sourceUrl: "https://doi.org/10.1371/journal.pone.0261885",
           reasoning:
-            "Authoritative pan-European data, though cross-country comparisons are complicated by differences in culture, healthcare systems, and reporting standards. The EMCDDA reports the underlying statistics but does not itself frame decriminalization as the cause of lower problematic use — directness is moderate.",
+            "Peer-reviewed and built on the EMCDDA's own survey series, so it speaks to the skeptic's fear that dropping penalties drives use up: in these data it did not. Directness is 4 because it covers cannabis only, measures use rather than overdose or problem use, and only three countries changed their law during the window, so the confidence intervals are wide. An earlier version of this card said the EMCDDA had found that decriminalizing countries have lower problematic use and deaths; the EMCDDA makes no such finding, so the card was re-sourced to this study.",
         },
         {
           id: "us-overdose-under-criminalization",
           title: "US Overdose Deaths Hit Record Highs Under Criminalization",
           description:
-            "The United States, with among the harshest drug penalties in the developed world, recorded an estimated 107,543 drug overdose deaths in 2023 (CDC provisional data) — a historic high, though down ~3% from 2022's 111,029. A 2010 Associated Press investigation estimated the War on Drugs had cost over $1 trillion since 1971 without reducing overall drug use rates.",
+            "The United States, where drug possession remained a crime in every state but Oregon in 2023, recorded an estimated 107,543 drug overdose deaths that year (CDC provisional data), down about 3% from the record 111,029 estimated for 2022. A 2010 Associated Press investigation found that after 40 years the war on drugs had cost $1 trillion, and that high school students reported the same rates of illegal drug use as they did in 1970.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -128,10 +128,47 @@ export const drugDecriminalizationData = {
             directness: 4,
           },
           source:
-            "CDC NCHS provisional overdose data (2023); $1 trillion cost estimate: Associated Press investigation (2010)",
-          sourceUrl: "https://blogs.cdc.gov/nchs/2024/05/15/7623/",
+            "CDC NCHS, 'U.S. Overdose Deaths Decrease in 2023, First Time Since 2018' (15 May 2024); Martha Mendoza, Associated Press, 'US drug war has met none of its goals' (13 May 2010)",
+          sourceUrl: "https://www.cdc.gov/nchs/pressroom/nchs_press_releases/2024/20240515.htm",
           reasoning:
             "Highly reliable mortality data showing criminalization has coincided with record harm. Low directness: correlation, not causation — rising deaths are driven primarily by the fentanyl supply shift, not the choice between criminalization and decriminalization. The prior '50-fold increase since 1979' framing was dropped as it overstated a clean causal story.",
+        },
+        {
+          id: "bc-decrim-pilot-ended-2026",
+          title: "British Columbia Let Its Three-Year Decriminalization Pilot Lapse on 31 January 2026, Saying It Had Not Delivered",
+          description:
+            "British Columbia decriminalized possession of small amounts of opioids, cocaine, methamphetamine and MDMA for adults under a Health Canada exemption launched in 2023. A 2024 amendment had already limited legal possession to private homes, places where homeless people are legally sheltering, and designated health and overdose-response sites. On 14 January 2026 Health Minister Josie Osborne said the province would not seek a renewal because the pilot 'hasn't delivered the results' officials hoped for (The Canadian Press), even though it ran alongside supervised consumption and safer supply. The provincial government's page states: 'The exemption expired on Jan. 31, 2026 and will not be renewed.' Safer-supply distribution, supervised consumption sites and drug checking continue. As of November 2026, both North American jurisdictions that removed criminal penalties for possession, Oregon and British Columbia, have restored them.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 5,
+            directness: 4,
+          },
+          source:
+            "Government of British Columbia, 'Decriminalization in B.C.'; The Canadian Press via National Newswatch, 'B.C. ending its 3-year drug decriminalization pilot project' (14 Jan 2026)",
+          sourceUrl: "https://www2.gov.bc.ca/gov/content/overdose/decriminalization",
+          reasoning:
+            "A second jurisdiction, with a funded harm-reduction system, chose to end decriminalization, which is real evidence that the Portugal result does not travel easily. But it is a political judgment, not an outcome study: the government's page reports no evaluation results, the federally funded third-party study is not summarized, and B.C.'s deaths over the pilot moved with a continent-wide fentanyl supply. Directness is held to 4 for that reason, and independence to 5 because the source is the government that made the decision.",
+        },
+        {
+          id: "spencer-oregon-synthetic-control",
+          title: "Spencer (2022): Synthetic-Control Estimate Put Oregon's Extra Overdose Deaths in 2021 at 181, a 23% Rise, a Result Later Studies Dispute",
+          description:
+            "University of Toronto economist Noah Spencer used the synthetic control method to compare Oregon after Measure 110 with a weighted blend of states that did not decriminalize. His working paper (29 November 2022) reports that decriminalization 'caused 181 additional drug overdose deaths during the remainder of 2021', which 'represents a 23% increase over the number of drug overdose deaths predicted if Oregon had not decriminalized drugs.' He notes the policy came without substantial public-health investment. A September 2024 JAMA Network Open cohort study by Zoorob, Park, Kral, Lambdin and del Pozo replicated the positive association, then added each state's fentanyl exposure; the decriminalization estimate fell to 0.09 (SE 0.11) for Oregon and was no longer significant.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 7,
+            replicability: 3,
+            directness: 5,
+          },
+          source:
+            "Spencer, 'Does drug decriminalization cause more drug overdose deaths? Evidence from Oregon Measure 110', University of Toronto Working Paper tecipa-745 (2022); rebuttal: Zoorob et al., JAMA Network Open 2024;7(9):e2431612",
+          sourceUrl:
+            "https://www.economics.utoronto.ca/index.php/index/research/workingPaperDetails/745",
+          reasoning:
+            "The strongest quantitative case that decriminalization without treatment raised deaths, from an independent academic. Weighted low on purpose: the effect disappears once fentanyl's arrival in Oregon is measured (Zoorob et al., 2024), and other peer-reviewed models found no effect, so replicability is 3. It is kept because it is the estimate critics cite, and showing it next to the replication lets a reader see why it does not settle the question.",
         },
       ],
     },
@@ -139,10 +176,10 @@ export const drugDecriminalizationData = {
       id: "criminal-justice-impact",
       title: "Criminal Justice Impact",
       short_summary:
-        "The Drug Policy Alliance estimates U.S. drug enforcement costs at least $51B a year across federal, state, and local budgets, and 77% of released drug offenders are rearrested within five years (BJS). The status quo is expensive and leaky.",
+        "The Drug Policy Alliance (2016) estimated U.S. drug enforcement costs at more than $51B a year across federal, state, and local budgets, and 77% of released drug offenders are rearrested within five years (BJS). The status quo is expensive and leaky.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Without criminal penalties, there is little leverage to push people into treatment, and arrest can serve as the wake-up call that motivates recovery. Drug courts already divert people to treatment within the criminal system, and meta-analyses credit them with cutting recidivism by roughly 8–14 percentage points — structure and accountability that purely voluntary referral often lacks. Oregon's experience is the warning: when decriminalization removed that entry point without standing up an alternative, almost no one ticketed actually reached treatment.",
+        "Without criminal penalties, there is little leverage to push people into treatment, and arrest can serve as the wake-up call that motivates recovery. Drug courts already divert people to treatment within the criminal system, and meta-analyses credit adult drug courts with cutting re-arrest by roughly 10–15 percent on average (one puts it at 50% falling to 38%) — structure and accountability that purely voluntary referral often lacks. Oregon's experience is the warning: when decriminalization removed that entry point without standing up an alternative, almost no one ticketed actually reached treatment.",
       proponent_rebuttal:
         "Criminalization falls unevenly: ACLU data show Black Americans are 3.64x more likely to be arrested for marijuana possession despite similar usage rates. The Drug Policy Alliance puts U.S. drug enforcement at least $51B a year across all levels of government. Drug courts help those they reach, but capacity limits mean they touch only a small share of eligible drug-involved people — and each still requires a criminal charge as the entry point.",
       crux: {
@@ -176,7 +213,7 @@ export const drugDecriminalizationData = {
           id: "aclu-racial-disparity",
           title: "ACLU: Massive Racial Disparities in Drug Enforcement",
           description:
-            "The ACLU found that Black Americans are 3.64 times more likely to be arrested for marijuana possession than white Americans, despite roughly equal usage rates. In some counties, the disparity exceeds 10:1. These arrests create criminal records that depress employment and lifetime earnings.",
+            "The ACLU found that Black Americans are 3.64 times more likely to be arrested for marijuana possession than white Americans, despite roughly equal usage rates. In some states the gap reached almost 10 to 1 (Montana 9.62, Kentucky 9.36), and in 31 states it was larger in 2018 than in 2010. These arrests create criminal records that depress employment and lifetime earnings.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -212,9 +249,9 @@ export const drugDecriminalizationData = {
         },
         {
           id: "drug-court-effectiveness",
-          title: "Drug Courts Reduce Recidivism by 8-14 Percentage Points",
+          title: "Meta-Analyses: Adult Drug Courts Cut Re-Arrest by Roughly 10-15 Percent on Average",
           description:
-            "Meta-analyses show drug courts reduce recidivism on average by roughly 8-14 percentage points compared to traditional prosecution (mean effect ~12 points), with participants less likely to reoffend. However, drug courts reach only a small share of eligible drug-involved people due to resource constraints.",
+            "Marlowe's 2010 research update for the National Association of Drug Court Professionals summarizes five independent meta-analyses: drug courts 'significantly reduced re-arrest or reconviction rates by an average of approximately 8 to 26 percent, with the “average of the averages” reflecting approximately a 10 to 15 percent reduction in recidivism.' Mitchell, Wilson, Eggers and MacKenzie's 2012 meta-analysis of 154 evaluations put the average effect of adult drug court participation as 'analogous to a drop in recidivism from 50% to 38%', lasting up to three years. However, drug courts reach only a small share of eligible drug-involved people due to resource constraints.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -223,16 +260,34 @@ export const drugDecriminalizationData = {
             directness: 7,
           },
           source:
-            "Marlowe, 'Research Update on Adult Drug Courts' (NADCP, 2010); Mitchell et al., 'Assessing the Effectiveness of Drug Courts on Recidivism' meta-analysis (J. Criminal Justice, 2012)",
+            "Marlowe, 'Research Update on Adult Drug Courts' (NADCP, December 2010); Mitchell, Wilson, Eggers & MacKenzie, 'Assessing the effectiveness of drug courts on recidivism: A meta-analytic review of traditional and non-traditional drug courts', Journal of Criminal Justice 40(1) (2012)",
           sourceUrl: "https://www.antoniocasella.eu/archila/Marlowe_drug_courts_2010.pdf",
           reasoning:
-            "Strong evidence that criminal-justice-linked treatment can work, supporting the case for maintaining criminal entry points. The '~5% of eligible' figure was softened to a qualitative 'small share' as it could not be pinned to a single authoritative source. Limited by selection bias (motivated participants).",
+            "Strong evidence that criminal-justice-linked treatment can work, supporting the case for maintaining criminal entry points. An earlier version said '8-14 percentage points'; the sources give 8-26 percent (10-15 percent on average) and 50% to 38%, so the figures were corrected to theirs. The '~5% of eligible' figure was softened to a qualitative 'small share' as it could not be pinned to a single authoritative source. Limited by selection bias (motivated participants).",
+        },
+        {
+          id: "nida-legal-pressure-outcomes",
+          title: "NIDA: People Who Enter Treatment Under Legal Pressure Do as Well as Voluntary Patients",
+          description:
+            "The National Institute on Drug Abuse's 'Principles of Drug Addiction Treatment: A Research-Based Guide' (third edition, January 2014, revised January 2018) lists as principle 11: 'Treatment does not need to be voluntary to be effective. Sanctions or enticements from family, employment settings, and/or the criminal justice system can significantly increase treatment entry, retention rates, and the ultimate success of drug treatment interventions.' Its criminal-justice section adds: 'Research has demonstrated that individuals who enter treatment under legal pressure have outcomes as favorable as those who enter treatment voluntarily,' and 'Individuals under legal coercion tend to stay in treatment longer and do as well as or better than those not under legal pressure.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "National Institute on Drug Abuse, 'Principles of Drug Addiction Treatment: A Research-Based Guide (Third Edition)', NIH (2014, revised 2018)",
+          sourceUrl: "https://www.nida.nih.gov/sites/default/files/podat-3rdEd-508.pdf",
+          reasoning:
+            "The federal research institute's summary view, which cuts against the claim that coerced treatment fails. Directness is 5: 'as favorable as' voluntary entry shows legal pressure does not spoil treatment, but it does not show arrest is needed to get people there, which is the crux. 'Sanctions or enticements' also covers family and employer pressure, and a Portuguese dissuasion commission is itself a form of non-criminal pressure. The guide is a narrative summary rather than a new meta-analysis, so replicability is 6.",
         },
         {
           id: "incarceration-cost-data",
           title: "Mass Incarceration Is Costly, and Drug Offenses Drive a Large Share",
           description:
-            "The US spends roughly $182 billion annually on the broader criminal-justice system (Prison Policy Initiative estimate). Drug offenders made up about 47% of the federal prison population in 2018 (a smaller share of state prisoners). The Vera Institute finds the average cost of incarcerating one person exceeds $30,000/year, rising above $100,000 in some states. Recidivism among released prisoners is high across offense types.",
+            "The Prison Policy Initiative (2017) estimates that 'the system of mass incarceration costs the government and families of justice-involved people at least $182 billion every year', counting policing, courts and corrections. People held for drug offenses made up 47% of the federal prison population at fiscal year-end 2018 (BJS), a far larger share than among state prisoners. The Vera Institute found the cost per state prisoner in fiscal 2015 averaged $33,274, from $14,780 in Alabama to $69,355 in New York. Recidivism among released prisoners is high across offense types.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -241,10 +296,10 @@ export const drugDecriminalizationData = {
             directness: 5,
           },
           source:
-            "Prison Policy Initiative ($182B system-cost estimate); Bureau of Justice Statistics (federal drug-offender share); Vera Institute of Justice (per-person cost)",
+            "Prison Policy Initiative, 'Following the Money of Mass Incarceration' (2017); Bureau of Justice Statistics, 'Sentencing Decisions for Persons in Federal Prison for Drug Offenses, 2013-2018' (2023); Vera Institute of Justice, 'The Price of Prisons: Examining State Spending Trends, 2010-2015' (2017)",
           sourceUrl: "https://www.prisonpolicy.org/research/economics_of_incarceration/",
           reasoning:
-            "Reliable cost data, but the figures were reconciled: the $182B is the whole criminal-justice system (not drug enforcement alone), and 47% is the federal — not overall — drug-offender share, so the prior '$80B+ drug incarceration' title and '45% of federal prisoners' phrasing overstated the link. Directness lowered to 5 — high costs and recidivism suggest the status quo is failing but don't prove decriminalization would do better.",
+            "Reliable cost data, but the figures were reconciled: the $182B is the whole criminal-justice system (not drug enforcement alone), and 47% is the federal — not overall — drug-offender share, so the prior '$80B+ drug incarceration' title, and a later 'above $100,000 in some states' per-prisoner claim that Vera's table does not support, and '45% of federal prisoners' phrasing overstated the link. Directness lowered to 5 — high costs and recidivism suggest the status quo is failing but don't prove decriminalization would do better.",
         },
       ],
     },

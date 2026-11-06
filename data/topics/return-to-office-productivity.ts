@@ -123,9 +123,9 @@ export const returnToOfficeProductivityData = {
         {
           id: "managers-vs-workers-perception",
           title:
-            "Microsoft Work Trend Index: 85% of Leaders Doubt Remote Productivity (2022)",
+            "Microsoft Work Trend Index: 85% of Leaders Doubt Hybrid Productivity (2022)",
           description:
-            "Microsoft's September 2022 Work Trend Index Pulse Report (a survey of 20,000 people across 11 countries) found that 85% of leaders said the shift to hybrid work made it challenging to be confident employees were being productive, while 87% of employees reported being as or more productive than when working in the office full time. Microsoft labeled this gap 'productivity paranoia' — suggesting RTO pressure may be driven by managerial anxiety about visibility and control rather than objective productivity data.",
+            "Microsoft's September 2022 Work Trend Index Pulse Report (a survey of 20,006 knowledge workers across 11 countries) found that 85% of leaders said 'the shift to hybrid work has made it challenging to have confidence that employees are being productive,' while 87% of employees reported that they are productive at work. Microsoft labeled this gap 'productivity paranoia' — suggesting RTO pressure may be driven by managerial anxiety about visibility and control rather than objective productivity data.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,

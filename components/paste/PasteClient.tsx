@@ -10,7 +10,7 @@ import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
 import { Button, PageContainer, PageHeader, TextAction, textActionClasses } from "@/components/ui";
 import { useIsHydrated } from "@/hooks/useMediaQuery";
 import { buildPasteConsentLine, formatProviderList } from "@/lib/aiProviders";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, type LengthBucket, type PasteResult } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { bandLabel, characterBucket, latencyBucket } from "@/lib/disagreement/labels";
 import { clearPastePrefill, readPastePrefill } from "@/lib/paste/handoff";
@@ -326,7 +326,9 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
       setStep(0);
       setSubmitted(text);
       setDiagnosis(diagnosisOn ? { status: "loading" } : { status: "off" });
-      trackEvent({ action: "analysis_submit", contentType: type });
+      // Counts only: the length goes as a bucket, the text never.
+      const bucket = characterBucket(text.length) as LengthBucket;
+      trackEvent({ action: "paste_submit", contentType: type, lengthBucket: bucket });
       if (diagnosisOn) {
         trackEvent({
           action: "disagreement_analysis_started",
@@ -337,6 +339,14 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
       const mapsTask = fetchMaps(text, type, controller.signal).then((outcome) => {
         if (run !== runRef.current) return outcome;
+        const result: PasteResult = !("maps" in outcome)
+          ? "error"
+          : outcome.maps.status === "matched"
+            ? "match"
+            : outcome.maps.status === "closest"
+              ? "closest"
+              : "no_match";
+        trackEvent({ action: "paste_result", result, lengthBucket: bucket });
         if ("maps" in outcome) {
           setMaps(outcome.maps);
           setInputOpen(false);

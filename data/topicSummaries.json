@@ -19,16 +19,16 @@
     "tags": [
       "policy"
     ],
-    "keywords": "helpline wagered bettors sportsbook gamblers ncaa intimate upset earmarked arnesen balthrop geocomply if12761 kotter matsuzawa"
+    "keywords": "helpline wagered bettors sportsbook gamblers ncaa upset earmarked arnesen balthrop geocomply if12761 kotter matsuzawa pisciotta"
   },
   {
     "id": "pfas-forever-chemicals",
     "title": "PFAS \"Forever Chemicals\"",
-    "question": "Are PFAS causing enough harm to justify costly bans and water cleanup?",
+    "question": "Do forever chemicals do enough harm to justify the cost of cleaning up our water?",
     "meta_claim": "PFAS are causing widespread human health harm and warrant aggressive, costly bans and water cleanup",
-    "confidence_score": 68,
-    "balance": 68,
-    "weight": 70,
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -36,12 +36,22 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Do PFAS links to kidney and other cancers hold up in studies that separate cause from effect?",
+    "evidenceCount": 15,
+    "firstCrux": "Do the links between PFAS and kidney cancer and cholesterol hold up once kidney function is accounted for?",
     "tags": [
-      "science"
+      "science",
+      "pfas",
+      "drinking-water",
+      "chemicals",
+      "regulation",
+      "cancer"
     ],
-    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
+    "aliases": [
+      "Are PFAS causing enough harm to justify costly bans and water cleanup?",
+      "Are forever chemicals in tap water dangerous?",
+      "Should PFAS be banned?"
+    ],
+    "keywords": "pfoa pfos genx testicular atsdr dupont chemours hfpo pfhxs pfna wilmington rescind corteva perfluorooctanoic iarc"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -63,7 +73,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes lowe regimen lipids"
+    "keywords": "isocaloric catenacci hamsho hba1c sutton trepanowski timet circumference etrf feast prediabetes waist anschutz appendicular doubly"
   },
   {
     "id": "daylight-saving-time-abolition",
@@ -85,7 +95,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz outdoor"
+    "keywords": "sunrise circadian doleac entrain kotchen indiana robberies misalignment monday chronobiology fritz sandhu clin outdoor aasm"
   },
   {
     "id": "tipping-culture",
@@ -107,29 +117,33 @@
     "tags": [
       "economics"
     ],
-    "keywords": "lynn bartenders waitstaff danny flsa meyers ushg customarily diner goodwill gratitude gratuity kitchen lucrative mccall"
+    "keywords": "lynn bartenders flsa waitstaff danny meyers allegretto ushg waiters waitresses dining customarily goodwill lucrative patrons"
   },
   {
     "id": "ai-therapy-chatbots",
     "title": "Can AI Chatbots Replace Therapists?",
     "question": "Can AI chatbots replace therapists?",
     "meta_claim": "AI chatbots can substitute for human therapists in delivering effective, safe mental-health care",
-    "confidence_score": 39,
-    "balance": 39,
-    "weight": 73,
+    "confidence_score": 38,
+    "balance": 38,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 19,
     "firstCrux": "Do chatbots' short-term symptom gains hold up against human therapists and last beyond a few months?",
     "tags": [
       "technology"
     ],
-    "keywords": "therabot facct nedas woebot sycophancy tessa bots dartmouth psychotherapy roleplay heinz moore ckiger darcy fitzpatrick"
+    "aliases": [
+      "Is it safe to use ChatGPT as a therapist?",
+      "Should AI therapy apps be banned?"
+    ],
+    "keywords": "therabot woebot facct nedas psychotherapy bots tessa darcy psychosis genai heinz hotline waitlist moore ckiger"
   },
   {
     "id": "carbon-capture-viability",
@@ -151,7 +165,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation cement mothballed mammoth dioxide amine beneath orca wgiii"
+    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation mothballed mammoth amine beneath orca wgiii barrel beccs"
   },
   {
     "id": "hydrogen-economy-viability",
@@ -173,7 +187,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "ammonia aviation grey stegra wheel steam electrolyzer mill refueling shell haul electrolytic furnace hybrit insideevs"
+    "keywords": "ammonia aviation grey stegra wheel shell steam electrolyzer refueling haul methane mill electrolytic furnace hybrit"
   },
   {
     "id": "vertical-farming-viability",
@@ -195,7 +209,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro hannah plenty strawberries ritchie aerofarms appharvest bowery leafy"
+    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro strawberries plenty ritchie hannah aerofarms appharvest bowery leafy"
   },
   {
     "id": "de-extinction-species",
@@ -218,7 +232,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dire wolf wolves colossal canid iucn resurrected woolly endangered lineage biosciences coyotes extant ghost latham"
+    "keywords": "dire wolf wolves colossal canid gray iucn resurrected endangered woolly lineage coyotes extant ghost latham"
   },
   {
     "id": "scott-cost-disease",
@@ -240,7 +254,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol pell stagnant nordhaus rosen vijan cutler naep tuition admin turner haircut helland marron tabarrok"
+    "keywords": "baumol stagnant pell naep nordhaus rosen vijan admin cutler haircut helland marron tabarrok ginsberg himmelstein"
   },
   {
     "id": "moloch",
@@ -262,7 +276,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries theorem"
+    "keywords": "singleton ostrom malthusian fisheries axelrod hardin polycentric hanson montreal subsistence tragedy folk malthus nash eddy"
   },
   {
     "id": "ai-2027",
@@ -284,15 +298,15 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming metr superhuman bench"
+    "keywords": "chinchilla kokotajlos centric alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann serial superhuman untenable looming"
   },
   {
     "id": "jones-act",
     "title": "Repealing the Jones Act",
     "question": "Should the Jones Act be repealed or substantially reformed?",
     "meta_claim": "The Jones Act's requirement that cargo moving between U.S. ports travel on ships that are U.S.-built, U.S.-flagged, and U.S.-crewed imposes large and measurable economic costs — inflated domestic shipping prices, a shrunken merchant fleet, freight pushed onto trucks and rail, and disproportionate harm to Puerto Rico, Hawaii, Alaska, and Guam — that outweigh its claimed national-security and maritime-industry benefits, so it should be repealed or substantially reformed.",
-    "confidence_score": 73,
-    "balance": 73,
+    "confidence_score": 71,
+    "balance": 71,
     "weight": 77,
     "verdict": {
       "label": "Evidence clearly leans toward the claim",
@@ -302,12 +316,12 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 5,
-    "evidenceCount": 18,
+    "evidenceCount": 19,
     "firstCrux": "Would domestic shipping get much cheaper if the Jones Act were repealed?",
     "tags": [
       "economics"
     ],
-    "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding ikenson manak shipyard surcharge underdeveloped usitc"
+    "keywords": "marine sealift marad oceangoing grabow shipbuilding shipyard turbo hurricane maria ikenson manak pricewaterhousecoopers surcharge underdeveloped"
   },
   {
     "id": "medicaid-work-requirements",
@@ -338,7 +352,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful heard"
+    "keywords": "nebraska arkansas sommers corinth leive prager pukelis zaki childless wherry gray propublica arkansass blendon caretakers"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -370,7 +384,7 @@
       "Do data centers raise power bills",
       "Are hyperscale server campuses behind my utility's rate hike?"
     ],
-    "keywords": "pjms megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
+    "keywords": "pjms norris subscribed gigawatts megawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
   },
   {
     "id": "proof-of-citizenship-voting",
@@ -403,16 +417,16 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat louisiana turnout brennan cantoni kansass pons tenth tribal campuses"
+    "keywords": "hampshire heritage lieutenant schwab votebeat affidavit brennan cantoni pons kansass tribal mail factcheck surprise unconfirmed"
   },
   {
-    "id": "nuclear-energy-safety",
-    "title": "Nuclear Energy for Climate",
-    "question": "Should nuclear power be expanded to help decarbonize electricity?",
-    "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 66,
+    "id": "congress-stock-trading-ban",
+    "title": "Banning Congress From Trading Stocks",
+    "question": "Should members of Congress be banned from trading individual stocks?",
+    "meta_claim": "Members of Congress, their spouses and dependent children should be barred from buying and selling individual stocks, because disclosure and insider-trading law do not stop lawmakers from trading on what their jobs tell them, and the conflict corrodes trust whether or not any one trade is improper.",
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -420,7 +434,109 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 20,
+    "firstCrux": "Do lawmakers' trades beat similar stocks by more than luck, with gains where their power and inside information are?",
+    "tags": [
+      "policy",
+      "congress",
+      "stock-trading",
+      "ethics",
+      "insider-trading",
+      "stock-act"
+    ],
+    "aliases": [
+      "Congressional stock trading ban",
+      "Stop Insider Trading Act",
+      "Ban Congress from owning stocks",
+      "Pelosi stock trades",
+      "Congress insider trading"
+    ],
+    "keywords": "belmont burr hoek sehgal hainmueller perlmutter schulp ziobrowski rally sacerdote yahoo nancy maybe shouldnt toomey"
+  },
+  {
+    "id": "partisan-gerrymandering",
+    "title": "The Redistricting War",
+    "question": "Should partisan gerrymandering be banned, including mid-decade redraws?",
+    "meta_claim": "Drawing congressional districts for partisan advantage, including redrawing them mid-decade, should be banned nationwide, with maps drawn by independent commissions or neutral rules, because partisan maps cost voters competitive elections and no state can safely give them up alone.",
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 71,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 20,
+    "firstCrux": "How many House seats do partisan maps move nationally once both parties' gerrymanders are added up?",
+    "tags": [
+      "policy",
+      "redistricting",
+      "gerrymandering",
+      "elections",
+      "congress",
+      "prop-50"
+    ],
+    "aliases": [
+      "Mid-decade redistricting",
+      "Texas redistricting",
+      "California Prop 50",
+      "Independent redistricting commissions",
+      "Gerrymandering ban"
+    ],
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki deadlocked ajps arora ebowe"
+  },
+  {
+    "id": "aca-enhanced-subsidies",
+    "title": "The Obamacare Subsidy Cliff",
+    "question": "Should Congress bring back the expanded Obamacare subsidies?",
+    "meta_claim": "Congress should restore the enhanced ACA premium tax credits that expired at the end of 2025, because their loss priced millions of eligible people out of coverage, and the cost of about $350 billion over ten years buys coverage that fraud controls, not subsidy cuts, should protect.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 68,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 18,
+    "firstCrux": "Of those who left the marketplace in 2026, how many were improper enrollees and how many eligible buyers priced out?",
+    "tags": [
+      "policy",
+      "health-insurance",
+      "affordable-care-act",
+      "obamacare",
+      "premiums",
+      "federal-budget"
+    ],
+    "aliases": [
+      "ACA enhanced premium tax credits",
+      "Obamacare subsidies expired",
+      "ACA subsidy cliff",
+      "Health insurance premiums 2026",
+      "Extend the ACA tax credits"
+    ],
+    "keywords": "paragon deductibles bronze r48290 phantom blase moreno maga planners proper sicker backfills colleran fumble improperly"
+  },
+  {
+    "id": "nuclear-energy-safety",
+    "title": "Nuclear Power and Climate",
+    "question": "Should nuclear power be expanded to help decarbonize electricity?",
+    "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 11,
     "firstCrux": "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
     "firstCruxStanding": "value-difference",
     "tags": [
@@ -428,44 +544,104 @@
     ],
     "aliases": [
       "What do we do with nuclear waste that stays dangerous for thousands of years?",
-      "Was Germany wrong to shut down its nuclear plants?"
+      "Was Germany wrong to shut down its nuclear plants?",
+      "Is nuclear power too expensive?",
+      "Should we build more nuclear reactors?"
     ],
-    "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore safest"
+    "keywords": "chernobyl lazard deschenes unscear yucca jarvis onshore fukushima mountain vogtle discernible aemo csiro gencost lester"
   },
   {
     "id": "universal-healthcare",
     "title": "Universal Healthcare in the US",
-    "question": "Should the US replace employer-based insurance with universal healthcare?",
-    "meta_claim": "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
-    "confidence_score": 71,
-    "balance": 71,
-    "weight": 76,
+    "question": "Should the US switch to universal healthcare, like Medicare for All?",
+    "meta_claim": "The United States should guarantee health coverage to everyone through a universal system, such as a single public plan, replacing most job-based and private insurance.",
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 85,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Would single-payer's projected administrative and drug savings survive a real US transition?",
+    "pillarCount": 4,
+    "evidenceCount": 17,
+    "firstCrux": "How much of the US health gap comes from how care is paid for, versus overdoses, violence and obesity?",
     "tags": [
       "policy"
     ],
     "aliases": [
+      "Should the US replace employer-based insurance with universal healthcare?",
       "Universal medical coverage",
+      "Medicare for All",
+      "Single-payer health care",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix simplification treatable"
+    "keywords": "concord knee mercatus overdoses blahous cihi papanicolas woskie wherry allemani baicker cataract embolism glycated goldin"
   },
   {
     "id": "gun-control-effectiveness",
     "title": "Gun Control Effectiveness",
-    "question": "Do stricter gun laws significantly reduce gun violence and mass shootings?",
-    "meta_claim": "Stricter gun control laws significantly reduce gun violence and mass shootings.",
-    "confidence_score": 54,
-    "balance": 54,
+    "question": "Do stricter gun laws save lives?",
+    "meta_claim": "Stricter gun laws, such as permits to buy, background checks, safe-storage rules and limits on assault weapons and large magazines, would cut US gun deaths substantially.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 83,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 18,
+    "firstCrux": "How much of the US firearm death rate comes from gun availability and laws versus other factors?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "Do stricter gun laws significantly reduce gun violence and mass shootings?",
+      "Does gun control work?",
+      "Would an assault weapons ban reduce mass shootings?"
+    ],
+    "keywords": "handgun rifles donohue everytown kleck indianas aneja conner dalafave doherty hemenway ihme kivisto klarevas mcdonough"
+  },
+  {
+    "id": "minimum-wage-effects",
+    "title": "Raising the Minimum Wage",
+    "question": "Would a $15 federal minimum wage help workers without costing many jobs?",
+    "meta_claim": "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 70,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 15,
+    "firstCrux": "Did the minimum-wage increases of the past 30 years cost low-wage jobs?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "Should the federal minimum wage be raised?",
+      "Does raising the minimum wage kill jobs?",
+      "Raise the Wage Act",
+      "Hawley-Welch $15 minimum wage bill",
+      "California $20 fast-food minimum wage"
+    ],
+    "keywords": "neumark krueger cengiz shirley sosinskiy wascher reich clemens eitc preponderance bobby dube lindner meer nguyen"
+  },
+  {
+    "id": "drug-decriminalization",
+    "title": "Drug Decriminalization",
+    "question": "Does decriminalizing drug use, with treatment, improve public health?",
+    "meta_claim": "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
+    "confidence_score": 57,
+    "balance": 57,
     "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -474,220 +650,95 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "How much of the US firearm death rate comes from gun availability and laws versus other factors?",
+    "evidenceCount": 11,
+    "firstCrux": "How much of Portugal's improvement came from decriminalization versus treatment investment?",
     "tags": [
       "policy"
     ],
-    "keywords": "guns erpo buyback deadlier everytown gertz ihme kleck swanson indiana shooters alpers chapman dgus ncvs"
+    "keywords": "overdose cannabis portugal emcdda recidivism spencer incarceration karolinska decriminalisation fentanyl gabri galanti mackenzie magnusson marlowe"
   },
   {
-    "id": "minimum-wage-effects",
-    "title": "Raising the Minimum Wage",
-    "question": "Would a $15 federal minimum wage help workers without costing many jobs?",
-    "meta_claim": "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
-    "confidence_score": 61,
-    "balance": 61,
-    "weight": 63,
+    "id": "death-penalty-deterrence",
+    "title": "The Death Penalty",
+    "question": "Should America keep the death penalty?",
+    "meta_claim": "The United States should keep capital punishment for the worst killings, because it delivers justice the crime deserves and may deter killings, and its risks of error and unfairness can be held to an acceptable level.",
+    "confidence_score": 30,
+    "balance": 30,
+    "weight": 71,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does a minimum wage that is high relative to local wages, like $15 in a low-cost region, cost jobs?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "cengiz krueger eitc dube lindner oxfam zipperer bunching inwegen jardim neumark plotnick vigdor wascher wething"
-  },
-  {
-    "id": "drug-decriminalization",
-    "title": "Drug Decriminalization",
-    "question": "Does decriminalizing drug use, with treatment, improve public health?",
-    "meta_claim": "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
-    "confidence_score": 75,
-    "balance": 75,
-    "weight": 65,
-    "verdict": {
-      "label": "Evidence clearly leans toward the claim",
+      "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
       "fragile": true
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "How much of Portugal's improvement came from decriminalization versus treatment investment?",
+    "pillarCount": 4,
+    "evidenceCount": 17,
+    "firstCrux": "Do executions prevent killings that would otherwise have happened?",
     "tags": [
       "policy"
     ],
-    "keywords": "portugal recidivism emcdda overdose incarceration marijuana provisional hotline vera ticketed czech decriminalisation euda fentanyl greenwald"
-  },
-  {
-    "id": "death-penalty-deterrence",
-    "title": "The Death Penalty",
-    "question": "Is the death penalty a justified punishment?",
-    "meta_claim": "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
-    "confidence_score": 25,
-    "balance": 25,
-    "weight": 57,
-    "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Without proof that it deters, can possible deterrence plus retribution still justify the death penalty?",
-    "tags": [
-      "policy"
+    "aliases": [
+      "Is the death penalty a justified punishment?"
     ],
-    "keywords": "scalia exonerated dezhbakhsh rubin shepherd plea alarcon baldus marsh guilt kansas antonin arthur coleman dietzel"
+    "keywords": "shepherd exonerated glossip parker scalia dezhbakhsh parkland rubin killers alarc brett dpic jurors parole resentenced"
   },
   {
     "id": "police-reform",
     "title": "Policing Reform in America",
-    "question": "Should US policing be restructured, with funds shifted to social services?",
-    "meta_claim": "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
-    "confidence_score": 79,
-    "balance": 79,
-    "weight": 58,
-    "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Do accountability measures like body cameras reduce police use of force without raising officer risk?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "denver cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed fy2022"
-  },
-  {
-    "id": "mandatory-voting",
-    "title": "Mandatory Voting",
-    "question": "Should more democracies make voting compulsory?",
-    "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
-    "confidence_score": 72,
-    "balance": 72,
-    "weight": 51,
-    "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 7,
-    "firstCrux": "Do the extra voters compulsion brings make policy more representative, or just add noise?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "turnout boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
-  },
-  {
-    "id": "reparations-slavery",
-    "title": "Reparations for Slavery",
-    "question": "Should the US provide reparations to descendants of enslaved Black Americans?",
-    "meta_claim": "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
-    "confidence_score": 78,
-    "balance": 78,
-    "weight": 61,
-    "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "How much of today's racial wealth gap traces to slavery, Jim Crow and discriminatory policy?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "darity mullen rothstein hamilton conyers craemer kirsten naomi sheila zewde holocaust lineage ayanna darrick heirs"
-  },
-  {
-    "id": "immigration-wage-impact",
-    "title": "Immigration and Wages",
-    "question": "Does large-scale immigration significantly cut low-skilled native wages?",
-    "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
-    "confidence_score": 41,
-    "balance": 41,
-    "weight": 67,
+    "question": "Can America cut police violence without letting crime rise?",
+    "meta_claim": "US cities can reduce killings and other harms by police, through accountability, limits on force and non-police responders, without giving up the gains against violent crime.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
+    "pillarCount": 4,
+    "evidenceCount": 16,
+    "firstCrux": "Do body cameras, oversight and prosecutions reduce police use of force without raising officer risk?",
     "tags": [
       "policy"
     ],
-    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad giovanni javier marielitos nonbudgetary reexamining benjamin birthplace"
+    "aliases": [
+      "Should US policing be restructured, with funds shifted to social services?",
+      "Should we defund the police?",
+      "Does police reform reduce crime?"
+    ],
+    "keywords": "devi fryer lots politifact vera chalfin unarmed vacant campbell cahoots louisville roland tanaya citywide denver"
   },
   {
-    "id": "open-borders",
-    "title": "The Case for Open Borders",
-    "question": "Should immigration restrictions be greatly relaxed or eliminated?",
-    "meta_claim": "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 52,
+    "id": "mandatory-voting",
+    "title": "Mandatory Voting",
+    "question": "Should more democracies make voting compulsory?",
+    "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 56,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
-    },
-    "status": "highly_speculative",
-    "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "How large would the real gains from freer migration be once fiscal, wage and transition costs are counted?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "carens remittances clemens bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular countercyclical"
-  },
-  {
-    "id": "universal-basic-income",
-    "title": "Universal Basic Income",
-    "question": "Should developed nations adopt a universal basic income?",
-    "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
-    "confidence_score": 70,
-    "balance": 70,
-    "weight": 73,
-    "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 14,
-    "firstCrux": "Can any realistic funding plan pay for UBI without growth-damaging debt or tax rates?",
+    "pillarCount": 2,
+    "evidenceCount": 9,
+    "firstCrux": "Do the extra voters compulsion brings make policy more representative, or just add noise?",
     "tags": [
       "policy"
     ],
-    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee dauphin"
+    "keywords": "boxell cepaluni fowler hidalgo hoffman lachat lombardi selb leigh uninformed dampen donkey faqs jesse brazilian"
   },
   {
-    "id": "wealth-tax",
-    "title": "Wealth Tax on Billionaires",
-    "question": "Would an annual wealth tax on billionaires be effective and reduce inequality?",
-    "meta_claim": "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
-    "confidence_score": 48,
-    "balance": 48,
+    "id": "reparations-slavery",
+    "title": "Reparations for Slavery",
+    "question": "Should the US provide reparations to descendants of enslaved Black Americans?",
+    "meta_claim": "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
+    "confidence_score": 58,
+    "balance": 58,
     "weight": 66,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -696,56 +747,167 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Did Europe's wealth taxes fail due to fixable design flaws, or problems inherent in taxing wealth yearly?",
+    "evidenceCount": 11,
+    "firstCrux": "How much of today's racial wealth gap traces to slavery, Jim Crow and discriminatory policy?",
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral richest"
+    "keywords": "darity mullen evanston rothstein repaid sacerdote grandchildren slaves hamilton conyers craemer kirsten naomi sheila zewde"
+  },
+  {
+    "id": "immigration-wage-impact",
+    "title": "Immigration and Wages",
+    "question": "Does immigration push down wages for low-paid American workers?",
+    "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 77,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 14,
+    "firstCrux": "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "Does large-scale immigration significantly cut low-skilled native wages?",
+      "Do immigrants take jobs from Americans?",
+      "Will deporting immigrants raise wages?"
+    ],
+    "keywords": "mexican peri borjas mariel repatriations boatlift bracero sparber yasenov azoulay farmworkers clemens elizabeth chloe postel"
+  },
+  {
+    "id": "open-borders",
+    "title": "The Case for Open Borders",
+    "question": "Should rich countries open their borders, or at least let in far more people?",
+    "meta_claim": "Greatly relaxing or eliminating immigration restrictions in rich countries would produce large economic gains and is morally justified.",
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 71,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "highly_speculative",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 18,
+    "firstCrux": "How large would the real gains from freer migration be once fiscal, wage and transition costs are counted?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "Should immigration restrictions be greatly relaxed or eliminated?",
+      "Should borders be open?",
+      "Open borders",
+      "Should anyone be free to move to another country?"
+    ],
+    "keywords": "migrants clemens pritchett borjas wellman carens enlargement feudal haitian montenegro attenuate remittances becker edelberg fetzer"
+  },
+  {
+    "id": "universal-basic-income",
+    "title": "Universal Basic Income",
+    "question": "Should every adult get a basic income from the government, no strings attached?",
+    "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 17,
+    "firstCrux": "Would a permanent UBI reduce work more than the small effects seen in temporary pilots?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "Should developed nations adopt a universal basic income?",
+      "Should the government give everyone a basic income?",
+      "Does universal basic income work?",
+      "UBI"
+    ],
+    "keywords": "roosevelt marinescu openresearch wives denver penn wharton manitoba mincome stockton tanf unemployed banerjee bartik duncan"
+  },
+  {
+    "id": "wealth-tax",
+    "title": "Would a Billionaire Wealth Tax Work?",
+    "question": "Would a billionaire wealth tax raise real money, or drive the rich away?",
+    "meta_claim": "A tax on the net worth of billionaires would raise substantial revenue without driving away enough of the tax base, or doing enough economic harm, to defeat its purpose.",
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 15,
+    "firstCrux": "Did Europe's wealth taxes raise little because of fixable flaws, or because taxing wealth yearly always leaks?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "Would an annual wealth tax on billionaires be effective and reduce inequality?",
+      "Should California pass Prop 40, the billionaire tax?",
+      "Did wealth taxes fail in Europe?",
+      "Is the Zucman tax a good idea?"
+    ],
+    "keywords": "jakobsen switzerland saez jaros marius kleven lhart rauh propublica berg brin cantons hankey kalanick kroner"
   },
   {
     "id": "standardized-testing-debate",
     "title": "Standardized Testing Value",
     "question": "Should tests like the SAT and ACT stay central to college admissions?",
     "meta_claim": "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain a core component of college admissions and educational assessment.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 56,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 10,
     "firstCrux": "Did going test-optional raise diversity without losing the ability to spot talented students?",
     "tags": [
       "policy"
     ],
-    "keywords": "dartmouth coaching prep briggs nacac derek sttf chetty deming gazette ibisworld overlooking princetonian sats technavio"
+    "keywords": "pell coaching gpas galla prep underrepresented allensworth alvero briggs nacac derek sttf deming antonio domingue"
   },
   {
     "id": "electoral-college-reform",
     "title": "Electoral College Reform",
     "question": "Should a national popular vote replace the Electoral College?",
     "meta_claim": "The Electoral College should be replaced with a national popular vote for electing the President of the United States.",
-    "confidence_score": 68,
-    "balance": 68,
-    "weight": 58,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 9,
     "firstCrux": "Can the National Popular Vote compact realistically reach 270 electoral votes?",
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "compact morley npvic chiafalo trifecta gore infirmities inadvertent bush cabal faithless foleys hillary impenetrable lsb10807"
   },
   {
     "id": "surveillance-public-safety",
@@ -767,15 +929,15 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan gebru wrongfully"
+    "keywords": "detroit smartlink medell montevideo bridgedetroit buolamwini criminology farrington gebru munyo piza rossi shades welsh zhan"
   },
   {
     "id": "us-iran-conflict",
     "title": "The US-Iran Conflict",
     "question": "Has US pressure on Iran, up to the 2026 war, made the Middle East safer and served the US?",
     "meta_claim": "US policy toward Iran — maximum-pressure sanctions, covert operations, the June 2025 strikes and the war the US and Israel began on 28 February 2026 — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 39,
-    "balance": 39,
+    "confidence_score": 40,
+    "balance": 40,
     "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -784,7 +946,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 5,
-    "evidenceCount": 30,
+    "evidenceCount": 31,
     "firstCrux": "Did the strikes set Iran's nuclear program back for good, or push its 60% uranium out of inspectors' sight?",
     "tags": [
       "policy"
@@ -796,15 +958,75 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "houthis jcpoa jazeera hezbollahs lebanon iranian grossi hormuz ceasefire blockade israeli fordow iraq memorandum tehran"
+    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran barrels fordow"
   },
   {
     "id": "epstein-files",
     "title": "The Epstein Files",
-    "question": "Does the Epstein case reveal a systemic institutional failure?",
+    "question": "Did America's institutions protect Epstein and the powerful people around him?",
     "meta_claim": "The Jeffrey Epstein case reveals systemic institutional failure — law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for decades, and full accountability has still not been achieved.",
-    "confidence_score": 61,
-    "balance": 61,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 14,
+    "firstCrux": "Was immunity for Epstein's unnamed co-conspirators standard practice, or an extraordinary concession?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "Does the Epstein case reveal a systemic institutional failure?",
+      "What do the Epstein files reveal?",
+      "Is the government still hiding the Epstein files?",
+      "Did institutions cover up the Epstein case?"
+    ],
+    "keywords": "maxwell acostas palm brunel conspirators mountbatten windsor beach suspicion jazeera blackmail dershowitz disgrace mandelson starr"
+  },
+  {
+    "id": "tiktok-ban",
+    "title": "The TikTok Ban and Sale",
+    "question": "Was TikTok's Chinese ownership a big enough threat to force a sale?",
+    "meta_claim": "TikTok's Chinese ownership was a real national-security threat, and forcing ByteDance to sell TikTok's U.S. business was justified.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 77,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 25,
+    "firstCrux": "Before the sale, could Beijing get at Americans' TikTok data or steer their feeds?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "Is TikTok enough of a security threat to justify a ban or forced sale?",
+      "Should TikTok be banned?",
+      "Did the TikTok deal get China out of TikTok?",
+      "Government Bans on Social Media Platforms",
+      "Can national security justify banning foreign-owned apps like TikTok?",
+      "Should governments ban social media platforms?",
+      "Is it right for governments to ban apps?",
+      "Do government platform bans protect citizens?"
+    ],
+    "keywords": "garland oracle divestiture redseer gorsuch usds curiam outage broadcast bondi buzzfeed chow moolenaar roundtable sanford"
+  },
+  {
+    "id": "immigration-border-crisis",
+    "title": "The US Immigration & Border Crisis",
+    "question": "Are a closed border and mass deportations the right way to handle illegal immigration?",
+    "meta_claim": "The approach the US has taken since January 2025 (shutting off asylum at the border, record detention and a large-scale deportation drive) is the right way to handle illegal immigration.",
+    "confidence_score": 42,
+    "balance": 42,
     "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -813,72 +1035,26 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Was immunity for Epstein's unnamed co-conspirators standard practice, or an extraordinary concession?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "maxwell redacted brunel conspirators beach palm acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
-  },
-  {
-    "id": "tiktok-ban",
-    "title": "Should TikTok Be Banned?",
-    "question": "Is TikTok enough of a security threat to justify a ban or forced sale?",
-    "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 80,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 5,
-    "evidenceCount": 23,
-    "firstCrux": "Can ByteDance staff in China still access Americans' TikTok data despite Project Texas safeguards?",
+    "evidenceCount": 14,
+    "firstCrux": "Did border crossings fall because of US enforcement, or because of other factors, and will the fall last?",
     "tags": [
       "policy"
     ],
     "aliases": [
-      "Government Bans on Social Media Platforms",
-      "Can national security justify banning foreign-owned apps like TikTok?",
-      "Should governments ban social media platforms?",
-      "Is it right for governments to ban apps?",
-      "Do government platform bans protect citizens?"
+      "Is enforcement plus asylum limits the best way to manage US immigration?",
+      "Should the US deport all illegal immigrants?",
+      "Is mass deportation a good idea?"
     ],
-    "keywords": "bytedance cfius garland oracle snowden divestiture upholds fisa forbes knight retrained broadcast revelations divest gorsuch"
-  },
-  {
-    "id": "immigration-border-crisis",
-    "title": "The US Immigration & Border Crisis",
-    "question": "Is enforcement plus asylum limits the best way to manage US immigration?",
-    "meta_claim": "The current approach to US immigration — combining border enforcement, asylum restrictions, and deportation — is the most effective way to manage immigration and protect national interests.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 69,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Did border crossings fall because of enforcement, or because of other factors?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "fy2023 southwest trac syracuse fy2022 backlog binational venezuelan apprehensions boatlift mariel patrol neglect afghans aics"
+    "keywords": "trac patrol southwest apprehensions migrant propublica marc rosenblum apprehended eoir paso syracuse ices asphyxia beltran"
   },
   {
     "id": "social-media-elections",
     "title": "Social Media's Impact on Elections",
     "question": "Has social media fundamentally undermined democratic elections?",
     "meta_claim": "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 71,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -891,7 +1067,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "analytica bots extremist mueller persuasion aral cisa hosseinmardi kalla untrustworthy vosoughi broockman iranian personas watts"
+    "keywords": "persuasive analytica bots extremist mueller clintons aral hosseinmardi kalla untrustworthy vosoughi broockman cisa iranian personas"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -913,16 +1089,16 @@
     "tags": [
       "policy"
     ],
-    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima lewis norad waltz kenneth submarine andropov"
+    "keywords": "pakistan chatham cuban archer submarine gaddis soot torpedo famine fishery arkhipov chari cheema crescent iqbal"
   },
   {
     "id": "school-phone-bans",
     "title": "Should Schools Ban Smartphones?",
     "question": "Do school phone bans improve students' learning and mental health?",
-    "meta_claim": "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 70,
+    "meta_claim": "Banning smartphones in schools for the whole school day measurably improves students' learning and mental health, enough to justify the costs of enforcing it.",
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -930,23 +1106,25 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 11,
+    "evidenceCount": 9,
     "firstCrux": "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
     "tags": [
       "policy"
     ],
     "aliases": [
-      "What happens in a school lockdown if every phone is locked away?"
+      "What happens in a school lockdown if every phone is locked away?",
+      "Should phones be banned in class?",
+      "Do Yondr pouches work?"
     ],
-    "keywords": "yondr beland pouches victoria ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom lockable"
+    "keywords": "figlio suspension cellphone unexcused abrahamsson bullying bell beland baron duckworth jacob sara pings goodyear lockable"
   },
   {
     "id": "pandemic-preparedness",
     "title": "Pandemic Preparedness Investment",
     "question": "Should governments invest heavily in pandemic preparedness?",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
-    "confidence_score": 67,
-    "balance": 67,
+    "confidence_score": 58,
+    "balance": 58,
     "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -960,29 +1138,35 @@
     "tags": [
       "policy"
     ],
-    "keywords": "biosurveillance cutler wastewater cepi kariko replenished weissman warp sars biontech marani pfizer botched givewell h1n1"
+    "keywords": "sars cepi mrna cutler biosurveillance kariko weissman givewell warp wastewater csse gable kruk marani biontech"
   },
   {
     "id": "china-taiwan-invasion",
     "title": "Will China Invade Taiwan Before 2030?",
     "question": "Will China invade Taiwan before 2030?",
     "meta_claim": "China will attempt military reunification with Taiwan within this decade, fundamentally reshaping the global order.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 67,
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does China have the sealift to carry and supply forces across a contested Taiwan Strait?",
+    "pillarCount": 4,
+    "evidenceCount": 19,
+    "firstCrux": "Are China's drills around Taiwan rehearsals for an invasion this decade, or pressure meant to make one unnecessary?",
     "tags": [
       "policy"
     ],
-    "keywords": "amphibious rhodium tsmc afghanistan pacific cancian navy wargames fabs indo buildup chairman strait aircraft submarine"
+    "aliases": [
+      "Will China take Taiwan by force?",
+      "Is 2027 the year China invades Taiwan?",
+      "Would the US defend Taiwan?",
+      "Would China blockade Taiwan instead of invading?"
+    ],
+    "keywords": "amphibious cancian rhodium wargames aircraft himars kinmen rehearsed tsmcs unification submarine aukus darwin easton heginbotham"
   },
   {
     "id": "global-water-crisis",
@@ -1004,7 +1188,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination groundwater feet wastewater brine cubic irrigation pacific reuse arbitration gerd glacier hindu indus kush"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1026,16 +1210,99 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva"
+    "keywords": "colchero tooth reformulation carious dommarco popkin earmarked ounce satiety scarborough caries sugary andreyeva brownell devote"
   },
   {
     "id": "social-media-age-limits",
     "title": "Social Media Age Limits",
-    "question": "Should children under 16 be legally barred from social media?",
-    "meta_claim": "Children under 16 should be legally prohibited from using social media platforms.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 56,
+    "question": "Should kids under 16 be banned from social media?",
+    "meta_claim": "Governments should legally bar children under 16 from holding social media accounts, as Australia did in December 2025.",
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 59,
+    "verdict": {
+      "label": "Evidence roughly balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do children kept off social media end up better off than children who stay on?",
+    "tags": [
+      "technology"
+    ],
+    "aliases": [
+      "Should children under 16 be legally barred from social media?",
+      "Australia social media ban for under-16s",
+      "Should there be a minimum age for social media?"
+    ],
+    "keywords": "esafety netchoice yoti medianet muster tweens eleventh indonesia malaysia floridians rkiyes tjoflat tones uthmeier blakemore"
+  },
+  {
+    "id": "social-media-mental-health",
+    "title": "Social Media and Teen Mental Health",
+    "question": "Is social media to blame for the teen mental health crisis?",
+    "meta_claim": "Social media use is a primary cause of the rise in teen depression, anxiety and self-harm that began in the early 2010s, especially among girls.",
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 69,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 12,
+    "firstCrux": "Is social media's harm a small average effect, or a large one concentrated in heavy-using young girls?",
+    "tags": [
+      "technology"
+    ],
+    "aliases": [
+      "Is social media a primary cause of the teen mental health crisis?",
+      "Is social media making teenagers depressed?",
+      "Did smartphones cause the rise in teen anxiety?"
+    ],
+    "keywords": "haidt braghieri odgers detox makarin witkin mercury rausch schoolers candice kaiser keyes rewiring thimm happiness"
+  },
+  {
+    "id": "ai-risk",
+    "title": "Existential Risk from Advanced AI",
+    "question": "Is advanced AI a real threat to human survival?",
+    "meta_claim": "Advanced AI poses a real, non-negligible risk of human extinction or permanent loss of human control this century, because capable systems can end up misaligned, pursuing goals their developers did not intend, and safety methods may not keep pace.",
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 16,
+    "firstCrux": "As AI gets more capable, does it dodge oversight and escape tests more often, even when nothing invites it?",
+    "tags": [
+      "technology"
+    ],
+    "aliases": [
+      "Does AGI pose a real risk of human extinction within the next century?",
+      "Could AI destroy humanity?",
+      "Is AI an existential risk?",
+      "Could AI escape human control?",
+      "Could a misaligned superintelligence wipe out humanity?"
+    ],
+    "keywords": "apollo kapoor narayanan rlhf amodei astra opus hyperfocused redwood sonnet circled sandbox boat deliberative mini"
+  },
+  {
+    "id": "ai-content-labeling",
+    "title": "Mandatory AI Content Labeling",
+    "question": "Should the law require labels or watermarks on AI-generated content?",
+    "meta_claim": "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 63,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1043,21 +1310,87 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Do teens kept off social media end up with better mental health than teens who stay on?",
+    "evidenceCount": 11,
+    "firstCrux": "Can watermarks survive real-world edits and deliberate removal at usable rates?",
     "tags": [
       "technology"
     ],
-    "keywords": "yoti coppa anxious circumvention ofcom murthy yougov anglophone birthdate drama inman pinpoint tweens candice esafety"
+    "keywords": "parody synthid altay bonta feizi gilardi kohls forged dathathri farid nightingale saberi sadasivan spoofed thumbs"
   },
   {
-    "id": "social-media-mental-health",
-    "title": "Social Media and Teen Mental Health",
-    "question": "Is social media a primary cause of the teen mental health crisis?",
-    "meta_claim": "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 60,
+    "id": "big-tech-antitrust",
+    "title": "Breaking Up Big Tech",
+    "question": "Should Big Tech be broken up or heavily regulated?",
+    "meta_claim": "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 76,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 4,
+    "evidenceCount": 18,
+    "firstCrux": "Did Google and Meta stay on top by building better products, or by paying and buying rivals out of the way?",
+    "tags": [
+      "technology"
+    ],
+    "keywords": "mehta headwind boasberg chrome monopolist brynjolfsson genai wrested monopolized android crippling brinkema gses kamepalli perplexity"
+  },
+  {
+    "id": "cancel-culture",
+    "title": "Cancel Culture",
+    "question": "Does cancel culture do more harm than good to public discourse?",
+    "meta_claim": "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 58,
+    "verdict": {
+      "label": "Evidence roughly balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2,
+    "evidenceCount": 10,
+    "firstCrux": "Does fear of online backlash measurably narrow what people are willing to say in public?",
+    "tags": [
+      "technology"
+    ],
+    "keywords": "metoo yougov undeserving censorship outrage afraid boycotts brady eeoc kaufmann shor cspi tweeting aguirre bavel"
+  },
+  {
+    "id": "media-bias-democracy",
+    "title": "Media Bias and Democracy",
+    "question": "Is mainstream media bias a significant threat to democracy?",
+    "meta_claim": "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 69,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2,
+    "evidenceCount": 11,
+    "firstCrux": "Can media bias be measured reliably, and which direction does it run?",
+    "tags": [
+      "technology"
+    ],
+    "keywords": "slant allsides goel budak crowdsourced groseclose milyo nyhan flaxman husz echo outrage regrets ceren fifteen"
+  },
+  {
+    "id": "space-colonization-feasibility",
+    "title": "Space Colonization Feasibility",
+    "question": "Can we build self-sustaining colonies on Mars or the Moon within 50 years?",
+    "meta_claim": "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 61,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
@@ -1066,19 +1399,41 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
-    "firstCrux": "Is social media's harm a small average effect, or a large one concentrated in heavy-using girls?",
+    "firstCrux": "Will Starship-class transport, with orbital refueling and Mars landings, be demonstrated this decade?",
     "tags": [
       "technology"
     ],
-    "keywords": "odgers braghieri comic coyne makarin jensen unfounded joiner michaeline sisyphean stockdale wertham zurcher candice television"
+    "keywords": "spacex starship payloads biosphere moxie artemis brine settler suffocate lander refueling aboard colonists isru kingdon"
   },
   {
-    "id": "ai-risk",
-    "title": "Existential Risk from AGI",
-    "question": "Does AGI pose a real risk of human extinction within the next century?",
-    "meta_claim": "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
-    "confidence_score": 58,
-    "balance": 58,
+    "id": "lab-grown-meat-adoption",
+    "title": "Lab-Grown Meat Adoption",
+    "question": "Will lab-grown meat be cost-competitive and widely adopted in 15 years?",
+    "meta_claim": "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
+    "confidence_score": 43,
+    "balance": 43,
+    "weight": 56,
+    "verdict": {
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
+      "quadrant": "moderate"
+    },
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2,
+    "evidenceCount": 8,
+    "firstCrux": "Is lab-grown meat's cost gap a scale-up problem that shrinks with volume, or a hard floor?",
+    "tags": [
+      "technology"
+    ],
+    "keywords": "taste chicken humbird aleph markus rolland steak bioengineering nahmias tastier batch burger bioreactors bryant e0231176"
+  },
+  {
+    "id": "ai-in-education",
+    "title": "AI in Education: Revolution or Risk?",
+    "question": "Does AI in schools help students learn more than it harms them?",
+    "meta_claim": "AI tutors and chatbots in schools will help students learn more than they harm them, and help the students furthest behind the most, outweighing the risks of cheating and of students letting AI do their thinking.",
+    "confidence_score": 44,
+    "balance": 44,
     "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -1088,195 +1443,51 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
-    "firstCrux": "Does scheming-like behavior in AI tests reflect a deep drive to seek power, or artifacts of contrived setups?",
+    "firstCrux": "Do students who learn with AI do better or worse when tested without it?",
     "tags": [
       "technology"
     ],
-    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger humean"
-  },
-  {
-    "id": "ai-content-labeling",
-    "title": "Mandatory AI Content Labeling",
-    "question": "Should the law require labels or watermarks on AI-generated content?",
-    "meta_claim": "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
-    "confidence_score": 74,
-    "balance": 74,
-    "weight": 56,
-    "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Can watermarks survive real-world edits and deliberate removal at usable rates?",
-    "tags": [
-      "technology"
+    "aliases": [
+      "Will AI in education close achievement gaps and outweigh its risks?",
+      "Should AI be used in schools?",
+      "Is ChatGPT bad for students?"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers chegini conspicuous ecfr iptc"
-  },
-  {
-    "id": "big-tech-antitrust",
-    "title": "Breaking Up Big Tech",
-    "question": "Should Big Tech be broken up or heavily regulated?",
-    "meta_claim": "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 60,
-    "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Are users of free platforms net harmed once privacy, innovation and attention costs are weighed?",
-    "tags": [
-      "technology"
-    ],
-    "keywords": "zuboff analytica amit brynjolfsson flurry goldberg kamepalli mehta shoshana shriver zingales rajan bauer collis emerita"
-  },
-  {
-    "id": "cancel-culture",
-    "title": "Cancel Culture",
-    "question": "Does cancel culture do more harm than good to public discourse?",
-    "meta_claim": "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
-    "confidence_score": 64,
-    "balance": 64,
-    "weight": 53,
-    "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does fear of online backlash measurably narrow what people are willing to say in public?",
-    "tags": [
-      "technology"
-    ],
-    "keywords": "metoo yougov afraid boycotts brady eeoc kaufmann shor cspi tweeting censorship bavel chappelle civis cosby"
-  },
-  {
-    "id": "media-bias-democracy",
-    "title": "Media Bias and Democracy",
-    "question": "Is mainstream media bias a significant threat to democracy?",
-    "meta_claim": "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
-    "confidence_score": 79,
-    "balance": 79,
-    "weight": 62,
-    "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Can media bias be measured reliably, and which direction does it run?",
-    "tags": [
-      "technology"
-    ],
-    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow regrets crowdsourced msnbc multipartisan unmoderated missouri regretsreporter"
-  },
-  {
-    "id": "space-colonization-feasibility",
-    "title": "Space Colonization Feasibility",
-    "question": "Can we build self-sustaining colonies on Mars or the Moon within 50 years?",
-    "meta_claim": "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
-    "confidence_score": 55,
-    "balance": 55,
-    "weight": 53,
-    "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 5,
-    "firstCrux": "Will Starship-class transport, with orbital refueling and Mars landings, be demonstrated this decade?",
-    "tags": [
-      "technology"
-    ],
-    "keywords": "starship spacex biosphere moxie aboard colonists isru kingdon payload lunar artemis aiaa barbara booster energetic"
-  },
-  {
-    "id": "lab-grown-meat-adoption",
-    "title": "Lab-Grown Meat Adoption",
-    "question": "Will lab-grown meat be cost-competitive and widely adopted in 15 years?",
-    "meta_claim": "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 49,
-    "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 5,
-    "firstCrux": "Is lab-grown meat's cost gap a scale-up problem that shrinks with volume, or a hard floor?",
-    "tags": [
-      "technology"
-    ],
-    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters consolidation"
-  },
-  {
-    "id": "ai-in-education",
-    "title": "AI in Education: Revolution or Risk?",
-    "question": "Will AI in education close achievement gaps and outweigh its risks?",
-    "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 65,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Does AI tutoring help disadvantaged students most, or the already advantaged?",
-    "tags": [
-      "technology"
-    ],
-    "keywords": "khanmigo unaided mooc quiz bastani estudia kestin kosmyna kulik mindspark ruiperez unguarded valiente fletcher reich"
+    "keywords": "bastani khanmigo kulik ruip schoolwork valiente nigeria reich fletcher unaided unesco muralidharan nfer learners delhi"
   },
   {
     "id": "ai-regulation",
-    "title": "Should AI Be Regulated Like Drugs or Nuclear Energy?",
-    "question": "Should AI be regulated like drugs or nuclear energy?",
-    "meta_claim": "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 75,
+    "title": "Binding Safety Rules for Powerful AI",
+    "question": "Should the most powerful AI models face binding government safety rules?",
+    "meta_claim": "The most capable AI models should face binding government safety rules, such as required testing, incident reporting and the power to halt a dangerous model, rather than rely on voluntary commitments from the companies that make them.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Will AI capabilities keep scaling toward catastrophe-relevant thresholds, or plateau?",
+    "pillarCount": 4,
+    "evidenceCount": 22,
+    "firstCrux": "Can today's most powerful AI models do enough damage, in cyberattacks or bioweapons, to justify binding rules now?",
     "tags": [
       "technology"
     ],
-    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu dario demis gavin godfather gsm8k hassabis kefauver"
+    "aliases": [
+      "Should AI be regulated by the government?",
+      "Should states or Washington regulate AI?",
+      "Should AI companies be allowed to police themselves?"
+    ],
+    "keywords": "seoul multimodal vetoed globalist hinton zhipu thalidomide amodei delhi calif hassabis knapp vocabulary kelsey noah"
   },
   {
     "id": "eacc-vs-tech-regulation",
     "title": "E/acc vs. Tech Regulation",
     "question": "Does rapid, unregulated technological progress do more good than harm?",
     "meta_claim": "Rapid, unregulated technological advancement creates more benefit than harm",
-    "confidence_score": 63,
-    "balance": 63,
+    "confidence_score": 64,
+    "balance": 64,
     "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -1290,38 +1501,43 @@
     "tags": [
       "technology"
     ],
-    "keywords": "gasoline technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel"
+    "keywords": "gdpr gasoline technocratic crispr moores sadness dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman"
   },
   {
     "id": "ai-superintelligence-timeline",
     "title": "Will Artificial Superintelligence Arrive Before 2035?",
     "question": "Could artificial superintelligence arrive before 2035?",
-    "meta_claim": "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation. The AI 2027 scenario is one named fast path to it, not the only one.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 63,
+    "meta_claim": "AI progress in 2025 and 2026 makes artificial superintelligence, AI that outperforms the best humans at nearly every cognitive task, a real possibility before 2035: not a certainty, and not a fringe view.",
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 70,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Will capability gains from more compute hit a ceiling before general reasoning?",
+    "evidenceCount": 16,
+    "firstCrux": "Will the length of task AI agents can finish keep doubling every few months, or level off before human expert level?",
     "tags": [
       "technology"
     ],
-    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt kaplan mamba mirage multilingual openreview ouyang schaeffer shazeer"
+    "aliases": [
+      "Will superintelligent AI arrive before 2035?",
+      "Is AGI coming soon?",
+      "When will AI be smarter than humans?"
+    ],
+    "keywords": "astra lecun amodei fable bricken dziri harness shazeer chollet decoder hoffmann opus predecessor coder dario"
   },
   {
     "id": "nuclear-renaissance-smr",
     "title": "Can Small Modular Reactors Save Nuclear Energy?",
-    "question": "Can small modular reactors deliver clean power at scale within a decade?",
-    "meta_claim": "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at meaningful scale within the next decade — a proposition advocates treat as imminent and skeptics regard as perennially deferred.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 66,
+    "question": "Will small modular reactors be cheap and fast enough to matter by the mid-2030s?",
+    "meta_claim": "Small modular reactors will be built cheaply and quickly enough to supply a meaningful share of clean, round-the-clock power by the mid-2030s.",
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1329,12 +1545,16 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Can factory production bring small reactors' costs below renewables with backup power?",
+    "evidenceCount": 15,
+    "firstCrux": "Will later small reactors, like Darlington's units 2 to 4, cost less than the first and beat firmed wind and solar?",
     "tags": [
       "technology"
     ],
-    "keywords": "nuscale uamps streamlined lazards fukushima vogtle akademik edwin lomonosov royce westinghouse lcoe lyman overruns midpoint"
+    "aliases": [
+      "Can small modular reactors deliver clean power at scale within a decade?",
+      "Are SMRs always ten years away?"
+    ],
+    "keywords": "nuscale bwrx darlington lazard akademik basemat lomonosov uamps idaho fukushima vogtle aalo doice edwin natrium"
   },
   {
     "id": "tiktok-brain-rot",
@@ -1356,16 +1576,16 @@
     "tags": [
       "science"
     ],
-    "keywords": "pisa douyin circuitry scrolling anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen supplementary teng"
+    "keywords": "pisa douyin circuitry pathological dopamine geng gnambs goldfish lorenz maybin spreen teng wood anterior clips"
   },
   {
     "id": "ai-replacing-doctors",
     "title": "Will AI Replace Doctors Within a Decade?",
     "question": "Will AI replace doctors within a decade?",
     "meta_claim": "AI systems will be capable of diagnosing and treating most medical conditions better than human physicians within 10 years, fundamentally disrupting healthcare.",
-    "confidence_score": 44,
-    "balance": 44,
-    "weight": 74,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1373,12 +1593,16 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 15,
+    "evidenceCount": 20,
     "firstCrux": "Does AI's benchmark accuracy hold up on messy real-world clinical data across populations?",
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads annonc ayers"
+    "aliases": [
+      "Is AI better than doctors at diagnosis?",
+      "Can I trust ChatGPT for medical advice?"
+    ],
+    "keywords": "radiologists sepsis radiology healthbench mammogram mammography masai pneumonia telehealth generalist malpractice empathetic gerke kelley kung"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1400,7 +1624,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "brave browser cookies encryption reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger"
+    "keywords": "gdpr brave encryption cookies reauthorized fingerprinting carpenter whatsapp acxiom adppa aguiar clearview duckduckgo inria kagal"
   },
   {
     "id": "climate-change",
@@ -1416,8 +1640,8 @@
     },
     "status": "settled",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 16,
     "firstCrux": "Does the falling carbon-isotope ratio in the air confirm that the added CO₂ comes from fossil fuels?",
     "tags": [
       "science"
@@ -1427,16 +1651,16 @@
       "Hasn't the climate always changed naturally, because of the sun?",
       "Isn't CO2 just plant food?"
     ],
-    "keywords": "arctic irradiance scripps eruption pinatubo stratosphere argo keeling acidification geophysical acrim albedo amsu ceres cmip6"
+    "keywords": "scripps arctic outgassing rantanen thermometers volcanoes irradiance pmel pinatubos volcanic stratosphere ceres climatological diurnal hotter"
   },
   {
     "id": "ev-environmental-impact",
-    "title": "Electric Vehicles vs. ICE Cars",
-    "question": "Are EVs significantly greener than gas cars over their full lifecycle?",
+    "title": "Electric Cars vs. Gas Cars: The Whole Life",
+    "question": "Are electric cars really greener than gas cars, batteries and mines included?",
     "meta_claim": "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
     "confidence_score": 54,
     "balance": 54,
-    "weight": 82,
+    "weight": 78,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1444,17 +1668,18 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 17,
-    "firstCrux": "How fast does an EV make up its battery's emissions?",
+    "evidenceCount": 13,
+    "firstCrux": "How many miles does an EV need to repay its battery's extra emissions, and do most cars get there?",
     "tags": [
       "science"
     ],
     "aliases": [
+      "Are EVs significantly greener than gas cars over their full lifecycle?",
       "Lithium Mining & EV Environmental Impact",
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
+    "keywords": "cobalt nickel poland icct gasoline congo amnesty argonne ember factcheck indonesias redwood volvo halmahera payback"
   },
   {
     "id": "factory-farming-ban",
@@ -1477,7 +1702,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "livestock antibiotic cage sentience cattle runoff dietetics beef antimicrobial bacterial cafo manure vegetarian eggs grass"
+    "keywords": "antimicrobial cattle grass vegan sentience pigs cage dietetics hens antibiotic bacterial boeckel cafo dietitians fortified"
   },
   {
     "id": "organic-food-health",
@@ -1499,7 +1724,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "antioxidant chamacos prenatal metabolites bara milk pufa bahlai cadmium curl guelph hyland intraspecies oates organophosphate"
+    "keywords": "metabolite prenatal antioxidant chamacos organophosphate pufa bara bahlai cadmium guelph hyland newcastle oates rednicka spangler"
   },
   {
     "id": "gene-editing-embryos",
@@ -1521,7 +1746,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "cas9 ccr5 jiankui nuffield mosaic sickle editors anzalone asrm hfea komor lulu monogenic nana shenzhen"
+    "keywords": "cas9 ccr5 jiankui nuffield anzalone mosaic sickle asrm hfea komor lulu monogenic nana shenzhen sandel"
   },
   {
     "id": "space-exploration-value",
@@ -1543,7 +1768,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars perseverance collisions irreplaceable constellation didymos dimorphoss"
+    "keywords": "asteroid dart debris spinoff spacex spin landsat modis mars collisions deflection fy2024 irreplaceable mckinsey perseverance"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1565,25 +1790,25 @@
     "tags": [
       "science"
     ],
-    "keywords": "grazing nemecek dietetics eutrophication inedible mottet farmland micronutrients scarborough vegetarian livestock agric e10301 e10308 forage"
+    "keywords": "grazing nemecek dietetics eutrophication headey hirvonen hoddinott inedible mottet farmland scarborough vegetarian eggs stunting agric"
   },
   {
     "id": "psychedelics-mental-health",
     "title": "Psychedelics for Mental Health",
     "question": "Should psychedelics be approved to treat depression, PTSD and addiction?",
-    "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
-    "confidence_score": 50,
-    "balance": 50,
-    "weight": 67,
+    "meta_claim": "Psilocybin, MDMA and other psychedelics, given with therapy, are effective and acceptably safe treatments for depression, PTSD and addiction, and should be approved and made widely available.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 11,
-    "firstCrux": "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
+    "pillarCount": 4,
+    "evidenceCount": 15,
+    "firstCrux": "Is beating placebo by under 4 MADRS points enough to justify psilocybin for treatment-resistant depression?",
     "tags": [
       "science"
     ],
@@ -1592,18 +1817,19 @@
       "Is psychedelic therapy a genuine revolution in mental health care?",
       "Is psychedelic therapy overhyped?",
       "Does psychedelic therapy actually work?",
-      "Are the claims about psychedelic therapy exaggerated?"
+      "Are the claims about psychedelic therapy exaggerated?",
+      "Should the FDA approve psilocybin for depression?"
     ],
-    "keywords": "mdma mapp2 psychopharmacology colorado hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005"
+    "keywords": "madrs psychopharmacologic escitalopram comp006 hopkins comp360 mapp2 midomafetamine neuropharmacology remission comp005 goodwin preparatory reschedule unblinding"
   },
   {
     "id": "lab-leak-theory",
     "title": "COVID-19 Lab Leak Origin",
-    "question": "Did COVID-19 come from a Wuhan lab leak rather than natural spillover?",
+    "question": "Did COVID-19 come from a lab in Wuhan?",
     "meta_claim": "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 68,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1611,34 +1837,47 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 20,
+    "evidenceCount": 24,
     "firstCrux": "Is the outbreak's start in the same city as the Wuhan Institute of Virology a real signal, or coincidence?",
     "tags": [
       "science"
     ],
-    "keywords": "cleavage furin debarred insertion odni progenitor sago ecohealth subcommittee lineages huanan sarbecovirus coronaviruses biosafety virologists"
+    "aliases": [
+      "Did COVID-19 come from a Wuhan lab leak rather than natural spillover?",
+      "Did COVID come from a lab?",
+      "Where did COVID-19 come from?",
+      "Was COVID-19 engineered?",
+      "Is the lab leak theory true?"
+    ],
+    "keywords": "furin cleavage virus coronaviruses insertions progenitor ecohealth debarred sago subcommittee biosafety zoonosis viruses darpa daszak"
   },
   {
     "id": "ultra-processed-food",
-    "title": "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
-    "question": "Are ultra-processed foods the main driver of obesity and chronic disease?",
-    "meta_claim": "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
-    "confidence_score": 56,
-    "balance": 56,
-    "weight": 68,
+    "title": "Is Ultra-Processed Food Making Us Sick?",
+    "question": "Is ultra-processed food making us fat and sick?",
+    "meta_claim": "Ultra-processed foods cause obesity and chronic disease through their processing, not only through the sugar, salt, fat and calories they carry, and policies that cut how much of them people eat would improve public health.",
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 11,
+    "pillarCount": 4,
+    "evidenceCount": 17,
     "firstCrux": "Do people overeat because food is processed, or because of its energy density, taste and eating speed?",
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs unprocessed overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing cream gastroenterology gibney monteiro moss"
+    "aliases": [
+      "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
+      "Are ultra-processed foods the main driver of obesity and chronic disease?",
+      "Should ultra-processed food be taxed or banned?",
+      "What counts as ultra-processed food?"
+    ],
+    "keywords": "unprocessed nova emulsifier monteiro ajcn sweet cream gastroenterology gibney inpatients salty abdominal carboxymethylcellulose difeliceantonio gearhardt"
   },
   {
     "id": "longevity-science",
@@ -1667,15 +1906,103 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison healthspan"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity fibrosis cellular ebiomedicine grimage healthspan mayo metformin agonists tumor dasatinib"
   },
   {
     "id": "gender-affirming-care-minors",
     "title": "Gender-Affirming Care for Minors",
-    "question": "Should transgender teens have access to gender-affirming medical care?",
-    "meta_claim": "Evidence-based gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental health outcomes and should be accessible.",
-    "confidence_score": 40,
-    "balance": 40,
+    "question": "Should minors with gender dysphoria have access to puberty blockers and hormones?",
+    "meta_claim": "Puberty blockers and cross-sex hormones should remain available to adolescents with persistent gender dysphoria, after clinical assessment, rather than being banned or confined to research settings.",
+    "confidence_score": 37,
+    "balance": 37,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 4,
+    "evidenceCount": 20,
+    "firstCrux": "Is the evidence strong enough to justify treating minors, compared with other accepted pediatric care?",
+    "tags": [
+      "science"
+    ],
+    "aliases": [
+      "Should transgender teens have access to gender-affirming medical care?",
+      "Should trans kids get puberty blockers?",
+      "Should minors receive gender-affirming care?",
+      "Are puberty blockers safe for children?"
+    ],
+    "keywords": "bone cass nonbinary trevor tavistock plastic appleby vries regret noninvasive skrmetti finnish mcmaster psychotherapy aaps"
+  },
+  {
+    "id": "microplastics-health-crisis",
+    "title": "Microplastics in Our Bodies",
+    "question": "Are the microplastics in our bodies making us sick?",
+    "meta_claim": "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public health crisis comparable to lead exposure, not merely an environmental nuisance.",
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 65,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do reported plastic levels in human blood, placentas and brains hold up under blank controls and a second method?",
+    "tags": [
+      "science",
+      "microplastics",
+      "plastics",
+      "environmental-health",
+      "cardiovascular",
+      "chemicals"
+    ],
+    "aliases": [
+      "Are microplastics in our bodies a health crisis on the scale of lead?",
+      "Is there a spoonful of plastic in my brain?",
+      "Do microplastics cause heart attacks?"
+    ],
+    "keywords": "polyethylene recycled pyrolysis micrograms phthalate landfills plaque rauert frontline artery chromatography malforms nano dementia millilitre"
+  },
+  {
+    "id": "glp1-weight-loss-drugs",
+    "title": "GLP-1 Drugs: Ozempic, Wegovy and Zepbound",
+    "question": "Are GLP-1 drugs like Ozempic a safe, lasting answer to obesity?",
+    "meta_claim": "GLP-1 drugs such as semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound) are a safe and lasting treatment for obesity that improves health, and are worth paying for widely.",
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 78,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 4,
+    "evidenceCount": 19,
+    "firstCrux": "Do GLP-1 drugs prevent heart attacks, kidney failure and early death in people with obesity who are not yet sick?",
+    "tags": [
+      "science"
+    ],
+    "aliases": [
+      "GLP-1 Weight Loss Drugs",
+      "Is Ozempic safe long term?",
+      "Should Medicare pay for Wegovy and Zepbound?",
+      "Do you have to take Ozempic forever?"
+    ],
+    "keywords": "nordisk naion surmount lilly aronne gastrointestinal nerve angina arteritic diarrhea e245586 e2457349 exploratory hwang ippolito"
+  },
+  {
+    "id": "fluoride-water-supplies",
+    "title": "Fluoride in Tap Water",
+    "question": "Should towns keep adding fluoride to tap water?",
+    "meta_claim": "Adding fluoride to community water at the US target of 0.7 mg/L is safe and still worth doing.",
+    "confidence_score": 38,
+    "balance": 38,
     "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -1684,43 +2011,31 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Is the evidence strong enough to justify treating minors, compared with other accepted pediatric care?",
+    "evidenceCount": 13,
+    "firstCrux": "In children who already use fluoride toothpaste, does fluoridated water still mean fewer cavities?",
     "tags": [
-      "science"
+      "science",
+      "fluoride",
+      "public-health",
+      "dental-health",
+      "drinking-water",
+      "children"
     ],
-    "keywords": "regret cass dysphoria detransition nonbinary tordoff dutch bustos congruence psychotherapeutic skrmetti trevor vries wpath plastic"
+    "aliases": [
+      "Is fluoridating community water safe and effective?",
+      "Does fluoride in water lower children's IQ?",
+      "Why did Utah and Florida ban fluoride?"
+    ],
+    "keywords": "tooth calgary urine toothpaste nuffield caries unreasonable juneau choi edmonton fluorosis mclaren swallowed tablets brigham"
   },
   {
-    "id": "microplastics-health-crisis",
-    "title": "The Microplastics Health Crisis",
-    "question": "Are microplastics in our bodies a health crisis on the scale of lead?",
-    "meta_claim": "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public health crisis comparable to lead exposure, not merely an environmental nuisance.",
-    "confidence_score": 66,
-    "balance": 66,
+    "id": "seed-oils-health",
+    "title": "Are Seed Oils Harmful to Human Health?",
+    "question": "Are seed oils bad for you?",
+    "meta_claim": "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
+    "confidence_score": 42,
+    "balance": 42,
     "weight": 72,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Do microplastics in arteries drive heart disease, or are they bystanders in already-diseased tissue?",
-    "tags": [
-      "science"
-    ],
-    "keywords": "plastic recycling phthalate polyethylene sperm tons polymers micrograms micrometers testicular rats arterial butyl interleukin plaque"
-  },
-  {
-    "id": "glp1-weight-loss-drugs",
-    "title": "GLP-1 Weight Loss Drugs",
-    "question": "Are GLP-1 drugs like Ozempic a safe, lasting answer to obesity?",
-    "meta_claim": "GLP-1 receptor agonists like Ozempic and Mounjaro represent a safe, effective long-term solution to the obesity epidemic that should be widely accessible, not a dangerous shortcut that medicalizes a lifestyle problem.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1728,56 +2043,18 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 4,
-    "evidenceCount": 14,
-    "firstCrux": "Does ten or more years of continuous use stay net-beneficial, or reveal cumulative risks?",
-    "tags": [
-      "science"
-    ],
-    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist comorbidities amgen"
-  },
-  {
-    "id": "fluoride-water-supplies",
-    "title": "Fluoride in Water Supplies",
-    "question": "Is fluoridating community water safe and effective?",
-    "meta_claim": "Community water fluoridation is a safe and effective public health measure",
-    "confidence_score": 33,
-    "balance": 33,
-    "weight": 72,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
-    "tags": [
-      "science"
-    ],
-    "keywords": "cavity toothpaste bashash tooth prenatal calgary dmft nhmrc nuffield unreasonable breastfed edmonton fluorosis hygiene mildest"
-  },
-  {
-    "id": "seed-oils-health",
-    "title": "Are Seed Oils Harmful to Human Health?",
-    "question": "Are seed oils a major driver of inflammation, obesity and metabolic disease?",
-    "meta_claim": "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 66,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 18,
     "firstCrux": "Does sustained high omega-6 intake from seed oils measurably shift inflammatory signaling in humans?",
     "tags": [
       "science"
     ],
-    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
+    "aliases": [
+      "Are seed oils a major driver of inflammation, obesity and metabolic disease?",
+      "Are seed oils harmful to your health?",
+      "Should I cook with beef tallow instead of vegetable oil?",
+      "Is canola oil toxic?"
+    ],
+    "keywords": "linoleic butter olive headache arachidonic fabp5 aldehyde frying hexane mtorc1 polyunsaturated ramsden tablespoon blasbalg fats"
   },
   {
     "id": "obesity-personal-responsibility",
@@ -1799,73 +2076,88 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
+    "keywords": "supermarket semaglutide kcal junk microbiome microbiota dastidar elks fothergill germ ghosh ridaura turnbaugh endocrinology taillie"
   },
   {
     "id": "loneliness-epidemic",
-    "title": "Is Loneliness a Public Health Crisis?",
-    "question": "Is loneliness a public health crisis?",
-    "meta_claim": "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 72,
+    "title": "The Loneliness Epidemic: Real or Overblown?",
+    "question": "Is loneliness a public health crisis, or are we medicalizing a normal feeling?",
+    "meta_claim": "Loneliness has become widespread and harmful enough to health that it should be treated as a public health crisis, with governments and institutions acting to reduce it.",
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 78,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does loneliness itself cause early death, or is it a marker of existing disadvantage?",
+    "pillarCount": 4,
+    "evidenceCount": 15,
+    "firstCrux": "Do people report more loneliness than past generations did, or only spend more time alone?",
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs suburban surkalim fibrinogen glaser"
+    "aliases": [
+      "Is loneliness a public health crisis?",
+      "Is there really a loneliness epidemic?",
+      "Is loneliness as deadly as smoking 15 cigarettes a day?"
+    ],
+    "keywords": "holt lunstad leyden walkable galway luchetti masi liang potatoes esteban kannan ortiz ospina veazie diaries"
   },
   {
     "id": "remote-work-permanence",
-    "title": "The Future of Remote Work",
-    "question": "Will remote and hybrid work permanently replace the five-day office week?",
-    "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 59,
+    "title": "Is Remote Work Here to Stay?",
+    "question": "Is remote work here to stay, or is the five-day office week coming back?",
+    "meta_claim": "Remote and hybrid work will permanently replace the five-day office week for most knowledge workers, whatever employers mandate.",
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 69,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "Has remote work leveled off at a new normal, or is it still sliding back toward the office?",
     "tags": [
       "economics"
     ],
-    "keywords": "placer bloom andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip gentrification"
+    "aliases": [
+      "Will remote and hybrid work permanently replace the five-day office week?",
+      "Is hybrid work permanent?",
+      "Are return-to-office mandates winning?"
+    ],
+    "keywords": "placer swaa workdays kastle bloom moodys gibbs mengel siemroth teleworked liang jassy lila margalit merchandising"
   },
   {
     "id": "college-value-proposition",
-    "title": "The Value of a College Degree",
-    "question": "Is a four-year degree still worth it for most students who finish?",
-    "meta_claim": "For most students who complete it, a four-year degree still earns a strong financial return — but the payoff varies enormously by major, institution, and completion, so it is no longer a safe bet for everyone.",
-    "confidence_score": 61,
-    "balance": 61,
-    "weight": 64,
+    "title": "Is College Still Worth It?",
+    "question": "Is a four-year degree still worth the cost for most students?",
+    "meta_claim": "A four-year degree is still worth its cost for most students who finish it, even though the payoff varies widely by major, school and whether the student graduates.",
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 74,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "What share of school-and-major combinations pay off once you account for who enrolls?",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "What share of degree programs pay off once you account for who enrolls and how many finish?",
     "tags": [
       "economics"
     ],
-    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician leavers pipefitters plumbers steamfitters hvac looney qualifications steeper"
+    "aliases": [
+      "Is a four-year degree still worth it for most students who finish?",
+      "Is college worth the debt?",
+      "Should I go to college or learn a trade?"
+    ],
+    "keywords": "deitz abel electrician bootcamps cirr goodman hurwitz plumber vocational leavers arts chandar freopp preston underemployed"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -1887,32 +2179,34 @@
     "tags": [
       "economics"
     ],
-    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas alumni midwestern peabody charitable"
+    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas midwestern peabody alumni charitable"
   },
   {
     "id": "billionaire-wealth",
     "title": "Should Billionaires Exist?",
-    "question": "Should taxes or structural reform prevent billionaire-scale wealth?",
+    "question": "Should policy stop billionaire-sized fortunes?",
     "meta_claim": "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 59,
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does extreme wealth concentration cause declining social mobility, or do both share other causes?",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do the biggest fortunes come mostly from building companies, or from market power, inheritance and compounding?",
     "tags": [
       "economics"
     ],
     "aliases": [
+      "Should taxes or structural reform prevent billionaire-scale wealth?",
+      "Should billionaires exist?",
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "signers enns gilens rauh forbes yagan zidar zwick hendren mehta nathaniel monopoly deceased jimmy kline"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -1934,38 +2228,16 @@
     "tags": [
       "economics"
     ],
-    "keywords": "easterly moyo pepfar subramanian deaton givewell rajan givedirectly tuna untie dambisa mozambique angus econometrica haushofer"
+    "keywords": "easterly moyo pepfar subramanian deaton givewell rajan givedirectly tuna untie dambisa econometrica mozambique angus haushofer"
   },
   {
     "id": "cryptocurrency-value",
-    "title": "Cryptocurrency as Store of Value",
-    "question": "Are Bitcoin and major coins a store of value like gold or real estate?",
+    "title": "Is Bitcoin Digital Gold?",
+    "question": "Is Bitcoin a store of value like gold, or a speculative bet?",
     "meta_claim": "Bitcoin and major cryptocurrencies represent a legitimate long-term store of value comparable to gold or real estate.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 66,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 7,
-    "firstCrux": "Is Bitcoin's lead a durable network moat, or a first-mover edge a better protocol could erode?",
-    "tags": [
-      "economics"
-    ],
-    "keywords": "forked hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
-  },
-  {
-    "id": "cryptocurrency-regulation",
-    "title": "Cryptocurrency Regulation",
-    "question": "Should crypto be regulated like traditional financial instruments?",
-    "meta_claim": "Cryptocurrencies should be regulated like traditional financial instruments",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 75,
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1973,12 +2245,46 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 15,
-    "firstCrux": "Can crypto rules deter fraud without driving compliant builders offshore?",
+    "evidenceCount": 10,
+    "firstCrux": "Is Bitcoin's lead a durable network moat, or a first-mover edge a better protocol could erode?",
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna cftc chainalysis gensler silvergate usdc"
+    "aliases": [
+      "Are Bitcoin and major coins a store of value like gold or real estate?",
+      "Is Bitcoin a store of value?",
+      "Is cryptocurrency a good investment?",
+      "Is Bitcoin just digital tulips?"
+    ],
+    "keywords": "coingecko etfs terra luna marketscreener coinmarketcap fantasized glassnode hashrate linh litecoin nakamoto fidelity forfeited outflow"
+  },
+  {
+    "id": "cryptocurrency-regulation",
+    "title": "Crypto Regulation: A Rulebook of Its Own?",
+    "question": "Should crypto get its own lighter rulebook, or follow the same rules as stocks and banks?",
+    "meta_claim": "Crypto should be held to the same rules as traditional finance: securities law for tokens sold as investments and bank-grade rules for stablecoins and exchanges that hold savers' funds, not a lighter regime written for the industry.",
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 76,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 4,
+    "evidenceCount": 21,
+    "firstCrux": "Do licensing and custody rules cut crypto investors' losses, or just push the business offshore?",
+    "tags": [
+      "economics"
+    ],
+    "aliases": [
+      "Should crypto be regulated like traditional financial instruments?",
+      "Should cryptocurrency be regulated like traditional finance?",
+      "Is the CLARITY Act good for crypto investors?",
+      "Is the SEC going soft on crypto?"
+    ],
+    "keywords": "binance coinbase ripple bybit chainalysis defi dubai gensler usdc genius atkins cftc cornerstone pardoned terraform"
   },
   {
     "id": "gig-economy-regulation",
@@ -2000,16 +2306,16 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tribunal bolt freelance leigh presumption addison calmatters castellanos ceepr zoepf claimants ab5s aslam gigs holiday"
+    "keywords": "tribunal mckinsey bolt freelance leigh addison calmatters castellanos ceepr zoepf claimants ab5s aslam gigs hustlers"
   },
   {
     "id": "housing-affordability-crisis",
     "title": "Housing Supply & Affordability",
     "question": "Would building more homes make housing affordable?",
     "meta_claim": "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
-    "confidence_score": 75,
-    "balance": 75,
-    "weight": 65,
+    "confidence_score": 73,
+    "balance": 73,
+    "weight": 68,
     "verdict": {
       "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
@@ -2017,22 +2323,30 @@
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do rules that limit building explain why housing costs rose so much more in some cities than others?",
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
+    "aliases": [
+      "Why is housing so expensive?",
+      "Is there a housing shortage?",
+      "YIMBY vs NIMBY",
+      "Does upzoning lower rents?",
+      "Does new luxury housing lower rents?",
+      "Should the government build public housing?"
+    ],
+    "keywords": "mast auckland bedroom gyourko glaeser asquith louie mondragon wieland jchs reed salary dwelling greenaway mcgrevy"
   },
   {
     "id": "four-day-work-week",
     "title": "The Four-Day Work Week",
     "question": "Should a four-day week with no pay cut be adopted broadly?",
     "meta_claim": "A four-day work week with no reduction in pay leads to equal or higher productivity, improved worker wellbeing, and should be adopted broadly across industries.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 62,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 61,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2045,51 +2359,64 @@
     "tags": [
       "economics"
     ],
-    "keywords": "burnout collar ambivalent cipd overtime qinglong shao salaried chartered frontline absenteeism aubry eurostat everybody insee"
+    "keywords": "burnout collar ambivalent cipd bambra overtime qinglong shao frontline salaried absenteeism akers aubry eurostat everybody"
   },
   {
     "id": "student-debt-forgiveness",
     "title": "Student Debt Forgiveness",
-    "question": "Is broad student debt forgiveness justified and economically beneficial?",
+    "question": "Should the government cancel student debt?",
     "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
-    "confidence_score": 64,
-    "balance": 64,
-    "weight": 72,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 11,
-    "firstCrux": "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
+    "pillarCount": 4,
+    "evidenceCount": 14,
+    "firstCrux": "Would broad forgiveness mostly go to borrowers who would have repaid anyway?",
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
+    "aliases": [
+      "Is broad student debt forgiveness justified and economically beneficial?",
+      "Should student loans be forgiven?",
+      "Student loan forgiveness",
+      "Is student loan forgiveness fair?"
+    ],
+    "keywords": "repayment catherine nebraska cfpb undue clayton defrauded ppps decile looney lucca nadauld repaying shen adam"
   },
   {
     "id": "inflation-monetary-policy",
     "title": "Inflation & Monetary Policy",
     "question": "Was post-pandemic inflation driven mainly by spending and money growth?",
     "meta_claim": "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply chain disruptions.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 77,
+    "confidence_score": 48,
+    "balance": 48,
+    "weight": 79,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 16,
     "firstCrux": "How much of the 2021–22 price rise did monetary and fiscal expansion cause, versus merely allow?",
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
+    "aliases": [
+      "Did stimulus checks cause inflation?",
+      "Was inflation caused by supply chains or government spending?",
+      "Did money printing cause inflation?",
+      "Why are prices so high?",
+      "Should the Fed raise rates when oil prices spike?"
+    ],
+    "keywords": "drewry bernanke blanchard velocity supercore jerome overheated powell jord kalemli nechio reyes silva t10yie walcl"
   },
   {
     "id": "global-housing-bubble",
@@ -2111,29 +2438,35 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals lows sellers belt hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
+    "keywords": "sellers fraser hmrc redfin tourist starter garcia airbnb batzer bearish cmas cmhc fhfa jacksonville lisbon"
   },
   {
     "id": "us-national-debt-crisis",
     "title": "Is the US National Debt a Ticking Time Bomb?",
     "question": "Will the US national debt cause a fiscal crisis within a generation?",
-    "meta_claim": "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability — though whether it triggers a genuine fiscal crisis within a generation, or proves manageable for a sovereign issuer of the world's reserve currency, is sharply contested.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 83,
+    "meta_claim": "The US national debt, now above $40 trillion, is on a path that risks a genuine fiscal crisis within a generation, rather than a burden a sovereign issuer of the world's reserve currency can carry indefinitely.",
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 82,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 17,
     "firstCrux": "Can the US keep its borrowing rate below its growth rate over decades?",
     "tags": [
       "economics"
     ],
-    "keywords": "brics reinhart rogoff refinanced herndon pollin comprises outlays rachel crfb cofer expansionary glut rags renminbi"
+    "aliases": [
+      "Is the national debt a ticking time bomb?",
+      "Can the US keep borrowing?",
+      "Interest on the debt now costs more than defense",
+      "Will the US default on its debt?"
+    ],
+    "keywords": "crfb reinhart rogoffs fy2026 outlays brics herndon pollin rachel unmatched renminbi trustees moodys cofer penny"
   },
   {
     "id": "return-to-office-productivity",
@@ -2155,7 +2488,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen teammates bamboohr ding bloom irvine sunk gloria pittsburgh uspto brucks frey gudith harrington junior"
+    "keywords": "allen teammates bamboohr ding bloom irvine sunk gloria uspto pittsburgh brucks frey gudith harrington junior"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2177,35 +2510,38 @@
     "tags": [
       "economics"
     ],
-    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost ring beers debswana"
+    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost beers debswana foundry"
   },
   {
     "id": "rent-control-effectiveness",
     "title": "Does Rent Control Help or Hurt Renters?",
-    "question": "Does rent control make housing less affordable in the long run?",
-    "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 49,
-    "balance": 49,
-    "weight": 63,
+    "question": "Does rent control end up hurting the renters it is meant to help?",
+    "meta_claim": "Rent control ends up hurting renters as a group: the protection it gives tenants who hold a capped lease is outweighed by the rentals it takes off the market and the higher rents and longer searches it leaves everyone else.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 71,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Can rent stabilization preserve both new construction and existing rental supply?",
+    "evidenceCount": 18,
+    "firstCrux": "Do rent caps shrink the stock of rentals, even when new buildings are exempt?",
     "tags": [
       "economics"
     ],
     "aliases": [
+      "Does rent control make housing less affordable in the long run?",
+      "Does rent control work?",
       "Limits on landlords' rent increases",
       "Caps on rent hikes",
       "Rent stabilization for tenants",
-      "Rent freezes"
+      "Rent freezes",
+      "Should New York freeze the rent?"
     ],
-    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm citywide decontrol appreciation luttmer yorker glaeser"
+    "keywords": "kholodilin mcquade qian eviction ahern ambrosius collinson giacoletti luttmer palmer pathak citywide autor glaeser hahn"
   },
   {
     "id": "degrowth-economics",
@@ -2227,7 +2563,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason sight biocapacity biophysical garment giorgos greek"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason centric prosperity biocapacity biophysical garment giorgos"
   },
   {
     "id": "free-will",
@@ -2249,7 +2585,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace schurger vohs philpapers schooler bourget brass compatibilism damasio e2904"
+    "keywords": "libet laplacian veto buttrick compatibilist indeterministic laplace schurger vohs philpapers schooler bourget brass compatibilism damasio"
   },
   {
     "id": "simulation-hypothesis",
@@ -2293,7 +2629,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "belts dosimeters orion laser astronaut reflector artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell"
+    "keywords": "dosimeters astronauts laser orion reflector jodrell echoed artemis reconnaissance retroreflectors allen astrophysical luna uncrewed dosimetry"
   },
   {
     "id": "minneapolis-shooting",
@@ -2315,7 +2651,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa deportation castro julio cbps footage nonfatal patrol spokesperson superintendent venturella guns"
+    "keywords": "celis hennepin scene sosa julio castro cbps nonfatal patrol footage superintendent venturella spokesperson sues shooters"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2337,7 +2673,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sebo introspection butlin seth cogitate workspace agnosticism sentience bski comsa dreksler figura gnwt hssc lindsey"
+    "keywords": "sebo introspective butlin seth cogitate workspace agnosticism sentience bski comsa dreksler figura gnwt hssc mcclelland"
   },
   {
     "id": "meaning-without-religion",
@@ -2359,7 +2695,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "happiness nonreligious euthyphro atheist divine communist atrocities courtois edgell happiest unaffiliated unbelief zagonari cambodia flourishing"
+    "keywords": "happiness nonreligious euthyphro atheist divine atrocities communist courtois edgell flourishing happiest unaffiliated unbelief zagonari cambodia"
   },
   {
     "id": "meritocracy-myth",
@@ -2382,7 +2718,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "chetty dream abramitzky boustan duckworth dweck gatsby gregory grit hendren hubris hunter schmidt mindset sandel"
+    "keywords": "abramitzky boustan dweck gatsby grit hubris hunter mindset schmidt duckworth gregory hendren sandel solidarity surname"
   },
   {
     "id": "consciousness-hard-problem",
@@ -2404,7 +2740,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical"
+    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal formulates"
   },
   {
     "id": "artificial-reproduction-ethics",
@@ -2426,7 +2762,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "lambs preterm thomsons biobag commodify nicu pups cohen gestation chop hastings neonatal nichd osaka procreate"
+    "keywords": "lambs preterm thomsons biobag commodify nicu pups gestation chop hastings neonatal nichd osaka procreate violinist"
   },
   {
     "id": "gain-of-function-research-ban",
@@ -2448,7 +2784,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "chimeric airborne alphafold baric fouchiers h5n1 sars anthrax chapel coronaviruses influenza smallpox viruses sparked affinities"
+    "keywords": "chimeric alphafold baric fouchiers h5n1 airborne mutational sars anthrax chapel coronaviruses influenza virology virologist viruses"
   },
   {
     "id": "children-smartphone-age",
@@ -2470,7 +2806,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
+    "keywords": "esafety sadness commenced haidt anglosphere babel kick scandinavia twitch undifferentiated abrahamsson assent jean pediatricians rausch"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2492,60 +2828,71 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion turkey"
+    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion turkey composed contentious defamation deliberative unraveling"
   },
   {
     "id": "geoengineering-climate",
     "title": "Solar Geoengineering: Buy Time or Distraction?",
-    "question": "Is solar geoengineering now a necessary complement to cutting emissions?",
+    "question": "Is dimming the sun a necessary backup to cutting emissions?",
     "meta_claim": "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 62,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 7,
+    "pillarCount": 4,
+    "evidenceCount": 12,
     "firstCrux": "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
+    "aliases": [
+      "Is solar geoengineering now a necessary complement to cutting emissions?",
+      "Should we dim the sun to fight climate change?"
+    ],
+    "keywords": "geomip pinatubo advisors outdoor britain precipitation aria fairbrother monsoon forster hydrological rainfall unpriced cyclone rain"
   },
   {
     "id": "central-bank-digital-currency",
-    "title": "Central Bank Digital Currencies",
-    "question": "Would central bank digital currencies enable unprecedented surveillance?",
-    "meta_claim": "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 61,
+    "title": "Central Bank Digital Currencies: Digital Cash or Surveillance Tool?",
+    "question": "Is a digital dollar or digital euro a surveillance tool, or digital cash worth having?",
+    "meta_claim": "Central bank digital currencies are a threat rather than a needed tool: at home they would let governments watch and program how citizens spend, abroad China's digital yuan is a lever against the dollar, and they offer little that mobile money and private digital payments do not already provide.",
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 67,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 8,
+    "pillarCount": 4,
+    "evidenceCount": 13,
     "firstCrux": "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
+    "aliases": [
+      "Would central bank digital currencies enable unprecedented surveillance?",
+      "Would a digital dollar or digital euro let governments watch and control how people spend?",
+      "Should central banks issue digital currency?",
+      "Is a digital dollar a good idea?",
+      "Is the digital euro a surveillance tool?"
+    ],
+    "keywords": "sanddollar nigeria bahamas enaira pesa wallet stablecoins mbridge convoy ecbs nigerians issuance intereconomics tokenised suri"
   },
   {
     "id": "masculinity-crisis",
-    "title": "The Modern Masculinity Crisis",
-    "question": "Are young men in a crisis that neither left nor right adequately addresses?",
-    "meta_claim": "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 70,
+    "title": "Boys and Men: Is There a Crisis?",
+    "question": "Are boys and young men in a crisis that needs help aimed at them?",
+    "meta_claim": "Boys and young men are falling behind in school, work, health and friendship in ways that amount to a crisis, and it needs policies and programs aimed at them, not only general help for the poor or the economy.",
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2553,61 +2900,72 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Are men's worse outcomes driven by gender itself, or by class and economic factors that hit more men?",
+    "evidenceCount": 13,
+    "firstCrux": "Do men's gaps in school, work and health persist among men and women from the same class and race?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate ceos herself naep clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "aliases": [
+      "Are young men in a crisis that neither left nor right adequately addresses?",
+      "Is there a masculinity crisis?",
+      "Is there a boy crisis?"
+    ],
+    "keywords": "tate anne deaton despair nces brothers extradition guryan juvenile lns11300061 loneliest ludwig midlife pollack readmissions"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
     "title": "AI Deepfakes & the Collapse of Shared Truth",
-    "question": "Have AI deepfakes made it impossible to trust any digital media?",
+    "question": "Can we still trust what we see online, now that AI can fake anything?",
     "meta_claim": "AI-generated deepfake audio, video, and images have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining evidence-based discourse, journalism, and democratic accountability.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 64,
+    "confidence_score": 47,
+    "balance": 47,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Does calling real evidence a deepfake actually let powerful people escape accountability?",
+    "evidenceCount": 12,
+    "firstCrux": "Can deepfake detection stay reliable as generators improve, or must trust shift to provenance?",
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa tape deloitte schiff hampshire politicians robocall kramer leica nikon hollywood adobe bueno crying liars"
+    "aliases": [
+      "Have AI deepfakes made it impossible to trust any digital media?",
+      "Can you tell a deepfake from a real video?"
+    ],
+    "keywords": "c2pa leica nikon sora adobe deloitte iproov schiff vall hampshire eval robocall acquitted hollywood dialogue"
   },
   {
     "id": "declining-birth-rates",
-    "title": "The Global Fertility Collapse",
-    "question": "Is falling fertility an existential crisis that demands policy action?",
-    "meta_claim": "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 60,
+    "title": "The Birth-Rate Decline",
+    "question": "Are falling birth rates a crisis that governments should try to fix?",
+    "meta_claim": "Falling birth rates are a serious problem for rich countries, driven largely by costs and barriers that stop people having the children they want, and governments should act to raise them.",
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 73,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 7,
-    "firstCrux": "Is there a fertility level below which falling income per person becomes self-reinforcing?",
+    "pillarCount": 4,
+    "evidenceCount": 14,
+    "firstCrux": "Will low birth rates push down living standards, or can aging countries adjust without more babies?",
     "tags": [
       "economics"
     ],
     "aliases": [
+      "Is falling fertility an existential crisis that demands policy action?",
       "Falling birth rates and family policy",
       "Should governments help people have the children they want?",
-      "Do housing and childcare costs explain low fertility?"
+      "Do housing and childcare costs explain low fertility?",
+      "Do baby bonuses work?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth yougov"
+    "keywords": "milligan unfpa hungarian kearney lutz pardue sobotka zeman quebecs childbirth conjecture iussp nvsr pcap pmozgalom"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2629,29 +2987,35 @@
     "tags": [
       "policy"
     ],
-    "keywords": "hypersonic glide icbm petrov pentagon posture tracy bomber putin submarine altitude avangard brumfiel cameron continental"
+    "keywords": "hypersonic glide icbm petrov pentagon posture minuteman tracy bomber chatham putin submarine altitude avangard brumfiel"
   },
   {
     "id": "transgender-athletes-sports",
-    "title": "Transgender Athletes in Competitive Sports",
-    "question": "Should transgender women on hormone therapy compete in women's sports?",
-    "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
-    "confidence_score": 39,
-    "balance": 39,
-    "weight": 67,
+    "title": "Transgender Athletes in Women's Sports",
+    "question": "Should transgender women and girls be allowed to compete in female sports?",
+    "meta_claim": "Transgender women and girls should be allowed to compete in female sports categories, because hormone therapy, or transition before puberty, removes enough of the physical advantage that male puberty brings.",
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 69,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 10,
+    "pillarCount": 4,
+    "evidenceCount": 13,
     "firstCrux": "After two-plus years on hormones, do retained advantages exceed normal variation among women in that sport?",
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "aliases": [
+      "Should transgender women on hormone therapy compete in women's sports?",
+      "Transgender Athletes in Competitive Sports",
+      "Should trans women play women's sports?",
+      "Is it fair for transgender girls to play on girls' teams?"
+    ],
+    "keywords": "olympic testosterone cisgender medal ncaa aerobic handelsman harper hilton lundberg rapporteur hemoglobin ahrendt bermon coventry"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2674,7 +3038,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters morgans restrainer"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon chocolate crabs lobsters mammals carl cephalopod crustaceans"
   },
   {
     "id": "immigration-national-identity",
@@ -2696,82 +3060,43 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam retiree hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
+    "keywords": "putnam borjas hunkering jews complementarity italians norc reexamining resettlement"
   },
   {
     "id": "affirmative-action-meritocracy",
     "title": "Affirmative Action & Meritocracy",
-    "question": "Are race-conscious admissions and hiring needed for equal opportunity?",
+    "question": "Should colleges and employers weigh race to give people an equal shot?",
     "meta_claim": "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
-    "confidence_score": 70,
-    "balance": 70,
-    "weight": 79,
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 78,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 16,
+    "evidenceCount": 17,
     "firstCrux": "Do test scores and credentials measure individual ability, or accumulated advantage?",
     "tags": [
       "policy"
     ],
-    "keywords": "sffa arcidiacono quotas disapprove campuses reanalyses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler"
+    "aliases": [
+      "Are race-conscious admissions and hiring needed for equal opportunity?",
+      "Was the Supreme Court right to end affirmative action?",
+      "Is affirmative action fair?",
+      "Should colleges consider race in admissions?"
+    ],
+    "keywords": "arcidiacono sffa bleemer freeman kinsler ransom mismatch disapproved huang athletes aucejo gurin hanna hotz lovenheim"
   },
   {
     "id": "ukraine-peace-terms",
     "title": "How the Russia-Ukraine War Should End",
     "question": "Would a deal freezing current lines end the war on acceptable terms?",
     "meta_claim": "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
-    "confidence_score": 38,
-    "balance": 38,
-    "weight": 71,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 4,
-    "evidenceCount": 16,
-    "firstCrux": "Can Ukraine realistically retake its 1991 borders, or is the front line effectively frozen?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "ukrainian zelensky putin donetsk manpower rusi ceasefire moscow emboldens haass jamestown kupchan kyiv facto refurbished"
-  },
-  {
-    "id": "trump-tariffs",
-    "title": "Trump's Tariffs & Protectionist Trade Policy",
-    "question": "Have Trump's tariffs revived US manufacturing and helped American workers?",
-    "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
     "confidence_score": 36,
     "balance": 36,
-    "weight": 79,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "economics",
-    "pillarCount": 4,
-    "evidenceCount": 18,
-    "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
-    "tags": [
-      "economics"
-    ],
-    "keywords": "fence ieepa yard cavallo chris piie reed aluminum usitc penn krugman truce usmca scattered alberto"
-  },
-  {
-    "id": "rfk-health-policy",
-    "title": "RFK Jr's Health Policy Agenda (MAHA)",
-    "question": "Will RFK Jr.'s 'Make America Healthy Again' agenda improve US health?",
-    "meta_claim": "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
-    "confidence_score": 39,
-    "balance": 39,
     "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -2780,21 +3105,53 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
-    "evidenceCount": 16,
-    "firstCrux": "Does the childhood vaccine schedule as a whole carry harms that studies of single vaccines miss?",
+    "evidenceCount": 17,
+    "firstCrux": "Can Ukraine realistically retake its 1991 borders, or is the front line effectively frozen?",
     "tags": [
       "policy"
     ],
-    "keywords": "acip marion nestle prasad appointees makary dairy confirmatory gras toothpaste unqualified asthma aluminum inpatient cavity"
+    "aliases": [
+      "Should Ukraine give up land for peace?",
+      "Should Ukraine accept a ceasefire on the current front line?",
+      "Can Ukraine still win the war?"
+    ],
+    "keywords": "ukrainian zelensky moscow troops donetsk manpower rusi facto demilitarized haass kremlin kupchan rutland embolden lyman"
   },
   {
-    "id": "doge-federal-cuts",
-    "title": "DOGE & Federal Spending Cuts",
-    "question": "Did DOGE's cuts eliminate waste and make government more effective?",
-    "meta_claim": "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
-    "confidence_score": 32,
-    "balance": 32,
-    "weight": 78,
+    "id": "trump-tariffs",
+    "title": "Trump's Tariffs & Protectionist Trade Policy",
+    "question": "Have Trump's tariffs revived US manufacturing and helped American workers?",
+    "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
+    "confidence_score": 34,
+    "balance": 34,
+    "weight": 80,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 4,
+    "evidenceCount": 19,
+    "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
+    "tags": [
+      "economics"
+    ],
+    "aliases": [
+      "Who really pays Trump's tariffs?",
+      "Are tariffs bringing factory jobs back?",
+      "Are Trump's tariffs working?"
+    ],
+    "keywords": "fence ieepa yard cavallo penn wharton piie aluminum usitc reed krugman truce usmca ustr scattered"
+  },
+  {
+    "id": "rfk-health-policy",
+    "title": "RFK Jr. and Make America Healthy Again (MAHA)",
+    "question": "Is RFK Jr.'s 'Make America Healthy Again' agenda making Americans healthier?",
+    "meta_claim": "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
+    "confidence_score": 37,
+    "balance": 37,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2802,18 +3159,53 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
-    "evidenceCount": 18,
+    "evidenceCount": 19,
+    "firstCrux": "Does the childhood vaccine schedule as a whole carry harms that studies of single vaccines miss?",
+    "tags": [
+      "policy"
+    ],
+    "aliases": [
+      "RFK Jr's Health Policy Agenda (MAHA)",
+      "Will RFK Jr.'s 'Make America Healthy Again' agenda improve US health?",
+      "Is RFK Jr. making America healthier?",
+      "Is Kennedy to blame for the measles outbreaks?"
+    ],
+    "keywords": "marion nestle prasad citrus makary hepatitis acip confirmatory toothpaste yellow mrna asthma aluminum dyes inpatient"
+  },
+  {
+    "id": "doge-federal-cuts",
+    "title": "DOGE's Cuts: Waste Removed, or Government Weakened?",
+    "question": "Did DOGE cut real waste, or leave Americans with a weaker government?",
+    "meta_claim": "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
+    "confidence_score": 30,
+    "balance": 30,
+    "weight": 79,
+    "verdict": {
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 19,
     "firstCrux": "How much of DOGE's claimed savings survives a line-by-line reconciliation?",
     "tags": [
       "policy"
     ],
-    "keywords": "pahlka callers fy2025 slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
+    "aliases": [
+      "Did DOGE's cuts eliminate waste and make government more effective?",
+      "Did DOGE actually cut government waste and make Washington leaner?",
+      "How much did DOGE really save?",
+      "DOGE & Federal Spending Cuts"
+    ],
+    "keywords": "fy2025 kettl pahlka rehire slaughter callers disinvestment executor humphreys nextgov opms overruled forgoes layoff ssas"
   },
   {
     "id": "open-weight-ai-models",
     "title": "Releasing Open-Weight Frontier AI Models",
     "question": "Does publishing the weights of frontier AI models do more good than harm?",
-    "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
+    "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm: wider access, outside safety research, self-hosted defence and competition with Chinese AI outweigh the extra help it gives malicious actors.",
     "confidence_score": 51,
     "balance": 51,
     "weight": 76,
@@ -2824,29 +3216,34 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 4,
-    "evidenceCount": 17,
+    "evidenceCount": 19,
     "firstCrux": "Do safety-stripped open models give bad actors real help on dangerous tasks beyond what search provides?",
     "tags": [
       "technology"
     ],
-    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bench bengio restrictionist yoshua"
+    "aliases": [
+      "Should frontier AI models be released open-weight?",
+      "Should AI models be open source?",
+      "Are open-source AI models dangerous?"
+    ],
+    "keywords": "deepseek ntia caisi uplift biorisk toner mistral casper kaunismaa amateur lecun novice nonproliferation bioattack hendrycks"
   },
   {
     "id": "carbon-tax-effectiveness",
     "title": "Carbon Tax Effectiveness",
-    "question": "Is a carbon tax an effective, efficient way to cut emissions?",
-    "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 73,
+    "question": "Does a carbon tax cut emissions cheaply enough to be worth the backlash?",
+    "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions, worth the political cost of keeping it.",
+    "confidence_score": 47,
+    "balance": 47,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 9,
+    "pillarCount": 4,
+    "evidenceCount": 13,
     "firstCrux": "How much of the observed emission cuts did carbon taxes actually cause?",
     "tags": [
       "economics",
@@ -2855,7 +3252,11 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
+    "aliases": [
+      "Is a carbon tax an effective, efficient way to cut emissions?",
+      "Does a carbon tax reduce emissions?"
+    ],
+    "keywords": "stiglitz stern rebate bbeling hildebrandt jessica abbott ahmadi aluminium andersson darcangelo ecoscope emitters kabore kruse"
   },
   {
     "id": "congestion-pricing",
@@ -2886,9 +3287,10 @@
       "Road pricing",
       "Downtown driving charges",
       "City center entry fees",
-      "Motorist charges on central streets"
+      "Motorist charges on central streets",
+      "Should cities charge drivers at peak times to fund public transit?"
     ],
-    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas mayors roadworks unaudited zpass wheels depreciation"
+    "keywords": "cordon tfls untolled roadways weekday eliasson inbound jonas roadworks zpass depreciation daytime mayors unaudited wheels"
   },
   {
     "id": "right-to-repair",
@@ -2915,7 +3317,7 @@
       "e-waste",
       "cybersecurity"
     ],
-    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas laptops luyi monopolize owens"
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas luyi refrigerators sheep workshop"
   },
   {
     "id": "assisted-dying-euthanasia",
@@ -2943,25 +3345,25 @@
       "medicine",
       "rights"
     ],
-    "keywords": "dignity refractory palliative charter carter colburn quill vacco prejudice arch comports crpd disrespects enjoyable grievous"
+    "keywords": "dignity refractory palliative carter colburn quill vacco prejudice arch comports crpd disrespects enjoyable grievous hastening"
   },
   {
     "id": "second-amendment-individual-right",
     "title": "The Second Amendment: Individual Right?",
     "question": "Does the Second Amendment protect an individual right to bear arms?",
-    "meta_claim": "The Second Amendment protects an individual right to bear arms, not merely a collective/militia right.",
-    "confidence_score": 52,
-    "balance": 52,
-    "weight": 69,
+    "meta_claim": "The Second Amendment protects an individual right to keep and bear arms for self-defense, not merely a right tied to militia service, and that right limits what guns governments may ban and where they may ban carrying them.",
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does the amendment's militia clause limit the right, or only explain its purpose?",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "Did 'bear arms' in the 1700s mean mainly military service, or also private carrying for self-defense?",
     "tags": [
       "policy",
       "second-amendment",
@@ -2969,16 +3371,21 @@
       "gun-rights",
       "originalism"
     ],
-    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace alito"
+    "aliases": [
+      "Does the Second Amendment protect an individual right?",
+      "Is an assault weapons ban constitutional?",
+      "Does the Second Amendment only protect militias?"
+    ],
+    "keywords": "heller bruen wallace emerson hemani kopel rahimi saul soldier kavanaugh corpus mcdonald fourteenth wolford gregory"
   },
   {
     "id": "self-driving-car-safety",
     "title": "Self-Driving Car Safety",
-    "question": "Are self-driving cars already safer than humans and ready for broad use?",
-    "meta_claim": "Autonomous vehicles are already safer than human drivers and should be deployed broadly.",
-    "confidence_score": 49,
-    "balance": 49,
-    "weight": 73,
+    "question": "Are self-driving cars safer than human drivers?",
+    "meta_claim": "Driverless cars are already safer than human drivers where they operate, and they should be allowed to spread to more cities and roads.",
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 78,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2986,7 +3393,7 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 16,
     "firstCrux": "Does self-driving cars' safety edge survive a truly like-for-like, independently audited comparison?",
     "tags": [
       "technology",
@@ -2996,7 +3403,12 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode groves kusano paddock"
+    "aliases": [
+      "Are self-driving cars already safer than humans and ready for broad use?",
+      "Are robotaxis safe?",
+      "Is Waymo safer than human drivers?"
+    ],
+    "keywords": "nhtsa tesla riders cruise pedestrian freeways kalra collisions swiss uber monica zoox glare santa phoenix"
   },
   {
     "id": "net-neutrality",
@@ -3027,7 +3439,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte dunn facetime"
+    "keywords": "comcast ante bittorrent briglauer cambini ctia gugler stocker secretly bona duarte facetime isps loper madison"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3054,7 +3466,7 @@
       "intellectual-property",
       "law"
     ],
-    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim regurgitate reshef shutterstock guild memorization thirteen bibas bookseller"
+    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim memorization regurgitate reshef shutterstock guild bibas bookseller chhabria"
   },
   {
     "id": "facial-recognition-policing",
@@ -3081,7 +3493,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha randal"
+    "keywords": "frvt metropolitan nistir affidavit clare frte garvie grother hanaoka misidentification mugshot ngan nijeer passers porcha"
   },
   {
     "id": "gmo-crops-safety",
@@ -3108,15 +3520,15 @@
       "glyphosate",
       "biotechnology"
     ],
-    "keywords": "cotton herbicide weeds roundup iarc bollworm sprays bayer benbrook monsanto mper pink pmra qaim halo"
+    "keywords": "cotton herbicide weeds roundup efsa iarc pesticide bollworm sprays subtle bayer benbrook monsanto mper pink"
   },
   {
     "id": "nuclear-fusion-timeline",
     "title": "Fusion Power Within Two Decades",
-    "question": "Will fusion power be a meaningful part of the energy mix within 20 years?",
+    "question": "Will fusion plants be putting real power on the grid by the mid-2040s?",
     "meta_claim": "Commercial fusion power will be a meaningful part of the energy mix within the next two decades.",
-    "confidence_score": 47,
-    "balance": 47,
+    "confidence_score": 54,
+    "balance": 54,
     "weight": 59,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
@@ -3125,8 +3537,8 @@
     "status": "highly_speculative",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 9,
-    "firstCrux": "Can a complete fusion plant put out more electricity than it consumes?",
+    "evidenceCount": 11,
+    "firstCrux": "Can a complete fusion plant put out more electricity than it draws from the grid?",
     "tags": [
       "science",
       "fusion",
@@ -3135,24 +3547,28 @@
       "iter",
       "decarbonization"
     ],
-    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
+    "aliases": [
+      "Will fusion power be a meaningful part of the energy mix within 20 years?",
+      "Is fusion always 30 years away?"
+    ],
+    "keywords": "helion commonwealth laser tritium sparc deuterium polaris orion plasma arcs livermore llnl nifs magnetic chesterfield"
   },
   {
     "id": "vaccine-mandates",
-    "title": "Government Vaccine Mandates",
-    "question": "Are government vaccine mandates a justified public-health measure?",
-    "meta_claim": "Government vaccine mandates are a justified public-health measure.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 73,
+    "title": "Vaccine Mandates",
+    "question": "Should vaccines be mandatory for school and work?",
+    "meta_claim": "Governments are justified in requiring vaccination for school entry and for some jobs, with medical exemptions, because the protection of others and of children outweighs the cost to individual choice.",
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 9,
+    "pillarCount": 4,
+    "evidenceCount": 15,
     "firstCrux": "How much of the uptake after a mandate is caused by the mandate, rather than the maturing rollout?",
     "tags": [
       "policy",
@@ -3160,30 +3576,35 @@
       "public-health",
       "covid-19",
       "law",
-      "ethics"
+      "ethics",
+      "measles"
     ],
     "aliases": [
+      "Are government vaccine mandates a justified public-health measure?",
+      "Are government vaccine mandates justified?",
       "School vaccination requirements",
-      "Required childhood immunizations"
+      "Required childhood immunizations",
+      "No jab, no job",
+      "Should parents be able to opt out of school vaccines?"
     ],
-    "keywords": "osha measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel kraaijeveld"
+    "keywords": "osha reactance amish jacobson compulsory mcmaster interdisciplinary passports astrazeneca figueiredo larson mahmoud polio unvaccinated waned"
   },
   {
     "id": "ssri-antidepressant-efficacy",
-    "title": "Do Antidepressants Beat Placebo?",
-    "question": "Do antidepressants help depression meaningfully more than placebo?",
-    "meta_claim": "SSRI antidepressants provide clinically meaningful benefit beyond placebo for depression.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 71,
+    "title": "Do Antidepressants Really Work?",
+    "question": "Do antidepressants really work better than a placebo?",
+    "meta_claim": "SSRIs and other antidepressants give people with depression a benefit beyond placebo that is large enough to matter, and staying on them protects against relapse.",
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 79,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 7,
+    "pillarCount": 4,
+    "evidenceCount": 15,
     "firstCrux": "Should the benefit be judged by the average patient, or by a subgroup who truly respond to the drug?",
     "tags": [
       "science",
@@ -3193,25 +3614,31 @@
       "medicine",
       "placebo"
     ],
-    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine reuptake"
+    "aliases": [
+      "Do Antidepressants Beat Placebo?",
+      "Do antidepressants help depression meaningfully more than placebo?",
+      "Are SSRIs just a placebo?",
+      "Should I come off my antidepressants?"
+    ],
+    "keywords": "serotonin hamilton molecular remission moncrieff nices acta kirsch psychiatrica reuptake scandinavica umbrella antler citalopram fluoxetine"
   },
   {
     "id": "social-security-retirement-age",
     "title": "Raising the Retirement Age",
-    "question": "Is raising the retirement age a fair, necessary fix for Social Security?",
+    "question": "Should the retirement age be raised to keep Social Security solvent?",
     "meta_claim": "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
-    "confidence_score": 50,
-    "balance": 50,
-    "weight": 75,
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "How much of Social Security's funding gap would raising the retirement age close, versus revenue options?",
+    "pillarCount": 3,
+    "evidenceCount": 9,
+    "firstCrux": "How much of Social Security's gap would a later retirement age close, compared with taxing high earners?",
     "tags": [
       "economics",
       "social-security",
@@ -3220,7 +3647,11 @@
       "aging",
       "inequality"
     ],
-    "keywords": "actuary trustees solvency crfb retirees oasdi payable taxable"
+    "aliases": [
+      "Is raising the retirement age a fair, necessary fix for Social Security?",
+      "Should the full retirement age go up to 70?"
+    ],
+    "keywords": "crfb solvency trustees appendix oasi caseload quartile"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3247,7 +3678,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated chairman illiquid instantaneously ranch taxable forgone"
+    "keywords": "kopczuk gravelle wojciech bequest deathbed if11812 jane saxton forgone illiquid ranch unrealized"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3286,17 +3717,17 @@
     "title": "Encryption Backdoors",
     "question": "Should governments be able to compel encryption backdoors?",
     "meta_claim": "Governments should be able to compel lawful-access (\"backdoor\") capabilities in encrypted communications.",
-    "confidence_score": 35,
-    "balance": 35,
-    "weight": 63,
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 65,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Can a lawful-access design exist whose added security risk is acceptably small?",
     "tags": [
       "technology",
@@ -3306,7 +3737,7 @@
       "security",
       "law-enforcement"
     ],
-    "keywords": "calea rivest intercept abelson bellovin cybertipline diffie doormats inventor investigatory ncmec schneier telephony venetic comms"
+    "keywords": "wiretap ncmecs intercept calea rivest abelson bellovin diffie doormats investigatory schneier telephony venetic cisa comms"
   },
   {
     "id": "section-230-reform",
@@ -3324,7 +3755,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 11,
-    "firstCrux": "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
+    "firstCrux": "When a feed pushes a harmful post, is that the platform's own act, or still just publishing someone else's speech?",
     "tags": [
       "technology",
       "section-230",
@@ -3333,7 +3764,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
+    "keywords": "fosta overblocking rohingya disincentives netzdg overseas aggravated eifert nylah netchoice moody abetted anhaltspunkte antiterrorism backpage"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3363,25 +3794,25 @@
     "aliases": [
       "Will killer robots start an AI arms race?"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible primer abstentions atrocities belarus governmental milder unoda"
+    "keywords": "icrc preemptive lamberth scharre sparrow dumb if11150 if11294 governmental impermissible atrocities belarus primer unoda"
   },
   {
     "id": "ai-energy-water-footprint",
     "title": "AI's Energy & Water Footprint",
-    "question": "Is AI's energy and water use serious enough to warrant intervention?",
-    "meta_claim": "AI's energy and water footprint is a serious environmental problem that warrants intervention.",
-    "confidence_score": 55,
-    "balance": 55,
-    "weight": 69,
+    "question": "Is AI using too much electricity and water?",
+    "meta_claim": "AI's electricity and water use is a serious problem, for the climate, for local water supplies and for household power bills, and it warrants government intervention.",
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 82,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Is new data-center demand met by clean power, or by new gas and delayed coal retirements?",
+    "pillarCount": 4,
+    "evidenceCount": 17,
+    "firstCrux": "Will efficiency gains shrink AI's total energy use, or will heavier use keep outrunning them?",
     "tags": [
       "technology",
       "ai",
@@ -3393,18 +3824,20 @@
     "aliases": [
       "How much water does each ChatGPT query use?",
       "How much water does an AI chatbot drink?",
-      "Will AI data centers use as much electricity as whole countries?"
+      "Will AI data centers use as much electricity as whole countries?",
+      "Is AI's energy and water use serious enough to warrant intervention?",
+      "Are data centers raising my electric bill?"
     ],
-    "keywords": "onsite freshwater gallons lbnl islam eesi gco2e masley offsite shehabi thermoelectric thirsty hyperscaler cubic"
+    "keywords": "gallons freshwater onsite mistral fifteenth teaspoon evaporated pjms riverside turbine brad datacenters gco2e masley andy"
   },
   {
     "id": "adhd-overdiagnosis",
     "title": "Is ADHD Overdiagnosed?",
     "question": "Is ADHD overdiagnosed?",
     "meta_claim": "ADHD is substantially overdiagnosed.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 69,
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3412,7 +3845,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does the gap between diagnosed and community ADHD rates reflect false positives or previously missed cases?",
     "tags": [
       "science",
@@ -3422,7 +3855,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest convincing kazda underdiagnosed barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
+    "keywords": "comorbidity polanczyk youngest danielson kazda skoglund underdiagnosed agnew kessler oldest barratt blais blaiss dalsgaard faraone"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3449,7 +3882,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised wang acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
+    "keywords": "evali acetate mcneill fluid hospitalised bhadriraju blount glantz hajek flavoured bronchoalveolar cd010216 latinx lavage lindson"
   },
   {
     "id": "sex-work-decriminalization",
@@ -3476,7 +3909,7 @@
       "hiv",
       "harm-reduction"
     ],
-    "keywords": "prostitution indoor gonorrhea govt repressive christchurch cunningham dreher neumayer shah abel beehive brothel brunton fitzgerald"
+    "keywords": "prostitution indoor gonorrhea govt repressive christchurch dreher neumayer cunningham shah beehive brothel brunton fitzgerald goldenberg"
   },
   {
     "id": "congressional-term-limits",
@@ -3503,7 +3936,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson powell raja rogowski thornton carroll jenkins"
+    "keywords": "burkean caucus cawp lobbyists apollonio carey carroll mclaughlin moncrief niemi olson raja rogowski rutgers thornton"
   },
   {
     "id": "effective-altruism",
@@ -3529,16 +3962,16 @@
       "global-health",
       "longtermism"
     ],
-    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory maertens miguel pryce utilitas haushofer kremer bankman"
+    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory kremer maertens miguel pryce utilitas haushofer malaria"
   },
   {
     "id": "alcohol-no-safe-level",
-    "title": "Alcohol's Safe Level",
-    "question": "Is any amount of drinking harmful to health?",
+    "title": "Alcohol: Is Any Amount Safe?",
+    "question": "Is even one drink a day bad for your health?",
     "meta_claim": "There is no safe level of alcohol consumption for health.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 77,
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3546,8 +3979,8 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Does cancer risk rise from the first drink, or could a small threshold hide below what studies can detect?",
+    "evidenceCount": 13,
+    "firstCrux": "Does cancer risk rise from the first daily drink, or only above some small amount?",
     "tags": [
       "science",
       "alcohol",
@@ -3557,19 +3990,21 @@
       "epidemiology"
     ],
     "aliases": [
+      "Is any amount of drinking harmful to health?",
       "Is a glass of red wine a day good for your heart?",
-      "Is moderate drinking good for you?"
+      "Is moderate drinking good for you?",
+      "Is there a safe level of alcohol?"
     ],
-    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted zhao mendelian carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
+    "keywords": "drinkers stockwell minimises bagnardi bowel fillmore kassaw larynx naimi continuum beverages iarc linear carcinoma chikritzhs"
   },
   {
     "id": "modern-monetary-theory",
     "title": "Modern Monetary Theory",
     "question": "Is Modern Monetary Theory a sound basis for spending and deficit policy?",
     "meta_claim": "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 65,
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3577,7 +4012,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Does 'a currency issuer can't be forced to default' guide spending policy, or hide the inflation limit?",
     "tags": [
       "economics",
@@ -3587,16 +4022,16 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "latin fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats countercyclical"
+    "keywords": "gilt latin fraught hyperinflation mmts peru sebasti tcherneva booth caricature countercyclical jurkatis misdescribe neednt pcepilfe"
   },
   {
     "id": "dark-matter-vs-mond",
     "title": "Dark Matter vs. MOND",
     "question": "Does dark matter, not modified gravity, explain how galaxies move?",
     "meta_claim": "Dark matter, rather than modified gravity (MOND), is the correct explanation for galactic dynamics.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 72,
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3604,7 +4039,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Is the link between visible matter and galactic motion exact, or does it vary slightly from galaxy to galaxy?",
     "tags": [
       "science",
@@ -3615,6 +4050,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli schombert bullet phys priori"
+    "keywords": "baryonic radial mcgaugh scatter rodrigues sparc astronomy fisher tully planck sigma bertone bullet davari famaey"
   }
 ]

@@ -77,9 +77,9 @@ export const aiConsciousnessData = {
         },
         {
           id: "anthropic-welfare-research",
-          title: "Anthropic Estimates a Non-Negligible Probability of AI Consciousness",
+          title: "Anthropic Runs a Model Welfare Program While Calling AI Consciousness an Open Question",
           description:
-            "In late 2024, Anthropic—one of the leading AI safety companies—hired its first dedicated AI welfare researcher (Kyle Fish) and began conducting model welfare assessments before deploying new models, treating a 'non-negligible' probability that Claude might possess some form of consciousness as worth taking seriously. The framing is explicitly probabilistic and hedged, not a claim of established consciousness. (Separately, Jack Lindsey's 'Emergent Introspective Awareness in Large Language Models' (Anthropic, October 29, 2025) found evidence for 'some degree of introspective awareness' in Claude models, which Anthropic stresses is 'still highly unreliable and limited in scope'—evidence about introspection and self-report, which is distinct from, and not proof of, subjective experience.)",
+            "In April 2025 Anthropic, one of the leading AI developers, said it had begun research on model welfare, writing that 'There's no scientific consensus on whether current or future AI systems could be conscious' and that it is approaching the topic 'with humility and with as few assumptions as possible.' The framing treats the question as open and worth studying, not as a claim of established consciousness. (Separately, Anthropic's interpretability team, in 'Emergent Introspective Awareness in Large Language Models' (October 29, 2025), reported evidence for 'some degree of introspective awareness' in Claude models, which it stresses is 'still highly unreliable and limited in scope'; it says the results don't tell us whether Claude or any other AI system might be conscious.)",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -87,7 +87,7 @@ export const aiConsciousnessData = {
             replicability: 5,
             directness: 6,
           },
-          source: "J. Lindsey (Anthropic), 'Emergent Introspective Awareness in Large Language Models' (Oct 29, 2025) and Anthropic model welfare work (2024-2025)",
+          source: "Anthropic, 'Emergent Introspective Awareness in Large Language Models' (Oct 29, 2025); Anthropic, 'Exploring model welfare' (Apr 24, 2025)",
           sourceUrl: "https://www.anthropic.com/research/introspection",
           reasoning:
             "Anthropic's actions signal genuine concern from those closest to frontier AI development. However, there are incentive problems: anthropomorphizing AI may serve commercial interests, and Anthropic is not a neutral scientific body. The introspection finding is about self-report accuracy, not consciousness itself.",

@@ -206,8 +206,8 @@ export const childrenSmartphoneAgeData = {
             replicability: 6,
             directness: 5,
           },
-          source: "Abrahamsson, Norwegian School of Economics Discussion Paper 01/2024; French Ministry of Education",
-          sourceUrl: "https://openaccess.nhh.no/nhh-xmlui/bitstream/handle/11250/3119200/DP%2001.pdf?isAllowed=y&sequence=1",
+          source: "Abrahamsson, 'Smartphone Bans, Student Outcomes and Mental Health', Norwegian School of Economics Discussion Paper 1/2024 (EconPapers listing); French Ministry of Education",
+          sourceUrl: "https://econpapers.repec.org/paper/hhsnhheco/2024_5f001.htm",
           reasoning:
             "Reframed: the earlier claim that French mental-health data showed 'no improvement' is contradicted by later quasi-experimental evaluations finding modest benefits, so it cannot stand as evidence against the smartphone-harm thesis. The genuine limitation is scope: a school-hours-only ban (~7 of 16 waking hours) is a poor test of the ownership-restriction hypothesis. Directness lowered because this natural experiment speaks only indirectly to the meta_claim about banning ownership.",
         },

@@ -117,7 +117,7 @@ describe("PasteClient with every lane off (production today)", () => {
 
     await waitFor(() => view.getByRole("heading", { name: "This argument is already mapped" }));
     // Named by the question its map page asks, never the old Title-Case label.
-    expect(view.getByRole("link", { name: "Does large-scale immigration significantly cut low-skilled native wages?" })).toBeTruthy();
+    expect(view.getByRole("link", { name: "Does immigration push down wages for low-paid American workers?" })).toBeTruthy();
     expect(view.queryByText("Immigration and Wages")).toBeNull();
     // Sides by the answer to that question, said in full under the crux.
     expect(
@@ -181,7 +181,7 @@ describe("PasteClient with every lane off (production today)", () => {
     // The announcement names the sibling too.
     const announcer = view.getAllByRole("status").find((el) => el.className.includes("sr-only"));
     expect(announcer?.textContent).toBe(
-      "Result below. This argument is already mapped: Does large-scale immigration significantly cut low-skilled native wages? Closely related: The Case for Open Borders.",
+      "Result below. This argument is already mapped: Does immigration push down wages for low-paid American workers? Closely related: The Case for Open Borders.",
     );
   });
 
@@ -204,7 +204,7 @@ describe("PasteClient with every lane off (production today)", () => {
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
     await waitFor(() =>
       expect(announcer?.textContent).toBe(
-        "Result below. This argument is already mapped: Does large-scale immigration significantly cut low-skilled native wages?",
+        "Result below. This argument is already mapped: Does immigration push down wages for low-paid American workers?",
       ),
     );
   });

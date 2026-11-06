@@ -59,6 +59,9 @@ import { jonesActData } from "./topics/jones-act";
 import { medicaidWorkRequirementsData } from "./topics/medicaid-work-requirements";
 import { dataCentersElectricityBillsData } from "./topics/data-centers-electricity-bills";
 import { proofOfCitizenshipVotingData } from "./topics/proof-of-citizenship-voting";
+import { congressStockTradingBanData } from "./topics/congress-stock-trading-ban";
+import { partisanGerrymanderingData } from "./topics/partisan-gerrymandering";
+import { acaEnhancedSubsidiesData } from "./topics/aca-enhanced-subsidies";
 import { chinaTaiwanInvasionData } from "./topics/china-taiwan-invasion";
 import { returnToOfficeProductivityData } from "./topics/return-to-office-productivity";
 import { nuclearRenaissanceSmrData } from "./topics/nuclear-renaissance-smr";
@@ -350,6 +353,11 @@ export const dataCentersElectricityBills = buildTopic(dataCentersElectricityBill
 // New maps (2026-11, round 13)
 export const proofOfCitizenshipVoting = buildTopic(proofOfCitizenshipVotingData);
 
+// New maps (2026-11, round 15)
+export const congressStockTradingBan = buildTopic(congressStockTradingBanData);
+export const partisanGerrymandering = buildTopic(partisanGerrymanderingData);
+export const acaEnhancedSubsidies = buildTopic(acaEnhancedSubsidiesData);
+
 export const topics: Topic[] = [
   // --- New (2026-06-23, net-new initiative) ---
   sportsBettingLegalization,
@@ -375,6 +383,11 @@ export const topics: Topic[] = [
 
   // --- New maps (2026-11, round 13) ---
   proofOfCitizenshipVoting,
+
+  // --- New maps (2026-11, round 15) ---
+  congressStockTradingBan,
+  partisanGerrymandering,
+  acaEnhancedSubsidies,
 
   // --- Policy & Governance ---
   nuclearEnergySafety,

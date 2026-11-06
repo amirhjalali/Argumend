@@ -11,6 +11,7 @@ import { EmbedButton } from "@/components/EmbedButton";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Button } from "@/components/ui";
 import { useIsHydrated, useMediaQuery } from "@/hooks/useMediaQuery";
+import { trackEvent } from "@/lib/analytics";
 
 function subscribeNothing() {
   return () => {};
@@ -75,6 +76,7 @@ export function ShareTopicButton({
     if (canShare) {
       try {
         await navigator.share({ title, url });
+        trackEvent({ action: "share_click", platform: "native" });
         return;
       } catch (error) {
         // The visitor closed the share sheet: an answer, not a failure, so

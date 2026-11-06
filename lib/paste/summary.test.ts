@@ -5,6 +5,7 @@ import { FakeDisagreementProvider } from "@/lib/disagreement/model/fake";
 import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "@/lib/disagreement/prompts/v1/examples";
 import { findMaps, getMapIndex } from "./maps";
 import { buildPasteSummary, withoutNames } from "./summary";
+import { oneSidedMaps } from "./testTopics";
 
 describe("withoutNames", () => {
   it("replaces whole participant labels, longest first, and leaves other words alone", () => {
@@ -61,7 +62,7 @@ describe("buildPasteSummary", () => {
 
     // Named by the map's question, as its page heading is; sides by the answer.
     expect(summary).toContain(
-      "A map to explore: Does large-scale immigration significantly cut low-skilled native wages?",
+      "A map to explore: Does immigration push down wages for low-paid American workers?",
     );
     expect(summary).not.toContain("Immigration and Wages");
     expect(summary).not.toContain(maps.match!.claim);
@@ -75,7 +76,8 @@ describe("buildPasteSummary", () => {
   });
 
   it("keeps a borrowed card's evidence link without duplicating an already linked question", async () => {
-    const maps = await findMaps("Banning TikTok violates the First Amendment rights of the millions of Americans who use the app to speak and share their views.");
+    // A fixture map with a one-sided crux (./testTopics.ts), not a live one.
+    const maps = await oneSidedMaps();
     const match = maps.match!;
     const borrowed = match.cards.find((card) => card.crux?.href !== match.crux?.href)!;
     const origin = borrowed.crux!;

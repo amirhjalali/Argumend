@@ -2,6 +2,7 @@
  * The one topic page. Every map on /topics/[id] renders through this
  * template, in this order, whatever its data shape:
  *
+ *   0. the map's illustration, when it has one, as the opening plate
  *   1. breadcrumb + kicker ("Map · reviewed … · N sources")
  *   2. H1 = the question
  *   3. the hook
@@ -18,6 +19,7 @@
  * lists the crux questions and the actions. Server-safe: the only client code
  * is the reflection and the action buttons.
  */
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -40,6 +42,7 @@ import {
   HIDDEN_ASSUMPTION_NOTE,
   type CruxEntryData,
   type PositionCardData,
+  type TopicHero,
   type TopicPageData,
 } from "@/lib/topicPage/model";
 
@@ -68,8 +71,6 @@ export interface TopicPageProps {
   cruxes: CruxEntryView[];
   /** Quiet links under the crux sheet (the living AI map, the diagram). */
   afterCruxes?: ReactNode;
-  /** Shown after the positions (the flagship illustration). */
-  afterPositions?: ReactNode;
   folds: TopicFold[];
   /** The provenance sentence before "How this map was made". */
   madeBy: string;
@@ -83,7 +84,6 @@ export function TopicPage({
   page,
   cruxes,
   afterCruxes,
-  afterPositions,
   folds,
   madeBy,
   madeByHref = "/methodology",
@@ -102,9 +102,10 @@ export function TopicPage({
     // The reading column is the site's reading width (PageContainer
     // "reading"); desktop adds the rail beside it inside the default width.
     <div
-      className={`mx-auto w-full ${PAGE_WIDTHS.default} ${PAGE_GUTTER} pb-16 pt-4 sm:pt-6 lg:grid lg:grid-cols-[minmax(0,44rem)_13rem] lg:justify-center lg:gap-12`}
+      className={`mx-auto w-full ${PAGE_WIDTHS.default} ${PAGE_GUTTER} pb-16 pt-4 sm:pt-6 lg:grid lg:grid-cols-[minmax(0,44rem)_13rem] lg:justify-center lg:gap-x-12`}
       data-topic-kind={page.kind}
     >
+      {page.hero && <TopicPlate hero={page.hero} />}
       <article className={`mx-auto w-full min-w-0 ${PAGE_WIDTHS.reading} lg:mx-0`}>
         <TopicHeader page={page} />
         <AgreementBlock heading={page.agreementHeading} items={page.agreement} />
@@ -115,7 +116,6 @@ export function TopicPage({
           note={page.positionsNote}
           cards={page.positions}
         />
-        {afterPositions}
         <OpenCruxFromHash />
         {reflectionOptions.length > 0 && (
           <CruxReflection topicId={page.id} options={reflectionOptions} />
@@ -140,6 +140,40 @@ export function TopicPage({
 
       <TopicRail page={page} cruxes={cruxes} url={url} />
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// 0. The opening plate
+// ---------------------------------------------------------------------------
+
+/**
+ * The map's illustration as a wide, shallow band the page opens on: edge to
+ * edge on a phone, across the reading column and the rail on a desktop. Its
+ * edges dissolve into the page (.topic-plate), so it reads as painted on the
+ * same paper as the text rather than pasted above it. Shallow on purpose: a
+ * phone still reaches the question and the first crux early.
+ *
+ * The art carries no claim; its alt text is the one registered with it.
+ * Dark mode dims it so the paper-toned art does not glare on the dark page.
+ */
+export function TopicPlate({ hero }: { hero: TopicHero }) {
+  return (
+    <figure
+      data-testid="topic-plate"
+      className="topic-plate relative -mx-4 -mt-4 aspect-[7/2] overflow-hidden sm:mx-0 sm:-mb-3 sm:-mt-2 lg:col-span-2 lg:aspect-[4/1]"
+    >
+      <Image
+        src={hero.src}
+        alt={hero.alt}
+        width={hero.width}
+        height={hero.height}
+        priority
+        sizes="(min-width: 1024px) 960px, (min-width: 640px) calc(100vw - 3rem), 100vw"
+        style={hero.focus ? { objectPosition: hero.focus } : undefined}
+        className="h-full w-full object-cover object-center dark:brightness-[0.6] dark:saturate-[0.8]"
+      />
+    </figure>
   );
 }
 
@@ -173,7 +207,7 @@ export function TopicHeader({ page }: { page: TopicPageData }) {
           { label: page.crumb },
         ]}
       />
-      <p className="label-caps" data-testid="topic-kicker">
+      <p className="label-caps -mt-1.5" data-testid="topic-kicker">
         Map
         {page.reviewedOn && (
           <>
@@ -204,8 +238,8 @@ export function TopicHeader({ page }: { page: TopicPageData }) {
         </p>
       )}
       {hook && (
-        <div className="mt-4">
-          <p className="font-serif text-[1.1875rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.25rem]">
+        <div className="mt-3 sm:mt-4">
+          <p className="font-serif text-[1.125rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.25rem]">
             {hook.text}
           </p>
           {hook.note && (
@@ -244,19 +278,19 @@ export function AgreementBlock({ heading, items }: { heading: string; items: str
     <section
       id="agreement"
       aria-labelledby="agreement-heading"
-      className="mt-6 surface-paper rounded-lg border-l-[3px] border-l-deep/70 p-4 dark:border-l-[#8bb5b1]/60 sm:px-5 sm:py-4"
+      className="mt-4 surface-paper rounded-lg border-l-[3px] border-l-deep/70 px-4 py-3.5 dark:border-l-[#8bb5b1]/60 sm:mt-6 sm:px-5 sm:py-4"
     >
       <h2
         id="agreement-heading"
-        className="font-serif text-[1.25rem] leading-snug text-stone-900 dark:text-stone-100"
+        className="font-serif text-[1.1875rem] leading-snug text-stone-900 dark:text-stone-100 sm:text-[1.25rem]"
       >
         {heading}
       </h2>
-      <ul className="mt-2.5 space-y-2">
+      <ul className="mt-2 space-y-1.5 sm:mt-2.5 sm:space-y-2">
         {items.map((item) => (
           <li
             key={item}
-            className="flex gap-3 font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1rem]"
+            className="flex gap-3 font-serif text-[1rem] leading-[1.45] text-stone-800 dark:text-stone-200 sm:leading-[1.5]"
           >
             <span aria-hidden="true" className="mt-[0.7rem] h-px w-3 shrink-0 bg-deep/70 dark:bg-[#8bb5b1]/70" />
             <span>{item}</span>
@@ -288,12 +322,12 @@ export function CruxSheet({ page, cruxes }: { page: TopicPageData; cruxes: CruxE
       id="cruxes"
       title={cruxSheetHeading(cruxes.length)}
       lede={!lede && page.cruxTally ? `Settle one and whole positions move. ${page.cruxTally}` : undefined}
-      className="mt-8"
+      className="mt-6 sm:mt-8"
     >
       {lede && (
         <p
           data-crux-lede=""
-          className="-mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300"
+          className="-mt-2 text-pretty font-serif text-[1rem] leading-[1.55] text-secondary dark:text-stone-300 sm:text-[1.0625rem] sm:leading-relaxed"
         >
           {lede}
         </p>
@@ -348,10 +382,10 @@ function CruxEntry({
               content model allows one. */}
           <h3 className={`${ENTRY_COLUMN} flex items-start gap-3`}>
             <span
-              className={`text-pretty font-serif font-medium leading-[1.35] ${
+              className={`text-pretty font-serif font-medium ${
                 long
-                  ? "text-[1.0625rem] sm:text-[1.1875rem]"
-                  : "text-[1.1875rem] sm:text-[1.3125rem]"
+                  ? "text-[1.125rem] leading-[1.32] sm:text-[1.3125rem]"
+                  : "text-[1.25rem] leading-[1.28] sm:text-[1.5rem]"
               } ${
                 settle.resolved
                   ? "text-stone-600 dark:text-stone-400"
@@ -393,6 +427,10 @@ function CruxEntry({
               condition={settle.condition}
               resolved={settle.resolved}
               label={settle.label}
+              quiet
+              // Closed on a phone, the answer shows three lines so the
+              // questions stay scannable; opening the entry shows it whole.
+              conditionClassName="max-sm:line-clamp-3 max-sm:group-open/crux:line-clamp-none"
             />
             {settle.note && (
               <span className="mt-1.5 block text-xs leading-snug text-muted dark:text-stone-400">
@@ -427,7 +465,7 @@ function CruxEntry({
               ))}
               {crux.afterRunIns}
               {crux.evidence && (
-                <details className="group/evidence">
+                <details className="group/evidence" data-evidence="">
                   <summary className={INLINE_SUMMARY}>
                     <span>{crux.evidenceLabel ?? "Show the evidence on each side"}</span>
                     <span
@@ -490,24 +528,42 @@ export function PositionCards({
   cards: PositionCardData[];
 }) {
   if (cards.length === 0) return null;
+  // Facing pages: the sides share one ruled spread, a hairline down the
+  // middle, instead of sitting in two boxed cards. Each side's colour is a
+  // short bar over its name; the name and the case are set in the text face,
+  // because the sides are the argument's main characters, not its metadata.
+  const spread = cards.length % 2 === 0;
   return (
     <Section id="positions" title={heading} lede={note} className="mt-10">
-      <ul className="grid gap-3 sm:grid-cols-2">
-        {cards.map((card) => (
+      <ul
+        data-position-spread=""
+        className={`grid border-y border-divider sm:grid-cols-2 ${
+          spread
+            ? "sm:relative sm:before:pointer-events-none sm:before:absolute sm:before:inset-y-6 sm:before:left-1/2 sm:before:border-l sm:before:border-divider sm:before:content-['']"
+            : ""
+        }`}
+      >
+        {cards.map((card, index) => (
           <li
             key={card.id}
-            className="surface-card rounded-lg border-l-4 p-4"
-            style={{ borderLeftColor: card.accent }}
+            className={`min-w-0 py-5 sm:py-6 sm:odd:pr-7 sm:even:pl-7 ${
+              index > 0 ? "border-t border-divider" : ""
+            } ${index === 1 ? "sm:border-t-0" : ""}`}
           >
-            <h3 className="text-[15px] font-medium text-stone-900 dark:text-stone-100">
+            <span
+              aria-hidden="true"
+              className="block h-[3px] w-10 rounded-full"
+              style={{ backgroundColor: card.accent }}
+            />
+            <h3 className="mt-3 text-balance font-serif text-[1.3125rem] font-medium leading-snug text-stone-900 dark:text-stone-100">
               {card.label}
             </h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
+            <p className="mt-1.5 text-pretty font-serif text-[1.0625rem] leading-[1.55] text-stone-700 dark:text-stone-300">
               {card.summary}
             </p>
             {(card.full.length > 0 || card.heldBy || card.voice) && (
               <details className="group/position mt-1">
-                <summary className={`${INLINE_SUMMARY} !text-xs`}>
+                <summary className={INLINE_SUMMARY}>
                   <span>Read the full case</span>
                   <span
                     aria-hidden="true"
@@ -520,7 +576,7 @@ export function PositionCards({
                   {card.full.map((paragraph) => (
                     <p
                       key={paragraph.lead + paragraph.text.slice(0, 24)}
-                      className="text-sm leading-relaxed text-secondary dark:text-stone-300"
+                      className="font-serif text-[1rem] leading-[1.6] text-secondary dark:text-stone-300"
                     >
                       {paragraph.lead && (
                         <em className="font-medium not-italic text-stone-900 dark:text-stone-100">

@@ -99,6 +99,24 @@ export const modernMonetaryTheoryData = {
           reasoning:
             "Official, non-partisan documentation of the balance-sheet expansion. Supports MMT's point that money creation is not mechanically inflationary when there is spare capacity. Directness is moderate: QE (asset swaps with banks) is not the same as MMT-style deficit-financed spending into the real economy, so the analogy is partial.",
         },
+        {
+          id: "uk-gilt-crisis-2022",
+          title: "UK 2022: markets forced the Bank of England's hand on a sovereign that borrows in its own currency",
+          description:
+            "The United Kingdom issues its own floating currency and borrows in it, the case MMT says cannot be forced. Yet, as Bank of England staff later wrote, 'following the announcement of the Government's \"Growth Plan\" on 23 September, gilt yields increased sharply. The speed and scale of the rise over the following days were unprecedented.' On 28 September 2022 the Bank announced emergency purchases of long-dated gilts 'on whatever scale is necessary', warning that 'were dysfunction in this market to continue or worsen, there would be a material risk to UK financial stability', while saying its annual £80bn stock-reduction target was 'unaffected and unchanged'. Critics of MMT read it as markets disciplining a currency issuer's fiscal plans well before any question of nominal default. MMT's defenders can read the same week the other way: the Bank, as issuer, ended the sell-off by buying, and the UK never defaulted. Leveraged pension funds also amplified it: the staff estimate liability-driven investors faced 'approximately £66 billion in calls for variation margin' before the Bank stepped in, and 'some liability-driven investors were forced to start selling gilts'.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Bank of England, 'Bank of England announces gilt market operation' (28 September 2022); Henning, Jurkatis, Powar and Valentini, 'Lifting the lid on a liquidity crisis', Bank Underground (18 July 2023)",
+          sourceUrl: "https://www.bankofengland.co.uk/news/2022/september/bank-of-england-announces-gilt-market-operation",
+          reasoning:
+            "Primary central-bank documents for the facts, so reliability is high; the Bank Underground post is staff analysis that the Bank says is not necessarily its view. Directness is 5: the episode shows a currency issuer's fiscal announcement running into a market and financial-stability limit, which is the skeptics' point, but the issuer did not default and its central bank did stop the sell-off, which is MMT's point, so it does not settle whether 'no involuntary default' is a useful guide. One episode, with pension-fund leverage as a confounder, holds replicability to 6.",
+        },
       ],
     },
     {

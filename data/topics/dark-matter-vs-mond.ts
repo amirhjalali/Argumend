@@ -13,7 +13,7 @@ export const darkMatterVsMondData = {
       "Across 153 galaxies of very different sizes, the gravity observed inside each one tracks its visible matter with only ~0.13 dex of scatter and a single acceleration scale, as MOND predicted in advance. On the largest scales, colliding clusters and the cosmic microwave background point to extra non-baryonic mass, where MOND falls short by about a factor of two. The fight is over which of those two records the true theory of gravity has to explain first.",
     confidence: 88,
     source:
-      "McGaugh, Lelli & Schombert, Phys. Rev. Lett. 117, 201101 (2016) (radial acceleration relation, SPARC); Planck Collaboration, A&A 641, A6 (2020) (Ωc h² ≈ 0.120 vs Ωb h² ≈ 0.0224)",
+      "McGaugh, Lelli & Schombert, Phys. Rev. Lett. 117, 201101 (2016) (radial acceleration relation, SPARC); Planck Collaboration, A&A 641, A6 (2020) (Ωc h² ≈ 0.120 vs Ωb h² ≈ 0.0224); Famaey & McGaugh, Living Rev. Relativ. 15, 10 (2012) (cluster shortfall)",
     sourceUrl: "https://arxiv.org/abs/1609.05917",
   },
   // ── Stage 2: the honest 3-sentence case ──
@@ -124,6 +124,24 @@ export const darkMatterVsMondData = {
           reasoning:
             "A priori predictive success is epistemically valuable. Weighted moderately: the source is a review by a leading MOND advocate (lower independence), the Tully-Fisher relation was known beforehand with an uncertain slope, and predictive success of a formula does not establish the underlying mechanism.",
         },
+        {
+          id: "no-common-acceleration-scale",
+          title: "Galaxy-by-galaxy fits found no single acceleration scale (Rodrigues et al., Nature Astronomy 2018)",
+          description:
+            "Fitting the acceleration scale separately for each of 193 disk galaxies from the SPARC and THINGS samples with Bayesian inference, Rodrigues, Marra, del Popolo and Davari found 'the probability of existence of a fundamental acceleration that is common to all the galaxies is essentially zero'. They concluded that 'the acceleration scale unveiled by the Radial Acceleration Relation is of emergent nature, possibly caused by a complex interplay between baryons and dark matter', and that 'the MOND theory, or any other theory that behaves like it at galactic scales, is ruled out as a fundamental theory for galaxies at more than 10σ.' MOND researchers disputed it in the same journal: Kroupa and colleagues replied that 'to a large extent, this conclusion relies on galaxies with very uncertain distances and/or nearly edge-on orientations', and Li and colleagues' fits (on this map) found no detectable variation.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 4,
+            directness: 8,
+          },
+          source:
+            "Rodrigues, Marra, del Popolo and Davari, 'Absence of a fundamental acceleration scale in galaxies', Nature Astronomy 2, 668-672 (2018); reply: Kroupa et al., 'A common Milgromian acceleration scale in nature', Nature Astronomy (2018)",
+          sourceUrl: "https://arxiv.org/abs/1806.06803",
+          reasoning:
+            "Peer-reviewed in a leading journal and aimed squarely at the crux (directness 8): whether one acceleration scale holds galaxy by galaxy. Replicability is 4 because the result turns on how distance and inclination uncertainties are treated, Li et al.'s fits to the overlapping SPARC data gave the opposite answer, and the Kroupa et al. reply identifies the galaxies driving it. It is the strongest galaxy-scale evidence that the regularity is emergent rather than a law, and it remains contested.",
+        },
       ],
     },
     {
@@ -187,7 +205,7 @@ export const darkMatterVsMondData = {
           id: "cmb-acoustic-peaks",
           title: "CMB Acoustic Peaks Require Non-Baryonic Matter",
           description:
-            "The Planck CMB power spectrum is fit by the six-parameter Lambda-CDM model with cold dark matter density Omega_c h^2 ~ 0.120 and baryon density Omega_b h^2 ~ 0.0224 — about five times more non-baryonic matter than baryons. The height of the third acoustic peak relative to the second is a direct signature of this non-baryonic component.",
+            "The Planck CMB power spectrum is fit by the six-parameter Lambda-CDM model with cold dark matter density Omega_c h^2 ~ 0.120 and baryon density Omega_b h^2 ~ 0.0224 — about five times more non-baryonic matter than baryons.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -205,7 +223,7 @@ export const darkMatterVsMondData = {
           id: "mond-cluster-failure",
           title: "MOND Still Needs ~2x Extra Mass in Galaxy Clusters",
           description:
-            "Inside galaxy clusters, accelerations are relatively high, so MOND's modification is small — yet the gas dynamics imply gravity exceeding the MOND prediction. Standard MOND under-predicts the required mass by roughly a factor of two, so even within the MOND framework clusters require additional unseen matter (e.g. undetected baryons or massive neutrinos).",
+            "Inside galaxy clusters, accelerations are relatively high, so MOND's modification is small, yet X-ray gas dynamics imply more gravity than MOND predicts from the visible baryons. In their review of MOND, Famaey and McGaugh write that applying MOND to clusters 'routinely exceeds the observed baryonic mass by a factor of 2 to 3' and that 'there is roughly a factor of two of residual missing mass in these objects', so even within the MOND framework clusters require additional unseen matter (candidates include undetected baryons or massive neutrinos).",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -214,8 +232,8 @@ export const darkMatterVsMondData = {
             directness: 7,
           },
           source:
-            "Hodson & Zhao, 'Generalizing MOND to Explain the Missing Mass in Galaxy Clusters,' A&A 598, A127 (2017)",
-          sourceUrl: "https://arxiv.org/abs/1701.03369",
+            "Famaey & McGaugh, 'Modified Newtonian Dynamics (MOND): Observational Phenomenology and Relativistic Extensions,' Living Reviews in Relativity 15, 10 (2012); see also Hodson & Zhao, A&A 598, A127 (2017)",
+          sourceUrl: "https://arxiv.org/abs/1112.3960",
           reasoning:
             "A genuine, well-documented shortfall of plain MOND on cluster scales, acknowledged even by works seeking to rescue MOND. Coded 'for' the dark-matter claim because it shows modified gravity alone is insufficient. Weighted moderately because the residual could in principle be ordinary baryons or neutrinos rather than cold dark matter, and the source's aim is to repair MOND.",
         },
@@ -223,7 +241,7 @@ export const darkMatterVsMondData = {
           id: "no-direct-detection",
           title: "No Dark-Matter Particle Detected Despite Decades of Searches",
           description:
-            "Direct-detection experiments (e.g. multi-tonne xenon detectors) and collider searches have steadily tightened limits on weakly-interacting dark-matter particles without a confirmed signal, leaving the particle nature of dark matter unestablished and keeping modified-gravity explanations on the table.",
+            "As of Bertone and Hooper's 2018 review, direct-detection experiments (CDMS, EDELWEISS, XENON100, LUX and others, including liquid-xenon detectors) and collider searches had steadily tightened limits on weakly-interacting dark-matter particles without a confirmed signal, leaving the particle nature of dark matter unestablished and keeping modified-gravity explanations on the table.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,

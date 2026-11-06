@@ -1,24 +1,31 @@
 export const rfkHealthPolicyData = {
   id: "rfk-health-policy",
-  title: "RFK Jr's Health Policy Agenda (MAHA)",
+  title: "RFK Jr. and Make America Healthy Again (MAHA)",
   question:
-    "Will RFK Jr.'s 'Make America Healthy Again' agenda improve US health?",
+    "Is RFK Jr.'s 'Make America Healthy Again' agenda making Americans healthier?",
   meta_claim:
     "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
   status: "contested" as const,
   category: "policy" as const,
+  // As of 3 November 2026: CDC counts 4,852 measles cases in 2026 through
+  // 29 October (2,289 in all of 2025); a federal judge stayed Kennedy's ACIP
+  // appointments and their decisions on 16 March 2026; FDA proposed
+  // mandatory GRAS notification on 11 August 2026 (comments to 9 December);
+  // the 2025-2030 Dietary Guidelines (January 2026) tell Americans to avoid
+  // highly processed food.
+  last_updated: "2026-11-03",
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In June 2025 Robert F. Kennedy Jr. dismissed all 17 members of the CDC's vaccine advisory committee; in March 2026 a federal judge halted the schedule changes that followed. Companies can still approve their own food additives through the 'GRAS' pathway without FDA review, a concern Kennedy shares with critics such as Marion Nestle. The fight is over which parts of his agenda will leave Americans healthier.",
-    confidence: 86,
+      "In November 2024 Robert F. Kennedy Jr. said Americans should see measurable progress on chronic disease within two years. Two years on, his department has rewritten the dietary guidelines to warn against highly processed food and proposed ending companies' power to declare their own additives safe without telling the FDA. It has also replaced the CDC's vaccine advisers and cut back the childhood schedule, and the US has had 4,852 measles cases in 2026 through 29 October, more than twice 2025's 2,289. The fight is over whether the food changes outweigh the vaccine changes.",
+    confidence: 84,
     source:
-      "NPR (16 March 2026); FDA Human Foods Program 2026 priority deliverables",
-    sourceUrl:
-      "https://www.npr.org/2026/03/16/nx-s1-5749530/judge-blocks-rfk-jr-vaccine-changes",
+      "NPR, 'Has Trump kept his promises to the MAHA movement?' (1 November 2026); CDC, Measles Cases and Outbreaks (29 October 2026); Federal Register (11 August 2026)",
+    sourceUrl: "https://www.cdc.gov/measles/data-research/index.html",
   },
   simple_case: [
-    "The answer bears on which vaccines children get and on what schedule, on what goes into food, and on whether towns keep fluoridating their water.",
+    "The answer bears on which vaccines children get and on what schedule, on what goes into food and school meals, and on whether towns keep fluoridating their water.",
+    "Most of what HHS has done on food is advice, voluntary pledges or proposals not yet final; most of what it did on vaccines took effect quickly, until a court paused part of it.",
   ],
   pillars: [
     // =========================================================================
@@ -26,14 +33,14 @@ export const rfkHealthPolicyData = {
     // =========================================================================
     {
       id: "vaccine-policy",
-      title: "Vaccine Policy & Schedule Safety",
+      title: "Vaccines: Fixing Oversight, or Inviting Outbreaks?",
       short_summary:
-        "MAHA reframes the childhood vaccine schedule as inadequately tested as a whole and elevates 'vaccine injury' monitoring, while the medical establishment holds that the schedule's safety and efficacy are settled science and the restructuring endangers public health.",
+        "Kennedy replaced every member of the CDC's vaccine advisory committee, which then dropped the universal hepatitis B birth dose; in January 2026 HHS took flu, rotavirus, meningococcal and hepatitis A shots off the list recommended for every child. A judge paused the new committee in March. Measles cases in 2026 passed 4,800 by late October, and kindergarten MMR coverage is 92.4%. MAHA says it is demanding better evidence; critics say it is unpicking protection that works.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The safety and efficacy of the routine childhood vaccine schedule are settled by decades of evidence — randomized component trials, the Vaccine Safety Datalink, and the 2011 Institute of Medicine review — and the schedule prevents thousands of pediatric deaths annually. RFK Jr's restructuring is built on a discredited foundation: he dismissed all 17 sitting ACIP members in June 2025 and replaced them with appointees a federal judge, in a March 2026 preliminary ruling, found mostly 'distinctly unqualified,' and the MAHA reports cited studies that did not exist. The absence of a whole-schedule randomized trial is an artifact of research ethics rather than an open question: withholding effective vaccines from a control group would expose children to preventable disease, and linked-database surveillance through the Vaccine Safety Datalink, together with the 2011 and 2013 IOM reviews, already answers the schedule-safety question. Demoting hepatitis B, rotavirus, and other vaccines from universal recommendation — prompting the American Academy of Pediatrics to publish a 2026 schedule that splits from the CDC's for the first time in many years — invites the return of preventable disease, as measles outbreaks in 2025-2026 already demonstrate.",
+        "The safety and efficacy of the routine childhood vaccine schedule are settled by decades of evidence — randomized component trials, the Vaccine Safety Datalink, and the 2011 Institute of Medicine review — and the schedule prevents thousands of pediatric deaths annually. RFK Jr's restructuring is built on a discredited foundation: he dismissed all 17 sitting ACIP members in June 2025 and replaced them with appointees a federal judge, in a March 2026 preliminary ruling, found mostly 'distinctly unqualified,' and the MAHA reports cited studies that did not exist. The absence of a whole-schedule randomized trial is an artifact of research ethics rather than an open question: withholding effective vaccines from a control group would expose children to preventable disease, and linked-database surveillance through the Vaccine Safety Datalink, together with the 2011 and 2013 IOM reviews, already answers the schedule-safety question. Demoting hepatitis B, rotavirus, flu, meningococcal and hepatitis A vaccines from universal recommendation invites the return of preventable disease. It is already happening: the CDC counted 2,289 measles cases in 2025 and 4,852 in 2026 through 29 October, kindergarten MMR coverage slipped to 92.4% in 2025-26 with exemptions at 4.2%, and on 3 November 2026 New York reported its first child death from measles in 30 years.",
       proponent_rebuttal:
-        "Individual vaccines are well-studied, but no large modern randomized trial has ever compared the full current schedule against a lighter one — that combined regimen rests on observational data and committee judgment, not the gold-standard evidence the establishment claims. Past ACIP and recommendation bodies had documented industry ties, so demanding transparent, conflict-free benefit-harm review is reasonable governance, not anti-science. Elevating injury monitoring and reconsidering the timing and stacking of doses (e.g., universal hepatitis B at birth) is a defensible application of the precautionary principle. By April 2026, Kennedy himself affirmed in House testimony that MMR is 'safe and effective for most people,' signaling the agenda targets schedule design and oversight, not vaccination itself.",
+        "Individual vaccines are well-studied, but no large modern randomized trial has ever compared the full current schedule against a lighter one — that combined regimen rests on observational data and committee judgment, not the gold-standard evidence the establishment claims. Past ACIP and recommendation bodies had documented industry ties, so demanding transparent, conflict-free benefit-harm review is reasonable governance, not anti-science. Elevating injury monitoring and reconsidering the timing and stacking of doses (e.g., universal hepatitis B at birth) is a defensible application of the precautionary principle. By April 2026, Kennedy himself affirmed in House testimony that MMR is 'safe and effective for most people,' signaling the agenda targets schedule design and oversight, not vaccination itself. Exemptions were rising before he took office, and the administration argues that aligning with other high-income nations, which recommend fewer shots for every child, is reasonable. Leaving flu or rotavirus shots to a conversation between parents and doctors is not banning them.",
       crux: {
         id: "full-schedule-trial",
         title: "The Whole-Schedule Comparative Trial Test",
@@ -56,7 +63,7 @@ export const rfkHealthPolicyData = {
           skeptic_flip:
             "If a large modern randomized trial comparing the full schedule with a lighter one found harms, or the 2022 CDC-authored link between cumulative vaccine aluminum and persistent asthma held up once confounding was addressed, revisiting the schedule would look like a health gain.",
           common_ground:
-            "Both sides agree individual vaccines are well studied, that no randomized trial has compared the full schedule with a lighter one, and that MMR is safe and effective for most people — Kennedy said so in April 2026 testimony.",
+            "Both sides agree individual vaccines are well studied, that no randomized trial has compared the full schedule with a lighter one, and that MMR is safe and effective for most people, as Kennedy said in April 2026 testimony.",
           live_disagreement:
             "Whether the missing whole-schedule trial is an ethics artifact, with surveillance data already answering the safety question, or a real evidence gap that justifies redesigning the schedule and demoting vaccines like hepatitis B at birth.",
         },
@@ -81,9 +88,9 @@ export const rfkHealthPolicyData = {
         },
         {
           id: "court-blocks-acip-overhaul",
-          title: "Federal Judge Finds Most ACIP Appointees Unqualified and Halts Vaccine Changes (March 2026)",
+          title: "Judge Stays 13 Kennedy Appointees and Their Decisions, Including the Hepatitis B Change (16 March 2026)",
           description:
-            "After Kennedy dismissed all 17 sitting ACIP members in June 2025, acting CDC director Jim O'Neill signed a decision memo on January 5, 2026, not an ACIP vote, cutting the diseases every child is recommended to be vaccinated against from 18 to 11 (some outlets counted the earlier schedule as 17). On March 16, 2026, U.S. District Judge Brian Murphy in Boston, in a preliminary ruling in American Academy of Pediatrics v. Kennedy, found most of the new appointees 'distinctly unqualified,' stayed the appointments of 13 of Kennedy's 15 appointees and every vote the reconstituted committee had taken, and stayed the January schedule memo. The American Academy of Pediatrics had already published its own 2026 schedule, still covering 18 diseases, splitting from the CDC's for the first time in many years. The government appealed only the part of the order on ACIP appointments; the First Circuit heard argument on October 6, 2026, and ACIP has not met since the ruling.",
+            "Kennedy removed all 17 sitting ACIP members in June 2025. On 5 December 2025 the reconstituted committee voted to recommend the hepatitis B birth dose only for babies whose mothers test positive or were not tested, leaving other families to decide with their doctors. On 5 January 2026 Kennedy and acting CDC director Jim O'Neill, without an ACIP vote, removed the universal recommendation for flu, rotavirus, meningococcal and hepatitis A vaccines. On 16 March 2026 U.S. District Judge Brian Murphy in Boston stayed the appointments of 13 members Kennedy had named and put the committee's decisions on hold, including the hepatitis B recommendation, writing that 'the government has disregarded those methods and thereby undermined the integrity of its actions.' STAT reported the ruling found most of the members 'distinctly unqualified'.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -91,10 +98,29 @@ export const rfkHealthPolicyData = {
             replicability: 9,
             directness: 8,
           },
-          source: "NPR; Reason; STAT; Contemporary Pediatrics; Healio",
-          sourceUrl: "https://www.npr.org/2026/03/16/nx-s1-5749530/judge-blocks-rfk-jr-vaccine-changes",
+          source:
+            "NPR (16 March 2026); STAT (9 April 2026); PBS NewsHour (5 December 2025); TIME (8 January 2026) on the 5 January schedule change",
+          sourceUrl: "https://text.npr.org/nx-s1-5749530",
           reasoning:
-            "A federal court ruling and the AAP's break from the CDC schedule are verifiable institutional facts. The ruling is preliminary and under appeal, but it found the restructuring's process likely unlawful, and mainstream pediatrics treats the changes as dangerous, strongly supporting the skeptic position.",
+            "A court found the process likely unlawful, which is strong evidence on how the changes were made. The ruling is preliminary, and it speaks to procedure and qualifications, not to whether any particular vaccine recommendation was medically right.",
+        },
+        {
+          id: "measles-2026",
+          title: "CDC: 4,852 Measles Cases in 2026 Through 29 October, After 2,289 in 2025; Kindergarten MMR at 92.4%",
+          description:
+            "The CDC counted 2,289 confirmed measles cases and 48 outbreaks in 2025, and 4,852 confirmed cases and 43 new outbreaks in 2026 as of 29 October. National kindergarten MMR coverage was 92.4% in the 2025-26 school year, with exemptions from one or more vaccines at 4.2%, up from 3.6% the year before; coverage fell for every reported vaccine. On 3 November 2026 New York reported a child's death from measles in Lewis County, the state's first in 30 years; the CDC has confirmed three measles deaths this year, while Pennsylvania alone reports five.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 6,
+          },
+          source:
+            "CDC, 'Measles Cases and Outbreaks' (29 October 2026); CDC SchoolVaxView (2025-26); STAT (3 November 2026)",
+          sourceUrl: "https://www.cdc.gov/measles/data-research/index.html",
+          reasoning:
+            "The outcome that matters most for this pillar is moving the wrong way, fast. Directness is moderate: exemptions were rising before Kennedy took office, and no study yet separates the effect of his policies and statements from the longer trend.",
         },
         {
           id: "aluminum-asthma-study",
@@ -117,7 +143,7 @@ export const rfkHealthPolicyData = {
           id: "maha-report-fabricated-citations",
           title: "MAHA Reports Cited Nonexistent Studies Traced to AI Generation",
           description:
-            "Both the May 2025 'Make Our Children Healthy Again Assessment' and the September 2025 Strategy report were published with citation errors and references to studies that did not exist, which journalists traced to apparent AI generation. The fabricated citations undermined the scientific credibility of the documents that frame MAHA's vaccine and chronic-disease claims and became a focal point for critics arguing the project lacks rigor.",
+            "The May 2025 'Make Our Children Healthy Again Assessment' cited studies that did not exist: NOTUS found seven references to non-existent studies, and the New York Times and Washington Post reported other citation errors. White House press secretary Karoline Leavitt called them 'formatting issues' that did not undermine the report's substance, and the report was revised.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -125,8 +151,8 @@ export const rfkHealthPolicyData = {
             replicability: 8,
             directness: 6,
           },
-          source: "STAT; NOTUS (original reporting on fabricated citations)",
-          sourceUrl: "https://www.statnews.com/2025/09/09/rfk-maha-report-make-our-children-healthy-again-strategy/",
+          source: "CIDRAP (May 2025), on NOTUS's original reporting of seven nonexistent studies",
+          sourceUrl: "https://www.cidrap.umn.edu/public-health/maha-report-chronic-disease-us-kids-includes-fake-citations-other-errors",
           reasoning:
             "The fabricated-citation problem is documented by multiple outlets. It does not refute every MAHA claim on its own, but it directly damages the evidentiary credibility of the agenda's foundational reports, supporting the skeptic position on rigor.",
         },
@@ -145,7 +171,7 @@ export const rfkHealthPolicyData = {
       skeptic_premise:
         "Chronic disease has many drivers — caloric surplus, sedentary lifestyle, genetics, and healthcare access — and the MAHA reports assign causal weight to ultra-processed food, glyphosate, and seed oils ahead of the evidence. The NOVA classification underpinning 'ultra-processed' is criticized as too coarse, and even Kevin Hall, whose inpatient trial MAHA cites, has warned against over-extrapolating it. Worse, MAHA's flagship food actions are weaker than advertised: the April 2025 'phase-out' of petroleum-based dyes was, per the Center for Science in the Public Interest, an industry 'understanding' rather than a binding ban, and food-system experts like Marion Nestle found the September 2025 strategy report 'short on specifics and weak on regulatory action,' and in January 2026 she noted that two-thirds of the panel behind the new dietary guidelines' scientific review had ties to industry.",
       proponent_rebuttal:
-        "On the food system, MAHA's diagnosis is corroborated by mainstream science. Kevin Hall's 2019 NIH inpatient randomized trial showed people ate roughly 500 extra calories per day and gained weight on an ultra-processed diet versus a minimally processed one with matched nutrients, and large prospective cohorts (NutriNet-Santé, Nurses' Health Study) link ultra-processed intake to cardiovascular and all-cause mortality. The GRAS self-affirmation loophole genuinely lets companies declare their own additives safe with no FDA review — a documented regulatory gap. Even skeptical food-policy reformers like Marion Nestle agree with MAHA on Big Food and the GRAS problem. Phasing out six petroleum-based dyes and the August 2026 proposed rule making GRAS notification mandatory target real, evidence-supported hazards regardless of enforcement mechanism.",
+        "On the food system, MAHA's diagnosis is corroborated by mainstream science. Kevin Hall's 2019 NIH inpatient randomized trial showed people ate roughly 500 extra calories per day and gained weight on an ultra-processed diet versus a minimally processed one with matched nutrients, and large prospective cohorts (NutriNet-Santé, Nurses' Health Study) link ultra-processed intake to cardiovascular and all-cause mortality. The GRAS self-affirmation loophole genuinely lets companies declare their own additives safe with no FDA review — a documented regulatory gap. Even skeptical food-policy reformers like Marion Nestle agree with MAHA on Big Food and the GRAS problem. Phasing out six petroleum-based dyes and the August 2026 proposed rule making GRAS notification mandatory target real, evidence-supported hazards regardless of enforcement mechanism. And the January 2026 Dietary Guidelines, for the first time, tell Americans to 'avoid highly processed packaged, prepared, ready-to-eat, or other foods that are salty or sweet', which shapes school meals and federal food programs.",
       crux: {
         id: "upf-causality-trial",
         title: "The Scaled Ultra-Processed Food Causality Trial",
@@ -193,7 +219,7 @@ export const rfkHealthPolicyData = {
         },
         {
           id: "gras-loophole",
-          title: "GRAS Self-Affirmation Lets Companies Approve Their Own Food Additives",
+          title: "FDA, 11 August 2026: Proposed Rule Would End Self-Approval of Food Additives Without Telling the FDA",
           description:
             "Under the 'Generally Recognized As Safe' self-affirmation pathway, companies can determine an ingredient is safe and add it to food without notifying or obtaining review from the FDA. MAHA-aligned reformers and independent food-safety advocates have long flagged this as a regulatory gap. The FDA's 2026 Human Foods Program priorities promised a proposed rule 'to require the submission to FDA of GRAS notices for all new substances claimed to be GRAS,' and the agency published it on August 11, 2026, with comments due December 9, 2026. As proposed, companies could keep marketing a substance without waiting for any FDA response to the notice, so the rule would require companies to tell the FDA but would not create premarket approval.",
           side: "for" as const,
@@ -203,8 +229,8 @@ export const rfkHealthPolicyData = {
             replicability: 8,
             directness: 8,
           },
-          source: "FDA Human Foods Program 2026 priorities; Arnold & Porter (Aug 2026 advisory on the proposed rule)",
-          sourceUrl: "https://www.fda.gov/about-fda/human-foods-program/human-foods-program-2026-priority-deliverables",
+          source: "Federal Register, 'Substances Generally Recognized as Safe' (proposed rule, 11 August 2026; comments close 9 December 2026); FDA Human Foods Program 2026 priority deliverables",
+          sourceUrl: "https://www.federalregister.gov/documents/2026/08/11/2026-16296/substances-generally-recognized-as-safe",
           reasoning:
             "The GRAS self-affirmation loophole is a documented feature of US food law acknowledged across the political spectrum, including by progressive food reformers. Targeting it is one of MAHA's most defensible, evidence-grounded positions.",
         },
@@ -224,6 +250,43 @@ export const rfkHealthPolicyData = {
           sourceUrl: "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding",
           reasoning:
             "CSPI is an independent food-safety advocate that broadly shares MAHA's goals, making its critique credible rather than partisan. It shows that even MAHA's strongest substantive area has delivered more announcement than binding policy, qualifying claims of effectiveness.",
+        },
+        {
+          id: "citrus-red-revocation-2026",
+          title: "FDA, July 2026: The First Dye 'Revocation' Targets Citrus Red No. 2, Unused Since 2020",
+          description:
+            "On 23 July 2026 the FDA proposed revoking the listing that allows Citrus Red No. 2 to color the skins of mature oranges, noting that the dye 'has not been certified for use as a color additive in food marketed in the United States since 2020'. The six petroleum-based dyes in wide use (Blue 1, Blue 2, Green 3, Red 40, Yellow 5 and Yellow 6) remain legal; their removal 'by the end of 2026' rests on what Kennedy called an 'understanding' with industry, with 'no rulemaking of any sort', according to CSPI.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 5,
+          },
+          source:
+            "Federal Register, 'Proposal To Revoke the Color Additive Listing for Use of Citrus Red No. 2 on the Skins of Mature Oranges' (23 July 2026); CSPI (22 April 2025)",
+          sourceUrl:
+            "https://www.federalregister.gov/documents/2026/07/23/2026-14909/proposal-to-revoke-the-color-additive-listing-for-use-of-citrus-red-no-2-on-the-skins-of-mature",
+          reasoning:
+            "The binding dye action so far removes a dye nobody uses, which supports the charge that the food agenda is more announcement than rule. It does not show the voluntary phase-out of the six common dyes will fail; companies may still meet the end-2026 target.",
+        },
+        {
+          id: "dietary-guidelines-2026",
+          title: "Dietary Guidelines 2025-2030 (January 2026): 'Eat Real Food' and Avoid Highly Processed Food",
+          description:
+            "The new Dietary Guidelines for Americans call for 'a dramatic reduction in highly processed foods laden with refined carbohydrates, added sugars, excess sodium, unhealthy fats, and chemical additives', advise avoiding salty or sweet packaged foods such as chips, cookies and candy, and say no amount of added sugar is recommended. They keep the limit on saturated fat at 10% of daily calories while listing butter and beef tallow as cooking options. NPR's health correspondent called them an 'obvious victory' for MAHA.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 5,
+            directness: 5,
+          },
+          source:
+            "USDA and HHS, Dietary Guidelines for Americans, 2025-2030 (January 2026); NPR (1 November 2026)",
+          sourceUrl: "https://cdn.realfood.gov/DGA.pdf",
+          reasoning:
+            "The clearest concrete change MAHA has made, and it shapes school meals and federal food programs. It is advice, it does not define 'highly processed', and whether it changes what Americans eat is unmeasured.",
         },
         {
           id: "nestle-no-policy",
@@ -470,7 +533,25 @@ export const rfkHealthPolicyData = {
       ],
     },
   ],
+  aliases: [
+    "RFK Jr's Health Policy Agenda (MAHA)",
+    "Will RFK Jr.'s 'Make America Healthy Again' agenda improve US health?",
+    "Is RFK Jr. making America healthier?",
+    "Is Kennedy to blame for the measles outbreaks?",
+  ],
   references: [
+    {
+      title: "Measles Cases and Outbreaks - CDC (29 October 2026)",
+      url: "https://www.cdc.gov/measles/data-research/index.html",
+    },
+    {
+      title: "Has Trump kept his promises to the MAHA movement? - NPR (1 November 2026)",
+      url: "https://text.npr.org/nx-s1-6022240",
+    },
+    {
+      title: "Substances Generally Recognized as Safe (proposed rule) - Federal Register (11 August 2026)",
+      url: "https://www.federalregister.gov/documents/2026/08/11/2026-16296/substances-generally-recognized-as-safe",
+    },
     {
       title: "New ACIP Charter as CDC Vaccine Advisers Address Legal Defeat - STAT (April 2026)",
       url: "https://www.statnews.com/2026/04/09/new-acip-charter-cdc-vaccine-advisers-rfk-jr-address-legal-defeat/",
