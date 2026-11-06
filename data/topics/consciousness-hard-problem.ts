@@ -303,6 +303,24 @@ export const consciousnessHardProblemData = {
           reasoning:
             "Embodied cognition is a well-established research program with growing empirical support from interoception research. It challenges both pure computationalism and simple substrate independence. However, it does not settle the hard problem — it shifts the question from 'can silicon be conscious?' to 'can disembodied systems be conscious?' Embodied robots might still potentially be conscious, while purely software systems might not.",
         },
+        {
+          id: "fading-qualia-organizational-invariance",
+          title: "Chalmers' Fading-Qualia Argument: Swap Neurons for Chips and Experience Should Stay",
+          description:
+            "In 'Absent Qualia, Fading Qualia, Dancing Qualia' (1995), David Chalmers, who named the hard problem, defends \"a principle of organizational invariance, holding that experience is invariant across systems with the same fine-grained functional organization.\" He imagines replacing a person's neurons one at a time with silicon chips that each perform \"precisely the same local function as the neuron.\" If experience faded or flickered along the way while behavior and reports stayed the same, the person would be badly wrong about their own experience; he takes that consequence to be implausible and concludes \"that functional organization fully determines conscious experience,\" while noting that the arguments \"do not constitute conclusive proof.\"",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 3,
+            directness: 6,
+          },
+          source:
+            "Chalmers, D. (1995), 'Absent Qualia, Fading Qualia, Dancing Qualia,' in T. Metzinger (ed.), Conscious Experience, Imprint Academic",
+          sourceUrl: "https://consc.net/papers/qualia.html",
+          reasoning:
+            "This answers the crux's question directly, yes, a faithful silicon copy would be conscious, and it comes from the leading defender of the hard problem, so it cannot be dismissed as a functionalist's bias. It is weighted low because it is a thought experiment, not an observation, and IIT's proponents reject its conclusion. It also supports this side only in part: Chalmers holds that the law tying functional organization to experience may be a contingent law of nature, so a copy being conscious would not by itself show that a functional account explains experience.",
+        },
       ],
     },
   ],

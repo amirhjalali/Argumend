@@ -248,6 +248,25 @@ export const remoteWorkPermanenceData = {
           reasoning:
             "Directional migration trend is well documented, but the specific '5-10% growth' figures and the 'USPS Change of Address' attribution could not be verified, so they were softened to verifiable low-single-digit Census growth rates and the USPS source was removed. Directness stays low because migration has many drivers besides remote work.",
         },
+        {
+          id: "office-visits-recovering-2026",
+          title: "Office Foot Traffic Keeps Climbing Back: September 2026 Visits 25.5% Below 2019",
+          description:
+            "Placer.ai's monthly Office Index, which tracks visits to US office buildings, found nationwide office visits up 4.0% year over year in September 2026 and 25.5% below September 2019, 'the smallest September gap since the pandemic,' with the same number of working days in both years. Placer.ai links the gains to another round of stricter attendance policies, including General Mills and Target's merchandising organization moving to four office days a week, on top of five-day policies that took effect over the previous year. San Francisco posted the strongest year-over-year growth, amid what Placer.ai calls an AI-driven leasing boom. Downtowns are partly being refilled by returning workers, not only by converting offices to other uses.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Placer.ai, 'September 2026 Placer.ai Office Index: San Francisco Leads the Fall Rebound' (Lila Margalit, 13 Oct 2026)",
+          sourceUrl:
+            "https://www.placer.ai/anchor/articles/september-2026-placer-ai-office-index-san-francisco-leads-the-fall-rebound",
+          reasoning:
+            "This is the skeptic side's best current evidence that downtown decline is reversing through return to the office rather than settling into a permanent new pattern: attendance is rising year over year as employers tighten office mandates. Weights are moderate because the index comes from a commercial data firm's proprietary foot-traffic data, which no public statistical agency collects or checks. A gap of about a quarter below 2019 is also what a lasting hybrid pattern would look like, so the figure shows the trend but not where it stops.",
+        },
       ],
     },
   ],

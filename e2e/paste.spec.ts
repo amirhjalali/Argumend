@@ -378,15 +378,15 @@ test("a borrowed evidence card names its own question and keeps that link in the
   await page.goto("/analyze");
   const input = page.getByRole("textbox", { name: "The argument to read" });
   await waitForHydration(input);
-  await input.fill("Forgiving student debt is unfair to people who paid off their loans or never went to college, and it rewards borrowers who took on too much.");
+  await input.fill("Banning TikTok violates the First Amendment rights of the millions of Americans who use the app to speak and share their views.");
   await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
   const result = page.getByRole("region", { name: "Result" });
-  const question = "Does forgiving student debt boost the economy more per dollar than other uses of the money?";
+  const question = "Does foreign-adversary control of a major platform justify action by itself, or must harm be shown first?";
   const borrowedCard = result.getByText("From another question on this map", { exact: true }).locator("..").locator("..");
   const borrowedTitle = await borrowedCard.getByRole("heading", { level: 4 }).innerText();
   await expect(borrowedCard.getByText("From another question on this map", { exact: true })).toBeVisible();
   const origin = borrowedCard.getByRole("link", { name: question, exact: true });
-  const href = "/topics/student-debt-forgiveness#crux-economic-stimulus";
+  const href = "/topics/tiktok-ban#crux-geopolitics-data-sovereignty";
   await expect(origin).toHaveAttribute("href", href);
   const ownCard = result.getByRole("heading", { level: 4 }).locator("..").filter({ hasNotText: "From another question on this map" });
   await expect(ownCard).toHaveCount(1);
@@ -400,7 +400,7 @@ test("a borrowed evidence card names its own question and keeps that link in the
   await expect(preview).toContainText(`Related evidence: ${question} https://argumend.org${href}`);
   await origin.click();
   await expect(page).toHaveURL(new RegExp(`${href}$`));
-  const entry = page.locator("#crux-economic-stimulus");
+  const entry = page.locator("#crux-geopolitics-data-sovereignty");
   await expect(entry.locator(":scope > details")).toHaveAttribute("open", "");
   await expect(entry.locator(":scope > details > summary")).toBeFocused();
   await entry.getByText("Show the evidence on each side and the test", { exact: true }).click();

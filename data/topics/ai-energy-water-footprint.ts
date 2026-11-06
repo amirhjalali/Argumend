@@ -6,6 +6,7 @@ export const aiEnergyWaterFootprintData = {
   // Words readers use for this question that the map's own text does not.
   aliases: [
     "How much water does each ChatGPT query use?",
+    "How much water does an AI chatbot drink?",
     "Will AI data centers use as much electricity as whole countries?",
   ],
   meta_claim:

@@ -151,6 +151,25 @@ export const aiDeepfakesTruthCollapseData = {
           reasoning:
             "The ~78% in-the-wild figure comes from a 2024 multi-modal benchmark of real circulated deepfakes, which is more representative than controlled academic datasets. The generalization gap is replicated across multiple research groups. The 'declining toward random chance' framing is removed as speculative: the same benchmark shows human experts still hit ~90%, and real-world detection adds contextual signals (metadata, source verification) beyond pure visual analysis.",
         },
+        {
+          id: "liars-dividend-experiments-video",
+          title: "In Five Experiments, Crying 'Deepfake' Largely Failed Against Video Evidence",
+          description:
+            "Kaylyn Jackson Schiff, Daniel Schiff and Natália Bueno ran five survey experiments with over 15,000 American adults, showing them stories about real politicians' scandals followed by hypothetical responses, including false claims that the story was fake news or a deepfake. The false claims did raise support for the politician across partisan subgroups, and did better than staying silent or apologizing. But the authors report that these strategies 'are effective against text-based reports of scandals, but are largely ineffective against video evidence and do not reduce general trust in media.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Schiff, Schiff & Bueno, 'The Liar's Dividend: Can Politicians Claim Misinformation to Evade Accountability?', American Political Science Review 119(1), 71-90 (February 2025)",
+          sourceUrl:
+            "https://www.cambridge.org/core/journals/american-political-science-review/article/liars-dividend-can-politicians-claim-misinformation-to-evade-accountability/687FEE54DBD7ED0C96D72B26606AA073",
+          reasoning:
+            "A large experimental test (five experiments, over 15,000 adults) in a leading peer-reviewed journal, and the skeptic side's strongest evidence: the 'it's a deepfake' defense mostly did not work when the evidence was a video, the medium this map is about. It is not a clean win for that side. The same study finds a real dividend for text-based scandal reports, and the experiments measure survey support for hypothetical responses, not real accountability outcomes such as votes, resignations or prosecutions, which keeps directness moderate. The scandals were real ones, so whether the finding holds as convincing fakes become common is untested.",
+        },
       ],
     },
 

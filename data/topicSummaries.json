@@ -173,7 +173,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "ammonia aviation grey stegra wheel mill steam electrolyzer refueling shell haul electrolytic furnace hybrit insideevs"
+    "keywords": "ammonia aviation grey stegra wheel steam electrolyzer mill refueling shell haul electrolytic furnace hybrit insideevs"
   },
   {
     "id": "vertical-farming-viability",
@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash fisheries theorem"
+    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries theorem"
   },
   {
     "id": "ai-2027",
@@ -367,7 +367,8 @@
     ],
     "aliases": [
       "Data center electricity costs",
-      "Do data centers raise power bills"
+      "Do data centers raise power bills",
+      "Are hyperscale server campuses behind my utility's rate hike?"
     ],
     "keywords": "pjms megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
   },
@@ -402,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat affidavit louisiana turnout brennan cantoni kansass pons campuses tenth"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat louisiana turnout brennan cantoni kansass pons tenth tribal campuses"
   },
   {
     "id": "nuclear-energy-safety",
@@ -424,6 +425,10 @@
     "firstCruxStanding": "value-difference",
     "tags": [
       "policy"
+    ],
+    "aliases": [
+      "What do we do with nuclear waste that stays dangerous for thousands of years?",
+      "Was Germany wrong to shut down its nuclear plants?"
     ],
     "keywords": "chernobyls lcoe aemo csiro gencost lester sepulveda sisternes torch unscear yucca jenkins lazard onshore safest"
   },
@@ -449,7 +454,8 @@
       "policy"
     ],
     "aliases": [
-      "Universal medical coverage"
+      "Universal medical coverage",
+      "Would universal healthcare mean waiting months to see a specialist?"
     ],
     "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix simplification treatable"
   },
@@ -473,7 +479,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "firearm guns erpo buyback deadlier everytown gertz ihme kleck shooters swanson indiana alpers chapman dgus"
+    "keywords": "guns erpo buyback deadlier everytown gertz ihme kleck swanson indiana shooters alpers chapman dgus ncvs"
   },
   {
     "id": "minimum-wage-effects",
@@ -562,7 +568,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "denver star cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed"
+    "keywords": "denver cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed fy2022"
   },
   {
     "id": "mandatory-voting",
@@ -606,7 +612,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "darity mullen rothstein hamilton conyers craemer kirsten naomi sheila zewde holocaust jackson lineage ayanna darrick"
+    "keywords": "darity mullen rothstein hamilton conyers craemer kirsten naomi sheila zewde holocaust lineage ayanna darrick heirs"
   },
   {
     "id": "immigration-wage-impact",
@@ -673,7 +679,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly yangs banerjee"
+    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee dauphin"
   },
   {
     "id": "wealth-tax",
@@ -746,9 +752,9 @@
     "title": "Surveillance and Public Safety",
     "question": "Does expanding government surveillance meaningfully reduce crime?",
     "meta_claim": "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
-    "confidence_score": 45,
-    "balance": 45,
-    "weight": 57,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 58,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
@@ -756,12 +762,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does surveillance prevent crime, or push it to nearby areas?",
     "tags": [
       "policy"
     ],
-    "keywords": "smartlink medell montevideo buolamwini farrington munyo piza rossi shades welsh zhan gebru criminology detention placement"
+    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan gebru wrongfully"
   },
   {
     "id": "us-iran-conflict",
@@ -892,18 +898,17 @@
     "title": "Should Nuclear Weapons Be Abolished?",
     "question": "Does nuclear deterrence keep the world safer than abolition would?",
     "meta_claim": "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
-    "confidence_score": 30,
-    "balance": 30,
-    "weight": 67,
+    "confidence_score": 37,
+    "balance": 37,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Did nuclear weapons cause the Long Peace, or would the superpowers have avoided war anyway?",
     "tags": [
       "policy"
@@ -999,7 +1004,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination brine groundwater reuse wastewater cubic feet irrigation pacific abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1021,7 +1026,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety andreyeva"
+    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -1336,9 +1341,9 @@
     "title": "Is Short-Form Video Causing Cognitive Decline?",
     "question": "Is habitual short-form video degrading attention and deep thinking?",
     "meta_claim": "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 65,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1346,12 +1351,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 13,
     "firstCrux": "Do heavy short-form video users show weaker sustained attention than matched non-users?",
     "tags": [
       "science"
     ],
-    "keywords": "pisa douyin circuitry anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen teng bytedance clips"
+    "keywords": "pisa douyin circuitry scrolling anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen supplementary teng"
   },
   {
     "id": "ai-replacing-doctors",
@@ -1449,7 +1454,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons tropical"
+    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
   },
   {
     "id": "factory-farming-ban",
@@ -1567,9 +1572,9 @@
     "title": "Psychedelics for Mental Health",
     "question": "Should psychedelics be approved to treat depression, PTSD and addiction?",
     "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 66,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1577,7 +1582,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
     "tags": [
       "science"
@@ -1618,9 +1623,9 @@
     "title": "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
     "question": "Are ultra-processed foods the main driver of obesity and chronic disease?",
     "meta_claim": "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 66,
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1628,12 +1633,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Do people overeat because food is processed, or because of its energy density, taste and eating speed?",
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing gastroenterology gibney monteiro moss neltner rauber"
+    "keywords": "nova upfs unprocessed overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing cream gastroenterology gibney monteiro moss"
   },
   {
     "id": "longevity-science",
@@ -1823,9 +1828,9 @@
     "title": "The Future of Remote Work",
     "question": "Will remote and hybrid work permanently replace the five-day office week?",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 64,
-    "balance": 64,
-    "weight": 57,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 59,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1833,12 +1838,12 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
     "tags": [
       "economics"
     ],
-    "keywords": "bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin boise ctrip gentrification nashville"
+    "keywords": "placer bloom andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip gentrification"
   },
   {
     "id": "college-value-proposition",
@@ -1973,7 +1978,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna sued cftc chainalysis gensler silvergate"
+    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna cftc chainalysis gensler silvergate usdc"
   },
   {
     "id": "gig-economy-regulation",
@@ -2018,7 +2023,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable duplexes dwelling huds"
+    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
   },
   {
     "id": "four-day-work-week",
@@ -2047,23 +2052,22 @@
     "title": "Student Debt Forgiveness",
     "question": "Is broad student debt forgiveness justified and economically beneficial?",
     "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
-    "confidence_score": 70,
-    "balance": 70,
-    "weight": 71,
+    "confidence_score": 64,
+    "balance": 64,
+    "weight": 72,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
     "tags": [
       "economics"
     ],
-    "keywords": "tuition discharge repayment nebraska bennett cent forbearance crfb alleviates catherine disbursed forgave fullwiler heroes mbas"
+    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2107,7 +2111,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers lows belt hmrc redfin tourist fraser garcia lopez starter metro airbnb batzer bearish"
+    "keywords": "rentals lows sellers belt hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2136,22 +2140,22 @@
     "title": "Does Return-to-Office Actually Improve Productivity?",
     "question": "Do return-to-office mandates improve productivity and innovation?",
     "meta_claim": "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
-    "confidence_score": 27,
-    "balance": 27,
-    "weight": 64,
+    "confidence_score": 33,
+    "balance": 33,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 13,
     "firstCrux": "Does fully remote work lower total output once coordination and knowledge transfer are counted?",
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks frey gudith klocke"
+    "keywords": "allen teammates bamboohr ding bloom irvine sunk gloria pittsburgh uspto brucks frey gudith harrington junior"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2295,10 +2299,10 @@
     "id": "minneapolis-shooting",
     "title": "Minneapolis ICE Shooting",
     "question": "Did federal agents use excessive force in the fatal Minneapolis shooting?",
-    "meta_claim": "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account.",
-    "confidence_score": 72,
-    "balance": 72,
-    "weight": 55,
+    "meta_claim": "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account. As of November 2026 no one has been charged, the federal civil rights investigation has made no finding public, and Minnesota is suing for evidence it says federal agencies are withholding.",
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 61,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2306,12 +2310,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 6,
+    "evidenceCount": 11,
     "firstCrux": "Does the full sequence of events back the federal self-defense account, or the bystander video and witnesses?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "deportation scene chokeholds ohara probation superintendent apprehension bystanders carotid patrol evans fleeing handgun sworn undercount"
+    "keywords": "celis hennepin scene sosa deportation castro julio cbps footage nonfatal patrol spokesperson superintendent venturella guns"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2385,8 +2389,8 @@
     "title": "The Hard Problem of Consciousness",
     "question": "Does explaining consciousness require more than brain processes?",
     "meta_claim": "Consciousness — subjective experience or 'what it is like' to be something — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
-    "confidence_score": 65,
-    "balance": 65,
+    "confidence_score": 61,
+    "balance": 61,
     "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -2395,12 +2399,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "After a complete functional account, is 'why does it feel like something?' a real question left over?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical illusionism"
+    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical"
   },
   {
     "id": "artificial-reproduction-ethics",
@@ -2451,9 +2455,9 @@
     "title": "Smartphone Age Restrictions for Children",
     "question": "Should children under 14 be barred from owning smartphones?",
     "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the harms of a personal, always-connected device in childhood outweigh the benefits of access and safety.",
-    "confidence_score": 68,
-    "balance": 68,
-    "weight": 55,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 58,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2461,12 +2465,12 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 6,
+    "evidenceCount": 7,
     "firstCrux": "Do children with a smartphone fare worse than children with a basic phone or no phone?",
     "tags": [
       "technology"
     ],
-    "keywords": "commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson esafety pediatricians reddit threads"
+    "keywords": "esafety commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2488,16 +2492,16 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering hungary subversion"
+    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion turkey"
   },
   {
     "id": "geoengineering-climate",
     "title": "Solar Geoengineering: Buy Time or Distraction?",
     "question": "Is solar geoengineering now a necessary complement to cutting emissions?",
     "meta_claim": "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
-    "confidence_score": 35,
-    "balance": 35,
-    "weight": 60,
+    "confidence_score": 43,
+    "balance": 43,
+    "weight": 62,
     "verdict": {
       "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
@@ -2505,34 +2509,34 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 6,
+    "evidenceCount": 7,
     "firstCrux": "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide eruption rainfall tons geomip intercomparison celsius geophysical hydrological shells precipitation dimming fairbrother"
+    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
   },
   {
     "id": "central-bank-digital-currency",
     "title": "Central Bank Digital Currencies",
     "question": "Would central bank digital currencies enable unprecedented surveillance?",
     "meta_claim": "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
-    "confidence_score": 43,
-    "balance": 43,
+    "confidence_score": 47,
+    "balance": 47,
     "weight": 61,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
     "tags": [
       "economics"
     ],
-    "keywords": "enaira nigeria mbridge convoy pesa nigerian trucker interoperable payee safaricoms suri bernanke goats instantaneous thailand"
+    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
   },
   {
     "id": "masculinity-crisis",
@@ -2561,9 +2565,9 @@
     "title": "AI Deepfakes & the Collapse of Shared Truth",
     "question": "Have AI deepfakes made it impossible to trust any digital media?",
     "meta_claim": "AI-generated deepfake audio, video, and images have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining evidence-based discourse, journalism, and democratic accountability.",
-    "confidence_score": 72,
-    "balance": 72,
-    "weight": 61,
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 64,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2571,12 +2575,12 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does calling real evidence a deepfake actually let powerful people escape accountability?",
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa tape deloitte hampshire robocall kramer leica nikon hollywood adobe vall firmware eval accent arup"
+    "keywords": "c2pa tape deloitte schiff hampshire politicians robocall kramer leica nikon hollywood adobe bueno crying liars"
   },
   {
     "id": "declining-birth-rates",
@@ -2610,9 +2614,9 @@
     "title": "The New Nuclear Arms Race",
     "question": "Has a new arms race made nuclear war likelier than at any time since 1962?",
     "meta_claim": "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 71,
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2620,12 +2624,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Can satellites and signals intelligence replace lost treaty inspections, or does losing them fuel buildups?",
     "tags": [
       "policy"
     ],
-    "keywords": "icbm hypersonic petrov pentagon posture bomber putin submarine avangard brumfiel continental denuclearizing glide hgvs kazakhstan"
+    "keywords": "hypersonic glide icbm petrov pentagon posture tracy bomber putin submarine altitude avangard brumfiel cameron continental"
   },
   {
     "id": "transgender-athletes-sports",
@@ -2744,18 +2748,17 @@
     "title": "Trump's Tariffs & Protectionist Trade Policy",
     "question": "Have Trump's tariffs revived US manufacturing and helped American workers?",
     "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
-    "confidence_score": 29,
-    "balance": 29,
-    "weight": 78,
+    "confidence_score": 36,
+    "balance": 36,
+    "weight": 79,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 4,
-    "evidenceCount": 16,
+    "evidenceCount": 18,
     "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
     "tags": [
       "economics"
@@ -2833,9 +2836,9 @@
     "title": "Carbon Tax Effectiveness",
     "question": "Is a carbon tax an effective, efficient way to cut emissions?",
     "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 72,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2843,7 +2846,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "How much of the observed emission cuts did carbon taxes actually cause?",
     "tags": [
       "economics",
@@ -2852,7 +2855,7 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth profession jazeera"
+    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
   },
   {
     "id": "congestion-pricing",
@@ -2892,9 +2895,9 @@
     "title": "Right to Repair",
     "question": "Do right-to-repair laws help consumers without harming innovation or safety?",
     "meta_claim": "Right-to-repair laws benefit consumers without significantly harming innovation or safety.",
-    "confidence_score": 77,
-    "balance": 77,
-    "weight": 55,
+    "confidence_score": 67,
+    "balance": 67,
+    "weight": 57,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2902,7 +2905,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Once firms adjust prices and parts, do right-to-repair laws lower or raise consumers' total ownership costs?",
     "tags": [
       "policy",
@@ -2912,24 +2915,24 @@
       "e-waste",
       "cybersecurity"
     ],
-    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit dortz eggman laptops monopolize owens sheep wagner workshop"
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas laptops luyi monopolize owens"
   },
   {
     "id": "assisted-dying-euthanasia",
     "title": "The Right to Assisted Dying",
     "question": "Do terminally ill, competent adults have a right to assisted dying?",
     "meta_claim": "Terminally ill, mentally competent adults have a moral right to medically assisted dying.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 58,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 60,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does a competent adult's autonomy extend to choosing the timing of an inevitable death?",
     "firstCruxStanding": "value-difference",
     "tags": [
@@ -2940,7 +2943,7 @@
       "medicine",
       "rights"
     ],
-    "keywords": "dignity refractory palliative charter carter colburn arch crpd disrespects enjoyable grievous hastening hospice irremediable oregonians"
+    "keywords": "dignity refractory palliative charter carter colburn quill vacco prejudice arch comports crpd disrespects enjoyable grievous"
   },
   {
     "id": "second-amendment-individual-right",
@@ -2966,7 +2969,7 @@
       "gun-rights",
       "originalism"
     ],
-    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace firearms"
+    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia soldier wallace alito"
   },
   {
     "id": "self-driving-car-safety",
@@ -3031,9 +3034,9 @@
     "title": "AI Training & Copyright",
     "question": "Should training AI on copyrighted work without permission be unlawful?",
     "meta_claim": "Training generative AI on copyrighted works without permission is unfair and should be unlawful.",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 67,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3041,7 +3044,7 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "Is the wrong in how training data was acquired, or in training on it at all?",
     "tags": [
       "technology",
@@ -3051,7 +3054,7 @@
       "intellectual-property",
       "law"
     ],
-    "keywords": "bartz ross pirated freelancer thomson verbatim kadrey regurgitate reshef shutterstock guild memorization bibas bookseller corps"
+    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim regurgitate reshef shutterstock guild memorization thirteen bibas bookseller"
   },
   {
     "id": "facial-recognition-policing",
@@ -3078,7 +3081,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt nistir affidavit clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha"
+    "keywords": "frvt nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha randal"
   },
   {
     "id": "gmo-crops-safety",
@@ -3105,7 +3108,7 @@
       "glyphosate",
       "biotechnology"
     ],
-    "keywords": "cotton herbicide weeds roundup iarc bollworm sprays juries bayer benbrook monsanto mper pink pmra qaim"
+    "keywords": "cotton herbicide weeds roundup iarc bollworm sprays bayer benbrook monsanto mper pink pmra qaim halo"
   },
   {
     "id": "nuclear-fusion-timeline",
@@ -3190,16 +3193,16 @@
       "medicine",
       "placebo"
     ],
-    "keywords": "remission relapse hamilton kirsch star amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine"
+    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine reuptake"
   },
   {
     "id": "social-security-retirement-age",
     "title": "Raising the Retirement Age",
     "question": "Is raising the retirement age a fair, necessary fix for Social Security?",
     "meta_claim": "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 72,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3207,7 +3210,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "How much of Social Security's funding gap would raising the retirement age close, versus revenue options?",
     "tags": [
       "economics",
@@ -3217,7 +3220,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "solvency crfb retirees oasdi payable trustees actuarial taxable"
+    "keywords": "actuary trustees solvency crfb retirees oasdi payable taxable"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3276,7 +3279,7 @@
       "Government licenses to work in a trade",
       "Licenses for hair braiding and beauty salons"
     ],
-    "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher interior"
+    "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher"
   },
   {
     "id": "encryption-backdoors",
@@ -3330,7 +3333,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia"
+    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3356,6 +3359,9 @@
       "arms-control",
       "international-law",
       "warfare"
+    ],
+    "aliases": [
+      "Will killer robots start an AI arms race?"
     ],
     "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible primer abstentions atrocities belarus governmental milder unoda"
   },
@@ -3386,9 +3392,10 @@
     ],
     "aliases": [
       "How much water does each ChatGPT query use?",
+      "How much water does an AI chatbot drink?",
       "Will AI data centers use as much electricity as whole countries?"
     ],
-    "keywords": "onsite freshwater gallons lbnl islam yang eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
+    "keywords": "onsite freshwater gallons lbnl islam eesi gco2e masley offsite shehabi thermoelectric thirsty hyperscaler cubic"
   },
   {
     "id": "adhd-overdiagnosis",

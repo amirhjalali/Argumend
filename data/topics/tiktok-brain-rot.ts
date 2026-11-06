@@ -247,6 +247,24 @@ export const tiktokBrainRotData = {
           reasoning:
             "The general finding that most users don't meet clinical thresholds for addiction is well-supported, but self-report media-use data is unreliable (people underestimate screen time). A previously cited 'Pew Research Center (2023): median daily TikTok use among US adults was 38 minutes' could not be verified — Pew's 2023 data reports frequency of use, not a 38-minute median — so that specific statistic was removed and replaced with a verifiable problematic-use prevalence estimate.",
         },
+        {
+          id: "habit-not-addiction-overestimate",
+          title: "Heavy Scrolling Mostly Looks Like Habit, Not Addiction, on a Clinical Scale",
+          description:
+            "In a study published in Scientific Reports in November 2025, 18% of a national quota sample of 380 US Instagram users agreed at least somewhat that they were addicted to the app, but only 2% scored in the at-risk range of the Bergen addiction scale, while about half (49%) described their use as habitual. In a supplementary convenience sample of college TikTok users, 9% were at risk against 59% who believed they were. The authors (Anderson and Wood) conclude that frequent use 'largely builds habits to automatically activate, scroll, post, and react on social media', and a second experiment (N = 824) found that framing use as an addiction lowered people's sense of control over it.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 5,
+          },
+          source:
+            "Anderson & Wood, 'Overestimates of social media addiction are common but costly,' Scientific Reports 15 (27 November 2025)",
+          sourceUrl: "https://www.nature.com/articles/s41598-025-27053-2",
+          reasoning:
+            "A peer-reviewed, preregistered measurement that separates habit from the clinical symptoms of addiction, and it bears on the skeptic's claim that 'addiction' over-pathologizes ordinary use. It is weighted moderately because the main sample is Instagram rather than a short-video feed, the TikTok figures come from a college convenience sample in the supplement, symptom scales are self-reported, and the study does not vary feed design, so it cannot say whether algorithmic feeds build stronger habits than other media.",
+        },
       ],
     },
     // =========================================================================

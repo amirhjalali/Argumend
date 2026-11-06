@@ -467,11 +467,17 @@ describe("findMaps", () => {
     expect(match.cards.map((card) => card.id)).toContain("public-support-rising");
   });
 
+  // Relies on tiktok-ban's free-speech-rights crux having no "for" card that
+  // is not an agreed fact, so the paste borrows one from another crux. If
+  // that crux gains a pair, repoint this test (and the matching ones in
+  // ./summary.test.ts and e2e/paste.spec.ts) to a crux still one-sided.
+  // Round 14 moved it here from student-debt-forgiveness, whose
+  // fairness-moral-hazard crux gained an "against" card.
   it("keeps a contrasting card's own crux when the selected crux has evidence on only one side", async () => {
     const result = await findMaps(
-      "Forgiving student debt is unfair to people who paid off their loans or never went to college, and it rewards borrowers who took on too much.",
+      "Banning TikTok violates the First Amendment rights of the millions of Americans who use the app to speak and share their views.",
     );
-    expect(result.match?.id).toBe("student-debt-forgiveness");
+    expect(result.match?.id).toBe("tiktok-ban");
     expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
     const own = result.match!.cards.find((card) => card.crux?.href === result.match!.crux!.href)!;
     const borrowed = result.match!.cards.find((card) => card.crux?.href !== result.match!.crux!.href)!;
@@ -479,8 +485,8 @@ describe("findMaps", () => {
     expect(borrowed).toBeDefined();
     expect(own.crux?.href).toBe(result.match!.crux!.href);
     expect(borrowed.crux).toEqual({
-      question: "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
-      href: "/topics/student-debt-forgiveness#crux-economic-stimulus",
+      question: "Does foreign-adversary control of a major platform justify action by itself, or must harm be shown first?",
+      href: "/topics/tiktok-ban#crux-geopolitics-data-sovereignty",
     });
     expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(result.match!.cards);
     expect(PasteMapsResultSchema.safeParse({

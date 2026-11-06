@@ -7,6 +7,18 @@ export const dogeFederalCutsData = {
     "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "The temporary DOGE organization ended on 4 July 2026; days earlier its website claimed $215 billion in savings. In August 2026 the Government Accountability Office reviewed the $110 billion of that claim listed against cancelled contracts, grants and leases, and found some of the estimates incorrect or lacking supporting evidence. The fight is over whether the cuts left a leaner government or a weaker one.",
+    confidence: 90,
+    source:
+      "Nextgov/FCW, 'As DOGE formally sunsets, its public record is still evolving' (2 July 2026); U.S. GAO, 'DOGE Wall of Receipts: More Transparency Needed on How Savings Are Derived from Contract, Grant, and Lease Terminations' (GAO-26-108615, 6 August 2026)",
+    sourceUrl: "https://www.gao.gov/products/gao-26-108615",
+  },
+  simple_case: [
+    "The answer bears on how future presidents cut the government, on waits at Social Security and the VA, and on what a president may do without Congress.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Claimed vs. Verified Savings
@@ -15,10 +27,10 @@ export const dogeFederalCutsData = {
       id: "claimed-vs-verified-savings",
       title: "Claimed vs. Verified Savings",
       short_summary:
-        "DOGE's 'Wall of Receipts' grew to a claimed $175 billion in savings by late May 2025, but independent review by NPR could document only a fraction (about $2 billion verifiable in February 2025; roughly $63 billion of $160 billion claimed by late April), after the ledger was caught listing the same contracts multiple times and inflating figures by orders of magnitude. DOGE's temporary organization sunset on July 4, 2026 with its site claiming $215 billion, and a GAO review released that August found $110 billion of the savings it claimed from contracts, leases and grants rested on estimates that were incorrect or lacked supporting evidence.",
+        "DOGE's 'Wall of Receipts' grew to a claimed $175 billion in savings by late May 2025, but independent review by NPR could document only a fraction (about $2 billion verifiable in February 2025; roughly $63 billion of $160 billion claimed by late April), after the ledger was caught listing the same contracts multiple times and inflating figures by orders of magnitude. DOGE's temporary organization sunset on July 4, 2026 with its site claiming $215 billion, and a GAO review released that August found that some of the $110 billion it claimed from contracts, grants and leases rested on estimates that were incorrect or lacked supporting evidence.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "DOGE's savings claims are largely fictional. Its public ledger has been repeatedly caught in basic arithmetic errors: an ICE contract listed at $8 billion was actually $8 million, an SSA contract listed at $232 million was actually about $560,000, and a single USAID contract was triple-counted for up to $655 million. When NPR reviewed the receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at the time; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025 and $215 billion by the time DOGE sunset in July 2026. An August 2026 GAO review found $110 billion of DOGE's claimed contract, lease and grant savings incorrect or unsupported. Meanwhile, the Yale Budget Lab projects that DOGE-era IRS staffing cuts and the funding clawback together forgo roughly $861 billion in tax revenue over 2026-2035 — meaning DOGE may be losing far more money than it saves.",
+        "DOGE's savings claims are largely fictional. Its public ledger has been repeatedly caught in basic arithmetic errors: an ICE contract listed at $8 billion was actually $8 million, an SSA contract listed at $232 million was actually about $560,000, and a single USAID contract was triple-counted for up to $655 million. When NPR reviewed the receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at the time; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025 and $215 billion by the time DOGE sunset in July 2026. An August 2026 GAO review of the $110 billion DOGE claimed from contracts, grants and leases found some estimates incorrect or unsupported, could not verify the method behind 96 percent of the grant savings, and found a $1.7 billion Defense Health Agency contract counted as savings although no action was taken to terminate it. Meanwhile, the Yale Budget Lab projects that DOGE-era IRS staffing cuts and the funding clawback together forgo roughly $861 billion in tax revenue over 2026-2035 — meaning DOGE may be losing far more money than it saves.",
       proponent_rebuttal:
         "Early ledger errors are real but reflect the speed of a startup-style operation, not the absence of waste. GAO's own 2024 estimate puts direct annual federal losses to fraud at $233-521 billion (FY2018-2022 data), an enormous pool of genuine inefficiency that prior administrations never seriously attacked. DOGE forced a culture of scrutiny on contracts that had renewed automatically for decades, and even conservative verified figures represent billions returned to taxpayers. The ledger was corrected as discrepancies surfaced, and even GAO's critical 2026 review said a public ledger like the Wall of Receipts \"can have significant value\" — transparency about errors is a feature, not proof the savings are imaginary.",
       crux: {
@@ -548,7 +560,7 @@ export const dogeFederalCutsData = {
       id: "q1",
       title: "Did DOGE actually save money, or just claim it?",
       content:
-        "DOGE's ledger grew to a claimed $215 billion in savings by the time it sunset in July 2026, but independent review documented only a fraction (about $2 billion verifiable in February 2025; less than half of the headline backed by basic documentation), after the receipts were caught inflating figures by up to 1,000x, and a 2026 GAO review found $110 billion of the claimed contract, lease and grant savings incorrect or unsupported. Meanwhile, the Yale Budget Lab projects DOGE-era IRS staffing cuts plus the funding clawback together forgo roughly $861 billion in revenue over a decade. When verified savings are netted against revenue losses and the cost of rehiring essential staff, did DOGE leave the government better off financially — or worse?",
+        "DOGE's ledger grew to a claimed $215 billion in savings by the time it sunset in July 2026, but independent review documented only a fraction (about $2 billion verifiable in February 2025; less than half of the headline backed by basic documentation), after the receipts were caught inflating figures by up to 1,000x, and a 2026 GAO review found some of the $110 billion claimed from contracts, grants and leases incorrect or unsupported. Meanwhile, the Yale Budget Lab projects DOGE-era IRS staffing cuts plus the funding clawback together forgo roughly $861 billion in revenue over a decade. When verified savings are netted against revenue losses and the cost of rehiring essential staff, did DOGE leave the government better off financially — or worse?",
     },
     {
       id: "q2",

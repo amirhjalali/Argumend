@@ -8,6 +8,18 @@ export const obesityPersonalResponsibilityData = {
     "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
   status: "contested" as const,
   category: "science" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "By the CDC's measurements, obesity among US adults aged 20 to 74 rose from 13.4% in 1960–62 to 42.8% in 2017–18, far faster than genes change. In the STEP 1 trial, adults given semaglutide alongside diet and exercise counselling lost 14.9% of their body weight over 68 weeks, against 2.4% on placebo. The fight is over what those facts say about how much of weight is chosen.",
+    confidence: 92,
+    source:
+      "CDC National Center for Health Statistics, NHANES Health E-Stat, 'Prevalence of Overweight, Obesity, and Severe Obesity Among Adults Aged 20 and Over: United States, 1960–1962 Through 2017–2018', Table 1; Wilding et al., New England Journal of Medicine (2021)",
+    sourceUrl: "https://www.cdc.gov/nchs/data/hestat/obesity-adult-17-18/obesity-adult.htm",
+  },
+  simple_case: [
+    "The answer bears on whether governments tax and regulate food, on who pays for weight-loss drugs, and on how doctors treat people with obesity.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Food Environment and Agency
@@ -163,7 +175,7 @@ export const obesityPersonalResponsibilityData = {
           supporter_flip:
             "If 5-year metabolic studies of people who lose weight through diet and exercise alone found metabolism and appetite hormones defending the old weight so strongly that few keep off more than 10%, behavior-based change would be fundamentally limited and the personal-choice claim would weaken.",
           skeptic_flip:
-            "If studies traced the rise in US adult obesity from 13.4% in 1960-62 to 42.4% in 2017-18 to shifts in environment and behavior, over a period when the genome did not meaningfully change, biology would look like a limit on individuals rather than the driver of the trend.",
+            "If studies traced the rise in obesity among US adults aged 20-74 from 13.4% in 1960-62 to 42.8% in 2017-18 to shifts in environment and behavior, over a period when the genome did not meaningfully change, biology would look like a limit on individuals rather than the driver of the trend.",
           common_ground:
             "Both sides agree BMI is substantially heritable — twin studies put it at 40-70% — and that the recent rise reflects susceptible genes meeting a changed environment, not genes changing.",
           live_disagreement:
@@ -233,7 +245,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "US Obesity Tripled in 50 Years — Genes Cannot Explain a Population-Level Shift",
           description:
-            "US adult obesity rates rose from 13.4% in 1960-62 to 42.4% in 2017-18 (NHANES data). The human genome does not change meaningfully over 50 years, yet the entire population weight distribution shifted rightward. Critics of the biological determinism argument note that this population-level shift can only be explained by environmental and behavioral changes: a 500+ kcal/day increase in average caloric intake, dramatic reductions in occupational physical activity, increased sedentary leisure time, and the proliferation of hyper-palatable ultra-processed foods.",
+            "Obesity among US adults aged 20-74 rose from 13.4% in 1960-62 to 42.8% in 2017-18 (NHANES data, age-adjusted). The human genome does not change meaningfully over 50 years, yet the entire population weight distribution shifted rightward. Critics of the biological determinism argument note that this population-level shift can only be explained by environmental and behavioral changes: a 500+ kcal/day increase in average caloric intake, dramatic reductions in occupational physical activity, increased sedentary leisure time, and the proliferation of hyper-palatable ultra-processed foods.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,

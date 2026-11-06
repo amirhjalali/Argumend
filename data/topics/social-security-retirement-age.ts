@@ -23,7 +23,7 @@ export const socialSecurityRetirementAgeData = {
     "They split over how much of the gap an age increase closes compared with revenue options like lifting the payroll-tax cap, and over whether, counted over a lifetime, it cuts benefits evenly across earners or falls hardest on lower earners.",
     "The second turns largely on whether benefits are counted year by year or over a lifetime, with disability insurance in or out.",
   ],
-  last_updated: "2026-06-16",
+  last_updated: "2026-11-03",
   tags: ["social-security", "retirement", "fiscal-policy", "aging", "inequality"],
   pillars: [
     {
@@ -118,6 +118,24 @@ export const socialSecurityRetirementAgeData = {
             "https://www.crfb.org/blogs/cbos-options-improve-social-security-solvency",
           reasoning:
             "Establishes that viable non-age options exist. Weights are moderate because exact cap-design scores vary and CRFB is a secondary summary of CBO/SSA scoring rather than the primary actuarial table.",
+        },
+        {
+          id: "ssa-actuary-fra69-then-index",
+          title: "Chief Actuary: Raising the Age to 69, Then Letting It Keep Rising, Closes About a Third of the Gap",
+          description:
+            "The Social Security Office of the Chief Actuary scores each reform on its own. Under the intermediate assumptions of the 2026 Trustees Report, the current-law long-range actuarial balance is -4.42% of taxable payroll. Provision C1.4, which raises the normal retirement age by 2 months a year for those turning 62 from 2027 to 2038 (reaching 69) and then by 1 month every 2 years, eliminates 32% of that long-range shortfall and 42% of the deficit in the 75th year. Smaller age changes close less: stopping at 68 (C1.1) eliminates 11%, and indexing the age to life expectancy (C1.3) eliminates 16% of the long-range shortfall and 29% in the 75th year.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 8,
+            directness: 6,
+          },
+          source:
+            "Social Security Administration, Office of the Chief Actuary, 'Provisions Affecting Retirement Age' (estimates based on the 2026 Trustees Report)",
+          sourceUrl: "https://www.ssa.gov/oact/solvency/provisions/charts/chart_run101.html",
+          reasoning:
+            "This is the 'for' side's strongest official number: the program's own actuaries find that an age increase that keeps going after 69 does about a third of the long-range work and more in later years, which is the side's claim that the contribution grows with longevity. It does not establish that an age increase is necessary. About two-thirds of the gap remains, other designs close far less, revenue options can be scored the same way, and the size of the benefit cut is the fairness dispute, so directness is moderate.",
         },
       ],
     },

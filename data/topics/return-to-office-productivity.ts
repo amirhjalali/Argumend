@@ -379,6 +379,24 @@ export const returnToOfficeProductivityData = {
           reasoning:
             "Previously this item asserted an Envoy finding that long-lease (10+ year) firms were '2.3x' more likely to mandate full RTO and that mandate timing correlated with lease renewals. That specific finding could not be located or verified in any primary source, so the quantitative claims were removed and weights lowered substantially. The underlying sunk-cost intuition is reasonable but currently unsubstantiated; the Ding & Ma determinant analysis (see the S&P 500 study) speaks more directly and credibly to RTO motives.",
         },
+        {
+          id: "proximity-mentorship-engineers",
+          title: "Sitting Near Teammates Raised Coding Feedback 18%, Mostly for Junior Engineers",
+          description:
+            "Emanuel, Harrington and Pallais studied software engineers at a Fortune 500 firm from 2019 to 2024, using the 2020 office closures and the firm's 2022 and 2023 return-to-office mandates as shocks to who sat near their teammates. They find that \"sitting near teammates increases coding feedback by 18.3% and improves code quality,\" with gains \"concentrated among less-tenured and younger employees,\" though experienced engineers write less code when seated near teammates. In national US data, young graduates' unemployment rose relative to older graduates' in remotable jobs after the pandemic, a pattern the authors do not find in non-remotable jobs.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 4,
+          },
+          source:
+            "Emanuel, Harrington & Pallais, 'The Power of Proximity to Coworkers,' NBER Working Paper 31880 (November 2023, revised June 2026)",
+          sourceUrl: "https://www.nber.org/papers/w31880",
+          reasoning:
+            "This is the mandate side's best evidence that the mentorship rationale is real rather than cover: a difference-in-differences design, run partly on actual return-to-office mandates, finds measurable training gains for junior staff. Directness to this crux is low. It shows that a legitimate reason for office time exists, not that it is what drove any firm's mandate, and the same paper finds a cost in senior engineers' output. It is one firm, one occupation, and an unrefereed working paper.",
+        },
       ],
     },
   ],

@@ -97,6 +97,25 @@ export const trumpTariffsData = {
             "Proponents cite the partial consumer share and the exporters' rising share as evidence the burden is shared rather than landing wholly on households. Both sources are credible and independent, but the HBS split puts the non-consumer share on US companies, not foreigners, and the New York Fed's exporter share tops out near 14%, so the strong version of 'China pays' remains false even on this reading. Replicability is downgraded because the foreign-exporter share is the most contested component across studies.",
         },
         {
+          id: "japan-car-export-price-cuts",
+          title: "Japanese Carmakers Cut Dollar Prices on Cars Shipped to the US by About 22% (2025)",
+          description:
+            "After the 25% US tariff on imported cars took effect in April 2025, the Japan Center for Economic Research traced Japan's customs data on exports to the United States. Export volume held up while the yen price per unit fell, a decline that began in March 2025 and widened in later months. Passenger cars, 24.3% of Japan's export value to the US in June 2025, showed the largest year-on-year fall in the exchange-rate-adjusted (dollar-terms) export unit price: 22.0% in the latest month of data. The Bank of Japan's fixed-basket export price index for cars sent to North America fell too, so the drop was not a shift toward cheaper models. JCER's Jun Saito concludes that 'exporting firms are absorbing the impact of higher tariff by reducing export unit price in yen-terms.' The US later cut the tariff on Japanese cars to 15% under the July 2025 agreement.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Jun Saito, 'Consequences of Trump Tariffs on the Japanese Economy,' Japan Center for Economic Research (15 Aug 2025), using Japan Ministry of Finance trade statistics and the Bank of Japan export price index",
+          sourceUrl:
+            "https://www.jcer.or.jp/english/consequences-of-trump-tariffs-on-the-japanese-economy",
+          reasoning:
+            "This is the clearest documented case of a foreign seller paying part of a 2025 tariff: an independent Japanese research institute, working from official customs and central-bank price data, finds car exporters cut their own prices to hold their US sales. It is one industry from one ally, measured in mid-2025 before that tariff was lowered, so it shows exporters can absorb part of a tariff where they have margin to spare, not that they did so across the board. Aggregate studies point the other way: a Richmond Fed working paper on 2025 customs data (Azzimonti and Titcomb, April 2026) finds 'negligible adjustment by foreign exporters' overall.",
+        },
+        {
           id: "fed-inflation-counterfactual",
           title: "Fed Economists: Tariffs Explain All Excess Core Goods Inflation Since 2025",
           description:
@@ -448,6 +467,24 @@ export const trumpTariffsData = {
           sourceUrl: "https://www.tradecomplianceresourcehub.com/2026/04/19/trump-2-0-tariff-tracker/",
           reasoning:
             "The announced deals are verifiable and support the leverage argument, and they include large economies, not just small ones. However, many are frameworks rather than finished agreements, their terms were negotiated under tariffs the Supreme Court later held unlawful, and the partners with the most leverage (the EU, Canada, China) also retaliated, consistent with the conditional framing that allies with leverage both bargain and hit back.",
+        },
+        {
+          id: "china-goods-deficit-fell-2025",
+          title: "The US Goods Deficit With China Fell by About a Third in 2025",
+          description:
+            "Census Bureau trade data put the US goods deficit with China at $202.7 billion in 2025, down from $297.0 billion in 2024 and $418.2 billion in 2018; US imports from China fell from $440.3 billion to $308.7 billion in a year. The gap stayed narrower in 2026, at $109.6 billion for January through August. The aggregate picture did not move the same way: the total US deficit in goods and services was $901.5 billion in 2025 against $903.5 billion in 2024, and the goods deficit alone widened to a record $1.24 trillion. Proponents read the China figures as the tariffs cutting dependence on the main strategic rival; critics read the flat total as the same deficit moving to other countries.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 9,
+            directness: 4,
+          },
+          source:
+            "US Census Bureau, 'Trade in Goods with China' (annual and 2026 monthly balances) and 'U.S. Trade in Goods and Services, Balance of Payments Basis, 1960 through 2025'",
+          sourceUrl: "https://www.census.gov/foreign-trade/balance/c5700.html",
+          reasoning:
+            "Official trade statistics, so the numbers themselves are not in dispute. The bilateral cut is large and real, and it is the outcome the policy's China rationale aims at. Directness on this crux is low, though: the crux asks whether tariffs can fix the trade deficit, and the total barely moved while the goods deficit set a record, which is what the savings-investment account predicts. The China figures support the narrower claim that tariffs shift where Americans buy, not the broader one that they close the gap.",
         },
         {
           id: "ally-retaliation-costs",

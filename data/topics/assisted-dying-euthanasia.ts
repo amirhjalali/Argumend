@@ -116,6 +116,23 @@ export const assistedDyingEuthanasiaData = {
           reasoning:
             "A reputable, transparent, repeatedly-replicated poll. But popular majorities establish social acceptance, not the existence of a moral right — directness to the normative claim is low, and Gallup itself notes only ~53% find it morally acceptable.",
         },
+        {
+          id: "vacco-v-quill-letting-die",
+          title: "US Supreme Court: Letting a Patient Die Differs From Making One Die",
+          description:
+            "In Vacco v. Quill (1997), the US Supreme Court, with no justice dissenting, upheld New York's ban on physician-assisted suicide against the claim that it irrationally treated patients differently from those allowed to refuse life support. Chief Justice Rehnquist wrote that \"The distinction comports with fundamental legal principles of causation and intent\" and that the distinction between assisting suicide and withdrawing life-sustaining treatment, \"widely recognized and endorsed in the medical profession and in our legal traditions, is both important and logical; it is certainly rational.\" The Court called the state's reasons, among them \"protecting vulnerable people from indifference, prejudice, and psychological and financial pressure to end their lives,\" valid and important public interests.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Vacco v. Quill, 521 U.S. 793 (1997), decided June 26, 1997 (Cornell LII text)",
+          sourceUrl: "https://www.law.cornell.edu/supremecourt/text/521/793",
+          reasoning:
+            "A primary ruling from a top court that addresses this crux's live question head-on, whether a principled line separates letting die from helping die, and answers yes; it pairs with Carter v. Canada, which reached the opposite result under Canada's Charter. It is not weighted higher because the Court applied only rational-basis review, so it held that the line is rational enough for a legislature to draw, not that it is morally correct, and holding that a ban is permitted is not holding that one is required.",
+        },
       ],
     },
     {

@@ -230,6 +230,25 @@ export const centralBankDigitalCurrencyData = {
           reasoning:
             "Nigeria's eNaira provides the strongest real-world counter-evidence to CBDC financial inclusion claims. The very low adoption rate despite government pressure directly demonstrates that a CBDC does not automatically solve financial inclusion. However, Nigeria's specific governance trust issues may not generalize to all countries.",
         },
+        {
+          id: "sanddollar-no-id-wallet",
+          title: "The Bahamas' SandDollar Offers a Wallet That Needs No ID Documents",
+          description:
+            "Central Bank of The Bahamas staff (Branch, Ward and Wright, Intereconomics, 2023) write that after many international banks wound up their operations on the outer islands, \"leaving the residents there without access to banking services,\" the bank launched the SandDollar in October 2020 \"to provide a payments solution for those who do not have access to banking services.\" Its entry tier targets the missing-ID barrier directly: \"Tier 1, or basic wallet, does not require the user to submit any KYC documents,\" with holdings capped at 500 SandDollars. Uptake has been modest: \"just over 100,000 wallets\" by March 2023, while SandDollars \"still represent less than 1% of the total Bahamian dollars in circulation.\"",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 3,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Branch, Ward & Wright (Central Bank of The Bahamas), 'The Evolution of SandDollar,' Intereconomics 58(4):178–184 (2023)",
+          sourceUrl:
+            "https://www.intereconomics.eu/contents/year/2023/number/4/article/the-evolution-of-sanddollar.html",
+          reasoning:
+            "The strongest concrete case for this side is a design feature, not a measured outcome: a central-bank wallet that a person without identity documents can open, aimed at islands that lost their bank branches. It is weighted low. The authors work for the issuing central bank, the article reports wallets rather than how many previously unbanked people now use one, adoption is under 1% of currency in circulation, and nothing in it shows a light-ID tier that a mobile-money provider could not offer.",
+        },
       ],
     },
 

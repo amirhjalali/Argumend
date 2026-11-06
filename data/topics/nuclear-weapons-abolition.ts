@@ -225,6 +225,24 @@ export const nuclearWeaponsAbolitionData = {
           reasoning:
             "The CWC/BWC precedent demonstrates that weapons can be abolished even when the knowledge persists. However, the analogy is imperfect: chemical and biological weapons provide limited strategic advantage compared to conventional alternatives, whereas nuclear weapons provide unique deterrent value. The directness score is lower because the strategic asymmetry between nuclear and chemical/biological weapons limits the analogy's applicability.",
         },
+        {
+          id: "iaea-iran-lost-continuity-2026",
+          title: "The IAEA Has Lost Track of Iran's 440.9 kg of 60% Uranium for Over a Year (Sept 2026)",
+          description:
+            "The IAEA's 1 September 2026 safeguards report on Iran (GOV/2026/50) estimates that Iran held 440.9 kg of uranium enriched up to 60% U-235 as of 13 June 2025, before the military attacks on its facilities. Since then the Agency has had no access to any of Iran's four declared enrichment facilities, and it states that it 'cannot provide any information on the current size, composition or whereabouts of the stockpile of enriched uranium in Iran or whether Iran has suspended all enrichment related activities.' The report adds: 'It is more than a year since the Agency lost continuity of knowledge in relation to the previously declared inventories of LEU and HEU enriched up to 60% U-235,' calling this 'a matter of proliferation concern' that 'needs to be addressed with the utmost urgency.' It also does not know the status of a fourth enrichment facility Iran declared in June 2025 but never opened to inspectors.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source:
+            "International Atomic Energy Agency, Board of Governors report GOV/2026/50, 'Implementation of the NPT Safeguards Agreement ... in the Islamic Republic of Iran' (1 September 2026, derestricted 9 September 2026)",
+          sourceUrl: "https://www.iaea.org/sites/default/files/gov2026-50.pdf",
+          reasoning:
+            "This is the 'for' side's strongest current evidence on the crux: the inspectorate that had verified Iran's declared material for years now cannot say where a quantity of near-weapons-grade uranium is, which is the scenario abolition must rule out. Directness is not higher because the loss followed military attacks and Iran's refusal of access, not a secret evasion of working inspections, and the loss of access was itself known and reported to the Board. The 'against' side can read that as the warning a verification regime is meant to give; whether the warning would come in time for others to respond is exactly what the crux leaves open.",
+        },
       ],
     },
 

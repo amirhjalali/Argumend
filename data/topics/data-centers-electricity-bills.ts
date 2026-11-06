@@ -8,7 +8,12 @@ export const dataCentersElectricityBillsData = {
   category: "economics" as const,
   last_updated: "2026-11-03",
   tags: ["data-centers", "electricity-prices", "utilities", "ai", "ratepayers"],
-  aliases: ["Data center electricity costs", "Do data centers raise power bills"],
+  aliases: [
+    "Data center electricity costs",
+    "Do data centers raise power bills",
+    // Words readers use for this question that the map's own text does not.
+    "Are hyperscale server campuses behind my utility's rate hike?",
+  ],
   // ── The lede: two facts both sides accept, then what the fight is over ──
   keystone_fact: {
     statement:

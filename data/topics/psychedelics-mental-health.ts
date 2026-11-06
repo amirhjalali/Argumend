@@ -234,6 +234,25 @@ export const psychedelicsMentalHealthData = {
           reasoning:
             "Peer-reviewed analyses (Lancet MCDA harm rankings; a Neuropharmacology review applying the CSA's own 8 abuse-potential factors to psilocybin) document a mismatch between Schedule I criteria and psilocybin's low dependence and toxicity profile. The primary sourceUrl links the Johnson et al. CSA-factors paper, which is most directly on point for scheduling. Still, rescheduling is a policy judgment that also weighs public-health infrastructure and abuse prevention, so directness to the meta-claim is moderate.",
         },
+        {
+          id: "oregon-clients-seek-treatment",
+          title: "Thousands Use Oregon's Adult-Use Program to Treat Depression, Anxiety and PTSD",
+          description:
+            "Oregon's 2025 year-end data count 5,935 clients served at licensed service centers. Asked their reasons (select all that apply), 1,413 cited anxiety, 1,304 depression, 775 PTSD and 291 substance use, alongside 1,816 who cited general health and wellness. What the state collects for the year is reactions and denials, not symptom outcomes: 13 reports of emergency services being contacted, 7 severe adverse behavioral reactions and 2 severe adverse medical reactions, with clients free to opt out of the data form.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Oregon Health Authority, Oregon Psilocybin Services 2025 Year-End Data Summary (SB 303 data, 1 January–31 December 2025)",
+          sourceUrl:
+            "https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/Documents/2025-Year-End-Data-Summary.pdf",
+          reasoning:
+            "Official state counts, but they cut both ways. The handful of severe reactions among nearly 6,000 clients is a point for the other side. What supports the skeptic is who is using the program: well over a thousand clients each named depression or anxiety, so a licensed adult-use program is in practice serving psychiatric patients outside the FDA pathway, while the state's data cannot say whether any of them got better. Reasons are self-reported and clients may opt out, so the figures are lower bounds of uncertain completeness.",
+        },
       ],
     },
 

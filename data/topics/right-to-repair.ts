@@ -23,7 +23,7 @@ export const rightToRepairData = {
     "They split over whether total ownership costs fall or rise once firms adjust prices, parts and durability, set against US PIRG's estimate of about $330 a year in household savings; whether the laws measurably cut R&D, patents or new products; and whether targeted carve-outs can neutralize the safety risk or it is inherent to broad mandates.",
     "Each turns on data not yet gathered: price and repair panels, firm-level patent records, and incident comparisons across laws.",
   ],
-  last_updated: "2026-06-16",
+  last_updated: "2026-11-03",
   tags: ["right-to-repair", "consumer-protection", "antitrust", "e-waste", "cybersecurity"],
   pillars: [
     {
@@ -99,6 +99,25 @@ export const rightToRepairData = {
             "https://www.ftc.gov/reports/nixing-fix-ftc-report-congress-repair-restrictions",
           reasoning:
             "An independent federal agency reviewing an adversarial public record found manufacturers' anti-repair justifications largely unsupported, and the FTC voted unanimously to step up enforcement. High reliability and independence. Directness is strong on the 'consumers are harmed by restrictions' claim; replicability is moderate because it is a policy assessment, not a controlled study.",
+        },
+        {
+          id: "jin-yang-zhu-lose-lose-lose",
+          title: "Peer-Reviewed Model: Cheaper Repair Can Leave Consumers Worse Off Once Prices Adjust",
+          description:
+            "Chen Jin and Cungen Zhu (National University of Singapore) and Luyi Yang (UC Berkeley Haas) built an analytical model of a manufacturer that sells new products while independent shops compete on repair. They find that 'as the RTR legislation continually lowers the independent repair cost, manufacturers may initially cut the new product price and then raise it,' and that this can move consumer surplus, social welfare and environmental impact in either direction. In their words, the law 'can potentially lead to a lose–lose–lose outcome that compromises manufacturer profit, reduces consumer surplus, and increases the environmental impact despite repair being made easier and more affordable.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Jin, Yang & Zhu, 'Right to Repair: Pricing, Welfare, and Environmental Implications,' Management Science 69(2), 1017-1036 (2023)",
+          sourceUrl:
+            "https://econpapers.repec.org/RePEc:inm:ormnsc:v:69:y:2023:i:2:p:1017-1036",
+          reasoning:
+            "This is the peer-reviewed basis for the skeptic side's case, and it targets exactly what this crux asks: the net effect after firms reprice. It is a theoretical result, though. The model shows the harm can happen under some conditions; it does not measure whether it has happened under any actual law, so replicability is low, and directness is moderate because the model's own result runs both ways: the same law can raise or lower consumer surplus depending on how far repair costs fall. The test that would show how much of the model's harm or the advocates' savings is real, comparing prices and ownership costs in states with repair laws against states without, does not yet have enough years of data.",
         },
       ],
     },
