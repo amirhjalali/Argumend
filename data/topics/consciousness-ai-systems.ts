@@ -9,9 +9,9 @@ export const aiConsciousnessData = {
   category: "philosophy" as const,
   keystone_fact: {
     statement:
-      "A 2025 adversarial test of the two leading theories of consciousness, run on 256 human participants, confirmed neither. A 2023 report by 19 researchers found no current AI system conscious and no obvious technical barrier to building one that is, and since late 2024 Anthropic has run model-welfare assessments before deploying new models. Both sides accept these facts. The fight is over how much moral caution that uncertainty calls for.",
+      "A 2025 adversarial test of the two leading theories of consciousness, run on 256 human participants, confirmed neither. A 2023 report by 19 researchers found no current AI system conscious and no obvious technical barrier to building one that satisfies its indicators, and in 2025 Anthropic opened a model-welfare research program and ran a preliminary welfare assessment before deploying Claude Opus 4. Both sides accept these facts. The fight is over how much moral caution that uncertainty calls for.",
     confidence: 80,
-    source: "Cogitate Consortium, Nature 642 (2025); Butlin, Long et al., 'Consciousness in Artificial Intelligence' (2023); Anthropic model welfare work (2024-2025)",
+    source: "Cogitate Consortium, Nature 642 (2025); Butlin, Long et al., 'Consciousness in Artificial Intelligence' (2023); Anthropic, 'Exploring model welfare' (Apr 2025) and 'Claude Opus 4 and 4.1 can now end a rare subset of conversations' (Aug 2025)",
     sourceUrl: "https://www.nature.com/articles/s41586-025-08888-1",
   },
   simple_case: [
@@ -29,7 +29,7 @@ export const aiConsciousnessData = {
       skeptic_premise:
         "Nothing a current AI system does is good evidence of experience. Its first-person reports reproduce the human text it was trained on, and it satisfies few of the indicator properties that theories of consciousness name. On biological views, consciousness may require specific biological processes, such as particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world, so a positive test result on a machine would not show experience. A 2025 paper by Porębski and Figura in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature) is titled 'There is no such thing as conscious artificial intelligence,' arguing that the algorithms in use today, and those likely in the foreseeable future, cannot become conscious because they lack a complex biological substrate. Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
       proponent_rebuttal:
-        "A test does not have to settle the metaphysics first. The 2023 indicator-properties report derived markers from the leading neuroscientific theories and found no obvious technical barrier to systems that satisfy them, and functionalist theories of mind (held by many cognitive scientists) hold that a system with the right computational organization would be conscious whether it runs on silicon or carbon. Anthropic hired dedicated AI welfare researchers in 2024 and acknowledged a 'non-negligible' probability that their model Claude might possess consciousness. A 2023 Nature article urged technology companies to begin testing their systems for indicators of consciousness.",
+        "A test does not have to settle the metaphysics first. The 2023 indicator-properties report derived markers from the leading neuroscientific theories and found no obvious technical barrier to systems that satisfy them, and functionalist theories of mind (held by many cognitive scientists) hold that a system with the right computational organization would be conscious whether it runs on silicon or carbon. Anthropic opened a model-welfare research program in 2025 and calls whether its models could be conscious 'an open question.' A December 2024 Nature news article reported researchers calling on technology companies to test their systems for consciousness.",
       crux: {
         id: "consciousness-detection-test",
         title: "Reliable Consciousness Detection in Non-Biological Systems",
@@ -87,8 +87,8 @@ export const aiConsciousnessData = {
             replicability: 5,
             directness: 6,
           },
-          source: "Anthropic, 'Emergent Introspective Awareness in Large Language Models' (Oct 29, 2025); Anthropic, 'Exploring model welfare' (Apr 24, 2025)",
-          sourceUrl: "https://www.anthropic.com/research/introspection",
+          source: "Anthropic, 'Exploring model welfare' (Apr 24, 2025); Anthropic, 'Emergent Introspective Awareness in Large Language Models' (Oct 29, 2025), https://www.anthropic.com/research/introspection",
+          sourceUrl: "https://www.anthropic.com/research/exploring-model-welfare",
           reasoning:
             "Anthropic's actions signal genuine concern from those closest to frontier AI development. However, there are incentive problems: anthropomorphizing AI may serve commercial interests, and Anthropic is not a neutral scientific body. The introspection finding is about self-report accuracy, not consciousness itself.",
         },
@@ -111,9 +111,9 @@ export const aiConsciousnessData = {
         },
         {
           id: "butlin-long-indicator-properties",
-          title: "Butlin & Long et al.: No Current AI Is Conscious, But No In-Principle Barrier",
+          title: "Butlin & Long et al.: No Current AI Is Conscious, But No Obvious Technical Barrier",
           description:
-            "The 2023 report 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness,' co-authored by 19 researchers including Patrick Butlin, Robert Long, Yoshua Bengio, and Jonathan Birch, derives 'indicator properties' of consciousness from leading neuroscientific theories (recurrent processing, global workspace, higher-order, predictive processing, attention schema). Assessing existing AI systems, it concludes that no current AI system is conscious—they satisfy few of the indicators—while finding no obvious technical barrier to building systems that do. This is the canonical multi-theory reference and cuts both ways: skeptical about current systems, but legitimizing the question.",
+            "The 2023 report 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness,' co-authored by 19 researchers including Patrick Butlin, Robert Long, Yoshua Bengio, and Jonathan Birch, derives 'indicator properties' of consciousness from leading neuroscientific theories (recurrent processing, global workspace, higher-order, predictive processing, attention schema). Assessing existing AI systems, it concludes that no current AI system is conscious (none is 'a strong candidate for consciousness') while finding 'no obvious technical barriers' to building systems that satisfy the indicators. The assessment takes computational functionalism as a working hypothesis. This is the canonical multi-theory reference and cuts both ways: skeptical about current systems, but legitimizing the question.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -124,7 +124,7 @@ export const aiConsciousnessData = {
           source: "P. Butlin, R. Long, et al., 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness' (2023), arXiv:2308.08708",
           sourceUrl: "https://arxiv.org/abs/2308.08708",
           reasoning:
-            "High independence and authority: 19 co-authors spanning neuroscience and philosophy of mind, grounded in established empirical theories rather than a single viewpoint. Its 'no current system is conscious' conclusion is the strongest, best-sourced skeptical datapoint in the map; its 'no in-principle barrier' conclusion keeps the question open.",
+            "High independence and authority: 19 co-authors spanning neuroscience and philosophy of mind, grounded in established empirical theories rather than a single viewpoint. Its 'no current system is conscious' conclusion is the strongest, best-sourced skeptical datapoint in the map; its 'no obvious technical barriers' conclusion keeps the question open.",
         },
         {
           id: "chalmers-llm-conscious",
@@ -164,7 +164,7 @@ export const aiConsciousnessData = {
           id: "cogitate-theory-test",
           title: "Cogitate Consortium: Even Our Leading Theories of Consciousness Are Unsettled",
           description:
-            "The Cogitate Consortium's 2025 adversarial collaboration (Nature, vol. 642) pitted the two dominant neuroscientific theories of consciousness—Integrated Information Theory (IIT) and Global Neuronal Workspace Theory (GNWT)—against each other with pre-registered predictions and 256 human participants measured by fMRI, MEG and intracranial EEG. Neither theory was confirmed: results challenged core predictions of both (no sustained posterior synchronization as IIT predicts; limited prefrontal 'ignition' as GNWT predicts). This matters for AI because the field's two flagship theories supply the 'indicator properties' used to assess machine consciousness—and if they remain empirically unsettled in humans, certifying an AI as conscious or non-conscious is on even shakier ground.",
+            "The Cogitate Consortium's 2025 adversarial collaboration (Nature, vol. 642) pitted the two dominant neuroscientific theories of consciousness—Integrated Information Theory (IIT) and Global Neuronal Workspace Theory (GNWT)—against each other with pre-registered predictions and 256 human participants measured by fMRI, MEG and intracranial EEG. Neither theory was confirmed: results challenged core predictions of both (for IIT, no sustained synchronization within posterior cortex; for GNWT, a general lack of 'ignition' at stimulus offset and limited prefrontal representation of some conscious dimensions). This matters for AI because the field's two flagship theories supply the 'indicator properties' used to assess machine consciousness—and if they remain empirically unsettled in humans, certifying an AI as conscious or non-conscious is on even shakier ground.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -238,7 +238,7 @@ export const aiConsciousnessData = {
           id: "aims-survey-beliefs",
           title: "~17% of AI Researchers (and ~18-20% of the Public) Believe Some Current AI May Have Subjective Experience",
           description:
-            "Dreksler et al. (2025), surveying 582 AI researchers who publish at leading venues and 838 nationally representative US adults (data collected May 2024), found that approximately 17% of AI researchers and approximately 18% of US adults picked 2024 as the year by which an AI system is more likely than not to have subjective experience, that is, they think some AI system probably already has it (roughly 8% and 11% respectively said the same of self-awareness). Separately, the Sentience Institute's nationally representative AI, Morality, and Sentience (AIMS) survey, reported at CHI 2025, found that 'in 2023, one in five U.S. adults believed some AI systems are currently sentient.' The ~17% figure is specific to researchers; the ~18-20% figures are the general public.",
+            "Dreksler et al. (2025), surveying 582 AI researchers who publish at leading venues and 825 nationally representative US adults (data collected May 2024), found that approximately 17% of AI researchers and approximately 18% of US adults picked 2024 as the year by which an AI system is more likely than not to have subjective experience, that is, they think some AI system probably already has it (roughly 8% and 11% respectively said the same of self-awareness). Separately, the Sentience Institute's nationally representative AI, Morality, and Sentience (AIMS) survey, reported at CHI 2025, found that 'in 2023, one in five U.S. adults believed some AI systems are currently sentient.' The ~17% figure is specific to researchers; the ~18-20% figures are the general public.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,

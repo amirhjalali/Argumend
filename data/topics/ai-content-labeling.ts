@@ -82,7 +82,7 @@ export const aiContentLabelingData = {
           id: "deepfake-detection-rates",
           title: "Human Deepfake Detection Rates Near Chance",
           description:
-            "In Nightingale & Farid's PNAS study, participants distinguished StyleGAN2-synthesized faces from real ones with an average accuracy of 48.2% — statistically indistinguishable from chance (50%). The study further found AI-synthesized faces were rated, on average, ~7.7% more trustworthy than real faces. This indicates humans cannot reliably perceive AI-generated faces unaided, so labels would supply information perception cannot.",
+            "In Experiment 1 of Nightingale & Farid's PNAS study, 315 participants classified StyleGAN2-synthesized and real faces with an average accuracy of 48.2% (95% CI 47.1% to 49.2%), which the authors call 'close to chance performance of 50%'. In a separate experiment, AI-synthesized faces were rated 7.7% more trustworthy on average than real faces (4.82 against 4.48 on a 7-point scale). This indicates humans cannot reliably perceive AI-generated faces unaided, so labels would supply information perception cannot.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -97,9 +97,9 @@ export const aiContentLabelingData = {
         },
         {
           id: "synthid-text-nature-20m",
-          title: "Google's SynthID-Text Watermark Ran on About 20 Million Gemini Responses With No Measurable Drop in User Ratings (Nature, 2024)",
+          title: "A Live Test Across About 20 Million Gemini Responses Found No Measurable Drop in User Ratings From Google's SynthID-Text Watermark (Nature, 2024)",
           description:
-            "Dathathri et al. (Google DeepMind), in Nature (published 23 October 2024), describe SynthID-Text, a watermark woven into how a language model picks words rather than added afterwards. In a live experiment covering approximately 20 million Gemini responses, differences in users' thumbs-up and thumbs-down ratings between watermarked and unwatermarked answers were 'statistically insignificant, and well within the 95% confidence intervals.' 'Evaluations across multiple LLMs empirically show that SynthID-Text provides improved detectability over comparable methods.' The paper states the limits: 'generative watermarks are weakened by edits to the text, such as through LLM paraphrasing', and it lists 'vulnerability to stealing, spoofing and scrubbing attacks' as open research.",
+            "Dathathri et al. (Google DeepMind), in Nature (published 23 October 2024), describe SynthID-Text, a watermark woven into how a language model picks words rather than added afterwards. In a live experiment covering approximately 20 million Gemini responses, watermarked and unwatermarked together, differences in users' thumbs-up and thumbs-down ratings between watermarked and unwatermarked answers were 'statistically insignificant, and well within the 95% confidence intervals.' 'Evaluations across multiple LLMs empirically show that SynthID-Text provides improved detectability over comparable methods.' The paper states the limits: 'generative watermarks are weakened by edits to the text, such as through LLM paraphrasing', and it lists 'vulnerability to stealing, spoofing and scrubbing attacks' as open research.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -111,13 +111,13 @@ export const aiContentLabelingData = {
             "Dathathri et al., 'Scalable watermarking for identifying large language model outputs', Nature 634: 818–823 (2024)",
           sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11499265/",
           reasoning:
-            "Peer-reviewed and deployed at production scale, the strongest evidence that a watermark can run on everyday output without degrading it, which answers the 'usable' half of the crux. Independence is 4 because the authors built and sell the system. Directness is 6: it shows detectability for unedited text and concedes paraphrasing weakens it, so it does not show survival against the deliberate removal the skeptics describe.",
+            "Peer-reviewed and deployed at production scale, the strongest evidence that a watermark can run on everyday output without degrading it, which answers the 'usable' half of the crux. Independence is 4 because the authors work at Google DeepMind, which built and deployed the system. Directness is 6: it shows detectability for unedited text and concedes paraphrasing weakens it, so it does not show survival against the deliberate removal the skeptics describe.",
         },
         {
           id: "platform-label-experiments",
           title: "Major Platforms Have Deployed AI Content Labels",
           description:
-            "Major platforms now apply AI-content labels at scale: Meta announced in April 2024 it would label AI-generated images on Facebook, Instagram and Threads using industry signals (C2PA Content Credentials and IPTC metadata), expanding to an 'AI info' label in May 2024; YouTube introduced (March 2024) a requirement for creators to disclose realistic altered or synthetic media. This demonstrates that provenance-based labeling is operationally feasible across large platforms.",
+            "Major platforms now apply AI-content labels at scale. Meta announced on 5 April 2024 that it would start labeling AI-generated content on Facebook, Instagram and Threads in May 2024, with 'Made with AI' labels on video, audio and images 'based on our detection of industry-shared signals of AI images or people self-disclosing that they're uploading AI-generated content'; on 1 July 2024 it renamed the label 'AI info'. YouTube introduced on 18 March 2024 a Creator Studio tool 'requiring creators to disclose to viewers when realistic content' is 'made with altered or synthetic media, including generative AI.' This demonstrates that labeling is operationally feasible across large platforms.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -125,7 +125,7 @@ export const aiContentLabelingData = {
             replicability: 5,
             directness: 5,
           },
-          source: "Meta Newsroom, \"Our Approach to Labeling AI-Generated Content and Manipulated Media\" (April 5, 2024)",
+          source: "Meta Newsroom, \"Our Approach to Labeling AI-Generated Content and Manipulated Media\" (April 5, 2024, updated July 1, 2024); YouTube Blog, \"How we're helping creators disclose altered or synthetic content\" (March 18, 2024)",
           sourceUrl: "https://about.fb.com/news/2024/04/metas-approach-to-labeling-ai-generated-content-and-manipulated-media/",
           reasoning:
             "Platform self-reported announcement; independence is low. The prior draft asserted 'labeled content receives 10-15% less sharing' attributed to the Meta Transparency Center — that specific behavioral statistic could not be verified in any Meta or third-party source, so it has been removed. The claim is now narrowed to the verifiable fact that Meta and YouTube deployed AI-content labels, and weights were de-inflated accordingly.",
@@ -134,7 +134,7 @@ export const aiContentLabelingData = {
           id: "watermark-removal-ease",
           title: "Watermarks Can Be Removed or Forged",
           description:
-            "University of Maryland researchers (Saberi, Sadasivan, Feizi et al.) showed a fundamental robustness/evasion trade-off in image watermarking: low-perturbation invisible watermarks can be stripped via diffusion-purification attacks, high-perturbation watermarks can be removed via a model-substitution adversarial attack, and watermarks can be spoofed (forged) so real images are falsely flagged as AI-generated. Lead author Soheil Feizi summarized: 'We broke all of them.'",
+            "University of Maryland researchers (Saberi, Sadasivan, Feizi et al.) showed a fundamental robustness/evasion trade-off in image watermarking: low-perturbation invisible watermarks can be stripped via diffusion-purification attacks, high-perturbation watermarks can be removed via a model-substitution adversarial attack, and watermarks can be spoofed (forged) so real images are falsely flagged as AI-generated. Senior author Soheil Feizi told Wired: 'We don't have any reliable watermarking at this point. We broke all of them.'",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -142,7 +142,7 @@ export const aiContentLabelingData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Saberi, M., Sadasivan, V. S., Rezaei, K., Kumar, A., Chegini, A., Wang, W. & Feizi, S. (2023), \"Robustness of AI-Image Detectors: Fundamental Limits and Practical Attacks,\" arXiv:2310.00076 (University of Maryland)",
+          source: "Saberi, M., Sadasivan, V. S., Rezaei, K., Kumar, A., Chegini, A., Wang, W. & Feizi, S. (2023), \"Robustness of AI-Image Detectors: Fundamental Limits and Practical Attacks,\" arXiv:2310.00076 (University of Maryland); Feizi quote from Knibbs, K., \"Researchers Tested AI Watermarks—and Broke All of Them,\" Wired (Oct 3, 2023)",
           sourceUrl: "https://arxiv.org/abs/2310.00076",
           reasoning:
             "Widely cited preprint (later an ICLR 2024 paper) demonstrating that watermark-based enforcement has fundamental limitations. Source attribution corrected from a bare 'University of Maryland (2023)' to the specific paper. sourceReliability lowered from 9-equivalent because the cited artifact is a preprint, not a journal article; the core removal/forgery findings are nonetheless robust and independently corroborated (e.g., the WAVES benchmark).",
@@ -163,7 +163,7 @@ export const aiContentLabelingData = {
             "Sacha Altay & Fabrizio Gilardi, 'People are skeptical of headlines labeled as AI-generated, even if true or human-made, because they assume full AI automation', PNAS Nexus 3(10): pgae403 (2024)",
           sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11443540/",
           reasoning:
-            "Preregistered, large and independent. It bears on what a surviving label would accomplish rather than on whether the mark survives, so directness is 3: if labels penalize true content as well as false, robust watermarking buys less misinformation protection than the case for a mandate assumes. The authors found the skepticism only when participants got no definition of AI or a strong one, so better label wording may shrink the effect.",
+            "Preregistered, large and independent. It bears on what a surviving label would accomplish rather than on whether the mark survives, so directness is 3: if labels penalize true content as well as false, robust watermarking buys less misinformation protection than the case for a mandate assumes. The label's effect was weaker when participants were told AI had only polished the text or written a first draft, and matched the no-definition effect when they were told AI chose the topic and wrote the whole article, so better label wording may shrink it.",
         },
       ],
     },
@@ -208,20 +208,20 @@ export const aiContentLabelingData = {
       evidence: [
         {
           id: "first-amendment-analyses",
-          title: "Compelled-Disclosure Doctrine Is Contested for AI Labeling",
+          title: "The Supreme Court's Lenient Test for Compelled Disclosures Covers Commercial Advertising; in NIFLA v. Becerra (2018) It Refused to Apply It Outside That Setting",
           description:
-            "Whether mandatory AI labeling survives the First Amendment turns on the compelled-speech doctrine. Under Zauderer v. Office of Disciplinary Counsel (1985), the government may compel 'purely factual and uncontroversial' commercial disclosures reasonably related to preventing consumer deception — the basis for arguing AI labels are permissible (like nutrition or paid-partnership labels). Critics counter that broad mandates on non-commercial expressive content trigger heightened scrutiny and may be unconstitutional compelled speech. Legal commentators disagree on which framework governs.",
+            "Whether mandatory AI labeling survives the First Amendment turns on the compelled-speech doctrine. In Zauderer v. Office of Disciplinary Counsel (1985) the Supreme Court let a state require an advertiser to include 'purely factual and uncontroversial information about the terms under which his services will be available', holding such rules valid when 'reasonably related to the State's interest in preventing deception of consumers', the basis for arguing AI labels are permissible like other consumer disclosures. In National Institute of Family and Life Advocates v. Becerra (2018) the Court held that 'The Zauderer standard does not apply here' to a notice California required pregnancy clinics to post, called the notice 'a content-based regulation of speech', and added that even under Zauderer a disclosure cannot be 'unjustified or unduly burdensome.' Neither case involved AI. A label compelled on non-commercial expression such as parody or political video falls outside the commercial-advertising setting Zauderer addressed, so which standard governs an AI labeling mandate is unsettled. A 2025 Columbia Undergraduate Law Review analysis reads the same precedents the other way, concluding that labels and watermarks, 'when factual and non-ideological, may pass constitutional muster.'",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 9,
             independence: 7,
             replicability: 4,
             directness: 6,
           },
-          source: "Osman, H., \"Required Deepfake Labeling: Contradicting or Supporting The First Amendment?\", Columbia Undergraduate Law Review (Dec 6, 2025), analyzing Zauderer v. Office of Disciplinary Counsel, 471 U.S. 626 (1985)",
-          sourceUrl: "https://www.culawreview.org/journal/required-deepfake-labeling-contradicting-or-supporting-the-first-amendment",
+          source: "National Institute of Family and Life Advocates v. Becerra, 585 U.S. 755 (2018), and Zauderer v. Office of Disciplinary Counsel, 471 U.S. 626 (1985), opinions via Cornell Legal Information Institute; Osman, H., \"Required Deepfake Labeling: Contradicting or Supporting The First Amendment?\", Columbia Undergraduate Law Review (Dec 6, 2025), for the contrary reading",
+          sourceUrl: "https://www.law.cornell.edu/supremecourt/text/16-1140",
           reasoning:
-            "Genuine constitutional uncertainty creates legal risk for mandates. The prior draft attributed the split to 'Harvard Law Review, Stanford CIS' with no URL; no specific articles from those venues matching this framing could be verified, so the source has been replaced with a verifiable law-review analysis that explicitly lays out both sides via the controlling Zauderer standard. sourceReliability lowered (student-edited undergraduate law review rather than a flagship journal), and replicability is low because this is doctrinal argument, not empirical.",
+            "Genuine constitutional uncertainty creates legal risk for mandates. This card used to rest on the Columbia Undergraduate Law Review article alone and described it as laying out both sides; the article in fact argues that narrow factual labels are likely constitutional, and the 'purely factual and uncontroversial' wording is Zauderer's own, not the article's. The source is now the two Supreme Court opinions, with the article cited for the opposing reading, and sourceReliability is raised from 6 to 9 to match. Replicability is low because this is doctrinal argument, not empirical, and neither opinion concerned AI, so applying them to labels is inference.",
         },
         {
           id: "kohls-v-bonta-label-compelled-speech",
@@ -260,26 +260,26 @@ export const aiContentLabelingData = {
         },
         {
           id: "creator-community-surveys",
-          title: "Creators Broadly Favor Disclosure but Hesitate to Self-Disclose",
+          title: "97% of Surveyed UK Authors Want Audiences Told When Content Is AI-Generated, Though Disclosing Their Own AI Use Costs Creators Reputation",
           description:
-            "Reporting on artists' and writers' attitudes finds a recurring tension: many creators support clear, standardized labeling of AI-assisted work so audiences can make informed choices, yet individual creators are often reluctant to disclose their own AI use for fear of stigma or being seen as cutting corners. The direction of sentiment favors transparency norms, but precise support percentages vary by survey and population.",
+            "In the Society of Authors' January 2024 survey (787 responses from UK writers, illustrators and translators), 'Almost all respondents (97%) believe consumers deserve transparency and should be made aware when generative AI systems have generated all or a portion of what they are reading, viewing or hearing', and 95% called for the government to introduce safeguards and regulation. The society reported 'an almost unanimous consensus among respondents about the need for regulation of generative AI', including 'that the outputs of generative AI systems are labelled as such.' Creators have reason to hesitate over their own disclosure, though: in experiments reported in February 2026 by Joel Carnevale of Florida International University, telling listeners a piece of music was made 'in collaboration with AI technology' lowered the composer's reputation whether it was credited to Hans Zimmer or to a first-year music student, and in a second, workplace scenario 'Disclosing AI use harmed the employee's reputation.'",
           side: "for" as const,
           weight: {
-            sourceReliability: 4,
+            sourceReliability: 5,
             independence: 5,
             replicability: 4,
             directness: 5,
           },
-          source: "\"Artists and writers are often hesitant to disclose they've collaborated with AI — and those fears may be justified,\" The Conversation / FIU (2026)",
-          sourceUrl: "https://theconversation.com/artists-and-writers-are-often-hesitant-to-disclose-theyve-collaborated-with-ai-and-those-fears-may-be-justified-275888",
+          source: "Society of Authors, \"SoA survey reveals a third of translators and quarter of illustrators losing work to AI\" (11 April 2024; survey run January 2024), archived copy; Carnevale, J., \"Artists and writers are often hesitant to disclose they've collaborated with AI – and those fears may be justified,\" The Conversation (24 February 2026)",
+          sourceUrl: "https://web.archive.org/web/20250107104535/https://societyofauthors.org/2024/04/11/soa-survey-reveals-a-third-of-translators-and-quarter-of-illustrators-losing-work-to-ai/",
           reasoning:
-            "The prior draft cited '62-68% support' attributed to 'Creative Commons, Authors Guild' with no URL; no Creative Commons or Authors Guild survey reporting those figures could be located, so the specific statistic was removed as unverifiable. The claim is now limited to the directional, verifiable finding (support for disclosure norms alongside reluctance to self-disclose) and weights were substantially de-inflated. Reliability remains low: this is journalistic/secondary reporting, not a citable primary survey instrument.",
+            "The first draft cited '62-68% support' attributed to 'Creative Commons, Authors Guild' with no URL; the second made a general claim about creator sentiment and cited a Conversation article that reports reputation experiments and no survey of creators' views on labeling. The support figure now comes from a named survey: 787 self-selected respondents from one UK authors' union, so it shows the direction of sentiment among professional writers and illustrators, not a representative rate, and sourceReliability is 5. The reputation experiments cut the other way on this crux: they are evidence that a disclosure requirement carries a real cost for creators who use AI.",
         },
         {
           id: "informed-consent-precedent",
           title: "Disclosure Precedents in Other Domains",
           description:
-            "Mandatory disclosure of material connections is an established, durable norm: the FTC's Endorsement Guides (16 CFR Part 255, revised June 2023) require endorsers to disclose 'material connections' such as paid sponsorships in advertising. Such disclosure regimes have coexisted with robust commercial and editorial expression, suggesting baseline transparency requirements need not chill speech — an analogy proponents extend to AI-content labeling.",
+            "Mandatory disclosure of material connections is an established, durable norm: the FTC's Endorsement Guides (16 CFR Part 255, revised 2023 at 88 FR 48102) require endorsers to disclose 'material connections' such as paid sponsorships in advertising. Such disclosure regimes have coexisted with robust commercial and editorial expression, suggesting baseline transparency requirements need not chill speech — an analogy proponents extend to AI-content labeling.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -290,7 +290,7 @@ export const aiContentLabelingData = {
           source: "FTC Endorsement Guides, 16 CFR Part 255 (revised 2023) — eCFR",
           sourceUrl: "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-255",
           reasoning:
-            "Source upgraded to the binding primary text (eCFR, 16 CFR Part 255) rather than a bare 'FTC Endorsement Guidelines' label. The Part 255 disclosure regime is verified; the inference that it 'has not chilled expression' is an analogy, not a measured finding, so directness is kept low. The earlier mention of ghostwriter/stock-photography disclosure was trimmed because Part 255 governs endorsements specifically; the precedent now rests on the verifiable material-connection disclosure rule.",
+            "Source upgraded to the primary text (eCFR, 16 CFR Part 255) rather than a bare 'FTC Endorsement Guidelines' label. The Guides describe themselves as 'administrative interpretations of laws enforced by the Federal Trade Commission', applied through section 5 of the FTC Act rather than as a free-standing rule. The Part 255 disclosure regime is verified; the inference that it 'has not chilled expression' is an analogy, not a measured finding, so directness is kept low. The earlier mention of ghostwriter/stock-photography disclosure was trimmed because Part 255 governs endorsements specifically; the precedent now rests on the verifiable material-connection disclosure rule.",
         },
       ],
     },

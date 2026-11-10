@@ -45,12 +45,12 @@ export const scottCostDiseaseData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "New York's Second Avenue Subway cost roughly $2.5 billion a mile, several times what comparable lines cost in Europe and Asia. U.S. health-care administration ran about $2,497 a person in 2017, against about $551 in Canada. Neither figure is in dispute. The fight is over how much of the rise is the unavoidable price of work that can't be automated, and how much is waste that could be cut.",
+      "Phase 1 of New York's Second Avenue Subway cost $4.6 billion for 2.7 kilometers of line, about $1.7 billion a kilometer ($2.7 billion a mile) and roughly ten times what the Italian and Swedish subways in the same study cost. U.S. health-care administration ran about $2,497 a person in 2017, against about $551 in Canada. Neither figure is in dispute. The fight is over how much of the rise is the unavoidable price of work that can't be automated, and how much is waste that could be cut.",
     confidence: 85,
     source:
-      "Transit Costs Project, NYU Marron Institute; Himmelstein, Campbell & Woolhandler, Annals of Internal Medicine (2020)",
+      "Transit Costs Project, 'Transit Costs Study Final Report', NYU Marron Institute (2023); Himmelstein, Campbell & Woolhandler, Annals of Internal Medicine (2020)",
     sourceUrl:
-      "https://transitcosts.com/",
+      "https://transitcosts.com/transit-costs-study-final-report/",
   },
   simple_case: [
     "The answer decides whether Americans should expect to keep paying more for the same schooling, care and transit, or whether reform could bring those prices down.",
@@ -97,9 +97,10 @@ export const scottCostDiseaseData = {
       evidence: [
         {
           id: "helland-tabarrok",
-          title: "Helland & Tabarrok: Baumol carries the majority",
+          title:
+            "Helland & Tabarrok: the Baumol effect is the best explanation for rising education and health prices",
           description:
-            "Their 2019 Mercatus study concludes the Baumol mechanism accounts for the bulk of real price growth in education and a substantial share in health care — the sectors that exploded are the least automatable.",
+            "Their 2019 Mercatus study works through lower education, higher education and health care, then tests the pattern statistically across 139 industries. 'After rejecting a number of alternative explanations, we conclude that the Baumol effect is the best explanation for rising prices in education and healthcare.' On schools they write that 'the bulk of the increase in the costs of lower education can be explained by greater expenditures on teachers', mostly more spent per teacher and partly more teachers per student.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -107,34 +108,38 @@ export const scottCostDiseaseData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Helland & Tabarrok, Mercatus Center (2019)",
+          source:
+            "Helland & Tabarrok, 'Why Are the Prices So Damn High? Health, Education, and the Baumol Effect', Mercatus Center (2019)",
           sourceUrl:
             "https://www.mercatus.org/research/books/why-are-prices-so-damn-high",
           reasoning:
-            "Careful, data-driven, and directly on the decomposition question — but authored by advocates of the Baumol reading.",
+            "Careful, data-driven, and directly on the decomposition question — but authored by advocates of the Baumol reading. More teachers per student is extra input rather than a wage effect, so part of the schooling rise they describe is not Baumol in the strict sense.",
         },
         {
           id: "baumol-book",
-          title: "Baumol's original mechanism",
+          title:
+            "Baumol: labor-intensive services explain the rising prices, and society can afford them",
           description:
-            "Baumol & Bowen (1966) and Baumol's 'The Cost Disease' (2012) formalize why productivity-lagging services rise in relative price as the rest of the economy automates.",
-          side: "for" as const,
+            "In 'The Cost Disease' (2012) William Baumol traces the fast-rising prices of health care and education in the United States and other major industrial nations to the nature of providing labor-intensive services. The publisher's summary of his conclusion: 'The news is good, Baumol reassures us, because the nature of the disease is such that society will be able to afford the rising costs.'",
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 7,
             directness: 7,
           },
-          source: "Baumol, Yale University Press (2012)",
+          source:
+            "Baumol, 'The Cost Disease: Why Computers Get Cheaper and Health Care Doesn't', Yale University Press (2012)",
           sourceUrl:
             "https://yalebooks.yale.edu/book/9780300188486/the-cost-disease/",
-          reasoning: "Foundational theory, widely reproduced; less direct on U.S. magnitudes.",
+          reasoning:
+            "Foundational theory from the economist the effect is named for, and it covers other industrial nations as well, so it is not a U.S.-only story. Less direct on U.S. magnitudes, and the quoted line is the publisher's summary, not the book's own text. Filed on the no-villain side (it was on the other side until November 2026): the book's argument is this pillar's null hypothesis, the same reading as the Helland–Tabarrok and Nordhaus cards.",
         },
         {
           id: "haircut-counterexample",
           title: "The haircut counterexample",
           description:
-            "Personal services like haircuts and restaurant meals are just as labor-bound as teaching, yet their real prices grew only modestly — implying Baumol alone can't explain the outliers.",
+            "Cutting hair is as hard to automate as teaching, so if economy-wide wage growth alone drove service prices, barbers' pay and the price of a haircut should have been pulled up with everyone else's. Helland and Tabarrok's own income series shows otherwise: 'Since 1960 the real income of physicians has increased by a factor of three. By comparison, barbers and bus drivers have seen essentially no increase in real incomes.' Work that can't be automated is therefore not enough, by itself, to pick out the sectors that exploded.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -142,15 +147,18 @@ export const scottCostDiseaseData = {
             replicability: 5,
             directness: 5,
           },
-          source: "Synthesis / inference — cross-sector price comparison, not a single study",
+          source:
+            "Inference from Helland & Tabarrok, 'Why Are the Prices So Damn High?', Mercatus Center (2019), discussion of Figure 19 (real incomes by occupation, 1960–2016)",
+          sourceUrl:
+            "https://www.mercatus.org/research/books/why-are-prices-so-damn-high",
           reasoning:
-            "A clean logical counterexample, though quantifying it precisely is harder than stating it.",
+            "A clean logical counterexample, anchored to incomes: the source reports barbers' pay, not haircut prices. The authors read the same figure as the Baumol effect working through skilled labor, so the comparison limits the plain version of the theory without refuting theirs.",
         },
         {
           id: "flat-output",
           title: "Flat output breaks the pure-Baumol story",
           description:
-            "NAEP long-term-trend scores for 17-year-olds are essentially flat since the 1970s while real per-pupil spending rose dramatically — Baumol predicts higher prices, not stagnant results.",
+            "On the NAEP long-term trend assessment, 17-year-olds averaged 285 in reading in 1971 and 287 in 2012, and 304 in mathematics in 1973 and 306 in 2012. Over the same four decades current spending per pupil in public schools rose from $5,980 (1970–71) to $13,196 (2011–12) in constant 2021–22 dollars, about 2.2 times as much. Baumol predicts higher prices, not stagnant results.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -158,10 +166,11 @@ export const scottCostDiseaseData = {
             replicability: 8,
             directness: 6,
           },
-          source: "NAEP Long-Term Trend Assessment",
-          sourceUrl: "https://nces.ed.gov/pubs/web/96344han.asp",
+          source:
+            "National Center for Education Statistics, Digest of Education Statistics 2022, Tables 221.85 and 222.85 (NAEP long-term trend reading and mathematics) and Table 236.55 (expenditure per pupil)",
+          sourceUrl: "https://nces.ed.gov/programs/digest/d22/tables/dt22_221.85.asp",
           reasoning:
-            "Strong, well-measured — but speaks to quantity/quality, not directly to the price mechanism.",
+            "Strong, well-measured — but speaks to quantity/quality, not directly to the price mechanism. The same tables show younger students gaining over the period (9-year-olds from 219 to 244 in mathematics, 13-year-olds from 266 to 285), so the flat line holds at the end of schooling, not throughout it. The age-17 series stops at 2012 because the 2020 administration was postponed.",
         },
         {
           id: "nordhaus-baumol-diseases",
@@ -192,7 +201,7 @@ export const scottCostDiseaseData = {
       skeptic_premise:
         "Some administrative growth is the genuine coordination cost of modern, complex care and regulation. And even a large admin share is arithmetically too small to explain a 5x rise in total cost on its own.",
       proponent_rebuttal:
-        "The share isn't small and it's cross-nationally anomalous: U.S. health-care administration ran about four times the per-capita cost of single-payer Canada, and university administrator ranks grew far faster than faculty or enrollment for decades. When the payer isn't the patient, no one prices the paperwork.",
+        "The share isn't small and it's cross-nationally anomalous: U.S. health-care administration ran about four and a half times the per-capita cost of single-payer Canada, and university administrator ranks grew far faster than faculty or enrollment for decades. When the payer isn't the patient, no one prices the paperwork.",
       crux: {
         id: "cross-national-admin-gap",
         title: "The Cross-National Admin-Share Gap",
@@ -212,7 +221,7 @@ export const scottCostDiseaseData = {
           supporter_flip:
             "If matched comparisons of systems with similar health outcomes found the administrative gap between U.S. multi-payer care and Canada's single payer mostly buying real coordination rather than paperwork, the bloat layer of the cost-disease stack would weaken.",
           skeptic_flip:
-            "If matched comparisons confirmed U.S. health administration near four times Canada's per person ($2,497 versus $551 in 2017) at similar outcomes, and university administrators kept outgrowing faculty and students, the growth would look like bloat rather than coordination.",
+            "If matched comparisons confirmed U.S. health administration at about four and a half times Canada's per person ($2,497 versus $551 in 2017) at similar outcomes, and university administrators kept outgrowing faculty and students, the growth would look like bloat rather than coordination.",
           common_ground:
             "Both sides agree administration is a large share of U.S. health spending — roughly a third by one estimate — and that no single administrative line explains a several-fold cost rise on its own.",
           live_disagreement:
@@ -222,9 +231,9 @@ export const scottCostDiseaseData = {
       evidence: [
         {
           id: "himmelstein-2020",
-          title: "U.S. health admin ≈ 4x Canada per capita",
+          title: "U.S. health admin ≈ 4.5x Canada per capita",
           description:
-            "Himmelstein et al. (Annals of Internal Medicine, 2020) put U.S. health-care administrative costs at ~$2,497 per capita versus ~$551 in Canada (2017) — roughly a third of U.S. health spending.",
+            "Himmelstein et al. (Annals of Internal Medicine, 2020) put U.S. health-care administrative costs at $2,497 per capita versus $551 in Canada in 2017: 34.2% of U.S. national health expenditures against 17.0% of Canada's. The estimates exclude dentists, pharmacies and some other providers, and the two countries' accounting categories differ somewhat.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -239,9 +248,10 @@ export const scottCostDiseaseData = {
         },
         {
           id: "ginsberg-admin",
-          title: "The all-administrative university",
+          title:
+            "Ginsberg: administrators up 85% and administrative staff up 240% while faculty kept pace with enrollment",
           description:
-            "Ginsberg's 'The Fall of the Faculty' (2011) documents administrator and administrative-staff headcount growing far faster than faculty or students across U.S. higher education.",
+            "In 'The Fall of the Faculty' (2011) Benjamin Ginsberg reports that over four decades the number of full-time-equivalent professors rose slightly more than 50 percent, comparable to the growth in enrollment, while administrators rose 85 percent and administrative staffers 240 percent. Between 1975 and 2005 colleges went from one administrator for every 84 students to one for every 68, and from one professional staffer for every 50 students to one for every 21.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -249,10 +259,12 @@ export const scottCostDiseaseData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Ginsberg, Oxford University Press (2011)",
-          sourceUrl: "https://academic.oup.com/book/40915",
+          source:
+            "Ginsberg, 'The Fall of the Faculty: The Rise of the All-Administrative University and Why It Matters', Oxford University Press (2011); figures from the author's adapted excerpt, 'Administrators Ate My Tuition', Washington Monthly (September/October 2011)",
+          sourceUrl:
+            "https://washingtonmonthly.com/2011/08/28/administrators-ate-my-tuition/",
           reasoning:
-            "Well-documented staffing trend; attributing causation to cost is the softer step.",
+            "Well-documented staffing trend; attributing causation to cost is the softer step. The figures are the author's own, from a book that argues a case.",
         },
         {
           id: "admin-is-real-coordination",
@@ -313,9 +325,9 @@ export const scottCostDiseaseData = {
       evidence: [
         {
           id: "lucca-nadauld-shen",
-          title: "~60c of each aid dollar becomes tuition",
+          title: "About 60 cents of each added subsidized-loan dollar shows up in tuition",
           description:
-            "Lucca, Nadauld & Shen (NY Fed Staff Report 733, 2015; later in Review of Financial Studies) found expansions in subsidized federal loans passed through to higher sticker tuition at roughly 60 cents on the dollar.",
+            "Lucca, Nadauld & Shen (NY Fed Staff Report 733, July 2015, revised February 2017) studied increases in federal student loan caps and 'find a pass-through effect on tuition of changes in subsidized loan maximums of about 60 cents on the dollar, and smaller but positive effects for unsubsidized federal loans.' The effect was most pronounced for more expensive degrees, private institutions and two-year or vocational programs.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -330,26 +342,29 @@ export const scottCostDiseaseData = {
         },
         {
           id: "insurance-price-insensitivity",
-          title: "Insurance dulls the health-care price signal",
+          title:
+            "RAND experiment: patients who shared costs spent 20 to 30 percent less than those with free care",
           description:
-            "With third parties paying most bills, patients rarely see or shop on price, weakening the discipline that constrains costs in normally competitive markets.",
+            "The RAND Health Insurance Experiment randomly assigned 2,750 families, more than 7,700 people under 65, to insurance plans between 1971 and 1982. 'Those with 25 percent coinsurance spent 20 percent less than participants with free care, and those with 95 percent coinsurance spent about 30 percent less.' The saving 'came from using fewer services rather than finding lower prices', and cost sharing in general had no adverse effects on participants' health, with exceptions concentrated among the sickest and poorest.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,
             replicability: 5,
-            directness: 6,
+            directness: 5,
           },
-          source: "RAND Health Insurance Experiment",
+          source:
+            "RAND Corporation, 'The Health Insurance Experiment: A Classic RAND Study Speaks to the Current Health Care Reform Debate', Research Brief RB-9174-HHS (2006)",
           sourceUrl:
             "https://www.rand.org/content/dam/rand/pubs/research_briefs/2006/RAND_RB9174.pdf",
-          reasoning: "Widely accepted mechanism; harder to cleanly quantify than the loan case.",
+          reasoning:
+            "A randomized test of what fuller coverage does to spending: more care bought, with no measured health gain for the average participant. But the effect ran through how much care people used, not through what providers charged, so it shows insurance inflating demand without showing the price capture this crux asks about. Directness is 5 for that reason (it was 6). The data are from 1971–1982.",
         },
         {
           id: "k12-counterexample",
           title: "K–12 has the disease without the subsidy",
           description:
-            "Public schooling is tax-funded, not demand-subsidized through a tuition market, yet still shows cost disease — so subsidy capture can't be the universal explanation.",
+            "Public schooling is tax-funded, not demand-subsidized through a tuition market, yet it shows the same pattern. In a paper published by the National Center for Education Statistics, the economist Eric Hanushek found that real spending per pupil grew at almost 3.5 percent a year from 1890 to 1990 and that 'the rapid increases in expenditures on schools during the past three decades simply have not been matched by measurable increases in student performance.' So subsidy capture can't be the universal explanation.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -358,9 +373,10 @@ export const scottCostDiseaseData = {
             directness: 7,
           },
           source:
-            "National Center for Education Statistics, 'Why We Worry About Education'",
+            "Eric A. Hanushek, 'Improving School Performance While Controlling Costs', National Center for Education Statistics (web publication 96344; the page is headed 'Why We Worry About Education')",
           sourceUrl: "https://nces.ed.gov/pubs/web/96344han.asp",
-          reasoning: "A genuine limit on the hypothesis's scope.",
+          reasoning:
+            "A genuine limit on the hypothesis's scope. The paper's achievement data stop in 1992, and it is an economist's summary of earlier work, not a new estimate.",
         },
         {
           id: "turner-pell-incidence",
@@ -422,9 +438,9 @@ export const scottCostDiseaseData = {
       evidence: [
         {
           id: "transit-costs-project",
-          title: "U.S. transit costs multiples of peers",
+          title: "Second Avenue Subway Phase 1 cost 8 to 12 times a low-cost baseline",
           description:
-            "The NYU Marron Transit Costs Project documents U.S. subway construction at several times comparable European and Asian costs — New York's Second Avenue Subway ran roughly $2.5 billion per mile.",
+            "The Transit Costs Project's database of more than 900 projects in 59 countries ranks the United States the sixth most expensive country for rapid-rail construction, although only 37% of its track length is tunneled. Phase 1 of New York's Second Avenue Subway cost $4.6 billion for 2.7 kilometers of line, about $1.7 billion a kilometer ($2.7 billion a mile), which the project puts at 8 to 12 times its composite baseline drawn from Italy, Istanbul and Sweden.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -432,16 +448,18 @@ export const scottCostDiseaseData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Transit Costs Project, NYU Marron Institute",
-          sourceUrl: "https://transitcosts.com/",
+          source:
+            "Transit Costs Project, 'Transit Costs Study Final Report', NYU Marron Institute (2023)",
+          sourceUrl: "https://transitcosts.com/transit-costs-study-final-report/",
           reasoning:
-            "Explicitly matched-project methodology aimed at this exact question.",
+            "A project database plus detailed case studies, aimed at this exact question. The 8-to-12-times figure is New York against the lowest-cost cases, not a national average, and the per-kilometer and per-mile figures are this card's division of the report's cost by its length.",
         },
         {
           id: "brooks-liscow",
-          title: "Interstate costs tripled with 'citizen voice'",
+          title:
+            "Brooks & Liscow: Interstate spending per mile more than tripled from the 1960s to the 1980s",
           description:
-            "Brooks & Liscow (AEJ: Applied, 2023) find real per-mile U.S. Interstate spending roughly tripled from the 1960s to the 1980s, tied to rising land costs and litigation/participation requirements.",
+            "Brooks & Liscow (AEJ: Applied, 2023) document real spending per new mile of Interstate and find it 'increased more than threefold from the 1960s to the 1980s', an increase that persists after conditioning on pre-existing geographic cost determinants. 'Input prices explain little of the increase.' Changes in income and housing prices statistically explain about half of it, and the authors report 'suggestive evidence' that the rise of 'citizen voice' in government decision-making increased spending per mile.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -449,16 +467,17 @@ export const scottCostDiseaseData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Brooks & Liscow, American Economic Journal: Applied Economics (2023)",
+          source:
+            "Brooks & Liscow, 'Infrastructure Costs', American Economic Journal: Applied Economics 15(2): 1–30 (April 2023)",
           sourceUrl: "https://www.aeaweb.org/articles?id=10.1257%2Fapp.20200398",
           reasoning:
-            "Peer-reviewed, well-identified, directly on rising physical-build cost over time.",
+            "Peer-reviewed and directly on rising physical-build cost over time, with geography held constant. The citizen-voice explanation is offered as suggestive, not as an identified cause, and the study covers highways, not transit.",
         },
         {
           id: "scope-geography",
-          title: "Scope and geography confound comparisons",
+          title: "Scope, accounting and geology make precise comparisons difficult",
           description:
-            "Differences in station scope, utility relocation, wages, and urban density explain part — though studies suggest not most — of the international cost gap.",
+            "The Transit Costs Project's final report grants that 'physical geography, archeology, and geology also drive costs', that out-of-date utility maps partly explain why city-center tunnels cost more, and that 'differences in accounting, project scopes, access to unit costs, and transparency make precise comparisons difficult.' It gives its New York premium as a range of 8 to 12 because the component factors are imprecise. It also finds that low-cost countries deliver projects under difficult geological, seismic and archaeological conditions, and that at most a quarter of the labor-cost difference comes from pay.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -469,7 +488,8 @@ export const scottCostDiseaseData = {
           source: "Transit Costs Project Final Report, NYU Marron Institute (2023)",
           sourceUrl:
             "https://transitcosts.com/transit-costs-study-final-report/",
-          reasoning: "A real caveat that trims, but does not close, the measured gap.",
+          reasoning:
+            "A real caveat, conceded by the team that measured the gap. By their own account it trims, but does not close, it.",
         },
         {
           id: "eno-50-percent-premium",
@@ -567,7 +587,7 @@ export const scottCostDiseaseData = {
           id: "naep-flat",
           title: "Schooling outputs are flat",
           description:
-            "NAEP long-term-trend scores for 17-year-olds barely moved since the 1970s while real per-pupil spending rose dramatically — leaving no measured achievement gain to absorb the extra cost.",
+            "NAEP long-term-trend scores for 17-year-olds moved two points in four decades, from 285 to 287 in reading (1971 to 2012) and from 304 to 306 in mathematics (1973 to 2012). Over the same period real current spending per pupil in public schools more than doubled, from $5,980 in 1970–71 to $13,196 in 2011–12 in constant 2021–22 dollars, leaving no measured achievement gain at the end of schooling to absorb the extra cost.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -575,16 +595,17 @@ export const scottCostDiseaseData = {
             replicability: 8,
             directness: 7,
           },
-          source: "NAEP Long-Term Trend Assessment",
-          sourceUrl: "https://nces.ed.gov/pubs/web/96344han.asp",
+          source:
+            "National Center for Education Statistics, Digest of Education Statistics 2022, Table 236.55 (expenditure per pupil) and Tables 221.85 and 222.85 (NAEP long-term trend reading and mathematics)",
+          sourceUrl: "https://nces.ed.gov/programs/digest/d22/tables/dt22_236.55.asp",
           reasoning:
-            "Strong, hard-to-dismiss evidence that at least one sector's disease is real, not measured.",
+            "Strong, hard-to-dismiss evidence that at least one sector's disease is real, not measured. The limit is that younger students did gain on the same assessment (9-year-olds rose from 208 to 221 in reading and from 219 to 244 in mathematics), so the flat result is for 17-year-olds.",
         },
         {
           id: "life-expectancy-stall",
-          title: "Life-expectancy gains stalled",
+          title: "Life expectancy rose 0.2 years from 2010 to 2014, then fell 0.3 years by 2017",
           description:
-            "U.S. life expectancy plateaued in the 2010s and fell before the pandemic even as health spending kept climbing — hard to square with a pure quality-improvement story.",
+            "The National Center for Health Statistics reports that U.S. life expectancy at birth rose 0.2 years from 2010 through 2014, fell 0.3 years from 2014 through 2017 and recovered 0.1 year in 2018, leaving it 0.2 years below the 2014 peak. Eight years with no net gain are hard to square with a pure quality-improvement story. Half of the 2014–2017 decline (50.6% of the negative contribution) came from unintentional injuries, and falling cancer and heart-disease mortality partly offset it.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -592,11 +613,12 @@ export const scottCostDiseaseData = {
             replicability: 7,
             directness: 6,
           },
-          source: "CDC / National Vital Statistics",
+          source:
+            "Kochanek, Anderson & Arias, 'Changes in Life Expectancy at Birth, 2010–2018', NCHS Health E-Stat (January 2020)",
           sourceUrl:
             "https://www.cdc.gov/nchs/data/hestat/life-expectancy/lifeexpectancy-H.pdf",
           reasoning:
-            "Directly undercuts the 'we're buying more health' defense in the flagship sector.",
+            "Undercuts the 'we're buying more health' defense in the flagship sector, with a limit the source itself supplies: the decline came mainly from injury deaths, Alzheimer disease and suicide, while mortality from cancer and heart disease, where medical care does most, kept falling. The report covers life expectancy only; that health spending rose over these years comes from the national health accounts, not from this source.",
         },
       ],
     },

@@ -10,12 +10,12 @@ export const modernMonetaryTheoryData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "A government that issues its own floating currency cannot be forced to default on debt in that currency, and Japan has carried gross government debt near 250% of GDP for years without defaulting. Both sides accept both facts. The fight is over where the real limit sits, in inflation and real resources, and whether governments would respect it in time.",
+      "A government that issues its own floating currency cannot be forced to default on debt in that currency, and Japan has carried gross government debt above 225% of GDP every year since 2012, peaking at 258% in 2020, without defaulting. Both sides accept both facts. The fight is over where the real limit sits, in inflation and real resources, and whether governments would respect it in time.",
     confidence: 88,
     source:
-      "IMF Fiscal Monitor / WEO (Japan general-government gross debt ~250% of GDP, 2023-2024); standard fiat-currency accounting reflected even in the IGM/Clark Center expert panel framing",
+      "IMF World Economic Outlook, general government gross debt for Japan (226% of GDP in 2012, 258% in 2020, 240% in 2023), as published by FRED, series GGGDTAJPA188N; standard fiat-currency accounting reflected even in the IGM/Clark Center expert panel framing",
     sourceUrl:
-      "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/JPN",
+      "https://fred.stlouisfed.org/series/GGGDTAJPA188N",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -34,7 +34,7 @@ export const modernMonetaryTheoryData = {
       skeptic_premise:
         "MMT smuggles a radical policy conclusion out of a banal accounting truth. Yes, a currency-issuer can always print to pay nominal debts — but 'no involuntary default' is not the same as 'no constraint.' The real limit is what the economy can produce; printing past that erodes purchasing power, which is just default by inflation. Markets can also force a currency-issuer's hand long before it 'runs out of money': bond vintages, exchange rates, and interest costs can spiral, as the UK's September 2022 gilt crisis showed. Treating the absence of nominal default as a green light for open-ended deficits confuses solvency with sustainability.",
       proponent_rebuttal:
-        "The descriptive claim is genuinely load-bearing and routinely denied by deficit hawks who warn of national 'bankruptcy.' Japan has run gross general-government debt near 230-240% of GDP for years — far above levels that supposedly trigger crisis — while borrowing in yen, keeping interest costs low, and never defaulting. The post-2008 era of large central-bank balance-sheet expansion did not produce the runaway inflation monetarists predicted. MMT's contribution is to reframe the binding constraint correctly: not an arbitrary debt-to-GDP ratio or a 'bond vigilante' bogeyman, but real resources and inflation. That reframing changes which policies are even on the table.",
+        "The descriptive claim is genuinely load-bearing and routinely denied by deficit hawks who warn of national 'bankruptcy.' Japan has run gross general-government debt of roughly 230-260% of GDP for more than a decade — far above levels that supposedly trigger crisis — while borrowing in yen, keeping interest costs low, and never defaulting. The post-2008 era of large central-bank balance-sheet expansion did not produce the runaway inflation monetarists predicted. MMT's contribution is to reframe the binding constraint correctly: not an arbitrary debt-to-GDP ratio or a 'bond vigilante' bogeyman, but real resources and inflation. That reframing changes which policies are even on the table.",
       crux: {
         id: "default-vs-inflation-constraint",
         title: "Solvency vs. the Real Resource Constraint",
@@ -54,7 +54,7 @@ export const modernMonetaryTheoryData = {
           supporter_flip:
             "If a genuine currency-issuer with debt in its own floating currency were ever forced into involuntary nominal default by markets — not choosing not to pay, but unable to create the money to pay — the descriptive core of MMT would be refuted, and 'no involuntary default' would stop being a useful operating principle.",
           skeptic_flip:
-            "If more decades passed with no floating-rate currency issuer forced into default in its own currency, Japan carrying about 250% debt-to-GDP without crisis and balance-sheet expansion bringing no runaway inflation, 'high debt forces default' would lose its footing.",
+            "If more decades passed with no floating-rate currency issuer forced into default in its own currency, Japan carrying about 240% debt-to-GDP without crisis and balance-sheet expansion bringing no runaway inflation, 'high debt forces default' would lose its footing.",
           common_ground:
             "Both sides agree a currency-issuer cannot literally run out of its own currency, and that the real binding constraint is inflation and the economy's productive capacity rather than an arbitrary debt-to-GDP ratio.",
           live_disagreement:
@@ -64,9 +64,9 @@ export const modernMonetaryTheoryData = {
       evidence: [
         {
           id: "japan-high-debt-no-default",
-          title: "Japan: ~230-240% Debt-to-GDP, No Default",
+          title: "Japan: Gross Debt of 230-260% of GDP, No Default",
           description:
-            "Japan, which borrows in its own currency, has carried government debt around 230-240% of GDP (IMF general-government measure; the linked World Bank series reports central government debt) — the highest in the developed world — for years without involuntary default, with low interest costs and persistently low (often sub-target) inflation until recently.",
+            "Japan, which borrows in its own currency, has carried general government gross debt of 226% of GDP or more every year from 2012 to 2023 on the IMF's World Economic Outlook measure (228-236% over 2013-2019, a peak of 258% in 2020, 240% in 2023) — the highest in the developed world — without involuntary default, with low interest costs and persistently low (often sub-target) inflation until recently.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -75,9 +75,9 @@ export const modernMonetaryTheoryData = {
             directness: 6,
           },
           source:
-            "World Bank / IMF, 'Central government debt, total (% of GDP) — Japan' (World Development Indicators)",
+            "International Monetary Fund, World Economic Outlook, 'General government gross debt for Japan' (percent of GDP, annual; via FRED series GGGDTAJPA188N)",
           sourceUrl:
-            "https://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS?locations=JP",
+            "https://fred.stlouisfed.org/series/GGGDTAJPA188N",
           reasoning:
             "High-quality official data and a genuine counterexample to 'high debt forces default.' Directness is limited: Japan's case is consistent with MMT's descriptive claim but does not by itself validate MMT's spending prescriptions, since Japan also has unique structural features (high domestic ownership, large net foreign assets, weak demand).",
         },
@@ -85,7 +85,7 @@ export const modernMonetaryTheoryData = {
           id: "qe-no-runaway-inflation",
           title: "Post-2008 QE Did Not Trigger Predicted Inflation",
           description:
-            "The Federal Reserve's balance sheet expanded from ~$0.9T (6% of GDP) in 2007 to ~$4.5T (25% of GDP) by 2015 via quantitative easing, yet the high inflation predicted by monetarists did not materialize during 2009-2019 — undercutting the simple 'money creation = inflation' objection to deficit finance.",
+            "The Federal Reserve's balance sheet expanded from $891 billion (6% of GDP) in 2007 to $4.5T (25% of GDP) in 2015 via quantitative easing, yet the high inflation predicted by monetarists did not materialize during 2009-2019: core PCE inflation averaged about 1.6% a year and was at or below 2% in every year but 2018 — undercutting the simple 'money creation = inflation' objection to deficit finance.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -94,10 +94,10 @@ export const modernMonetaryTheoryData = {
             directness: 5,
           },
           source:
-            "Congressional Budget Office, 'How the Federal Reserve's Quantitative Easing Affects the Federal Budget' (2022)",
+            "Congressional Budget Office, 'How the Federal Reserve's Quantitative Easing Affects the Federal Budget' (September 2022), for the balance sheet; BEA core PCE price index (FRED series PCEPILFE), December-to-December, for inflation",
           sourceUrl: "https://www.cbo.gov/publication/58457",
           reasoning:
-            "Official, non-partisan documentation of the balance-sheet expansion. Supports MMT's point that money creation is not mechanically inflationary when there is spare capacity. Directness is moderate: QE (asset swaps with banks) is not the same as MMT-style deficit-financed spending into the real economy, so the analogy is partial.",
+            "Official, non-partisan documentation of the balance-sheet expansion; the inflation figures are computed from BEA's index, not stated by CBO. Supports MMT's point that money creation is not mechanically inflationary when there is spare capacity (CBO notes that, as of May 2022, QE had not been conducted when output was above potential). Directness is moderate: QE (asset swaps with banks) is not the same as MMT-style deficit-financed spending into the real economy, so the analogy is partial.",
         },
         {
           id: "uk-gilt-crisis-2022",
@@ -161,7 +161,7 @@ export const modernMonetaryTheoryData = {
           id: "covid-deficit-inflation",
           title: "2020-2022: Large Deficits, M2 Surge, 40-Year-High Inflation",
           description:
-            "US M2 grew by roughly $6T (from about $15.4T in Feb 2020 to ~$21.7T by April 2022), with year-over-year growth peaking at 26.9% in February 2021; core PCE inflation then rose to 5.2% by January 2022 — the fastest since 1983 — as large deficit-financed transfers met constrained supply.",
+            "US M2 grew by roughly $6.3T (from about $15.5T in February 2020 to a peak near $21.8T in March-April 2022), with year-over-year growth peaking at 26.9% in February 2021; core PCE inflation then rose to 5.2% by January 2022 as first reported by BEA (5.3% on current data, and about 5.6% later in 2022) — the fastest since 1983 — as large deficit-financed transfers met constrained supply.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -170,7 +170,7 @@ export const modernMonetaryTheoryData = {
             directness: 7,
           },
           source:
-            "Federal Reserve (M2SL, via St. Louis Fed, 'The Rise and Fall of M2,' 26.9% YoY peak Feb 2021) and BEA core PCE (PCEPILFE; 5.2% YoY Jan 2022, reported by CNBC)",
+            "Christopher J. Neely, 'The Rise and Fall of M2,' St. Louis Fed On the Economy (23 May 2023; 26.9% YoY peak Feb 2021); Federal Reserve M2 levels (FRED series M2SL); BEA, 'Personal Income and Outlays, January 2022' (core PCE up 5.2% from one year ago) and BEA core PCE index (FRED series PCEPILFE)",
           sourceUrl:
             "https://www.stlouisfed.org/on-the-economy/2023/may/the-rise-and-fall-of-m2",
           reasoning:
@@ -180,7 +180,7 @@ export const modernMonetaryTheoryData = {
           id: "edwards-latin-america",
           title: "Latin America: Money-Financed Deficits Ended in Hyperinflation",
           description:
-            "Sebastián Edwards documents four episodes (Chile 1970-73, Peru 1985-90, Argentina, Venezuela) where governments ran central-bank-financed deficits on the premise of unused capacity; all ended in runaway inflation, large devaluations, and falling real wages, with the price of foreign currency in Peru jumping more than 8,000% in 1989-90.",
+            "Sebastián Edwards documents four episodes (Chile 1970-73, Peru 1985-90, Argentina, Venezuela) where governments ran central-bank-financed deficits on the premise of idle capacity; all ended in runaway inflation, large devaluations, and falling real wages. In Peru inflation peaked at almost 8,000% and the price of foreign currency jumped more than 8,000% in 1989-90.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -189,17 +189,17 @@ export const modernMonetaryTheoryData = {
             directness: 6,
           },
           source:
-            "Sebastián Edwards, 'Modern Monetary Theory: Cautionary Tales from Latin America,' Cato Journal / Hoover Institution (2019)",
+            "Sebastián Edwards, 'Modern Monetary Theory: Cautionary Tales from Latin America,' Hoover Institution Economics Working Paper 19106 (25 April 2019)",
           sourceUrl:
             "https://www.hoover.org/sites/default/files/research/docs/19106_edwards.pdf",
           reasoning:
-            "Peer-style policy paper by a leading scholar of Latin American macro. Directness is reduced because MMT proponents argue these countries lacked true monetary sovereignty (foreign-currency debt, fixed/managed exchange rates), so the episodes may illustrate MMT's own caveats rather than refute its core. Honest medium weights.",
+            "Working paper by a leading scholar of Latin American macro. Directness is reduced because MMT proponents argue these countries lacked true monetary sovereignty (foreign-currency debt, fixed/managed exchange rates), so the episodes may illustrate MMT's own caveats rather than refute its core. Honest medium weights.",
         },
         {
           id: "job-guarantee-anchor",
           title: "Job Guarantee as a Buffer-Stock Price Anchor",
           description:
-            "Levy Institute modeling estimates a US federal Job Guarantee employing ~11-16 million people at a fixed living wage would cost only ~0.8-2% of GDP net, while acting as a countercyclical buffer stock intended to anchor wages and prices without using unemployment as the inflation control.",
+            "Levy Institute modeling estimates a US federal Job Guarantee employing 11-16 million people at a fixed $15-an-hour wage would have a net budget impact of about 0.8-2% of GDP (0.83-1.53% before debt service, 1-2% with it) with the boost to inflation peaking at 0.74 percentage points above baseline in its larger simulation, while acting as a countercyclical buffer stock intended to anchor wages and prices without using unemployment as the inflation control.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -208,7 +208,7 @@ export const modernMonetaryTheoryData = {
             directness: 6,
           },
           source:
-            "Tcherneva / Wray et al., 'Public Service Employment: A Path to Full Employment,' Levy Economics Institute (2018); Tcherneva, 'The Social Enterprise Model for a Job Guarantee' (2014)",
+            "Wray, Dantas, Fullwiler, Tcherneva and Kelton, 'Public Service Employment: A Path to Full Employment,' Levy Economics Institute of Bard College (April 2018)",
           sourceUrl: "https://www.levyinstitute.org/pubs/rpr_4_18.pdf",
           reasoning:
             "Directly states MMT's central inflation-control mechanism, but from MMT-aligned authors (low independence) and never tested as a price anchor at national scale (low replicability). The price-stabilizing claim is a modeled projection, not a verified result, so weights are deliberately modest.",
@@ -224,7 +224,7 @@ export const modernMonetaryTheoryData = {
       skeptic_premise:
         "When a proposition is sound, the relevant experts converge on it. On MMT they do the opposite: a University of Chicago panel of top economists — Keynesian, monetarist, and otherwise — registered zero agreement with MMT's core deficit claims, a near-unprecedented unanimity. The deeper objection is institutional: using discretionary taxation to fine-tune the money supply re-politicizes monetary policy and discards decades of hard-won central-bank independence built to solve the time-inconsistency problem. An inflation tax, when it comes, also falls hardest on the poor — the very group MMT claims to help.",
       proponent_rebuttal:
-        "The famous survey didn't ask economists about MMT — it asked them to endorse two crude caricatures ('finance as much spending as they want by creating money') that no serious MMT scholar holds, so the 'unanimity' is against a strawman. MMT explicitly makes inflation the constraint; it does not claim spending is costless. On the merits, MMT economists have published point-by-point replies (the Levy Institute's 'Seven Replies to the Critiques') showing that many objections either misstate MMT or restate points MMT already concedes. Consensus against a misdescribed theory is weak evidence about the theory itself.",
+        "The famous survey didn't ask economists about MMT — it asked them to endorse two crude caricatures ('finance as much real government spending as they want by creating money') that no serious MMT scholar holds, so the 'unanimity' is against a strawman. MMT explicitly makes inflation the constraint; it does not claim spending is costless. On the merits, MMT economists have published point-by-point replies (the Levy Institute's 'Seven Replies to the Critiques') showing that many objections either misstate MMT or restate points MMT already concedes. Consensus against a misdescribed theory is weak evidence about the theory itself.",
       crux: {
         id: "strawman-vs-substance",
         title: "Is the Expert Rejection Aimed at MMT or a Caricature?",
@@ -256,7 +256,7 @@ export const modernMonetaryTheoryData = {
           id: "igm-survey-rejection",
           title: "Top-Economist Panel Unanimously Rejected MMT Claims",
           description:
-            "On the Chicago Booth / Clark Center US Economic Experts Panel, not a single economist agreed with two statements framed as MMT: that currency-issuers needn't worry about deficits, or can finance unlimited real spending by creating money. ~72-76% strongly disagreed; the rest disagreed.",
+            "On the Chicago Booth / Clark Center US Economic Experts Panel, not a single economist agreed with two statements framed as MMT: that currency-issuers needn't worry about deficits, or can finance unlimited real spending by creating money. Of the 38 panelists who responded, 22 strongly disagreed with the first and 24 with the second; weighted by each expert's confidence, 72% and 76% strongly disagreed and the rest disagreed.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -274,7 +274,7 @@ export const modernMonetaryTheoryData = {
           id: "taxation-inflation-control-critique",
           title: "Using Taxation to Control Inflation Is Slow and Politically Fraught",
           description:
-            "Cato Journal critique argues MMT's plan to manage inflation via discretionary taxation ignores decades of work separating monetary from fiscal policy, that legislatures cannot adjust taxes fast enough to tame inflation, and that the resulting inflation tax falls disproportionately on the poor.",
+            "Cato Journal critique argues MMT's plan to manage inflation via discretionary taxation ignores decades of work separating monetary from fiscal policy, that it leaves unanswered how government would steer 'the sluggish adjustments in tax revenue' or solve the timing problems of fiscal policy, and that the inflation tax 'falls disproportionately on the poor.'",
           side: "against" as const,
           weight: {
             sourceReliability: 6,

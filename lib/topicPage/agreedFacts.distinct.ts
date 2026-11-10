@@ -12,8 +12,6 @@
 export const DISTINCT_FROM_AGREED_FACT: Record<string, string> = {
   "pandemic-preparedness/100-days-mission":
     "The card is CEPI's 100-day vaccine target; the agreed fact is how a readiness budget is split and where mRNA came from.",
-  "immigration-national-identity/nas-immigration-report":
-    "The card is the NAS finding on native wages; the agreed fact is about aggregate GDP and fiscal impact.",
   "adhd-overdiagnosis/milder-cases-harm":
     "The card says harms may outweigh benefits in milder cases; the agreed fact says that net effect is poorly studied.",
   "trump-tariffs/american-compass-stealth-boom":

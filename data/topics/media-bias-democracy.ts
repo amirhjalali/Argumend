@@ -61,7 +61,7 @@ export const mediaBiasDemocracyData = {
       skeptic_premise:
         "Perceived 'bias' is often disagreement with factual reporting that challenges one's priors, and the leading bias-measurement studies are themselves contested: Groseclose & Milyo's think-tank-citation method has been widely criticized for construct validity, and AllSides is an advocacy organization, not peer-reviewed. Professional journalism still maintains editorial standards, multi-source verification, and corrections policies, and the number of fact-checking organizations grew sharply over the past decade. The larger threat to informed citizenship is unvetted misinformation on social media and partisan blogs, not mainstream outlets that carry reputational and legal stakes. Imperfect institutional journalism is still far better than none.",
       proponent_rebuttal:
-        "Even granting methodological disputes, multiple independent approaches converge on detectable slant — Groseclose & Milyo found all but two of twenty outlets scored left of the median member of Congress, and blind cross-partisan ratings place CNN/MSNBC left and Fox right of center. Bias need not be falsehood: story selection, airtime, and which experts get featured are editorial choices that shape perception even when every individual fact is accurate, and ownership concentration creates structural pressure on what gets covered. Robust standards and growing fact-checking reduce outright error but do not neutralize framing, which research shows can move opinion as powerfully as a false claim.",
+        "Even granting methodological disputes, multiple independent approaches converge on detectable slant — Groseclose & Milyo found all but two of twenty outlets scored left of the average member of Congress, and blind cross-partisan ratings place CNN/MSNBC left and Fox right of center. Bias need not be falsehood: story selection, airtime, and which experts get featured are editorial choices that shape perception even when every individual fact is accurate, and ownership concentration creates structural pressure on what gets covered. Robust standards and growing fact-checking reduce outright error but do not neutralize framing, which research shows can move opinion as powerfully as a false claim.",
       crux: {
         id: "quantitative-bias-measurement",
         title: "Quantitative Media Bias Measurement",
@@ -83,7 +83,7 @@ export const mediaBiasDemocracyData = {
           supporter_flip:
             "If a replicable content analysis comparing coverage of identical events across outlets found little systematic deviation in story selection, framing or source choice, the claim of systemic bias would shrink to readers disagreeing with accurate reporting.",
           skeptic_flip:
-            "If new studies using different methods matched Groseclose and Milyo's finding of most outlets left of the median member of Congress, and blind cross-partisan ratings kept placing CNN and MSNBC left and Fox right, slant would be hard to read as mere disagreement with facts.",
+            "If new studies using different methods matched Groseclose and Milyo's finding of most outlets left of the average member of Congress, and blind cross-partisan ratings kept placing CNN and MSNBC left and Fox right, slant would be hard to read as mere disagreement with facts.",
           common_ground:
             "Both sides agree mainstream outlets keep real editorial standards — multi-source verification, corrections, a growing number of fact-checkers — and that the leading bias measures, from Groseclose & Milyo to AllSides, have contested methods.",
           live_disagreement:
@@ -114,7 +114,7 @@ export const mediaBiasDemocracyData = {
           id: "allsides-bias-ratings",
           title: "AllSides: Consistent Cross-Partisan Bias Ratings",
           description:
-            "AllSides rates media bias using a combination of blind bias surveys (content stripped of branding and rated across the spectrum), multipartisan editorial reviews, third-party data, and independent reviews. Results show consistent patterns: CNN and MSNBC rate Lean Left to Left; Fox News rates Lean Right. AllSides positions AP and Reuters near Center.",
+            "AllSides rates media bias using a combination of blind bias surveys (content stripped of branding and rated across the spectrum), multipartisan editorial reviews, third-party data, and independent reviews. As of late 2026 its source pages rate CNN Digital Lean Left, Fox News Digital Right, the Associated Press's US political news Lean Left (moved from Left after a May 2026 editorial review) and Reuters Center. The ratings cover online written news only; AllSides does not rate TV or radio broadcasts.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -122,7 +122,7 @@ export const mediaBiasDemocracyData = {
             replicability: 6,
             directness: 6,
           },
-          source: "AllSides Media Bias Ratings (allsides.com)",
+          source: "AllSides, 'How AllSides Rates Media Bias' (rating methods) and its source pages for CNN, Fox News, Associated Press and Reuters (allsides.com, read November 2026)",
           sourceUrl:
             "https://www.allsides.com/media-bias/media-bias-rating-methods",
           reasoning:
@@ -132,7 +132,7 @@ export const mediaBiasDemocracyData = {
           id: "reuters-trust-survey",
           title: "Reuters: Trust in News Remains Low Globally",
           description:
-            "The Reuters Institute Digital News Report 2024 found that 40% of people globally trust 'most news most of the time' — stable year-on-year but four points below its pandemic-era peak. In the US, trust is lower at 32%. Younger audiences increasingly rely on social and video platforms (e.g., TikTok at 23% for news among all ages, higher for under-25s) over traditional outlets.",
+            "The Reuters Institute Digital News Report 2024 found that 40% of people globally trust 'most news most of the time' — stable year-on-year but four points below its pandemic-era peak. In the US, trust is lower at 32%. Younger audiences increasingly rely on social and video platforms: TikTok is used for news by 13% across all 47 markets and by 23% of 18–24s.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -151,7 +151,7 @@ export const mediaBiasDemocracyData = {
           id: "cjr-standards-analysis",
           title: "Professional Fact-Checking Infrastructure Has Expanded",
           description:
-            "Industry coverage in the Columbia Journalism Review documents that institutional journalism maintains professional norms — multi-source verification, corrections policies, and dedicated fact-checking — and that the number of fact-checking organizations grew sharply (from 44 to roughly 195 globally between 2014 and 2019). This institutional layer distinguishes vetted journalism from unmoderated social media and partisan blogs.",
+            "Emily Bell's Columbia Journalism Review report on the fact-check industry documents how dedicated fact-checking grew while much of journalism shrank: 'According to the 2019 Duke University Reporters' Lab census, 44 fact-checking organizations existed five years ago; there are 195 now.' She describes the work as 'an independent business of verification, debunking, and correction of untruths that have already been published.' This layer of checking distinguishes vetted journalism from unmoderated social media and partisan blogs.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -159,7 +159,7 @@ export const mediaBiasDemocracyData = {
             replicability: 4,
             directness: 5,
           },
-          source: "Columbia Journalism Review, 'The Fact-Check Industry'",
+          source: "Emily Bell, 'The Fact-Check Industry', Columbia Journalism Review",
           sourceUrl:
             "https://www.cjr.org/special_report/fact-check-industry-twitter.php",
           reasoning:
@@ -228,7 +228,7 @@ export const mediaBiasDemocracyData = {
           id: "gallup-media-trust",
           title: "Gallup: US Media Trust at Trend Low of 31%",
           description:
-            "Gallup's 2024 survey shows just 31% of Americans trust the mass media 'to report the news fully, accurately, and fairly' a great deal or fair amount — a trend low (Gallup first asked in 1972, when trust was 68-72%). Trust is sharply partisan: 54% among Democrats, 27% among Independents, and 12% among Republicans. For the third year running, more adults have no trust at all (36%) than trust the media.",
+            "Gallup's 2024 survey shows just 31% of Americans trust the mass media to report the news 'fully, accurately and fairly' a great deal or fair amount — a trend low (Gallup first asked in 1972, and in three readings in the 1970s trust ranged from 68% to 72%). Trust is sharply partisan: 54% among Democrats, 27% among Independents, and 12% among Republicans. For the third year running, more adults have no trust at all (36%) than trust the media.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -319,7 +319,7 @@ export const mediaBiasDemocracyData = {
           id: "algorithmic-amplification",
           title: "Algorithmic Amplification Boosts Outrage Content",
           description:
-            "Internal Meta documents (the 'Facebook Papers' disclosed by Frances Haugen and reviewed by a news consortium) show that from 2017 Facebook's feed weighted 'angry' reactions five times more than 'likes,' and its own researchers warned this surfaced disproportionately controversial, toxic, and low-quality content. A peer-reviewed study by Twitter's own ML team (Huszár et al., PNAS 2022) found the algorithm amplified right-leaning political content in 6 of 7 countries. Mozilla's RegretsReporter crowdsourced study (2021) found 71% of videos users flagged as 'regrets' were served by YouTube's recommendation system.",
+            "Internal Meta documents (the 'Facebook Papers' disclosed by Frances Haugen and reviewed by a news consortium) show that from 2017 Facebook's feed weighted 'angry' reactions five times more than 'likes,' and its own researchers warned this surfaced disproportionately controversial, toxic, and low-quality content. A peer-reviewed study by Twitter's own ML team (Huszár et al., PNAS 2022) found that in six of the seven countries studied the algorithm amplified the mainstream political right more than the mainstream left, though it found no evidence that far-left or far-right groups were amplified more than moderate ones. Mozilla's RegretsReporter crowdsourced study (2021) found 71% of videos users flagged as 'regrets' were served by YouTube's recommendation system.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,

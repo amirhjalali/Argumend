@@ -98,7 +98,7 @@ export const cancelCultureData = {
           id: "canceled-people-outcomes",
           title: "Many High-Profile 'Canceled' Figures Retain Their Platforms",
           description:
-            "A number of widely covered cancellation attempts against prominent figures — J.K. Rowling, Dave Chappelle, Joe Rogan — did not produce lasting professional consequences, and some figures saw increased audience engagement afterward. This is a qualitative observation from media commentary, not a systematic dataset, so it cannot quantify the overall share of targets who 'survive.'",
+            "Three widely covered campaigns did not cost their targets their platforms. Spotify came under heavy pressure in 2022 to drop Joe Rogan over his anti-vaccine comments and use of racial slurs, with Neil Young and other musicians pulling their music; CEO Daniel Ek said 'I do not believe that silencing Joe is the answer', and on 2 February 2024 Spotify announced a new multiyear deal with him (the AP cites a reported value of up to $250 million). Dave Chappelle's 2021 Netflix special 'The Closer' prompted a walkout by dozens of Netflix employees; Netflix stood by it and released his next special, 'The Dreamer', on New Year's Eve 2023. J.K. Rowling was named executive producer of the Harry Potter television series Max announced on 12 April 2023. These are selected cases, not a systematic dataset, so they cannot quantify the overall share of targets who 'survive.'",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -107,15 +107,17 @@ export const cancelCultureData = {
             directness: 5,
           },
           source:
-            "Synthesis / inference — illustrative cases with no systematic outcome dataset",
+            "Illustrative cases, no systematic outcome dataset: Spotify newsroom (2 Feb 2024) and Associated Press (3 Feb 2024) on Rogan; CNN (26 Dec 2023) on Chappelle; jkrowling.com (12 Apr 2023) on Rowling",
+          sourceUrl:
+            "https://newsroom.spotify.com/2024-02-02/the-art-of-podcasting-with-joe-rogan-and-his-new-multiyear-spotify-partnership/",
           reasoning:
-            "No web-verifiable systematic study aggregates cancellation outcomes, so no sourceUrl is provided and weights are kept low. Suggestive but subject to survivorship bias — we don't see cases where less powerful people quietly disappeared.",
+            "No systematic study aggregates cancellation outcomes; each of the three cases is checked against the source named, and weights are kept low. Suggestive but subject to survivorship bias — we don't see cases where less powerful people quietly disappeared.",
         },
         {
           id: "historical-accountability-comparison",
           title: "Social Consequences for Speech Predate the Internet",
           description:
-            "Boycotts, public shaming, and social ostracism long predate social media — for example, the Civil Rights movement used boycotts and organized public pressure to force change. This is a conceptual/historical argument that today's 'cancel culture' shares a mechanism with older forms of social accountability, differing mainly in speed and scale.",
+            "Boycotts, public shaming, and social ostracism long predate social media. In the civil-rights boycott of white merchants launched in Claiborne County, Mississippi in 1966, 'store watchers' recorded the names of Black residents who kept shopping at the boycotted stores, and the names were read aloud at meetings and published in a local Black newspaper. In NAACP v. Claiborne Hardware Co. (1982) the Supreme Court held the boycott's nonviolent elements protected by the First Amendment, even though organizers admittedly used social pressure and the threat of ostracism: 'Speech does not lose its protected character, however, simply because it may embarrass others or coerce them into action.' The Court also found that acts of violence occurred, and those were not protected. This is a historical argument that today's 'cancel culture' shares a mechanism with older forms of social accountability, differing mainly in speed and scale.",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -124,9 +126,10 @@ export const cancelCultureData = {
             directness: 4,
           },
           source:
-            "Synthesis / inference — broad historical analogy rather than an effect estimate",
+            "NAACP v. Claiborne Hardware Co., 458 U.S. 886 (decided 2 July 1982), opinion of the Court by Justice Stevens; a historical analogy rather than an effect estimate",
+          sourceUrl: "https://www.law.cornell.edu/supremecourt/text/458/886",
           reasoning:
-            "A framing/contextual claim rather than a specific empirical finding, so no sourceUrl is provided. Less direct because the increased speed and scale of online pile-ons may change the qualitative nature of the phenomenon.",
+            "A framing/contextual claim anchored in one documented case, not an effect estimate. Less direct because the increased speed and scale of online pile-ons may change the qualitative nature of the phenomenon, and a ruling that such pressure is protected speech does not show that it does more good than harm.",
         },
         {
           id: "pew-2020-callouts-accountability",
@@ -190,9 +193,9 @@ export const cancelCultureData = {
       evidence: [
         {
           id: "metoo-predator-removal",
-          title: "#MeToo Removed Powerful Predators",
+          title: "#MeToo: At Least 200 Prominent Men Lost Their Jobs in a Year, and EEOC Harassment Charges Rose 13.6%",
           description:
-            "The #MeToo movement led to the removal of figures such as Harvey Weinstein, Larry Nassar, and Bill Cosby, who had operated with institutional protection. EEOC sexual harassment charges rose 13.6% in FY2018 (6,696 to 7,609) — the first year-over-year increase in roughly a decade — suggesting previously silenced victims felt empowered to report after #MeToo went viral in October 2017.",
+            "In the year after #MeToo went viral in October 2017, a New York Times analysis counted at least 200 prominent men fired or demoted following accusations of sexual misconduct, against fewer than 30 high-profile people the year before; about 122 had been replaced, 53 of them by women. EEOC sexual harassment charges rose 13.6% in FY2018 (6,696 to 7,609) after falling in each year from FY2014 to FY2017, which suggests previously silenced victims felt able to report.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -200,16 +203,16 @@ export const cancelCultureData = {
             replicability: 7,
             directness: 7,
           },
-          source: "U.S. EEOC, 'Sexual Harassment in Our Nation's Workplaces'; journalistic investigations",
+          source: "U.S. EEOC, 'Sexual Harassment in Our Nation's Workplaces', Data Highlight No. 2 (April 2022); New York Times analysis of 23 Oct 2018 as reported by TheWrap",
           sourceUrl: "https://www.eeoc.gov/data/sexual-harassment-our-nations-workplaces",
           reasoning:
-            "EEOC is an authoritative government source; the corrected figure is 13.6% (the file previously said 12%). Demonstrates the accountability function of public pressure campaigns, though the charge increase is correlational with #MeToo, not proven causal.",
+            "EEOC is an authoritative government source; the corrected figure is 13.6% (the file previously said 12%). The count of men who lost jobs is the New York Times's, taken here from TheWrap's report of it. Demonstrates the accountability function of public pressure campaigns, though the charge increase is correlational with #MeToo, not proven causal, and charges fell back to 6,587 in FY2020 and 5,581 in FY2021.",
         },
         {
           id: "ceo-ethical-lapse-dismissals",
           title: "Strategy& (2017): CEO Dismissals for Ethical Lapses Rose From 3.9% to 5.3% of Successions at the World's 2,500 Largest Companies",
           description:
-            "PwC's Strategy& CEO Success study tracked chief-executive successions at the world's 2,500 largest public companies. 'Globally, dismissals for ethical lapses rose from 3.9 percent of all successions in 2007–11 to 5.3 percent in 2012–16', and at the largest companies in North America and Western Europe from 4.6 to 7.8 percent; 18 CEOs of those companies were dismissed for ethical lapses in 2016. Among the causes the authors list: 'the public has become more suspicious, more critical, and less forgiving of corporate misbehavior', digital communications 'can provide irrefutable evidence of misconduct', and 'the relentless glare of social media, is omnipresent.'",
+            "PwC's Strategy& CEO Success study tracked chief-executive successions at the world's 2,500 largest public companies. 'Globally, dismissals for ethical lapses rose from 3.9 percent of all successions in 2007–11 to 5.3 percent in 2012–16', and at the largest companies in North America and Western Europe from 4.6 to 7.8 percent. The numbers are small: 18 CEOs across the 2,500 companies were dismissed for ethical lapses in 2016. Among the causes the authors list: 'the public has become more suspicious, more critical, and less forgiving of corporate misbehavior', digital communications 'can provide irrefutable evidence of misconduct', and 'the relentless glare of social media, is omnipresent.'",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -227,7 +230,7 @@ export const cancelCultureData = {
           id: "ordinary-person-cancelation-cases",
           title: "Some Non-Public Figures Have Faced Severe Consequences",
           description:
-            "Individual cases involving lesser-known people illustrate severe professional fallout from online controversy — for example, data analyst David Shor was let go by Civis Analytics in 2020 after tweeting a peer-reviewed political-science study on protest tactics. Such anecdotes show ordinary people can face career consequences with little recourse, but they are selected examples, not a representative sample.",
+            "Individual cases involving lesser-known people illustrate severe professional fallout from online controversy — for example, data analyst David Shor was fired by the progressive consulting firm Civis Analytics in June 2020 after publicizing research by social scientist Omar Wasow finding that violent protests tend to backfire while peaceful ones often succeed. Reason notes the exact reason for the firing was never specified. Such anecdotes show ordinary people can face career consequences with little recourse, but they are selected examples, not a representative sample.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -255,13 +258,13 @@ export const cancelCultureData = {
           source: "Eric Kaufmann, 'Academic Freedom in Crisis,' CSPI Report (2021)",
           sourceUrl: "https://www.cspicenter.com/p/academicfreedom",
           reasoning:
-            "Corrected from unverifiable claims: the original '75% conservative vs 15% liberal' comparison and the '91% of Fortune 500 issued DEI statements' figure could not be verified and appear inaccurate (research indicates only roughly a third of large U.S. firms made racial-equity statements after 2020). CSPI is an advocacy-oriented center, so independence is low. Suggests conformity pressure but does not isolate it from genuine attitude shifts.",
+            "Corrected from unverifiable claims: the original '75% conservative vs 15% liberal' comparison and the '91% of Fortune 500 issued DEI statements' figure could not be verified and were removed. CSPI is an advocacy-oriented center, so independence is low. Suggests conformity pressure but does not isolate it from genuine attitude shifts.",
         },
         {
           id: "social-media-mob-dynamics",
           title: "Moral-Emotional Language Amplifies Diffusion of Outrage Online",
           description:
-            "Brady, Wills, Jost, Tucker & Van Bavel (PNAS, 2017) analyzed ~563,000 tweets and found that each additional moral-emotional word in a message increased its retweet rate by roughly 20%, helping outrage spread within ideological groups. A large 2025 pre-registered replication and meta-analysis (PNAS Nexus) confirmed the effect but estimated it somewhat smaller (~12% per word). This illustrates the amplification mechanism behind viral pile-ons, where context is lost and the target experiences the aggregate of many responses at once.",
+            "Brady, Wills, Jost, Tucker & Van Bavel (PNAS, 2017) analyzed ~563,000 tweets and found that each additional moral-emotional word in a message increased its retweet rate by roughly 20%, helping outrage spread within ideological groups. A 2025 pre-registered replication (849,266 posts) and meta-analysis of 27 studies in PNAS Nexus confirmed the effect but estimated it somewhat smaller: 13% more shares per word across all available data (IRR 1.13, 95% CI 1.06-1.20), and 17% in the replication itself. This illustrates the amplification mechanism behind viral pile-ons, where context is lost and the target experiences the aggregate of many responses at once.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -269,10 +272,10 @@ export const cancelCultureData = {
             replicability: 6,
             directness: 5,
           },
-          source: "Brady et al., 'Emotion shapes the diffusion of moralized content in social networks,' PNAS (2017)",
+          source: "Brady, Wills, Jost, Tucker & Van Bavel, 'Emotion shapes the diffusion of moralized content in social networks,' PNAS 114(28), pp. 7313-7318 (2017); Brady, Rathje, Globig & Van Bavel, 'Estimating the effect size of moral contagion in online networks: A pre-registered replication and meta-analysis,' PNAS Nexus (2025)",
           sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.1618923114",
           reasoning:
-            "Peer-reviewed PNAS research; authors were at NYU (the file previously said 'Yale'). The original ~20% per-word effect was partly tempered by a 2025 replication (~12%), so replicability is moderate. Less direct because it describes the diffusion mechanism rather than measuring specific harm to cancellation targets.",
+            "Peer-reviewed PNAS research; authors were at NYU (the file previously said 'Yale'). The original ~20% per-word effect was partly tempered by the 2025 replication and meta-analysis (17% and 13%), so replicability is moderate. Less direct because it describes the diffusion mechanism rather than measuring specific harm to cancellation targets.",
         },
       ],
     },

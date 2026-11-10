@@ -43,7 +43,7 @@ export const minneapolisShootingData = {
         "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60",
       icon_name: "FileText" as const,
       skeptic_premise:
-        'DHS stated that Pretti "approached Border Patrol officers with a handgun" and resisted arrest, and officials framed the shooting as self-defense. DHS Secretary Noem said Pretti arrived "to inflict maximum damage on individuals and to kill law enforcement," and administration figures (including homeland security adviser Stephen Miller) branded him a "domestic terrorist", a characterization Noem later declined to retract. CBP\'s notice to Congress on January 27, based on a preliminary review of the agents\' body-camera footage, said a Border Patrol agent yelled "He\'s got a gun!" during a struggle, about five seconds before the first shot. Pretti was carrying a gun, and no investigating authority has found the force unlawful: the Justice Department opened a civil rights investigation on January 30 and says it is ongoing, and CBP Commissioner Rodney Scott told senators on February 12, "until all that evidence is evaluated, I can\'t jump to a conclusion."',
+        'DHS stated that Pretti "approached" Border Patrol officers with a 9mm semi-automatic firearm and that an agent fired "defensive shots," and officials framed the shooting as self-defense. DHS Secretary Noem said Pretti arrived "to inflict maximum damage on individuals and to kill law enforcement," and administration figures (including homeland security adviser Stephen Miller) branded him a "domestic terrorist", a characterization Noem later declined to retract. CBP\'s notice to Congress on January 27, based on a preliminary review of the agents\' body-camera footage, said a Border Patrol agent yelled "He\'s got a gun!" during a struggle, about five seconds before the first shot. Pretti was carrying a gun, and no investigating authority has found the force unlawful: the Justice Department opened a civil rights investigation on January 30 and says it is ongoing, and CBP Commissioner Rodney Scott told senators on February 12, "until all that evidence is evaluated, I can\'t jump to a conclusion."',
       proponent_rebuttal:
         "Multiple independent video recordings and eyewitness accounts, reviewed by NPR, Reuters, BBC, the NYT, CNN and The Guardian, contradict the administration's first description, with reviewers reporting Pretti held a phone rather than a gun; the videos show an officer removing his gun while he was on the ground, before about 10 shots were fired. Even CBP's own notice to Congress makes no claim that he reached for it. Pretti was a Minneapolis VA ICU nurse; Minneapolis Police Chief Brian O'Hara said he held a valid Minnesota permit to carry. Federal agents kept state investigators from the scene; Minnesota sued for the evidence in March, received body-camera video and statements in July, and says sharing stopped in September with the officers' guns and one shooter's recorded statement still withheld. Nine months on, no one has been charged, and Trump removed Noem as DHS secretary in March.",
       crux: {
@@ -127,7 +127,7 @@ export const minneapolisShootingData = {
             directness: 4,
           },
           source:
-            "The Hill, \"Minnesota official says DHS 'blocked' state bureau from investigating scene of latest shooting\" (Jan 2026); Hennepin County Attorney's Office release (24 March 2026)",
+            "The Hill, \"Minnesota official says feds 'blocked' state bureau from investigating scene of latest shooting\" (Jan 2026); Hennepin County Attorney's Office release (24 March 2026)",
           sourceUrl:
             "https://thehill.com/homenews/state-watch/5705051-alex-pretti-federal-shooting-investigation/",
           reasoning:
@@ -150,13 +150,13 @@ export const minneapolisShootingData = {
           sourceUrl:
             "https://www.cbsnews.com/minnesota/news/minnesota-feds-stop-sharing-evidence-good-pretti-shootings-lawsuit/",
           reasoning:
-            "Supporters read the withholding of the guns, ballistics and a shooter's statement as a sign the full record would not favour the agents. That is an inference, not evidence of what happened: the state is a party to the lawsuit, the Justice Department says release is up to the agencies and that Minnesota did not follow their request rules, and evidence can be withheld for reasons unrelated to its content. Directness is 3.",
+            "Supporters read the withholding of the guns, ballistics and a shooter's statement as a sign the full record would not favour the agents. That is an inference, not evidence of what happened: the state is a party to the lawsuit, the Justice Department says release is up to the agencies, that its rules for outside requests (Touhy regulations) did not apply because no court case was underway when Minnesota asked, and that the state already has 'all the evidence', and evidence can be withheld for reasons unrelated to its content. Directness is 3.",
         },
         {
           id: "dhs-position",
           title: "DHS Claims Self-Defense",
           description:
-            "DHS stated Pretti \"approached Border Patrol officers with a handgun\" and resisted arrest; officials framed the shooting as self-defense. Independent video review disputes that he was holding a gun, and CBP's later notice to Congress did not repeat the claim that he approached agents with one.",
+            "In a statement that weekend DHS said Pretti \"approached\" the agents with a 9mm semi-automatic firearm and that one Border Patrol agent fired \"defensive shots\" (CBS News). Secretary Kristi Noem said the officers \"acted according to their training\" and accused Pretti of \"brandishing\" his weapon (NPR). Independent video review disputes that he was holding a gun, and CBP's later notice to Congress did not repeat the claim that he approached agents with one.",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -165,11 +165,11 @@ export const minneapolisShootingData = {
             directness: 7,
           },
           source:
-            "NPR, \"Videos and eyewitnesses refute federal account of Minneapolis shooting\" (Jan 25, 2026), reporting the DHS account",
+            "CBS News, '2 federal agents fired their weapons during Alex Pretti shooting, government report to Congress says' (27 January 2026), quoting DHS's first statement; NPR, \"5 things to know about the latest Minneapolis shooting\" (Jan 25, 2026) for Noem's remarks",
           sourceUrl:
-            "https://www.npr.org/2026/01/25/nx-s1-5687875/minneapolis-shooting-minnesota-ice-alex-pretti-dhs-investigation",
+            "https://www.cbsnews.com/news/two-federal-agents-fired-their-weapons-during-alex-pretti-shooting-report-congress-says/",
           reasoning:
-            "DHS is a party to the incident (low independence); its claim that Pretti was armed is contradicted by independently reviewed bystander video, so source reliability is de-rated.",
+            "DHS is a party to the incident (low independence). Pretti was carrying a gun, but its claim that he approached agents with it is contradicted by independently reviewed bystander video, so source reliability is de-rated.",
         },
         {
           id: "cbp-congress-notice",
@@ -184,7 +184,7 @@ export const minneapolisShootingData = {
             directness: 8,
           },
           source:
-            "CBS News, 'Two federal agents fired their weapons during Alex Pretti shooting, report to Congress says' (27 January 2026); AP via PBS NewsHour (27 January 2026)",
+            "CBS News, '2 federal agents fired their weapons during Alex Pretti shooting, government report to Congress says' (27 January 2026); AP via PBS NewsHour (27 January 2026)",
           sourceUrl:
             "https://www.cbsnews.com/news/two-federal-agents-fired-their-weapons-during-alex-pretti-shooting-report-congress-says/",
           reasoning:
@@ -194,7 +194,7 @@ export const minneapolisShootingData = {
           id: "doj-probe-ongoing",
           title: "Justice Department: Civil Rights Investigation Open, No Finding Yet (January to October 2026)",
           description:
-            "On 30 January 2026 Deputy Attorney General Todd Blanche announced a federal civil rights investigation, saying 'We're looking at everything that would shed light on what happened that day', and that the Civil Rights Division 'does not investigate every law enforcement shooting'; the FBI leads it. Nine months later no one has been charged, and a Justice Department spokesperson said: 'The timing is consistent with how these types of investigations proceed.' In court the department has argued that Minnesota is not blocked from bringing charges, pointing to Hennepin County's May case against an ICE agent in a separate shooting.",
+            "On 30 January 2026 Deputy Attorney General Todd Blanche announced a federal civil rights investigation, saying 'We're looking at everything that would shed light on what happened that day', and that the Civil Rights Division does not investigate every law enforcement shooting; the FBI leads it. Nine months later no one has been charged, and a Justice Department spokesperson said: 'The timing is consistent with how these types of investigations proceed.' In court the department has argued that Minnesota is not blocked from bringing charges, pointing to Hennepin County's May case against an ICE agent in a separate shooting.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -203,7 +203,7 @@ export const minneapolisShootingData = {
             directness: 3,
           },
           source:
-            "AP via Spectrum News, 'DOJ opens federal civil rights probe into fatal shooting of Alex Pretti' (30 January 2026); ABC News (27 October 2026); CBS Minnesota (22 October 2026) on the department's court filing",
+            "AP via Spectrum News, 'Justice Department opens federal civil rights probe into fatal shooting of Alex Pretti' (30 January 2026); ABC News (27 October 2026); CBS Minnesota (22 October 2026) on the department's court filing",
           sourceUrl:
             "https://spectrumlocalnews.com/us/snplus/public-safety/2026/01/30/alex-pretti-shooting-investigation",
           reasoning:
@@ -293,7 +293,7 @@ export const minneapolisShootingData = {
           id: "gao-dhs-force-policy-doj",
           title: "GAO: DHS Aligned Its Use-of-Force Policy With the Justice Department's in 2023",
           description:
-            "The Government Accountability Office reported in July 2023 that in February 2023 DHS 'amended its use of force policy to align with the Department of Justice's (DOJ) policy', adding limits on chokeholds and carotid restraints. GAO reviewed how four DHS agencies, including CBP and ICE, report force under it. As CBS reported in January 2026, it allows deadly force only when an officer reasonably believes the subject 'poses an imminent threat of death or serious bodily injury', bars it against someone fleeing who poses no serious threat, and limits shooting at moving vehicles. GAO also found that the force data agencies submitted to DHS 'undercount the frequency that officers used force against subjects.'",
+            "The Government Accountability Office reported in July 2023 that in February 2023 DHS 'amended its use of force policy to align with the Department of Justice's (DOJ) policy', adding limits on chokeholds and carotid restraints. GAO reviewed how four DHS agencies, including CBP and ICE, report force under it. As ABC News quoted it in January 2026, the DHS policy says officers 'may use deadly force only when the LEO [law enforcement officer] has a reasonable belief that the subject of such force poses an imminent threat of death or serious bodily injury to the LEO or to another person', and that 'Deadly force shall not be used solely to prevent the escape of a fleeing subject.' GAO also found that the force data agencies submitted to DHS 'undercount the frequency that officers used force against subjects.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -302,7 +302,7 @@ export const minneapolisShootingData = {
             directness: 4,
           },
           source:
-            "GAO, 'Law Enforcement: DHS Should Strengthen Use of Force Data Collection and Analysis', GAO-23-105927 (24 July 2023); CBS Minnesota (7 Jan 2026) on the policy's terms",
+            "GAO, 'Law Enforcement: DHS Should Strengthen Use of Force Data Collection and Analysis', GAO-23-105927 (24 July 2023); ABC News, 'What to know about ICE use-of-force policy' (9 January 2026) on the policy's terms",
           sourceUrl: "https://www.gao.gov/products/gao-23-105927",
           reasoning:
             "The skeptic's strongest documentary point: on paper, the rules CBP and ICE work under match the Justice Department's standard rather than falling below it. That speaks to written rules, not to training or practice, it compares with DOJ rather than local police, it predates the 2025-26 enforcement surge, and GAO's own finding that force is undercounted means the record cannot yet show whether the rules are followed. Directness is 4.",

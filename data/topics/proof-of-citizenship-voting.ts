@@ -259,7 +259,7 @@ export const proofOfCitizenshipVotingData = {
       skeptic_premise:
         "A documentary rule stops eligible citizens. In Kansas, 31,089 applicants, 12.4% of new registrations from 2013 to 2015, had registrations suspended or canceled for lack of documents, and the trial court found more than 99% of the suspended applicants were citizens. A national survey estimated that 9.1% of voting-age citizens, 21.3 million people, lack ready access to a passport, birth certificate or naturalization papers, and at least 3.8 million have none. The SAVE America Act would require documents to be presented in person, while automatic, online, mail and drive registrations made up almost half of registrations before the 2024 election. In Arizona, voters without documents cluster on tribal land, on college campuses and at the state's main homeless campus.",
       proponent_rebuttal:
-        "Most registrants never need to show paper. Utah confirmed 96% of 2.07 million registrants as citizens from driver license records alone and 99.72% after SAVE and manual review, leaving 0.24% to supply documents. Arizona verifies most applicants through motor-vehicle records, and 34,933 of about 4.4 million active voters, under 1%, were limited to federal races in 2024. Many of the Kansas applicants had applied at the motor-vehicle office, and the trial court acknowledged \"little admissible evidence\" about how many of them actually lacked documents rather than not supplying them. Strict photo ID laws, a related requirement, had no measurable effect on registration or turnout in a 2008 to 2018 panel of 1.6 billion observations.",
+        "Most registrants never need to show paper. Utah confirmed 96% of 2.07 million registrants as citizens from driver license records alone and 99.72% after SAVE and manual review, leaving 0.24% to supply documents. Arizona verifies most applicants through motor-vehicle records, and 34,933 of about 4.4 million active voters, under 1%, were limited to federal races in 2024. Many of the Kansas applicants had applied at the motor-vehicle office, and the trial court acknowledged \"little admissible evidence\" about how many of them actually lacked documents rather than not supplying them. Strict voter ID laws, a related requirement, had no measurable effect on registration or turnout in a 2008 to 2018 panel of 1.6 billion observations.",
       crux: {
         id: "who-records-miss",
         title: "The Citizens Records Cannot Verify",
@@ -310,7 +310,7 @@ export const proofOfCitizenshipVotingData = {
           id: "arizona-under-one-percent",
           title: "Arizona: Under 1% of Active Voters Limited to Federal Races",
           description:
-            "Arizona, the only state in 2024 limiting voting for registrants who did not prove citizenship, gave federal-only ballots to 34,933 of about 4.4 million active voters for the November 2024 election. Because the state has required proof of citizenship or lawful presence for driver's licenses since 1996, most registrants are verified through Motor Vehicle Division records, and only a small share of applicants submit physical documents.",
+            "Arizona, the only state in 2024 limiting voting for registrants who did not prove citizenship, had 34,933 of about 4.4 million active voters marked federal-only for the November 2024 election. Because the state has required proof of citizenship or lawful presence for driver's licenses since 1996, most registrants are verified through Motor Vehicle Division records, and only a small share of applicants submit physical documents.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -344,7 +344,7 @@ export const proofOfCitizenshipVotingData = {
         },
         {
           id: "photo-id-turnout",
-          title: "Strict Photo ID Laws Did Not Lower Registration or Turnout",
+          title: "Strict Voter ID Laws Did Not Lower Registration or Turnout",
           description:
             "Using a difference-in-differences design on a panel of 1.6 billion observations from 2008 to 2018, Cantoni and Pons find that strict voter ID laws had no negative effect on registration or turnout, overall or for any group defined by race, gender, age or party, with point estimates of -0.1 percentage points for both. The likelihood that nonwhite voters were contacted by a campaign rose 4.7 points, which may have offset modest effects on minority participation.",
           side: "for" as const,
@@ -358,7 +358,7 @@ export const proofOfCitizenshipVotingData = {
             "Cantoni & Pons, 'Strict ID Laws Don't Stop Voters: Evidence from a U.S. Nationwide Panel, 2008-2018', Quarterly Journal of Economics 136(4), 2615-2660 (2021)",
           sourceUrl: "https://doi.org/10.1093/qje/qjab019",
           reasoning:
-            "A strong causal study in a top journal, but of photo ID at the polls, not citizenship documents at registration: most adults carry a license, while far fewer have a passport or birth certificate at hand, so directness is low.",
+            "A strong causal study in a top journal, but of identification at the polls, not citizenship documents at registration: most adults carry a license, while far fewer have a passport or birth certificate at hand, so directness is low.",
         },
         {
           id: "kansas-31089",
@@ -381,7 +381,7 @@ export const proofOfCitizenshipVotingData = {
           id: "citizens-without-documents",
           title: "21.3 Million Voting-Age Citizens Lack Ready Access to Documents",
           description:
-            "A national survey of 2,386 adult citizens, run by SSRS for VoteRiders, the University of Maryland's Center for Democracy and Civic Engagement and the Brennan Center, estimated that 9.1% of voting-age citizens, 21.3 million people, lack ready access to a U.S. birth certificate, passport, naturalization or citizenship certificate, meaning they could not get one by the next day, and at least 3.8 million do not have one at all. The share was 11% among citizens of color and 8% among white citizens; men and young adults were most likely to lack easy access, and the count for women is a lower bound because names on documents may not match after marriage.",
+            "A national survey of 2,386 adult citizens, run by SSRS for VoteRiders, the University of Maryland's Center for Democracy and Civic Engagement and the Brennan Center, estimated that 9.1% of voting-age citizens, 21.3 million people, lack ready access to a U.S. birth certificate, passport, naturalization or citizenship certificate, meaning they could not get one by the next day, and at least 3.8 million do not have one at all. The share was 11% among citizens of color and 8% among white citizens, and 11% among men against 8% among women; the researchers call the count for women a lower bound, because the survey did not ask whether the name on a document matches a current legal name after marriage or divorce.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -542,7 +542,7 @@ export const proofOfCitizenshipVotingData = {
             "Cantoni & Pons, 'Strict ID Laws Don't Stop Voters: Evidence from a U.S. Nationwide Panel, 2008-2018', Quarterly Journal of Economics 136(4), 2615-2660 (2021)",
           sourceUrl: "https://doi.org/10.1093/qje/qjab019",
           reasoning:
-            "Undercuts the claim that verification rules raise public confidence, at least for photo ID at the polls. Proof of citizenship at registration has not been studied this way, so directness is low.",
+            "Undercuts the claim that verification rules raise public confidence, at least for identification at the polls. Proof of citizenship at registration has not been studied this way, so directness is low.",
         },
         {
           id: "courts-weighing",

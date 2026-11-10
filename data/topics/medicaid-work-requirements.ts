@@ -12,7 +12,7 @@ export const medicaidWorkRequirementsData = {
   // ── The lede: two facts both sides accept, then what the fight is over ──
   keystone_fact: {
     statement:
-      "The 2025 budget law requires adults in Medicaid's expansion group to log 80 hours a month of work, job training, school or community service, or qualify for an exemption, in every state that expanded Medicaid by January 1, 2027. In Nebraska, the first state to enforce it, 91% of the 7,280 renewals checked in July and August 2026 kept coverage and 7% lost it, nearly all of those for not answering a verification request. The fight is over whether the rule moves people into work or mainly removes people through paperwork, and whether coverage should be tied to work at all.",
+      "The 2025 budget law requires adults in Medicaid's expansion group to log 80 hours a month of work, job training, school or community service, or qualify for an exemption, in every state that expanded Medicaid by January 1, 2027. In Nebraska, the first state to enforce it, 93% of the 7,280 renewals checked in July and August 2026 kept coverage and 7% lost it, nearly all of those for not answering a verification request. The fight is over whether the rule moves people into work or mainly removes people through paperwork, and whether coverage should be tied to work at all.",
     confidence: 85,
     source:
       "KFF, 'A Closer Look at the Work Requirement Provisions in the 2025 Federal Budget Reconciliation Law' (July 2025); KFF, 'Early Medicaid Work Requirement Insights From Nebraska' (September 29, 2026)",
@@ -164,7 +164,7 @@ export const medicaidWorkRequirementsData = {
       skeptic_premise:
         "The losses come from paperwork, not from people refusing to work. In Arkansas more than 18,000 people lost coverage, and about 70% of enrollees who had to report neither got an exemption nor reported compliance, though nearly all appeared to qualify. In Nebraska's first months, 92% of renewal losses and 84% of application denials came from people not responding to requests for information. Georgia's Pathways program enrolled about 7,000 people in 18 months against a first-year projection of 25,000, at a cost of more than $86 million by the end of 2024. CBO estimates the federal requirement alone will add more than 5 million uninsured people by 2034.",
       proponent_rebuttal:
-        "A rule built on data matching and exemptions need not repeat Arkansas. Nebraska, enforcing the requirement since May 2026, found that 91% of renewals subject to it kept coverage, 57% through an exclusion and 34% by meeting the work standard, and 7% lost it. Among new applicants 85% met the work standard or qualified for an exclusion. Someone who does not answer a request may have a job with employer coverage, may have moved, or may no longer qualify; non-response is not proof of eligibility. Losses can be cut further by checking wage and benefit records before asking enrollees for anything.",
+        "A rule built on data matching and exemptions need not repeat Arkansas. Nebraska, enforcing the requirement since May 2026, found that 93% of renewals subject to it kept coverage, 57% through an exclusion, 34% by meeting the work standard and 2% through a short-term hardship exception, and 7% lost it. Among new applicants 85% met the work standard or qualified for an exclusion. Someone who does not answer a request may have a job with employer coverage, may have moved, or may no longer qualify; non-response is not proof of eligibility. Losses can be cut further by checking wage and benefit records before asking enrollees for anything.",
       crux: {
         id: "eligible-lost",
         title: "Paperwork or Ineligibility",
@@ -194,9 +194,9 @@ export const medicaidWorkRequirementsData = {
       evidence: [
         {
           id: "nebraska-renewals-kept",
-          title: "Nebraska: 91% of Renewals Kept Coverage Under the Rule",
+          title: "Nebraska: 93% of Renewals Kept Coverage Under the Rule",
           description:
-            "Of 7,280 Nebraska renewals subject to the requirement from July to mid-August 2026, 34% met the work activities, 57% qualified for an exclusion and 7% (533 people) lost coverage. Of 4,089 new applications that needed a work determination from May to August, 46% met the work activities, 39% qualified for an exclusion and 14% (557) were denied. Nebraska relies partly on self-declaration forms, which federal rules allow through 2027.",
+            "Of 7,280 Nebraska renewals subject to the requirement from July to mid-August 2026, 34% met the work activities, 57% qualified for an exclusion, 2% had a short-term hardship exception and 7% (533 people) lost coverage. Of 4,089 new applications that needed a work determination from May to August, 46% met the work activities, 39% qualified for an exclusion and 14% (557) were denied. Nebraska relies partly on self-declaration forms, which federal rules allow through 2027.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

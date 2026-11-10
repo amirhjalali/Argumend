@@ -31,9 +31,9 @@ export const eaccVsTechRegulationData = {
         "E/acc proponents argue that regulation throttles transformative innovation without meaningfully reducing risk, pointing to how pharmaceutical and nuclear energy regulations have imposed massive costs and delays. Critics counter that emerging technologies like AI, synthetic biology, and autonomous systems pose catastrophic risks that evolve faster than society can adapt, and that the precautionary principle exists precisely for such asymmetric-downside scenarios.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "Unregulated technological development creates catastrophic risks — in AI, biotechnology, and nuclear domains — faster than society can adapt. AI capabilities are advancing on exponential timelines while alignment research and governance frameworks lag years behind. Synthetic biology tools like benchtop DNA synthesizers are becoming accessible to non-experts, raising bioweapon risks that the 2023 UK Biosecurity Strategy called 'the most significant existential threat after nuclear war.' The 2024 International AI Safety Report, commissioned by 30 nations, concluded that frontier AI systems pose risks that 'current governance frameworks are not equipped to manage.' History shows that technologies deployed without safety constraints — leaded gasoline, asbestos, CFCs, thalidomide — caused decades of preventable harm before corrective action was taken. The speed-over-safety ideology treats human welfare as an acceptable externality of progress.",
+        "Unregulated technological development creates catastrophic risks — in AI, biotechnology, and nuclear domains — faster than society can adapt. AI capabilities are advancing on exponential timelines while alignment research and governance frameworks lag years behind. Synthetic biology tools like benchtop DNA synthesizers are becoming accessible to non-experts, raising bioweapon risks: the 2023 UK Biological Security Strategy warns that rapidly developing DNA synthesis capabilities 'could also be deliberately misused to build new pathogens with harmful impacts.' The first International AI Safety Report (January 2025), written by 96 experts with an advisory panel nominated by 30 countries, warned that 'waiting for conclusive evidence could leave society vulnerable to risks that emerge rapidly.' History shows that technologies deployed without safety constraints — leaded gasoline, asbestos, CFCs, thalidomide — caused decades of preventable harm before corrective action was taken. The speed-over-safety ideology treats human welfare as an acceptable externality of progress.",
       proponent_rebuttal:
-        "Historical evidence demonstrates that regulation consistently slows progress without proportionally reducing risk, while imposing enormous costs on society. The Tufts Center for the Study of Drug Development estimates FDA-regulated drug development costs average $2.6 billion per approved drug and takes 10-15 years, contributing to the US paying the world's highest drug prices and delaying life-saving treatments. Nuclear energy — the safest power source per TWh according to Our World in Data — was effectively killed in the US by regulatory capture: the average construction timeline ballooned from roughly 7 years for plants licensed in the late 1960s to 15+ years for recent projects, while France built most of its fleet in about 15 years. Moore's Law delivered 50 years of exponential computing progress in a largely unregulated environment, creating trillions in value. Market forces self-correct: companies that ship unsafe products face lawsuits, reputational damage, and customer loss. The real risk is not moving too fast — it is the unseen cost of innovations that never happen because regulation killed them in the cradle.",
+        "Historical evidence demonstrates that regulation consistently slows progress without proportionally reducing risk, while imposing enormous costs on society. The Tufts Center for the Study of Drug Development estimates FDA-regulated drug development costs average $2.6 billion per approved drug and takes 10-15 years, contributing to the US paying the world's highest drug prices and delaying life-saving treatments. Nuclear energy — among the safest power sources per TWh according to Our World in Data — was effectively killed in the US by regulatory capture: the average construction timeline ballooned from roughly 7 years for plants licensed in the late 1960s to 15+ years for recent projects, while France built most of its fleet in about 15 years. Moore's Law delivered 50 years of exponential computing progress in a largely unregulated environment, creating trillions in value. Market forces self-correct: companies that ship unsafe products face lawsuits, reputational damage, and customer loss. The real risk is not moving too fast — it is the unseen cost of innovations that never happen because regulation killed them in the cradle.",
       crux: {
         id: "capability-adaptation-rate",
         title: "The Capability-Adaptation Rate Comparison",
@@ -64,9 +64,9 @@ export const eaccVsTechRegulationData = {
       evidence: [
         {
           id: "drug-development-cost-delay",
-          title: "FDA Regulation Drives ~$2.6B Average Cost and 10-15 Year Timeline Per Drug",
+          title: "Tufts Study: ~$2.6B Average Cost Per Approved Drug, Counting Failures and the Cost of Capital",
           description:
-            "The peer-reviewed Tufts CSDD study by DiMasi, Grabowski & Hansen (Journal of Health Economics, 2016) estimates the average pre-approval cost of bringing a new drug to market at roughly $2.6 billion (with capitalized costs of $2.87 billion in 2013 dollars), based on 106 randomly selected drugs from 10 pharmaceutical firms, with development typically taking 10-15 years from discovery to approval. Operation Warp Speed demonstrated that compressed timelines were possible — COVID-19 vaccines were developed in under a year — suggesting that normal regulatory timelines impose avoidable costs.",
+            "The peer-reviewed Tufts CSDD study by DiMasi, Grabowski & Hansen (Journal of Health Economics, 2016), based on 106 randomly selected new drugs from 10 pharmaceutical firms, puts average out-of-pocket spending per approved compound at $1.395 billion. Adding the cost of capital (a 10.5% real discount rate) and the cost of compounds abandoned along the way gives a pre-approval estimate of $2.558 billion in 2013 dollars; adding post-approval R&D brings it to $2.87 billion. The study measures what development costs, not how much of that cost FDA requirements cause. Development is commonly put at 10-15 years from discovery to approval, a figure that does not come from this study. Operation Warp Speed demonstrated that compressed timelines were possible — COVID-19 vaccines were developed in under a year — which proponents read as a sign that normal regulatory timelines impose avoidable costs.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -77,13 +77,13 @@ export const eaccVsTechRegulationData = {
           source: "DiMasi, Grabowski & Hansen, Journal of Health Economics (2016), vol. 47, pp. 20-33 — Tufts Center for the Study of Drug Development",
           sourceUrl: "https://doi.org/10.1016/j.jhealeco.2016.01.012",
           reasoning:
-            "The DiMasi et al. (2016) Tufts CSDD study is the standard peer-reviewed source for drug development cost estimates, though some critics argue its methodology inflates costs by including the opportunity cost of capital (the ~$2.6B out-of-pocket figure rises to ~$2.87B once capitalized). The comparison to Operation Warp Speed is compelling but may not generalize — pandemic urgency created unique political conditions. Directness is moderate because pharmaceutical regulation is not identical to tech regulation.",
+            "The DiMasi et al. (2016) Tufts CSDD study is the standard peer-reviewed source for drug development cost estimates, though some critics argue its methodology inflates costs by including the opportunity cost of capital (out-of-pocket spending is about $1.4B; the ~$2.6B figure adds capital costs, and ~$2.87B adds post-approval R&D). The comparison to Operation Warp Speed is compelling but may not generalize — pandemic urgency created unique political conditions. Directness is moderate because pharmaceutical regulation is not identical to tech regulation, and because the study does not isolate the cost of regulation.",
         },
         {
           id: "nuclear-regulatory-capture",
-          title: "US Nuclear Construction Timelines Expanded from ~7 to 15+ Years Due to Regulatory Burden",
+          title: "Vogtle Took 15 Years and Over Twice Its Budget; France's 900 MWe Reactors All Started Up Within a Decade of a 1974 Decision",
           description:
-            "US nuclear power plant construction timelines expanded from roughly 7 years for plants licensed in the late 1960s to over 15 years for recent projects, largely due to NRC regulatory requirements that escalated after Three Mile Island. The Vogtle Units 3 and 4 project in Georgia took about 15 years and cost roughly $36.8 billion — more than double the original $14 billion estimate. Meanwhile, France connected 52 reactors to its grid between 1975 and 1990 under a streamlined, standardized regulatory model, and South Korea has built reactors on comparatively short timelines. The US went from 100+ planned reactors in the 1970s to near-zero new construction for three decades, despite nuclear being the safest energy source per TWh generated.",
+            "Construction at Georgia's Vogtle Units 3 and 4 began in 2009. Originally expected to cost $14 billion and enter commercial operation in 2016 and 2017, the units did so in 2023 and April 2024, and Georgia Power puts the total cost at more than $30 billion (EIA). EIA's account says the project 'ran into significant construction delays and cost overruns'; proponents of lighter regulation attribute much of that to licensing and regulatory requirements. By 1990 the US had commissioned over 100 commercial power reactors, and the two reactors begun at the Summer plant alongside Vogtle were cancelled (World Nuclear Association). France, by contrast, decided in 1974 to expand nuclear capacity rapidly using Westinghouse technology, and all of its 900 MWe reactors started up in the late 1970s to early 1980s. Our World in Data ranks nuclear among the safest sources per unit of electricity, comparable to wind and solar, with 99.8% fewer deaths than coal.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -91,10 +91,10 @@ export const eaccVsTechRegulationData = {
             replicability: 9,
             directness: 8,
           },
-          source: "US Energy Information Administration; World Nuclear Association; Our World in Data",
-          sourceUrl: "https://world-nuclear.org/information-library/country-profiles/countries-t-z/usa-nuclear-power",
+          source: "U.S. Energy Information Administration, 'Plant Vogtle Unit 4 begins commercial operation' (May 1, 2024); World Nuclear Association country profiles (USA, France); Our World in Data, 'What are the safest and cleanest sources of energy?'",
+          sourceUrl: "https://www.eia.gov/todayinenergy/detail.php?id=61963",
           reasoning:
-            "Nuclear construction data is publicly available and internationally comparable. The contrast between US and French/Korean timelines directly demonstrates how regulatory approaches affect deployment speed. However, post-Chernobyl and post-Fukushima regulatory caution arguably prevented incidents, making the counterfactual hard to assess.",
+            "Nuclear construction data is publicly available and internationally comparable. The contrast between Vogtle and the French build-out shows how differently the same technology has been deployed, though the sources document the delays and overruns rather than how much of them regulation caused. Post-Chernobyl and post-Fukushima regulatory caution arguably prevented incidents, making the counterfactual hard to assess.",
         },
         {
           id: "ai-safety-report-2024",
@@ -117,7 +117,7 @@ export const eaccVsTechRegulationData = {
           id: "moores-law-unregulated-progress",
           title: "Moore's Law: 50 Years of Exponential Progress in a Largely Unregulated Domain",
           description:
-            "From 1965 to 2015, semiconductor transistor density doubled approximately every two years — Moore's Law — in a largely unregulated market environment. This unregulated innovation cycle produced the personal computer revolution, the internet, smartphones, and an estimated $15+ trillion in cumulative global GDP growth. The semiconductor industry self-organized safety standards through SEMI (Semiconductor Equipment and Materials International) and competitive pressure drove quality improvements. No government mandate was required to produce the most transformative technology wave in human history.",
+            "Gordon Moore's 1965 observation, revised in 1975, that the number of transistors on an integrated circuit doubles about every two years has guided the semiconductor industry for close to 60 years (Intel). That run of exponential improvement underlies the personal computer, the internet and smartphones, and it took place in a largely unregulated market: no agency approved each chip generation before it shipped. E/acc proponents read it as proof that no government mandate was required to produce the most transformative technology wave of the era.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -125,8 +125,8 @@ export const eaccVsTechRegulationData = {
             replicability: 9,
             directness: 6,
           },
-          source: "Intel; SEMI; National Bureau of Economic Research",
-          sourceUrl: "https://www.nber.org/papers/w21524",
+          source: "Intel, 'Moore's Law' (newsroom resource)",
+          sourceUrl: "https://www.intel.com/content/www/us/en/newsroom/resources/moores-law.html",
           reasoning:
             "Moore's Law is an empirically documented phenomenon with clear measurement. The semiconductor industry's success without heavy regulation is a strong data point for e/acc arguments. However, directness is lower because semiconductor manufacturing posed limited catastrophic risks compared to AI, biotech, or nuclear — the argument may not generalize to technologies with asymmetric downside potential.",
         },
@@ -134,7 +134,7 @@ export const eaccVsTechRegulationData = {
           id: "leaded-gasoline-decades-harm",
           title: "Leaded Gasoline: 73 Years of Preventable Harm Before Regulatory Phase-Out",
           description:
-            "Tetraethyl lead was added to gasoline starting in 1923 despite warnings from public health scientists. It was not phased out in the US until 1996 — 73 years later. During this period, lead exposure from gasoline is estimated to have reduced the IQ of virtually every American born between 1930 and 1980, with a 2022 study in PNAS estimating 824 million IQ points lost in the US alone. The lead industry funded decades of disinformation to delay regulation. Market forces did not self-correct; only EPA regulation under the Clean Air Act finally removed lead from gasoline.",
+            "Leaded gasoline was first sold in 1923 despite warnings from public health scientists. The Clean Air Act ban on leaded fuel for on-road vehicles took effect on January 1, 1996 — 73 years later; EPA had issued its first reduction standards in 1973. A 2022 study in PNAS estimates that over 170 million Americans alive in 2015, about half the population, were exposed to high lead levels in early childhood, and that lead cost the country 824 million IQ points in total, an average of 2.6 points per person, a loss borne disproportionately by those born between 1951 and 1980. The lead industry funded decades of disinformation to delay regulation. Market forces did not self-correct; only EPA regulation under the Clean Air Act finally removed lead from gasoline.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -142,7 +142,7 @@ export const eaccVsTechRegulationData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Proceedings of the National Academy of Sciences; Environmental Protection Agency",
+          source: "McFarland, Hauer & Reuben, 'Half of US population exposed to adverse lead levels in early childhood,' PNAS 119 (2022); EPA, 'EPA Takes Final Step in Phaseout of Leaded Gasoline' (Jan 29, 1996)",
           sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.2118631119",
           reasoning:
             "PNAS is a top-tier peer-reviewed journal and the leaded gasoline case is extensively documented. It is one of the strongest historical examples of market failure in safety, directly contradicting the claim that markets self-correct. Directness is slightly lower because chemical pollutants differ from digital technologies, but the principle of industry-funded delay of safety measures generalizes.",
@@ -160,9 +160,9 @@ export const eaccVsTechRegulationData = {
         "E/acc advocates argue that competitive markets correct safety failures faster than bureaucracies through reputational damage, lawsuits, and consumer choice. Critics point to documented market failures in social media, environmental pollution, and addictive product design where profit incentives systematically diverge from public welfare.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Markets systematically fail to account for negative externalities when the costs are diffuse, delayed, or borne by non-consumers. Social media platforms optimized engagement algorithms knowing they amplified misinformation and harmed adolescent mental health — internal Facebook research leaked by whistleblower Frances Haugen in 2021 showed the company knew Instagram was 'toxic for teen girls' and chose profit over safety. The fossil fuel industry knew about climate change since the 1970s but funded denial for decades. Tech companies designed addictive interfaces using variable-ratio reinforcement schedules — the same mechanism as slot machines — with no market corrective mechanism because the users are the product, not the customer. Without regulation, companies externalize harm onto society while capturing profits, especially when harms are statistical (population-level mental health decline) rather than individually attributable.",
+        "Markets systematically fail to account for negative externalities when the costs are diffuse, delayed, or borne by non-consumers. Social media platforms optimized engagement algorithms knowing they amplified misinformation and harmed adolescent mental health — internal Facebook research leaked by whistleblower Frances Haugen in 2021 included a slide reading 'We make body image issues worse for one in three teen girls,' and Haugen testified that the company put profit over safety. The fossil fuel industry knew about climate change since the 1970s but funded denial for decades. Tech companies designed addictive interfaces using variable-ratio reinforcement schedules — the same mechanism as slot machines — with no market corrective mechanism because the users are the product, not the customer. Without regulation, companies externalize harm onto society while capturing profits, especially when harms are statistical (population-level mental health decline) rather than individually attributable.",
       proponent_rebuttal:
-        "Markets correct faster than bureaucracies because they operate on commercial timelines, not political ones. Automobile safety improved dramatically through market competition — deaths per 100 million vehicle-miles fell from 24.09 in 1921 to 1.10 in 2019 — with safety innovations like seatbelts, airbags, and crumple zones driven largely by manufacturer competition and liability pressure, not just government mandates. When Boeing's 737 MAX crashes occurred, the market response was immediate: the stock dropped 20%, orders were cancelled, and the company faced billions in liability. Contrast this with the FAA, which took months to ground the plane. Tech industry self-regulation has produced meaningful standards — the Partnership on AI, the Frontier Model Forum, and voluntary commitments on AI safety testing demonstrate that competitive pressure creates safety incentives. The EU's GDPR, often held up as a regulatory success, has been criticized for empowering large incumbents who can afford compliance costs while crushing startups — exactly the innovation-killing effect e/acc warns about.",
+        "Markets correct faster than bureaucracies because they operate on commercial timelines, not political ones. Automobile safety improved dramatically through market competition — deaths per 100 million vehicle-miles fell from 24.08 in 1921 to 1.11 in 2019 — with safety innovations like seatbelts, airbags, and crumple zones driven largely by manufacturer competition and liability pressure, not just government mandates. When Boeing's 737 MAX crashes occurred, the market response was immediate: the stock dropped 20%, orders were cancelled, and the company faced billions in liability. Contrast this with the FAA, which took months to ground the plane. Tech industry self-regulation has produced meaningful standards — the Partnership on AI, the Frontier Model Forum, and voluntary commitments on AI safety testing demonstrate that competitive pressure creates safety incentives. The EU's GDPR, often held up as a regulatory success, has been criticized for empowering large incumbents who can afford compliance costs while crushing startups — exactly the innovation-killing effect e/acc warns about.",
       crux: {
         id: "market-welfare-alignment",
         title: "The Market-Welfare Alignment Test",
@@ -183,9 +183,9 @@ export const eaccVsTechRegulationData = {
           supporter_flip:
             "If a study of 20 technology harms found market-driven corrections — lawsuits, reputational damage, consumer exit — arriving later than regulatory ones or not at all, especially where harms are diffuse and users are the product, the case that markets self-correct would weaken.",
           skeptic_flip:
-            "If a study of technology harms traced most of the fall in U.S. traffic deaths, from 24.09 to 1.10 per 100 million vehicle-miles between 1921 and 2019, to competition and liability, and found markets punishing failures like the 737 MAX faster than regulators, 'systemic market failure' would be hard to hold.",
+            "If a study of technology harms traced most of the fall in U.S. traffic deaths, from 24.08 to 1.11 per 100 million vehicle-miles between 1921 and 2019, to competition and liability, and found markets punishing failures like the 737 MAX faster than regulators, 'systemic market failure' would be hard to hold.",
           common_ground:
-            "Both sides agree auto safety improved through a mix of government standards and manufacturer competition: deaths per 100 million vehicle-miles fell from 24.09 in 1921 to 1.10 in 2019.",
+            "Both sides agree auto safety improved through a mix of government standards and manufacturer competition: deaths per 100 million vehicle-miles fell from 24.08 in 1921 to 1.11 in 2019.",
           live_disagreement:
             "Whether markets correct technology harms quickly enough through lawsuits, reputation and consumer choice, or systematically fail when harms are diffuse, delayed or borne by users who are the product rather than the customer.",
         },
@@ -193,9 +193,9 @@ export const eaccVsTechRegulationData = {
       evidence: [
         {
           id: "facebook-internal-research-harm",
-          title: "Facebook Internal Research: Instagram 'Toxic for Teen Girls,' Company Chose Profit",
+          title: "Facebook's Own Research: 'We Make Body Image Issues Worse for One in Three Teen Girls'",
           description:
-            "In 2021, Facebook whistleblower Frances Haugen leaked internal company research showing that Facebook knew Instagram worsened body image issues for 1 in 3 teen girls, that its 2017 algorithm change weighted 'angry' emoji reactions 5x more heavily than a 'like' (and internal data scientists later found angry-reacted posts were disproportionately misinformation and low-quality content), and that its algorithms promoted divisive content because it drove engagement. Despite this knowledge, the company did not implement available mitigations because they would reduce engagement metrics. The leaked documents, published as the Facebook Files by the Wall Street Journal, showed executives explicitly weighing user harm against profit impact.",
+            "Internal Facebook research disclosed in 2021 by whistleblower Frances Haugen, and published by the Wall Street Journal as the Facebook Files, included a 2019 slide stating 'We make body image issues worse for one in three teen girls,' summarizing research on teen girls who already experienced those issues. In written Senate testimony dated October 4, 2021, Haugen said the company's leadership 'knows ways to make Facebook and Instagram safer and won't make the necessary changes because they have put their immense profits before people.' Facebook disputed the Journal's reading: it said that on 11 of 12 well-being issues, teenage girls who struggled with them reported that Instagram made things better rather than worse, with body image the one exception.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -203,16 +203,16 @@ export const eaccVsTechRegulationData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Wall Street Journal (Facebook Files); US Senate Commerce Committee testimony",
-          sourceUrl: "https://www.wsj.com/articles/the-facebook-files-11631713039",
+          source: "Facebook newsroom, 'What Our Research Really Says About Teen Well-Being and Instagram' (Sept 2021), quoting the Wall Street Journal's Facebook Files; Frances Haugen, written testimony to the US Senate Commerce Subcommittee on Consumer Protection (Oct 4, 2021)",
+          sourceUrl: "https://about.fb.com/news/2021/09/research-teen-well-being-and-instagram/",
           reasoning:
-            "The Facebook Files are primary source internal documents with maximum credibility — the company's own research confirmed the harms. Independence is high because the documents were not produced for advocacy purposes. This is a textbook case of market failure: the company identified the harm, had the ability to mitigate it, and chose not to because mitigation would reduce revenue.",
+            "The slide is the company's own research, and Facebook's response confirms its wording while disputing what it shows, so the quote is not in question; its interpretation is. Haugen's claim that the company chose profit over fixes is sworn testimony from a former employee, not a finding. This remains a strong case for market failure: the company documented a harm and, by a former insider's account, left available mitigations unused.",
         },
         {
           id: "auto-safety-market-improvements",
-          title: "Auto Safety Deaths Fell 95% Per Mile Driven Through Market Competition and Liability",
+          title: "US Traffic Deaths Per Mile Driven Fell 95% From 1921 to 2019",
           description:
-            "US traffic deaths per 100 million vehicle-miles traveled fell from 24.09 in 1921 to 1.10 in 2019 — a 95% reduction. While government regulation (NHTSA standards from 1966, mandatory seatbelt laws) played a role, many critical safety innovations were market-driven: Volvo invented the three-point seatbelt in 1959 and made the patent free; Mercedes developed the crumple zone in 1952; multiple manufacturers competed on airbag technology before federal mandates. Product liability lawsuits also drove safety improvements — the Ford Pinto case in 1978 demonstrated that market accountability mechanisms punish safety failures.",
+            "US traffic deaths per 100 million vehicle-miles traveled fell from 24.08 in 1921 to 1.11 in 2019 — a 95% reduction (Federal Highway Administration, Table FI-200). While government regulation (NHTSA standards from 1966, mandatory seatbelt laws) played a role, many critical safety innovations were market-driven: Volvo invented the three-point seatbelt in 1959 and made the patent free; Mercedes developed the crumple zone in 1952; multiple manufacturers competed on airbag technology before federal mandates. Product liability lawsuits also drove safety improvements — the Ford Pinto case in 1978 demonstrated that market accountability mechanisms punish safety failures.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -220,16 +220,16 @@ export const eaccVsTechRegulationData = {
             replicability: 9,
             directness: 7,
           },
-          source: "National Highway Traffic Safety Administration; Insurance Institute for Highway Safety",
-          sourceUrl: "https://www.iihs.org/topics/fatality-statistics/detail/yearly-snapshot",
+          source: "Federal Highway Administration, Highway Statistics 2023, Table FI-200; Insurance Institute for Highway Safety, fatality statistics yearly snapshot",
+          sourceUrl: "https://www.fhwa.dot.gov/policyinformation/statistics/2023/fi200.cfm",
           reasoning:
-            "NHTSA and IIHS data is highly reliable and publicly available. The auto safety case genuinely demonstrates market-driven safety improvement, though the interplay between regulation and market forces makes it hard to isolate the market effect. Directness is moderate because automobiles are a mature industry with clear liability attribution — unlike AI or social media where harms are diffuse and causation is harder to prove.",
+            "FHWA and IIHS data is highly reliable and publicly available. The auto safety case shows a large, sustained safety improvement, though the interplay between regulation and market forces makes it hard to isolate the market effect, and the fatality series itself does not say which caused the decline. Directness is moderate because automobiles are a mature industry with clear liability attribution — unlike AI or social media where harms are diffuse and causation is harder to prove.",
         },
         {
           id: "social-media-mental-health-data",
           title: "Teen Persistent Sadness Rose 50% Between 2011-2021, Correlating with Smartphone Adoption",
           description:
-            "CDC Youth Risk Behavior Survey data shows that the percentage of US high school students reporting persistent feelings of sadness or hopelessness rose from 28% in 2011 to 42% in 2021 — a 50% increase. Teen girls were disproportionately affected, with rates rising from 36% to 57%. Jonathan Haidt's research compilation shows this trend correlates strongly with smartphone adoption and social media use. A 2023 American Psychological Association advisory declared social media a significant risk to adolescent mental health. No market mechanism corrected this harm over a full decade — platforms continued optimizing for engagement.",
+            "CDC Youth Risk Behavior Survey data shows that the percentage of US high school students reporting persistent feelings of sadness or hopelessness rose from 28% in 2011 to 42% in 2021 — a 50% increase. Teen girls were disproportionately affected, with rates rising from 36% to 57%. Jonathan Haidt's research compilation shows this trend correlates strongly with smartphone adoption and social media use. The American Psychological Association's May 2023 health advisory was more cautious about the cause, stating that 'using social media is not inherently beneficial or harmful to young people.' No market mechanism corrected this harm over a full decade — platforms continued optimizing for engagement.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -237,16 +237,16 @@ export const eaccVsTechRegulationData = {
             replicability: 8,
             directness: 8,
           },
-          source: "CDC Youth Risk Behavior Survey; American Psychological Association",
-          sourceUrl: "https://www.cdc.gov/healthyyouth/data/yrbs/index.htm",
+          source: "CDC, Youth Risk Behavior Survey Data Summary & Trends Report: 2011-2021; American Psychological Association, Health Advisory on Social Media Use in Adolescence (May 2023)",
+          sourceUrl: "https://www.cdc.gov/yrbs/dstr/pdf/YRBS_Data-Summary-Trends_Report2023_508.pdf",
           reasoning:
             "The CDC YRBS is a large-scale, nationally representative survey conducted biennially with strong methodology. The correlation with smartphone/social media adoption is robust, though causation remains debated (some researchers argue the rise reflects increased willingness to report mental health struggles). The key point for the regulation debate is that a decade of documented harm produced no market self-correction.",
         },
         {
           id: "gdpr-startup-impact",
-          title: "GDPR Cut EU Tech Venture Deals ~22% and Removed a Third of Available Apps",
+          title: "GDPR Cut EU Tech Venture Deals ~18% and Removed a Third of Available Apps",
           description:
-            "Two NBER studies document GDPR's disproportionate burden on smaller players. Jia, Jin & Wagman (NBER w25248, Marketing Science 2021) found that after GDPR's 2018 rollout, EU tech ventures saw roughly a 22% decline in the number of venture deals from foreign investors and about a 42% reduction in per-deal amounts relative to US counterparts, concentrated among newer and data-related startups. Separately, Janßen, Kesler, Kummer & Waldfogel (NBER w30028) found GDPR induced the exit of about one-third of available apps on the Google Play Store, with entry of new apps falling by half in the quarters after implementation. Large firms like Google and Facebook could absorb compliance costs that small competitors could not, raising barriers to entry — the opposite of GDPR's intended competitive effect.",
+            "Two NBER studies document GDPR's disproportionate burden on smaller players. Jia, Jin & Wagman (NBER w25248, Marketing Science 2021) found that after GDPR's 2018 rollout, EU tech ventures saw a 17.6% reduction in the number of weekly venture deals and a 39.6% decrease in the amount raised in an average deal relative to US counterparts, with the effects most pervasive for ventures up to three years old. Separately, Janßen, Kesler, Kummer & Waldfogel (NBER w30028) found GDPR induced the exit of about one-third of available apps on the Google Play Store, with entry of new apps falling by half in the quarters after implementation. Large firms like Google and Facebook could absorb compliance costs that small competitors could not, raising barriers to entry — the opposite of GDPR's intended competitive effect.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -258,7 +258,7 @@ export const eaccVsTechRegulationData = {
             "Jia, Jin & Wagman (NBER w25248 / Marketing Science 2021); Janßen, Kesler, Kummer & Waldfogel (NBER w30028)",
           sourceUrl: "https://www.nber.org/papers/w25248",
           reasoning:
-            "Both NBER sources are credible peer-reviewed/working-paper studies, but the figures must be attributed precisely: the venture-investment decline (~22% fewer deals, ~42% smaller per-deal amounts) comes from Jia-Jin-Wagman, while the one-third app-exit figure comes from the separate Janßen et al. Play Store study. The earlier widely-circulated '26% VC reduction' headline was an imprecise blend of these and has been challenged as overstating the GDPR-specific effect (confounders like Brexit uncertainty also affected EU investment). This evidence supports the e/acc argument that regulation entrenches incumbents — though GDPR has also been credited with reducing data breaches and giving consumers meaningful privacy controls.",
+            "Both NBER sources are credible peer-reviewed/working-paper studies, but the figures must be attributed precisely: the venture-investment decline (17.6% fewer weekly deals, 39.6% smaller average deals, per the working paper) comes from Jia-Jin-Wagman, while the one-third app-exit figure comes from the separate Janßen et al. Play Store study. The earlier widely-circulated '26% VC reduction' headline was an imprecise blend of these and has been challenged as overstating the GDPR-specific effect (confounders like Brexit uncertainty also affected EU investment). This evidence supports the e/acc argument that regulation entrenches incumbents — though GDPR has also been credited with reducing data breaches and giving consumers meaningful privacy controls.",
         },
       ],
     },
@@ -275,7 +275,7 @@ export const eaccVsTechRegulationData = {
       skeptic_premise:
         "Democratic societies have both the right and the duty to govern technological development, just as they govern every other powerful institution. Technology is not politically neutral — it distributes power, wealth, and risk, and those affected deserve a voice in its governance. The EU AI Act, adopted in 2024 as the world's first comprehensive AI regulation, demonstrates that democratic bodies can produce sophisticated technology governance frameworks. The open-source movement shows that transparency and community governance produce more reliable software than proprietary black boxes. Unchecked technocratic power concentrated in a handful of companies and individuals — with combined market capitalization exceeding $10 trillion — represents an unprecedented concentration of unaccountable power. History repeatedly shows that expert classes acting without democratic accountability produce outcomes that serve their own interests: the financial industry's 'expert-driven' deregulation led to the 2008 crash, the Sackler family's expert-endorsed opioid marketing killed 500,000+ Americans.",
       proponent_rebuttal:
-        "Democratic processes are structurally incapable of governing technologies they do not understand at the speed those technologies evolve. Congressional hearings on technology have repeatedly demonstrated fundamental ignorance — from Senator Ted Stevens describing the internet as 'a series of tubes' to legislators asking Mark Zuckerberg how Facebook makes money if it is free. The average age of US senators is 64, and fewer than 10% have technical backgrounds. The EU AI Act took 3 years to negotiate and was already outdated by the time it passed, failing to anticipate the generative AI revolution that occurred during its drafting. China's technocratic governance model has produced the world's most advanced AI surveillance state, but also the fastest infrastructure deployment, the largest renewable energy buildout, and competitive AI research — suggesting that technocratic speed has real advantages regardless of one's views on Chinese governance. The CRISPR governance debates show that the most productive research happens in jurisdictions with lighter regulation — He Jiankui's rogue embryo editing was condemned, but the response was self-regulation by the scientific community, not government intervention.",
+        "Democratic processes are structurally incapable of governing technologies they do not understand at the speed those technologies evolve. Congressional hearings on technology have repeatedly demonstrated fundamental ignorance — from Senator Ted Stevens describing the internet as 'a series of tubes' to legislators asking Mark Zuckerberg how Facebook makes money if it is free. The average age of US senators is 64, and fewer than 10% have technical backgrounds. The EU AI Act took 3 years to negotiate and was already outdated by the time it passed, failing to anticipate the generative AI revolution that occurred during its drafting. China's technocratic governance model has produced the world's most advanced AI surveillance state, but also the fastest infrastructure deployment, the largest renewable energy buildout, and competitive AI research — suggesting that technocratic speed has real advantages regardless of one's views on Chinese governance. The CRISPR governance debates show that the most productive research happens in jurisdictions with lighter regulation — He Jiankui's rogue embryo editing was condemned first by the scientific community's own summit, before a Chinese court sentenced him to three years in prison.",
       crux: {
         id: "governance-outcome-quality",
         title: "The Democratic vs. Expert Governance Outcome Test",
@@ -308,7 +308,7 @@ export const eaccVsTechRegulationData = {
           id: "eu-ai-act-effects",
           title: "EU AI Act: First Comprehensive AI Law, but Criticized as Already Outdated",
           description:
-            "The EU AI Act, adopted in March 2024 after three years of negotiation, established the world's first comprehensive legal framework for artificial intelligence. It bans certain AI uses (social scoring, real-time biometric surveillance in most contexts), requires transparency for high-risk systems, and mandates safety testing for 'general-purpose AI' models. However, critics note that the Act was drafted before ChatGPT's release and had to be hastily amended to address generative AI. Compliance costs are estimated at 1-6% of annual revenue for affected companies, with full enforcement not beginning until 2027 — by which time multiple generations of AI capabilities will have passed.",
+            "The EU AI Act, proposed by the European Commission in April 2021 and adopted in June 2024, is described by the European Parliament as the world's first rules on AI. It bans certain uses (social scoring, real-time remote biometric identification in public spaces, with limited law-enforcement exceptions), puts obligations on high-risk systems, and sets transparency requirements for generative AI. Parliament added obligations for foundation models, which it called 'a new and fast-evolving development in the field of AI,' and for generative systems like ChatGPT in its June 2023 negotiating position, two years into the process. The Act becomes fully applicable 24 months after entry into force, and obligations for high-risk systems apply only after 36 months — by which time multiple generations of AI capabilities will have passed.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -316,16 +316,16 @@ export const eaccVsTechRegulationData = {
             replicability: 7,
             directness: 9,
           },
-          source: "European Parliament; Center for Data Innovation; Brookings Institution",
+          source: "European Parliament, 'EU AI Act: first regulation on artificial intelligence'; European Parliament press release, 'MEPs ready to negotiate first-ever rules for safe and transparent AI' (June 14, 2023)",
           sourceUrl: "https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence",
           reasoning:
-            "The EU AI Act is the most direct real-world test case of democratic technology regulation. The fact that it required hasty amendments for generative AI supports the e/acc argument that regulation cannot keep pace. However, it also demonstrates that democratic bodies can produce substantive governance frameworks. Directness is high because this is exactly the phenomenon under debate.",
+            "The EU AI Act is the most direct real-world test case of democratic technology regulation. The fact that generative AI obligations had to be added two years into the process supports the e/acc argument that regulation cannot keep pace. However, it also demonstrates that democratic bodies can produce substantive governance frameworks. Directness is high because this is exactly the phenomenon under debate.",
         },
         {
           id: "china-tech-governance",
           title: "China's Technocratic Model: Rapid Deployment but Surveillance State Outcomes",
           description:
-            "China's technocratic governance model has produced the world's largest 5G network (over 2.3 million base stations by 2023), the largest installed renewable energy capacity (over 1,200 GW), and competitive AI research (Chinese researchers published more AI papers than US researchers in 2022). However, the same model produced the world's most extensive surveillance state — over 600 million CCTV cameras, social credit scoring, and AI-powered monitoring of Uyghur populations that the UN has characterized as potential crimes against humanity. This demonstrates the dual-use nature of technocratic speed: efficiency gains come at the cost of democratic accountability.",
+            "China's technocratic governance model has produced the world's largest 5G network (over 2.3 million base stations by 2023), the largest installed renewable energy capacity (over 1,200 GW), and competitive AI research (Stanford's 2023 AI Index found China leading in total AI journal, conference and repository publications, with the US still ahead in conference and repository citations). However, the same model produced the world's most extensive surveillance state — over 600 million CCTV cameras, social credit scoring, and, in Xinjiang, restrictions on privacy and movement alongside arbitrary detentions of Uyghurs that a 2022 UN Human Rights Office assessment said 'may constitute international crimes, in particular crimes against humanity.' This demonstrates the dual-use nature of technocratic speed: efficiency gains come at the cost of democratic accountability.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -333,8 +333,8 @@ export const eaccVsTechRegulationData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Stanford HAI AI Index; UN Human Rights Office; International Energy Agency",
-          sourceUrl: "https://aiindex.stanford.edu/report/",
+          source: "Stanford HAI, AI Index Report 2023, Chapter 1: Research and Development; UN News, 'China responsible for serious human rights violations in Xinjiang province: UN human rights report' (Aug 31, 2022); International Energy Agency",
+          sourceUrl: "https://hai.stanford.edu/ai-index/2023-ai-index-report/research-and-development",
           reasoning:
             "Stanford's HAI AI Index is a respected annual publication, and the UN assessment of Xinjiang carries institutional authority. The China example cuts both ways — it shows the benefits of technocratic speed and the dangers of unchecked deployment. Replicability is lower because cross-country comparisons involve many confounding variables beyond governance model.",
         },
@@ -342,7 +342,7 @@ export const eaccVsTechRegulationData = {
           id: "crispr-governance-debates",
           title: "CRISPR Governance: Scientific Self-Regulation vs. Democratic Oversight",
           description:
-            "The CRISPR gene-editing revolution has been governed primarily by scientific self-regulation rather than comprehensive legislation. After He Jiankui's rogue editing of human embryos in 2018, the response came from the scientific community (condemnation, moratorium calls from the National Academies) rather than new laws. The UK's Human Fertilisation and Embryology Authority has approved limited embryo research, while the US relies on an NIH funding ban rather than a statutory prohibition. Countries with lighter regulatory frameworks (UK, Sweden, Japan) have produced more CRISPR research output than heavily regulated jurisdictions. However, the absence of binding international governance means there is no mechanism to prevent future rogue experiments.",
+            "Norms for human genome editing have been set largely by scientific academies rather than legislatures. The U.S. National Academies' 2017 consensus report 'Human Genome Editing: Science, Ethics, and Governance' and international summits in 2015 and 2018 laid out when clinical uses could proceed. When He Jiankui's claim to have produced gene-edited twins surfaced at the 2018 summit, its organizing committee called the claim 'deeply disturbing' and said 'the procedure was irresponsible and failed to conform with international norms'; it did not call for a ban, saying instead that 'it is time to define a rigorous, responsible translational pathway toward such trials.' The limits of self-regulation showed in what followed: the experiment had already happened, and the sanction came from the state, when a Chinese court sentenced He to three years in prison for 'illegal medical practice.'",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -350,16 +350,16 @@ export const eaccVsTechRegulationData = {
             replicability: 6,
             directness: 7,
           },
-          source: "National Academies of Sciences, Engineering, and Medicine — Human Genome Editing: Science, Ethics, and Governance (2017); Nature Reviews Genetics; WHO Expert Advisory Committee",
-          sourceUrl: "https://www.nationalacademies.org/publications/24623",
+          source: "National Academies of Sciences, Engineering, and Medicine — Human Genome Editing: Science, Ethics, and Governance (2017); Statement by the Organizing Committee of the Second International Summit on Human Genome Editing (Nov 2018); Nature news, 'What CRISPR-baby prison sentences mean for research' (Jan 3, 2020)",
+          sourceUrl: "https://www.nationalacademies.org/news/statement-by-the-organizing-committee-of-the-second-international-summit-on-human-genome-editing",
           reasoning:
-            "The National Academies and Nature Reviews Genetics are authoritative sources. The CRISPR case provides evidence that scientific self-regulation can work for a powerful technology, though the He Jiankui incident also demonstrated its limits. Replicability is lower because each technology domain has unique governance dynamics.",
+            "The National Academies report and summit statement are primary sources. The CRISPR case provides evidence that scientific self-regulation can set norms for a powerful technology and respond within days, though the He Jiankui incident also demonstrated its limits: the norm was broken, and a court, not the academies, imposed the penalty. Replicability is lower because each technology domain has unique governance dynamics.",
         },
         {
           id: "open-source-movement-outcomes",
-          title: "Open Source: Community Governance Produced More Reliable Software Than Proprietary Models",
+          title: "Open Source: Community-Governed Code Matched or Beat Proprietary Code on Defect Density",
           description:
-            "The open-source software movement demonstrates that transparent, community-governed development can outperform proprietary alternatives in reliability and security. Linux powers 96% of the world's top 1 million web servers, 100% of the world's top 500 supercomputers, and the majority of cloud infrastructure. The 2024 Coverity Scan Report found that open-source code quality matches or exceeds proprietary code in defect density. Apache, Mozilla, and the Linux Foundation have governed massive software ecosystems without government regulation through community norms, code review processes, and meritocratic governance. This model influenced AI development: Meta's open-source Llama models, Stability AI's open models, and the Hugging Face ecosystem represent a self-governing alternative to both corporate secrecy and government regulation.",
+            "The open-source software movement demonstrates that transparent, community-governed development can outperform proprietary alternatives in reliability and security. Linux powers 96% of the world's top 1 million web servers, 100% of the world's top 500 supercomputers, and the majority of cloud infrastructure. Coverity's 2013 Scan Open Source Report (released April 2014), covering 750 million lines of code, found an average defect density of 0.59 per 1,000 lines for open-source C/C++ projects using its service, against 0.72 for proprietary C/C++ code. Apache, Mozilla, and the Linux Foundation have governed massive software ecosystems without government regulation through community norms, code review processes, and meritocratic governance. This model influenced AI development: Meta's open-source Llama models, Stability AI's open models, and the Hugging Face ecosystem represent a self-governing alternative to both corporate secrecy and government regulation.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -367,8 +367,8 @@ export const eaccVsTechRegulationData = {
             replicability: 8,
             directness: 6,
           },
-          source: "Linux Foundation; Coverity/Synopsys Open Source Report; W3Techs",
-          sourceUrl: "https://www.linuxfoundation.org/research",
+          source: "Coverity (Synopsys), 'Coverity Scan Report Finds Open Source Software Quality Outpaces Proprietary Code for the First Time' (Apr 15, 2014); Linux Foundation; W3Techs",
+          sourceUrl: "https://news.synopsys.com/2014-04-15-Coverity-Scan-Report-Finds-Open-Source-Software-Quality-Outpaces-Proprietary-Code-for-the-First-Time",
           reasoning:
             "The success of open source is empirically well-documented and represents a genuine third model of governance that is neither purely market-driven nor government-regulated. However, directness is lower because software code review is different from governing AI safety, biotech risks, or environmental externalities. Open-source governance works best when the 'product' can be inspected — it may not generalize to opaque or dual-use technologies.",
         },
@@ -376,7 +376,7 @@ export const eaccVsTechRegulationData = {
           id: "congressional-tech-illiteracy",
           title: "Congressional Hearings Reveal Fundamental Gaps in Legislators' Tech Understanding",
           description:
-            "Multiple congressional hearings on technology have demonstrated significant knowledge gaps among legislators. During Mark Zuckerberg's 2018 Senate testimony, Senator Orrin Hatch asked 'How do you sustain a business model in which users don't pay for your service?' — revealing unfamiliarity with ad-supported business models. In TikTok hearings in 2023, multiple members displayed confusion about basic internet architecture. A 2023 survey by the Internet Governance Project found that fewer than 10% of US Congress members had any technical background, and the average age of Senate committee chairs overseeing technology policy was 73. The Office of Technology Assessment, which provided Congress with nonpartisan technical expertise, was defunded in 1995 and has not been restored despite multiple proposals.",
+            "Multiple congressional hearings on technology have demonstrated significant knowledge gaps among legislators. During Mark Zuckerberg's 2018 Senate testimony, Senator Orrin Hatch asked 'how do you sustain a business model in which users do not pay for your service?' — revealing unfamiliarity with ad-supported business models. In TikTok hearings in 2023, multiple members displayed confusion about basic internet architecture. The Congressional Research Service's profile of the 118th Congress lists 9 engineers, 2 physicists, 2 chemists, 1 geologist and 6 software company executives among its 541 members and delegates, and puts the average senator's age at 64.0 years at the start of that Congress. The Office of Technology Assessment, which provided Congress with nonpartisan technical expertise, was defunded in 1995 and has not been restored despite multiple proposals.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -384,8 +384,8 @@ export const eaccVsTechRegulationData = {
             replicability: 8,
             directness: 7,
           },
-          source: "C-SPAN congressional hearing transcripts; Internet Governance Project",
-          sourceUrl: "https://www.internetgovernance.org/",
+          source: "U.S. Senate Hearing 115-683, 'Facebook, Social Media Privacy, and the Use and Abuse of Data' (Apr 10, 2018); Congressional Research Service, 'Membership of the 118th Congress: A Profile' (R47470)",
+          sourceUrl: "https://www.govinfo.gov/content/pkg/CHRG-115shrg37801/html/CHRG-115shrg37801.htm",
           reasoning:
             "Congressional hearing transcripts are public record and the anecdotes are widely documented. The defunding of the OTA is a significant structural failure. However, legislative ignorance about technical details does not necessarily mean democratic governance produces bad outcomes — legislators also lack medical expertise but healthcare regulation has clear benefits. The argument proves that Congress needs better technical advisory capacity, not necessarily that democratic governance should be abandoned.",
         },
@@ -394,8 +394,8 @@ export const eaccVsTechRegulationData = {
   ],
   references: [
     {
-      title: "International AI Safety Report 2025 — UK AI Safety Institute",
-      url: "https://www.gov.uk/government/publications/international-ai-safety-report-2025",
+      title: "International AI Safety Report (January 2025) — arXiv:2501.17805",
+      url: "https://arxiv.org/abs/2501.17805",
     },
     {
       title: "EU AI Act: First Regulation on Artificial Intelligence — European Parliament",
@@ -406,19 +406,19 @@ export const eaccVsTechRegulationData = {
       url: "https://doi.org/10.1016/j.jhealeco.2016.01.012",
     },
     {
-      title: "AI Index Report 2024 — Stanford HAI",
-      url: "https://aiindex.stanford.edu/report/",
+      title: "AI Index Report 2023, Chapter 1: Research and Development — Stanford HAI",
+      url: "https://hai.stanford.edu/ai-index/2023-ai-index-report/research-and-development",
     },
     {
       title: "The Facebook Files — Wall Street Journal",
       url: "https://www.wsj.com/articles/the-facebook-files-11631713039",
     },
     {
-      title: "Youth Risk Behavior Surveillance System — Centers for Disease Control and Prevention",
-      url: "https://www.cdc.gov/healthyyouth/data/yrbs/index.htm",
+      title: "Youth Risk Behavior Survey Data Summary & Trends Report: 2011-2021 — Centers for Disease Control and Prevention",
+      url: "https://www.cdc.gov/yrbs/dstr/pdf/YRBS_Data-Summary-Trends_Report2023_508.pdf",
     },
     {
-      title: "Half of Americans' IQ Points Lost to Lead Exposure — Proceedings of the National Academy of Sciences",
+      title: "Half of US Population Exposed to Adverse Lead Levels in Early Childhood (McFarland, Hauer & Reuben) — Proceedings of the National Academy of Sciences",
       url: "https://www.pnas.org/doi/10.1073/pnas.2118631119",
     },
     {
@@ -434,7 +434,7 @@ export const eaccVsTechRegulationData = {
       url: "https://www.nber.org/papers/w30028",
     },
     {
-      title: "World Nuclear Performance Report — World Nuclear Association",
+      title: "Nuclear Power in the USA — World Nuclear Association",
       url: "https://world-nuclear.org/information-library/country-profiles/countries-t-z/usa-nuclear-power",
     },
   ],

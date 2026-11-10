@@ -12,7 +12,7 @@ export const sexWorkDecriminalizationData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "New Zealand decriminalized sex work in 2003, and a government review in 2008 found the reform had safeguarded sex workers' rights without a rise in their numbers. A 2013 study of about 150 countries linked legal prostitution to larger reported trafficking inflows, though the UNODC warns its counts are not victim counts. The fight is over what full decriminalization does to safety and health, and whether its gains reach the coerced.",
+      "New Zealand decriminalized sex work in 2003, and a government review in 2008 found the reform had safeguarded sex workers' rights without a rise in their numbers. A 2013 study of up to 150 countries linked legal prostitution to larger reported trafficking inflows, though its authors caution that the UN index they use tracks reports, not actual flows. The fight is over what full decriminalization does to safety and health, and whether its gains reach the coerced.",
     confidence: 82,
     source:
       "Report of the Prostitution Law Review Committee (NZ Government, 2008); Cho, Dreher & Neumayer, World Development (2013)",
@@ -30,9 +30,9 @@ export const sexWorkDecriminalizationData = {
         "Does removing criminal penalties let sex workers screen clients, report assaults to police, and lower their exposure to violence — or does it expand a market where exploitation and trafficking thrive?",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Decriminalization is not the same as a tidy harm-reduction program: it expands a market that traffickers exploit. The most-cited cross-national study (Cho, Dreher & Neumayer, World Development 2013) found that, on average, countries where prostitution is legal report larger human-trafficking inflows — the 'scale effect' of a bigger market dominating any 'substitution' away from coerced victims. Germany's 2002 liberalization is widely judged to have failed on its own terms: a recommended brothel-licensing regime was never implemented, police lost search powers, and German lawmakers from across the spectrum concluded the law did not curb exploitation. A safer experience for some independent workers can coexist with worse outcomes for the trafficked and coerced minority who are hardest to count.",
+        "Decriminalization is not the same as a tidy harm-reduction program: it expands a market that traffickers exploit. The most-cited cross-national study (Cho, Dreher & Neumayer, World Development 2013) found that, on average, countries where prostitution is legal report larger human-trafficking inflows — the 'scale effect' of a bigger market dominating any 'substitution' away from coerced victims. Germany's 2002 liberalization fell short on its own terms: the Federal Government's 2007 evaluation found the law had achieved its goals only to a limited degree, with hardly any measurable improvement in working conditions and no viable indication that it had reduced crime. A safer experience for some independent workers can coexist with worse outcomes for the trafficked and coerced minority who are hardest to count.",
       proponent_rebuttal:
-        "Criminalization is itself the dominant driver of violence: a PLOS Medicine systematic review (Platt et al. 2018, 40 quantitative + 94 qualitative studies) found repressive policing roughly tripled the odds of sexual or physical violence (OR 2.99). New Zealand's official Prostitution Law Review Committee — a government body — found the 2003 reform safeguarded sex workers' rights without increasing their number, and the underlying Christchurch School of Medicine survey of 772 workers found over 90% felt the Act gave them legal, health and safety rights and 57% said police attitudes improved. The Cho/Dreher finding concerns regulated legalization under poor data (the UNODC itself warns its trafficking counts are not victim counts) — not the full-decriminalization model, and a bigger recorded market can partly reflect activity moving out of the shadows.",
+        "Criminalization is itself the dominant driver of violence: a PLOS Medicine systematic review (Platt et al. 2018, 40 quantitative + 94 qualitative studies) found repressive policing roughly tripled the odds of sexual or physical violence (OR 2.99). New Zealand's official Prostitution Law Review Committee — a government body — found the 2003 reform safeguarded sex workers' rights without increasing their number, and the underlying Christchurch School of Medicine survey of 772 workers found over 90% felt the Act gave them legal, health and safety rights and 57% said police attitudes improved. The Cho/Dreher finding concerns legal prostitution in general under poor data (the authors themselves caution that the UN index they use tracks reported cases, not actual trafficking flows) — not the full-decriminalization model, and a bigger recorded market can partly reflect activity moving out of the shadows.",
       crux: {
         id: "decrim-vs-legalization-effect",
         title: "Decriminalization vs. Legalization, and the Counterfactual",
@@ -54,7 +54,7 @@ export const sexWorkDecriminalizationData = {
           skeptic_flip:
             "If more reviews matched the PLOS Medicine finding that repressive policing roughly triples the odds of violence (OR 2.99), and reforms like New Zealand's in 2003 kept protecting rights without growing the number of sex workers, the market-expansion fear would weaken.",
           common_ground:
-            "Both sides agree the trafficked and coerced are the hardest group to count, so recorded trafficking figures are an imperfect guide — the UNODC itself warns its counts are not victim counts.",
+            "Both sides agree the trafficked and coerced are the hardest group to count, so recorded trafficking figures are an imperfect guide — the leading cross-national study itself cautions that the UN index it uses tracks reports, not actual trafficking flows.",
           live_disagreement:
             "Whether full decriminalization, unlike licensed legalization, makes sex workers safer without expanding a market traffickers exploit — and whether changes after a law passes reflect the law or shifts in reporting, migration and enforcement.",
         },
@@ -102,7 +102,7 @@ export const sexWorkDecriminalizationData = {
           id: "nz-worker-survey-rights",
           title: "90%+ of NZ Sex Workers Said Reform Gave Them Rights",
           description:
-            "The Christchurch School of Medicine survey of 772 sex workers (the primary data behind the NZ review) found over 90% believed the Act gave them employment, legal, and health-and-safety rights; 64% felt more able to refuse a client; and 57% said police attitudes improved.",
+            "The Christchurch School of Medicine survey of 772 sex workers (the primary data behind the NZ review) found over 90% were aware the Act gave them increased employment, legal, and health-and-safety rights. Among those who had worked before the law change, 64.8% felt more able to refuse a client and 57.3% said police attitudes had changed for the better.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -111,7 +111,7 @@ export const sexWorkDecriminalizationData = {
             directness: 8,
           },
           source:
-            "Abel G, Fitzgerald L, Brunton C. 'The Impact of the Prostitution Reform Act on the Health and Safety Practices of Sex Workers' (Christchurch School of Medicine, Univ. of Otago, 2007), survey of 772 workers",
+            "Abel G, Fitzgerald L, Brunton C. 'The Impact of the Prostitution Reform Act on the Health and Safety Practices of Sex Workers', report to the Prostitution Law Review Committee (Univ. of Otago, Christchurch, Nov 2007), survey of 772 workers",
           sourceUrl:
             "https://www.otago.ac.nz/__data/assets/pdf_file/0027/248760/pdf-811-kb-018607.pdf",
           reasoning:
@@ -121,7 +121,7 @@ export const sexWorkDecriminalizationData = {
           id: "cho-dreher-trafficking",
           title: "Cross-National Study: Legal Prostitution Linked to More Trafficking Inflows",
           description:
-            "Using UNODC data across roughly 150 countries, Cho, Dreher & Neumayer found that, on average, countries where prostitution is legal report larger human-trafficking inflows — the market-expansion ('scale') effect outweighing any substitution away from coerced workers.",
+            "Using a UNODC index of reported trafficking inflows (collected 1996-2003, scored 0 to 5) for a cross-section of up to 150 countries, Cho, Dreher & Neumayer found that, 'On average, countries where prostitution is legal experience larger reported human trafficking inflows' — the market-expansion ('scale') effect outweighing any substitution away from coerced workers.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -134,13 +134,13 @@ export const sexWorkDecriminalizationData = {
           sourceUrl:
             "https://www.sciencedirect.com/science/article/abs/pii/S0305750X12001453",
           reasoning:
-            "Peer-reviewed, independent, replication data public (reliability/independence high). But directness is low (5): it studies legalization, not full decriminalization, and the meta-claim is about health/safety, not trafficking volume. The UNODC itself warns its figures are reported cases, not victim counts, so cross-country measurement error is severe — the authors themselves hedge causal interpretation.",
+            "Peer-reviewed, independent, replication data public (reliability/independence high). But directness is low (5): it studies legalization, not full decriminalization, and the meta-claim is about health/safety, not trafficking volume. The index measures how often trafficking into a country was reported, not how many victims there were: the authors write that their dependent variable 'does not reflect actual trafficking flows, and needs to be interpreted cautiously', and that a cross-section cannot show whether legalizing would raise trafficking afterward. The data stop in 2003, the year New Zealand decriminalized.",
         },
         {
           id: "germany-legalization-critique",
-          title: "Germany's 2002 Legalization Widely Judged a Policy Failure",
+          title: "German Government's Own 2007 Evaluation: the 2002 Prostitution Act Met Its Goals 'Only to a Limited Degree'",
           description:
-            "Germany's 2002 law aimed to improve conditions and curb exploitation; a planned brothel-licensing regime was never implemented and many states revoked warrantless police search powers. German lawmakers across parties later concluded the law did not achieve its protective goals, prompting the 2017 Prostitute Protection Act.",
+            "Germany's 2002 Prostitution Act aimed to let prostitutes enforce their pay, give them access to social insurance, improve working conditions, ease leaving prostitution and curb related crime. The Federal Government's 2007 evaluation concluded that the Act 'has only to a limited degree achieved the goals intended by the legislator': few employment contracts had been signed, 'hardly any measurable, positive impact has been observed in practice' on working conditions, and there were 'no viable indications that the Prostitution Act has reduced crime.' The same report found the Act 'has not made it more difficult to prosecute trafficking in human beings', and called for a broader approach using licensing, trade and police law.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -149,10 +149,11 @@ export const sexWorkDecriminalizationData = {
             directness: 5,
           },
           source:
-            "Germany Prostitution Act 2002 — overview and criticism (Wikipedia, with cited German government and CDU statements); contemporaneous reporting (France 24, 2024)",
-          sourceUrl: "https://en.wikipedia.org/wiki/Prostitution_Act",
+            "German Federal Ministry for Family Affairs, Senior Citizens, Women and Youth, 'Report by the Federal Government on the Impact of the Act Regulating the Legal Situation of Prostitutes (Prostitution Act)' (July 2007), section C, Conclusions",
+          sourceUrl:
+            "https://www.bmbfsfj.bund.de/bmbfsfj/meta/en/publications-en/report-by-the-federal-government-on-the-impact-of-the-act-regulating-the-legal-situation-of-prostitutes--95692",
           reasoning:
-            "Illustrates that liberalizing the law alone does not guarantee better outcomes. Weights are low: this is a regulated legalization regime (not full decriminalization), the strongest claims (e.g. trafficking magnitudes) rest on contested advocacy estimates, and the source is a secondary encyclopedia summary rather than a primary evaluation — so directness and replicability are weak.",
+            "Illustrates, on the government's own evidence, that liberalizing the law alone does not guarantee better outcomes. Directness and replicability are low: this is a regulated legalization regime (not full decriminalization), the evaluation came only five years after the law, and it also found that the harms critics feared for crime-fighting had not appeared.",
         },
       ],
     },
@@ -244,7 +245,7 @@ export const sexWorkDecriminalizationData = {
             directness: 5,
           },
           source:
-            "Scope/external-validity limitation noted within Cunningham & Shah (Review of Economic Studies, 2018) and subsequent commentary on indoor-only coverage",
+            "Scope limit of Cunningham & Shah's design: the 2003 ruling decriminalized indoor prostitution only, and outcomes are measured for 2004-2009 (NBER Working Paper 20281, July 2014; published in Review of Economic Studies, 2018)",
           sourceUrl:
             "https://www.nber.org/papers/w20281",
           reasoning:

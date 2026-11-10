@@ -103,7 +103,7 @@ export const assistedDyingEuthanasiaData = {
           id: "gallup-public-support",
           title: "A Durable Majority Endorses the Right",
           description:
-            "Gallup's 2024 polling found 71% of U.S. adults say doctors should be legally allowed to end a terminally ill patient's life by painless means at the patient's request, and 66% support physician-assisted suicide for terminal patients in severe pain. Support has held at or near supermajority levels for decades.",
+            "Gallup's May 2024 poll of 1,024 U.S. adults found 71% say doctors should be allowed by law to end a patient's life by some painless means if the patient and his or her family request it, and 66% say doctors should be allowed by law to assist a terminal patient living in severe pain to commit suicide at the patient's request. Majorities have backed the first since 1973; support for doctor-assisted suicide averaged 58% from 1996 to 2014 and 65% since.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -114,7 +114,7 @@ export const assistedDyingEuthanasiaData = {
           source: "Gallup, 'Most Americans Favor Legal Euthanasia' (2024)",
           sourceUrl: "https://news.gallup.com/poll/648215/americans-favor-legal-euthanasia.aspx",
           reasoning:
-            "A reputable, transparent, repeatedly-replicated poll. But popular majorities establish social acceptance, not the existence of a moral right — directness to the normative claim is low, and Gallup itself notes only ~53% find it morally acceptable.",
+            "A reputable, transparent, repeatedly-replicated poll. But popular majorities establish social acceptance, not the existence of a moral right — directness to the normative claim is low, and Gallup itself reports that only 53% call doctor-assisted suicide morally acceptable, with 40% calling it morally wrong.",
         },
         {
           id: "vacco-v-quill-letting-die",
@@ -142,7 +142,7 @@ export const assistedDyingEuthanasiaData = {
         "Whether modern palliative care can adequately relieve end-of-life suffering without hastening death, and whether legal safeguards can prevent coercion of the poor, disabled, and depressed.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "If excellent palliative care can relieve nearly all suffering, the moral case for killing collapses — the answer to suffering is better care, not death. Worse, real-world programs show troubling drift: financial pressure, lack of housing, and disability-related deprivation push marginalized people toward assisted death rather than free choice. The UN's disability-rights committee found Canada's expansion of assisted death to non-terminal disabled people 'extremely concerning' and urged repeal, evidence that safeguards erode and 'choice' can mask abandonment.",
+        "If excellent palliative care can relieve nearly all suffering, the moral case for killing collapses — the answer to suffering is better care, not death. Worse, real-world programs show troubling drift: financial pressure, lack of housing, and disability-related deprivation push marginalized people toward assisted death rather than free choice. The UN's disability-rights committee said it was 'extremely concerned' about Canada's expansion of assisted death to non-terminal disabled people and urged repeal, evidence that safeguards erode and 'choice' can mask abandonment.",
       proponent_rebuttal:
         "Palliative care, however good, cannot relieve all suffering: refractory symptoms and existential suffering can persist until death despite optimal care, and the only remaining options — terminal sedation into unconsciousness — already accept hastening death. The Canadian controversy is about NON-terminal eligibility (Track 2), a separate question from the meta-claim's narrow scope of terminally ill, mentally competent adults; 25+ years of Oregon data, restricted to the terminally ill, show no demographic evidence of coercion of the poor or uninsured. Strict eligibility, capacity assessment, waiting periods, and reporting can confine the right to genuine, voluntary cases.",
       crux: {
@@ -194,7 +194,7 @@ export const assistedDyingEuthanasiaData = {
           id: "un-crpd-track2",
           title: "UN Disability Committee Warns of Coercion Drift",
           description:
-            "The UN Committee on the Rights of Persons with Disabilities, in its March 26, 2025 Concluding Observations, called Canada's Track 2 regime (assisted death for non-terminal disabled people) 'extremely concerning' and recommended repealing it, citing discrimination and threats to the right to life of persons with disabilities.",
+            "The UN Committee on the Rights of Persons with Disabilities, in Concluding Observations on Canada adopted on 18 March 2025, said it was 'extremely concerned' about the 2021 law that removed the 'reasonably foreseeable death' criterion and created Track 2 (assisted death for people who are not dying), and recommended repealing it. Under the right to life, it cited ableist assumptions about the value of disabled lives, a 'false dichotomy' of choice where support is not guaranteed, and evidence from Ontario's Chief Coroner and federal data that Track 2 'is disproportionately accessed by women with disabilities and persons with disabilities in marginalized situations.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -203,17 +203,17 @@ export const assistedDyingEuthanasiaData = {
             directness: 5,
           },
           source:
-            "UN CRPD Committee, Concluding Observations on Canada (advance unedited, 26 March 2025), as reported by ARCH Disability Law Centre",
+            "UN Committee on the Rights of Persons with Disabilities, Concluding observations on the combined second and third periodic reports of Canada, CRPD/C/CAN/CO/2-3 (15 April 2025), paras. 19-20",
           sourceUrl:
-            "https://archdisabilitylaw.ca/the-united-nations-releases-concluding-observations-on-canadas-review-of-disability-rights-implementation/",
+            "https://tbinternet.ohchr.org/_layouts/15/treatybodyexternal/Download.aspx?symbolno=CRPD%2FC%2FCAN%2FCO%2F2-3&Lang=en",
           reasoning:
-            "An authoritative international human-rights body, which weakens the 'safeguards always hold' position. But its concern targets NON-terminal (Track 2) eligibility — outside the meta-claim's narrow terminally-ill scope — so its directness against the specific claim is limited; cited via a disability-law summary pending the final OHCHR text.",
+            "An authoritative international human-rights body, which weakens the 'safeguards always hold' position. But its concern targets NON-terminal (Track 2) eligibility — outside the meta-claim's narrow terminally-ill scope — so its directness against the specific claim is limited. Cited from the final UN text; an advance unedited version was released on 26 March 2025.",
         },
         {
           id: "disability-devaluation-argument",
           title: "Legalization May Signal That Some Lives Are Worth Less",
           description:
-            "Disability-rights scholarship argues assisted-dying laws can communicate that disabled, ill, or dependent lives are 'less worth living,' feeding prejudice and indirectly pressuring vulnerable people. (Notably, the bioethicist surveying these arguments, Colburn 2022, ultimately concludes they fail and that prohibition itself disrespects autonomy — so the strongest statement of the worry comes from a source that rejects it.)",
+            "Disability-rights advocates argue assisted-dying laws can communicate that disabled, ill, or dependent lives are 'less worth living,' feeding prejudice and indirectly pressuring vulnerable people. Jane Campbell, a founder of Not Dead Yet UK, put it in The BMJ in 2019: legal assisted suicide 'suggests that some lives are less worth living.' (Notably, the philosopher surveying these arguments, Colburn 2022, concludes that considerations of disability 'do not in fact generate good arguments against assisted dying laws' — so the fullest academic statement of the worry cited here comes from a source that rejects it.)",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -222,7 +222,7 @@ export const assistedDyingEuthanasiaData = {
             directness: 5,
           },
           source:
-            "B. Colburn, 'Disability-based arguments against assisted dying laws,' Bioethics 36(6), 2022",
+            "B. Colburn, 'Disability-based arguments against assisted dying laws,' Bioethics 36(6), 2022, which cites J. Campbell, 'Disabled people like me fear legal assisted suicide: it suggests that some lives are less worth living,' BMJ Opinion (6 February 2019)",
           sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9322678/",
           reasoning:
             "A peer-reviewed survey of the devaluation/expressivist argument. Weighted modestly because the cited author concludes these arguments do NOT succeed; the worry is real and widely held but contested, and it is an expressive/indirect harm rather than a direct refutation of the right.",

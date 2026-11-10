@@ -50,9 +50,9 @@ export const childrenSmartphoneAgeData = {
       "In the CDC's youth survey, the share of U.S. high school girls reporting persistent sadness or hopelessness rose from 36% in 2011 to 57% in 2021. Australia's ban on social media accounts for under-16s took effect on 10 December 2025. Both sides accept those facts. The fight is over how much of that rise smartphones cause, and whether a legal age limit on owning one would help.",
     confidence: 86,
     source:
-      "CDC Youth Risk Behavior Survey; Online Safety Amendment (Social Media Minimum Age) Act 2024 (Cth) and Australian eSafety Commissioner",
+      "CDC, Youth Risk Behavior Survey Data Summary & Trends Report: 2011-2021; Online Safety Amendment (Social Media Minimum Age) Act 2024 (Cth) and Australian eSafety Commissioner",
     sourceUrl:
-      "https://www.cdc.gov/healthyyouth/data/yrbs/index.htm",
+      "https://web.archive.org/web/20240101175749/https://www.cdc.gov/healthyyouth/data/yrbs/pdf/YRBS_Data-Summary-Trends_Report2023_508.pdf",
   },
   simple_case: [
     "The answer bears on what parents decide at a child's first phone, and on whether more governments follow Australia in setting age limits by law.",
@@ -103,7 +103,7 @@ export const childrenSmartphoneAgeData = {
           id: "cdc-youth-mental-health-data",
           title: "CDC Data Shows Teen Girls' Persistent Sadness Rose From 36% to 57% (2011-2021)",
           description:
-            "The CDC Youth Risk Behavior Survey shows persistent feelings of sadness or hopelessness among US high school girls increased from 36% in 2011 to 57% in 2021 (a ~58% relative rise). Note this self-reported measure indexes sadness/hopelessness, not a clinical depression diagnosis. Seriously considering suicide rose from 19% to 30% among girls, and attempted suicide from roughly 10% to 13%. For boys, persistent sadness increased from 21% to 29%. The timing coincides with mass smartphone adoption among adolescents, which crossed 50% around 2012-2013 — a temporal correlation, not by itself evidence of causation.",
+            "The CDC Youth Risk Behavior Survey shows persistent feelings of sadness or hopelessness among US high school girls increased from 36% in 2011 to 57% in 2021 (a ~58% relative rise). Note this self-reported measure indexes sadness/hopelessness, not a clinical depression diagnosis. Seriously considering suicide rose from 19% to 30% among girls, and attempted suicide from 10% to 13%. For boys, persistent sadness increased from 21% to 29%. The rise overlaps with the spread of smartphones among US teens: Pew surveys found 37% of teens had one in 2012 and nearly three-quarters had or had access to one by 2014-15. That is a temporal correlation, not by itself evidence of causation.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -111,16 +111,16 @@ export const childrenSmartphoneAgeData = {
             replicability: 9,
             directness: 6,
           },
-          source: "Centers for Disease Control and Prevention; Youth Risk Behavior Survey",
-          sourceUrl: "https://www.cdc.gov/healthyyouth/data/yrbs/index.htm",
+          source: "CDC, Youth Risk Behavior Survey Data Summary & Trends Report: 2011-2021 (2023); smartphone figures from Pew Research Center, 'Teens and Technology 2013' and 'Teens, Social Media & Technology Overview 2015'",
+          sourceUrl: "https://web.archive.org/web/20240101175749/https://www.cdc.gov/healthyyouth/data/yrbs/pdf/YRBS_Data-Summary-Trends_Report2023_508.pdf",
           reasoning:
             "CDC data is nationally representative and methodologically rigorous, making it highly reliable. However, the temporal correlation between smartphone adoption and mental health decline does not establish causation — the directness score is lower because multiple simultaneous factors (opioid crisis, economic anxiety, school shootings, COVID) could contribute to the trend.",
         },
         {
           id: "przybylski-small-effects",
-          title: "Oxford Meta-Analysis Finds Small Effect Sizes for Screen Time and Wellbeing",
+          title: "Oxford Specification-Curve Study Finds Technology Use Explains at Most 0.4% of Teen Wellbeing",
           description:
-            "Amy Orben and Andrew Przybylski's large-scale specification-curve analyses, published in Nature Human Behaviour (2019) and Psychological Science (2019), found that the association between digital technology use and adolescent wellbeing is statistically significant but practically tiny — explaining at most about 0.4% of variation in wellbeing. They illustrated this by noting that wearing glasses and regularly eating potatoes had associations with adolescent wellbeing comparable to or larger than screen time, arguing that public discourse overstates the smartphone-mental health connection. Critics counter that undifferentiated 'screen time' and self-report time-use measures may obscure harms specific to social media.",
+            "Amy Orben and Andrew Przybylski's specification-curve analysis of three large datasets (total n = 355,358), published in Nature Human Behaviour in 2019, found that the association between digital technology use and adolescent wellbeing is negative but small, explaining at most 0.4% of the variation in wellbeing. For scale, in the same data regularly eating potatoes was nearly as negatively associated with wellbeing as technology use, and wearing glasses was more negatively associated. The authors conclude the effects are 'too small to warrant policy change.' Critics counter that undifferentiated 'screen time' and self-report time-use measures may obscure harms specific to social media.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -128,10 +128,10 @@ export const childrenSmartphoneAgeData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Nature Human Behaviour; Psychological Science",
+          source: "Orben & Przybylski, 'The association between adolescent well-being and digital technology use', Nature Human Behaviour 3:173-182 (2019)",
           sourceUrl: "https://www.nature.com/articles/s41562-018-0506-1",
           reasoning:
-            "Published in top-tier journals with large sample sizes and pre-registered analyses, this is methodologically strong research. However, the critique focuses on total screen time as a variable, which may miss the specific mechanisms (social media comparison, algorithmic feeds, notification patterns) that cause harm — the 'screen time' measure may be too crude to capture what matters.",
+            "Published in a top-tier journal with very large samples and a design that reports the full range of defensible analyses rather than a chosen few, this is methodologically strong research. However, the critique focuses on total screen time as a variable, which may miss the specific mechanisms (social media comparison, algorithmic feeds, notification patterns) that cause harm — the 'screen time' measure may be too crude to capture what matters.",
         },
       ],
     },
@@ -179,9 +179,9 @@ export const childrenSmartphoneAgeData = {
       evidence: [
         {
           id: "cross-national-consistency",
-          title: "Youth Mental Health Decline Is Consistent Across Diverse Nations",
+          title: "Teen Mental Health Fell in All Five Anglosphere Countries From the Early 2010s",
           description:
-            "Research by Jean Twenge and Jonathan Haidt shows that the adolescent mental health decline beginning around 2012 is remarkably consistent across the US, UK, Canada, Australia, Scandinavia, and other developed nations — countries with vastly different economic conditions, healthcare systems, gun policies, and social safety nets. This cross-national consistency is difficult to explain through country-specific factors but aligns with the global, simultaneous adoption of smartphones and algorithmic social media.",
+            "Zach Rausch and Jonathan Haidt gathered trend data on adolescent mental health for the US, UK, Canada, Australia and New Zealand and report the same basic pattern in each: measures such as depression, anxiety, psychological distress and self-harm turn upward in the early 2010s, most sharply for girls. In Australia, for example, the share of females aged 16-24 reporting high or very high psychological distress rose from 14.2% in 2013 to 35.1% in 2020. A second post extends the review to the five Nordic nations. The authors argue that explanations tied to one country, such as a US school shooting, cannot account for a decline that began in several nations at once, and that the shift from flip phones to smartphones can.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -189,27 +189,44 @@ export const childrenSmartphoneAgeData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Rausch & Haidt, \"The Teen Mental Health Crisis is International, Part 1: The Anglosphere,\" After Babel (March 29, 2023)",
+          source: "Rausch & Haidt, \"The Teen Mental Illness Epidemic is International: The Anglosphere,\" After Babel (March 29, 2023)",
           sourceUrl: "https://www.afterbabel.com/p/international-mental-illness-part-one",
           reasoning:
-            "The cross-national pattern is a genuinely strong argument for the smartphone hypothesis. However, independence is lower because Haidt and Twenge are prominent advocates for the smartphone-harm thesis and may have selected countries and metrics that support their conclusion. The publication venue (Substack) for some of this work is less rigorous than peer-reviewed journals.",
+            "The cross-national pattern is a genuinely strong argument for the smartphone hypothesis. However, independence is lower because Haidt is a prominent advocate for the smartphone-harm thesis and the authors chose which countries and metrics to show. The five countries also share a language and much of a culture, and the publication venue (Substack) is less rigorous than a peer-reviewed journal.",
         },
         {
-          id: "france-school-phone-ban-results",
-          title: "A School-Hours Ban Is a Poor Test of an Ownership Ban",
+          id: "norway-school-phone-ban-results",
+          title: "Norwegian Middle-School Smartphone Bans Cut Girls' Mental-Health Visits and Bullying",
           description:
-            "France implemented a nationwide ban on smartphone use in schools in 2018 (kindergarten through 9th grade), and later quasi-experimental evidence from Norwegian middle schools reports modest benefits from similar policies. But because these bans cover only school hours, while most social-media use occurs outside school, they cannot test whether smartphone ownership drives the broader decline. They are therefore weak evidence on either side of an ownership ban. Whether school-day bans work on their own terms is a separate question with its own map.",
-          side: "against" as const,
+            "Sara Abrahamsson combined Norwegian administrative records with a survey of middle schools' smartphone policies in an event-study design. After a school banned smartphones, girls' take-up of health care for psychological symptoms and diseases fell significantly, bullying fell among both girls and boys, and girls' grade point averages and chances of entering an academic high-school track rose, with larger effects for girls from low socio-economic backgrounds. The bans cover school hours only, so this is a partial test of what removing the device does, not a test of an ownership rule. Whether school-day bans work on their own terms is a separate question with its own map.",
+          side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,
             replicability: 6,
             directness: 5,
           },
-          source: "Abrahamsson, 'Smartphone Bans, Student Outcomes and Mental Health', Norwegian School of Economics Discussion Paper 1/2024 (EconPapers listing); French Ministry of Education",
+          source: "Abrahamsson, 'Smartphone Bans, Student Outcomes and Mental Health', Norwegian School of Economics Discussion Paper 1/2024 (EconPapers listing)",
           sourceUrl: "https://econpapers.repec.org/paper/hhsnhheco/2024_5f001.htm",
           reasoning:
-            "Reframed: the earlier claim that French mental-health data showed 'no improvement' is contradicted by later quasi-experimental evaluations finding modest benefits, so it cannot stand as evidence against the smartphone-harm thesis. The genuine limitation is scope: a school-hours-only ban (~7 of 16 waking hours) is a poor test of the ownership-restriction hypothesis. Directness lowered because this natural experiment speaks only indirectly to the meta_claim about banning ownership.",
+            "A quasi-experimental result, which is rarer in this debate than a correlation: outcomes changed after a policy removed phones for part of the day. It is a discussion paper, not yet a peer-reviewed article, and it rests on one country. Directness is moderate because a school-hours ban speaks only indirectly to the claim about banning ownership.",
+        },
+        {
+          id: "global-internet-adoption-wellbeing",
+          title: "Across 168 Countries, Internet and Mobile-Broadband Adoption Did Not Track Declining Wellbeing",
+          description:
+            "Matti Vuorre and Andrew Przybylski compared wellbeing reports from 2,434,203 people aged 15 to 89 in 168 countries (2005 to 2022) with each country's per-capita internet users and mobile-broadband subscriptions, then repeated the test on estimated rates of anxiety, depression and self-harm in 202 countries (2000 to 2019). They report 'only small and inconsistent changes in global well-being and mental health', with wide variation between countries in the sign and size of any link to adoption. Their breakdown by age and sex 'did not support the idea that young individuals or young women particularly were the most at-risk group.' The study tracks a country's internet and mobile-broadband adoption, not children's smartphone ownership, and its youngest respondents are 15.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Vuorre & Przybylski, 'Global Well-Being and Mental Health in the Internet Age', Clinical Psychological Science 12(5):917-935 (published online 2023), Oxford University Research Archive copy",
+          sourceUrl: "https://ora.ox.ac.uk/objects/uuid:f89a1517-7585-4404-9da3-43f96ff846b6/files/r76537263k",
+          reasoning:
+            "This is the closest published analysis to the cross-national timing test the crux describes, and it does not find wellbeing falling as countries came online. Independence is scored like the Rausch and Haidt card because Przybylski is a prominent skeptic of the smartphone-harm thesis. The authors call their results descriptive, the study was not preregistered, and national averages for people 15 and over could hide a decline concentrated in younger teenage girls.",
         },
       ],
     },
@@ -259,7 +276,7 @@ export const childrenSmartphoneAgeData = {
           id: "australia-social-media-ban",
           title: "Australia Enacts and Begins Enforcing Social Media Ban for Under-16s (2024-2025)",
           description:
-            "Australia's parliament passed the Online Safety Amendment (Social Media Minimum Age) Act in late November 2024 (assent December 2024), and the ban commenced on 10 December 2025. It bars under-16s from holding accounts on platforms including TikTok, Instagram, Facebook, Snapchat, X, Reddit, Threads, Twitch and Kick (YouTube's status shifted during rollout), placing enforcement on platforms — with fines up to ~A$50M — rather than on parents or children. In the first days of enforcement, platforms reported removing or restricting around 4.7 million under-16 accounts. It is the strongest government intervention on children's technology access in any Western democracy, though its effect on mental-health outcomes has not yet been evaluated.",
+            "Australia's parliament passed the Online Safety Amendment (Social Media Minimum Age) Act in November 2024 (assent December 2024), and the age restriction took effect on 10 December 2025. It requires platforms to take reasonable steps to stop under-16s holding accounts; eSafety lists Facebook, Instagram, Snapchat, Threads, TikTok, Twitch, X, YouTube, Kick and Reddit among the age-restricted platforms. There are no penalties for children or parents: enforcement falls on platforms, with court-imposed fines for corporations of up to 300,000 penalty units, which eSafety currently puts at A$109.2 million. eSafety reported that platforms had removed access to 4.7 million under-16 accounts by mid-December 2025. It is among the strongest government interventions on children's technology access in any Western democracy, though its effect on mental-health outcomes has not yet been evaluated.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -267,16 +284,16 @@ export const childrenSmartphoneAgeData = {
             replicability: 6,
             directness: 6,
           },
-          source: "Online Safety Amendment (Social Media Minimum Age) Act 2024 (Cth), Federal Register of Legislation; Australian eSafety Commissioner (ban commenced 10 December 2025)",
-          sourceUrl: "https://www.legislation.gov.au/C2024A00127/asmade/text",
+          source: "Australian eSafety Commissioner, 'Social media age restrictions' (page as archived 31 October 2026), on the Online Safety Amendment (Social Media Minimum Age) Act 2024 (Cth)",
+          sourceUrl: "https://web.archive.org/web/20261031200841/https://www.esafety.gov.au/about-us/industry-regulation/social-media-age-restrictions",
           reasoning:
             "Provides a real, now-operational legislative precedent from a major democracy, demonstrating that age-based platform restrictions are politically and technically implementable. Directness is moderate because the law targets social-media accounts, not smartphone ownership (the meta_claim), and its mental-health effectiveness is still untested. Age-verification accuracy and circumvention (VPNs, false ages) remain open questions.",
         },
         {
           id: "wait-until-8th-adoption-limits",
-          title: "Wait Until 8th Pledge Shows Promise but Limited Adoption",
+          title: "Wait Until 8th Counts 155,000 Pledged Parents, and the Pledge Activates Only With 10 Families per Grade",
           description:
-            "The Wait Until 8th campaign asks parents to pledge not to give their children smartphones until 8th grade (age 13-14). While the campaign has received significant media attention and endorsements from prominent pediatricians and educators, actual participation has been limited to a small fraction of families in participating schools. The campaign illustrates both the appeal and the limitations of voluntary coordination: most families agree in principle but defect in practice because they cannot guarantee sufficient peer participation.",
+            "The Wait Until 8th campaign asks parents to pledge not to give their child a smartphone until at least the end of 8th grade. By its own count, more than 155,000 parents have signed. The pledge is built around the coordination problem: it becomes active only once at least 10 families from the child's grade and school have signed, because, in the campaign's words, 'Banding together helps decrease the pressure to have a phone at an early age.' The campaign publishes a national running total, not the share of families signed in any school, so how often a grade reaches the critical mass that removes the exclusion penalty is not known.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -284,10 +301,10 @@ export const childrenSmartphoneAgeData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Wait Until 8th organization; The New York Times",
+          source: "Wait Until 8th (campaign website, figures as shown in November 2026)",
           sourceUrl: "https://www.waituntil8th.org/",
           reasoning:
-            "The campaign directly tests the voluntary coordination approach and provides evidence of its limitations. However, source reliability is lower because adoption data is self-reported by the organization, and there are no rigorous studies of the campaign's actual participation rates or outcomes.",
+            "The campaign directly tests the voluntary coordination approach, and its 10-family threshold concedes that a family acting alone struggles to hold out. Supporters of a mandate read 155,000 parents, in a country with tens of millions of schoolchildren, as limited reach; the campaign reads the same number as momentum. Source reliability is lower because the count is self-reported by the organization, and there are no rigorous studies of the campaign's participation rates or outcomes.",
         },
         {
           id: "australia-ban-three-month-evaluation",

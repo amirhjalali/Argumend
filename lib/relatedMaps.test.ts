@@ -29,6 +29,10 @@ const ENERGY_AND_NUCLEAR = new Set([
   "ai-energy-water-footprint",
   "climate-change",
   "geoengineering-climate",
+  // Not an energy map, but one of its cruxes is nuclear regulation, and since
+  // the 10 Nov 2026 citation audit its nuclear card cites reactor build times
+  // and costs (EIA, World Nuclear Association), which this map shares.
+  "eacc-vs-tech-regulation",
 ]);
 
 const allIds = () => [...topicSummaries.map((topic) => topic.id), ...argumentTopicIds];
