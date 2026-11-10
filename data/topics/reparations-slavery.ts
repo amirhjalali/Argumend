@@ -64,7 +64,7 @@ export const reparationsSlaveryData = {
           id: "fed-racial-wealth-gap",
           title: "Federal Reserve: $285K White vs. $45K Black Median Wealth",
           description:
-            "The Federal Reserve's 2022 Survey of Consumer Finances shows white families have a median net worth of about $285,000 compared to roughly $45,000 for Black families — a gap of about 6.3:1 (the typical Black family holds about 15% of the typical white family's wealth). The dollar gap has widened over recent decades even as the ratio narrowed somewhat; in the 2019 SCF the gap was about 8:1 ($188,200 white vs. $24,100 Black).",
+            "The Federal Reserve's 2022 Survey of Consumer Finances shows white families have a median net worth of $285,000 compared to $44,900 for Black families — a gap of about 6.3:1 (the typical Black family holds about 15% of the typical white family's wealth). The dollar gap between the two medians grew by around $50,000 between 2019 and 2022, to more than $220,000, even as the ratio narrowed; the 2019 SCF put the medians at $188,200 and $24,100 in 2019 dollars, about 8:1.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -73,7 +73,7 @@ export const reparationsSlaveryData = {
             directness: 7,
           },
           source:
-            "Federal Reserve Board, FEDS Notes, 'Greater Wealth, Greater Uncertainty: Changes in Racial Inequality in the Survey of Consumer Finances' (2023)",
+            "Federal Reserve Board, FEDS Notes, 'Greater Wealth, Greater Uncertainty: Changes in Racial Inequality in the Survey of Consumer Finances' (18 Oct 2023); 2019 medians from FEDS Notes, 'Disparities in Wealth by Race and Ethnicity in the 2019 Survey of Consumer Finances' (28 Sept 2020)",
           sourceUrl:
             "https://www.federalreserve.gov/econres/notes/feds-notes/greater-wealth-greater-uncertainty-changes-in-racial-inequality-in-the-survey-of-consumer-finances-20231018.html",
           reasoning:
@@ -83,7 +83,7 @@ export const reparationsSlaveryData = {
           id: "rothstein-color-of-law",
           title: "Rothstein: Government Actively Created Racial Segregation",
           description:
-            "Richard Rothstein's 'The Color of Law' documents how federal, state, and local government policies deliberately created and maintained racial residential segregation. FHA explicitly refused to insure mortgages in Black neighborhoods (redlining), the GI Bill was administered to exclude Black veterans, and public housing was intentionally segregated. These are government actions, not market outcomes.",
+            "Richard Rothstein's 'The Color of Law' documents how federal, state, and local government policies deliberately created and maintained racial residential segregation. The Federal Housing Administration refused to insure mortgages in and near Black neighborhoods (redlining) while subsidizing builders of whole subdivisions on the condition that no homes be sold to Black buyers; the Veterans Administration adopted the same color-coded maps; and New Deal public housing was built as separate projects for white and Black tenants. These are government actions, not market outcomes.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -92,7 +92,7 @@ export const reparationsSlaveryData = {
             directness: 9,
           },
           source:
-            "Richard Rothstein, 'The Color of Law: A Forgotten History of How Our Government Segregated America' (Liveright/Economic Policy Institute, 2017)",
+            "Richard Rothstein, 'The Color of Law: A Forgotten History of How Our Government Segregated America' (Liveright, 2017), Economic Policy Institute book page; specifics as Rothstein gave them to NPR's Fresh Air (3 May 2017)",
           sourceUrl:
             "https://www.epi.org/publication/the-color-of-law-a-forgotten-history-of-how-our-government-segregated-america/",
           reasoning:
@@ -100,9 +100,9 @@ export const reparationsSlaveryData = {
         },
         {
           id: "german-holocaust-reparations",
-          title: "German Holocaust Reparations Provide Working Precedent",
+          title: "Germany Has Paid More Than $90 Billion to Individual Victims of Nazi Persecution Since 1952",
           description:
-            "Since negotiations began in 1952, the German government has paid more than $90 billion in indemnification to individuals for losses resulting from Nazi persecution (the Claims Conference's own figure; earlier reporting cited $80+ billion). Payments went to the state of Israel, individual survivors, and their heirs. The program is widely regarded as an important component of reconciliation, and it demonstrates that reparations programs can be designed, administered, and sustained over decades.",
+            "The Claims Conference, founded in 1951, reports that as a result of its negotiations since 1952 'the German government has paid more than $90 billion in indemnification to individuals for suffering and losses resulting from persecution by the Nazis.' The first agreements were signed in Luxembourg in 1952 by West Germany and the Claims Conference, with Israel signing in parallel. Payments continue: in 2025 the Claims Conference distributed about $530 million in direct compensation to more than 115,000 survivors in 84 countries. The record shows a reparations program can be designed, administered, and sustained over decades.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -110,16 +110,16 @@ export const reparationsSlaveryData = {
             replicability: 5,
             directness: 6,
           },
-          source: "Conference on Jewish Material Claims Against Germany (Claims Conference)",
+          source: "Conference on Jewish Material Claims Against Germany (Claims Conference), 'History'",
           sourceUrl: "https://www.claimscon.org/about/history/",
           reasoning:
-            "Strong precedent for the concept of reparations. Replicability limited because Germany's reparations were closer in time to the harm and involved a different political and historical context.",
+            "Strong precedent for the concept of reparations. The figure is the Claims Conference's own, and it counts payments to individuals. Replicability limited because Germany's reparations were closer in time to the harm and involved a different political and historical context.",
         },
         {
           id: "implementation-feasibility-concerns",
           title: "Defining Eligibility Is Practically Complex",
           description:
-            "Identifying who qualifies as a 'descendant of enslaved Americans' poses practical challenges. The US Black population is roughly 41-47 million (Census Bureau estimates), with varying connections to American slavery. Mixed-race Americans, recent immigrants, and people who cannot document ancestry complicate eligibility. Darity and Mullen address this directly, proposing a two-part criterion (documented lineage to a person enslaved in the US plus self-identification as Black for at least 12 years), but building and verifying such a registry would be a large administrative undertaking.",
+            "Identifying who qualifies as a 'descendant of enslaved Americans' poses practical challenges. The 2020 Census counted 41.1 million people who identified as Black alone and 46.9 million as Black alone or in combination, with varying connections to American slavery. Mixed-race Americans, recent immigrants, and people who cannot document ancestry complicate eligibility. Darity and Mullen address this directly, proposing a two-part criterion (documented descent from at least one person enslaved in the US, plus self-identification as Black on a legal document at least 12 years before the program or a study commission is created). Mullen calls the genealogy 'not an impossible task' and proposes a federal agency of genealogists to help applicants at no cost, which is itself a large administrative undertaking.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -128,7 +128,7 @@ export const reparationsSlaveryData = {
             directness: 7,
           },
           source:
-            "Darity and Mullen interview on proposed reparations eligibility criteria",
+            "William Darity Jr. and Kirsten Mullen, interview, Institute for Research on Poverty podcast, University of Wisconsin-Madison (7 Dec 2023); population counts from U.S. Census Bureau, 2020 Census",
           sourceUrl:
             "https://www.irp.wisc.edu/resource/william-darity-jr-and-kirsten-mullen-on-why-its-time-to-pay-reparations-to-black-americans/",
           reasoning:
@@ -163,7 +163,7 @@ export const reparationsSlaveryData = {
       skeptic_premise:
         "The cost — $10-14 trillion by leading estimates — rivals or exceeds the entire annual federal budget and would require unprecedented taxation or borrowing for a single program. Beyond cost, eligibility is genuinely hard and arguably unfair: documenting lineage to a specific enslaved ancestor is impossible for many descendants (records were sparse and deliberately incomplete), would exclude some of the intended beneficiaries while admitting others on thin documentation, and asks today's taxpayers — including descendants of post-1865 immigrants and of the enslaved themselves — to fund transfers keyed to ancestry rather than present need. A one-time cash transfer also does not by itself fix the structural drivers of disadvantage (school funding, mass incarceration, ongoing discrimination). Race-conscious payments may also face serious constitutional challenge after the Supreme Court's 2023 ruling against race-based affirmative action. Universal, means-tested anti-poverty programs help every disadvantaged American, sidestep the lineage problem, and command broader and more durable political support.",
       proponent_rebuttal:
-        "Darity and Mullen put the target sum at roughly $10-12 trillion — the amount they estimate is needed to close the Black-white wealth gap — delivered mainly as direct payments to eligible descendants (on the order of $200,000-$250,000 each), not as a grab-bag of in-kind programs. Spread over a 10-year program that is roughly $1 trillion a year, on the scale of recent pandemic relief and well within the federal government's demonstrated borrowing capacity for emergencies it deems urgent. HR 40, the bill on the table, merely proposes a commission to study the question and recommend remedies, not a commitment to any specific form or sum. And separate wealth-building tools such as baby bonds suggest large transfers can be administered through existing fiscal machinery; closing the gap would also generate offsetting returns through higher homeownership, spending, and entrepreneurship.",
+        "Darity and Mullen put the target sum at roughly $10-12 trillion — the amount they estimate is needed to close the Black-white wealth gap — delivered mainly as direct payments to eligible descendants (about $267,000 each in the book's $10.7 trillion calculation), not as a grab-bag of in-kind programs. Spread over a 10-year program that is roughly $1 trillion a year, on the scale of recent pandemic relief and well within the federal government's demonstrated borrowing capacity for emergencies it deems urgent. HR 40, the bill on the table, merely proposes a commission to study the question and recommend remedies, not a commitment to any specific form or sum. And separate wealth-building tools such as baby bonds suggest large transfers can be administered through existing fiscal machinery; closing the gap would also generate offsetting returns through higher homeownership, spending, and entrepreneurship.",
       crux: {
         id: "reparations-program-design",
         title: "Optimal Reparations Program Design and Cost-Benefit",
@@ -197,7 +197,7 @@ export const reparationsSlaveryData = {
           id: "darity-mullen-proposal",
           title: "Darity & Mullen: Comprehensive Reparations Framework",
           description:
-            "Economists William Darity Jr. (Duke) and A. Kirsten Mullen, in 'From Here to Equality' (2020), argue the total reparations sum should be whatever is needed to eliminate the Black-white wealth gap — an expenditure they put at roughly $10-12 trillion, on the order of $200,000-$250,000 per eligible recipient. They emphasize that the bulk should be direct payments to individuals rather than in-kind programs. Eligibility rests on two criteria: documented lineage to a person enslaved in the United States, and self-identification as Black/African American for a sustained period. (Means-tested 'baby bonds' of roughly $20K on average, up to ~$50K-$60K for the lowest-wealth families, are a separate Hamilton-Darity wealth-building proposal, not the core of this reparations plan.)",
+            "Economists William Darity Jr. (Duke) and A. Kirsten Mullen, in 'From Here to Equality' (2020), argue the total reparations sum should be whatever is needed to eliminate the Black-white wealth gap — an expenditure they put at a minimum of $10-12 trillion. The book's own calculation is $10.7 trillion, about $267,000 per person for 40 million eligible descendants; in a 2023 interview, using the 2019 Survey of Consumer Finances, they put it at about $14.3 trillion, or about $350,000 per person. They emphasize that the bulk should be direct payments to eligible recipients rather than in-kind programs. Eligibility rests on two criteria: documented descent from at least one person enslaved in the United States, and self-identification as Black on a legal document at least 12 years before the program or a study commission is created. (Wealth-scaled 'baby bonds' are a separate, race-neutral Hamilton-Darity wealth-building proposal, not the core of this reparations plan.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -206,10 +206,10 @@ export const reparationsSlaveryData = {
             directness: 8,
           },
           source:
-            "William A. Darity Jr. & A. Kirsten Mullen, 'From Here to Equality: Reparations for Black Americans in the Twenty-First Century' (UNC Press, 2020); summarized in Brookings",
+            "William A. Darity Jr. & A. Kirsten Mullen, 'From Here to Equality: Reparations for Black Americans in the Twenty-First Century' (UNC Press, 2020), summarized by the authors in Brookings (15 June 2020); per-person figure from the AAIHS Black Perspectives review (8 Oct 2020); 2023 figures and eligibility wording from their Institute for Research on Poverty interview (7 Dec 2023)",
           sourceUrl: "https://www.brookings.edu/articles/black-reparations-and-the-racial-wealth-gap/",
           reasoning:
-            "The most detailed and economically rigorous reparations proposal from leading scholars. Demonstrates feasibility but relies on political will and assumptions about implementation. Corrected to attribute the $20K-$60K baby-bond figures to the separate Hamilton-Darity proposal rather than to the From Here to Equality reparations sum.",
+            "The most detailed and economically rigorous reparations proposal from leading scholars. Demonstrates feasibility but relies on political will and assumptions about implementation. The authors' own total has risen with the measured wealth gap, from $10-12 trillion in 2020 to about $14.3 trillion in 2023. Baby bonds are the separate Hamilton-Darity proposal and are not part of the From Here to Equality reparations sum.",
         },
         {
           id: "hr-40-commission",
@@ -233,7 +233,7 @@ export const reparationsSlaveryData = {
           id: "implementation-cost-estimates",
           title: "Cost Estimates Range from $6 Trillion to $14 Trillion",
           description:
-            "Estimates of reparations costs vary enormously by methodology. Valuing unpaid slave labor (1776-1865) compounded at 3% interest, Thomas Craemer estimated $14.2 trillion in 2009 dollars (higher interest rates push his figures toward $16-18 trillion). Using the current wealth gap, Darity and Mullen put the figure at $10-12 trillion. For context, total US federal spending is on the order of $6 trillion annually and US GDP is roughly $27-28 trillion (2023).",
+            "Estimates of reparations costs vary enormously by methodology. Multiplying unpaid hours of slave labor by historical free-labor wages, Thomas Craemer estimated the present value of US slave labor at $5.9 to $14.2 trillion in 2009 dollars. Using the current wealth gap, Darity and Mullen put the figure at $10-12 trillion in 2020 and about $14.3 trillion in 2023. For context, federal outlays were $6.1 trillion in fiscal 2023 and about $7.0 trillion in fiscal 2025, and US GDP was $27.8 trillion in 2023 and about $30.9 trillion in 2025.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -242,16 +242,16 @@ export const reparationsSlaveryData = {
             directness: 8,
           },
           source:
-            "Thomas Craemer, 'Estimating Slavery Reparations,' Social Science Quarterly 96(2) (2015); Darity & Mullen for the wealth-gap-based figure",
+            "Thomas Craemer, 'Estimating Slavery Reparations: Present Value Comparisons of Historical Multigenerational Reparations Policies,' Social Science Quarterly 96(2), pp. 639-655 (2015); Darity & Mullen for the wealth-gap-based figures; outlays (OMB) and GDP (BEA) via FRED",
           sourceUrl: "https://onlinelibrary.wiley.com/doi/abs/10.1111/ssqu.12151",
           reasoning:
             "The scale of costs is a genuine practical obstacle. The wide range of estimates reflects methodological disagreement about what reparations should address. The '$2-4 trillion for modest programs' figure was removed as unsourced.",
         },
         {
           id: "baby-bonds-pilot-data",
-          title: "Baby Bonds Programs Show Promise in Pilot Studies",
+          title: "Baby Bonds: Connecticut Seeds $3,200 per Medicaid Birth; a Simulation Projects the Young-Adult Wealth Ratio Falling From 16:1 to 1.4:1",
           description:
-            "Baby bonds — government-funded trust accounts for children that grow over time — were proposed by economists Darrick Hamilton and William Darity as a race-neutral wealth-building tool that would disproportionately benefit Black families. Connecticut enacted the first state program in 2021 (funding/launch finalized, came online July 2023): the state seeds a trust with $3,200 for each baby born into families covered by HUSKY, its Medicaid program (i.e., born into poverty), projected to grow to roughly $11,000-$24,000 by adulthood. A widely cited simulation by Naomi Zewde estimates that means-tested baby bonds (averaging ~$20K, up to ~$50K-$60K for the lowest-wealth families) could shrink the median young-adult Black-white wealth ratio from about 16:1 to roughly 1.4:1.",
+            "Baby bonds — government-funded trust accounts for children that grow over time — were proposed by economists Darrick Hamilton and William Darity as a race-neutral wealth-building tool that would disproportionately benefit Black families. Connecticut runs what its Treasurer calls a first-in-the-nation program, covering children born on or after July 1, 2023: the state invests $3,200 for each baby whose birth is covered by HUSKY Health, its Medicaid program, expected to grow to between $11,000 and $24,000 depending on when the adult (aged 18-30) claims it. A simulation by Naomi Zewde on Panel Study of Income Dynamics data estimates that universal baby bonds, with values tied inversely to family wealth up to a $50,000 maximum, would cut the median young-adult white-to-Black wealth ratio from about 16:1 ($46,000 vs. $2,900) to 1.4:1 ($79,143 vs. $57,845), assuming no behavioral response.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -260,16 +260,16 @@ export const reparationsSlaveryData = {
             directness: 6,
           },
           source:
-            "Hamilton & Darity (baby bonds proposal); Connecticut Office of the Treasurer (CT Baby Bonds); Naomi Zewde simulation",
+            "Connecticut Office of the Treasurer, 'CT Baby Bonds: Overview'; Naomi Zewde, 'Universal Baby Bonds Reduce Black-White Wealth Inequality, Progressively Raise Net Worth of All Young Adults', Review of Black Political Economy 47(1), pp. 3-19 (2020); Hamilton & Darity, 'Can Baby Bonds Eliminate the Racial Wealth Gap in Putative Post-Racial America?', Review of Black Political Economy 37(3-4) (2010)",
           sourceUrl: "https://portal.ct.gov/ott/ct-baby-bonds/overview",
           reasoning:
-            "Promising mechanism with some real-world pilot data. Directness is limited because baby bonds are race-neutral by design (though they disproportionately benefit Black families) and the wealth-gap-closure figures are projections, not observed at scale. Corrected eligibility (Medicaid/HUSKY, not 'under $75K') and attributed the gap-closure estimate to Zewde's simulation.",
+            "A promising mechanism, but there is no outcome data yet: Connecticut's first cohort was born in 2023 and cannot claim funds before age 18, and a 2023 Urban Institute literature summary found no existing evaluations of the policy. Directness is limited because baby bonds are race-neutral by design (though they disproportionately benefit Black families) and the wealth-gap-closure figures are projections, not observed at scale. Corrected eligibility (Medicaid/HUSKY, not 'under $75K') and attributed the gap-closure estimate to Zewde's simulation.",
         },
         {
           id: "evanston-doj-equal-protection-suit",
-          title: "The First US Reparations Program, Evanston's $25,000 Housing Grants, Faces a Federal Equal-Protection Suit the Justice Department Joined in June 2026",
+          title: "The First US Reparations Program, Evanston's $25,000 Housing Grants, Faces a Federal Equal-Protection Suit the Justice Department Joined in October 2026",
           description:
-            "Evanston, Illinois adopted its Local Reparations Restorative Housing Program in 2019: $25,000 in cash or housing assistance for Black people who lived in the city as adults between 1919 and 1969 and their children, grandchildren or great-grandchildren. The Justice Department says the city has paid 'over $5 million' so far. A class action filed in May 2024 by Judicial Watch on behalf of non-Black residents' descendants (Flinn v. City of Evanston, N.D. Ill. No. 1:24-cv-04269) survived the city's motion to dismiss in March 2026. On 16 June 2026 the Civil Rights Division moved to intervene, arguing the program violates the Equal Protection Clause and the Fair Housing Act because race determines eligibility and recipients need not show past discrimination; Assistant Attorney General Harmeet Dhillon called it 'race discrimination, pure and simple.' As of that filing there was no ruling on the merits.",
+            "Evanston, Illinois adopted its Local Reparations Restorative Housing Program in 2019 (the City Council approved it in 2021): $25,000 in cash or housing assistance for Black people who lived in the city as adults between 1919 and 1969 and their children, grandchildren or great-grandchildren. The Justice Department says the city has paid 'over $5 million' so far. A class action brought in 2024 by Judicial Watch on behalf of non-Black residents' descendants (Flinn v. City of Evanston, N.D. Ill. No. 24-cv-4269) survived the city's motion to dismiss in March 2026. On 16 June 2026 the Civil Rights Division moved to intervene, arguing the program violates the Equal Protection Clause and the Fair Housing Act because race determines eligibility and recipients need not show past discrimination; Assistant Attorney General Harmeet Dhillon called it 'race discrimination, pure and simple.' Judge John F. Kness approved the motion, and the United States filed its complaint in intervention on 16 October 2026. No ruling on the merits had been reported as of 23 October 2026.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -278,11 +278,11 @@ export const reparationsSlaveryData = {
             directness: 6,
           },
           source:
-            "U.S. Department of Justice, Office of Public Affairs, 'U.S. Justice Department Moves to Intervene in Race Discrimination Lawsuit Challenging Reparations' (16 June 2026); Patch Evanston (18 June 2026)",
+            "U.S. Department of Justice, Office of Public Affairs, 'U.S. Justice Department Moves to Intervene in Race Discrimination Lawsuit Challenging Reparations Program in Evanston, Illinois' (16 June 2026); DOJ Civil Rights Division case page, Flinn & United States v. City of Evanston; Patch Evanston (18 June 2026); Chicago Sun-Times (23 Oct 2026)",
           sourceUrl:
             "https://www.justice.gov/opa/pr/us-justice-department-moves-intervene-race-discrimination-lawsuit-challenging-reparations",
           reasoning:
-            "Shows the legal exposure of a race-keyed design after the 2023 Students for Fair Admissions ruling, in the one program actually paying out. Independence is 4 because the source is a litigant, and the outcome is undecided, so this is a risk, not a holding. It bears less on Darity and Mullen's lineage-based federal design, which a court could treat differently from a city's race-based grant, and Evanston ties eligibility to a documented period of housing discrimination. Payment totals differ across reports (Patch gives 137 recipients and more than $3 million).",
+            "Shows the legal exposure of a race-keyed design after the 2023 Students for Fair Admissions ruling, in the one program actually paying out. Independence is 4 because the source is a litigant, and the outcome is undecided, so this is a risk, not a holding. It bears less on Darity and Mullen's lineage-based federal design, which a court could treat differently from a city's race-based grant, and Evanston ties eligibility to a documented period of housing discrimination. Payment totals differ across reports (Patch gives 137 recipients and more than $3 million; the Sun-Times, citing the DOJ, gives 141 'Ancestor' applicants paid and payments begun to 454 'Direct Descendants', more than $5 million in all).",
         },
         {
           id: "pew-2021-reparations-support",

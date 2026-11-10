@@ -12,7 +12,7 @@ export const tiktokBrainRotData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "PISA reading scores across OECD countries fell 10 points in 2022, about twice any earlier change between rounds, and COVID school closures account for a large share of the drop. The widely shared claim that attention spans have shrunk to 8 seconds, below a goldfish's, has no study behind it. Both sides accept those facts. The fight is over how much of the decline, if any, short-form video causes.",
+      "PISA reading scores across OECD countries fell 10 points in 2022, twice the previous record drop, and the OECD says the pandemic explains only part of it, since reading had been falling for a decade. The widely shared claim that attention spans have shrunk to 8 seconds, below a goldfish's, has no study behind it. Both sides accept those facts. The fight is over how much of the decline, if any, short-form video causes.",
     confidence: 84,
     source:
       "OECD, PISA 2022 Results (Volume I); Maybin, BBC News (2017), on the 8-second figure",
@@ -83,7 +83,7 @@ export const tiktokBrainRotData = {
             "Peer-reviewed, multi-platform analysis (Nat Commun 10:1759), but measures collective cultural attention dynamics rather than individual cognitive capacity directly.",
         },
         {
-          id: "xu-fmri-tiktok-users",
+          id: "su-fmri-short-video-control",
           title: "fMRI Shows Suppressed Prefrontal Control Activity During Short-Video Viewing",
           description:
             "Su et al. (2023), in an fMRI study of short-video viewing, found that watching preferred short videos deactivated cognitive-control regions — the dorsolateral prefrontal cortex (dlPFC), dorsal anterior cingulate cortex (dACC), anterior insula, and pre-supplementary motor area — while activating the amygdala, with stronger suppression in individuals lower in trait self-control. This suggests short-form content can downregulate the brain's self-control system during viewing.",
@@ -97,7 +97,7 @@ export const tiktokBrainRotData = {
           source: "Su, Teng, Zhou, Geng & Hu, medRxiv preprint (2023)",
           sourceUrl: "https://doi.org/10.1101/2023.10.30.23296738",
           reasoning:
-            "Neuroimaging evidence is suggestive but limited: this is a non-peer-reviewed preprint with a cross-sectional design, and it measures neural activity during viewing rather than a lasting deficit. It cannot establish whether short-form video causes reduced self-control or whether individuals with lower self-control gravitate toward such content. Earlier claims of a Nature (2023) study by 'Xu et al.' could not be verified and have been replaced with this real, correctly-attributed source.",
+            "Neuroimaging evidence is suggestive but limited: this is a non-peer-reviewed preprint with a final sample of 27 participants and a cross-sectional design, and it measures neural activity during viewing rather than a lasting deficit. It cannot establish whether short-form video causes reduced self-control or whether individuals with lower self-control gravitate toward such content. Earlier claims of a Nature (2023) study by 'Xu et al.' could not be verified and have been replaced with this real, correctly-attributed source.",
         },
         {
           id: "attention-context-dependent",
@@ -118,7 +118,7 @@ export const tiktokBrainRotData = {
         },
         {
           id: "goldfish-myth-debunked",
-          title: "The '8-Second Attention Span' Statistic Is Fabricated",
+          title: "The '8-Second Attention Span' Statistic Has No Study Behind It",
           description:
             "The widely cited claim that human attention spans dropped to 8 seconds (below a goldfish) appeared in a 2015 Microsoft Canada Consumer Insights report, but the figure was sourced to the website Statistic Brain rather than original research. BBC journalist Simon Maybin traced it back and found no credible study behind the number (and that goldfish are in fact used as a model for studying learning and memory).",
           side: "against" as const,
@@ -147,7 +147,7 @@ export const tiktokBrainRotData = {
       skeptic_premise:
         "The 'dopamine hijacking' narrative is reductive pop neuroscience. Dopamine is involved in virtually all motivated behavior — eating, exercising, learning, socializing. Saying TikTok 'hijacks dopamine' is like saying food hijacks dopamine. The comparison to slot machines ignores that short-form video provides genuine entertainment, education, and social connection. Most users spend 30-60 minutes per day and self-regulate fine. Problematic use patterns affect a minority, just as with any pleasurable activity. The 'addiction' framing pathologizes normal media consumption and borrows clinical language inappropriately — the DSM-5 does not recognize social media addiction as a disorder.",
       proponent_rebuttal:
-        "The concern isn't that dopamine is involved — it's that variable-ratio reinforcement schedules are specifically optimized to maximize compulsive engagement. Platforms A/B test every element of the user experience against engagement metrics, creating feedback loops that B.F. Skinner would recognize. Internal TikTok documents quoted in the October 2024 multistate attorneys-general lawsuits indicate the company tracked compulsive-use metrics and was aware its algorithm could hook users quickly and optimize for session duration — though these are adversarial litigation excerpts that TikTok disputes. On the neuroscience, an fMRI study by Su et al. (2021, NeuroImage) found that personalized, algorithmically recommended TikTok clips produced higher activation in the ventral tegmental area, a core dopaminergic reward hub, than generalized clips, with more problematic-use symptoms linked to lower self-control; notably, that study did not directly compare short video to a gambling task, so the popular 'just like a slot machine' framing remains an analogy rather than a measured equivalence. While most users self-regulate, the platforms are architecturally designed to make self-regulation harder — autoplay, removal of stopping cues, and personalized feeds eliminate natural 'break points.' And the fact that the DSM-5 hasn't added a diagnosis doesn't settle the question — gaming disorder was likewise long dismissed before being included in the WHO's ICD-11 (released 2018, formally adopted in 2019).",
+        "The concern isn't that dopamine is involved — it's that variable-ratio reinforcement schedules are specifically optimized to maximize compulsive engagement. Platforms A/B test every element of the user experience against engagement metrics, creating feedback loops that B.F. Skinner would recognize. Internal TikTok documents quoted in the October 2024 multistate attorneys-general lawsuits include, as NPR reported them, an internal study putting the point at which a user gets hooked at 260 videos and an executive calling the app's time-limit tools 'a good talking point' but 'not altogether effective' — though these are adversarial litigation excerpts that TikTok disputes. On the neuroscience, an fMRI study by Su et al. (2021, NeuroImage) found that personalized, algorithmically recommended TikTok clips produced higher activation in the ventral tegmental area, a core dopaminergic reward hub, than generalized clips, with more problematic-use symptoms linked to lower self-control; notably, that study did not directly compare short video to a gambling task, so the popular 'just like a slot machine' framing remains an analogy rather than a measured equivalence. While most users self-regulate, the platforms are architecturally designed to make self-regulation harder — autoplay, removal of stopping cues, and personalized feeds eliminate natural 'break points.' And the fact that the DSM-5 hasn't added a diagnosis doesn't settle the question — gaming disorder was likewise long dismissed before being included in the WHO's ICD-11 (released 2018, formally adopted in 2019).",
       crux: {
         id: "variable-reward-compulsion-test",
         title: "The Variable Reward Compulsion Test",
@@ -167,9 +167,9 @@ export const tiktokBrainRotData = {
           supporter_flip:
             "If participants randomly assigned to an algorithmic infinite-scroll feed showed no more loss of control, craving or striatal activation than those given the same content in chronological order without autoplay, the claim that feed design itself drives compulsive use would weaken.",
           skeptic_flip:
-            "If replications of Su et al. (2021) found personalized clips activating reward circuitry more than generic ones, and the disputed TikTok documents in the 2024 attorneys-general suits were confirmed to track compulsive use, 'dopamine hijacking' would look like more than pop neuroscience.",
+            "If replications of Su et al. (2021) found personalized clips activating reward circuitry more than generic ones, and the disputed TikTok documents in the 2024 attorneys-general suits were confirmed to show the company knew how quickly users get hooked, 'dopamine hijacking' would look like more than pop neuroscience.",
           common_ground:
-            "Both sides agree most users self-regulate — Su et al. estimated roughly 5.9% of TikTok users show significant problematic use — and that the slot-machine comparison is an analogy, not a measured equivalence.",
+            "Both sides agree most users self-regulate — Su et al. estimated that about 5.9% of TikTok users may have significant problematic use — and that the slot-machine comparison is an analogy, not a measured equivalence.",
           live_disagreement:
             "Whether variable rewards, autoplay and missing stopping cues make short-form feeds compulsive in a way ordinary entertainment is not, or whether 'addiction' pathologizes normal media use by a majority who manage fine.",
         },
@@ -177,9 +177,9 @@ export const tiktokBrainRotData = {
       evidence: [
         {
           id: "variable-ratio-reinforcement",
-          title: "Algorithmic Feeds Use Variable-Ratio Reinforcement",
+          title: "Social Media Behavior Follows Reward-Learning Rules in a Study of a Million Posts",
           description:
-            "Short-form video algorithms deliver unpredictable reward — some videos are highly engaging, others are not — creating variable-ratio reinforcement schedules known to produce the most persistent behavioral patterns in operant conditioning research.",
+            "Lindström et al. (2021) fitted reinforcement-learning models to over one million posts from more than 4,000 people on several social media platforms and found that behavior 'conforms qualitatively and quantitatively to the principles of reward learning': users spaced their posts to maximize the average rate of likes they received. An online experiment (n = 176) that mimicked key features of social media confirmed that social rewards causally shaped behavior. The study tests posting for likes, not watching an algorithmic video feed, and it does not test variable-ratio schedules as such.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -188,15 +188,16 @@ export const tiktokBrainRotData = {
             directness: 5,
           },
           source:
-            "Synthesis / inference — variable-ratio reinforcement theory applied to algorithmic feeds",
+            "Lindström et al., 'A computational reward learning account of social media engagement', Nature Communications 12:1311 (2021)",
+          sourceUrl: "https://www.nature.com/articles/s41467-020-19607-x",
           reasoning:
-            "Variable-ratio reinforcement is well-established in behavioral psychology, and applying it to algorithmic feeds is logically sound — but this is a conceptual/mechanistic argument, not a measured finding from a specific short-video study. A previously listed 'Montag et al., Addictive Behaviors (2022)' citation for this item could not be verified and was removed; no specific empirical source is asserted here.",
+            "Peer-reviewed evidence that the 'Skinner box' picture of social media has measurable support: what people do on these platforms tracks the rewards they get. It is weighted low on directness because it measures posting, not viewing, and does not compare an algorithmic feed with a chronological one. The step from reward learning to variable-ratio schedules in short-video feeds remains an inference.",
         },
         {
           id: "tiktok-internal-documents",
-          title: "Internal Documents Show Platforms Optimize for Compulsive Use",
+          title: "Internal TikTok Documents Quoted in State Lawsuits Describe How Quickly Users Get Hooked",
           description:
-            "Internal TikTok documents quoted in the October 2024 multistate attorneys-general lawsuits (14 states plus DC) — portions of which became public when redactions in Kentucky's complaint were penetrated and reported by NPR — indicate the company tracked metrics related to compulsive use and 'filter bubbles' and was aware its algorithm could hook users quickly. Plaintiffs allege the platform optimized for session duration over user well-being.",
+            "Thirteen states and the District of Columbia sued TikTok in October 2024, quoting internal company documents. The quotes were redacted, but Kentucky Public Radio recovered the text under the redactions in Kentucky's complaint and NPR reported it. According to that reporting, an internal study found that 260 videos are all it takes for a user to get hooked; the complaint quotes one executive calling the app's time-limit tools 'a good talking point' but 'not altogether effective', and an executive saying the app could take the place of 'sleep and eating and moving around the room and looking at someone in the eyes.' A TikTok spokesperson told NPR the complaint cherry-picked misleading quotes from outdated documents taken out of context.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -205,14 +206,14 @@ export const tiktokBrainRotData = {
             directness: 8,
           },
           source:
-            "Multistate AG lawsuits v. TikTok (Oct 2024); internal documents reported by NPR",
+            "NPR, All Things Considered, 'The biggest findings from uncensored TikTok lawsuit documents' (Kerr & Goodman, 11 October 2024), on the multistate attorneys-general lawsuits against TikTok",
           sourceUrl:
             "https://www.npr.org/2024/10/11/nx-s1-5150088/the-biggest-findings-from-uncensored-tiktok-lawsuit-documents",
           reasoning:
             "Direct evidence of internal awareness, but the quotes are adversarial litigation excerpts (selectively disclosed by plaintiffs, some via a redaction error) and TikTok disputes the characterizations; they may not represent the full internal context. The earlier 'State of Utah v. TikTok (2023)' attribution was corrected — the widely-reported un-redacted document trove came from the Oct 2024 multistate coalition.",
         },
         {
-          id: "striatal-activation-gambling",
+          id: "personalized-video-reward-activation",
           title: "Personalized Short-Form Video Engages Reward/Dopamine Circuitry",
           description:
             "An fMRI study by Su et al. (2021) found that viewing personalized, algorithmically recommended TikTok clips (vs. generalized clips) produced higher activation in the ventral tegmental area (VTA) — a core dopaminergic reward hub — and the default mode network, and that more problematic-use symptoms were associated with lower self-control. This links personalized short-form content to engagement of reward circuitry, though the study did not directly compare it to gambling tasks.",
@@ -233,7 +234,7 @@ export const tiktokBrainRotData = {
           id: "most-users-self-regulate",
           title: "Majority of Users Self-Regulate Without Pathological Consequences",
           description:
-            "Most short-form video users do not meet clinical thresholds for addiction. Validated estimates of problematic short-video use are modest — e.g., Su et al. (2021) estimated roughly 5.9% of TikTok users show significant problematic use — implying the large majority use the platform without pathological loss of control, even though average daily time on TikTok is substantial (industry trackers put it near an hour per day).",
+            "Most short-form video users do not meet thresholds for problematic use. From the questionnaire part of their study of young adults, Su et al. (2021) estimated that about 5.9% of TikTok users 'may have significant problematic use', which implies the large majority use the platform without pathological loss of control. The figure comes from self-reported symptoms, not clinical diagnosis.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -274,12 +275,12 @@ export const tiktokBrainRotData = {
       id: "educational-outcomes",
       title: "Educational Outcomes",
       short_summary:
-        "International standardized test scores in reading and math have declined in many countries since 2012, coinciding with smartphone and social media adoption among youth. Several studies link heavy short-form video consumption to worse academic performance. However, establishing causation is difficult — the same period saw COVID disruptions, rising inequality, and many other confounding factors.",
+        "International standardized test scores in reading and science have declined in many countries since 2012, and math fell sharply in 2022, coinciding with smartphone and social media adoption among youth. Several studies link heavy short-form video consumption to worse academic performance. However, establishing causation is difficult — the same period saw COVID disruptions, rising inequality, and many other confounding factors.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Declining test scores are real but attributing them to TikTok is a classic post hoc fallacy. PISA reading and math scores began trending down around 2012 — years before TikTok existed (Douyin launched in China in September 2016, TikTok launched internationally in September 2017, and it only reached mass Western scale after the musical.ly merger in August 2018). The sharpest drops occurred during and after COVID-19, when school closures, social isolation, and economic stress disrupted learning worldwide. Countries with the heaviest TikTok usage (like the US) don't consistently show the worst declines — many factors including educational policy, inequality, and pandemic response explain far more variance. Furthermore, studies showing negative associations between social media use and grades suffer from self-selection: students already struggling academically may turn to short-form video as a coping mechanism rather than it causing their poor performance.",
+        "Declining test scores are real but attributing them to TikTok is a classic post hoc fallacy. PISA reading and science scores began trending down around 2012 — years before TikTok existed (Douyin launched in China in September 2016, TikTok launched internationally in September 2017, and it only reached mass Western scale after the musical.ly merger in August 2018). The sharpest drops occurred during and after COVID-19, when school closures, social isolation, and economic stress disrupted learning worldwide. Countries with the heaviest TikTok usage (like the US) don't consistently show the worst declines — many factors including educational policy, inequality, and pandemic response explain far more variance. Furthermore, studies showing negative associations between social media use and grades suffer from self-selection: students already struggling academically may turn to short-form video as a coping mechanism rather than it causing their poor performance.",
       proponent_rebuttal:
-        "While no serious researcher attributes all academic decline to TikTok specifically, the convergent evidence is at least suggestive. A meta-analysis by Marker, Gnambs & Appel (2018, Educational Psychology Review), pooling 59 independent samples (N = 29,337), found a small but reliable negative association between general social-networking-site use and academic achievement (r ≈ -0.07, 95% CI [-0.12, -0.02]); the association was stronger for media-multitasking while studying (r ≈ -0.10) and actually reversed to positive when social media was used for academic purposes. Two caveats matter for honesty: the overall effect is small, most of the underlying studies are cross-sectional, and the meta-analysis concerns general social media rather than short-form video specifically. Cross-sectional work attempting causal identification points the same direction — Baert et al. (2020, Kyklos), using instrumental-variable estimation on 696 first-year Belgian university students, estimated that a one-standard-deviation increase in overall smartphone use was associated with roughly a one-point drop (out of 20) in exam scores, though this is an observational design with an instrument rather than a true natural experiment. On the policy side, China restricted users under 14 on Douyin (Chinese TikTok) to 40 minutes per day in September 2021 amid official concern about minors' attention and study habits, but no underlying dose-response data on homework or reading comprehension has been independently published, so that policy should be read as a regulatory judgment, not verified evidence. The most robust data point is PISA 2022: reading fell about 10 points across OECD countries versus 2018 — roughly twice the size of any previous between-cycle change — and crucially the OECD notes scores in reading and science were already declining before the pandemic, so the COVID confound, while real, does not fully explain a trend that predates 2020 and has not recovered.",
+        "While no serious researcher attributes all academic decline to TikTok specifically, the convergent evidence is at least suggestive. A meta-analysis by Marker, Gnambs & Appel (2018, Educational Psychology Review), pooling 59 independent samples (N = 29,337), found a small but reliable negative association between general social-networking-site use and academic achievement (r ≈ -0.07, 95% CI [-0.12, -0.02]); the association was stronger for media-multitasking while studying (r ≈ -0.10) and actually reversed to positive when social media was used for academic purposes. Two caveats matter for honesty: the overall effect is small, most of the underlying studies are cross-sectional, and the meta-analysis concerns general social media rather than short-form video specifically. Cross-sectional work attempting causal identification points the same direction — Baert et al. (2020, Kyklos), using instrumental-variable estimation on 696 first-year Belgian university students, estimated that a one-standard-deviation increase in overall smartphone use was associated with roughly a one-point drop (out of 20) in exam scores, though this is an observational design with an instrument rather than a true natural experiment. On the policy side, ByteDance limited real-name users under 14 on Douyin (Chinese TikTok) to 40 minutes per day in September 2021, under regulatory pressure to curb minors' time online, but no underlying dose-response data on homework or reading comprehension has been published, so that policy should be read as a precautionary judgment, not verified evidence. The most robust data point is PISA 2022: reading fell 10 points across OECD countries versus 2018 — twice the previous record drop — and crucially the OECD notes scores in reading and science were already declining before the pandemic, so the COVID confound, while real, does not fully explain a trend that predates 2020 and has not recovered.",
       crux: {
         id: "natural-experiment-restriction",
         title: "The Natural Experiment Restriction Test",
@@ -301,7 +302,7 @@ export const tiktokBrainRotData = {
           skeptic_flip:
             "If reading scores kept falling in places with little COVID disruption, extending the pre-pandemic decline the OECD notes behind PISA 2022's roughly 10-point drop, COVID alone would no longer explain the academic slide.",
           common_ground:
-            "Both sides agree PISA reading fell about 10 points in 2022, that COVID disruption explains a large share, and that the social-media link to grades (r ≈ -0.07) is small and mostly cross-sectional.",
+            "Both sides agree PISA reading fell about 10 points in 2022, that COVID disruption explains part of it, and that the social-media link to grades (r ≈ -0.07) is small and mostly cross-sectional.",
           live_disagreement:
             "Whether short-form video contributes to a decline that began before TikTok and deepened with COVID, or is a coping outlet for students already struggling — which restriction natural experiments could test.",
         },
@@ -311,7 +312,7 @@ export const tiktokBrainRotData = {
           id: "pisa-reading-decline",
           title: "Largest-Ever Drop in PISA Reading Scores (2022)",
           description:
-            "PISA 2022 recorded an unprecedented decline in reading across OECD countries — mean reading fell 10 points versus 2018, roughly twice any previous between-cycle change. The OECD attributes the drop primarily to COVID-19 disruption layered on a pre-pandemic downward trend, and notes the decline is only partly attributable to the pandemic. PISA does not isolate short-form video as a cause.",
+            "PISA 2022 recorded an unprecedented decline in reading across OECD countries: mean reading fell 10 points versus 2018, twice the previous record. The OECD says the decline is only partly attributable to the pandemic, because reading and science scores had already been falling for a decade. PISA does not isolate short-form video as a cause.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -323,10 +324,10 @@ export const tiktokBrainRotData = {
           sourceUrl:
             "https://www.oecd.org/en/publications/pisa-2022-results-volume-i_53f23881-en.html",
           reasoning:
-            "High-quality international data on a real, unprecedented reading decline, but PISA does not attribute it to social media or short-form video specifically, and COVID disruption plus pre-existing trends are the dominant explanations. The original claim that 'heavy social media users showed significantly steeper declines' was not substantiated in the PISA report and was removed; directness lowered accordingly.",
+            "High-quality international data on a real, unprecedented reading decline, but PISA does not attribute it to social media or short-form video specifically, and the OECD points to the pandemic plus a pre-existing downward trend. The original claim that 'heavy social media users showed significantly steeper declines' was not substantiated in the PISA report and was removed; directness lowered accordingly.",
         },
         {
-          id: "hancock-meta-analysis",
+          id: "marker-meta-analysis",
           title: "Meta-Analysis Shows a Small Negative Association",
           description:
             "A meta-analysis by Marker, Gnambs & Appel (2018) of 59 independent samples (N = 29,337) found only a small negative association between general social-networking-site use and academic achievement (r = -0.07, 95% CI [-0.12, -0.02]). The association was stronger for media multitasking while studying, and reversed (positive) when social media was used for academic purposes — indicating the effect depends heavily on how the platform is used.",
@@ -345,9 +346,9 @@ export const tiktokBrainRotData = {
         },
         {
           id: "china-douyin-restrictions",
-          title: "China's Douyin Restrictions Based on Internal Dose-Response Data",
+          title: "Douyin Caps Under-14s at 40 Minutes a Day, With No Published Evidence Behind the Limit",
           description:
-            "In September 2021 Douyin (China's TikTok) restricted users under 14 to 40 minutes per day and blocked overnight access, as part of China's broader push against youth internet addiction following its revised Minor Protection Law. Chinese regulators and ByteDance framed this around concerns about minors' attention and study habits, though any underlying dose-response data on homework or reading comprehension has not been independently published.",
+            "In September 2021 ByteDance introduced a 'teenage mode' on Douyin, China's version of TikTok, that limits users under 14 who registered with their real names to 40 minutes a day and blocks the app between 10 p.m. and 6 a.m. The move followed China's June 2021 revision of its Minor Protection Law, which requires apps to offer time-management and content limits for minors; Citigroup analysts called it a 'proactive measure' to get ahead of regulation. No data on how the cap affects homework, reading or attention has been published, so it shows a company and its regulator judging the risk worth acting on, not a measured effect.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -355,16 +356,16 @@ export const tiktokBrainRotData = {
             replicability: 4,
             directness: 5,
           },
-          source: "ByteDance/Douyin under-14 time limit, Sept 2021 (CNN reporting)",
+          source: "CNN Business, 'The Chinese version of TikTok is limiting kids to 40 minutes a day' (20 September 2021)",
           sourceUrl: "https://www.cnn.com/2021/09/20/tech/china-tiktok-douyin-usage-limit-intl-hnk",
           reasoning:
-            "The policy itself (40-minute under-14 limit) is well-documented, but the specific 'internal dose-response research showing effects on homework and reading comprehension' is not publicly verifiable, and China's regulatory decisions are opaque and politically motivated. The earlier wording asserting that the limit 'cited internal research' on dose-dependent effects was softened to avoid implying a verified empirical basis; directness lowered.",
+            "The policy itself (a 40-minute limit for under-14s) is well documented, but CNN reports no research basis for the figure, and the company acted under regulatory pressure. It is evidence that a precautionary restriction exists, which is why independence and directness are low. Whether the restriction improved any outcome is what this crux asks, and it has not been measured.",
         },
         {
           id: "covid-confound",
-          title: "COVID-19 Disruption Explains Most Academic Decline",
+          title: "COVID-Era Learning Deficits Were Substantial and Persistent in a 42-Study Meta-Analysis",
           description:
-            "The sharpest academic declines coincide with COVID-19 school closures (2020-2022), which caused an estimated 1-2 years of learning loss. Countries with longer school closures showed proportionally larger declines regardless of social media penetration.",
+            "A pre-registered meta-analysis of 42 studies across 15 countries found a substantial overall learning deficit during the pandemic (Cohen's d = −0.14, 95% CI −0.17 to −0.10), about 35% of a school year's worth of learning, which 'arose early in the pandemic and persists over time.' Deficits were larger in maths than in reading and particularly large among children from low socio-economic backgrounds. The pandemic is therefore a real competing explanation for recent score declines. It is not the whole one: the OECD found no clear difference in PISA trends between systems with limited and longer school closures and calls the 2022 decline only partly attributable to COVID-19.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -373,11 +374,10 @@ export const tiktokBrainRotData = {
             directness: 7,
           },
           source:
-            "OECD PISA 2022 press release; World Bank/UNESCO/UNICEF COVID learning-loss estimates",
-          sourceUrl:
-            "https://www.oecd.org/en/about/news/press-releases/2023/12/decline-in-educational-performance-only-partly-attributable-to-the-covid-19-pandemic.html",
+            "Betthäuser, Bach-Mortensen & Engzell, 'A systematic review and meta-analysis of the evidence on learning during the COVID-19 pandemic', Nature Human Behaviour 7:375-385 (2023); OECD press release on PISA 2022, 'Decline in educational performance only partly attributable to the COVID-19 pandemic'",
+          sourceUrl: "https://www.nature.com/articles/s41562-022-01506-4",
           reasoning:
-            "Strong, well-documented evidence that COVID school closures drove large learning losses and are a dominant confound in recent academic data. Note the OECD itself states the PISA decline is 'only partly attributable' to the pandemic, since scores in reading and science were already falling beforehand — so pre-pandemic trends and post-reopening non-recovery point to additional factors.",
+            "A peer-reviewed, pre-registered synthesis showing the pandemic set learning back, which makes COVID a confound in any before-and-after comparison of test scores. It does not show that COVID explains most of the decline: the OECD's release says the PISA drop can only partially be attributed to the pandemic, reports no clear difference in trends by length of school closure, and notes that falling scores were already apparent before 2018.",
         },
       ],
     },
@@ -395,7 +395,7 @@ export const tiktokBrainRotData = {
     },
     {
       title:
-        "Active on Facebook and Failing at School? Meta-Analytic Findings on Online Social Networking and Academic Achievement -- Marker, Gnambs & Appel, Educational Psychology Review (2018)",
+        "Active on Facebook and Failing at School? Meta-Analytic Findings on the Relationship Between Online Social Networking Activities and Academic Achievement -- Marker, Gnambs & Appel, Educational Psychology Review (2018)",
       url: "https://doi.org/10.1007/s10648-017-9430-6",
     },
     {

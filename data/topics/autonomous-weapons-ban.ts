@@ -108,7 +108,7 @@ export const autonomousWeaponsBanData = {
           id: "us-ihl-sufficient",
           title: "US Holds Existing IHL Is Sufficient — Regulate, Don't Ban",
           description:
-            "Long-standing US policy is that existing international humanitarian law already governs autonomous weapons and that no new treaty is needed. DoD Directive 3000.09 (2012, updated Jan 2023) permits such systems provided they allow commanders to exercise 'appropriate levels of human judgment over the use of force,' assigning accountability to identifiable humans.",
+            "The Congressional Research Service reports that the US delegation to the CCW 'has consistently opposed any preemptive ban on LAWS, arguing that LAWS could potentially provide a humanitarian benefit and that existing IHL is sufficient to govern the development and use of LAWS.' DoD Directive 3000.09 (November 2012, updated January 2023) does not prohibit such systems; it requires that they be designed to 'allow commanders and operators to exercise appropriate levels of human judgment over the use of force,' keeping accountability with identifiable humans.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -117,7 +117,7 @@ export const autonomousWeaponsBanData = {
             directness: 8,
           },
           source:
-            "Congressional Research Service, 'Defense Primer: U.S. Policy on Lethal Autonomous Weapon Systems' (IF11150); DoD Directive 3000.09 (2023)",
+            "Congressional Research Service, 'Defense Primer: U.S. Policy on Lethal Autonomous Weapon Systems' (IF11150) and 'International Discussions Concerning Lethal Autonomous Weapon Systems' (IF11294); DoD Directive 3000.09 (2023)",
           sourceUrl:
             "https://www.congress.gov/crs-product/IF11150",
           reasoning:
@@ -167,7 +167,7 @@ export const autonomousWeaponsBanData = {
           id: "unga-vote-2024",
           title: "166-3 UN General Assembly Vote Backs Action",
           description:
-            "On 2 December 2024 the UN General Assembly adopted resolution 79/62 on lethal autonomous weapons systems by 166 votes in favour, 3 against (Belarus, North Korea, Russia), and 15 abstentions — establishing a new UN forum and reflecting that 120+ states support negotiating prohibitions and regulations.",
+            "On 2 December 2024 the UN General Assembly adopted resolution 79/62 on lethal autonomous weapons systems by 166 votes in favour, 3 against (Belarus, North Korea, Russia), and 15 abstentions (among them China, India and Israel). The resolution set up open informal consultations in New York in 2025 rather than treaty talks. Human Rights Watch reported in May 2025 that more than 120 countries support calls to negotiate a treaty that prohibits and regulates autonomous weapons systems.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -176,7 +176,7 @@ export const autonomousWeaponsBanData = {
             directness: 7,
           },
           source:
-            "UN General Assembly Resolution 79/62 (Dec 2024); Human Rights Watch reporting on the vote",
+            "UN General Assembly Resolution 79/62 (Dec 2024); Human Rights Watch, 'Killer Robots: UN Vote Should Spur Treaty Negotiations' (5 Dec 2024) and 'UN: Start Talks on Treaty to Ban Killer Robots' (21 May 2025)",
           sourceUrl:
             "https://www.hrw.org/news/2024/12/05/killer-robots-un-vote-should-spur-treaty-negotiations",
           reasoning:
@@ -186,7 +186,7 @@ export const autonomousWeaponsBanData = {
           id: "ccw-consensus-stall",
           title: "CCW Consensus Process Has Produced No Binding Rules in a Decade",
           description:
-            "The Convention on Conventional Weapons Group of Governmental Experts has discussed autonomous weapons since 2014 but, bound by a consensus rule, has produced no legally binding instrument — with Russia and a few others using procedural tactics to block streaming and substantive outcomes. Proponents argue this proves a stand-alone treaty is the only viable route.",
+            "States have discussed autonomous weapons under the Convention on Certain Conventional Weapons since 2014, and in a Group of Governmental Experts that has met regularly since 2017, without producing a legally binding instrument. Alexander Kmentt, Austria's disarmament director, writes that consensus-based decision-making 'allows individual states to block progress', that Russia 'has employed procedural tactics to delay discussions and reject progressive proposals or expressions of urgency in the group reports', and that the group is left 'in a cycle of substantive annual discussions without substantive outcomes.' Proponents argue this shows a treaty negotiated outside the CCW is the only viable route.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -195,17 +195,17 @@ export const autonomousWeaponsBanData = {
             directness: 6,
           },
           source:
-            "Arms Control Association, 'Geopolitics and the Regulation of Autonomous Weapons Systems' (Jan 2025); UNODA CCW GGE meeting records",
+            "Kmentt, A., 'Geopolitics and the Regulation of Autonomous Weapons Systems', Arms Control Today (Jan/Feb 2025); Congressional Research Service IF11150 for the 2014 start of CCW discussions",
           sourceUrl:
             "https://www.armscontrol.org/act/2025-01/features/geopolitics-and-regulation-autonomous-weapons-systems",
           reasoning:
-            "Well-documented account of the consensus deadlock, corroborated by public UN meeting records. It supports the 'treaty is needed' case but is partly an advocacy-leaning analysis, and the deadlock is also cited by opponents as evidence states disagree on substance — so independence and directness are moderate.",
+            "Well-documented account of the consensus deadlock. It supports the 'treaty is needed' case, but the author is the Austrian diplomat leading the push for a treaty, writing in his own name, and the deadlock is also cited by opponents as evidence states disagree on substance — so independence and directness are moderate.",
         },
         {
           id: "verification-problem",
           title: "Autonomy Is Software — A Ban May Be Unverifiable",
           description:
-            "Lamberth and Scharre (Texas National Security Review, 2023) argue that AI/autonomy is a cognitive property of software: a 'smart' weapon can look identical to a 'dumb' one, and the governing algorithm is not externally observable. Because mutual restraint depends on verifying others' compliance, this makes any ban on autonomous targeting exceptionally hard to verify and enforce.",
+            "Lamberth and Scharre (Texas National Security Review, 2023) write that 'AI complicates verification because — similar to other forms of software — an AI system's cognitive attributes are not easily externally observable. A \"smart\" weapon might look a lot like a \"dumb\" weapon of the same kind.' Because mutual restraint relies on each state verifying the other's compliance, a ban defined by a weapon's autonomy is hard to verify. The authors do not call a ban impossible: verification, 'while challenging for any software-based military capability, could be achieved' through intrusive inspections or limits on observable physical characteristics.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -218,13 +218,13 @@ export const autonomousWeaponsBanData = {
           sourceUrl:
             "https://tnsr.org/2023/05/arms-control-for-artificial-intelligence/",
           reasoning:
-            "Peer-reviewed national-security analysis by recognized arms-control experts that directly identifies the core verification obstacle to any AI/autonomy ban. The claim is an analytic argument, not a reproducible measurement, so replicability is moderate.",
+            "Analysis by recognized arms-control experts, published in the journal's Strategist section, that directly identifies the core verification obstacle to any AI/autonomy ban. The claim is an analytic argument, not a reproducible measurement, so replicability is moderate. The same article proposes ways around the obstacle, so it supports 'hard to verify', not 'cannot be done'.",
         },
         {
           id: "russia-precision-argument",
           title: "Major Powers: Autonomy Could Improve Precision; No Preemptive-Ban Precedent",
           description:
-            "Russia (and, in milder form, other developers) argues to the CCW that autonomous systems could increase the accuracy of strikes on military targets and lower unintended harm to civilians, and that there is no legal precedent for preemptively banning an entire class of weapon before its effects are known — rejecting calls for a new treaty or a development moratorium.",
+            "The Congressional Research Service reports that Russia's delegation to the CCW has opposed a preemptive ban, 'noting that LAWS could \"ensure the increased accuracy of weapon guidance on military targets, while contributing to lower rate of unintentional strikes against civilians and civilian targets.\"' Russia 'has also argued there is no proper legal precedent for a preemptive international ban on an entire class of weapons.' The US delegation makes a milder version of the first point, arguing that such weapons 'could potentially provide a humanitarian benefit.'",
           side: "against" as const,
           weight: {
             sourceReliability: 7,

@@ -65,9 +65,9 @@ export const obesityPersonalResponsibilityData = {
         {
           id: "food-desert-disparities",
           title:
-            "23.5 Million Americans Live in Food Deserts with Limited Healthy Options",
+            "23.5 Million Live in Low-Income Areas Far From a Supermarket, but Price Predicted Obesity Better Than Distance",
           description:
-            "A widely-cited 2009 USDA report to Congress estimated that about 23.5 million Americans live in low-income areas more than one mile (urban) or ten miles (rural) from a supermarket — so-called 'food deserts.' Whether limited supermarket access itself causes obesity is contested. A study of 1,372 households in two low-income Pittsburgh neighborhoods without a supermarket (Ghosh-Dastidar et al., American Journal of Preventive Medicine, 2014) found distance to store and food prices each associated with obesity, but when modeled together only prices remained significant, with higher prices at the stores where people shopped predicting a lower likelihood of obesity; low- and high-price stores differed in how they displayed and marketed junk food relative to healthy food. The authors concluded that placing supermarkets in food deserts 'may not be as important as' better relative prices for healthy food and active marketing of it, suggesting the systemic lever is affordability and marketing rather than physical distance alone.",
+            "A widely cited 2009 USDA report to Congress estimated that 23.5 million people live in low-income areas more than one mile from a supermarket or large grocery store, the areas often called 'food deserts'; 11.5 million of them are themselves low-income. Whether limited supermarket access itself causes obesity is contested. A study of 1,372 households in two low-income Pittsburgh neighborhoods without a supermarket (Ghosh-Dastidar et al., American Journal of Preventive Medicine, 2014) found distance to store and food prices each associated with obesity, but when modeled together only prices remained significant, with higher prices at the stores where people shopped predicting a lower likelihood of obesity; low- and high-price stores differed in how they displayed and marketed junk food relative to healthy food. The authors concluded that placing supermarkets in food deserts 'may not be as important as' better relative prices for healthy food and active marketing of it, suggesting the systemic lever is affordability and marketing rather than physical distance alone.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -80,14 +80,14 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://doi.org/10.1016/j.amepre.2014.07.005",
           reasoning:
-            "The 23.5M food-desert figure is a real, publicly documented USDA estimate. However, directness is LOW: the cited primary AJPM study actually found that supermarket distance was not significant after controlling for prices, so it does not establish that food-desert access causally drives obesity. The earlier draft overstated this item by asserting a '25-50% higher obesity rate even after controlling for income' that the source does not support; that fabricated figure has been removed and the claim re-scoped to what the literature shows. Food access is confounded with poverty, marketing, and price, making causal attribution weak.",
+            "The 23.5M figure is a real, publicly documented USDA estimate; the report measures it with a single one-mile threshold and notes that fewer than half of those people have low incomes themselves. However, directness is LOW: the cited primary AJPM study actually found that supermarket distance was not significant after controlling for prices, so it does not establish that food-desert access causally drives obesity. The earlier draft overstated this item by asserting a '25-50% higher obesity rate even after controlling for income' that the source does not support; that fabricated figure has been removed and the claim re-scoped to what the literature shows. Food access is confounded with poverty, marketing, and price, making causal attribution weak.",
         },
         {
           id: "chile-junk-food-regulations",
           title:
             "Chile's Junk Food Regulations Reduced Sugary Drink Purchases by 24%",
           description:
-            "Chile implemented comprehensive food labeling laws (2016) requiring black warning labels on foods high in sugar, sodium, fat, or calories, along with bans on marketing unhealthy foods to children and removing them from schools. A before-and-after study in PLOS Medicine (Taillie et al. 2020) found the purchased volume of 'high-in' sugar-sweetened beverages fell 23.7% in the post-implementation period (comparing 2015 to 2017), one of the largest beverage-purchase changes attributed to a labeling and marketing policy. The policy's effect on population obesity rates was not yet established in this study and remains under longer-term evaluation.",
+            "Chile implemented comprehensive food labeling laws (2016) requiring black warning labels on foods and drinks high in sugar, sodium, saturated fat, or calories, along with restrictions on marketing them to children and a ban on selling them in schools. A before-and-after study of 2,383 urban households in PLOS Medicine (Taillie et al. 2020) found the purchased volume of 'high-in' beverages in July 2016 to December 2017 was 23.7% (22.8 mL per person per day) below a counterfactual projected from the January 2015 to June 2016 trend. Purchases of drinks below the thresholds rose, so calories from all beverage purchases fell 7.5%. The authors write that the reductions were larger than those observed from single, standalone policies, including sugary drink taxes in Latin America, and that the observational design cannot establish causality or separate labels from the marketing and school rules. The study did not measure weight or obesity.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -99,14 +99,14 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://doi.org/10.1371/journal.pmed.1003015",
           reasoning:
-            "Published in a respected journal with a strong before-and-after design leveraging a national policy change; the ~24% reduction in sugary-drink purchases is well-documented. Directness reduced slightly from the prior draft because the study measures purchasing behavior, not obesity outcomes directly, and the earlier claim of a 'measurable reduction in childhood obesity rates' was not supported by this source and has been removed. Replicability is moderate because Chile's results may not generalize to other cultural contexts.",
+            "Published in a respected journal with a before-and-after design leveraging a national policy change and a counterfactual built from the pre-regulation trend; the ~24% reduction in purchases of high-in drinks is the paper's headline estimate. Directness reduced slightly from the prior draft because the study measures purchasing behavior, not obesity outcomes directly, and the earlier claim of a 'measurable reduction in childhood obesity rates' was not supported by this source and has been removed. Replicability is moderate because Chile's results may not generalize to other cultural contexts.",
         },
         {
           id: "personal-agency-cross-cultural",
           title:
             "Countries with Similar Food Industries Have Very Different Obesity Rates",
           description:
-            "Japan (adult obesity ~3-4%) and South Korea (~6%) have access to many of the same global food corporations and ultra-processed products as the US (~42%) yet report dramatically lower obesity rates (World Obesity Federation / OECD data). Some critics of the systemic argument cite cultural factors — smaller portions, walking-oriented infrastructure, social norms, school lunch programs emphasizing whole foods. However, these cross-country gaps cannot cleanly isolate 'individual choice': measurement differs (East-Asian BMI thresholds and self-report vs. measured-height methods differ across countries), and Japan/Korea's outcomes are themselves shaped by strong food policy and built environment — which are systemic, not individual, factors.",
+            "Japan (adult obesity 5.9%) and South Korea (8.2%) have access to many of the same global food corporations and ultra-processed products as the US (41.7%) yet have dramatically lower obesity rates. The figures are the age-standardised NCD-RisC estimates for both sexes published by the World Obesity Federation's Global Obesity Observatory; they use one threshold (BMI of 30 or more) and studies that measured height and weight, so the gap is not an artifact of national definitions. Some critics of the systemic argument cite cultural factors — smaller portions, walking-oriented infrastructure, social norms, school lunch programs emphasizing whole foods. However, these cross-country gaps cannot cleanly isolate 'individual choice': Japan's and South Korea's outcomes are themselves shaped by strong food policy and built environment — which are systemic, not individual, factors.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -115,11 +115,11 @@ export const obesityPersonalResponsibilityData = {
             directness: 3,
           },
           source:
-            "World Obesity Federation Global Obesity Observatory; OECD Health at a Glance",
+            "World Obesity Federation Global Obesity Observatory, 'Ranking (% obesity by country)', adults, both sexes (NCD-RisC age-standardised estimates)",
           sourceUrl:
-            "https://data.worldobesity.org/rankings/",
+            "https://data.worldobesity.org/rankings/?age=a&sex=t",
           reasoning:
-            "Cross-national prevalence figures are real and publicly available, but as evidence for the 'personal choice' thesis they are weak. Directness lowered substantially from the prior draft (false-balance correction): the data show a between-country difference, not that individual willpower rather than systemic factors drives it. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable infrastructure — themselves systemic solutions — and BMI is measured with different cutoffs and methods across these countries, so the comparison cannot support the inference that personal choice dominates.",
+            "Cross-national prevalence figures are real and publicly available, but as evidence for the 'personal choice' thesis they are weak. Directness lowered substantially from the prior draft (false-balance correction): the data show a between-country difference, not that individual willpower rather than systemic factors drives it. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable infrastructure — themselves systemic solutions — so the comparison cannot support the inference that personal choice dominates. The ranking applies the same BMI cutoff of 30 to every country, so the gap itself is real.",
         },
         {
           id: "allcott-food-deserts-demand",
@@ -188,7 +188,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "Twin Studies Show 40-70% Heritability of BMI Across Populations",
           description:
-            "A systematic review and meta-regression of twin and family studies (Elks et al., Frontiers in Endocrinology, 2012), aggregating 88 twin-study estimates across roughly 140,525 twins, found high heritability of BMI. Twin-study heritability estimates ranged from 0.47 to 0.90 (median ~0.75), with family-study estimates somewhat lower. Twin studies consistently show that shared (family) environment explains relatively little of adult BMI variation, indicating that genetic influence persists largely independent of the shared childhood food environment. The commonly cited '40-70%' range is a conservative summary spanning twin and family designs.",
+            "A systematic review and meta-regression of twin and family studies (Elks et al., Frontiers in Endocrinology, 2012), aggregating 88 independent twin-study estimates (140,525 twins) and 27 family-study estimates (42,968 family members), found high heritability of BMI. Twin-study heritability estimates ranged from 0.47 to 0.90 (median 0.75); family-study estimates were lower, ranging from 0.24 to 0.81 (median 0.46). Estimates depend on method: twin models that assume no contribution from the shared family environment gave heritabilities 0.12 higher than models that allow for one, and estimates were 0.07 higher in children than in adults. The commonly cited '40-70%' range runs roughly from the family-study median to the twin-study median.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -200,14 +200,14 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://doi.org/10.3389/fendo.2012.00029",
           reasoning:
-            "Twin studies are the gold standard for estimating heritability, and this meta-regression aggregates decades of data across many populations. The prior draft mis-attributed this paper to the American Journal of Clinical Nutrition; it was published in Frontiers in Endocrinology, and the source has been corrected. Twin estimates actually cluster higher (median ~0.75) than the headline '40-70%', so the claim is if anything understated. Directness is slightly reduced because heritability measures genetic contribution to variation within an environment, not the absolute biological constraint on an individual.",
+            "Twin studies are the gold standard for estimating heritability, and this meta-regression aggregates decades of data across many populations. The prior draft mis-attributed this paper to the American Journal of Clinical Nutrition; it was published in Frontiers in Endocrinology, and the source has been corrected. Twin estimates cluster higher (median 0.75) than the headline '40-70%' and family estimates lower (median 0.46), and the paper shows the twin figure moves with modelling choices. Directness is slightly reduced because heritability measures genetic contribution to variation within an environment, not the absolute biological constraint on an individual.",
         },
         {
           id: "metabolic-adaptation-biggest-loser",
           title:
             "Biggest Loser Study: Metabolism Slowed 500 kcal/day Six Years After Weight Loss",
           description:
-            "Fothergill et al. (2016) tracked 14 Biggest Loser contestants for six years after the competition. Despite regaining most of their lost weight, participants' resting metabolic rates remained suppressed by an average of 499 kcal/day below what would be predicted for their body size. Leptin levels, which signal satiety to the brain, remained at ~60% of expected levels. The body appeared to permanently 'remember' its highest weight and actively resisted the lower weight through metabolic and hormonal adaptation.",
+            "Fothergill et al. (2016) tracked 14 Biggest Loser contestants for six years after the competition. They lost a mean of 58.3 kg during the 30-week competition and had regained 41.0 kg of it six years later, yet their resting metabolic rates were an average of 499 kcal/day below what their body composition and age predicted. Fasting leptin, which signals satiety to the brain, averaged 27.7 ng/ml against 41.1 at baseline, about two-thirds of the starting level. Those who kept more weight off showed more metabolic slowing, and the authors conclude that metabolic adaptation \"persists over time and is likely a proportional, but incomplete, response to contemporaneous efforts to reduce body weight.\"",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -219,14 +219,14 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://doi.org/10.1002/oby.21538",
           reasoning:
-            "Published in the leading obesity research journal with detailed metabolic measurements. The finding that metabolism remains suppressed years after weight loss directly demonstrates biological resistance to behavioral weight management. Replicability is moderate because the sample is small (n=14) and from an extreme weight loss context, though similar metabolic adaptation has been documented in other studies.",
+            "Published in the leading obesity research journal with detailed metabolic measurements. The finding that metabolism remains suppressed years after weight loss directly demonstrates biological resistance to behavioral weight management. Replicability is moderate because the sample is small (n=14) and from an extreme weight loss context, and the study had no comparison group.",
         },
         {
           id: "microbiome-transplant-mouse",
           title:
             "Gut Microbiome Transplant from Obese to Lean Mice Causes Weight Gain",
           description:
-            "Turnbaugh et al. (2006, Nature) demonstrated that colonizing germ-free mice with an 'obese' gut microbiota produced significantly greater increases in total body fat than colonizing with a 'lean' microbiota, and characterized the obese-associated microbiome as having an increased capacity to harvest energy from the diet. Ridaura et al. (2013, Science) extended this to humans: transplanting fecal microbiota from human twin pairs discordant for obesity into germ-free mice transmitted the donor's adiposity and metabolic phenotype, with the obesity phenotype being diet-dependent.",
+            "Turnbaugh et al. (2006, Nature) demonstrated that colonizing germ-free mice with an 'obese' gut microbiota produced significantly greater increases in total body fat than colonizing with a 'lean' microbiota, and characterized the obese-associated microbiome as having an increased capacity to harvest energy from the diet. Ridaura et al. (2013, Science) extended this to humans: transplanting fecal microbiota from human twin pairs discordant for obesity into germ-free mice transmitted increased body and fat mass and obesity-associated metabolic traits to mice given the obese twin's microbiota. Housing those mice with mice carrying the lean co-twin's microbiota prevented the gain, and that rescue was diet-dependent.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -238,14 +238,14 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://doi.org/10.1038/nature05414",
           reasoning:
-            "Published in the two highest-impact scientific journals with rigorous germ-free mouse methodology (Turnbaugh, Nature 2006: https://doi.org/10.1038/nature05414; Ridaura, Science 2013: https://doi.org/10.1126/science.1241214). The transplant design is suggestive of causation. Directness is limited (lowered from the prior draft) because these are mouse models receiving human or mouse microbiota; the magnitude and causal weight of microbiome effects on human obesity remain actively debated and the phenotype in Ridaura was diet-dependent.",
+            "Published in the two highest-impact scientific journals with rigorous germ-free mouse methodology (Turnbaugh, Nature 2006: https://doi.org/10.1038/nature05414; Ridaura, Science 2013: https://doi.org/10.1126/science.1241214). The transplant design is suggestive of causation. Directness is limited (lowered from the prior draft) because these are mouse models receiving human or mouse microbiota; the magnitude and causal weight of microbiome effects on human obesity remain actively debated and the protective effect of the lean microbiota in Ridaura was diet-dependent.",
         },
         {
           id: "obesity-tripled-50-years",
           title:
             "US Obesity Tripled in 50 Years — Genes Cannot Explain a Population-Level Shift",
           description:
-            "Obesity among US adults aged 20-74 rose from 13.4% in 1960-62 to 42.8% in 2017-18 (NHANES data, age-adjusted). The human genome does not change meaningfully over 50 years, yet the entire population weight distribution shifted rightward. Critics of the biological determinism argument note that this population-level shift can only be explained by environmental and behavioral changes: a 500+ kcal/day increase in average caloric intake, dramatic reductions in occupational physical activity, increased sedentary leisure time, and the proliferation of hyper-palatable ultra-processed foods.",
+            "Obesity among US adults aged 20-74 rose from 13.4% in 1960-62 to 42.8% in 2017-18 (NHANES data, age-adjusted). The human genome does not change meaningfully over 50 years, yet the entire population weight distribution shifted rightward. Critics of the biological determinism argument note that a shift this fast has to come from environment and behavior. Swinburn, Sacks and Ravussin (American Journal of Clinical Nutrition, 2009) estimated from the US food supply that the rise in energy intake between the 1970s and 2000s was \"more than sufficient to explain weight gain in the US population\", and that adults would need to cut about 500 kcal a day to return to 1970s mean weights. Swinburn et al. (The Lancet, 2011) attribute the simultaneous rise across countries mainly to a global food system producing more processed, affordable and effectively marketed food, which they describe as driving 'passive overconsumption' of energy.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -254,11 +254,11 @@ export const obesityPersonalResponsibilityData = {
             directness: 7,
           },
           source:
-            "CDC/NCHS NHANES (Prevalence of Obesity Among Adults, 1960-1962 through 2017-2018); Swinburn et al., The Lancet (2011)",
+            "CDC/NCHS Health E-Stat, 'Prevalence of Overweight, Obesity, and Severe Obesity Among Adults Aged 20 and Over: United States, 1960–1962 Through 2017–2018', Table 1; Swinburn, Sacks & Ravussin, American Journal of Clinical Nutrition (2009); Swinburn et al., The Lancet (2011)",
           sourceUrl:
-            "https://doi.org/10.1016/S0140-6736(11)60813-1",
+            "https://www.cdc.gov/nchs/data/hestat/obesity-adult-17-18/obesity-adult.htm",
           reasoning:
-            "NHANES is the gold standard for US population health surveillance, and the obesity trend is among the most replicated findings in public health. The argument that genes cannot explain a 50-year population shift is logically sound. However, proponents of the biological view counter that the gene-environment interaction framework explains precisely this: genetically susceptible individuals were always present but only became obese when exposed to the modern food environment, which is itself a systemic (not individual choice) argument.",
+            "NHANES is the gold standard for US population health surveillance, and the obesity trend is among the most replicated findings in public health. The argument that genes cannot explain a 50-year population shift is logically sound. However, proponents of the biological view counter that the gene-environment interaction framework explains precisely this: genetically susceptible individuals were always present but only became obese when exposed to the modern food environment, which is itself a systemic (not individual choice) argument, and it is the reading the cited Lancet authors give. The card counts for the personal-choice side only on this crux's narrow point, that biology did not drive the trend.",
         },
       ],
     },
@@ -309,7 +309,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "STEP 1 Trial: Semaglutide Produced 14.9% Weight Loss vs 2.4% Placebo",
           description:
-            "The STEP 1 trial (Wilding et al., NEJM 2021) randomized 1,961 adults with obesity to semaglutide 2.4mg or placebo for 68 weeks. The semaglutide group lost 14.9% of body weight vs 2.4% in the placebo group. 86% of semaglutide participants lost >5% body weight (vs 32% placebo), and 32% lost >20% (vs 1.7% placebo). This magnitude of weight loss was previously achievable only through bariatric surgery.",
+            "The STEP 1 trial (Wilding et al., NEJM 2021) randomized 1,961 adults without diabetes who had obesity, or overweight with a weight-related condition, to semaglutide 2.4mg or placebo for 68 weeks, both alongside lifestyle intervention. The semaglutide group lost a mean of 14.9% of body weight vs 2.4% in the placebo group. 86.4% of semaglutide participants lost at least 5% of body weight (vs 31.5% placebo), and 32.0% lost at least 20% (vs 1.7% placebo), a reduction the authors describe as approaching that reported one to three years after bariatric surgery.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
@@ -321,14 +321,14 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://doi.org/10.1056/NEJMoa2032183",
           reasoning:
-            "Published in the NEJM, the most prestigious medical journal, with a large sample size and rigorous double-blind RCT design. The effect size is unprecedented for a pharmacological obesity intervention. Independence is slightly reduced because the trial was funded by Novo Nordisk, though the NEJM's editorial standards and independent statistical verification provide strong safeguards.",
+            "Published in the NEJM, the most prestigious medical journal, with a large sample size and rigorous double-blind RCT design. The effect size is unprecedented for a pharmacological obesity intervention. Independence is reduced because Novo Nordisk, the drug's maker, designed the trial and carried out the data analysis; investigators collected the data and all authors had access to it.",
         },
         {
           id: "weight-regain-discontinuation",
           title:
             "67% of Weight Regained Within One Year of GLP-1 Discontinuation",
           description:
-            "The STEP 1 trial extension (Wilding et al., Diabetes, Obesity and Metabolism 2022) followed a representative subset of participants who discontinued semaglutide and lifestyle intervention after 68 weeks for an additional year. One year after withdrawal, participants regained about two-thirds (~67%) of their prior weight loss, with cardiometabolic variables reverting in parallel. Proponents of the disease model argue this reflects the body's biological defense of a higher weight; its skeptics argue it shows pharmaceutical dependency rather than cure.",
+            "The STEP 1 trial extension (Wilding et al., Diabetes, Obesity and Metabolism 2022) followed a representative subset of participants who discontinued semaglutide and lifestyle intervention after 68 weeks for an additional year. Among 327 participants, those who had taken semaglutide lost a mean of 17.3% of body weight by week 68 and regained 11.6 percentage points in the year after withdrawal, about two-thirds (~67%) of the loss, with cardiometabolic variables reverting in parallel. The authors conclude the findings \"confirm the chronicity of obesity and suggest ongoing treatment is required.\" Proponents of the disease model argue this reflects the body's biological defense of a higher weight; its skeptics argue it shows pharmaceutical dependency rather than cure.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,

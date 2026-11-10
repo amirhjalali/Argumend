@@ -29,9 +29,9 @@ export const socialMediaElectionsData = {
         "Social media algorithms optimized for engagement systematically promote emotionally charged and false content over accurate reporting. A landmark MIT study found falsehoods spread 6x faster than truth on Twitter. Defenders argue users, not algorithms, are the primary drivers of misinformation spread.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "The algorithmic amplification thesis overstates social media's role and understates human agency. A 2023 Science study by researchers at Meta found that removing the Facebook news feed algorithm entirely — showing posts chronologically — did not reduce political polarization or change political attitudes. A separate Science study found that reducing exposure to reshared content on Facebook had no measurable effect on political knowledge or attitudes during the 2020 election. People seek out information that confirms their beliefs regardless of the platform. Misinformation existed long before social media: tabloids, talk radio, and cable news all spread falsehoods at scale. Attributing democratic dysfunction to algorithms is a moral panic that deflects from deeper structural causes like economic inequality and institutional decline.",
+        "The algorithmic amplification thesis overstates social media's role and understates human agency. A 2023 Science study by academic researchers working with Meta found that replacing the Facebook and Instagram feed algorithms with a chronological feed did not significantly change political polarization or other key attitudes over three months. A companion Science study found that removing reshared content on Facebook did not significantly affect polarization or political attitudes during the 2020 election, though it lowered news knowledge. People seek out information that confirms their beliefs regardless of the platform. Misinformation existed long before social media: tabloids, talk radio, and cable news all spread falsehoods at scale. Attributing democratic dysfunction to algorithms is a moral panic that deflects from deeper structural causes like economic inequality and institutional decline.",
       proponent_rebuttal:
-        "The scale and speed of misinformation on social media is qualitatively different from prior media. An MIT study analyzing 126,000 Twitter cascades found false news stories were 70% more likely to be retweeted and reached 1,500 people 6x faster than true stories. Facebook's own internal research — leaked by whistleblower Frances Haugen in 2021 — found that the platform's algorithm preferentially boosted 'angry' reactions, and that 'our algorithms exploit the human brain's attraction to divisiveness.' YouTube's recommendation algorithm was found to promote increasingly extreme content, with researchers at the Mozilla Foundation documenting a pipeline from mainstream political content to conspiracy theories in as few as 3-5 clicks. The Meta studies showing 'no effect' measured attitude change over weeks — they did not measure the cumulative effect of years of algorithmic sorting.",
+        "The scale and speed of misinformation on social media is qualitatively different from prior media. An MIT study analyzing 126,000 Twitter cascades found false news stories were 70% more likely to be retweeted and reached 1,500 people 6x faster than true stories. Facebook's own internal research — leaked by whistleblower Frances Haugen in 2021 — found that a 2018 ranking change made the platform angrier, and a 2018 internal slide reported by the Wall Street Journal in 2020 warned that Facebook's algorithms 'exploit the human brain's attraction to divisiveness.' Mozilla's crowdsourced RegretsReporter study found that 71% of the YouTube videos volunteers reported regretting had been served by the recommendation algorithm. The Meta studies showing 'no effect' measured attitude change over three months — they did not measure the cumulative effect of years of algorithmic sorting.",
       crux: {
         id: "algorithm-vs-human-sorting",
         title: "The Algorithm Attribution Test",
@@ -40,7 +40,7 @@ export const socialMediaElectionsData = {
         description:
           "The definitive question is whether engagement-maximizing algorithms are a necessary condition for the scale of electoral misinformation — or whether human cognitive biases alone would produce similar misinformation spread on any platform. If algorithmic amplification is the driver, then regulating recommendation algorithms would reduce misinformation. If human psychology is the driver, platform regulation will have minimal effect.",
         methodology:
-          "Conduct a large-scale randomized controlled trial (N=100,000+) during an election cycle comparing three conditions: (1) standard algorithmic feed, (2) reverse-chronological feed with no recommendations, and (3) an algorithm optimized for accuracy rather than engagement. Measure exposure to verified misinformation, sharing behavior, and post-election factual knowledge using validated survey instruments. The 2023 Meta/Science studies attempted a version of this but measured only short-term attitude change, not misinformation exposure.",
+          "Conduct a large-scale randomized controlled trial (N=100,000+) during an election cycle comparing three conditions: (1) standard algorithmic feed, (2) reverse-chronological feed with no recommendations, and (3) an algorithm optimized for accuracy rather than engagement. Measure exposure to verified misinformation, sharing behavior, and post-election factual knowledge using validated survey instruments. The 2023 Meta/Science studies attempted a version of this with the first two conditions only, measuring exposure to untrustworthy sources and attitude change over three months.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
@@ -52,9 +52,9 @@ export const socialMediaElectionsData = {
           supporter_flip:
             "If a large election-cycle trial comparing algorithmic, reverse-chronological and accuracy-optimized feeds found similar exposure to and sharing of misinformation in all three, the problem would lie in human psychology rather than algorithms, and the amplification case would weaken.",
           skeptic_flip:
-            "If year-long feed experiments, rather than the weeks the Meta studies covered, found engagement ranking boosting false and divisive content, extending the MIT finding that false stories spread 6x faster, the 'it's just human nature' account would no longer cover the spread.",
+            "If year-long feed experiments, rather than the three months the Meta studies covered, found engagement ranking boosting false and divisive content, extending the MIT finding that false stories spread 6x faster, the 'it's just human nature' account would no longer cover the spread.",
           common_ground:
-            "Both sides accept the 2023 Meta experiment's result — moving roughly 23,000 users to a chronological feed did not reduce polarization over its weeks — and that misinformation predates social media.",
+            "Both sides accept the 2023 Meta experiment's result — moving a sample of consenting users to a chronological feed did not significantly change polarization over its three months — and that misinformation predates social media.",
           live_disagreement:
             "Whether engagement-maximizing algorithms give electoral misinformation its scale, or whether people seeking confirming information would spread it as widely on any platform — and whether short experiments can detect years of cumulative sorting.",
         },
@@ -64,7 +64,7 @@ export const socialMediaElectionsData = {
           id: "mit-vosoughi-study",
           title: "MIT Study: False News Spreads 6x Faster Than Truth on Twitter (2018)",
           description:
-            "Soroush Vosoughi, Deb Roy, and Sinan Aral at MIT analyzed the diffusion of 126,000 true and false news stories spread by 3 million people on Twitter from 2006 to 2017. They found that false stories were 70% more likely to be retweeted than true stories, reached 1,500 people 6x faster, and penetrated deeper into network cascades. The effect was not driven by bots — it persisted after bot activity was removed. False political news was the most viral category, outpacing false stories about terrorism, natural disasters, or science.",
+            "Soroush Vosoughi, Deb Roy, and Sinan Aral at MIT analyzed the diffusion of about 126,000 true and false news stories tweeted by about 3 million people on Twitter from 2006 to 2017. They found that false stories were 70% more likely to be retweeted than true stories, that true stories took about six times as long to reach 1,500 people, and that falsehood penetrated deeper into network cascades. The effect was not driven by bots: robots 'accelerated the spread of true and false news at the same rate, implying that false news spreads more than the truth because humans, not robots, are more likely to spread it.' The effects were more pronounced for false political news than for false news about terrorism, natural disasters, or science.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -72,10 +72,10 @@ export const socialMediaElectionsData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Vosoughi, Roy & Aral, Science (2018)",
+          source: "Vosoughi, Roy & Aral, 'The spread of true and false news online', Science 359(6380): 1146–1151 (2018); MIT News summary (8 March 2018) for the 70% and six-times figures",
           sourceUrl: "https://www.science.org/doi/10.1126/science.aap9559",
           reasoning:
-            "Published in Science, the study is the largest empirical analysis of misinformation spread on social media. The finding that false news spreads faster than truth, even after removing bot activity, is striking. However, the study measured Twitter specifically and covered a period before major platform interventions. The finding shows correlation between falsehood and virality but does not isolate the algorithm's role from human novelty-seeking behavior.",
+            "Published in Science and covering all the verified true and false news stories on Twitter from 2006 to 2017. The finding that false news spreads faster than truth, and that people rather than bots drive the difference, is striking. However, the study measured Twitter specifically and covered a period before major platform interventions. The finding shows correlation between falsehood and virality but does not isolate the algorithm's role from human novelty-seeking behavior.",
         },
         {
           id: "haugen-facebook-files",
@@ -98,7 +98,7 @@ export const socialMediaElectionsData = {
           id: "meta-2020-rct-no-effect",
           title: "Meta-Funded Study: Removing News Feed Algorithm Did Not Reduce Polarization (2023)",
           description:
-            "In the largest social media experiment ever conducted, researchers from Meta and academic institutions randomly assigned roughly 23,000 Facebook users to either see their normal algorithmic feed or a reverse-chronological feed during the 2020 US election. The study, published in Science, found that the chronological feed actually increased the amount of political content and content from untrustworthy sources users saw (untrustworthy-source content rose by about 69% on Facebook) — yet this had no measurable effect on political polarization, political knowledge, or vote choice. A companion study found that reducing reshared content — thought to be a major misinformation vector — also had no effect on attitudes. The counterintuitive direction (the engagement algorithm filtered out some low-quality sources) makes the null attitudinal result harder to dismiss.",
+            "Researchers from Meta and academic institutions randomly assigned a sample of consenting Facebook and Instagram users to a reverse-chronological feed instead of the default algorithm from 24 September to 23 December 2020. The study, published in Science, found that the chronological feed cut time spent on the platforms and increased the amount of political and untrustworthy content users saw (on Facebook the share of untrustworthy content was 40.9% lower under the algorithm, or about 69% higher in the chronological feed), yet it 'did not significantly alter levels of issue polarization, affective polarization, political knowledge, or other key attitudes during the 3-month study period.' A companion study found that removing reshared content also did not significantly affect polarization or political attitudes, though it produced 'clear decreases in news knowledge.' A 2024 letter in Science (Bagchi et al.) cautions that Meta made 63 temporary 'break-glass' changes to the algorithmic feed during the experiment to demote untrustworthy news, so the finding that the algorithm filtered out low-quality sources may not hold outside the study period.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -106,16 +106,16 @@ export const socialMediaElectionsData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Guess et al., Science (2023); Nyhan et al., Science (2023)",
+          source: "Guess et al., 'How do social media feed algorithms affect attitudes and behavior in an election campaign?', Science 381: 398–404 (2023); Guess et al., 'Reshares on social media amplify political news but do not detectably affect beliefs or opinions', Science 381: 404–408 (2023); Bagchi et al., 'Social media algorithms can curb misinformation, but do they?', Science (2024)",
           sourceUrl: "https://www.science.org/doi/10.1126/science.abp9364",
           reasoning:
-            "Published in Science with a massive sample size, this is the most rigorous experimental test of algorithmic amplification effects. The null result is significant. However, the study was partially funded by Meta, raising independence concerns. More critically, it measured short-term effects (3 months) during a single election — cumulative effects over years were not tested. Reducing misinformation exposure by 33% while finding no attitude change suggests attitudes may be formed through channels beyond Facebook.",
+            "Published in Science, this is a randomized test of algorithmic amplification effects on real feeds, and the null result on attitudes matters. However, Meta paid the research costs and its employees were co-authors (the academics were not paid by Meta), raising independence concerns. More critically, it measured short-term effects (3 months) during a single election — cumulative effects over years were not tested — and the control feed was itself changed by Meta's emergency measures during the study. Large changes in what people saw with no attitude change suggests attitudes may be formed through channels beyond Facebook.",
         },
         {
           id: "youtube-radicalization-pipeline",
-          title: "YouTube's Algorithm Creates 'Radicalization Pipeline' to Extremist Content (2019-2024)",
+          title: "Mozilla RegretsReporter (2021): 71% of YouTube Videos Volunteers Regretted Watching Were Served by the Recommendation Algorithm",
           description:
-            "Research by the Mozilla Foundation, New York University, and independent journalists documented that YouTube's recommendation algorithm systematically promoted increasingly extreme political content. A Mozilla study found that 71% of videos volunteers flagged as regrettable were recommended by the algorithm, not actively searched for. A 2020 study by Mark Ledwich and Anna Zaitsev (First Monday) reached the opposite conclusion, that the recommendation algorithm 'actively discourages viewers from visiting radicalizing or extremist content.' YouTube's own internal report, leaked in 2022, acknowledged that 'borderline content' was the most engaging and that the algorithm optimized for this engagement until explicit policy changes were made.",
+            "Mozilla's RegretsReporter study collected 3,362 reports from 1,662 volunteers in 91 countries, who used a browser extension between July 2020 and May 2021 to flag YouTube videos they regretted watching. It found that '71% of all Regret reports came from videos recommended to our volunteers and recommended videos were 40% more likely to be regretted than videos searched for.' Misinformation was the most commonly reported category, and the rate of regrets was 60% higher in countries where English is not the primary language. A study by Mark Ledwich and Anna Zaitsev (posted December 2019) reached the opposite conclusion about radicalization, that the recommendation algorithm 'actively discourages viewers from visiting radicalizing or extremist content.'",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -123,10 +123,10 @@ export const socialMediaElectionsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Mozilla Foundation; NYU Center for Social Media and Politics; The New York Times",
+          source: "Mozilla Foundation, 'YouTube Regrets' findings (RegretsReporter crowdsourced study, 2021); Ledwich & Zaitsev, 'Algorithmic Extremism: Examining YouTube's Rabbit Hole of Radicalization' (arXiv:1912.11211)",
           sourceUrl: "https://foundation.mozilla.org/en/youtube/findings/",
           reasoning:
-            "Mozilla's RegretsReporter study used a volunteer methodology that may not be representative. The NYU findings are more systematic but debate exists about whether the algorithm causes radicalization or simply reflects user preferences. YouTube has since made significant changes to its recommendation system, complicating current applicability.",
+            "Mozilla's RegretsReporter study used self-selected volunteers and their own judgment of what counts as a 'regret', so it is not representative and measures unwanted recommendations, not radicalization or election misinformation specifically. Debate remains about whether the algorithm drives extreme viewing or reflects user preferences (see the counterfactual-bots card). YouTube has since changed its recommendation system, complicating current applicability.",
         },
         {
           id: "youtube-counterfactual-bots",
@@ -159,7 +159,7 @@ export const socialMediaElectionsData = {
         "Russian, Chinese, and Iranian state actors have conducted sophisticated social media influence campaigns targeting democratic elections worldwide. The impact of these campaigns on actual vote outcomes remains disputed, with some studies suggesting minimal direct effect.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Foreign interference is real but its electoral impact is grossly overstated. The Russian Internet Research Agency spent approximately $100,000 on Facebook ads during the 2016 US election — compared to $81 million by the Clinton campaign and $94 million by the Trump campaign. The total reach of Russian content was approximately 126 million impressions on Facebook, compared to 33 trillion organic impressions during the same period — a 0.0004% share. A comprehensive study by Stanford and NYU researchers found 'no evidence of a meaningful relationship between exposure to the Russian foreign influence campaign and changes in attitudes, polarization, or voting behavior.' Foreign interference is a real national security issue but is invoked disproportionately to explain domestic political outcomes.",
+        "Foreign interference is real but its electoral impact is grossly overstated. The Russian Internet Research Agency spent approximately $100,000 on Facebook and Instagram ads between June 2015 and August 2017 — compared to about $28 million by the Clinton campaign and $44 million by the Trump campaign on Facebook between June and November 2016. Facebook estimated that about 126 million people may have been served the agency's content between 2015 and 2017, a period in which Americans were served more than 33 trillion News Feed stories — about 0.004% of News Feed content, or 1 in 23,000 pieces. A study led by researchers at NYU's Center for Social Media and Politics found 'no evidence of a meaningful relationship between exposure to the Russian foreign influence campaign and changes in attitudes, polarization, or voting behavior.' Foreign interference is a real national security issue but is invoked disproportionately to explain domestic political outcomes.",
       proponent_rebuttal:
         "The impact of foreign interference cannot be measured in dollars alone. The Russian IRA operation reached 126 million Americans on Facebook and 20 million on Instagram. Russian operatives organized real-world rallies in US cities, created fake American personas with hundreds of thousands of followers, and targeted African American voters with voter-suppression messaging. The Mueller investigation resulted in 34 indictments. In 2020, the FBI and CISA issued multiple warnings about Russian and Iranian attempts to interfere. In 2024, US intelligence confirmed continued Russian operations supporting specific candidates. The goal was not to flip millions of votes but to suppress turnout and amplify divisions — effects that are inherently difficult to measure but potentially decisive in close elections.",
       crux: {
@@ -184,7 +184,7 @@ export const socialMediaElectionsData = {
           skeptic_flip:
             "If voter-file matching found lower turnout among the African American voters the IRA targeted with suppression messaging, compared with matched unexposed voters, foreign campaigns would look like an electoral threat rather than a security nuisance.",
           common_ground:
-            "Both sides agree Russia, China and Iran have run influence operations aimed at US elections — the Mueller investigation indicted 13 Russians — and that the IRA's Facebook ad spending in 2016 was about $100,000.",
+            "Both sides agree Russia, China and Iran have run influence operations aimed at US elections — the Mueller investigation indicted 13 Russians — and that the IRA's Facebook and Instagram ad spending from 2015 to 2017 was about $100,000.",
           live_disagreement:
             "Whether foreign campaigns change turnout or votes in targeted swing populations by enough to matter in close elections, or remain a real security issue invoked disproportionately to explain domestic outcomes.",
         },
@@ -194,7 +194,7 @@ export const socialMediaElectionsData = {
           id: "mueller-ira-indictments",
           title: "Mueller Investigation Indicts 13 Russians for 2016 Election Interference",
           description:
-            "Special Counsel Robert Mueller's investigation (2017-2019) indicted 13 Russian nationals and 3 Russian entities, including the Internet Research Agency (IRA), for 'information warfare against the United States.' The indictment detailed a sophisticated operation begun in 2014: IRA operatives traveled to the US to conduct intelligence gathering, created fake American personas on social media, organized real-world rallies, and spent over $1.25 million per month on the operation by 2016. They targeted swing states and aimed to suppress African American voter turnout. The indictment was based on intelligence intercepts, digital forensics, and cooperating witnesses.",
+            "Special Counsel Robert Mueller's investigation (2017-2019) indicted 13 Russian nationals and 3 Russian entities, including the Internet Research Agency (IRA), over what the agency itself called 'information warfare against the United States of America.' The indictment alleges an operation begun in 2014: IRA operatives traveled to the US to gather intelligence, created fake American personas on social media, and organized real-world rallies, and by September 2016 the monthly budget of the wider project it belonged to exceeded 73 million rubles (over $1.25 million). They were advised to focus on 'purple states like Colorado, Virginia & Florida', and in the latter half of 2016 began 'to encourage U.S. minority groups not to vote in the 2016 U.S. presidential election or to vote for a third-party U.S. presidential candidate.'",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -207,13 +207,13 @@ export const socialMediaElectionsData = {
           sourceUrl:
             "https://www.justice.gov/d9/fieldable-panel-panes/basic-panes/attachments/2018/02/16/internet_research_agency_indictment.pdf",
           reasoning:
-            "Federal indictments represent the highest evidentiary standard in the US legal system. The details of Russian operations are now well-established fact. However, the indictment establishes that interference occurred, not that it was effective — the distinction between operation and impact is critical to this debate.",
+            "An indictment is a grand jury's allegation on probable cause, not a verdict, though this one is unusually detailed and specific. It describes what the operation did, not that it was effective — the distinction between operation and impact is critical to this debate.",
         },
         {
           id: "stanford-nyu-no-impact",
-          title: "Stanford/NYU Study Finds No Measurable Impact of Russian Interference on Voting Behavior (2023)",
+          title: "NYU-Led Study Finds No Measurable Relationship Between Exposure to Russian Twitter Accounts and Voting Behavior (2023)",
           description:
-            "Researchers from Stanford and NYU conducted the most comprehensive analysis of Russian influence campaign exposure during the 2016 election, matching Twitter data to survey responses from over 1,500 individuals. They found that only 1% of Twitter users accounted for 70% of exposure to Russian influence accounts. Critically, these heavily exposed individuals were already highly partisan. The study found 'no evidence of a meaningful relationship between exposure to the Russian foreign influence campaign and changes in attitudes, polarization, or voting behavior.'",
+            "Researchers at NYU's Center for Social Media and Politics, with colleagues in Copenhagen, Dublin and Munich, linked longitudinal survey data from 1,496 US respondents to their Twitter feeds during the 2016 election. They found that 'only 1% of users accounted for 70% of exposures' to Russian influence accounts, that exposure was concentrated among users who strongly identified as Republicans, and that it was eclipsed by content from domestic news media and politicians. The study found 'no evidence of a meaningful relationship between exposure to the Russian foreign influence campaign and changes in attitudes, polarization, or voting behavior.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -221,16 +221,16 @@ export const socialMediaElectionsData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Eady et al., Nature Communications (2023)",
+          source: "Eady, Paskhalis, Zilinsky, Bonneau, Nagler & Tucker, 'Exposure to the Russian Internet Research Agency foreign influence campaign on Twitter in the 2016 US election and its relationship to attitudes and voting behavior', Nature Communications 14: 62 (2023)",
           sourceUrl: "https://www.nature.com/articles/s41467-022-35576-9",
           reasoning:
-            "Published in a top journal by independent academics, this is the most rigorous study of Russian influence campaign effectiveness. The finding that exposure was concentrated among already-partisan users is important. However, the study was limited to Twitter and to self-reported survey outcomes. Effects on Facebook, where Russian reach was much larger, were not measured. The study also cannot capture effects on non-voters who were targeted with demobilization messaging.",
+            "Published in a peer-reviewed journal by independent academics, this is a direct individual-level test of Russian influence campaign effectiveness. The finding that exposure was concentrated among already-partisan users is important. However, the study was limited to Twitter and to self-reported survey outcomes. Effects on Facebook, where Russian reach was much larger, were not measured. The study also cannot capture effects on non-voters who were targeted with demobilization messaging.",
         },
         {
           id: "us-intel-2024-assessment",
-          title: "US Intelligence Confirms Continued Russian, Chinese, and Iranian Election Interference (2024)",
+          title: "ODNI (September 2024): Russia and Iran Used Generative AI to Boost Election Influence Efforts, Though AI Had Not 'Revolutionized' Them",
           description:
-            "In the lead-up to the 2024 US presidential election, the Office of the Director of National Intelligence, FBI, and CISA issued joint statements confirming that Russia, China, and Iran were conducting influence operations targeting the election. Russia's operations favored specific candidates and used AI-generated content for the first time at scale. Iran attempted to hack campaign staff and leaked stolen documents to media outlets. China focused on down-ballot races affecting policies toward Taiwan. The agencies described the operations as 'more sophisticated' than 2016, utilizing generative AI to create deepfakes and synthetic personas.",
+            "Forty-five days before the 2024 US presidential election, the Office of the Director of National Intelligence reported that the intelligence community 'is observing foreign actors, including Russia and Iran, use generative AI technology to boost their respective U.S. election influence efforts.' Of the three actors it tracked, 'Russia has generated the most AI content related to the election', across text, images, audio and video, consistent with 'Russia's broader efforts to boost the former President's candidacy and denigrate the Vice President and the Democratic Party.' Iranian actors used AI to write social media posts and inauthentic news articles. China was using AI in broader influence operations 'but not for any specific operations targeting U.S. election outcomes.' The update adds that generative AI 'is helping to improve and accelerate aspects of foreign influence operations but thus far the IC has not seen it revolutionize such operations.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -238,10 +238,10 @@ export const socialMediaElectionsData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Office of the Director of National Intelligence; FBI; CISA",
-          sourceUrl: "https://www.dni.gov/index.php/newsroom/press-releases",
+          source: "Office of the Director of National Intelligence, '45 Days Until Election 2024: Election Security Update as of Mid-September 2024' (September 2024)",
+          sourceUrl: "https://archive.dni.gov/files/FMIC/documents/ODNI-Election-Security-Update-20240923.pdf",
           reasoning:
-            "US intelligence agencies are authoritative on foreign operations, though their assessments rely on classified evidence that cannot be independently verified. The evolution toward AI-generated content represents a qualitative escalation. However, confirming that operations exist is different from proving they affect election outcomes.",
+            "US intelligence agencies are authoritative on foreign operations, though their assessments rely on classified evidence that cannot be independently verified. The update documents that the operations continued and adopted AI, while saying AI had not transformed them. Confirming that operations exist is different from proving they affect election outcomes, which the update does not address.",
         },
       ],
     },
@@ -258,7 +258,7 @@ export const socialMediaElectionsData = {
       skeptic_premise:
         "The micro-targeting threat is mostly hype. Cambridge Analytica became a global scandal, but peer-reviewed analysis concluded its psychographic targeting was no more effective than standard demographic targeting. Political advertising on social media has small marginal effects: a meta-analysis of 49 field experiments found that the average persuasion effect of political advertising was close to zero. Voters are not manipulable blank slates — they have deep-seated preferences shaped by identity, economics, and lived experience. The real democratic concern is not that micro-targeting changes minds, but that it enables campaigns to selectively suppress turnout among opponents' supporters through discouragement messaging — which is harder to detect and study.",
       proponent_rebuttal:
-        "Micro-targeting does not need to persuade millions to undermine elections — it only needs to affect thin margins. The 2016 US election was decided by 77,744 votes across three states. Facebook's own ad platform allows targeting by interests as specific as 'Holocaust denial' or 'how to burn the American flag' — capabilities that enable campaigns to deliver inflammatory messages to susceptible individuals. In 2020, the Trump campaign ran 5.9 million different Facebook ads, many targeting hyper-specific voter segments. The Cambridge Analytica scandal revealed that 87 million Facebook users' data was harvested without consent. Even if the psychographic models were crude, the principle — that platforms enable unprecedented voter surveillance and manipulation — represents a democratic vulnerability that did not exist before social media.",
+        "Micro-targeting does not need to persuade millions to undermine elections — it only needs to affect thin margins. The 2016 US election was decided by 77,744 votes across three states. Facebook's own ad platform allows targeting by interests as specific as 'Holocaust denial' or 'how to burn the American flag' — capabilities that enable campaigns to deliver inflammatory messages to susceptible individuals. Between June and November 2016, the Trump campaign ran 5.9 million Facebook ad variations, against about 66,000 for the Clinton campaign. The Cambridge Analytica scandal revealed that the data of up to 87 million Facebook users may have been improperly shared. Even if the psychographic models were crude, the principle — that platforms enable unprecedented voter surveillance and manipulation — represents a democratic vulnerability that did not exist before social media.",
       crux: {
         id: "micro-targeting-marginal-effect",
         title: "The Micro-Targeting Marginal Effect Test",
@@ -289,9 +289,9 @@ export const socialMediaElectionsData = {
       evidence: [
         {
           id: "cambridge-analytica-scandal",
-          title: "Cambridge Analytica Harvested 87 Million Facebook Users' Data (2018)",
+          title: "Facebook: Data on Up to 87 Million Users May Have Been Improperly Shared With Cambridge Analytica (2018)",
           description:
-            "In March 2018, The Guardian and The New York Times revealed that political consultancy Cambridge Analytica had harvested personal data from 87 million Facebook users through a personality quiz app without informed consent. The data was used to build psychographic profiles for political targeting during the 2016 US presidential election and the UK Brexit referendum. Facebook was fined $5 billion by the FTC — the largest privacy penalty in US history. Cambridge Analytica's CEO Alexander Nix was recorded boasting about using entrapment and disinformation against political opponents.",
+            "In March 2018, The Guardian and The New York Times revealed that political consultancy Cambridge Analytica had obtained personal data on tens of millions of Facebook users through a personality quiz app. Facebook said in April 2018 that 'the Facebook information of up to 87 million people — mostly in the US — may have been improperly shared with Cambridge Analytica.' In July 2019 the FTC imposed a $5 billion penalty on Facebook for violating a 2012 privacy order, 'the largest ever imposed on any company for violating consumers' privacy', and separately brought actions against Cambridge Analytica, its former chief executive Alexander Nix and app developer Aleksandr Kogan. Channel 4 News secretly filmed Nix and other executives saying they could entrap politicians with bribes and sex workers; the company denied using such tactics.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -299,10 +299,10 @@ export const socialMediaElectionsData = {
             replicability: 8,
             directness: 7,
           },
-          source: "The Guardian; New York Times; FTC",
+          source: "FTC, 'FTC Imposes $5 Billion Penalty and Sweeping New Privacy Restrictions on Facebook' (24 July 2019); Facebook Newsroom, 'An Update on Our Plans to Restrict Data Access on Facebook' (4 April 2018); Channel 4 News (19 March 2018)",
           sourceUrl: "https://www.ftc.gov/news-events/news/press-releases/2019/07/ftc-imposes-5-billion-penalty-sweeping-new-privacy-restrictions-facebook",
           reasoning:
-            "The data harvesting is established fact, confirmed by Facebook and resulting in the largest-ever FTC penalty. However, the scandal proved that data was collected and misused — it did not prove that the resulting micro-targeting actually changed election outcomes. Subsequent academic analysis suggested Cambridge Analytica's psychographic models had limited predictive power beyond standard demographics.",
+            "The data sharing is established fact, acknowledged by Facebook and followed by the largest privacy penalty the FTC had imposed. However, the scandal proved that data was collected and misused — it did not prove that the resulting micro-targeting actually changed election outcomes. Subsequent academic analysis suggested Cambridge Analytica's psychographic models had limited predictive power beyond standard demographics.",
         },
         {
           id: "kalla-broockman-meta-analysis",
@@ -333,7 +333,7 @@ export const socialMediaElectionsData = {
             replicability: 6,
             directness: 7,
           },
-          source: "The Next Web, 'Facebook confirms Trump's ads bested Clinton's during presidential bid' (4 April 2018), reporting a Facebook document first obtained by Bloomberg",
+          source: "The Next Web (Bryan Clark), 'Facebook confirms: Donald trumped Hillary on the social network during 2016 election' (4 April 2018), reporting a Facebook document first obtained by Bloomberg",
           sourceUrl: "https://thenextweb.com/news/facebook-confirms-trumps-ads-bested-clintons-during-presidential-bid",
           reasoning:
             "The figures come from Facebook's own internal assessment of both campaigns, reported by Bloomberg. The sheer volume demonstrates the scale of ad-testing capability. However, running millions of ad variations is evidence of effort, not effectiveness, and the document does not isolate how much the testing changed votes.",
@@ -355,7 +355,7 @@ export const socialMediaElectionsData = {
       url: "https://www.justice.gov/archives/sco/file/1373816/dl",
     },
     {
-      title: "Like, Comment, Destroy: Weaponising Social Media — NATO Strategic Communications Centre",
+      title: "Robotrolling 2019/3 — NATO Strategic Communications Centre of Excellence (2019)",
       url: "https://stratcomcoe.org/publications/like-comment-destroy-weaponising-social-media/77",
     },
     {

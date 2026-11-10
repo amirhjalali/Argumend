@@ -64,9 +64,9 @@ export const immigrationNationalIdentityData = {
       evidence: [
         {
           id: "borjas-wage-impact",
-          title: "Borjas: Immigration Reduces Low-Skilled Native Wages by 7.4% (2003/2017)",
+          title: "Borjas: 1980-2000 Immigration Cut the Wages of Native High School Dropouts by 7.4% (2004)",
           description:
-            "Harvard economist George Borjas, using the 'national skills' approach that analyzes immigration's impact within skill-experience cells, estimated that immigration between 1980-2000 reduced wages for native workers without a high school diploma by 7.4%. His 2017 update maintained this finding, arguing that immigration redistributes approximately $500 billion from native workers to employers in the US economy. The Borjas framework emphasizes that native-born and immigrant workers with similar education and experience are substitutes, not complements.",
+            "Harvard economist George Borjas's 2003 Quarterly Journal of Economics paper compares workers within education-experience groups in a national labor market and finds that 'a 10 percent increase in supply reduces wages by 3 to 4 percent.' Applying that model in a 2004 Center for Immigration Studies backgrounder, he estimated that the immigrant influx of 1980-2000 lowered the wage of native high school dropouts by 7.4 percent, of college graduates by 3.6 percent, and of the typical native worker by 3.7 percent. In a 2016 Politico Magazine essay he put the 'immigration surplus' for natives at about $50 billion a year, behind which sits a redistribution 'from the native losers to the native winners' of 'roughly a half-trillion dollars a year', from those who compete with immigrants to those who employ them.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -74,16 +74,16 @@ export const immigrationNationalIdentityData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Borjas, 'The Labor Demand Curve is Downward Sloping: Reexamining the Impact of Immigration on the Labor Market', Quarterly Journal of Economics 118(4) (2003); Harvard Kennedy School",
-          sourceUrl: "https://doi.org/10.1162/003355303322552810",
+          source: "George J. Borjas, 'Increasing the Supply of Labor Through Immigration: Measuring the Impact on Native-born Workers', Center for Immigration Studies Backgrounder (April 2004), for the 7.4% estimate; its model is Borjas, 'The Labor Demand Curve Is Downward Sloping', Quarterly Journal of Economics 118(4) (2003), doi:10.1162/003355303322552810; Borjas, 'Yes, Immigration Hurts American Workers', Politico Magazine (September/October 2016)",
+          sourceUrl: "https://cis.org/Report/Increasing-Supply-Labor-Through-Immigration",
           reasoning:
-            "Borjas is a leading labor economist at Harvard and his work is rigorously quantitative. However, his methodology and assumptions are actively contested by other leading economists (Card, Peri) who find smaller effects using different analytical approaches. The debate is fundamentally about whether immigrant and native workers are substitutes (Borjas) or complements (Card/Peri). Replicability is moderate because results are sensitive to methodological choices.",
+            "Borjas is a leading labor economist at Harvard and his work is rigorously quantitative. The 7.4% figure comes from his 2004 backgrounder for the Center for Immigration Studies, a group that argues for lower immigration, applying the model of his peer-reviewed 2003 paper (an earlier version of this card attributed the figure to the 2003 paper and to a '2017 update'). However, his methodology and assumptions are actively contested by other leading economists (Card, Peri) who find smaller effects using different analytical approaches. The debate is fundamentally about whether immigrant and native workers are substitutes (Borjas) or complements (Card/Peri). Replicability is moderate because results are sensitive to methodological choices.",
         },
         {
           id: "nas-immigration-report",
           title: "National Academy of Sciences: Long-Run Wage Effects of Immigration Are 'Very Small' (2017)",
           description:
-            "The National Academy of Sciences' comprehensive 2017 report, 'The Economic and Fiscal Consequences of Immigration,' concluded that the long-run impact of immigration on native-born wages is 'very small' for most workers, with positive effects for high-skilled natives through complementarity. The report found that immigration has an overall positive impact on long-run economic growth and that the fiscal impact depends heavily on the education level of immigrants and the time horizon analyzed. Second-generation immigrants are among the strongest net fiscal contributors.",
+            "The National Academies of Sciences, Engineering, and Medicine's 2017 consensus report, 'The Economic and Fiscal Consequences of Immigration,' finds, in the Academies' summary, that 'the long-term impact of immigration on the wages and employment of native-born workers overall is very small, and that any negative impacts are most likely to be found for prior immigrants or native-born high school dropouts.' It concludes that immigration 'has an overall positive impact on long-run economic growth in the U.S.', and that 'First-generation immigrants are more costly to governments than are the native-born, but the second generation are among the strongest fiscal and economic contributors in the U.S.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -91,10 +91,10 @@ export const immigrationNationalIdentityData = {
             replicability: 8,
             directness: 8,
           },
-          source: "National Academy of Sciences; National Academies Press",
+          source: "National Academies of Sciences, Engineering, and Medicine, 'The Economic and Fiscal Consequences of Immigration' (National Academies Press, 2017)",
           sourceUrl: "https://nap.nationalacademies.org/catalog/23550/the-economic-and-fiscal-consequences-of-immigration",
           reasoning:
-            "The NAS report is the most comprehensive, authoritative review of immigration economics ever produced, synthesizing hundreds of studies by a panel of leading economists. Its bipartisan panel and institutional credibility give it the highest independence and reliability scores. The 'very small' wage finding directly contradicts the strong wage suppression narrative, though it acknowledges short-run and sector-specific negative effects.",
+            "The National Academies report is the most comprehensive review of immigration economics to date, written by an expert committee of demographers and economists. Its institutional credibility gives it the highest independence and reliability scores. The 'very small' overall wage finding contradicts the strong wage suppression narrative, though the report itself locates any negative effects among prior immigrants and native-born high school dropouts, the group Borjas's estimate concerns.",
         },
       ],
     },
@@ -144,7 +144,7 @@ export const immigrationNationalIdentityData = {
           id: "putnam-diversity-trust",
           title: "Putnam: Ethnic Diversity Initially Reduces Social Trust (2007)",
           description:
-            "Robert Putnam's 2007 study, based on the Social Capital Community Benchmark Survey of 30,000 Americans across 41 communities, found that ethnic diversity is negatively correlated with social trust, civic engagement, and neighborhood cohesion in the short to medium term. Importantly, the effect was not just inter-group distrust — people in diverse communities trusted everyone less, including members of their own ethnic group. Putnam described this as 'hunkering down.' He argued that the long-run solution is creating new, more inclusive forms of social identity, citing historical examples of previously divided groups (Irish, Italians, Jews) being integrated into a broader American identity.",
+            "Robert Putnam's 2007 study drew on the 2000 Social Capital Community Benchmark Survey of roughly 30,000 Americans, a national sample plus 41 communities. Its abstract reports that 'In the short run, however, immigration and ethnic diversity tend to reduce social solidarity and social capital': in ethnically diverse neighbourhoods residents of all races tend to 'hunker down', and 'Trust (even of one's own race) is lower, altruism and community cooperation rarer, friends fewer.' Putnam argued that in the long run immigration and diversity are likely to bring cultural, economic and fiscal benefits, and that successful immigrant societies overcome the fragmentation 'by creating new, cross-cutting forms of social solidarity and more encompassing identities', with illustrations from the US military, religious institutions and earlier waves of American immigration.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -152,16 +152,16 @@ export const immigrationNationalIdentityData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Scandinavian Political Studies; Harvard University",
+          source: "Robert D. Putnam, 'E Pluribus Unum: Diversity and Community in the Twenty-first Century. The 2006 Johan Skytte Prize Lecture', Scandinavian Political Studies 30(2), 137-174 (2007)",
           sourceUrl: "https://doi.org/10.1111/j.1467-9477.2007.00176.x",
           reasoning:
-            "Putnam is among the most cited political scientists alive, and the study's methodology (large sample, multiple communities, extensive controls) is rigorous. He delayed publication for years because he was troubled by the findings, which enhances credibility. Replicability varies: some European studies have replicated the diversity-trust link, while others find it disappears when controlling for deprivation. The finding supports the 'for' side but Putnam's own interpretation emphasizes that the effect is temporary.",
+            "Putnam is among the most cited political scientists alive, and the study's methodology (large sample, multiple communities, extensive controls) is rigorous. The data set was public from 2001, but the full paper appeared only in 2007; the Financial Times reported in 2006 that he had held it back until he could propose remedies for diversity's negative effects, for which critics faulted him. Replicability varies: some European studies have replicated the diversity-trust link, while others find it disappears when controlling for deprivation. The finding supports the 'for' side but Putnam's own interpretation emphasizes that the effect is temporary.",
         },
         {
           id: "canada-immigration-trust",
-          title: "Canada Maintains High Social Trust Despite Highest Foreign-Born Share in the G7",
+          title: "Canada: Highest Immigrant Share in the G7 (23%), With Generalized Trust Unchanged From 2003 to 2013",
           description:
-            "Canada admits approximately 400,000 permanent residents annually (about 1% of population) and has the highest foreign-born population share among G7 nations (23%). Yet Canada consistently ranks among the top 10 nations in social trust, civic engagement, and public support for immigration in international surveys (World Values Survey, OECD). Canada's points-based immigration system, multicultural policy, settlement services, and dispersed refugee resettlement are cited as factors that facilitate integration without undermining social cohesion.",
+            "In the 2021 Census more than 8.3 million people, 23.0% of Canada's population, were or had been a landed immigrant or permanent resident: 'the largest proportion since Confederation, topping the previous 1921 record of 22.3%, and the highest among the G7.' Just over 1.3 million new immigrants settled permanently from 2016 to 2021. Over a decade of high immigration, generalized trust did not fall: in Statistics Canada's General Social Survey, 54% of Canadians said most people can be trusted in 2013, 'virtually unchanged from 2003.' A newer and not directly comparable series, the Canadian Social Survey, put the share at 46.8% in the second quarter of 2022 and 43.5% in the fourth quarter of 2024.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -169,10 +169,10 @@ export const immigrationNationalIdentityData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Statistics Canada; World Values Survey; OECD",
-          sourceUrl: "https://www.oecd.org/en/publications/international-migration-outlook-2023_b0f40584-en.html",
+          source: "Statistics Canada, The Daily, 'Immigrants make up the largest share of the population in over 150 years and continue to shape who we are as Canadians' (26 October 2022); Martin Turcotte, 'Trends in Social Capital in Canada', Statistics Canada cat. no. 89-652-X2015002 (2015); Statistics Canada, Quality of Life indicator 'Trust in others' (Canadian Social Survey, 2022-2024)",
+          sourceUrl: "https://www150.statcan.gc.ca/n1/daily-quotidien/221026/dq221026a-eng.htm",
           reasoning:
-            "Canada's combination of high immigration and high social trust is a strong counterexample to the claim that immigration inherently undermines cohesion. However, Canada's geographic isolation, points-based selection system, and specific policy investments make it a potentially non-generalizable case. Recent polling in 2023-2024 shows declining public support for immigration as housing costs rise, suggesting the Canadian model may have limits.",
+            "Canada's combination of the G7's highest immigrant share and trust that held steady from 2003 to 2013 is a counterexample to the claim that immigration inherently undermines cohesion. However, Canada's geographic isolation, points-based selection system, and specific policy investments make it a potentially non-generalizable case, and the lower readings on the newer survey since 2022 (which uses a different method, so the drop cannot be read straight off) suggest the Canadian model may have limits. (An earlier version of this card cited an OECD report for a 'top 10 in social trust' ranking that the report does not contain.)",
         },
       ],
     },
@@ -237,9 +237,9 @@ export const immigrationNationalIdentityData = {
         },
         {
           id: "aging-workforce-dependency",
-          title: "Without Immigration, Developed Nations Face Collapsing Worker-to-Retiree Ratios",
+          title: "OECD: Working-Age Population to Shrink 8% by 2060; Migrants Already Help Sustain It",
           description:
-            "The OECD projects that without immigration, the working-age population (15-64) in developed nations will decline by 12% by 2050, while the 65+ population will increase by 60%. The worker-to-retiree ratio, which funds pensions and healthcare, will fall from 3.5:1 to 2:1 in the US and below 1.5:1 in Japan, Italy, and South Korea. Immigration is the only mechanism that can address this demographic imbalance in the near term (birth rate increases take 20+ years to enter the workforce). Japan, which has historically restricted immigration, faces the most severe pension and healthcare funding crisis among developed nations.",
+            "The OECD's Employment Outlook 2025 estimates that by 2060 the working-age population will decline by 8% across the OECD, and by more than 30% in a quarter of member countries, while annual public spending on pensions and health rises by 3% of GDP. The old-age dependency ratio, people aged 65 and over relative to the working-age population, rose from 19% in 1980 to 31% in 2023 and is projected to reach 52% by 2060; without policy action, GDP per capita growth would slow from 1% a year in 2006-19 to 0.6% in 2024-60. The report's editorial says 'Regular migrants are already helping to sustain working-age populations across the OECD and play key roles in reducing labour shortages in certain sectors', but adds that 'to be a game changer, net migration rates must surpass historic values': raising flows to the level of the most open quarter of countries would add 0.08 percentage points to the median country's GDP per capita growth. It lists migrants alongside young people, women and older workers as labour reserves to mobilise.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -247,10 +247,10 @@ export const immigrationNationalIdentityData = {
             replicability: 9,
             directness: 7,
           },
-          source: "OECD; United Nations Population Division",
-          sourceUrl: "https://www.oecd.org/en/publications/international-migration-outlook-2023_b0f40584-en.html",
+          source: "OECD, 'OECD Employment Outlook 2025: Can We Get Through the Demographic Crunch?' (9 July 2025), editorial and accompanying press release",
+          sourceUrl: "https://www.oecd.org/en/publications/oecd-employment-outlook-2025_194a947b-en.html",
           reasoning:
-            "OECD and UN demographic projections are authoritative and independently verified. The demographic reality of aging populations is beyond serious dispute. Directness is moderate because the demographic necessity argument does not directly address the democratic consent question — citizens might accept immigration's economic necessity while still wanting more control over its pace and composition.",
+            "OECD projections, built on UN population data, are authoritative, and the demographic reality of aging populations is beyond serious dispute. They support the view that governments keep immigration up out of economic need rather than elite preference. But the OECD's own estimate is that migration at historic rates is a modest lever, one of several, not a cure (an earlier version of this card gave unsourced figures and called immigration the only mechanism). Directness is moderate because the demographic necessity argument does not directly address the democratic consent question — citizens might accept immigration's economic necessity while still wanting more control over its pace and composition.",
         },
       ],
     },
@@ -273,8 +273,20 @@ export const immigrationNationalIdentityData = {
       url: "https://www.oecd.org/en/publications/international-migration-outlook-2023_b0f40584-en.html",
     },
     {
-      title: "Immigration and the Labor Market — George Borjas, Quarterly Journal of Economics (2003)",
-      url: "https://doi.org/10.1162/00335530360535135",
+      title: "The Labor Demand Curve Is Downward Sloping: Reexamining the Impact of Immigration on the Labor Market — George Borjas, Quarterly Journal of Economics (2003)",
+      url: "https://doi.org/10.1162/003355303322552810",
+    },
+    {
+      title: "Increasing the Supply of Labor Through Immigration — George Borjas, Center for Immigration Studies (2004)",
+      url: "https://cis.org/Report/Increasing-Supply-Labor-Through-Immigration",
+    },
+    {
+      title: "OECD Employment Outlook 2025: Can We Get Through the Demographic Crunch?",
+      url: "https://www.oecd.org/en/publications/oecd-employment-outlook-2025_194a947b-en.html",
+    },
+    {
+      title: "Immigrants make up the largest share of the population in over 150 years — Statistics Canada, The Daily (26 October 2022)",
+      url: "https://www150.statcan.gc.ca/n1/daily-quotidien/221026/dq221026a-eng.htm",
     },
   ],
   questions: [

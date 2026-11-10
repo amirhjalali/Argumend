@@ -12,14 +12,14 @@ export const facialRecognitionPolicingData = {
       "The ACLU has documented at least 14 wrongful arrests in the US after a facial-recognition match, most of them of Black people, and in each the match was treated as the main basis for arrest. In UK testing, the Met Police's live system showed no significant race or sex gap in false positives at its operating threshold, and a gap reappeared below it. Both sides accept these facts. The fight is over whether the settings police actually run, and the rules meant to govern them, hold up in the field.",
     confidence: 86,
     source:
-      "ACLU, 'More than a Dozen Wrongful Arrests Due to Police Reliance on Facial Recognition Technology' (2025); National Physical Laboratory, Equitability Study (NPL Report MS 43, March 2023)",
+      "ACLU, 'More than a Dozen Wrongful Arrests Due to Police Reliance on Facial Recognition Technology' (April 2026); National Physical Laboratory, Equitability Study (NPL Report MS 43, March 2023)",
     sourceUrl:
       "https://www.aclu.org/news/privacy-technology/more-than-a-dozen-wrongful-arrests-due-to-police-reliance-on-facial-recognition-technology",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "Both sides accept that demographic bias is real in many face-recognition algorithms and depends heavily on the algorithm and threshold, that every documented US wrongful arrest followed police treating a match as proof rather than a lead, and that the technology spread faster than oversight: about 60,000 federal searches ran before any training requirement.",
-    "They split over whether the systems police actually use, at their real settings, are equally accurate across race and sex; whether officers follow rules against arresting someone on a match alone; and whether safeguards like Virginia's and California's, once enacted, are obeyed and actually reduce wrongful arrests.",
+    "They split over whether the systems police actually use, at their real settings, are equally accurate across race and sex; whether officers follow rules against arresting someone on a match alone; and whether safeguards like Virginia's and Maryland's, once enacted, are obeyed and actually reduce wrongful arrests.",
   ],
   last_updated: "2026-06-16",
   tags: [
@@ -39,7 +39,7 @@ export const facialRecognitionPolicingData = {
       skeptic_premise:
         "The bias is real but largely an artifact of weak algorithms and bad operating thresholds — though it is not automatically cured by accuracy gains. Overall recognition error fell roughly threefold from 2020 to 2025, yet the FAS analysis warns that improving accuracy shrinks absolute demographic gaps without reliably erasing relative disparities, and that some vendors reduce bias while others do not. What settles the operational question is system- and threshold-specific testing: when the UK's National Physical Laboratory independently tested the Metropolitan Police's live system, it found that at the operational match threshold (0.6 and above) there was no statistically significant difference in false-positive identification across race or gender, with a false-positive rate around 0.017%. The fix is procurement standards, threshold floors, per-system equitability testing, and audits — not a blanket ban that also forecloses the well-configured systems.",
       proponent_rebuttal:
-        "Government testing shows facial recognition is not demographically neutral. NIST's landmark 2019 evaluation of 189 algorithms found that, for one-to-one matching, many algorithms produced false positives 10 to 100 times more often for Asian and African American faces than for white faces; for one-to-many matching (the mode used to scan mugshot databases for suspects), the highest false-positive rates were for African American women — precisely the error mode that can put an innocent person on a suspect list. When a biased tool is pointed disproportionately at over-policed communities, it systematizes and launders discrimination behind a veneer of mathematical objectivity.",
+        "Government testing shows facial recognition is not demographically neutral. NIST's landmark 2019 evaluation of 189 algorithms found that, for one-to-one matching, many algorithms produced false positives 10 to 100 times more often for Asian and African American faces than for white faces; for one-to-many matching (the mode used to scan mugshot databases for suspects), false-positive rates were higher for African American women — precisely the error mode that can put an innocent person on a suspect list. When a biased tool is pointed disproportionately at over-policed communities, it systematizes and launders discrimination behind a veneer of mathematical objectivity.",
       crux: {
         id: "operational-bias-test",
         title: "The Operational-Threshold Bias Test",
@@ -71,7 +71,7 @@ export const facialRecognitionPolicingData = {
           id: "nist-8280-bias",
           title: "NIST Found 10-100x Higher False Positives for Faces of Color",
           description:
-            "NIST's FRVT Part 3: Demographic Effects (NISTIR 8280, 2019) evaluated 189 algorithms and found false-positive rates 10 to 100 times higher for Asian and African American faces than white faces in one-to-one matching; in one-to-many matching the highest false positives were for African American women — the error most likely to generate a false suspect.",
+            "NIST's FRVT Part 3: Demographic Effects (NISTIR 8280, 2019) evaluated 189 algorithms and found that in one-to-one matching false-positive rates for Asian and African American faces were often 10 to 100 times higher than for white faces, depending on the algorithm; in one-to-many matching false positives were higher for African American women — the error most likely to generate a false suspect.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -109,7 +109,7 @@ export const facialRecognitionPolicingData = {
           id: "nist-accuracy-gains",
           title: "Best Algorithms Are Near-Perfect, but Accuracy Gains Don't Erase Bias",
           description:
-            "Ongoing NIST testing shows recognition error fell roughly threefold from 2020 to 2025, with the top mugshot-identification algorithm reaching a ~0.13% false-negative rate. But the FAS analysis cautions that these accuracy gains do not reliably reduce demographic bias: as overall error falls the absolute disparity between groups may shrink while the relative disparity persists, and across vendors bias reduction is uneven — some companies have lowered both absolute and relative bias while others have not, or have grown more biased.",
+            "Ongoing NIST testing shows one-to-one verification error fell roughly threefold from 2020 to 2025, with the best system missing about 0.13% of true matches at a 0.003% false-positive setting, and error on mugshot identification fell about fivefold over the same period. But the FAS analysis cautions that these accuracy gains do not reliably reduce demographic bias: as overall error falls the absolute disparity between groups may shrink while the relative disparity persists, and across vendors bias reduction is uneven — some companies have lowered both absolute and relative bias while others have not, or have grown more biased.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -118,7 +118,7 @@ export const facialRecognitionPolicingData = {
             directness: 6,
           },
           source:
-            "NIST Face Recognition Technology Evaluation (FRTE/FRVT) ongoing reports; summarized in Federation of American Scientists, 'Face Recognition Performance, Bias, and the Limits of Technical Fixes' (Jacobs & Stephenson, 2026)",
+            "NIST Face Recognition Technology Evaluation (FRTE/FRVT) ongoing reports; summarized in Federation of American Scientists, 'Face Recognition Performance, Bias, and the Limits of Technical Fixes' (Jacobs & Stephenson, May 2026)",
           sourceUrl: "https://fas.org/publication/face-recognition-bias/",
           reasoning:
             "Reflects real, independently measured accuracy gains in lab conditions. Directness is discounted because laboratory accuracy on clean gallery images overstates performance on the low-quality probe images (CCTV, partial faces) typical of investigations, and 'best algorithm' results do not describe what every agency actually buys and runs.",
@@ -134,7 +134,7 @@ export const facialRecognitionPolicingData = {
       skeptic_premise:
         "Every documented wrongful arrest is a failure of police procedure, not proof the technology should be banned. In each case officers violated the near-universal rule that a match is an investigative lead requiring independent corroboration — they arrested on the match alone. The technology also clears and exonerates: it generates leads in robberies, assaults, child-exploitation, and cold cases that traditional methods miss. The corrective is enforceable safeguards — mandatory disclosure, human verification, corroboration requirements, and a ban on arrests based on a match alone — which target the actual cause of harm without discarding a tool that solves real crimes.",
       proponent_rebuttal:
-        "The concrete harm is no longer hypothetical. The ACLU has documented at least 14 people wrongfully arrested in the US after a facial-recognition match, the majority of them Black; several were jailed for days, including a woman who was eight months pregnant. Investigators repeatedly treated the algorithm's 'possible match' as confirmation and skipped basic follow-up — the misidentified people were sometimes inches taller, heavier, or visibly different from the suspect. Georgetown Law calls it 'a forensic without the science': an unvalidated identification method whose output is used as probable cause despite policies that say it should only be a lead.",
+        "The concrete harm is no longer hypothetical. The ACLU has documented at least 14 people wrongfully arrested in the US after a facial-recognition match, the majority of them Black; several were jailed for days or months, and one woman was arrested while eight months pregnant. Investigators repeatedly treated the algorithm's 'possible match' as confirmation and skipped basic follow-up — the misidentified people were sometimes inches taller, heavier, or visibly different from the suspect. Georgetown Law calls it 'a forensic without the science': an unvalidated identification method whose output is used as probable cause despite policies that say it should only be a lead.",
       crux: {
         id: "sole-basis-test",
         title: "The Sole-Basis Test",
@@ -175,7 +175,7 @@ export const facialRecognitionPolicingData = {
             directness: 9,
           },
           source:
-            "ACLU, 'More than a Dozen Wrongful Arrests Due to Police Reliance on Facial Recognition Technology' (2025); individual cases corroborated by NPR, ABC News, and lawsuits/settlements (e.g. Williams v. City of Detroit)",
+            "ACLU, 'More than a Dozen Wrongful Arrests Due to Police Reliance on Facial Recognition Technology' (April 2026); individual cases corroborated by NPR, ABC News, and lawsuits/settlements (e.g. Williams v. City of Detroit)",
           sourceUrl:
             "https://www.aclu.org/news/privacy-technology/more-than-a-dozen-wrongful-arrests-due-to-police-reliance-on-facial-recognition-technology",
           reasoning:
@@ -196,7 +196,7 @@ export const facialRecognitionPolicingData = {
           source:
             "Clare Garvie, 'A Forensic Without the Science: Face Recognition in U.S. Criminal Investigations,' Georgetown Law Center on Privacy & Technology (2022)",
           sourceUrl:
-            "https://www.law.georgetown.edu/privacy-technology-center/publications/a-forensic-without-the-science-face-recognition-in-u-s-criminal-investigations/",
+            "https://www.law.georgetown.edu/privacy-technology-center/research/a-forensic-without-the-science-face-recognition-in-u-s-criminal-investigations/",
           reasoning:
             "A rigorous legal-technical analysis from a leading research center, directly addressing the lead-vs-proof gap that drives wrongful arrests. Weights are moderate because it is an advocacy-aligned report rather than a peer-reviewed study or controlled dataset, and its central claim about prevalence is acknowledged to be unquantified.",
         },
@@ -204,7 +204,7 @@ export const facialRecognitionPolicingData = {
           id: "met-arrests-utility",
           title: "Live Facial Recognition Produced 2,100+ Arrests in London",
           description:
-            "The Metropolitan Police reports more than 2,100 arrests since the start of 2024 from live facial recognition, with about 24% for violence against women and girls and over 100 registered sex offenders apprehended, while stating that in one year ~3 million faces were scanned with only 12 false alerts, none leading to arrest.",
+            "A London Assembly motion agreed on 2 July 2026 by 14 votes to 3 states that live facial recognition has led to more than 2,100 arrests in London, and that more than three million faces passed the cameras in 2025 with 12 false alerts and no false arrests.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -213,11 +213,11 @@ export const facialRecognitionPolicingData = {
             directness: 7,
           },
           source:
-            "London Assembly motion citing Metropolitan Police figures (2026)",
+            "London Assembly, motion 'Live Facial Recognition' (agreed 2 July 2026)",
           sourceUrl:
             "https://www.london.gov.uk/motions/live-facial-recognition",
           reasoning:
-            "Demonstrates concrete public-safety output (including hard-to-solve VAWG and sex-offender cases). Independence is low because the figures are self-reported by the deploying agency and not independently audited, and 'arrests' are not the same as convictions; the false-alert claim, however, is consistent with the independent NPL testing.",
+            "Demonstrates concrete public-safety output. Independence is low because the figures appear in a political motion backing the technology, trace to the deploying force and are not independently audited, and 'arrests' are not the same as convictions; the false-alert claim, however, is consistent with the independent NPL testing.",
         },
       ],
     },
@@ -228,7 +228,7 @@ export const facialRecognitionPolicingData = {
         "Federal auditors found tens of thousands of facial-recognition searches run with no training and no civil-rights policies — a governance vacuum that 'restrict' advocates cite and 'reform' advocates say is fixable.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "A governance gap is an argument for governance, not abolition. The GAO did not find the tool ineffective — it found agencies adopted it without the training, policies, and disclosure rules that any powerful investigative tool requires, and it issued ten recommendations the agencies accepted. Jurisdictions are already closing the gap: states like Virginia and California now bar a facial-recognition match from being the sole basis for an arrest or warrant affidavit, while still permitting corroborated leads. Targeted regulation captures the benefits and curbs the harms, which is precisely what restriction-by-statute (as opposed to a ban) looks like in practice.",
+        "A governance gap is an argument for governance, not abolition. The GAO did not find the tool ineffective — it found agencies adopted it without the training, policies, and disclosure rules that any powerful investigative tool requires, and it issued ten recommendations the agencies accepted. Jurisdictions are already closing the gap: Maryland bars a facial-recognition result from being the sole basis for probable cause, and Virginia kept matches out of warrant affidavits under the statute in force until July 2026, while both still permitted corroborated leads. Targeted regulation captures the benefits and curbs the harms, which is precisely what restriction-by-statute (as opposed to a ban) looks like in practice.",
       proponent_rebuttal:
         "Even a perfectly accurate tool is dangerous without guardrails, and the guardrails are largely absent. The US Government Accountability Office found that seven DHS and DOJ law-enforcement agencies used facial-recognition services with no training requirements — cumulatively running about 60,000 searches before any training was mandated — and that four of the seven had no policy specifically protecting civil rights and civil liberties. Combined with police seldom disclosing FRT use to defendants, this is unaccountable surveillance infrastructure deployed faster than democratic oversight can govern it, which is itself a strong reason to restrict until oversight catches up.",
       crux: {
@@ -248,7 +248,7 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$150K (comparative policy and records analysis)",
         falsification: {
           supporter_flip:
-            "If studies of states like Virginia and California, which bar match-only arrests but keep corroborated leads, and of agencies acting on the GAO's training and policy recommendations, found fewer wrongful arrests, a workable middle path short of hard restriction would be in reach.",
+            "If studies of states like Virginia and Maryland, which wrote limits on match-only probable cause into law but kept corroborated leads, and of agencies acting on the GAO's training and policy recommendations, found fewer wrongful arrests, a workable middle path short of hard restriction would be in reach.",
           skeptic_flip:
             "If comparative analysis found jurisdictions with binding statutes (sole-basis bans, mandatory training, disclosure) no better than others on disclosure to defendants, compliance or wrongful arrests, the safeguards would look unenforceable and a harder restriction the only working constraint.",
           common_ground:
@@ -260,9 +260,9 @@ export const facialRecognitionPolicingData = {
       evidence: [
         {
           id: "gao-training-gap",
-          title: "GAO: ~60,000 Federal Searches Run Without Training or Policy",
+          title: "GAO: ~60,000 Federal Searches Run Before Any Training Requirement",
           description:
-            "GAO found that seven DHS and DOJ law-enforcement agencies used facial-recognition services without requiring staff training (only two had such requirements by April 2023), cumulatively conducting about 60,000 searches before training was in place, and that four of the seven lacked policies specifically protecting civil rights and civil liberties.",
+            "GAO found that seven DHS and DOJ law-enforcement agencies initially used facial-recognition services without requiring staff training (only two required it as of April 2023). The six agencies with available data cumulatively ran about 60,000 searches while they had no training requirement, and four of the seven lacked policies or guidance specific to facial recognition that address civil rights and civil liberties.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -280,7 +280,7 @@ export const facialRecognitionPolicingData = {
           id: "state-sole-basis-laws",
           title: "States Now Bar Match-Only Arrests While Allowing Corroborated Leads",
           description:
-            "Several states have enacted targeted limits rather than bans. Virginia's facial-recognition statute (in force through June 30, 2026) provides that a match shall not be included in an affidavit to establish probable cause for an arrest or search warrant; a revised version effective July 1, 2026 instead requires deployments to be expressly authorized by statute. California separately prohibits using a facial-recognition match as the sole basis for an arrest, search, or warrant affidavit — preserving the tool as a corroborated lead.",
+            "Several states have enacted targeted limits rather than bans. Virginia's facial-recognition statute, as in force until July 1, 2026, provided that a match shall not be included in an affidavit to establish probable cause for an arrest or search warrant; the version effective July 1, 2026 instead bars local agencies from buying or deploying the technology unless a statute expressly authorizes it. Maryland separately provides that facial-recognition results may not serve as the sole basis to establish probable cause and must be supported by additional, independently obtained evidence — preserving the tool as a corroborated lead.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -289,11 +289,11 @@ export const facialRecognitionPolicingData = {
             directness: 6,
           },
           source:
-            "Code of Virginia § 15.2-1723.2 (facial recognition technology; approval and use limits); California Penal Code provisions on facial recognition as sole basis",
+            "Code of Virginia § 15.2-1723.2 (facial recognition technology; approval); Maryland Code, Criminal Procedure § 2-502",
           sourceUrl:
             "https://law.lis.virginia.gov/vacode/title15.2/chapter17/section15.2-1723.2/",
           reasoning:
-            "Primary statutory text showing that 'restriction' can mean calibrated regulation that keeps corroborated use legal — undercutting the claim that the only options are ban or unfettered use. Independence is moderate because Virginia's affidavit restriction is being narrowed as of July 1, 2026, so it partly illustrates regulatory instability; directness is moderate because it demonstrates the existence of a middle path rather than measuring its effectiveness, which remains to be evaluated.",
+            "Primary statutory text showing that 'restriction' can mean calibrated regulation that keeps corroborated use legal — undercutting the claim that the only options are ban or unfettered use. Independence is moderate because Virginia's affidavit restriction gave way to a different rule on July 1, 2026, so it partly illustrates regulatory instability; directness is moderate because it demonstrates the existence of a middle path rather than measuring its effectiveness, which remains to be evaluated.",
         },
       ],
     },

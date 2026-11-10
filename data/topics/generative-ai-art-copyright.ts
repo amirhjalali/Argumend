@@ -13,9 +13,9 @@ export const generativeAiArtCopyrightData = {
       "In Bartz v. Anthropic, the judge held that training on lawfully bought books was fair use, calling it 'exceedingly transformative'. Anthropic then agreed to pay about $1.5 billion, roughly $3,000 per work, for books it had downloaded from pirate libraries like LibGen. Both rulings stand. The fight is over whether training without permission is fair use in every court, and whether AI outputs take the market of the works they learned from.",
     confidence: 88,
     source:
-      "Bartz v. Anthropic, Judge Alsup (N.D. Cal., June 23 & Aug. 2025 settlement); Copyright Alliance and Authors Guild settlement explainers (2025)",
+      "Bartz v. Anthropic, Judge Alsup (N.D. Cal.), fair-use ruling of June 23, 2025 and settlement announced Sept. 5, 2025, as reported by NPR; Copyright Alliance and Authors Guild settlement explainers (2025)",
     sourceUrl:
-      "https://copyrightalliance.org/participating-bartz-v-anthropic-settlement/",
+      "https://www.npr.org/2025/09/05/nx-s1-5529404/anthropic-settlement-authors-copyright-ai",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -66,7 +66,7 @@ export const generativeAiArtCopyrightData = {
           id: "anthropic-settlement",
           title: "Anthropic Pays ~$1.5B Over Pirated Training Books",
           description:
-            "In Bartz v. Anthropic, Anthropic agreed to pay about $1.5 billion (roughly $3,000 per work across ~500,000 works) to settle claims it downloaded pirated books from LibGen/PiLiMi to build a training library — reportedly one of the largest copyright recoveries in US history.",
+            "In Bartz v. Anthropic, Anthropic agreed to pay about $1.5 billion (roughly $3,000 per work across ~500,000 works) to settle claims it downloaded pirated books from LibGen/PiLiMi to build a training library. The settlement motion called it 'the largest publicly reported copyright recovery in history.'",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -75,7 +75,7 @@ export const generativeAiArtCopyrightData = {
             directness: 7,
           },
           source:
-            "Copyright Alliance, 'What to Know About the $1.5 Billion Bartz v. Anthropic Settlement' (2025); NPR reporting (Sept. 5, 2025)",
+            "Copyright Alliance, 'Top 5 Things You Need to Know About Participating in the $1.5 Billion Bartz v. Anthropic Settlement' (Oct. 28, 2025); NPR reporting (Sept. 5, 2025)",
           sourceUrl:
             "https://copyrightalliance.org/participating-bartz-v-anthropic-settlement/",
           reasoning:
@@ -104,7 +104,7 @@ export const generativeAiArtCopyrightData = {
           id: "licensing-market",
           title: "A Licensing Market Is Forming Without a Ban",
           description:
-            "Rights holders are licensing training data voluntarily: News Corp's deal with OpenAI is reportedly valued at over $250M, and Shutterstock's data-licensing/AI business (with a Contributor Fund paying artists) projected ~$138M revenue for 2024 — evidence consent is achievable through markets, not prohibition.",
+            "Rights holders are licensing training data voluntarily: News Corp's five-year deal with OpenAI (May 2024) is reportedly valued at over $250M, Reddit's deal with Google at about $60M a year, and Shutterstock's chief executive said its licensing business with AI companies produced $104M in revenue in 2023 — evidence consent is achievable through markets, not prohibition.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -113,11 +113,11 @@ export const generativeAiArtCopyrightData = {
             directness: 6,
           },
           source:
-            "Shutterstock investor releases; Similarweb / CB Insights summaries of 2024 AI data-licensing deals",
+            "Similarweb, 'Top 10 Data Licensing Deals That Powered AI Innovation In 2024' (Jan. 3, 2025); Bloomberg News, 'Shutterstock's AI-Licensing Business Generated $104 Million' (June 4, 2024)",
           sourceUrl:
             "https://www.similarweb.com/blog/daas/data-analysis/data-licensing-deals/",
           reasoning:
-            "Shows a functioning consent mechanism exists, undercutting the claim that a legal ban is the only remedy. Lower weights reflect that aggregator/news reporting is less authoritative than court records and that deal values are partly self-reported.",
+            "Shows a functioning consent mechanism exists, undercutting the claim that a legal ban is the only remedy. Lower weights reflect that aggregator/news reporting is less authoritative than court records and that deal values are partly self-reported. An earlier version gave Shutterstock's AI licensing as about $138M for 2024; that figure was the company's 2024 projection for a whole business unit that includes AI licensing, so it is replaced with the $104M its chief executive reported for 2023.",
         },
       ],
     },
@@ -172,7 +172,8 @@ export const generativeAiArtCopyrightData = {
           },
           source:
             "US Copyright Office, 'Copyright and Artificial Intelligence, Part 3: Generative AI Training' (pre-publication, May 9, 2025)",
-          sourceUrl: "https://www.copyright.gov/ai/",
+          sourceUrl:
+            "https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-3-Generative-AI-Training-Report-Pre-Publication-Version.pdf",
           reasoning:
             "Authoritative federal agency analysis of the fourth fair-use factor. It is a legal/policy assessment, not an empirical study, and the Office stops short of recommending new law — so it supports the 'harm' premise without proving unlawfulness.",
         },
@@ -180,7 +181,7 @@ export const generativeAiArtCopyrightData = {
           id: "soa-illustrator-survey",
           title: "Creators Report Lost Work and Income",
           description:
-            "A 2024 Society of Authors survey (~787 respondents) found about a quarter of illustrators (26%) and a third of translators (36%) had already lost work to generative AI, and over a third of illustrators (37%) said their income had decreased because of it.",
+            "A January 2024 Society of Authors survey (787 responses) found a quarter of illustrators (26%) and over a third of translators (36%) had already lost work to generative AI, and over a third of illustrators (37%) said the income from their work had decreased in value because of it.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -229,7 +230,7 @@ export const generativeAiArtCopyrightData = {
           sourceUrl:
             "https://storage.courtlistener.com/recap/gov.uscourts.cand.415175/gov.uscourts.cand.415175.598.0.pdf",
           reasoning:
-            "A full court record in which plaintiffs had to show that training, not AI generally, cost them sales, and produced no such evidence; the court also drew the crux's own line between harm from training and harm from AI's existence. Weighted moderately: it is a district-court ruling for thirteen novelists against a text model, not visual artists; a missing record is not proof of no harm; and the same judge wrote that training on copyrighted books \"would seem, in most circumstances,\" to make a model better able to dilute those books' market.",
+            "A full court record in which plaintiffs had to show that training, not AI generally, cost them sales, and produced no such evidence; the court also drew the crux's own line between harm from training and harm from AI's existence. Weighted moderately: it is a district-court ruling on thirteen authors, mostly fiction writers, and a text model, not visual artists; a missing record is not proof of no harm; and the same judge wrote that training on copyrighted books \"would seem, in most circumstances,\" to make a model better able to dilute those books' market.",
         },
       ],
     },
@@ -293,7 +294,7 @@ export const generativeAiArtCopyrightData = {
           id: "bartz-kadrey-fair-use",
           title: "Courts Held LLM Training Is Transformative Fair Use",
           description:
-            "In Bartz v. Anthropic (June 23, 2025), Judge Alsup held that training LLMs on lawfully obtained books was 'exceedingly transformative' fair use; a parallel ruling in Kadrey v. Meta also found training fair use. Both confine liability to how data was obtained, not the act of training.",
+            "In Bartz v. Anthropic (June 23, 2025), Judge Alsup held that using books to train LLMs was 'exceedingly transformative' fair use, while denying summary judgment on the pirated copies Anthropic had downloaded and sending that issue to trial. Two days later in Kadrey v. Meta, Judge Chhabria also granted summary judgment on fair use for training, on the ground that the plaintiffs had shown no market harm. Bartz confines liability to how the books were obtained; Kadrey is narrower, stating that the ruling 'does not stand for the proposition that Meta's use of copyrighted materials to train its language models is lawful.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -306,13 +307,13 @@ export const generativeAiArtCopyrightData = {
           sourceUrl:
             "https://www.wiggin.com/publication/bartz-v-anthropic-first-court-decision-on-fair-use-defense-in-llm-training/",
           reasoning:
-            "Two recent federal rulings directly on generative-AI training found it transformative and lawful, strongly cutting against the claim that unlicensed training should be unlawful. High directness; these are the most on-point decisions to date, though all are district-level and under appeal.",
+            "Two federal rulings directly on generative-AI training found it transformative fair use on the records before them, cutting against the claim that unlicensed training is unlawful. High directness; these are the most on-point decisions to date. Both are district-court rulings: Bartz ended in a settlement rather than appellate review, and the Kadrey judge limited his ruling to the thirteen plaintiffs and the arguments they made.",
         },
         {
           id: "nyt-memorization",
           title: "Models Can Regurgitate Training Text Verbatim",
           description:
-            "The New York Times' 2023 complaint against OpenAI included exhibits showing GPT-4 reproducing long passages of Times articles near-verbatim when prompted, evidence that some models memorize and can output copies of training inputs.",
+            "The New York Times' December 2023 complaint against Microsoft and OpenAI included Exhibit J, one hundred examples of GPT-4 output reproducing passages of Times articles near-verbatim when prompted, evidence that some models memorize and can output copies of training inputs. A 2024 independent study extracted some of those articles again with prompt attacks and found that larger models memorize more, with OpenAI's models less prone to it than models from Meta, Mistral and Anthropic.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -321,7 +322,7 @@ export const generativeAiArtCopyrightData = {
             directness: 6,
           },
           source:
-            "The New York Times Company v. Microsoft & OpenAI complaint (S.D.N.Y. 2023), Exhibit J; independent memorization studies",
+            "The New York Times Company v. Microsoft Corp., No. 23-CV-11195 (S.D.N.Y. filed Dec. 27, 2023), Exhibit J, as described in Freeman, Rippe, Debenedetti & Andriushchenko, 'Exploring Memorization and Copyright Violation in Frontier LLMs' (arXiv:2412.06370, 2024)",
           sourceUrl:
             "https://arxiv.org/abs/2412.06370",
           reasoning:

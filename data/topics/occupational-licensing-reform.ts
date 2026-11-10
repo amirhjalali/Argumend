@@ -17,7 +17,7 @@ export const occupationalLicensingReformData = {
       "More than one in four US workers now need a government license to do their job, roughly a five-fold rise since the 1950s. Workers in occupations with state-specific licensing exams move between states at a rate about 36% lower than other workers. Both sides accept these numbers. The fight is over which licenses buy enough quality to justify their price, and whether recognition laws or deeper rollback should ease the cost to mobile workers.",
     confidence: 86,
     source:
-      "U.S. Treasury, CEA & Dept. of Labor, 'Occupational Licensing: A Framework for Policymakers' (2015); Johnson & Kleiner, American Economic Journal: Economic Policy (2020)",
+      "U.S. Treasury, CEA & Dept. of Labor, 'Occupational Licensing: A Framework for Policymakers' (2015); Johnson & Kleiner, Federal Reserve Bank of Minneapolis Staff Report 561 (2017), the working-paper version of their American Economic Journal: Economic Policy article (2020)",
     sourceUrl:
       "https://obamawhitehouse.archives.gov/sites/default/files/docs/licensing_report_final_nonembargo.pdf",
   },
@@ -89,7 +89,7 @@ export const occupationalLicensingReformData = {
           id: "ij-raising-barriers",
           title: "No Quality Benefit Across State Borders",
           description:
-            "Comparing Yelp ratings for six occupations (e.g., barbers, manicurists, interior designers) across bordering states with different licensing burdens: in 7 of 9 comparisons there was no significant quality difference, and in the other 2 the less-licensed state scored higher.",
+            "Comparing Yelp ratings for six occupations (barbers, cosmetologists, interior designers, locksmiths, manicurists and tree trimmers) across bordering states with different licensing burdens: in 7 of 9 comparisons there was no statistically significant quality difference, and in the other 2 the less-licensed state scored higher.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -98,9 +98,9 @@ export const occupationalLicensingReformData = {
             directness: 8,
           },
           source:
-            "Sweetland & Carpenter, 'Raising Barriers, Not Quality,' Institute for Justice (2022)",
+            "Sweetland & Carpenter, 'Raising Barriers, Not Quality,' Institute for Justice (revised October 2022)",
           sourceUrl:
-            "https://search.issuelab.org/resource/raising-barriers-not-quality-occupational-licensing-fails-to-improve-services.html",
+            "https://web.archive.org/web/20250114153710/https://ij.org/report/raising-barriers-not-quality/",
           reasoning:
             "Directly tests the quality justification with a transparent border-discontinuity design. Discounted for source independence (IJ is an advocacy litigation org with a pro-deregulation prior) and because Yelp ratings are a noisy quality proxy limited to low-stakes trades.",
         },
@@ -183,7 +183,7 @@ export const occupationalLicensingReformData = {
           id: "johnson-kleiner-migration",
           title: "Licensing Suppresses Interstate Migration",
           description:
-            "Workers in occupations with state-specific licensing exams have a between-state migration rate ~36% lower than other workers, and are ~7% less likely to move between states than workers in occupations with national licensing exams.",
+            "Studying 22 licensed occupations, the 2017 working-paper version found the between-state migration rate for workers in occupations with state-specific licensing exams was 36 percent lower relative to other occupations, and no evidence of limited migration where the licensing exam is national. Compared directly, state-exam occupations moved between states at a 31 percent lower rate than national-exam ones, or 16 percent after netting out their lower rate of long moves within a state. The published 2020 abstract gives no figure and says the effect 'can only account for a small part of the overall decline in recent decades.'",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -192,16 +192,16 @@ export const occupationalLicensingReformData = {
             directness: 7,
           },
           source:
-            "Johnson & Kleiner, 'Is Occupational Licensing a Barrier to Interstate Migration?,' American Economic Journal: Economic Policy (2020)",
+            "Johnson & Kleiner, 'Is Occupational Licensing a Barrier to Interstate Migration?,' American Economic Journal: Economic Policy 12(3), 2020; figures from the working-paper version, Federal Reserve Bank of Minneapolis Staff Report 561 (2017)",
           sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/pol.20170704",
           reasoning:
-            "Top-tier peer-reviewed journal with a clean identification strategy (national vs. state exams). Directness slightly discounted because the authors note licensing explains only a small share of the overall mobility decline.",
+            "Top-tier peer-reviewed journal with a clean identification strategy (national vs. state exams). The percentages are from the 2017 working paper; the published text was not checked for revised estimates. Directness slightly discounted because the authors note licensing explains only a small share of the overall mobility decline.",
         },
         {
           id: "nc-dental-ftc",
           title: "Boards Used Licensing to Block Competitors",
           description:
-            "The North Carolina dental board, dominated by practicing dentists, sent cease-and-desist letters to non-dentist teeth-whitening providers. The Supreme Court (2015) held the board was not immune from antitrust law because it was controlled by active market participants without active state supervision.",
+            "The North Carolina dental board, six of whose eight members must be practicing dentists, sent at least 47 cease-and-desist letters to non-dentist teeth-whitening providers and product makers after dentists complained about their lower prices. The Supreme Court (2015) held the board was not immune from antitrust law because it was controlled by active market participants without active state supervision.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -210,9 +210,8 @@ export const occupationalLicensingReformData = {
             directness: 6,
           },
           source:
-            "North Carolina State Board of Dental Examiners v. FTC, 574 U.S. 494 (2015); FTC statement (Feb. 2015)",
-          sourceUrl:
-            "https://www.ftc.gov/news-events/news/press-releases/2015/02/statement-ftc-chairwoman-edith-ramirez-us-supreme-court-ruling-regarding-north-carolina-dental-board",
+            "North Carolina State Board of Dental Examiners v. FTC, 574 U.S. 494 (decided February 25, 2015), syllabus and opinion",
+          sourceUrl: "https://www.law.cornell.edu/supremecourt/text/13-534",
           reasoning:
             "A Supreme Court finding documenting incumbent capture is unusually authoritative and independent. Directness discounted: it proves a specific abuse and a capture mechanism, not that licensing is net-negative economy-wide.",
         },

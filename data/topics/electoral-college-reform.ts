@@ -9,15 +9,15 @@ export const electoralCollegeReformData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Twice in the last six elections (2000, 2016) the candidate who won the most votes lost the presidency, and a Wyoming voter carries about 3.6 times the electoral weight of a Californian. Abolishing the Electoral College takes a constitutional amendment, and the interstate compact that would work around it is 48 electoral votes short. The fight is over whether a national popular vote would be fairer, and whether it is worth the cost of getting there.",
+      "Twice in the last seven elections (2000, 2016) the candidate who won the most votes lost the presidency, and a Wyoming voter carries about 3.8 times the electoral weight of a Californian. Abolishing the Electoral College takes a constitutional amendment, and the interstate compact that would work around it is 48 electoral votes short. The fight is over whether a national popular vote would be fairer, and whether it is worth the cost of getting there.",
     confidence: 85,
     source:
-      "National Popular Vote Interstate Compact status (2026); US Census apportionment; Pew Research (2024)",
+      "National Popular Vote Interstate Compact status (2026); US Census Bureau, 2020 Census apportionment population (Table 1); FEC, Federal Elections 2000 and 2016",
     sourceUrl: "https://www.nationalpopularvote.com/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that the popular-vote winner lost the presidency in 2000 and 2016, that a Wyoming voter carries about 3.6× the electoral weight of a Californian, and that the National Popular Vote Interstate Compact sits at 222 of the 270 electoral votes it needs, with no Supreme Court ruling on it yet.",
+    "Both sides accept that the popular-vote winner lost the presidency in 2000 and 2016, that a Wyoming voter carries about 3.8× the electoral weight of a Californian, and that the National Popular Vote Interstate Compact sits at 222 of the 270 electoral votes it needs, with no Supreme Court ruling on it yet.",
     "They split over whether that unequal weight is a flaw or a feature that forces candidates to build geographically broad coalitions; whether the compact can win the Republican-leaning states it still needs to reach 270; and whether it would survive a Supreme Court challenge under the Compact Clause.",
   ],
   pillars: [
@@ -25,12 +25,12 @@ export const electoralCollegeReformData = {
       id: "democratic-legitimacy",
       title: "Democratic Legitimacy",
       short_summary:
-        "A Wyoming voter has 3.6x the Electoral College weight of a California voter. Two of the last six presidents lost the popular vote.",
+        "A Wyoming voter has 3.8x the Electoral College weight of a California voter. Two of the last six presidents lost the popular vote.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "The Electoral College protects federalism and ensures small states have meaningful influence. It forces candidates to build geographically broad coalitions. A pure popular vote would concentrate campaigns in major cities and ignore rural America. The Founders deliberately rejected direct democracy because they feared tyranny of the majority.",
       proponent_rebuttal:
-        "Under the Electoral College, candidates already ignore 40+ states to focus on 5-7 swing states. Wyoming voters have 3.6x the electoral weight of California voters. In 2000 and 2016, the popular vote winner lost the presidency—outcomes most democracies would consider illegitimate. A 2024 Pew Research survey found 63% of Americans favor replacing the Electoral College with a popular vote, including 46% of Republicans and Republican-leaners (with 53% preferring to keep the Electoral College)—so reform support is not confined to one party, even if it is far stronger among Democrats (80%).",
+        "Under the Electoral College, candidates already ignore 40+ states to focus on 5-7 swing states. Wyoming voters have 3.8x the electoral weight of California voters (2020 Census apportionment: about 193,000 residents per electoral vote in Wyoming against about 733,000 in California). In 2000 and 2016, the popular vote winner lost the presidency—outcomes most democracies would consider illegitimate. A 2024 Pew Research survey found 63% of Americans favor replacing the Electoral College with a popular vote, including 46% of Republicans and Republican-leaners (with 53% preferring to keep the Electoral College)—so reform support is not confined to one party, even if it is far stronger among Democrats (80%).",
       crux: {
         id: "npvic-enactment",
         title: "National Popular Vote Interstate Compact Reaching 270 EVs",
@@ -81,7 +81,7 @@ export const electoralCollegeReformData = {
           id: "popular-vote-losses",
           title: "Two Recent Presidents Lost the Popular Vote",
           description:
-            "In both 2000 and 2016, the candidate who received more total votes from American citizens lost the presidency. George W. Bush lost the popular vote to Al Gore by 543,895 votes, and Donald Trump lost to Hillary Clinton by 2,868,686 votes. No other established democracy regularly installs leaders who received fewer votes than their opponents.",
+            "In both 2000 and 2016, the candidate who received more total votes from American citizens lost the presidency. George W. Bush lost the popular vote to Al Gore by 543,895 votes (50,456,002 to 50,999,897), and Donald Trump lost to Hillary Clinton by 2,868,686 votes (62,984,828 to 65,853,514), in the Federal Election Commission's official results. Ballotpedia counts four elections between 1876 and 2024 in which the Electoral College winner did not receive the most votes.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -90,17 +90,17 @@ export const electoralCollegeReformData = {
             directness: 9,
           },
           source:
-            "Certified election results (compiled by Wikipedia, \"List of United States presidential elections in which the winner lost the popular vote\")",
+            "Federal Election Commission, 'Federal Elections 2016: Election Results for the U.S. President, the U.S. Senate and the U.S. House of Representatives' (2017) and 'Federal Elections 2000' (2001), official presidential general election results; Ballotpedia, 'National Popular Vote Interstate Compact'",
           sourceUrl:
-            "https://en.wikipedia.org/wiki/List_of_United_States_presidential_elections_in_which_the_winner_lost_the_popular_vote",
+            "https://www.fec.gov/documents/1889/federalelections2016.pdf",
           reasoning:
-            "Indisputable factual record—Gore led Bush by 543,895 votes in 2000 and Clinton led Trump by 2,868,686 votes in 2016. Directness is high because this is exactly the scenario reform proponents want to prevent.",
+            "Official FEC tallies—Gore led Bush by 543,895 votes in 2000 and Clinton led Trump by 2,868,686 votes in 2016. Directness is high because this is exactly the scenario reform proponents want to prevent.",
         },
         {
           id: "federalism-protection",
           title: "Electoral College Protects Small-State Influence",
           description:
-            "The Electoral College ensures every state has a minimum of 3 electoral votes regardless of population, giving smaller states proportionally greater influence. Without this, candidates would have no incentive to address issues specific to rural and low-population states. The system ensures the president must build a geographically diverse coalition rather than simply maximizing votes in a few mega-cities.",
+            "Each state gets one electoral vote per House member plus two for its senators, so no state has fewer than 3 electoral votes regardless of population, giving smaller states proportionally greater influence. Without this, candidates would have no incentive to address issues specific to rural and low-population states. The system ensures the president must build a geographically diverse coalition rather than simply maximizing votes in a few mega-cities.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -109,16 +109,16 @@ export const electoralCollegeReformData = {
             directness: 5,
           },
           source:
-            "National Archives, \"About the Electors\" (documents the minimum of 3 electoral votes per state); argument is a common pro–Electoral College interpretation rather than a sourced empirical finding",
+            "National Archives, 'What is the Electoral College?' (gives the allocation formula: one elector per House member plus two for the senators); the argument is a common pro–Electoral College interpretation rather than a sourced empirical finding",
           sourceUrl: "https://www.archives.gov/electoral-college/about",
           reasoning:
-            "The factual mechanism is confirmed by the National Archives: every state gets at least 3 electoral votes (one per senator plus one per representative), so low-population states are overrepresented relative to population. The downstream claim that this protects small-state influence is interpretive and empirically questionable—under the current system candidates already concentrate on a handful of swing states, and small states like Wyoming and Vermont are not swing states and receive minimal attention. (Note: the previously cited American Bar Association does not endorse this argument; the ABA has historically criticized the Electoral College as archaic.) Weights lowered accordingly.",
+            "The factual mechanism follows from the National Archives' formula: a state 'has the same number of electors as it does Members in its Congressional delegation', one per House member plus two senators, and since every state has at least one House member, the floor is 3, so low-population states are overrepresented relative to population. The downstream claim that this protects small-state influence is interpretive and empirically questionable—under the current system candidates already concentrate on a handful of swing states, and small states like Wyoming and Vermont are not swing states and receive minimal attention. (Note: the previously cited American Bar Association does not endorse this argument; the ABA has historically criticized the Electoral College as archaic.) Weights lowered accordingly.",
         },
         {
           id: "npvic-progress",
           title: "Virginia Brought the NPVIC to 222 of the 270 Electoral Votes It Needs (April 2026)",
           description:
-            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join when Gov. Abigail Spanberger signed the bill on Monday, April 13, 2026, NPR reported). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined—an additional 48 are needed. Every state that has enacted it joined under a Democratic governor.",
+            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join when Gov. Abigail Spanberger signed the bill on Monday, April 13, 2026, NPR reported). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined—an additional 48 are needed. Per Ballotpedia, 16 of the 18 member states had a Democratic trifecta when they joined; the two with divided government were New York (2014) and Hawaii (2008), where a Democratic legislature overrode Republican Gov. Linda Lingle's veto.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -134,9 +134,9 @@ export const electoralCollegeReformData = {
         },
         {
           id: "partisan-adoption-concern",
-          title: "Only Democratic States Have Joined the NPVIC",
+          title: "No State With a Republican Trifecta Has Joined the NPVIC; 16 of 18 Members Joined Under a Democratic One",
           description:
-            "Of the states that have enacted the NPVIC, every one joined under a Democratic governor, and none did so under a Republican state-government trifecta (per Ballotpedia, 15 enacting states had a Democratic trifecta and the rest had divided government at the time of adoption). No state with a Republican trifecta has enacted it. (Republican-led chambers have passed the compact in one chamber in a few states such as New York, Oklahoma, and Arizona, but no Republican governor has signed it into law.) This partisan pattern complicates the claim that the NPVIC is a fully nonpartisan reform.",
+            "Ballotpedia's adoption table shows that of the 18 member states, 16 had a Democratic trifecta at the time of adoption and two had divided government (Hawaii in 2008, where a Democratic legislature overrode Republican Gov. Linda Lingle's veto, and New York in 2014); none had a Republican trifecta. No Republican governor has signed it: every signature came from a Democrat, and Maine's bill became law in 2024 without Gov. Janet Mills's signature. Of the 32 states outside the compact, 23 have a Republican trifecta and nine have divided government. National Popular Vote Inc. counts three Republican-controlled chambers that have passed the bill (the Arizona House in 2016, by 40 to 16, the Oklahoma Senate and the New York Senate); of those three states, only New York has joined. This partisan pattern complicates the claim that the NPVIC is a fully nonpartisan reform.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -145,10 +145,10 @@ export const electoralCollegeReformData = {
             directness: 6,
           },
           source:
-            "Ballotpedia, \"National Popular Vote Interstate Compact\" (partisan-control analysis of member states)",
+            "Ballotpedia, 'National Popular Vote Interstate Compact' (adoption table and trifecta analysis, as of November 2026); National Popular Vote Inc., Arizona status page (Republican-controlled chambers)",
           sourceUrl: "https://ballotpedia.org/National_Popular_Vote_Interstate_Compact",
           reasoning:
-            "The partisan pattern in enactment is real, but the original claim that 'no Republican legislature has passed the compact' overstated it—Republican-controlled chambers have passed it in one chamber in several states. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
+            "The partisan pattern in enactment is real, but the claim that 'no Republican legislature has passed the compact' would overstate it—by National Popular Vote Inc.'s count, three Republican-controlled chambers have passed it. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
         },
       ],
     },
@@ -159,7 +159,7 @@ export const electoralCollegeReformData = {
         "The National Popular Vote Interstate Compact has 222 of the 270 electoral votes it needs (48 short). Legal scholars are split on whether it survives a Supreme Court challenge.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The NPVIC is constitutionally dubious: it effectively amends the Constitution through an interstate agreement rather than the Article V process, arguably evading the supermajority safeguards the Founders built in deliberately. The Supreme Court could strike it down under the Compact Clause. Adoption has also been lopsidedly partisan: every enacting state did so under a Democratic governor, and no state with a Republican trifecta has enacted it (though Republican-controlled chambers have passed it in one chamber in a few states). If enacted, a state could withdraw close to an election, and a single recount or disputed national tally could throw the result into chaos across all member states at once.",
+        "The NPVIC is constitutionally dubious: it effectively amends the Constitution through an interstate agreement rather than the Article V process, arguably evading the supermajority safeguards the Founders built in deliberately. The Supreme Court could strike it down under the Compact Clause. Adoption has also been lopsidedly partisan: 16 of the 18 member states joined under a Democratic trifecta, no Republican governor has signed it, and no state with a Republican trifecta has enacted it (though three Republican-controlled chambers have passed it). If enacted, a state could withdraw close to an election, and a single recount or disputed national tally could throw the result into chaos across all member states at once.",
       proponent_rebuttal:
         "The Constitution explicitly grants states the power to determine how their electors are chosen (Article II, Section 1). States already use winner-take-all by choice, not constitutional mandate—they could just as easily choose to allocate electors based on the national popular vote. As of April 2026, 18 states plus DC have joined the NPVIC, controlling 222 of the needed 270 electoral votes (Virginia became the most recent, signing on April 13, 2026), leaving the compact 48 short.",
       crux: {

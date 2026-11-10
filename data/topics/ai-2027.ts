@@ -14,12 +14,12 @@ export const ai2027Data = {
     },
     {
       title:
-        "Measuring AI Ability to Complete Long Tasks (METR, 2025)",
+        "Measuring AI Ability to Complete Long Software Tasks (METR, 2025)",
       url: "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
     },
     {
-      title: "Epoch AI — Machine Learning Trends",
-      url: "https://epochai.org/trends",
+      title: "Epoch AI — Trends in AI",
+      url: "https://epoch.ai/trends",
     },
   ],
   questions: [
@@ -45,10 +45,10 @@ export const ai2027Data = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "By METR's measure, the length of task frontier AI can complete alone has doubled about every seven months since 2019. Epoch AI tracks the compute used to train frontier models growing four to five times over each year. Both sides accept those trends. The fight is over whether they hold until AI can do AI research itself, and how fast things move once it can.",
+      "By METR's measure, the length of task frontier AI can complete alone has doubled about every seven months since 2019. Epoch AI tracks the compute used to train frontier language models growing about five times over each year since 2020. Both sides accept those trends. The fight is over whether they hold until AI can do AI research itself, and how fast things move once it can.",
     confidence: 85,
     source:
-      "METR, 'Measuring AI Ability to Complete Long Tasks' (2025); Epoch AI, Machine Learning Trends",
+      "METR, 'Measuring AI Ability to Complete Long Software Tasks' (2025); Epoch AI, Trends in AI (updated Feb 2026)",
     sourceUrl:
       "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
   },
@@ -100,7 +100,7 @@ export const ai2027Data = {
           id: "metr-time-horizon",
           title: "Autonomous task length doubling ~every 7 months",
           description:
-            "METR's 'Measuring AI Ability to Complete Long Tasks' (2025) finds the 50%-completion time horizon of frontier models has grown exponentially since 2019, doubling roughly every seven months — the clearest quantitative signal that AI is climbing toward autonomously executing long research tasks.",
+            "METR's 'Measuring AI Ability to Complete Long Software Tasks' (2025) finds the 50%-completion time horizon of frontier models has grown exponentially since 2019, doubling roughly every seven months — the clearest quantitative signal that AI is climbing toward autonomously executing long research tasks.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -108,7 +108,7 @@ export const ai2027Data = {
             replicability: 7,
             directness: 8,
           },
-          source: "METR (2025)",
+          source: "METR, 'Measuring AI Ability to Complete Long Software Tasks' (Mar 19, 2025), arXiv:2503.14499",
           sourceUrl:
             "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
           reasoning:
@@ -174,7 +174,7 @@ export const ai2027Data = {
       skeptic_premise:
         "The inputs face hard walls. Chinchilla-optimal training implies models are increasingly data-bound, and the stock of high-quality human text is finite; energy, fab capacity, and capital all scale sub-exponentially; and gains on the reasoning benchmarks that actually matter for research are slowing per compute dollar. Extrapolating a straight line on a log plot ignores that every input feeding it is bending.",
       proponent_rebuttal:
-        "Each apparent wall has had a workaround on trend. Epoch AI finds frontier training compute has grown roughly 4–5× per year, and that algorithmic efficiency independently improves at a comparable pace — the two compound. Data limits are being pushed back by synthetic data, self-play, and RL on verifiable tasks. The scenario doesn't need the trend to run forever; it only needs it to hold for the few more orders of magnitude to the automation threshold.",
+        "Each apparent wall has had a workaround on trend. Epoch AI finds training compute for frontier language models has grown roughly 5× per year since 2020, and that the compute needed to reach a given level of performance has halved roughly every eight months — the two compound. Data limits are being pushed back by synthetic data, self-play, and RL on verifiable tasks. The scenario doesn't need the trend to run forever; it only needs it to hold for the few more orders of magnitude to the automation threshold.",
       crux: {
         id: "effective-compute-extrapolation",
         title: "The Effective-Compute Extrapolation",
@@ -185,7 +185,7 @@ export const ai2027Data = {
         methodology:
           "Using Epoch AI's compute and algorithmic-progress series, project effective compute forward under trend, then stress-test against explicit ceilings: high-quality data stock, projected fab and power buildout, and observed benchmark-gain-per-FLOP on reasoning tasks. The scenario survives only if the threshold is crossed before the binding ceiling.",
         equation:
-          "C_{\\text{eff}}(t) = C_{\\text{hardware}}(t) \\cdot A(t), \\quad C \\sim 4\\text{–}5\\times/\\text{yr}",
+          "C_{\\text{eff}}(t) = C_{\\text{hardware}}(t) \\cdot A(t), \\quad C \\sim 5\\times/\\text{yr}",
         verification_status: "verified" as const,
         settle: {
           condition:
@@ -196,9 +196,9 @@ export const ai2027Data = {
           supporter_flip:
             "If projecting Epoch AI's effective-compute curve against explicit ceilings — high-quality data, fab and power buildout, benchmark gains per FLOP on reasoning tasks — showed a binding wall arriving before the automation threshold, the scenario's timeline would fail.",
           skeptic_flip:
-            "If frontier training compute kept growing roughly 4–5× a year, with algorithmic efficiency compounding on top, for the few more orders of magnitude the scenario needs, the view that every input is bending would lose its footing.",
+            "If frontier training compute kept growing roughly 5× a year, with algorithmic efficiency compounding on top, for the few more orders of magnitude the scenario needs, the view that every input is bending would lose its footing.",
           common_ground:
-            "Both sides agree frontier training compute has grown roughly 4–5× a year, and that Chinchilla-style scaling makes the finite stock of high-quality human text a real constraint.",
+            "Both sides agree frontier training compute has grown roughly 5× a year since 2020, and that Chinchilla-style scaling makes the finite stock of high-quality human text a real constraint.",
           live_disagreement:
             "Whether workarounds like synthetic data, self-play and RL on verifiable tasks keep effective compute on trend until the automation threshold, or whether data, energy and capital limits bend the curve first.",
         },
@@ -206,9 +206,9 @@ export const ai2027Data = {
       evidence: [
         {
           id: "epoch-compute-growth",
-          title: "Training compute growing ~4–5× per year",
+          title: "Training compute growing ~5× per year",
           description:
-            "Epoch AI's tracking of notable models shows frontier training compute has grown roughly 4–5× annually over the past decade — far faster than Moore's Law and a core input to short-timeline projections.",
+            "Epoch AI's Trends in AI dashboard (updated February 2026) shows training compute for frontier language models growing about 5× per year since 2020 (90% confidence interval 4× to 6×), a doubling every 5.2 months — far faster than Moore's Law and a core input to short-timeline projections.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -216,8 +216,8 @@ export const ai2027Data = {
             replicability: 9,
             directness: 5,
           },
-          source: "Epoch AI, Machine Learning Trends",
-          sourceUrl: "https://epochai.org/trends",
+          source: "Epoch AI, Trends in AI (updated Feb 5, 2026)",
+          sourceUrl: "https://epoch.ai/trends",
           reasoning:
             "Exceptionally well-documented and reproducible input trend; directness is limited because more compute only implies short timelines if scaling remains sufficient.",
         },
@@ -318,9 +318,9 @@ export const ai2027Data = {
       evidence: [
         {
           id: "davidson-takeoff",
-          title: "Compute-centric model implies a fast software takeoff",
+          title: "Compute-centric model: about 3 years to full automation, then under a year to superintelligence",
           description:
-            "Davidson's compute-centric takeoff framework (Open Philanthropy, 2023) models the automation of AI R&D and finds a plausible path where the transition through human-level research capability is compressed into months once the loop closes.",
+            "Davidson's compute-centric takeoff framework (Open Philanthropy, June 2023) simulates AI automating AI R&D. Its Monte Carlo analysis gives a median of about 3 years (10th to 90th percentile: about 0.8 to 11 years) from AI that could readily automate 20% of cognitive tasks to AI that could automate 100%, and Davidson's best guess is that going from there to superintelligence takes less than a year.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -328,7 +328,7 @@ export const ai2027Data = {
             replicability: 5,
             directness: 8,
           },
-          source: "Davidson, 'Compute-centric framework for takeoff speeds' (Open Philanthropy, 2023)",
+          source: "T. Davidson, 'What a Compute-Centric Framework Says About Takeoff Speeds' (Open Philanthropy, now Coefficient Giving, June 27, 2023)",
           sourceUrl:
             "https://coefficientgiving.org/research/what-a-compute-centric-framework-says-about-takeoff-speeds/",
           reasoning:
@@ -338,7 +338,7 @@ export const ai2027Data = {
           id: "narrow-self-improvement",
           title: "AI already improves the tools of its own field",
           description:
-            "DeepMind's AlphaTensor (Nature, 2022) discovered faster matrix-multiplication algorithms, and related systems optimize chip layouts and GPU kernels — concrete evidence that AI can accelerate parts of the compute-and-algorithms stack it runs on.",
+            "DeepMind's AlphaTensor (Nature, 2022) discovered matrix-multiplication algorithms that beat the best known ones for many matrix sizes, and found versions tailored to specific hardware that multiply large matrices faster than human-designed algorithms on the same hardware — concrete evidence that AI can accelerate parts of the compute-and-algorithms stack it runs on.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -346,7 +346,7 @@ export const ai2027Data = {
             replicability: 6,
             directness: 5,
           },
-          source: "Fawzi et al., 'AlphaTensor' (Nature, 2022)",
+          source: "Fawzi et al., 'Discovering faster matrix multiplication algorithms with reinforcement learning' (AlphaTensor), Nature 610 (2022)",
           sourceUrl: "https://www.nature.com/articles/s41586-022-05172-4",
           reasoning:
             "Peer-reviewed and real, but each case is narrow; extrapolating from point improvements to a general R&D explosion is the contested leap.",
@@ -445,7 +445,7 @@ export const ai2027Data = {
           id: "compute-capex-race",
           title: "Committed capital is already racing",
           description:
-            "Frontier labs and their backers have announced compute and data-center commitments on the scale of tens to hundreds of billions of dollars, revealing behavior consistent with an all-out race rather than cautious throttling.",
+            "Epoch AI's tracking (updated February 2026) shows frontier AI labs have raised more than $370 billion, the computing power of AI chips sold each quarter growing about 2.5× a year, and the largest known AI data center holding the equivalent of 1.1 million Nvidia H100 chips — behavior consistent with an all-out race rather than cautious throttling.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -453,7 +453,7 @@ export const ai2027Data = {
             replicability: 6,
             directness: 6,
           },
-          source: "Public capex announcements; Epoch AI compute tracking",
+          source: "Epoch AI, Trends in AI (updated Feb 5, 2026)",
           sourceUrl: "https://epoch.ai/trends",
           reasoning:
             "The spending is real and public; reading it as an irreversible commitment to racing is an inference rather than a certainty.",
@@ -478,9 +478,9 @@ export const ai2027Data = {
         },
         {
           id: "export-controls-brake",
-          title: "Export controls are already throttling the frontier race",
+          title: "Export controls already restrict a rival's access to frontier chips",
           description:
-            "US restrictions on advanced-chip and equipment exports to China demonstrate that states can and do impose real friction on a rival's compute buildout — a partial brake the pure-race model treats as absent.",
+            "In October 2022 the U.S. Commerce Department issued rules restricting China's ability to obtain advanced computing chips, develop and maintain supercomputers, and manufacture advanced semiconductors. States can and do impose friction on a rival's compute buildout — a partial brake the pure-race model treats as absent.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -488,7 +488,7 @@ export const ai2027Data = {
             replicability: 6,
             directness: 5,
           },
-          source: "U.S. Bureau of Industry and Security advanced-computing controls",
+          source: "U.S. Bureau of Industry and Security, 'Commerce Implements New Export Controls on Advanced Computing and Semiconductor Manufacturing Items to the People's Republic of China (PRC)' (Oct 7, 2022)",
           sourceUrl:
             "https://www.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items-peoples",
           reasoning:

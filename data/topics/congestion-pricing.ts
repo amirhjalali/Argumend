@@ -89,7 +89,7 @@ export const congestionPricingData = {
           id: "nyc-first-year",
           title: "New York: 11% Fewer Entries Against a Historical Baseline, Jan-Oct 2025",
           description:
-            "MTA estimated 11% fewer entries from January 5 through October 2025 than a seasonally adjusted historical baseline, including untolled roadways. Weekday morning inbound crossing speeds averaged 23% higher than in 2024; peak-hour speeds in the zone and untolled roadways rose 4.6%. These are different measures and observational comparisons.",
+            "MTA estimated 11% fewer entries from January 5 through October 2025 than a seasonally adjusted historical baseline, including untolled roadways. Weekday morning (6 to 10 a.m.) inbound crossing speeds averaged 23% higher than in 2024; average speeds during peak toll hours (5 a.m. to 9 p.m. on weekdays, 9 a.m. to 9 p.m. on weekends) in the zone and on the untolled roadways rose 4.6%. These are different measures and observational comparisons.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,

@@ -327,7 +327,7 @@ export const dataCentersElectricityBillsData = {
           id: "pledge-voluntary",
           title: "Tech Companies' Ratepayer Pledge Has No Enforcement",
           description:
-            "On March 4, 2026, Google, Microsoft, Meta, Oracle, xAI, OpenAI and Amazon signed a White House pledge to build or buy new generation for their data centers, cover the cost of infrastructure upgrades, and negotiate separate rate structures so costs are not passed to consumers. The AP reported that the voluntary agreement has no enforcement mechanisms, and experts said it is likely unenforceable at the federal level because electricity is mostly regulated by the states.",
+            "On March 4, 2026, Google, Microsoft, Meta, Oracle, xAI, OpenAI and Amazon signed a White House pledge to build or buy new generation for their data centers, cover the cost of infrastructure upgrades, and negotiate separate rate structures so costs are not passed to consumers. The head of the environmental group Evergreen Action told the AP that the voluntary agreement has no enforcement mechanisms and that ratepayers cannot verify whether companies keep their promises, and the AP reported experts saying it is likely not enforceable at the federal level because electricity is mostly regulated by the states.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -339,7 +339,7 @@ export const dataCentersElectricityBillsData = {
           sourceUrl:
             "https://broadbandbreakfast.com/tech-companies-vow-to-cover-electricity-costs-of-data-centers-in-white-house-deal/",
           reasoning:
-            "Wire reporting of a public document. That the pledge is unenforceable weakens one protection, but it does not show costs being shifted; it is also evidence that companies accept the obligation in principle, so directness is low.",
+            "Wire reporting of a public document; the no-enforcement point comes from an advocacy group and outside experts, not from the pledge's text. That the pledge is unenforceable weakens one protection, but it does not show costs being shifted; it is also evidence that companies accept the obligation in principle, so directness is low.",
         },
         {
           id: "aep-ohio-tariff",
