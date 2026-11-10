@@ -1,3 +1,6 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { loadTopicById } from "@/data/topicLoader";
 import { STUDY_TOPICS } from "@/lib/study/constants";
@@ -7,6 +10,7 @@ import {
   ARTICLE_STIMULI,
   CHATBOT_STIMULI,
   LENGTH_TOLERANCE,
+  MAPS_CHECKED,
   stimulusText,
   wordCount,
 } from "./stimuli";
@@ -25,6 +29,21 @@ function mapIds(map: Awaited<ReturnType<typeof mapOf>>): Set<string> {
 /** Number tokens as written: 12.8, 44,000, 2.47, 1979. */
 function numbers(text: string): string[] {
   return (text.match(/\d[\d,.]*/g) ?? []).map((token) => token.replace(/[.,]+$/, ""));
+}
+
+/**
+ * Every sentence a reader of the map can see: its strings, without links and
+ * ids. Numeric fields (card weights, the keystone's confidence) are left out
+ * too, so a "90" in a text cannot pass on `confidence: 90`, or an "890" on
+ * the digits inside a source URL. Both happened before 10 Nov 2026.
+ */
+function mapProse(value: unknown, key = ""): string[] {
+  if (typeof value === "string") return /url$/i.test(key) || key === "id" ? [] : [value];
+  if (Array.isArray(value)) return value.flatMap((item) => mapProse(item, key));
+  if (value && typeof value === "object") {
+    return Object.entries(value).flatMap(([childKey, child]) => mapProse(child, childKey));
+  }
+  return [];
 }
 
 describe.each(STUDY_TOPICS)("study texts for %s", (topic) => {
@@ -57,12 +76,30 @@ describe.each(STUDY_TOPICS)("study texts for %s", (topic) => {
   });
 
   it("use no number the map does not contain", async () => {
-    const mapText = JSON.stringify(await mapOf(topic));
+    // Whole tokens, not substrings: "90" is not found inside "1990".
+    const mapNumbers = new Set(numbers(mapProse(await mapOf(topic)).join("\n")));
     for (const stimulus of texts) {
       for (const token of numbers(stimulusText(stimulus))) {
-        expect(mapText.includes(token), `${stimulus.arm} uses ${token}, which is not in the map`).toBe(true);
+        expect(mapNumbers.has(token), `${stimulus.arm} uses ${token}, which is not in the map`).toBe(true);
       }
     }
+  });
+
+  it("list each cited card and crux once", () => {
+    for (const stimulus of texts) {
+      expect(new Set(stimulus.sourceIds).size, stimulus.arm).toBe(stimulus.sourceIds.length);
+    }
+  });
+
+  it("were last read against the map file as it stands now", () => {
+    const file = path.join(process.cwd(), "data", "topics", `${topic}.ts`);
+    const sha256 = createHash("sha256").update(readFileSync(file)).digest("hex");
+    expect(
+      sha256,
+      `data/topics/${topic}.ts has changed since the study texts were read against it on ${MAPS_CHECKED.date}. ` +
+        "Re-read both texts and the crux options in data/study against the map, fix them, " +
+        "then record the new hash in MAPS_CHECKED (data/study/stimuli.ts). After the freeze, undo the map edit instead.",
+    ).toBe(MAPS_CHECKED.sha256[topic]);
   });
 
   it("quote no one and name no winner", () => {
