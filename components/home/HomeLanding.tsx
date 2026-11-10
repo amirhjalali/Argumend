@@ -56,6 +56,7 @@ export function HomeLanding() {
               contested: story.openCount,
               cruxes: story.cruxCount,
             }}
+            openLabel={openWord(story)}
           />
           <div className="relative z-10">
             <div
@@ -159,8 +160,16 @@ function HomeHero({ pinned = false }: { pinned?: boolean }) {
  * figure to the right. On a phone the figure has the upper stage and each
  * block passes beneath it on the page colour.
  */
+/**
+ * "contested" is the map's own status. If a map also carries unresolved
+ * claims, the open ones are not all contested, so they are called open.
+ */
+const openWord = (story: HomeStory) => (story.unresolvedCount > 0 ? "still open" : "contested");
+
 function HomeStorySteps({ story }: { story: HomeStory }) {
   const cruxes = numberWord(story.cruxCount);
+  const oneCrux = story.cruxCount === 1;
+  const open = openWord(story);
   const steps: { title: string; body: React.ReactNode }[] = [
     {
       title: `One argument, ${story.claimCount} claims.`,
@@ -172,7 +181,7 @@ function HomeStorySteps({ story }: { story: HomeStory }) {
       ),
     },
     {
-      title: `${story.acceptedCount} of them are not in dispute.`,
+      title: `${story.acceptedCount} of them ${story.acceptedCount === 1 ? "is" : "are"} not in dispute.`,
       body: (
         <>
           They are broadly accepted, or nobody on any side challenges them.
@@ -185,8 +194,13 @@ function HomeStorySteps({ story }: { story: HomeStory }) {
       ),
     },
     {
-      title: `${story.openCount} are contested. They turn on ${cruxes} questions.`,
-      body: (
+      title: `${story.openCount} ${story.openCount === 1 ? "is" : "are"} ${open}. They turn on ${cruxes} ${oneCrux ? "question" : "questions"}.`,
+      body: oneCrux ? (
+        <>
+          Answer it differently and the positions built on it move. We call a question like
+          this a crux. Every map opens with its cruxes, and with what would settle each one.
+        </>
+      ) : (
         <>
           Answer one of the {cruxes} differently and the positions built on it move. We call
           these questions cruxes. Every map opens with them, and with what would settle each

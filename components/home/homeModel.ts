@@ -149,6 +149,8 @@ export interface HomeStory {
   acceptedCount: number;
   /** Claims the map marks contested or unresolved. */
   openCount: number;
+  /** How many of the open claims are unresolved rather than contested. */
+  unresolvedCount: number;
   cruxCount: number;
   /** One accepted claim, in the map's words, as the example. */
   acceptedExample: string | null;
@@ -178,6 +180,7 @@ export function loadHomeStory(topicId: string = HOME_FLAGSHIP_ID): HomeStory | n
     claimCount: claims.length,
     acceptedCount: accepted.length,
     openCount: claims.length - accepted.length,
+    unresolvedCount: claims.filter((claim) => claim.status === "unresolved").length,
     cruxCount,
     acceptedExample: example ? (example.summary ?? example.statement) : null,
   };

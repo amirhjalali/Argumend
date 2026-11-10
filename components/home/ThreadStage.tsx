@@ -26,8 +26,13 @@ type Rgb = [number, number, number];
 /** How far from the mouse, in CSS pixels, a loose strand is pushed aside. */
 const POINTER_REACH = 130;
 
-/** Above this stage width the copy and the figure sit side by side. */
-const WIDE = 768;
+/**
+ * The copy and the figure sit side by side from Tailwind's `md`. Asked as a
+ * media query, not read from the stage's width: the stage is narrower than
+ * the viewport by a classic scrollbar, and the two would disagree for the
+ * first few pixels past the breakpoint.
+ */
+const WIDE_QUERY = "(min-width: 768px)";
 
 /**
  * Each arrangement's pixel box. Side by side, the figure keeps to the right
@@ -35,8 +40,8 @@ const WIDE = 768;
  * passes beneath it (the hero is the exception: its copy is on top, so the
  * tangle waits below it).
  */
-function stateBoxes(width: number, height: number): Box[] {
-  if (width >= WIDE) {
+function stateBoxes(width: number, height: number, wide: boolean): Box[] {
+  if (wide) {
     const left = width >= 1100 ? 0.53 : 0.55;
     const sorted = { x: width * left, y: height * 0.09, w: width * (0.96 - left), h: height * 0.82 };
     return [
@@ -84,7 +89,14 @@ const mix = (a: Rgb, b: Rgb, t: number): Rgb => [
  * `[data-thread-section]`; a step's `[data-thread-copy]` block, when it has
  * one, is what has to reach the reading line for that step to be current.
  */
-export function ThreadStage({ counts }: { counts: StrandCounts }) {
+export function ThreadStage({
+  counts,
+  openLabel = "contested",
+}: {
+  counts: StrandCounts;
+  /** What the open claims are called in the figure's caption. */
+  openLabel?: string;
+}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { agreed, contested, cruxes } = counts;
@@ -100,7 +112,12 @@ export function ThreadStage({ counts }: { counts: StrandCounts }) {
     const strandCounts = { agreed, contested, cruxes };
     const strands = buildStrands(strandCounts);
     const steps = Array.from(section.querySelectorAll<HTMLElement>("[data-thread-step]"));
+    // A step's copy block is what has to reach the reading line.
+    const copies = steps.map((step) => step.querySelector<HTMLElement>("[data-thread-copy]") ?? step);
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const wideQuery = window.matchMedia(WIDE_QUERY);
+    let wide = wideQuery.matches;
+    let ratio = 1;
 
     let width = 0;
     let height = 0;
@@ -135,11 +152,12 @@ export function ThreadStage({ counts }: { counts: StrandCounts }) {
     function layout() {
       width = wrap!.clientWidth;
       height = wrap!.clientHeight;
-      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      wide = wideQuery.matches;
+      ratio = Math.min(window.devicePixelRatio || 1, 2);
       canvas!.width = Math.max(1, Math.round(width * ratio));
       canvas!.height = Math.max(1, Math.round(height * ratio));
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-      boxes = stateBoxes(width, height);
+      boxes = stateBoxes(width, height, wide);
       shapes = boxes.map((box, state) =>
         strands.map((strand) => {
           const out = new Float32Array(POINTS * 2);
@@ -158,12 +176,11 @@ export function ThreadStage({ counts }: { counts: StrandCounts }) {
     function progress(): number {
       if (steps.length === 0) return 0;
       const stage = wrap!.getBoundingClientRect();
-      const lineAt = width >= WIDE ? 0.5 : 0.74;
+      const lineAt = wide ? 0.5 : 0.74;
       const line = stage.top + stage.height * lineAt;
       const anchors = steps.map((step, index) => {
         if (index === 0) return step.getBoundingClientRect().top + stage.height * lineAt;
-        const copy = step.querySelector<HTMLElement>("[data-thread-copy]") ?? step;
-        const rect = copy.getBoundingClientRect();
+        const rect = copies[index].getBoundingClientRect();
         return rect.top + rect.height / 2;
       });
       const last = Math.min(anchors.length, STATE_COUNT) - 1;
@@ -186,6 +203,9 @@ export function ThreadStage({ counts }: { counts: StrandCounts }) {
     }
 
     function draw(now: number) {
+      // A window dragged to a screen with another pixel ratio keeps its size,
+      // so no resize fires: catch it here.
+      if (Math.min(window.devicePixelRatio || 1, 2) !== ratio) layout();
       const still = motion.matches;
       const raw = progress();
       const position = still ? Math.round(raw) : raw;
@@ -200,7 +220,6 @@ export function ThreadStage({ counts }: { counts: StrandCounts }) {
       ctx.clearRect(0, 0, width, height);
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
-      const wide = width >= WIDE;
 
       for (let s = 0; s < strands.length; s += 1) {
         const strand = strands[s];
@@ -327,7 +346,7 @@ export function ThreadStage({ counts }: { counts: StrandCounts }) {
       const inCruxes = from === 2 ? eased : from === 3 ? 1 - eased : 0;
       const right = gather.x + gather.w;
       caption(`${agreed} not in dispute`, right, gather.y + gather.h * 0.7, teal, inGround, "right");
-      caption(`${contested} contested`, right, gather.y + gather.h * 0.02, rust, inGround, "right");
+      caption(`${contested} ${openLabel}`, right, gather.y + gather.h * 0.02, rust, inGround, "right");
       caption(`${cruxes} cruxes`, right, gather.y + gather.h * 0.02 - 14, crimson, inCruxes, "right");
       caption(`${agreed} not in dispute`, right, gather.y + gather.h * 0.7, teal, inCruxes * 0.7, "right");
       if (toTree > 0.02) {
@@ -368,6 +387,11 @@ export function ThreadStage({ counts }: { counts: StrandCounts }) {
       lastDrawn = -1;
     };
     motion.addEventListener("change", onMotionChange);
+    const onWideChange = () => {
+      layout();
+      wake();
+    };
+    wideQuery.addEventListener("change", onWideChange);
     // The stage takes no pointer events (the copy above it has to stay
     // clickable), so the mouse is read from the window.
     const onPointerMove = (event: PointerEvent) => {
@@ -394,11 +418,12 @@ export function ThreadStage({ counts }: { counts: StrandCounts }) {
       theme.disconnect();
       view.disconnect();
       motion.removeEventListener("change", onMotionChange);
+      wideQuery.removeEventListener("change", onWideChange);
       window.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("pointerleave", onPointerGone);
       window.removeEventListener("blur", onPointerGone);
     };
-  }, [agreed, contested, cruxes]);
+  }, [agreed, contested, cruxes, openLabel]);
 
   // The outer box spans the whole story so the pinned stage inside it lets
   // go exactly where the story ends, instead of riding over the next section.
