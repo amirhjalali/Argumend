@@ -218,10 +218,10 @@ function HomeStorySteps({ story }: { story: HomeStory }) {
               data-thread-copy=""
               className="-mx-4 border-y border-divider bg-canvas/95 px-4 py-6 sm:-mx-6 sm:px-6 md:mx-0 md:max-w-[46%] md:border-0 md:bg-transparent md:p-0 lg:max-w-[27rem]"
             >
-              <h2 className="text-balance font-serif text-[2rem] font-normal leading-[1.08] tracking-[-0.015em] text-primary sm:text-[2.5rem] lg:text-[2.875rem]">
+              <h2 className="text-balance font-serif text-[2rem] font-normal leading-[1.08] tracking-[-0.015em] text-primary dark:text-stone-200 sm:text-[2.5rem] lg:text-[2.875rem]">
                 {step.title}
               </h2>
-              <p className="mt-4 font-serif text-[1.1875rem] leading-[1.55] text-secondary">
+              <p className="mt-4 font-serif text-[1.1875rem] leading-[1.55] text-secondary dark:text-stone-400">
                 {step.body}
               </p>
             </div>

@@ -34,18 +34,17 @@ describe("home thread figure geometry", () => {
 
   it("keeps every point of every arrangement finite and near its box", () => {
     const strands = buildStrands(counts);
+    const stray: string[] = [];
     for (let state = 0; state < STATE_COUNT; state += 1) {
       for (const strand of strands) {
         for (let j = 0; j < POINTS; j += 1) {
           const [u, v] = strandPoint(strand, state, j / (POINTS - 1), counts);
-          expect(Number.isFinite(u) && Number.isFinite(v)).toBe(true);
-          expect(u).toBeGreaterThan(-0.5);
-          expect(u).toBeLessThan(1.5);
-          expect(v).toBeGreaterThan(-0.5);
-          expect(v).toBeLessThan(1.5);
+          // One assertion at the end: ~20,000 points is too many expect() calls.
+          if (!(u > -0.5 && u < 1.5 && v > -0.5 && v < 1.5)) stray.push(`${state}/${strand.index}/${j}`);
         }
       }
     }
+    expect(stray).toEqual([]);
   });
 
   it("lays the accepted claims flat, below the knot, once they are sorted", () => {
