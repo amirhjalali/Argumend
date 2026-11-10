@@ -21,6 +21,7 @@ import { ANALYZE_HREF } from "@/lib/nav";
 import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
 import { useModalAccessibility } from "@/hooks/useModalAccessibility";
+import { useSearchAnalytics } from "@/hooks/useSearchAnalytics";
 import { MAP_SEARCH_ITEMS } from "@/lib/mapSearchItems";
 
 // ---------------------------------------------------------------------------
@@ -349,6 +350,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     [groups]
   );
   const hasMaps = groups.some((group) => group.type === "map");
+  // Counts a settled query and how many results it found; never the query.
+  useSearchAnalytics("site_search", query, flatResults.length);
 
   const updateQuery = useCallback((nextQuery: string) => {
     setQuery(nextQuery);

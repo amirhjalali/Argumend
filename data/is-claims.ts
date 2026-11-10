@@ -594,7 +594,7 @@ export const isClaims: IsClaim[] = [
     topicId: "us-national-debt-crisis",
     question: "Is the US national debt a ticking time bomb?",
     claim:
-      "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability.",
+      "The US national debt, now above $40 trillion, poses a serious threat to economic stability.",
   },
   {
     slug: "rto-improves-productivity",

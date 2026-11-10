@@ -5,6 +5,7 @@ import { CruxReflection } from "@/components/topic/CruxReflection";
 import { CHANGED_CHOICES, CHANGED_QUESTION } from "@/lib/changedQuestion";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { findMaps } from "@/lib/paste/maps";
+import { oneSidedMaps } from "@/lib/paste/testTopics";
 import type { PasteMapsResult } from "@/lib/paste/types";
 import * as clipboard from "@/lib/copyToClipboard";
 
@@ -208,7 +209,8 @@ describe("the map block on a phone", () => {
   });
 
   it("identifies and links a card from another crux without relabelling cards from the selected one", async () => {
-    const maps = await findMaps("Banning TikTok violates the First Amendment rights of the millions of Americans who use the app to speak and share their views.");
+    // A fixture map with a one-sided crux (lib/paste/testTopics.ts), not a live one.
+    const maps = await oneSidedMaps();
     const match = maps.match!;
     const borrowed = match.cards.find((card) => card.crux?.href !== match.crux?.href)!;
     const own = match.cards.find((card) => card.crux?.href === match.crux?.href)!;

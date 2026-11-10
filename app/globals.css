@@ -393,6 +393,26 @@ html {
     @apply rounded-lg border border-stone-200/60 dark:border-[#3d3a36];
     background-color: var(--bg-paper);
   }
+
+  /* A topic map's opening plate (components/topic/TopicPage TopicPlate): the
+     watercolor dissolves into the page at its foot and, from the small
+     breakpoint up, at its sides, so it reads as painted on the same paper. */
+  .topic-plate {
+    -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent);
+    mask-image: linear-gradient(to bottom, #000 58%, transparent);
+  }
+  @media (min-width: 640px) {
+    .topic-plate {
+      -webkit-mask-image:
+        linear-gradient(to bottom, #000 55%, transparent),
+        linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+      -webkit-mask-composite: source-in;
+      mask-image:
+        linear-gradient(to bottom, #000 55%, transparent),
+        linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+      mask-composite: intersect;
+    }
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

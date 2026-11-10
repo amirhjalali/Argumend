@@ -105,6 +105,12 @@ Set via environment variables. All default to off (offline mode):
   schema of enums, counts and slug ids. Fire-and-forget; a no-op without
   `DATABASE_URL`; never fails the request. Weekly table:
   `npx tsx scripts/gap-metric-report.ts`. See `docs/GAP_METRIC.md`.
+- `NEXT_PUBLIC_ENABLE_STUDY=true` — renders `/study`, the pre-registered perception-gap
+  study (`docs/plans/2026-11-03-study-plan.md`); 404 while off. Build-time.
+- `ENABLE_STUDY_RESPONSES=true` — opens `POST /api/study/assign` and `/api/study/response`
+  (404 while off). Stores integers and enums only, under an HMAC of the Prolific id
+  (`STUDY_PID_SECRET`, required with `DATABASE_URL`); a dry run without `DATABASE_URL`.
+  Report: `npx tsx scripts/study-report.ts` (`--health` while collecting).
 
 ### Disagreement Diagnosis (V2)
 

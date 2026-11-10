@@ -7,18 +7,32 @@ export const trumpTariffsData = {
     "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
   status: "contested" as const,
   category: "economics" as const,
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "Who really pays Trump's tariffs?",
+    "Are tariffs bringing factory jobs back?",
+    "Are Trump's tariffs working?",
+  ],
+  // As of 3 November 2026: the Supreme Court struck down the IEEPA tariffs on
+  // 20 February 2026; the replacement Section 301 "forced labor" tariffs of
+  // 24 July 2026 were argued before the Court of International Trade on
+  // 30 September, with no ruling yet; BLS counted 12.652 million
+  // manufacturing jobs in September 2026. The US-China truce card is due a
+  // separate recheck after 10 November.
+  last_updated: "2026-11-03",
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In February 2026 the Supreme Court ruled 6–3 that the emergency-powers law behind Trump's 'reciprocal' tariffs does not authorize tariffs, and duties under other laws replaced them. Both sides' own figures put most of the cost on U.S. consumers and importers, and federal payroll data do not yet show a manufacturing jobs boom. The fight is over whether the tariffs that remain will bring factory work back, and at what price.",
+      "In February 2026 the Supreme Court ruled 6–3 that the emergency-powers law behind Trump's 'reciprocal' tariffs does not authorize tariffs. By July new duties under other laws had replaced them, and those too are now being challenged in court. America had 12.65 million factory jobs in September 2026, about 21,000 fewer than in January 2025. The fight is over whether the tariffs that remain will bring factory work back, and who pays in the meantime.",
     confidence: 86,
     source:
-      "SCOTUSblog on Learning Resources, Inc. v. Trump (February 2026); Federal Reserve Bank of New York (2025); Bureau of Labor Statistics payroll data",
+      "SCOTUSblog on Learning Resources, Inc. v. Trump (February 2026); Bloomberg News (1 October 2026, via ttnews.com) on the Section 301 challenge; Bureau of Labor Statistics manufacturing payrolls via FRED (MANEMP, September 2026)",
     sourceUrl:
       "https://www.scotusblog.com/2026/02/a-breakdown-of-the-courts-tariff-decision/",
   },
   simple_case: [
     "The answer bears on what American households pay for imported goods, on which factories get built here, and on relations with allies and with China.",
+    "Whatever the courts decide, the revenue has already moved: customs collected about $318 billion in FY2026 and refunded about $145 billion of the struck-down duties.",
   ],
   pillars: [
     // =========================================================================
@@ -26,9 +40,9 @@ export const trumpTariffsData = {
     // =========================================================================
     {
       id: "inflation-passthrough",
-      title: "Consumer Prices & Inflation Pass-Through",
+      title: "Who Pays the Tariffs?",
       short_summary:
-        "Trump claimed foreign exporters would pay the tariffs, but the empirical question is who actually bears the cost. The mainstream finding is that tariff pass-through to US importers and consumers is high — the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. Cavallo et al.'s short-run retail pass-through estimate rose from 20% by September 2025 to 24% by October 2025; the HBS Pricing Lab puts the consumer share of the burden at up to 43%, with US companies bearing the rest, and Federal Reserve Board economists estimated tariffs raised core goods prices by about 3.1%.",
+        "Trump said foreign exporters would pay. The New York Fed put their share at 6% to 14% during 2025, with US importers and consumers paying the rest, and Federal Reserve Board economists estimate tariffs raised core goods prices by about 3.1%. Japanese carmakers did cut their prices to hold US sales. The dispute is how much of the bill lands abroad, and whether a one-time price bump is worth paying or a regressive tax on households.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Tariffs are a tax paid by Americans, not by foreign exporters. The 'China pays the tariff' claim is empirically false: the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. Federal Reserve Board economists found that tariffs explain the entirety of excess core goods inflation since January 2025 relative to pre-pandemic rates, adding about 0.8% to core PCE prices; the CBO projected in June 2025 that tariffs would add roughly 0.4 percentage points a year to inflation in 2025 and 2026, leaving the price level about 0.9% higher by 2026. The Yale Budget Lab puts the cost of current-law tariffs at about $1,100 per household a year, and its spring 2026 analysis found the bottom income decile bearing roughly three times the burden of the top decile as a share of income. This is a regressive consumption tax dressed up as trade policy.",
@@ -81,7 +95,7 @@ export const trumpTariffsData = {
         },
         {
           id: "hbs-burden-split",
-          title: "Consumers Bore Up to 43% of the Burden as Exporters' Share Grew",
+          title: "HBS Pricing Lab: Consumers Bore Up to 43%; New York Fed: Exporters' Share Rose to 14% by November 2025",
           description:
             "The Harvard Business School Pricing Lab's tariff tracker, updated with data through February 27, 2026, estimates that US consumers absorbed up to 43% of the tariff burden in the seven months after the sweeping 2025 tariffs, with US companies bearing the rest, and that retail prices leveled off after rising with each levy. Alberto Cavallo: 'Most of the pass-through has likely already occurred, assuming tariffs do not increase further.' Separately, the New York Fed estimated the share absorbed by foreign exporters at 6% in January-August 2025, 8% in September-October and 14% in November, concluding that 'a larger share of the tariff incidence was borne by foreign exporters by the end of the year,' though US firms and consumers still bore the bulk. Proponents read this as a shared, plateauing cost rather than an open-ended tax on households.",
           side: "for" as const,
@@ -98,7 +112,7 @@ export const trumpTariffsData = {
         },
         {
           id: "japan-car-export-price-cuts",
-          title: "Japanese Carmakers Cut Dollar Prices on Cars Shipped to the US by About 22% (2025)",
+          title: "Dollar Unit Prices of Japanese Cars Shipped to the US Fell About 22% Year on Year (mid-2025)",
           description:
             "After the 25% US tariff on imported cars took effect in April 2025, the Japan Center for Economic Research traced Japan's customs data on exports to the United States. Export volume held up while the yen price per unit fell, a decline that began in March 2025 and widened in later months. Passenger cars, 24.3% of Japan's export value to the US in June 2025, showed the largest year-on-year fall in the exchange-rate-adjusted (dollar-terms) export unit price: 22.0% in the latest month of data. The Bank of Japan's fixed-basket export price index for cars sent to North America fell too, so the drop was not a shift toward cheaper models. JCER's Jun Saito concludes that 'exporting firms are absorbing the impact of higher tariff by reducing export unit price in yen-terms.' The US later cut the tariff on Japanese cars to 15% under the July 2025 agreement.",
           side: "for" as const,
@@ -134,7 +148,7 @@ export const trumpTariffsData = {
         },
         {
           id: "yale-household-incidence",
-          title: "Yale Budget Lab: About $1,100 Per Household, Regressive Incidence",
+          title: "Yale Budget Lab: Tariffs Cost About $1,100 per Household a Year, Hitting the Poorest Hardest",
           description:
             "The Yale Budget Lab's April 2, 2026 report projected an average household loss of about $650-$780 a year if the Section 122 tariffs expired on schedule and $1,130-$1,340 if they were made permanent, with the bottom income decile's burden, as a share of income, about three times the top decile's. Section 122 did lapse on July 24, 2026, but it was replaced the same day by new Section 301 tariffs, and the Budget Lab's August 24, 2026 update puts household costs under current law at about $1,100 a year. The Tax Foundation estimates tariffs raised taxes by an average of $1,000 per household in 2025 and will raise them by about $820 in 2026, and PIIE's Kimberly Clausing and Mary Lovely estimated in February 2025 that the tariffs then announced on Canada, Mexico and China alone would cost the typical household more than $1,200 a year.",
           side: "against" as const,
@@ -157,9 +171,9 @@ export const trumpTariffsData = {
     // =========================================================================
     {
       id: "manufacturing-reshoring",
-      title: "Manufacturing Employment & Reshoring",
+      title: "Are Factory Jobs Coming Back?",
       short_summary:
-        "The central justification for tariffs is reviving American manufacturing. Critics point to flat BLS payroll data and net-negative employment effects once downstream input-cost shocks and retaliation are counted; hawks point to capex commitments and greenfield announcements as evidence of a 'stealth boom' not yet visible in headcount.",
+        "Reviving manufacturing is the tariffs' central promise. Factory payrolls fell by about 93,000 during 2025 and have regained about 72,000 since, leaving them slightly below January 2025. Critics say tariffs on steel and parts cost as many jobs downstream as they save; supporters say new plants show up in investment years before they show up in payrolls.",
       icon_name: "Users" as const,
       skeptic_premise:
         "The promised reshoring boom has not arrived in the data. The 2023 USITC Section 232/301 study found that steel and aluminum tariffs created modest jobs in protected sectors but destroyed roughly equivalent or greater jobs in steel- and aluminum-using industries downstream. CRS reports consistently find Section 232 effects net-negative for total manufacturing employment. The Yale Budget Lab's April 2026 modeling has long-run manufacturing output up only 0.7%, gains it says are more than crowded out by losses elsewhere (construction down 2.0%, mining down 0.8%), with GDP persistently smaller and unemployment about 0.1 percentage point higher by the end of 2026. 'Liberation Day' tariffs were supposed to revive manufacturing; so far they have not.",
@@ -193,6 +207,23 @@ export const trumpTariffsData = {
         },
       },
       evidence: [
+        {
+          id: "bls-manufacturing-jobs-2026",
+          title: "BLS: Factory Payrolls Fell About 93,000 in 2025, Then Regained 72,000 by September 2026",
+          description:
+            "Bureau of Labor Statistics payroll data put US manufacturing employment at 12.673 million in January 2025, 12.662 million in April 2025, when the 'Liberation Day' tariffs were announced, and 12.580 million in December 2025, a fall of about 93,000 over the year. It then rose in each month from June to September 2026, reaching 12.652 million, about 72,000 above December but still about 21,000 below January 2025 (seasonally adjusted).",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "US Bureau of Labor Statistics, Current Employment Statistics, All Employees: Manufacturing (MANEMP), via FRED, September 2026",
+          sourceUrl: "https://fred.stlouisfed.org/series/MANEMP",
+          reasoning:
+            "The official headcount, and so far it shows no boom: factory jobs are slightly below where they were before the tariffs. It cannot separate the tariffs from interest rates, the business cycle or automation, and the rise since spring 2026 is what supporters expect if new plants are starting to hire, so directness is moderate.",
+        },
         {
           id: "usitc-downstream-losses",
           title: "USITC: Section 232/301 Tariffs Net-Negative for Manufacturing Jobs",
@@ -269,7 +300,7 @@ export const trumpTariffsData = {
     // =========================================================================
     {
       id: "strategic-decoupling",
-      title: "Strategic Decoupling from China",
+      title: "Do Tariffs Help Contain China?",
       short_summary:
         "A national-security rationale for tariffs is reducing dependence on China and slowing its technology acquisition. The conditionalist 'small yard, high fence' school argues targeted export controls work while broad tariffs backfire by fracturing the allied coalition and accelerating China's import-substitution drive.",
       icon_name: "Shield" as const,
@@ -307,7 +338,7 @@ export const trumpTariffsData = {
       evidence: [
         {
           id: "china-effective-rate",
-          title: "China Still Faces the Highest Effective US Tariff Rate",
+          title: "Penn Wharton: China's Effective US Tariff Rate Fell From 31.6% to 22.8% but Is Still the Highest",
           description:
             "Penn Wharton Budget Model, measuring duties collected as a share of imports, put the effective US tariff rate on Chinese goods at 31.6% in February 2026, the highest of any major trading partner. After the Supreme Court struck down the IEEPA tariffs that month, the rate fell, but at 22.8% in July 2026 China still faced the highest rate. What survived rests on statutes the ruling did not touch: the Section 301 duties of 2018-19 (25% on Lists 1-3, 7.5% on List 4A), raised after the 2024 four-year review to 100% on Chinese EVs and 50% on semiconductors from 2025; Section 232 sectoral tariffs; and, since July 24, 2026, a new 12.5% Section 301 tariff that also applies to China.",
           side: "for" as const,
@@ -381,7 +412,7 @@ export const trumpTariffsData = {
     // =========================================================================
     {
       id: "trade-deficit-alliances",
-      title: "Trade-Deficit Logic & Alliance Effects",
+      title: "Can Tariffs Fix the Trade Deficit, and at What Cost to Allies?",
       short_summary:
         "Trump frames the trade deficit as proof America is 'being ripped off' and tariffs as the remedy. Economists counter that bilateral deficits reflect savings-investment imbalances, not unfair trade, and that tariff friction with allies imposes geopolitical costs — lost cooperation on China, defense burden-sharing, and dollar centrality.",
       icon_name: "Gavel" as const,
@@ -436,9 +467,9 @@ export const trumpTariffsData = {
         },
         {
           id: "scotus-ieepa-ruling",
-          title: "Supreme Court Struck Down IEEPA 'Reciprocal' Tariffs (February 2026)",
+          title: "Supreme Court Struck Down the IEEPA Tariffs 6-3 (February 2026); Their Replacements Are Now in Court",
           description:
-            "On February 20, 2026, the Supreme Court ruled 6-3 in Learning Resources, Inc. v. Trump that the International Emergency Economic Powers Act does not authorize the president to impose tariffs, and customs stopped collecting the IEEPA-based 'reciprocal' and trafficking tariffs on February 24. Trump replaced them with a 10% global Section 122 balance-of-payments tariff, which the statute caps at 150 days; in May the Court of International Trade also declared that proclamation unlawful, and the government appealed. When Section 122 expired on July 24, 2026, USTR replaced it the same day with new Section 301 'forced labor' tariffs of 10% or 12.5% on imports from about 60 economies. As the struck-down IEEPA duties were refunded, customs refunds reached about $145 billion in FY2026 (against $7.5 billion the year before), leaving net customs receipts of about $173 billion out of $318 billion collected.",
+            "On February 20, 2026, the Supreme Court ruled 6-3 in Learning Resources, Inc. v. Trump that the International Emergency Economic Powers Act does not authorize the president to impose tariffs, and customs stopped collecting the IEEPA-based 'reciprocal' and trafficking tariffs on February 24. Trump replaced them with a 10% global Section 122 balance-of-payments tariff, which the statute caps at 150 days; in May the Court of International Trade also declared that proclamation unlawful, and the government appealed. When Section 122 expired on July 24, 2026, USTR replaced it the same day with new Section 301 'forced labor' tariffs of 10% or 12.5% on imports from 60 economies, which court briefs say send 99.4% of US imports. Small businesses and Democratic-led states challenged those too; at the Court of International Trade's hearing on September 30, 2026, Judge Timothy Reif repeatedly asked which part of the law gave USTR its authority and Judge Jennifer Choe-Groves said there was 'not a lot of depth' in the forced-labor evidence. The court set no date for a ruling. As the struck-down IEEPA duties were refunded, customs refunds reached about $145 billion in FY2026 (against $7.5 billion the year before), leaving net customs receipts of about $173 billion out of $318 billion collected.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -446,14 +477,14 @@ export const trumpTariffsData = {
             replicability: 9,
             directness: 7,
           },
-          source: "SCOTUSblog; Reed Smith Trump 2.0 tariff tracker; Penn Wharton Budget Model (Sep 9, 2026); Yale Budget Lab (Jul 24, 2026); US Treasury Monthly Treasury Statement (Sep 2026)",
+          source: "SCOTUSblog; Reed Smith Trump 2.0 tariff tracker; Penn Wharton Budget Model (Sep 9, 2026); Yale Budget Lab (Jul 24, 2026); US Treasury Monthly Treasury Statement (Sep 2026); Bloomberg News (Zoe Tillman, Oct 1, 2026, via ttnews.com) on the Section 301 hearing",
           sourceUrl: "https://www.scotusblog.com/2026/02/a-breakdown-of-the-courts-tariff-decision/",
           reasoning:
             "A 6-3 Supreme Court ruling is an authoritative, independent legal judgment. It undermines the durability of the broad reciprocal-tariff approach by holding its primary legal basis invalid, forcing a retreat first to a time-limited authority and then to Section 301. This challenges the policy's legal foundation, though Section 232 and 301 tariffs survived and the administration has rebuilt a broad tariff on them, which proponents read as evidence the policy outlasted the ruling.",
         },
         {
           id: "bilateral-deals-signed",
-          title: "About Twenty Partners Struck Reciprocal Deals or Frameworks",
+          title: "About 20 Partners, From the EU to Taiwan, Struck Reciprocal Deals or Frameworks",
           description:
             "While the IEEPA reciprocal tariffs were in effect, the administration announced agreements or frameworks for reciprocal trade with about 20 partners, including the EU, Japan, the UK, South Korea, Switzerland, India and Vietnam; full agreement texts were released with Cambodia and Malaysia (October 2025) and with El Salvador, Guatemala, Argentina, Bangladesh, Taiwan and Indonesia (January-February 2026). The deals outlasted the Supreme Court ruling in part: the Section 301 tariffs that replaced Section 122 in July 2026 exempt certain goods from 13 partners, nearly all of them deal partners, and cap the combined rate for the EU, Japan, South Korea and Switzerland. Proponents argue this shows the credible threat of tariffs extracted real concessions and that most trading partners chose to negotiate rather than retaliate.",
           side: "for" as const,
@@ -488,7 +519,7 @@ export const trumpTariffsData = {
         },
         {
           id: "ally-retaliation-costs",
-          title: "EU and Canada Retaliation Plus a USMCA the US Declined to Renew",
+          title: "The EU and Canada Retaliated, and the US Declined to Renew the USMCA (July 2026)",
           description:
             "The EU reimposed €26 billion ($28B) of countermeasures on US goods (steel, aluminum, appliances, bourbon, motorcycles) before suspending them under a politically fragile framework agreement. Canada terminated IEEPA-related retaliation in September 2025 but kept retaliation on US autos and roughly C$15.6 billion of US steel and aluminum. The dispute escalated in 2026: the US imposed 50% Section 338 tariffs on certain Canadian motor vehicles, alcohol and dairy products from August 22, and Canada answered with counter-tariffs on $27.6 billion of US products from September 8. At the first USMCA joint review on July 1, 2026, the United States declined to renew the agreement in its current form, so it stays in force but now goes through annual joint reviews until the parties agree to renew it or it expires in 2036. Adam Tooze frames US strength as 'sustained by elevated asset prices and dollar centrality rather than a strategically coordinated state.'",
           side: "against" as const,
@@ -528,6 +559,14 @@ export const trumpTariffsData = {
       url: "https://budgetmodel.wharton.upenn.edu/p/2026-04-15-effective-tariff-rates-and-revenues-updated-april-15-2026/",
     },
     {
+      title: "All Employees, Manufacturing (MANEMP) - US Bureau of Labor Statistics via FRED",
+      url: "https://fred.stlouisfed.org/series/MANEMP",
+    },
+    {
+      title: "Trump forced-labor tariffs face skeptical trade court - Bloomberg News via ttnews.com (1 October 2026)",
+      url: "https://www.ttnews.com/articles/trump-forced-labor-tariffs",
+    },
+    {
       title: "What's Next for Trump's Tariffs - Peterson Institute for International Economics",
       url: "https://www.piie.com/blogs/realtime-economics/2026/whats-next-trumps-tariffs",
     },
@@ -543,7 +582,7 @@ export const trumpTariffsData = {
       id: "q2",
       title: "Have tariffs revived American manufacturing?",
       content:
-        "The USITC finds net-negative manufacturing employment effects once downstream input-cost losses are counted, and the Yale Budget Lab projects small manufacturing output gains more than crowded out by losses in other sectors, while American Compass points to capex commitments and greenfield announcements as a 'stealth boom' invisible in lagging BLS payrolls. Is the reshoring response real but lagged, or is the promised boom simply not materializing?",
+        "Factory payrolls fell by about 93,000 in 2025 and regained about 72,000 by September 2026, leaving them just below January 2025. The USITC found the 2018 metal tariffs cost about as many jobs downstream as they saved, and the Yale Budget Lab projects small manufacturing gains crowded out elsewhere, while American Compass points to investment announcements as a 'stealth boom' that payrolls have not caught yet. Is the reshoring real but slow, or not happening?",
     },
     {
       id: "q3",

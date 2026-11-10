@@ -175,10 +175,10 @@ describe("POST /api/map-reply", () => {
     expect(body.requestId).toBeTruthy();
     expect(body.ok).toBe(true);
     expect(body.topic.id).toBe("rent-control-effectiveness");
-    expect(body.dominantSection.title).toBe("Supply Effects");
+    expect(body.dominantSection.title).toBe("The rental supply");
     expect(body.notArguing).toEqual(["gary_1962"]);
     expect(body.markdown).toContain(
-      "Argumend map: Does rent control make housing less affordable in the long run?",
+      "Argumend map: Does rent control end up hurting the renters it is meant to help?",
     );
     expect(body.execution.lane).toBe("fake");
     expect(body.execution.model).toBe("jev-1.13.0");

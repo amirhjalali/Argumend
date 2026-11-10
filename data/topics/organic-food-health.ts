@@ -115,9 +115,9 @@ export const organicFoodHealthData = {
         },
         {
           id: "newcastle-review",
-          title: "Newcastle University: Organic Dairy and Meat Have 50% More Omega-3",
+          title: "Newcastle Meta-Analyses: Organic Milk and Meat Have About 50% More Omega-3",
           description:
-            "Średnicka-Tober et al. found that organic milk contains roughly 50% more total omega-3 fatty acids than conventional milk (estimated ~56% higher n-3 PUFA), along with higher iron, vitamin E (α-tocopherol), and conjugated linoleic acid; a companion analysis found similar omega-3 advantages in organic meat. The authors noted the absolute differences may not be nutritionally decisive for most diets.",
+            "Średnicka-Tober et al. found that organic milk contains roughly 50% more total omega-3 fatty acids than conventional milk (estimated ~56% higher n-3 PUFA), along with higher iron, vitamin E (α-tocopherol), and conjugated linoleic acid (41%), but lower iodine and selenium. A companion analysis estimated 47% higher n-3 PUFA in organic meat, with high heterogeneity.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -129,7 +129,7 @@ export const organicFoodHealthData = {
             "Średnicka-Tober et al., 'Higher PUFA and n-3 PUFA ... in organic milk: a systematic literature review and meta- and redundancy analyses,' British Journal of Nutrition 115(6):1043-1060 (2016)",
           sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/26878105/",
           reasoning:
-            "Solid meta-analysis (170 studies) from the Newcastle group. The ~50% omega-3 figure is verified for milk. Independence slightly reduced — the Newcastle/organic-research team has been criticized for emphasis, and the authors themselves cautioned the differences may not be 'nutritionally relevant' given total dietary intake from other sources.",
+            "Solid meta-analysis (170 studies) from the Newcastle group. The ~50% omega-3 figure is verified for milk. Independence slightly reduced — the Newcastle/organic-research team has been criticized for emphasis. Higher omega-3 concentration in milk is not shown to change health outcomes, since milk is one of several dietary sources of omega-3.",
         },
       ],
     },
@@ -140,9 +140,9 @@ export const organicFoodHealthData = {
         "Every apple you eat contains pesticide residues below the safety threshold. The real question: what happens after 30 years of daily 'safe' exposures?",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Conventional residues sit well below EPA tolerances, which build in 100-fold (or larger) safety margins. The dose makes the poison — trace amounts on produce pose negligible risk to healthy adults. Organic farming uses pesticides too, including copper sulfate (which accumulates in soil) and, historically, rotenone (linked to Parkinson's in animal studies). And the headline cohort result cuts both ways: NutriNet-Santé participants who buy the most organic also tend to be wealthier, leaner, and more health-conscious, so an observational 25% gap is exactly what selection bias would produce even if organic food did nothing.",
+        "Conventional residues sit below EPA tolerances (USDA's testing finds more than 99% of samples under them), and those tolerances carry an extra tenfold safety factor for children. The dose makes the poison — trace amounts on produce pose negligible risk to healthy adults. Organic farming uses pesticides too, including copper sulfate (which accumulates in soil) and, historically, rotenone (linked to Parkinson's in animal studies). And the headline cohort result cuts both ways: NutriNet-Santé participants who buy the most organic also tend to be wealthier, leaner, and more health-conscious, so an observational 25% gap is exactly what selection bias would produce even if organic food did nothing.",
       proponent_rebuttal:
-        "EPA tolerances are derived largely from single-chemical exposure in adults and were not designed to capture chronic low-dose intake, cumulative effects of pesticide mixtures, or the heightened vulnerability of developing children. Controlled intervention studies (Curl 2003; Oates 2014; Hyland 2019) show that switching to an organic diet sharply lowers urinary pesticide metabolites within days — reductions that vary by chemical, from roughly 49% up to ~95% for malathion. The French NutriNet-Santé cohort (Baudry 2018) further found ~25% lower cancer incidence among the highest organic consumers, consistent with — though not proof of — a real effect.",
+        "EPA tolerances are derived largely from single-chemical exposure in adults and were not designed to capture chronic low-dose intake, cumulative effects of pesticide mixtures, or the heightened vulnerability of developing children. Intervention studies (Oates 2014; Hyland 2019) show that switching to an organic diet sharply lowers urinary pesticide metabolites within a week — reductions that vary by chemical, from about 61% for a chlorpyrifos metabolite to 95% for a malathion metabolite, and 89% for total organophosphate metabolites in Oates's crossover trial. The French NutriNet-Santé cohort (Baudry 2018) further found ~25% lower cancer incidence among the highest organic consumers, consistent with — though not proof of — a real effect.",
       crux: {
         id: "chronic-low-dose-effects",
         title: "Chronic Low-Dose Pesticide Exposure Health Effects",
@@ -172,9 +172,9 @@ export const organicFoodHealthData = {
       evidence: [
         {
           id: "epa-tolerance-safety",
-          title: "EPA: Conventional Residues Are 100-1000x Below Harmful Levels",
+          title: "USDA: Over 99% of Tested Foods Have Residues Below EPA Tolerances",
           description:
-            "The EPA sets pesticide tolerance levels with built-in 100-fold safety factors (10x for interspecies variation, 10x for intraspecies variation, with additional factors for children). Over 99% of conventional produce samples fall within these tolerances. The EPA reviews each pesticide every 15 years.",
+            "USDA's Pesticide Data Program found that in 2023 more than 99 percent of the samples it tested had residues below the tolerances set by the EPA, and 38.8 percent had no detectable residue. Under the 1996 Food Quality Protection Act, EPA must apply an additional tenfold safety factor for children's special susceptibility unless reliable data support a different factor, and its registration review program aims to re-review each pesticide every 15 years.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -183,16 +183,16 @@ export const organicFoodHealthData = {
             directness: 7,
           },
           source:
-            "EPA, Summary of the Food Quality Protection Act (1996) — establishes the 100-fold (10x interspecies x 10x intraspecies) margin plus an additional 10x children's safety factor; FIFRA registration review on a 15-year cycle",
-          sourceUrl: "https://www.epa.gov/laws-regulations/summary-food-quality-protection-act",
+            "USDA Agricultural Marketing Service, Pesticide Data Program Annual Summary, Calendar Year 2023; EPA, Summary of the Food Quality Protection Act (epa.gov)",
+          sourceUrl: "https://www.ams.usda.gov/sites/default/files/media/2023PDPAnnualSummary.pdf",
           reasoning:
-            "Regulatory authority; the 100-fold base margin and the additional 10x FQPA children's factor are verified. Independence slightly reduced because EPA tolerance-setting relies on industry-submitted data. The 100x+ safety margin argument is strong but assumes single-chemical exposure models adequately capture cumulative/mixture exposure.",
+            "Government monitoring data on a large national sample, and the FQPA children's factor is in statute. Independence slightly reduced because EPA tolerance-setting relies on industry-submitted data. Being below a tolerance is a regulatory benchmark, not a measured absence of harm, and tolerances are set largely chemical by chemical, which is the point in dispute.",
         },
         {
           id: "uc-berkeley-chamacos",
           title: "UC Berkeley CHAMACOS: Prenatal Pesticide Exposure Linked to Developmental Harm",
           description:
-            "The UC Berkeley CHAMACOS longitudinal study in California's Salinas Valley found that children whose mothers were in the highest fifth (quintile) of prenatal organophosphate metabolite levels scored about 7 IQ points lower at age 7 than those in the lowest fifth (each tenfold increase in prenatal markers ~5.6 points). The cohort is an agricultural-community sample, so exposures exceed typical dietary-only levels.",
+            "The UC Berkeley CHAMACOS longitudinal study in California's Salinas Valley found that children whose mothers were in the highest fifth (quintile) of prenatal organophosphate metabolite levels scored about 7 IQ points lower at age 7 than those in the lowest fifth (each tenfold increase in prenatal markers ~5.6 points). The cohort is drawn from farmworker families; the authors report maternal metabolite levels higher than, but within the range of, those measured in the general U.S. population.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -204,13 +204,13 @@ export const organicFoodHealthData = {
             "Bouchard, Eskenazi et al. (CHAMACOS, UC Berkeley), 'Prenatal Exposure to Organophosphate Pesticides and IQ in 7-Year-Old Children,' Environmental Health Perspectives 119(8):1189-1195 (2011)",
           sourceUrl: "https://doi.org/10.1289/ehp.1003185",
           reasoning:
-            "Rigorous longitudinal design from a leading university; the 7-point IQ gap (highest vs lowest quintile of maternal metabolite levels) is verified. Directness lowered because exposures were higher than typical dietary-only exposure (farmworker community, including drift and take-home dust), limiting direct applicability to organic-vs-conventional food choice. It demonstrates developing-brain vulnerability to these chemicals.",
+            "Rigorous longitudinal design from a leading university; the 7-point IQ gap (highest vs lowest quintile of maternal metabolite levels) is verified. Directness lowered because exposures in this farmworker community were above the U.S. average and came partly from drift and take-home dust, not diet alone, limiting direct applicability to organic-vs-conventional food choice. It demonstrates developing-brain vulnerability to these chemicals.",
         },
         {
           id: "organic-diet-intervention",
-          title: "Organic Diet Reduces Urinary Pesticide Metabolites by 60% in One Week",
+          title: "An Organic Diet Cuts Urinary Pesticide Levels Within a Week",
           description:
-            "Multiple intervention studies (Curl et al. 2003; Oates et al. 2014; Hyland et al. 2019) show that switching to an organic diet measurably lowers urinary pesticide metabolites within days — reductions vary widely by pesticide class and study (roughly 49-89%, with the largest drops for malathion, clothianidin, and chlorpyrifos). This demonstrates dietary pesticide exposure is real and modifiable, though the health significance of the reduction is debated.",
+            "In a randomized crossover trial, 13 Australian adults eating at least 80% organic food for 7 days had 89% lower total organophosphate metabolites than on a conventional diet (Oates et al. 2014). In four U.S. families (16 people, 158 urine samples), Hyland et al. (2019) found significant drops in 13 pesticide metabolites and parent compounds after an organic diet began, the largest for a malathion metabolite (-95%), clothianidin (-83%) and a chlorpyrifos metabolite (-61%). Dietary pesticide exposure is real and modifiable; the health significance of the reduction is debated.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -219,14 +219,14 @@ export const organicFoodHealthData = {
             directness: 5,
           },
           source:
-            "Hyland et al., 'Organic diet intervention significantly reduces urinary pesticide levels in U.S. children and adults,' Environmental Research 171:568-575 (2019); see also Curl et al., Environmental Health Perspectives (2003) and Oates et al., Environmental Research (2014)",
+            "Hyland et al., 'Organic diet intervention significantly reduces urinary pesticide levels in U.S. children and adults,' Environmental Research 171:568-575 (2019); Oates et al., 'Reduction in urinary organophosphate pesticide metabolites in adults after a week-long organic diet,' Environmental Research 132:105-111 (2014)",
           sourceUrl: "https://www.sciencedirect.com/science/article/pii/S0013935119300246",
           reasoning:
-            "Consistent results across multiple independent studies. Strong evidence that conventional food delivers measurable pesticide doses. The single '60%' figure was replaced with the verified across-study range, since reductions differ markedly by metabolite. Directness is lower because reducing urinary metabolites does not directly prove health benefits.",
+            "Consistent direction across independent studies, but samples are small (13 and 16 people), and the Hyland study was co-authored by Friends of the Earth, which advocates for organic food. Reductions differ markedly by metabolite. Directness is lower because reducing urinary metabolites does not directly prove health benefits.",
         },
         {
           id: "organic-pesticide-toxicity",
-          title: "Some Organic Pesticides Are More Toxic Per Application Than Synthetic Ones",
+          title: "Some Organic Insecticides Scored Worse Environmentally Than New Synthetics",
           description:
             "A University of Guelph field/lab study (Bahlai et al. 2010) compared organic-approved insecticides (a mineral-oil product and a fungal biopesticide) against conventional and newer reduced-risk synthetics for soybean-aphid control. The organic products were less effective and, at field-use rates, had similar or higher Environmental Impact Quotients and greater harm to natural-enemy insects — challenging the assumption that 'organic' pesticides are automatically greener. (Separately, copper sulfate, allowed in some organic systems, accumulates in soil and is toxic to aquatic life.)",
           side: "against" as const,

@@ -1,8 +1,14 @@
 export const dogeFederalCutsData = {
   id: "doge-federal-cuts",
-  title: "DOGE & Federal Spending Cuts",
+  title: "DOGE's Cuts: Waste Removed, or Government Weakened?",
   question:
+    "Did DOGE cut real waste, or leave Americans with a weaker government?",
+  aliases: [
     "Did DOGE's cuts eliminate waste and make government more effective?",
+    "Did DOGE actually cut government waste and make Washington leaner?",
+    "How much did DOGE really save?",
+    "DOGE & Federal Spending Cuts",
+  ],
   meta_claim:
     "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
   status: "contested" as const,
@@ -10,7 +16,7 @@ export const dogeFederalCutsData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "The temporary DOGE organization ended on 4 July 2026; days earlier its website claimed $215 billion in savings. In August 2026 the Government Accountability Office reviewed the $110 billion of that claim listed against cancelled contracts, grants and leases, and found some of the estimates incorrect or lacking supporting evidence. The fight is over whether the cuts left a leaner government or a weaker one.",
+      "The temporary DOGE organization ended on 4 July 2026, its website claiming $215 billion in savings. In August the Government Accountability Office checked the $110 billion listed for cancelled contracts, grants and leases and found some of the estimates incorrect or unsupported; one $1.7 billion 'saving' was a contract that was never cancelled. The fight is over whether the cuts left a leaner government or a weaker one.",
     confidence: 90,
     source:
       "Nextgov/FCW, 'As DOGE formally sunsets, its public record is still evolving' (2 July 2026); U.S. GAO, 'DOGE Wall of Receipts: More Transparency Needed on How Savings Are Derived from Contract, Grant, and Lease Terminations' (GAO-26-108615, 6 August 2026)",
@@ -27,10 +33,10 @@ export const dogeFederalCutsData = {
       id: "claimed-vs-verified-savings",
       title: "Claimed vs. Verified Savings",
       short_summary:
-        "DOGE's 'Wall of Receipts' grew to a claimed $175 billion in savings by late May 2025, but independent review by NPR could document only a fraction (about $2 billion verifiable in February 2025; roughly $63 billion of $160 billion claimed by late April), after the ledger was caught listing the same contracts multiple times and inflating figures by orders of magnitude. DOGE's temporary organization sunset on July 4, 2026 with its site claiming $215 billion, and a GAO review released that August found that some of the $110 billion it claimed from contracts, grants and leases rested on estimates that were incorrect or lacked supporting evidence.",
+        "DOGE's 'Wall of Receipts' claimed $215 billion when the organization ended in July 2026. Reporters who checked it found the same contracts counted twice and an $8 million contract listed as $8 billion, and in August 2026 the GAO found some of its $110 billion in contract, grant and lease savings incorrect or unsupported. Supporters answer that federal fraud alone costs $233-521 billion a year, and that an imperfect public ledger beats none. Whether savings outrun the revenue lost by cutting IRS auditors is the open question.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "DOGE's savings claims are largely fictional. Its public ledger has been repeatedly caught in basic arithmetic errors: an ICE contract listed at $8 billion was actually $8 million, an SSA contract listed at $232 million was actually about $560,000, and a single USAID contract was triple-counted for up to $655 million. When NPR reviewed the receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at the time; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025 and $215 billion by the time DOGE sunset in July 2026. An August 2026 GAO review of the $110 billion DOGE claimed from contracts, grants and leases found some estimates incorrect or unsupported, could not verify the method behind 96 percent of the grant savings, and found a $1.7 billion Defense Health Agency contract counted as savings although no action was taken to terminate it. Meanwhile, the Yale Budget Lab projects that DOGE-era IRS staffing cuts and the funding clawback together forgo roughly $861 billion in tax revenue over 2026-2035 — meaning DOGE may be losing far more money than it saves.",
+        "DOGE's savings claims are largely fictional. Its public ledger has been repeatedly caught in basic arithmetic errors: an ICE contract listed at $8 billion was actually $8 million, an SSA contract listed at $232 million was actually about $560,000, and a single USAID contract was triple-counted for up to $655 million. When NPR reviewed the receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at the time; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025 and $215 billion by the time DOGE sunset in July 2026. An August 2026 GAO review of the $110 billion DOGE claimed from contracts, grants and leases found some estimates incorrect or unsupported, could not verify the method behind 96 percent of the grant savings, found a $1.7 billion Defense Health Agency contract counted as savings although no action was taken to terminate it, and found 108 of 264 'terminated' leases had been in the process of ending before DOGE existed. Meanwhile, the Yale Budget Lab projects that DOGE-era IRS staffing cuts and the funding clawback together forgo roughly $861 billion in tax revenue over 2026-2035 — meaning DOGE may be losing far more money than it saves.",
       proponent_rebuttal:
         "Early ledger errors are real but reflect the speed of a startup-style operation, not the absence of waste. GAO's own 2024 estimate puts direct annual federal losses to fraud at $233-521 billion (FY2018-2022 data), an enormous pool of genuine inefficiency that prior administrations never seriously attacked. DOGE forced a culture of scrutiny on contracts that had renewed automatically for decades, and even conservative verified figures represent billions returned to taxpayers. The ledger was corrected as discrepancies surfaced, and even GAO's critical 2026 review said a public ledger like the Wall of Receipts \"can have significant value\" — transparency about errors is a feature, not proof the savings are imaginary.",
       crux: {
@@ -63,7 +69,7 @@ export const dogeFederalCutsData = {
       evidence: [
         {
           id: "wall-of-receipts-errors",
-          title: "DOGE 'Wall of Receipts' Repeatedly Inflated by Orders of Magnitude",
+          title: "DOGE's ledger listed an $8 million ICE contract as $8 billion and triple-counted a USAID deal (2025)",
           description:
             "DOGE's public savings ledger had to be repeatedly edited after fact-checkers found systematic errors: an ICE contract listed at $8 billion was actually $8 million (a 1,000x overstatement), an SSA contract listed at $232 million yielded only about $560,000 in real savings, and a single USAID contract was triple-counted for up to $655 million (later revised to roughly $18 million). The errors consistently ran in the direction of overstating savings.",
           side: "against" as const,
@@ -80,7 +86,7 @@ export const dogeFederalCutsData = {
         },
         {
           id: "npr-wapo-verified-savings",
-          title: "Independent Review Found Only a Fraction of Claimed Savings Documented",
+          title: "NPR could verify about $2 billion of the $55 billion DOGE claimed in February 2025",
           description:
             "When NPR reviewed DOGE's receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at that point; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025. Much of the claimed savings reflected contract ceiling values (maximum possible spend) rather than money actually obligated or recovered, and over half of touted contracts had not actually been terminated.",
           side: "against" as const,
@@ -96,8 +102,25 @@ export const dogeFederalCutsData = {
             "Independent newsroom reconciliation against the federal procurement record is the closest available proxy for an audit. The persistent gap between documented savings and the headline claim — CNN found less than half of the $175B backed by even basic documentation — is the core of the savings dispute.",
         },
         {
+          id: "gao-wall-of-receipts-2026",
+          title: "GAO 2026: some of DOGE's $110 billion in contract, grant and lease savings incorrect or unsupported; a $1.7 billion 'saving' was never cancelled",
+          description:
+            "Reviewing the $110 billion the Wall of Receipts reported as of 7 July 2026 for cancelled contracts, grants and leases, the Government Accountability Office found that 'some savings estimates are incorrect or lack supporting evidence.' DOGE did not use its stated method for most contract savings it reported as terminated, and 'did not provide sufficient information to verify the method used to calculate 96 percent of DOGE-reported savings' on grants. It reported $1.7 billion saved on a Defense Health Agency IT contract although 'no action was taken to terminate the contract, or to reduce scope, value, or funding'; GAO concluded no savings were achieved. Of 264 leases listed for termination, 108, worth about $15.3 million of the $53.5 million in lease savings, were already being terminated before DOGE was set up. GAO recommended that known data problems be 'prominently displayed' on the site; the U.S. DOGE Service did not comment.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "U.S. GAO, 'DOGE Wall of Receipts: More Transparency Needed on How Savings Are Derived from Contract, Grant, and Lease Terminations' (GAO-26-108615, 6 August 2026)",
+          sourceUrl: "https://www.gao.gov/products/gao-26-108615",
+          reasoning:
+            "Congress's nonpartisan auditor checked the ledger against agency records, the closest thing to the reconciliation this crux asks for. GAO found some figures wrong or unsupported, not all of them, and it did not compute a corrected total, so it shows the headline is overstated without saying by how much; directness is 8.",
+        },
+        {
           id: "gao-improper-payments",
-          title: "GAO Estimates $233-521B in Annual Federal Losses to Fraud",
+          title: "GAO estimates the federal government loses $233-521 billion a year to fraud (2024)",
           description:
             "The Government Accountability Office's April 2024 report (GAO-24-105833) estimated direct annual federal losses to fraud at $233-521 billion based on FY2018-2022 data — about 3-7% of average federal obligations and a genuinely large pool of waste. GAO is explicit, however, that this is a modeled estimate spanning different risk environments, and that confirmed fraud is only part of broader 'improper payments'; the figure cannot be read as money DOGE actually identified or recovered.",
           side: "for" as const,
@@ -114,7 +137,7 @@ export const dogeFederalCutsData = {
         },
         {
           id: "irs-foregone-revenue",
-          title: "Weakened IRS Projected to Forgo ~$861B in Revenue Over a Decade",
+          title: "Yale Budget Lab: a weakened IRS forgoes about $861 billion in revenue over 2026-2035",
           description:
             "By March 2025 the IRS had lost 31% of its revenue agents — about 3,600 auditors — through firings and the deferred resignation offer, per a May 2025 TIGTA report. In April 2026 the Yale Budget Lab estimated that the weakened enforcement capacity would forgo about $861 billion in federal revenue over 2026-2035: about $598 billion from the 2025 staffing reductions plus about $263 billion from the $20 billion IRS funding clawback. If accurate, the revenue lost dwarfs DOGE's verified savings, inverting the efficiency claim.",
           side: "against" as const,
@@ -139,7 +162,7 @@ export const dogeFederalCutsData = {
       id: "service-disruption",
       title: "Essential-Services Disruption",
       short_summary:
-        "Rapid firings cut staff at the SSA, VA, IRS, FAA, NWS, and CDC before downstream effects were visible. Agencies then scrambled to bring back staff they found essential — including bird-flu, nuclear-weapons, and weather-forecasting workers — suggesting cuts ran ahead of any map of what was load-bearing.",
+        "The cuts took staff from Social Security, the VA, the IRS, the FAA, the Weather Service and the CDC. Phone waits and backlogs grew, and agencies rehired some of the nuclear-stockpile, bird-flu and weather staff they had fired. Critics say the cuts ran ahead of any map of what mattered; supporters say the system corrected itself, and that Social Security's phone waits recovered within the year.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "DOGE cut faster than anyone could know what was essential, and the public paid for it. Social Security lost about 7,500 staff in a year, callers waited up to two or three hours in spring 2025, and by December 2025 more than 12 million field-office transactions and 6 million processing-center transactions were pending; Senate Democrats report new-patient VA mental-health waits averaging 35 days (54 in Maryland) after the VA lost more than 40,000 employees; the FAA cut 130+ roles supporting air traffic controllers amid rising safety incidents. The 'fire fast, rehire what's load-bearing' approach assumes a legibility the government doesn't have — proven by the reversals once agencies discovered what was essential: most of the 300-plus nuclear-stockpile staff fired at NNSA were being rehired within five days, USDA's bird-flu responders were quickly brought back, and the National Weather Service, after losing more than 550 staff, was cleared to hire 450 in August 2025 as the deadly Texas floods put its vacancies under scrutiny.",
@@ -175,7 +198,7 @@ export const dogeFederalCutsData = {
       evidence: [
         {
           id: "essential-rehires",
-          title: "Agencies Reversed Firings of Nuclear, Bird-Flu and Weather Staff",
+          title: "Agencies had to rehire fired nuclear-stockpile, bird-flu and weather staff (2025)",
           description:
             "Several early-2025 firings were reversed once agencies found the work essential. More than 300 National Nuclear Security Administration employees, who oversee the safety and security of the nuclear arsenal, were dismissed on Feb. 13, 2025; by Feb. 18 the vast majority were being rehired. USDA facilities responding to bird flu were told a quarter of their staff were being laid off, and those workers were quickly rehired. By June 2025 the administration was scrambling to rehire many employees dismissed under DOGE's staff-slashing after wiping out entire offices, in some cases imperiling weather forecasting and drug approvals. In August 2025 the National Weather Service, whose staffing had fallen by more than 550, received permission to hire 450 meteorologists, hydrologists and radar technicians, after its vacancies drew scrutiny in the wake of the deadly July 2025 Texas floods.",
           side: "against" as const,
@@ -226,7 +249,7 @@ export const dogeFederalCutsData = {
         },
         {
           id: "congress-court-checks",
-          title: "Congress and Courts Blocked the Deepest Cuts (NPS, NIH)",
+          title: "Congress and courts blocked the deepest cuts at the Park Service and NIH (2026)",
           description:
             "Several of the administration's most aggressive cuts were checked before causing lasting damage. Congress rejected its FY2026 request to cut the National Park Service by more than $1 billion, including a $900 million cut (more than 31%) to park operations; the Interior spending bill passed on Jan. 19, 2026 and signed into law flat-funds park operations. On Jan. 5, 2026 the First Circuit upheld the block on NIH's 15% cap on 'indirect cost' research payments, finding it violated a statute and regulations, and the administration let its April 6 deadline to seek Supreme Court review pass, ending the fight over the cap. Proponents argue this shows the system contained the excesses while preserving genuine reform.",
           side: "against" as const,
@@ -269,7 +292,7 @@ export const dogeFederalCutsData = {
       id: "legality-due-process",
       title: "Legality & Due Process",
       short_summary:
-        "A federal court found OPM's mass-termination orders unlawful, and in March 2026 the First Circuit largely affirmed a block on the funds freeze as likely arbitrary and capricious under the Administrative Procedure Act; behind the spending fight stand the Impoundment Control Act of 1974 and Train v. City of New York. The deepest dispute — whether the unitary executive can impound appropriated funds and fire at will — split in June 2026, when Trump v. Slaughter overruled Humphrey's Executor on the removal side while the spending cases continued.",
+        "A federal court found OPM's mass firings of probationary staff unlawful, and in March 2026 an appeals court largely upheld a block on the administration's freeze of funds to states. In June 2026 the Supreme Court, in Trump v. Slaughter, overruled Humphrey's Executor and widened the President's power to remove agency officials. Whether a president may also refuse to spend money Congress appropriated, which the Impoundment Control Act of 1974 and Train v. City of New York forbid, is still being fought in court.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "DOGE's methods collided with the Constitution's separation of powers. In September 2025, Judge Alsup granted summary judgment finding OPM's mass-termination orders unlawful and ordering personnel files corrected. The Impoundment Control Act of 1974 and the unanimous Supreme Court ruling in Train v. City of New York (1975) hold that the executive cannot unilaterally refuse to spend funds Congress appropriated — and in March 2026 the First Circuit largely affirmed a block on the administration's funds freeze. Reviving Schedule F as 'Schedule Policy/Career' to reclassify up to 50,000 positions as at-will treats Article I's power of the purse as optional, and the removal ruling in Trump v. Slaughter does not touch the appropriations question, which is where the impoundment cases are still being lost.",
@@ -384,7 +407,7 @@ export const dogeFederalCutsData = {
         "Even critics agree the federal hiring-and-firing process is broken and that 99.8% positive performance reviews are not credible. The dispute is whether DOGE actually reformed the process or merely cut the workforce while leaving the broken procedures in place — and whether the government will need more capacity, not less, for the AI, biosecurity, and climate challenges ahead.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "DOGE cut people, not process — destroying capacity the 2030s will require. As Jen Pahlka put it, 'They cut the workforce without cutting the work.' Public-administration scholar Donald Kettl warns of an unprecedented disinvestment in federal capacity that a future president will find extremely difficult to reverse. The bellwethers are stark: the CDC's Epidemic Intelligence Service disease detectives were swept into layoffs twice in 2025 before being spared, and the National Weather Service lost more than 550 staff before being cleared to hire 450 — exactly the surveillance and forecasting capacity needed for pandemics, climate adaptation, and AI-era governance.",
+        "DOGE cut people, not process — destroying capacity the 2030s will require. As Jen Pahlka put it, DOGE 'cut the workforce without cutting the work.' Public-administration scholar Donald Kettl warns of an unprecedented disinvestment in federal capacity that a future president will find extremely difficult to reverse. The bellwethers are stark: the CDC's Epidemic Intelligence Service disease detectives were swept into layoffs twice in 2025 before being spared, and the National Weather Service lost more than 550 staff before being cleared to hire 450 — exactly the surveillance and forecasting capacity needed for pandemics, climate adaptation, and AI-era governance.",
       proponent_rebuttal:
         "The diagnosis that the civil service is structurally broken is shared even by reform-minded critics, and that justifies aggressive action. The federal government fires employees at roughly one-quarter the rate of the private sector for procedural reasons, and 99.8% of federal employees receive positive performance reviews — a figure no serious observer believes reflects reality. Past 'reinventing government' efforts failed precisely because they respected every procedure. DOGE's bet is that breaking the inertia is worth the disruption, and that emerging tools — including AI-driven enforcement at the IRS — can substitute for some of the lost headcount rather than requiring it to be rebuilt one-for-one.",
       crux: {
@@ -451,7 +474,7 @@ export const dogeFederalCutsData = {
         },
         {
           id: "kettl-disinvestment",
-          title: "Scholar Warns of Unprecedented, Hard-to-Reverse Disinvestment in State Capacity",
+          title: "Kettl: 'We've never, ever seen' a disinvestment in federal capacity like this; workforce down 9% (2025-26)",
           description:
             "Donald Kettl, former dean of the University of Maryland School of Public Policy, told CNN in March 2025, \"We've never, ever seen anything that has amounted to a disinvestment in federal capacity like this,\" and said a future president committed to restoring that capacity would find it extremely difficult: \"A lot of what the federal government does is by definition large and complex.\" By February 2026 he counted a 9% cut to the federal civilian workforce (209,775 employees), while noting the workforce is now about the size it was in 1994 and 1973.",
           side: "against" as const,
@@ -468,7 +491,7 @@ export const dogeFederalCutsData = {
         },
         {
           id: "cdc-eis-noaa-bellwethers",
-          title: "CDC Disease-Detective and Weather-Forecasting Capacity Hit by Cuts",
+          title: "CDC disease detectives got layoff notices in October 2025 and were reinstated a day later; the Weather Service lost over 550 staff",
           description:
             "In February 2025 the CDC moved to cut about 1,300 probationary staff, roughly 10% of its workforce; all first-year Epidemic Intelligence Service officers, the 'disease detectives' central to outbreak response, were reported among them, though the CDC said days later that EIS officers were not among those terminated. In October 2025 more than 1,300 CDC staff received layoff notices during the shutdown; about 700, including EIS officers, were reinstated within a day after HHS blamed a 'glitch in the system.' The National Weather Service lost more than 550 staff, falling below 4,000 employees, before being cleared in August 2025 to hire 450. Critics cite these as the bellwethers for capacity the 2030s will need most: pandemic surveillance, climate adaptation, and forecasting. Proponents counter that the reversals show the core was protected, and that AI and modernization can substitute for some lost headcount.",
           side: "against" as const,
@@ -578,7 +601,7 @@ export const dogeFederalCutsData = {
       id: "q4",
       title: "Did DOGE reform the broken process, or just cut the people?",
       content:
-        "Almost everyone agrees the civil service is dysfunctional: 99.8% positive performance reviews and firing rates a quarter of the private sector's. But reform advocate Jen Pahlka argues DOGE 'cut the workforce and left all the unproductive work in place.' Did DOGE fix the broken procedures, or just remove the staff who carried them out — leaving a smaller government doing the same unproductive work?",
+        "Almost everyone agrees the civil service is dysfunctional: 99.8% positive performance reviews and firing rates a quarter of the private sector's. But reform advocate Jen Pahlka argues DOGE 'cut the workforce without cutting the work.' Did DOGE fix the broken procedures, or just remove the staff who carried them out — leaving a smaller government doing the same unproductive work?",
     },
   ],
 };

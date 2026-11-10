@@ -11,6 +11,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { CollectionPagination } from "@/components/CollectionPagination";
 import { PageContainer, PageHeader, TextAction } from "@/components/ui";
 import { useSavedTopicIds } from "@/hooks/useSavedTopics";
+import { useSearchAnalytics } from "@/hooks/useSearchAnalytics";
 import { paginate, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { noMapLine } from "@/lib/siteSearch";
@@ -98,6 +99,9 @@ export default function TopicsPageClient({
     () => filterLibrary(state, savedFilterOn ? { savedIds } : {}),
     [state, savedFilterOn, savedIds],
   );
+
+  // Counts a settled query and how many maps it found; never the query.
+  useSearchAnalytics("library", search, filteredTopics.length);
 
   // A search no map in the whole library answers (not just this category or
   // the saved maps) names its subject as missing, with the ways forward.

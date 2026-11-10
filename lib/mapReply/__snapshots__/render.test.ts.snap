@@ -1,18 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renderMapReplyMarkdown > renders the recorded rent-control reply 1`] = `
-"**Argumend map: Does rent control make housing less affordable in the long run?**
-The map's claim: Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.
+"**Argumend map: Does rent control end up hurting the renters it is meant to help?**
+The map's claim: Rent control ends up hurting renters as a group: the protection it gives tenants who hold a capped lease is outweighed by the rentals it takes off the market and the higher rents and longer searches it leaves everyone else.
 
-The largest share of this thread (4 of 8 turns) is arguing about **Supply Effects**. 1 of 8 turns was not an argument about the topic. Some turns argue about different sections of the map as if they were one disagreement. A key term is being used to mean different things.
+The largest share of this thread (4 of 8 turns) is arguing about **The rental supply**. 1 of 8 turns was not an argument about the topic. Some turns argue about different sections of the map as if they were one disagreement. A key term is being used to mean different things.
 
 **Pattern:** Mixed disagreement.
 
-**The crux for this section:** The Rental Supply Response Test. Measure both new housing starts and withdrawals of existing rental units under rent stabilization. Stable construction alone does not establish stable rental supply: conversions to owner occupancy can remove rentals even when new buildings are exempt.
+**The crux for this section:** The Rental Supply Response Test. Count both sides of the rental ledger under a cap: new rentals built, and existing rentals lost to condo conversion, owner move-in, demolition or withdrawal. A cap that exempts new construction can still shrink the stock if owners of covered buildings sell, convert or let units sit. The test applies to each design separately: Oregon's and California's 2019 laws (new buildings exempt for 15 years), St. Paul's 3% cap before and after it exempted new construction, Berlin's 2020 freeze, and New York's 2026 freeze.
 
 **Strongest evidence in this section:**
-- Supports the map's claim: Stanford Study: San Francisco Rent Control Reduced Rental Supply by 15%. Diamond, McQuade & Qian, American Economic Review, 109(9): 3365-94 (2019)
-- Cuts against the map's claim: Cambridge Decontrol Raised Property Values via Spillovers, Not Mainly New Construction (Autor, Palmer & Pathak 2014). Autor, Palmer & Pathak, Journal of Political Economy, 122(3): 661-717 (2014)
+- Supports the map's claim: San Francisco 1994: covered landlords cut rental supply 15%, raising citywide rents an estimated 5.1% (Diamond, McQuade & Qian). Diamond, McQuade & Qian, NBER Working Paper 24181 (2018); published in the American Economic Review 109(9): 3365-94 (2019)
+- Cuts against the map's claim: New Jersey's moderate local caps showed no significant effect on rents, quality or values in 2000-2010 Census comparisons (Ambrosius et al. 2015). Ambrosius, Gilderbloom, Steele, Meares & Keating, 'Forty years of rent control,' Cities 49: 121-133 (2015), as described in Hockert, 'Rent Control Capitalization into Land Values' (working paper, 30 June 2026)
 
 **Cruxes this thread touched:** The Rental Supply Response Test | The Bridge-or-Delay Test
 **Never reached:** Neighborhood stability and access for new renters

@@ -8,6 +8,7 @@ import { isPublicEntry } from "@/lib/argument/ledger";
 import { loadTopicById } from "@/data/topicLoader";
 import { withoutFalsification } from "@/test/fixtures/legacyTopics";
 import { HIDDEN_ASSUMPTION_NOTE } from "@/lib/topicPage/model";
+import { getGeneratedMedia } from "@/data/generatedMedia";
 
 afterEach(() => {
   cleanup();
@@ -129,8 +130,8 @@ describe("one crux-first template for every map", () => {
     // The fold names one strong card per side, in sentence case.
     const weighing = view.container.querySelector("details#weighing")!;
     expect(weighing.textContent).toContain("One strong card on each side");
-    expect(weighing.textContent).toContain("Nuclear ~93% capacity factor.");
-    expect(weighing.textContent).toContain("New nuclear has massive cost overruns.");
+    expect(weighing.textContent).toContain("EIA: US nuclear plants ran at 91% of capacity in 2025; wind 34%, solar 24%.");
+    expect(weighing.textContent).toContain("Vogtle 3 and 4 cost Georgia Power $10.7 billion against a $4.4 billion estimate.");
     // The map's cost_to_verify is an unsourced estimate: never shown.
     expect(text).not.toContain("Cost to run it");
     for (const pillar of topic.pillars) expect(text).not.toContain(pillar.crux.cost_to_verify);
@@ -143,8 +144,8 @@ describe("one crux-first template for every map", () => {
       expect(researcher.textContent).toContain(pillar.title);
     }
     // Card titles in the crux rows read in sentence case.
-    expect(sheet.textContent).toContain("Nuclear among safest energy per TWh.");
-    expect(sheet.textContent).not.toContain("Nuclear Among Safest Energy Per TWh");
+    expect(sheet.textContent).toContain("Our World in Data: Nuclear causes about 0.03 deaths per TWh, coal 24.6.");
+    expect(sheet.textContent).not.toContain("Nuclear Causes About 0.03 Deaths per TWh");
   });
 
   it("renders a legacy map without falsification data cleanly, with no scoreboard", async () => {
@@ -356,5 +357,36 @@ describe("the hidden-assumption line", () => {
       expect(assumption, claim.id).toBeTruthy();
       expect(container.textContent).toContain(assumption!);
     }
+  });
+});
+
+describe("the opening plate", () => {
+  it("opens a legacy map that has registered art on that art, before the question", async () => {
+    const media = getGeneratedMedia("topic", "ai-risk")!;
+    expect(media).toBeDefined();
+    const { view } = await renderLegacy("ai-risk");
+    const plate = view.getByTestId("topic-plate");
+    const image = within(plate).getByAltText(media.hero.alt);
+    expect(image.getAttribute("width")).toBe(String(media.hero.width));
+    expect(image.getAttribute("height")).toBe(String(media.hero.height));
+    expect(before(plate, view.container.querySelector("h1")!)).toBe(true);
+  });
+
+  it("opens a flagship map on its own illustration, not after the positions", () => {
+    const topic = loadArgumentTopic("ai-mass-unemployment")!;
+    const view = render(<DebateView meta={topic.meta} graph={topic.graph} cruxes={topic.cruxes} />);
+    const plate = view.getByTestId("topic-plate");
+    within(plate).getByAltText(topic.meta.hero!.alt);
+    expect(before(plate, view.container.querySelector("h1")!)).toBe(true);
+    expect(view.container.querySelectorAll("img")).toHaveLength(1);
+  });
+
+  it("leaves a map without art to open on its question", async () => {
+    // Any shipped map may gain art; an id nothing is registered under has none.
+    const topic = { ...(await loadTopicById("gun-control-effectiveness"))!, id: "no-art-registered" };
+    expect(getGeneratedMedia("topic", topic.id)).toBeUndefined();
+    const view = render(<ReadModeView topic={topic} />);
+    expect(view.queryByTestId("topic-plate")).toBeNull();
+    expect(view.container.querySelector("img")).toBeNull();
   });
 });

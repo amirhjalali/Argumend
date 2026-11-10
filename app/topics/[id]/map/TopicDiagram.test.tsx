@@ -63,7 +63,11 @@ describe("TopicDiagram on a phone", () => {
     expect(within(outline).queryByTestId("canvas")).toBeNull();
 
     const { page, cruxes } = legacyTopicPage(topic);
-    expect(within(outline).getByRole("heading", { level: 2 }).textContent).toBe(page.title);
+    // The route's h1 is the question; the outline does not print it twice,
+    // and its crux list heads straight under that h1.
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(page.title);
+    expect(outline.textContent?.split(page.title)).toHaveLength(1);
+    expect(within(outline).getByRole("heading", { level: 2 }).textContent).toMatch(/^This turns on /);
     const toggles = outline.querySelectorAll("button[aria-expanded]");
     expect(toggles).toHaveLength(cruxes.length);
     cruxes.forEach((crux, i) => expect(toggles[i].textContent).toContain(crux.question));

@@ -128,6 +128,25 @@ export const cancelCultureData = {
           reasoning:
             "A framing/contextual claim rather than a specific empirical finding, so no sourceUrl is provided. Less direct because the increased speed and scale of online pile-ons may change the qualitative nature of the phenomenon.",
         },
+        {
+          id: "pew-2020-callouts-accountability",
+          title: "Pew (2020): 58% of US Adults Say Calling People Out on Social Media Holds Them Accountable; 38% Say It Punishes the Undeserving",
+          description:
+            "Pew Research Center surveyed 10,093 US adults on its American Trends Panel from 8 to 13 September 2020. '58% of U.S. adults say in general, calling out others on social media is more likely to hold people accountable', while 38% said such call-outs are more likely to punish people who don't deserve it. The split is partisan: 75% of Democrats chose accountability against 39% of Republicans, and 56% of Republicans said call-outs punish the undeserving against 22% of Democrats. Only 44% had heard at least a fair amount about the phrase 'cancel culture'.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 4,
+          },
+          source:
+            "Pew Research Center, 'Americans and Cancel Culture: Where Some See Calls for Accountability, Others See Censorship, Punishment' (19 May 2021; survey of Sept 2020)",
+          sourceUrl:
+            "https://www.pewresearch.org/internet/2021/05/19/americans-and-cancel-culture-where-some-see-calls-for-accountability-others-see-censorship-punishment/",
+          reasoning:
+            "A large probability-based panel from a nonpartisan pollster, fielded in the same year as the Cato/YouGov poll the other side cites, and it finds most Americans read call-outs as accountability. Directness is 4: it measures how people judge call-outs, not whether fear of them narrows what gets said, and the partisan gap shows the answer depends on whose speech is being called out. Fielded in 2020; views may have moved since.",
+        },
       ],
     },
     {
@@ -185,6 +204,24 @@ export const cancelCultureData = {
           sourceUrl: "https://www.eeoc.gov/data/sexual-harassment-our-nations-workplaces",
           reasoning:
             "EEOC is an authoritative government source; the corrected figure is 13.6% (the file previously said 12%). Demonstrates the accountability function of public pressure campaigns, though the charge increase is correlational with #MeToo, not proven causal.",
+        },
+        {
+          id: "ceo-ethical-lapse-dismissals",
+          title: "Strategy& (2017): CEO Dismissals for Ethical Lapses Rose From 3.9% to 5.3% of Successions at the World's 2,500 Largest Companies",
+          description:
+            "PwC's Strategy& CEO Success study tracked chief-executive successions at the world's 2,500 largest public companies. 'Globally, dismissals for ethical lapses rose from 3.9 percent of all successions in 2007–11 to 5.3 percent in 2012–16', and at the largest companies in North America and Western Europe from 4.6 to 7.8 percent; 18 CEOs of those companies were dismissed for ethical lapses in 2016. Among the causes the authors list: 'the public has become more suspicious, more critical, and less forgiving of corporate misbehavior', digital communications 'can provide irrefutable evidence of misconduct', and 'the relentless glare of social media, is omnipresent.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 4,
+          },
+          source:
+            "Karlsson, Aguirre & Rivera, 'Are CEOs Less Ethical Than in the Past?', strategy+business 87 (15 May 2017), PwC Strategy& CEO Success study",
+          sourceUrl: "https://www.strategy-business.com/feature/Are-CEOs-Less-Ethical-Than-in-the-Past",
+          reasoning:
+            "Systematic data over a large, defined population showing that public scrutiny increasingly costs the most powerful people their jobs, the accountability side of the crux. Directness is 4: an ethics dismissal is not the same as an online shaming campaign, the authors give several causes besides social media, the series stops in 2016 (before #MeToo), and it says nothing about ordinary targets, so it cannot give the ratio the crux asks for. A consulting firm's study, so reliability is 6.",
         },
         {
           id: "ordinary-person-cancelation-cases",

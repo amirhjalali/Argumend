@@ -37,7 +37,7 @@ export const electoralCollegeReformData = {
         question:
           "Can the National Popular Vote compact realistically reach 270 electoral votes?",
         description:
-          "The NPVIC needs states totaling 270 electoral votes to take effect. As of 2026 it has 222 (18 states plus DC), leaving it 48 short. The remaining states needed lean Republican, and Republican policymakers—who benefited from the Electoral College in 2000 and 2016—have so far shown little incentive to enact it; no state with a Republican trifecta has done so.",
+          "The NPVIC needs states totaling 270 electoral votes to take effect. As of April 2026 it has 222 (18 states plus DC), leaving it 48 short. The remaining states needed lean Republican, and Republican policymakers—who benefited from the Electoral College in 2000 and 2016—have so far shown little incentive to enact it; no state with a Republican trifecta has done so.",
         methodology:
           "Track state-level NPVIC legislation. Analyze political feasibility in remaining states needed to reach 270 EVs. Model legal challenges that would follow enactment.",
         verification_status: "theoretical" as const,
@@ -114,6 +114,42 @@ export const electoralCollegeReformData = {
           reasoning:
             "The factual mechanism is confirmed by the National Archives: every state gets at least 3 electoral votes (one per senator plus one per representative), so low-population states are overrepresented relative to population. The downstream claim that this protects small-state influence is interpretive and empirically questionable—under the current system candidates already concentrate on a handful of swing states, and small states like Wyoming and Vermont are not swing states and receive minimal attention. (Note: the previously cited American Bar Association does not endorse this argument; the ABA has historically criticized the Electoral College as archaic.) Weights lowered accordingly.",
         },
+        {
+          id: "npvic-progress",
+          title: "Virginia Brought the NPVIC to 222 of the 270 Electoral Votes It Needs (April 2026)",
+          description:
+            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join when Gov. Abigail Spanberger signed the bill on Monday, April 13, 2026, NPR reported). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined—an additional 48 are needed. Every state that has enacted it joined under a Democratic governor.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 8,
+          },
+          source:
+            "NPR (Ashley Lopez), \"Virginia joins a national effort to ensure only popular vote winners become president\" (14 April 2026); Ballotpedia, \"National Popular Vote Interstate Compact\"",
+          sourceUrl: "https://www.vpm.org/npr-news/2026-04-14/virginia-joins-a-national-effort-to-ensure-only-popular-vote-winners-become-president",
+          reasoning:
+            "Factual progress that demonstrates political momentum. However, the remaining 48 EVs require states that are politically unlikely to join, making completion uncertain. (Note: the 209-EV/17-state figure was accurate in early 2025 but is now superseded by Virginia's 2026 accession.)",
+        },
+        {
+          id: "partisan-adoption-concern",
+          title: "Only Democratic States Have Joined the NPVIC",
+          description:
+            "Of the states that have enacted the NPVIC, every one joined under a Democratic governor, and none did so under a Republican state-government trifecta (per Ballotpedia, 15 enacting states had a Democratic trifecta and the rest had divided government at the time of adoption). No state with a Republican trifecta has enacted it. (Republican-led chambers have passed the compact in one chamber in a few states such as New York, Oklahoma, and Arizona, but no Republican governor has signed it into law.) This partisan pattern complicates the claim that the NPVIC is a fully nonpartisan reform.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 6,
+          },
+          source:
+            "Ballotpedia, \"National Popular Vote Interstate Compact\" (partisan-control analysis of member states)",
+          sourceUrl: "https://ballotpedia.org/National_Popular_Vote_Interstate_Compact",
+          reasoning:
+            "The partisan pattern in enactment is real, but the original claim that 'no Republican legislature has passed the compact' overstated it—Republican-controlled chambers have passed it in one chamber in several states. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
+        },
       ],
     },
     {
@@ -154,40 +190,75 @@ export const electoralCollegeReformData = {
       },
       evidence: [
         {
-          id: "npvic-progress",
-          title: "NPVIC Has 209 of 270 Needed Electoral Votes",
+          id: "chiafalo-states-far-reaching-authority",
+          title: "Chiafalo v. Washington (2020): A Unanimous Supreme Court Held That Article II Gives States 'Far-Reaching Authority' Over Their Electors",
           description:
-            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join, on April 13, 2026). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined—an additional 48 are needed. Every state that has enacted it joined under a Democratic governor.",
+            "On 6 July 2020 the Supreme Court upheld Washington's fine on 'faithless' electors who broke their pledge. All nine justices agreed on the outcome; Justice Kagan wrote for eight that 'Article II, §1's appointments power gives the States far-reaching authority over presidential electors, absent some other constitutional constraint', and that 'the power to appoint an elector (in any manner) includes power to condition his appointment.' A footnote marks one such constraint: 'A State, for example, cannot select its electors in a way that violates the Equal Protection Clause.' The case did not involve the compact.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "Chiafalo v. Washington, 591 U.S. ___ (2020), No. 19-465 (Legal Information Institute text)",
+          sourceUrl: "https://www.law.cornell.edu/supremecourt/text/19-465",
+          reasoning:
+            "The Court's most recent reading of the clause the compact rests on, and it is broad, which is why compact supporters cite it. Directness is 5: the holding is about binding electors to a pledge, not about states coordinating by agreement, and the opinion's own 'absent some other constitutional constraint' leaves room for the Compact Clause and equal-protection objections the other side raises.",
+        },
+        {
+          id: "crs-compact-consent-test",
+          title: "CRS (2023): Under Current Precedent, Only Compacts That Raise State Power Against the Federal Government Need Congress's Consent",
+          description:
+            "The Congressional Research Service's overview of interstate compacts (Stephen Mulligan, updated 15 June 2023) summarizes the Supreme Court's test from Virginia v. Tennessee (1893) and U.S. Steel Corp. v. Multistate Tax Commission (1978): 'only interstate compacts that increase the political power of the states while undermining federal sovereignty require' congressional consent. In U.S. Steel a compact that strengthened states' hand against taxed companies needed no consent, because the test 'does not focus on whether the compact makes the states more influential in general but only whether it could enhance the states' power in relation to the federal government.' Michael Morley, a critic of the compact, concedes in the Harvard Law & Policy Review (2021) that 'under current doctrine the Compact probably does not need congressional assent.'",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 8,
+            independence: 9,
+            replicability: 6,
+            directness: 5,
           },
           source:
-            "National Popular Vote Inc.; Ballotpedia, \"National Popular Vote Interstate Compact\"",
-          sourceUrl: "https://ballotpedia.org/National_Popular_Vote_Interstate_Compact",
+            "Congressional Research Service, 'Interstate Compacts: An Overview', Legal Sidebar LSB10807 (updated 15 June 2023); Morley, Harvard Law & Policy Review vol. 15 (2021)",
+          sourceUrl: "https://www.everycrsreport.com/reports/LSB10807.html",
           reasoning:
-            "Factual progress that demonstrates political momentum. However, the remaining 48 EVs require states that are politically unlikely to join, making completion uncertain. (Note: the 209-EV/17-state figure was accurate in early 2025 but is now superseded by Virginia's 2026 accession.)",
+            "A nonpartisan statement of the governing test, plus a concession from the compact's sharpest critic, together the strongest case that the consent objection fails as the law now stands. The sidebar does not discuss the compact itself, and the Court could revise a test it has applied to boundary and tax compacts when presidential selection is at stake, so directness is 5. It answers only the consent question, not the right-to-vote and equal-protection objections.",
         },
         {
-          id: "partisan-adoption-concern",
-          title: "Only Democratic States Have Joined the NPVIC",
+          id: "crs-npv-compact-unresolved",
+          title: "CRS (2019): The NPV Compact Is an Interstate Compact, and Whether It Needs Congress's Consent Is 'Unresolved'",
           description:
-            "Of the states that have enacted the NPVIC, every one joined under a Democratic governor, and none did so under a Republican state-government trifecta (per Ballotpedia, 15 enacting states had a Democratic trifecta and the rest had divided government at the time of adoption). No state with a Republican trifecta has enacted it. (Republican-led chambers have passed the compact in one chamber in a few states such as New York, Oklahoma, and Arizona, but no Republican governor has signed it into law.) This partisan pattern complicates the claim that the NPVIC is a fully nonpartisan reform.",
+            "The Congressional Research Service's report on the compact (Thomas Neale and Andrew Nolan, updated 28 October 2019) concludes that 'it appears that the initiative can be described as an interstate compact', the threshold step for a Compact Clause challenge, and that whether a compact of this kind needs congressional consent is 'simply unresolved by the relevant case law.' It expects the question of whether the compact harms non-member states 'would likely be the source of considerable litigation if the initiative ever became effective', and records Ohio State election-law scholar Edward Foley's view that it 'would likely be challenged in court, perhaps successfully.'",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 6,
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 7,
           },
           source:
-            "Ballotpedia, \"National Popular Vote Interstate Compact\" (partisan-control analysis of member states)",
-          sourceUrl: "https://ballotpedia.org/National_Popular_Vote_Interstate_Compact",
+            "Congressional Research Service, 'The National Popular Vote (NPV) Initiative: Direct Election of the President by Interstate Compact', R43823 (updated 28 Oct 2019)",
+          sourceUrl: "https://www.everycrsreport.com/reports/R43823.html",
           reasoning:
-            "The partisan pattern in enactment is real, but the original claim that 'no Republican legislature has passed the compact' overstated it—Republican-controlled chambers have passed it in one chamber in several states. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
+            "Nonpartisan and about this compact specifically, so directness is 7. It does not predict that the compact would lose; it says the law is open and litigation near certain, which cuts against the confidence of supporters who treat Article II as settling it. The report predates Chiafalo (2020) and Virginia's 2026 accession.",
+        },
+        {
+          id: "morley-npv-constitutional-infirmities",
+          title: "Morley (2021): Even if Congress's Consent Is Not Needed, the Compact Likely Violates the Right to Vote, Equal Protection and the Electors Clause",
+          description:
+            "Florida State law professor Michael Morley, in 'The Framers' Inadvertent Gift: The Electoral College and the Constitutional Infirmities of the National Popular Vote Compact' (Harvard Law & Policy Review, vol. 15, 2021), argues that 'regardless of congressional approval, the Compact likely violates the Constitution in four ways.' By appointing electors on national tallies, a member state's votes are 'unconstitutionally diluted or even overwhelmed by votes of other states' citizens'; pooling ballots 'cast under fifty-one different electoral systems' runs into Bush v. Gore; it lets 'a cabal of states' decide the presidency for the rest; and it limits the plenary power the Electors Clause gives state legislatures. He calls the Compact Clause itself 'a potential constitutional speed bump, not an impenetrable barrier.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 4,
+            directness: 7,
+          },
+          source:
+            "Michael T. Morley, 'The Framers' Inadvertent Gift: The Electoral College and the Constitutional Infirmities of the National Popular Vote Compact', Harvard Law & Policy Review 15 (2021)",
+          sourceUrl: "https://journals.law.harvard.edu/lpr/wp-content/uploads/sites/89/2021/08/HLP109.pdf",
+          reasoning:
+            "A detailed law-review argument aimed squarely at the crux, and it moves the fight from consent to substantive clauses that no court has applied to the compact. Independence is 5 because the author writes as an advocate against the compact, and replicability 4 because these are untested legal theories that supporters (Amar, National Popular Vote Inc.) contest point by point, for example that Bush v. Gore concerned differences within one state, not between states.",
         },
       ],
     },

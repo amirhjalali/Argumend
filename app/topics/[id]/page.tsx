@@ -5,6 +5,7 @@ import { loadTopicById } from "@/data/topicLoader";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { JsonLd } from "@/components/JsonLd";
 import { AppShell } from "@/components/AppShell";
+import { TopicAnalytics } from "@/components/analytics/TopicAnalytics";
 import { ReadModeView } from "@/components/ReadModeView";
 import { buildGenericOgUrl, buildTopicOgUrl } from "@/lib/og";
 import {
@@ -198,6 +199,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
             related={related}
           />
         </AppShell>
+        <TopicAnalytics topicId={argumentTopic.meta.id} topicKind="flagship" />
       </>
     );
   }
@@ -281,6 +283,8 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
       <AppShell layout="reading">
         <ReadModeView topic={topic} related={related} />
       </AppShell>
+      {/* Counts-only funnel events; renders nothing (docs/ANALYTICS.md). */}
+      <TopicAnalytics topicId={topic.id} topicKind="legacy" />
     </>
   );
 }

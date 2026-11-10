@@ -778,6 +778,17 @@ export async function matchOnMap(mapId: string, text: string): Promise<PasteMapM
   );
 }
 
+/**
+ * The match a paste would get on this pillar map, which need not be in the
+ * library: words are weighed against the library's index as for any map.
+ * For tests that need a map shaped a particular way (a crux with evidence on
+ * one side only) instead of whichever live map happens to be shaped so.
+ */
+export async function matchOnTopic(topic: Topic, text: string): Promise<PasteMapMatch> {
+  const index = await getMapIndex();
+  return pillarMatch(topic, text, (term) => termIdf(index, term));
+}
+
 const round = (value: number | null, places = 2) =>
   value === null || !Number.isFinite(value) ? null : Math.round(value * 10 ** places) / 10 ** places;
 

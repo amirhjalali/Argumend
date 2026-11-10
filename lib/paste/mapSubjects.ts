@@ -73,6 +73,18 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
   "children-smartphone-age": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
   // Children, consent and pregnancy also occur in unrelated family disputes.
   "fluoride-water-supplies": [["fluoride"]],
+  // Plastic-bag bans and recycling rants are waste policy, not plastic in the body.
+  "microplastics-health-crisis": [
+    ["microplastic"], ["microplastics"], ["nanoplastic"], ["nanoplastics"],
+    ["plastic", "blood"], ["plastic", "brain"], ["plastic", "placenta"],
+    ["plastic", "body"], ["plastic", "particles"], ["plastic", "artery"],
+    ["bpa"], ["phthalate"], ["phthalates"],
+  ],
+  // Cancer and heart-disease talk also occurs in supplement and diet disputes.
+  "alcohol-no-safe-level": [
+    ["alcohol"], ["alcoholic"], ["drink"], ["drinks"], ["drinking"], ["drinker"],
+    ["drinkers"], ["wine"], ["beer"], ["liquor"], ["booze"], ["spirits"], ["ethanol"],
+  ],
   "rfk-health-policy": [
     ["rfk"], ["kennedy"], ["maha"], ["make", "america", "healthy", "again"],
     ["health", "secretary"], ["hhs", "overhaul"],

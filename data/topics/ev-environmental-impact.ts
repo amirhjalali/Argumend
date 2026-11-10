@@ -1,43 +1,52 @@
 export const evEnvironmentalImpactData = {
   id: "ev-environmental-impact",
-  title: "Electric Vehicles vs. ICE Cars",
+  title: "Electric Cars vs. Gas Cars: The Whole Life",
   question:
-    "Are EVs significantly greener than gas cars over their full lifecycle?",
+    "Are electric cars really greener than gas cars, batteries and mines included?",
   meta_claim:
     "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
   status: "contested" as const,
   category: "science" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  // As of 3 November 2026: ICCT's July 2025 EU lifecycle update (BEVs 73%
+  // below gasoline; about 40% more to build; paid back after ~17,000 km);
+  // UCS's August 2026 US update (average EV = a 100 mpg gasoline car; EPA
+  // has paused its eGRID data); Ember's April 2026 review (coal below a
+  // third of world power in 2025); USGS February 2026 (Congo 73% of mined
+  // cobalt in 2025, export ban then quotas).
+  last_updated: "2026-11-03",
+  // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "Volvo's own footprint report found its electric C40 Recharge generates about 70% more greenhouse gas in production than the gas-powered XC40, then breaks even after roughly 48,000 miles on the EU28 grid mix and 68,300 on the global average. About 70% of the world's cobalt is mined in the Democratic Republic of Congo. The fight is over how fast that carbon debt is repaid where EVs are actually driven, and how much the mining harms weigh.",
+      "Building an electric car emits about 40% more greenhouse gas than building a gasoline one, mostly because of the battery, the International Council on Clean Transportation estimated in July 2025. On the EU's average grid, it found, the electric car pays that back after about 17,000 km and ends with 73% lower lifetime emissions. On coal-heavy grids the payback takes longer, and the cobalt in many batteries comes from Congo, which mined about 73% of the world's supply in 2025. The fight is over how far the grid and the mines cut into that advantage, and how much the mines should weigh.",
     confidence: 88,
     source:
-      "Volvo Cars, C40 Recharge Carbon Footprint Report (2021); Amnesty International & Afrewatch (2016)",
+      "ICCT, 'Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update' (Negri and Bieker, 8 July 2025); USGS Mineral Commodity Summaries 2026, Cobalt",
     sourceUrl:
-      "https://www.volvocars.com/assets/volvocm/globalpages/live/6298CA92D97B4769AAA54A1D1FABF81C/volvo_carbonfootprintreport_ec40.pdf",
+      "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/",
   },
-  // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that an EV is more carbon-intensive to build than a comparable gas car, mainly because of its battery, and that its emissions advantage over a full lifecycle depends on the grid that charges it: smallest where coal dominates, largest where power is clean.",
-    "They split over how quickly a given driver's EV repays its battery's carbon debt and how much weight the human and environmental harms of cobalt and lithium mining should carry; and over whether the grids where EVs are actually driven will decarbonize fast enough, or lock in coal-powered charging in some regions.",
+    "The answer bears on what a family buying its next car does for the climate, on whether governments keep paying people to switch, and on mining towns from Congo's copper belt to Indonesia's Halmahera island that supply the batteries.",
+    "The two sides split over how many miles an electric car needs to repay its battery and whether real cars get there; whether one charged from coal still beats an efficient hybrid; and whether the harms of mining cobalt, nickel and lithium shrink fast enough to weigh less than the oil they replace.",
   ],
   pillars: [
+    // =========================================================================
+    // PILLAR 1: The carbon debt
+    // =========================================================================
     {
       id: "manufacturing-battery-impact",
-      title: "Manufacturing & Battery Impact",
+      title: "The Carbon Debt: How Fast Does the Battery Pay Back?",
       short_summary:
-        "An EV starts its life with a larger carbon debt than a gas car. By Volvo's own accounting it takes roughly 30,000 miles on a clean grid to about 68,000 miles on the global average grid to break even.",
+        "An electric car starts life with a bigger carbon footprint than a gas car, mostly from its battery: about 40% bigger in ICCT's 2025 EU estimate, about 70% in Volvo's own figures for a large SUV. Estimates of the miles needed to repay it run from about 11,000 to more than 68,000, depending on the car, the battery and the grid.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Battery production requires lithium, nickel, and cobalt mining, with real impacts: water-intensive lithium extraction in Chile, hard-rock mining in Australia, and cobalt mining in the DRC tied to toxic waste and child labor. Building an EV emits substantially more CO2 up front than building an equivalent gas car — Volvo's own figures put battery-EV manufacturing about 70% higher. And large volumes of spent batteries are projected by 2040, so end-of-life recycling must scale far beyond today before the loop is genuinely closed.",
+        "Every electric car is born in debt. Mining and refining lithium, nickel and cobalt and making the cells takes so much energy that Argonne National Laboratory puts an EV's manufacturing emissions 30-100% above a comparable gas car's, depending on battery size. Volvo's own report found its electric C40 emitted about 70% more to build than the gasoline XC40 and broke even only after about 68,300 miles on the world's average grid, several years of typical driving. Bigger batteries mean bigger debts, and the trend is toward heavier electric SUVs and pickups. A car that is scrapped early, or driven little, may never repay it.",
       proponent_rebuttal:
-        "The higher manufacturing footprint is offset well within the vehicle's lifetime — at typical US mileage that is a matter of a few years of driving, and sooner on cleaner electricity. Battery recycling is scaling: Redwood Materials and Li-Cycle report recovering 95%+ of critical minerals, even if recycled material is still a small share of supply today. And the impacts of oil extraction and refining — spills, refinery emissions, and methane leaks — are large and ongoing, not a one-time manufacturing cost.",
+        "The debt is real and small next to a lifetime of burning gasoline. ICCT's July 2025 study of cars sold in the EU found electric cars' lifecycle emissions 73% below gasoline cars': the roughly 40% extra from production is 'more than offset after about 17,000 km of use in the first one or two years.' Hybrids cut 20% and plug-in hybrids 30%. The Union of Concerned Scientists found in August 2026 that the average US electric car repays its extra manufacturing emissions in under 18,000 miles and 'still produces less than half the lifetime emissions of a comparable gasoline car.' Even Volvo's worst case breaks even well within a car's life, and every year the grids that charge the cars get cleaner.",
       crux: {
         id: "lifecycle-breakeven",
         title: "Lifecycle Emissions Breakeven Point",
         question:
-          "How fast does an EV make up its battery's emissions?",
+          "How many miles does an EV need to repay its battery's extra emissions, and do most cars get there?",
         description:
           "The exact point (in miles or years of driving) at which an EV's total lifecycle emissions drop below those of an equivalent ICE vehicle, across different grid mixes and vehicle classes.",
         methodology:
@@ -50,121 +59,109 @@ export const evEnvironmentalImpactData = {
         cost_to_verify: "$200K (Comprehensive LCA with sensitivity analysis)",
         falsification: {
           supporter_flip:
-            "If rigorous cradle-to-grave assessments showed the manufacturing carbon debt was large enough that, at real-world mileages and grid mixes, most EVs never broke even within their service life — or that battery-production impacts had been systematically undercounted — the lifecycle case would break.",
+            "If cradle-to-grave studies using measured factory emissions found breakeven distances for typical electric cars beyond what most cars are driven before scrapping, or found battery production undercounted, the lifecycle case would fail for those cars.",
           skeptic_flip:
-            "If new independent lifecycle assessments, testing the IEA, ICCT and Volvo estimates, kept finding the up-front battery debt repaid within tens of thousands of miles, the manufacturing penalty would look real but bounded and one-time.",
+            "If new independent studies kept finding the battery debt repaid within about 20,000 miles for typical cars, as ICCT and UCS do, and larger-battery models within their lifetime, the manufacturing penalty would look real but bounded.",
           common_ground:
-            "Both sides agree an EV is more carbon-intensive to BUILD than a comparable gas car, mainly because of the battery.",
+            "Both sides agree building an electric car emits more than building a comparable gas car, mainly because of the battery, and that how fast driving repays the gap depends on battery size, mileage and the grid.",
           live_disagreement:
-            "How fast break-even arrives for a given driver, which depends on annual mileage and how clean the local grid is.",
+            "How long the battery debt takes to repay for real cars, from small hatchbacks to heavy electric SUVs, and whether most are driven far enough to clear it by a wide margin.",
         },
       },
       evidence: [
         {
-          id: "iea-lifecycle-2023",
-          title: "IEA: A Medium EV Has About Half the Lifecycle Emissions of an Equivalent ICE Car",
+          id: "icct-eu-2025",
+          title: "ICCT 2025: EU Electric Cars Emit 73% Less Over Their Life, Repaying the Battery After About 17,000 km",
           description:
-            "The International Energy Agency's Global EV Outlook 2024 reports that, on the global average grid mix, a medium-size battery electric car has roughly half the lifecycle CO2-eq emissions of an equivalent oil-fueled ICE car (~15 t CO2-eq vs ~38 t over a ~200,000 km lifetime). The savings are larger on cleaner grids and smaller on coal-heavy grids.",
+            "The International Council on Clean Transportation's July 2025 update for medium-size cars sold in the EU found battery electric cars' lifecycle emissions 73% lower than gasoline cars' (estimated at 235 g CO2e/km), and 78% lower on renewable electricity only. 'Although BEVs were estimated to have about 40% higher production emissions than ICEVs due to emissions from production of the battery, these additional emissions are more than offset after about 17,000 km of use in the first one or two years.' Hybrids came out 20% below gasoline cars and plug-in hybrids 30% below. BEV lifecycle emissions were 24% lower than in ICCT's 2021 study, reflecting a cleaner EU grid.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 9,
+          },
+          source:
+            "ICCT, 'Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update and key factors to consider' (Marta Negri and Georg Bieker, 8 July 2025)",
+          sourceUrl:
+            "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/",
+          reasoning:
+            "The most recent large, transparent lifecycle study, and it reports the production penalty the skeptics stress alongside the payback. It covers the EU's average grid, cleaner than China's or India's, and a sales-weighted medium car rather than heavy SUVs, so it bounds the typical European case, not every car everywhere.",
+        },
+        {
+          id: "iea-lifecycle-2023",
+          title: "IEA 2024: A Medium EV Has About Half the Lifecycle Emissions of a Gas Car on the World's Average Grid",
+          description:
+            "The International Energy Agency's Global EV Outlook 2024 reports that, on the global average grid mix, a medium-size battery electric car has roughly half the lifecycle CO2-eq emissions of an equivalent oil-fueled car (about 15 t CO2-eq against about 38 t over a roughly 200,000 km lifetime). The savings are larger on cleaner grids and smaller on coal-heavy ones.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 7,
-            directness: 9,
+            directness: 8,
           },
           source: "International Energy Agency, Global EV Outlook 2024 — Outlook for emissions reductions",
           sourceUrl:
             "https://www.iea.org/reports/global-ev-outlook-2024/outlook-for-emissions-reductions",
           reasoning:
-            "Premier international energy authority with transparent methodology. Results consistent across multiple independent analyses. Claim restated to the IEA's published ~50% global-average figure; the earlier '70% on clean grids' and '1.5-2 year breakeven' specifics were not in the IEA report and were removed.",
+            "A world-average figure, so it includes coal-heavy grids where most of the skeptics' cases sit. It is a modeled average for one car size; individual results vary with battery size and where the car is driven.",
         },
         {
           id: "volvo-lifecycle-study",
-          title: "Volvo: EV Manufacturing ~70% More Carbon-Intensive, Offset by Driving",
+          title: "Volvo: Its Electric C40 Emitted About 70% More to Build and Needed 68,300 Miles to Break Even on the World Grid",
           description:
-            "Volvo's own transparent carbon footprint report for the C40 Recharge vs. the XC40 ICE found the EV's production generates about 70% more greenhouse gas emissions. The EV then breaks even at roughly 48,000 miles charged on the EU28 grid mix and at about 68,300 miles on the global average grid — within the expected vehicle lifetime, and sooner on cleaner electricity.",
-          side: "for" as const,
+            "Volvo's own published carbon footprint report for the C40 Recharge against the gasoline XC40 found the electric model's production generates about 70% more greenhouse gas. It breaks even at roughly 48,000 miles charged on the EU28 grid mix and about 68,300 miles on the global average grid, within the expected vehicle lifetime but far later than ICCT's figure for an average EU car.",
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 5,
             replicability: 8,
-            directness: 9,
+            directness: 8,
           },
           source: "Volvo Cars, C40 Recharge Carbon Footprint Report (2021)",
           sourceUrl:
             "https://www.volvocars.com/assets/volvocm/globalpages/live/6298CA92D97B4769AAA54A1D1FABF81C/volvo_carbonfootprintreport_ec40.pdf",
           reasoning:
-            "Manufacturer-commissioned but transparently published with full methodology. Lower independence score for industry source, but the honest reporting of higher manufacturing impact lends credibility. Breakeven mileages restated to the report's exact figures (~48,000 mi EU mix, ~68,300 mi global mix).",
+            "A carmaker publishing an unflattering number for its own electric car lends it credibility. It is one premium crossover with a large battery, measured on 2021 grids, so it shows how much the debt grows with battery size rather than the typical case. It still breaks even within the car's life.",
         },
         {
           id: "greet-model-lifecycle",
-          title: "Argonne GREET Model: EVs Produce 50-70% Fewer Lifecycle Emissions on US Grid",
+          title: "Argonne: Building an EV Emits 30-100% More Than a Comparable Gas Car, Depending on Battery Size",
           description:
-            "The Greenhouse gases, Regulated Emissions, and Energy use in Technologies (GREET) model developed by Argonne National Laboratory — funded by the US Department of Energy and used by EPA and CARB for regulatory analysis — finds that a midsize BEV on the 2023 US average grid produces approximately 50-70% fewer lifecycle greenhouse gas emissions than an equivalent ICE vehicle over 173,000 miles. The model accounts for vehicle manufacturing (including battery production), fuel production and delivery, vehicle operation, and end-of-life. Battery manufacturing adds roughly 30-40% to production-phase emissions, but this is offset within 1.5-3 years of average driving.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 9,
-          },
-          source: "Argonne National Laboratory, US Department of Energy",
-          sourceUrl: "https://greet.anl.gov/",
-          reasoning:
-            "GREET is the most widely used and peer-reviewed transportation LCA model globally, maintained by a DOE national laboratory. Its methodology is transparent, publicly available, and regularly updated. High directness because it explicitly models the full lifecycle comparison including mining and manufacturing. Independence is slightly lower because DOE has policy interests in EV adoption, though the model's open-source nature allows independent verification.",
-        },
-        {
-          id: "battery-manufacturing-carbon-debt",
-          title: "Battery Manufacturing Produces ~65-200 kg CO2/kWh (Median ~100) — A Significant Carbon Debt",
-          description:
-            "A 2023 meta-analysis in Nature Energy synthesizing 51 lifecycle studies found that lithium-ion battery manufacturing produces 65-200 kg CO2-equivalent per kWh of capacity, with a median of approximately 100 kg/kWh. For a 75 kWh battery pack, this translates to 7.5 tonnes of CO2 — roughly 30-50% of the total manufacturing emissions for an EV. The wide range reflects differences in battery chemistry (NMC vs LFP), energy sources used in manufacturing (Chinese factories using coal electricity vs European factories using renewables), and whether cathode active material processing is included. This carbon debt is real and must be 'repaid' through cleaner operation.",
+            "Carbon Brief's August 2025 review of EV myths cites the US Argonne National Laboratory's GREET lifecycle model: manufacturing-phase emissions of electric cars are 'some 30-100% higher, depending on battery size,' than those of comparable gas cars, a gap projected to narrow to 5-50% by 2030-2035 as factories and grids clean up. Carbon Brief's own estimate is that 'it takes less than two years for a typical EV to pay off the carbon debt from its battery.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 8,
+            directness: 7,
           },
-          source: "Nature Energy; IVL Swedish Environmental Research Institute",
-          sourceUrl: "https://www.nature.com/articles/s41560-023-01355-z",
+          source:
+            "Carbon Brief, 'Factcheck: 21 misleading myths about electric vehicles' (Simon Evans; updated 28 August 2025), citing Argonne National Laboratory's GREET model",
+          sourceUrl: "https://interactive.carbonbrief.org/factcheck/electric-vehicles/index.html",
           reasoning:
-            "The meta-analysis approach synthesizing 51 studies provides robust estimates. The wide range (65-200 kg/kWh) reflects genuine uncertainty and variation in manufacturing conditions. This evidence is important for the 'against' side because it quantifies the real environmental cost of battery manufacturing. However, it does not negate the finding that this debt is repaid during vehicle operation in most markets.",
-        },
-        {
-          id: "battery-recycling-advances",
-          title: "Battery Recyclers Report Recovering 95%+ of Critical Minerals",
-          description:
-            "Redwood Materials states it recovers more than 95% of the critical elements (lithium, cobalt, nickel, copper) in the batteries it processes, and Li-Cycle has reported comparable recovery rates. These are company-reported figures at still-early commercial scale; US lithium-ion recycling overall remains a small share of supply today.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 5,
-            independence: 4,
-            replicability: 6,
-            directness: 6,
-          },
-          source: "Redwood Materials (company statement); Li-Cycle reported recovery rates",
-          sourceUrl:
-            "https://www.redwoodmaterials.com/resources/how-battery-recycling-works/",
-          reasoning:
-            "Technology is real but at early commercial scale, and the recovery figures are self-reported by industry, so reliability and independence are lowered. An unverifiable 'DOE projects 15-20% of US demand by 2030' claim was removed; CATL was dropped as it was not the verified source.",
+            "The US government's lifecycle model puts a number on the skeptics' core point: big batteries can double a car's manufacturing footprint. The same source finds the debt repaid quickly in typical use, so the card supports the existence and size of the debt, not the claim that it is never repaid.",
         },
       ],
     },
+    // =========================================================================
+    // PILLAR 2: The grid
+    // =========================================================================
     {
       id: "grid-dependency",
-      title: "Grid Dependency",
+      title: "The Grid: What if the Power Comes From Coal?",
       short_summary:
-        "An EV on Norway's near-100% renewable grid cuts lifecycle emissions by roughly 75-80%. On Poland's coal-heavy grid the advantage shrinks dramatically — close to break-even with a gas car.",
+        "An electric car is as clean as the power that charges it. On Norway's hydro grid it cuts lifecycle emissions by about four-fifths; on Poland's coal-heavy grid by about two-fifths, and the payback takes longer. Coal fell below a third of world electricity for the first time in 2025.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "On the dirtiest coal-heavy grids, an EV's lifecycle advantage can shrink to near parity with an efficient hybrid — ICCT finds EVs in Poland barely beat, or roughly match, a comparable gasoline car. Unmanaged charging concentrated at evening peaks could also force costly new generation capacity. In coal-reliant places like West Virginia or Poland, an EV is, in carbon terms, largely a coal-powered car.",
+        "Where coal dominates, an electric car is largely a coal-powered car. In Poland, where coal supplied 69% of power in 2022, Carbon Brief's estimate puts the lifecycle saving at about two-fifths and the battery payback at about 18,000 miles; in China, with 61% coal, about 22,000 miles, double Europe's figure. That is closer to what an efficient hybrid already achieves without a battery mine. And the US data needed to check is thinning: EPA has paused updates to eGRID, its power-plant emissions database. Unmanaged evening charging could also need upwards of 20% more generating capacity, much of it fossil.",
       proponent_rebuttal:
-        "Even on the average US grid mix, ICCT puts an EV's lifecycle emissions roughly 60-68% below a comparable gasoline car, and the average US EV is already as clean as a hypothetical 94 MPG gas car (UCS, 2024). Grids are greening fast — US coal fell from a ~48% share of generation around 2007 to about 16% by 2023. And MIT finds that delayed home charging plus workplace charging can smooth peaks and soak up midday solar, so the grid-strain worry is largely a management problem, not an inherent barrier.",
+        "Even on coal-heavy grids the electric car comes out ahead, and the grids are getting cleaner every year. Coal's share of world electricity fell below a third for the first time in 2025, and solar generation rose 30% in one year (Ember, April 2026). In the US, the Union of Concerned Scientists found in August 2026 that driving the average electric car equals a hypothetical 100 mpg gasoline car, and that it beats the most efficient gas car (57 mpg) in regions home to 96% of Americans. A gas car's emissions are fixed when it is built; an electric car's fall as its grid decarbonizes. MIT found that delayed home charging and workplace charging can absorb midday solar and avoid the extra capacity.",
       crux: {
         id: "grid-carbon-threshold",
         title: "Grid Carbon Intensity Threshold for EV Advantage",
         question:
-          "Will the grids where EVs are driven decarbonize fast enough, or lock in coal-powered charging?",
+          "Does an EV charged on a coal-heavy grid still beat an efficient hybrid over its life?",
         description:
           "The grid carbon intensity (gCO2/kWh) above which an EV no longer has a lifecycle emission advantage over the best available ICE or hybrid vehicle.",
         methodology:
@@ -177,21 +174,21 @@ export const evEnvironmentalImpactData = {
         cost_to_verify: "$100K (Modeling with published grid data)",
         falsification: {
           supporter_flip:
-            "If grids stopped decarbonizing — or EV adoption concentrated in coal-heavy regions whose grids stayed dirty — so that real-world charging carbon stayed above the threshold where EVs beat efficient hybrids, the 'cleaner almost everywhere' claim would fail in those places.",
+            "If lifecycle studies for Poland, China or India, using the hours when cars actually charge, found electric cars no better than efficient hybrids over their life, and those grids stopped cleaning up, the claim that EVs are greener nearly everywhere would fail there.",
           skeptic_flip:
-            "If grid data kept matching an EV on the average US grid to a car near 94 MPG, with the most efficient EV beating any gas car in all 50 states, and coal's share kept falling after its drop from about 48% to 16% in 15 years, the 'coal car' objection would weaken each year.",
+            "If grid data kept showing coal's share falling after dipping below a third in 2025, and studies on coal-heavy grids kept finding electric cars ahead of hybrids over a full life, the coal-car objection would shrink each year.",
           common_ground:
-            "Both sides agree the EV emissions advantage depends on grid carbon intensity — smallest on coal-heavy grids, largest on clean ones.",
+            "Both sides agree the electric car's advantage is smallest on coal-heavy grids such as Poland's and China's and largest on clean ones such as Norway's, and that coal's share of world electricity has been falling.",
           live_disagreement:
-            "Whether the grids where EVs are actually driven will decarbonize fast enough that the dirty-grid exception keeps shrinking, versus locking in coal-powered charging in specific regions.",
+            "Whether grids in the places where electric cars sell fastest clean up quickly enough that the coal exception keeps shrinking, or lock in coal-powered charging for a car's whole life.",
         },
       },
       evidence: [
         {
           id: "ucs-grid-analysis",
-          title: "UCS: The Average EV Now Equals a ~94 MPG Gasoline Car Nationally",
+          title: "UCS 2026: The Average US EV Equals a 100 MPG Gas Car and Beats the Best Gas Car Where 96% of Americans Live",
           description:
-            "The Union of Concerned Scientists' 2024 update finds the average US EV produces global-warming emissions equal to a hypothetical 94 MPG gasoline car, reaching about 219 MPG-equivalent in the cleanest regions (e.g., upstate New York). For 93% of the country the average EV beats the most efficient gasoline car (57 MPG), and everywhere in the US the most efficient EV beats any gasoline-only car available.",
+            "The Union of Concerned Scientists' August 2026 update, using 2024 power-plant data, found that driving the average US electric car is 'equal to a hypothetical 100 mile per gallon gasoline car,' and that it beats the most efficient gasoline car (57 mpg) in grid regions home to 96% of the US population, up from 94 mpg and 93% in its 2024 analysis. Counting manufacturing, the average EV makes up its extra production emissions in under 18,000 miles and 'still produces less than half the lifetime emissions of a comparable gasoline car.' The update used an independent 2024 dataset because EPA has paused its eGRID power-plant database, with no update posted since eGRID2023.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -199,17 +196,53 @@ export const evEnvironmentalImpactData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Union of Concerned Scientists (Reichmuth, 2024)",
+          source:
+            "Union of Concerned Scientists, David Reichmuth, 'EPA Stopped Updating the Data Behind Electric Vehicle Emissions. The Numbers Still Show EVs Are Winners' (3 August 2026)",
           sourceUrl:
-            "https://blog.ucs.org/dave-reichmuth/driving-on-electricity-is-now-much-cleaner-than-using-a-gasoline-car/",
+            "https://blog.ucs.org/dave-reichmuth/epa-stopped-updating-the-data-behind-electric-vehicle-emissions-the-numbers-still-show-evs-are-winners/",
           reasoning:
-            "Advocacy organization but with transparent, replicable methodology using EPA/eGRID power-plant data. Independence lowered for pro-EV institutional stance. Claim corrected: the prior '191 MPG' and 'cleaner in all 50 states' figures were inaccurate — the average EV beats the most efficient gas car in 93% of the country, while the most efficient EV beats any gas car everywhere.",
+            "Transparent, region-by-region and repeated over years with improving results as the US grid cleans up. UCS advocates for clean vehicles, so independence is discounted, and the comparison is driving emissions; the lifecycle figure comes from the author's earlier analysis.",
+        },
+        {
+          id: "ember-coal-below-third",
+          title: "Ember 2026: Coal Fell Below a Third of World Electricity for the First Time in 2025",
+          description:
+            "Ember's Global Electricity Review 2026 (21 April 2026) found coal generated 33.0% of the world's electricity in 2025: 'the share of coal power fell below a third for the first time in history.' Solar generation rose a record 636 TWh, 30% in one year, and renewables reached 33.8% of global generation. Fossil generation fell 0.9% in China and 3.3% in India.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "Ember, Global Electricity Review 2026 (21 April 2026)",
+          sourceUrl: "https://ember-energy.org/latest-insights/global-electricity-review-2026/",
+          reasoning:
+            "Measured generation data from a respected independent think tank, and on point for whether the coal exception is shrinking. Directness is moderate: a falling world average says little about the hours a given car charges, and a third of the world's power is still coal.",
+        },
+        {
+          id: "carbonbrief-coal-grids",
+          title: "Carbon Brief: On Poland's Coal Grid an EV Saves About Two-Fifths; Payback Takes 18,000-22,000 Miles in Poland and China",
+          description:
+            "Carbon Brief's EV factcheck (updated August 2025) estimates an electric car cuts lifecycle emissions by about two-thirds in the UK, four-fifths in Norway, but only about two-fifths in coal-heavy Poland. Coal supplied 69% of Poland's power and 61% of China's in 2022. It puts the battery payback at about 18,000 miles (28,000 km) in Poland and 22,000 miles (35,000 km) in China, against an ICCT estimate of around 11,000 miles for Europe.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source:
+            "Carbon Brief, 'Factcheck: 21 misleading myths about electric vehicles' (Simon Evans; updated 28 August 2025)",
+          sourceUrl: "https://interactive.carbonbrief.org/factcheck/electric-vehicles/index.html",
+          reasoning:
+            "Puts numbers on the coal-grid objection: on the dirtiest major grids the saving roughly halves and payback doubles. The same numbers show the electric car still ahead of a gasoline car there; whether it beats an efficient hybrid on such grids is the open part, since ICCT puts hybrids about 20% below gasoline cars on the EU grid.",
         },
         {
           id: "mit-grid-stress",
-          title: "MIT: Unmanaged Charging Could Need ~20% More Generation — But Managed Charging Avoids It",
+          title: "MIT: Unmanaged Evening Charging Could Need Over 20% More Generating Capacity",
           description:
-            "MIT Energy Initiative research found that if EV charging is left unmanaged, evening peaks could require installing upwards of 20% more power-generation capacity. Crucially, the same study concludes that delayed home charging plus workplace charging can mitigate or eliminate that need, smoothing peaks and absorbing midday solar — so the grid strain is largely a management problem, not an inherent barrier.",
+            "MIT researchers (Needell, Wei and Trancik, 2023) found that if evening EV charging peaks are left unmitigated, they 'could require installing upwards of 20% more power-generation capacity.' Delayed home charging and workplace charging that soaks up midday solar can reduce the peak, so that 'not everyone is charging at the same time.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -217,92 +250,37 @@ export const evEnvironmentalImpactData = {
             replicability: 6,
             directness: 4,
           },
-          source: "MIT Energy Initiative (Trancik group)",
+          source: "MIT Energy Initiative (Trancik group), Cell Reports Physical Science (29 June 2023)",
           sourceUrl:
             "https://energy.mit.edu/news/minimizing-electric-vehicles-impact-on-the-grid/",
           reasoning:
-            "Highly credible source. Claim corrected: the prior '$75-125B / 50 million EVs / 15-20% demand' specifics are not in MIT's research and were removed. The study's actual finding is that unmanaged charging could need ~20% more capacity but managed charging largely avoids it — so this is weak as an 'EVs are bad' point. Directness lowered: it concerns grid logistics, not per-vehicle environmental impact.",
-        },
-        {
-          id: "norway-iceland-clean-grid",
-          title: "Clean Grids (Norway/Iceland) Push EV Lifecycle Savings Toward the Ceiling",
-          description:
-            "Norway generates about 98% of its electricity from renewables (mostly hydro) with new-car sales now overwhelmingly electric, and Iceland's grid is nearly 100% renewable. ICCT lifecycle analysis finds EVs already cut lifecycle GHG emissions by roughly two-thirds versus gasoline on average European/US grids, with the reduction approaching ~80% or more where the grid is essentially carbon-free — illustrating the upper bound of the EV advantage.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 5,
-            directness: 8,
-          },
-          source:
-            "ICCT, A Global Comparison of the Life-Cycle GHG Emissions of Combustion Engine and Electric Passenger Cars (2021); IEA on Norway's grid mix",
-          sourceUrl:
-            "https://theicct.org/publication/a-global-comparison-of-the-life-cycle-greenhouse-gas-emissions-of-combustion-engine-and-electric-passenger-cars/",
-          reasoning:
-            "Compelling clean-grid illustration anchored to ICCT's peer-reviewed lifecycle analysis (66-69% EU / 60-68% US reductions, higher on near-zero-carbon grids). Replicability limited because few countries have such clean grids. Removed the unverified 'Norway transport emissions fell 10%' and the stale '80% EV market share' point (now far higher), and corrected the loosely sourced '85%' to ICCT's supported range.",
-        },
-        {
-          id: "doe-charging-infrastructure",
-          title: "NREL/DOE: A National Network Could Need ~1.2 Million Public Charging Ports by 2030",
-          description:
-            "NREL's 2023 analysis for the DOE Joint Office estimates a national network could require about 1.2 million publicly accessible charging ports by 2030 (plus ~26.8 million private ports) to support about 33 million light-duty EVs on the road (a scenario in which half of new sales are electric). The current public network is far smaller, so rural charging gaps and installation pace could slow adoption.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 3,
-          },
-          source:
-            "National Renewable Energy Laboratory, The 2030 National Charging Network (2023)",
-          sourceUrl: "https://doi.org/10.2172/1988020",
-          reasoning:
-            "Authoritative government modeling of the infrastructure build-out needed. Directness lowered further: charger availability affects adoption speed and convenience, not per-vehicle lifecycle emissions, so it is weak as evidence on the environmental question. The specific 'only 186,000 exist as of early 2024' count was removed as it was unsourced here.",
-        },
-        {
-          id: "coal-grid-diminished-benefit",
-          title: "EVs on Coal-Heavy Grids Show Minimal or No Lifecycle Advantage Over Hybrids",
-          description:
-            "Research from the University of Toronto (2022) found that in regions where coal generates more than 60% of electricity — including parts of Poland, India, Indonesia, and some US states — EVs may produce comparable or even slightly higher lifecycle emissions than modern hybrid vehicles (not conventional ICE). In Poland, where coal provides ~70% of electricity, an EV produces roughly 25% fewer emissions than a conventional ICE car but only 5-10% less than a modern hybrid. This challenges the blanket claim that EVs are always the cleanest option and suggests that in the most carbon-intensive grids, plug-in hybrids or grid decarbonization should be prioritized.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "University of Toronto; Energy Policy journal",
-          sourceUrl: "https://doi.org/10.1016/j.enpol.2022.112814",
-          reasoning:
-            "Peer-reviewed academic research with transparent methodology. The comparison to hybrids (not just conventional ICE) is more challenging for the pro-EV position. However, directness is slightly lower because few major auto markets have 60%+ coal grids, and those that do are actively decarbonizing. The finding applies to a shrinking subset of the global market.",
+            "Shows a real cost if charging is left unmanaged, and the same study shows how to avoid it, so it is weak as a case against EVs. Directness is low: it concerns grid planning, not the lifecycle emissions of a car.",
         },
       ],
     },
-
     // =========================================================================
-    // PILLAR 3: Mining Environmental & Human Costs (folded in from the retired
-    // lithium-mining-ev-impact map, 2026-10-06)
+    // PILLAR 3: The mines (folded in from the retired lithium-mining-ev-impact
+    // map, 2026-10-06)
     // =========================================================================
     {
       id: "mining-environmental-human-costs",
-      title: "Mining Environmental & Human Costs",
+      title: "The Mines: Congo's Cobalt, Indonesia's Nickel, and the Oil They Replace",
       short_summary:
-        "EV battery production depends on lithium, cobalt, nickel, and manganese extraction — each with significant environmental and human rights concerns. Lithium brine extraction in South America depletes aquifers in fragile desert ecosystems. Cobalt mining in the DRC involves documented child labor and toxic exposure. Nickel processing in Indonesia destroys rainforest and dumps acid tailings. The question is whether these costs are intrinsic to the technology or solvable through better practices and alternative chemistries.",
+        "Batteries need cobalt, nickel and lithium. Congo mined about 73% of the world's cobalt in 2025, with child labour documented in its artisanal mines; Indonesia's nickel boom has cleared tropical forest and runs on new coal plants. Supporters answer that cobalt-free batteries are spreading and that the oil an electric car replaces is mined and burned on a far larger scale.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The hidden costs of EV supply chains are staggering. Lithium extraction in Chile's Atacama Desert consumes 21 million liters of water per day in one of the driest places on Earth, devastating indigenous Atacameno communities and collapsing fragile ecosystems. In the DRC, Amnesty International and UNICEF have documented children as young as 7 mining cobalt in artisanal mines — cobalt that ends up in Tesla, BMW, and VW batteries. Indonesia's nickel boom has cleared thousands of hectares of tropical forest for nickel mines, and fishers near the smelters report polluted water and shrinking catches. Rare earth processing in China has created toxic wastelands around Baotou, Inner Mongolia. We are not eliminating environmental destruction by switching to EVs — we are merely relocating it from oil fields to lithium fields, from refineries to smelters, from the Global North's air to the Global South's water and soil.",
+        "Electric cars do not end extraction; they move it. Congo mined an estimated 73% of the world's cobalt in 2025 (USGS), and Amnesty International documented children working in its artisanal cobalt mines. On Indonesia's Halmahera island, a January 2024 investigation found nickel mining had cleared at least 5,331 hectares of tropical forest, and the industrial park that smelts it has built at least five captive coal plants and plans twelve, which would burn more coal a year than Spain or Brazil (Climate Rights International). Residents described polluted water, falling fish catches and land taken by intimidation. Lithium brine is pumped from under salt flats such as Chile's Atacama, one of the driest places on Earth, and evaporated in ponds. Clean air in rich suburbs is being bought with dirty water in the places that mine.",
       proponent_rebuttal:
-        "Mining impacts are real but must be compared honestly against the alternative: the oil and gas industry. Petroleum extraction has caused more than 7,000 oil spills in the Niger Delta since 1958, contaminating a region of some 30 million people and devastating local fishing and farming livelihoods. The Deepwater Horizon spill released roughly 134 million gallons of oil (3.19 million barrels, the court-determined figure) into the Gulf of Mexico. Fracking has contaminated groundwater across the US. Refineries are disproportionately located in communities of color, causing elevated cancer rates. The mining footprint per unit of energy delivered is far smaller for EV minerals than for fossil fuels because batteries are recyclable and reusable while oil is burned once. LFP (lithium iron phosphate) batteries — now 40% of the global market — eliminate cobalt entirely. Sodium-ion batteries eliminate lithium. The mining industry is rapidly improving: dry lithium extraction reduces water use by 90%, and responsible sourcing certifications (IRMA, RMI) are being adopted by major automakers. The trajectory is toward cleaner mining; the trajectory of oil extraction is toward dirtier, harder-to-reach reserves.",
+        "Mining harms are real and have to be set against the extraction they replace. Some 15 billion tonnes of fossil fuels are dug up and burned each year; under a 1.5C pathway, the IEA puts critical mineral needs at about 30 million tonnes a year by 2030, 500 times less (Carbon Brief). Metal in a battery can be recovered: Redwood Materials says it recovers more than 95% of the lithium, cobalt, nickel and copper. Oil is burned once. And chemistry is moving away from the worst supply chains: the USGS reports cobalt content in lithium-ion batteries is falling and cobalt-free iron-phosphate batteries hold a significant share of China's market. The answer to bad mines is better rules and cleaner chemistries, not more gasoline.",
       crux: {
         id: "mining-externalities-reduction",
         title: "The Mining Externality Trajectory Assessment",
         question:
-          "Will mining's water, land and labor harms fall fast enough to be acceptable within a decade?",
+          "Will cobalt-free batteries and audited supply chains cut mining harms per car within a decade?",
         description:
           "If mining externalities (water depletion, habitat destruction, human rights abuses) can be reduced to acceptable levels through technology improvements, alternative battery chemistries, and enforceable regulation within the next decade, the environmental case for EVs strengthens considerably. If these externalities are structurally embedded in the supply chain and resistant to reform, EVs represent a problematic tradeoff rather than a clear improvement.",
         methodology:
-          "Conduct a comparative externality assessment across three time horizons (2024, 2030, 2035) evaluating: (1) water consumption per GWh of battery capacity for brine extraction, hard rock mining, and direct lithium extraction technologies; (2) hectares of habitat disturbed per GWh for nickel laterite vs. sulfide deposits; (3) documented child labor and unsafe working conditions in cobalt supply chains before and after due diligence regulations (EU Battery Regulation, US Uyghur Forced Labor Prevention Act); (4) adoption rates of cobalt-free (LFP) and lithium-free (sodium-ion) chemistries. Compare these trajectories against equivalent externality trends for oil and gas (deepwater drilling, tar sands, fracking expansion).",
+          "Compare, for 2025, 2030 and 2035: water use per GWh of battery capacity for brine, hard-rock and direct lithium extraction; hectares disturbed per GWh for laterite and sulfide nickel; documented child labour and unsafe conditions in cobalt supply chains before and after due-diligence rules (EU Battery Regulation, US Uyghur Forced Labor Prevention Act); and the share of cobalt-free and lithium-free chemistries. Set those trends beside the equivalent ones for oil and gas extraction.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
@@ -312,56 +290,39 @@ export const evEnvironmentalImpactData = {
           "$500K-1M (Multi-country field research, supply chain auditing, and satellite imagery analysis)",
         falsification: {
           supporter_flip:
-            "If a comparative externality assessment showed mining harms staying flat or worsening through 2035 — water use per GWh not falling as direct lithium extraction stalls, cobalt child labor persisting despite EU and US due-diligence rules, nickel deforestation accelerating — then EVs would look like relocating environmental damage rather than reducing it, and the 'cleaner overall' case would fail on everything but tailpipe CO2.",
+            "If mine-level audits through 2035 showed cobalt child labour persisting despite EU and US due-diligence rules, nickel deforestation and coal-fired smelting expanding, and water use per tonne of lithium not falling, EVs would look like relocating harm more than reducing it.",
           skeptic_flip:
-            "If LFP (about 40% of the market) and sodium-ion, which drop cobalt, nickel or lithium, kept gaining share, recycling took hold, and full comparisons counted oil's harms such as 7,000+ Niger Delta spills and Deepwater Horizon, mining harms would look smaller than the extraction they displace.",
+            "If cobalt-free chemistries kept gaining share, recycling grew into a real source of metal, and audits showed abuses falling where due-diligence rules apply, mining harms per car would look smaller and shrinking beside the oil extraction they displace.",
           common_ground:
-            "Both sides agree current mining causes real and serious harms (Atacama water depletion, DRC cobalt child labor, Indonesian rainforest loss) and that cleaner chemistries and extraction methods exist but are not yet universally deployed.",
+            "Both sides agree most of the world's cobalt is mined in Congo, where child labour has been documented, that Indonesian nickel mining has cleared tropical forest, and that battery makers are using less cobalt.",
           live_disagreement:
-            "Whether these externalities fall fast enough through technology, alternative chemistries, and enforceable regulation to be acceptable within a decade — measurable by tracking water per GWh, hectares disturbed per GWh, documented labor abuses, and LFP/sodium-ion adoption against oil-and-gas externality trends over 2024-2035.",
+            "Whether mining harms per car fall fast enough through new chemistries, recycling and enforced rules, and how much weight local harm in mining regions should carry against global climate gains, which is partly a value judgment no audit settles.",
         },
       },
       evidence: [
         {
-          id: "lithium-triangle-water-crisis",
-          title: "Lithium Brine Extraction Consumes 21M Liters/Day in Atacama Desert",
-          description:
-            "Lithium extraction in Chile's Salar de Atacama — part of the 'Lithium Triangle' spanning Chile, Argentina, and Bolivia, which holds 58% of global lithium resources — uses evaporation ponds that consume approximately 21 million liters of water per day. A 2023 study in Science of the Total Environment found that lithium mining has contributed to a 20-30% decline in groundwater levels in surrounding aquifers over two decades. Indigenous Atacameno communities have reported drying of pastures, reduced flamingo populations, and loss of traditional water sources. Argentina's rapidly expanding lithium operations in Jujuy and Salta provinces face similar concerns, with over 40 new projects approved since 2020.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 8,
-          },
-          source: "Science of the Total Environment; FARN Argentina; OPSAL Chile",
-          sourceUrl: "https://doi.org/10.1016/j.scitotenv.2023.162789",
-          reasoning:
-            "Peer-reviewed research combined with on-the-ground reporting from environmental organizations. The water impact is well-documented and directly relevant to the mining externality question. Replicability is slightly lower because aquifer dynamics are complex and site-specific. This evidence is strong for the 'against' side but applies primarily to brine-based extraction, not hard rock mining or direct lithium extraction.",
-        },
-        {
           id: "cobalt-mining-drc",
-          title: "DRC Cobalt Mining: Child Labor, Toxic Waste, Ecological Destruction",
+          title: "USGS 2026: Congo Mined About 73% of the World's Cobalt in 2025; Amnesty Documented Child Labour in Its Mines",
           description:
-            "Roughly 70% of the world's cobalt is mined in the Democratic Republic of Congo. Amnesty International's 2016 report documented hazardous artisanal mining, water contamination, and child labour (UNICEF estimated about 40,000 children working in southern DRC mines). While cobalt content per battery is falling, the human and environmental toll of current extraction is severe.",
+            "The US Geological Survey's 2026 cobalt summary estimates Congo (Kinshasa) produced 230,000 of the world's 310,000 tonnes of mined cobalt in 2025, 'an estimated 73% of world total.' In February 2025 Congo temporarily banned cobalt exports over oversupply and low prices, replacing the ban in October with quotas of up to 96,600 tonnes a year for 2026 and 2027. Amnesty International's 2016 investigation 'This Is What We Die For' documented that 'thousands of children' work in Congo's artisanal cobalt mines, and traced how such cobalt enters the supply chains of major brands.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
+            sourceReliability: 9,
+            independence: 9,
             replicability: 7,
             directness: 6,
           },
           source:
-            'Amnesty International & Afrewatch, "This Is What We Die For" (2016); UNICEF child-labour estimate',
-          sourceUrl: "https://www.amnesty.org/en/documents/afr62/3183/2016/en/",
+            "US Geological Survey, Mineral Commodity Summaries 2026: Cobalt (February 2026); Amnesty International & Afrewatch, 'This Is What We Die For' (19 January 2016)",
+          sourceUrl: "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cobalt.pdf",
           reasoning:
-            "Well-documented human rights and environmental concerns. Directness is moderate because cobalt-free battery chemistries (LFP) are rapidly gaining market share, reducing relevance over time. Note this is a mining-harm concern, not evidence that EV lifecycle emissions exceed ICE.",
+            "Official production data and a field investigation establish where the cobalt comes from and the human cost of the worst mines. Directness is moderate: not all cobalt goes into car batteries, much Congolese output is industrial rather than artisanal, the child-labour evidence dates from 2016, and cobalt-free batteries are spreading.",
         },
         {
           id: "indonesia-nickel-rainforest",
-          title: "Indonesia's Nickel Boom Is Clearing Tropical Forest and Running on Coal",
+          title: "Indonesia's Nickel Boom Cleared 5,331 Hectares of Halmahera Forest and Runs on New Coal Plants (2024)",
           description:
-            "Indonesia is the world's largest nickel producer, supplying 48% of global demand in 2022, and demand is climbing with EV batteries. A January 2024 Climate Rights International report on the Indonesia Weda Bay Industrial Park (IWIP) on Halmahera found, using geospatial analysis with UC Berkeley, that at least 5,331 hectares of tropical forest had been cut within nickel mining concessions on the island, releasing about 2.04 million metric tons of CO2e. IWIP had built at least five captive coal-fired power plants and plans twelve, which once running would burn more coal in a year than Spain or Brazil. Of 45 residents interviewed, many described polluted water, shrinking fish catches, and land taken through coercion and intimidation, sometimes with police and military involvement.",
+            "Indonesia is the world's largest nickel producer, supplying about 48% of global demand in 2022, and demand is climbing with EV batteries. A January 2024 Climate Rights International report on the Indonesia Weda Bay Industrial Park (IWIP) on Halmahera found, using geospatial analysis with UC Berkeley, that at least 5,331 hectares of tropical forest had been cut within nickel mining concessions on the island, releasing about 2.04 million metric tons of CO2e. IWIP had built at least five captive coal-fired power plants and plans twelve, which once running would use more coal in a year than Spain or Brazil. Of 45 residents interviewed, many described polluted water, shrinking fish catches, and land taken through coercion and intimidation, sometimes with police and military involvement.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -373,75 +334,60 @@ export const evEnvironmentalImpactData = {
             "Climate Rights International, \"Nickel Unearthed: The Human and Climate Costs of Indonesia's Nickel Industry\" (January 2024)",
           sourceUrl: "https://cri.org/reports/nickel-unearthed/",
           reasoning:
-            "A field investigation with satellite-based deforestation estimates is solid evidence of local harm, though it comes from an advocacy organization and covers one island and one industrial park. Replicability is moderate because conditions vary across hundreds of mining concessions. The coal-powered smelting is directly relevant to lifecycle emissions, not just to mining harm. It applies specifically to Indonesian laterite nickel; sulfide deposits (Canada, Australia) and nickel-free LFP batteries have smaller footprints.",
-        },
-        {
-          id: "lfp-cobalt-free-batteries",
-          title: "LFP Batteries Now 40% of Global Market — Eliminating Cobalt Entirely",
-          description:
-            "Lithium iron phosphate (LFP) batteries — which contain zero cobalt and zero nickel — reached 40% of global EV battery installations in 2023, up from 6% in 2019, driven primarily by Chinese manufacturers (CATL, BYD). Tesla's Model 3 Standard Range and all BYD models use LFP. These batteries are cheaper ($80-100/kWh vs $120-150/kWh for NMC), have longer cycle life (3,000-5,000 cycles vs 1,500-2,000), and do not require problematic cobalt or nickel supply chains. While LFP has lower energy density (160 Wh/kg vs 250 Wh/kg for NMC), ongoing improvements and cell-to-pack designs are narrowing the range gap. CATL's Shenxing LFP battery achieves 400+ miles of range.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "BloombergNEF; CnEVPost; Battery industry data",
-          sourceUrl: "https://about.bnef.com/electric-vehicle-outlook/",
-          reasoning:
-            "Market share data is objective and verifiable from multiple industry sources. The elimination of cobalt and nickel from LFP chemistry directly addresses two of the most serious mining externalities. High replicability because production and market data is transparent. This evidence is strong for the 'for' side because it shows the technology is already shifting away from the most problematic supply chains, not merely theoretical.",
+            "A field investigation with satellite-based deforestation estimates is solid evidence of local harm, though it comes from an advocacy organization and covers one island. The coal-fired smelting bears on lifecycle emissions, not just mining harm. Sulfide nickel elsewhere and nickel-free iron-phosphate batteries have smaller footprints.",
         },
         {
           id: "oil-industry-comparison",
-          title: "Oil Extraction Causes Environmental Devastation at Far Greater Scale",
+          title: "Carbon Brief: 15 Billion Tonnes of Fossil Fuels a Year, Against About 30 Million Tonnes of Critical Minerals by 2030",
           description:
-            "A comparative analysis requires examining petroleum's footprint: more than 7,000 oil spills in the Niger Delta since 1958 have contaminated a region of some 30 million people, devastating local fishing and farming livelihoods (UNEP). The Deepwater Horizon spill released roughly 134 million gallons (3.19 million barrels, the court-determined figure) into the Gulf of Mexico, killing 11 workers and causing $65 billion in damages. Oil refineries are disproportionately located in communities of color — 'Cancer Alley' in Louisiana has cancer rates 50x the national average. An ICE car burning 12,000 gallons of gasoline over its lifetime requires extracting and refining roughly 18,000 gallons of crude oil. Global fossil fuel subsidies reached $7 trillion in 2022 according to the IMF. The oil industry's externalities are larger in scale, more geographically dispersed, and more difficult to mitigate than mining externalities.",
+            "Carbon Brief's EV factcheck notes that 'some 15bn tonnes of fossil fuels are extracted and burnt each year,' while under a 1.5C pathway the IEA puts critical mineral needs for clean energy at about 30 million tonnes a year by 2030, '500 times lower.' The Energy Transitions Commission found in 2023 that 'geological resources exceed the total projected cumulative demand from 2022-50 for all key materials.'",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 7,
-          },
-          source: "UNEP; National Commission on the BP Deepwater Horizon; IMF",
-          sourceUrl: "https://www.unep.org/resources/report/environmental-assessment-ogoniland",
-          reasoning:
-            "The comparative framing is essential — mining impacts cannot be evaluated in isolation; they must be weighed against the alternative (continued oil dependence). Sources are authoritative (UNEP, IMF). Directness is slightly lower because this is a comparative argument rather than a direct assessment of mining impacts, but the comparison is logically necessary for evaluating the meta claim.",
-        },
-        {
-          id: "sodium-ion-mass-production",
-          title: "Sodium-Ion Batteries Enter Mass Production — No Lithium, No Cobalt, No Nickel",
-          description:
-            "CATL, the world's largest battery manufacturer, began mass production of sodium-ion batteries in 2023 and delivered them in the Chery iCar 03 and JAC Yiwei EVs. BYD's Seagull — the world's best-selling EV in Q1 2024 — offers a sodium-ion variant priced under $10,000. Sodium-ion batteries use abundant, globally distributed materials (sodium, iron, manganese) with no lithium, cobalt, or nickel. Current energy density is 140-160 Wh/kg (vs 250 Wh/kg for NMC), suitable for city cars and energy storage but not yet for long-range vehicles. HiNa Technology and Farasis Energy project 200 Wh/kg sodium-ion cells by 2026. BloombergNEF projects sodium-ion will capture 10-20% of the global battery market by 2030.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 7,
-            replicability: 8,
-            directness: 8,
+            replicability: 7,
+            directness: 6,
           },
-          source: "BloombergNEF; CATL; Battery industry reports",
-          sourceUrl: "https://about.bnef.com/blog/sodium-ion-batteries/",
+          source:
+            "Carbon Brief, 'Factcheck: 21 misleading myths about electric vehicles' (updated 28 August 2025), citing the IEA Critical Minerals Market Review 2023 and the Energy Transitions Commission (July 2023)",
+          sourceUrl: "https://interactive.carbonbrief.org/factcheck/electric-vehicles/index.html",
           reasoning:
-            "Sodium-ion commercialization is no longer theoretical — products are shipping. This directly addresses the resource dependency concern because sodium is 1,000x more abundant than lithium and available on every continent. Independence is slightly lower because some data comes from manufacturer announcements. The energy density gap means sodium-ion currently complements rather than replaces lithium-ion for passenger EVs, but the trajectory is promising.",
+            "Puts the two kinds of extraction on one scale, which the mining argument needs. Tonnage is a rough proxy for harm: a tonne of cobalt from an artisanal pit and a tonne of coal from a strip mine do different damage to different people, so the comparison informs the weighing without deciding it.",
         },
         {
-          id: "recycling-rate-5-percent",
-          title: "Only 5% of Lithium-Ion Batteries Are Currently Recycled Globally",
+          id: "lfp-cobalt-free-batteries",
+          title: "USGS 2026: Battery Cobalt Content Is Falling, and Cobalt-Free Iron-Phosphate Cells Hold a Significant Share in China",
           description:
-            "The International Energy Agency estimates that less than 5% of lithium-ion batteries are currently recycled globally, though this figure is expected to improve rapidly as first-generation EV batteries reach end-of-life in the late 2020s. The EU Battery Regulation (effective 2027) mandates minimum recycled content (16% cobalt, 6% lithium, 6% nickel by 2031, rising to 26%, 12%, 15% by 2036) and 95% collection rates. Companies like Redwood Materials (US), Li-Cycle (Canada), and Brunp Recycling (China, CATL subsidiary) report 95%+ recovery rates for cobalt, nickel, copper, and lithium using hydrometallurgical processes. The nascent recycling industry is scaling but remains far from circular — by 2030, only 5-8% of battery mineral demand can be met through recycling.",
-          side: "against" as const,
+            "The US Geological Survey's 2026 cobalt summary reports that 'the cobalt content of lithium-ion batteries, the leading global use for cobalt, was being decreased,' and that 'cobalt-free substitutes that use iron and phosphorus held significant market share in China.' Lithium iron phosphate (LFP) cells contain neither cobalt nor nickel.",
+          side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
+            sourceReliability: 9,
+            independence: 9,
             replicability: 8,
             directness: 7,
           },
-          source: "International Energy Agency; EU Battery Regulation; Redwood Materials",
-          sourceUrl: "https://www.iea.org/reports/global-ev-outlook-2024/trends-in-batteries",
+          source: "US Geological Survey, Mineral Commodity Summaries 2026: Cobalt (February 2026)",
+          sourceUrl: "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cobalt.pdf",
           reasoning:
-            "The current 5% recycling rate is a legitimate concern — the industry is far from circular. However, this is partly because most EV batteries have not yet reached end-of-life (EVs are young as a mass-market product). The regulatory and technological trajectory is positive, but the 'against' side is correct that recycling will not meaningfully offset mining demand before 2035. Directness is slightly lower because recycling rates are a future trajectory question rather than a current environmental impact.",
+            "An official, neutral source confirming the chemistry shift away from the most contested metal. It gives no market-share figure and LFP batteries still need lithium, so it bears on cobalt harms, not on mining harms generally.",
+        },
+        {
+          id: "battery-recycling-advances",
+          title: "Redwood Materials Says It Recovers More Than 95% of Battery Lithium, Cobalt, Nickel and Copper",
+          description:
+            "Redwood Materials states: 'we can recover more than 95% of the critical elements found in batteries, including lithium, cobalt, nickel, and copper.' These are company-reported figures at still-early commercial scale; few electric-car batteries have yet reached the end of their life.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 4,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "Redwood Materials (company statement)",
+          sourceUrl:
+            "https://www.redwoodmaterials.com/resources/how-battery-recycling-works/",
+          reasoning:
+            "Shows the metal in a battery is recoverable in principle, which oil is not. The rate is self-reported by a recycler, and recycled metal is a small share of supply until large numbers of car batteries retire in the 2030s.",
         },
       ],
     },
@@ -449,18 +395,35 @@ export const evEnvironmentalImpactData = {
   // The retired lithium-mining-ev-impact map asked the same question with
   // mining counted (merged 2026-10-06); its names stay findable here.
   aliases: [
+    "Are EVs significantly greener than gas cars over their full lifecycle?",
     "Lithium Mining & EV Environmental Impact",
     "Are EVs clearly greener than gas cars once mining is counted?",
     "Are electric vehicles still better for the environment once lithium mining is counted?",
   ],
   references: [
     {
-      title: "GREET Model — Argonne National Laboratory, US Department of Energy",
-      url: "https://greet.anl.gov/",
+      title: "Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update — ICCT (July 2025)",
+      url: "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/",
     },
     {
-      title: "A Global Comparison of the Life-Cycle Greenhouse Gas Emissions of Combustion Engine and Electric Passenger Cars — ICCT (2021)",
-      url: "https://theicct.org/publication/a-global-comparison-of-the-life-cycle-greenhouse-gas-emissions-of-combustion-engine-and-electric-passenger-cars/",
+      title: "EPA Stopped Updating the Data Behind Electric Vehicle Emissions. The Numbers Still Show EVs Are Winners — Union of Concerned Scientists (August 2026)",
+      url: "https://blog.ucs.org/dave-reichmuth/epa-stopped-updating-the-data-behind-electric-vehicle-emissions-the-numbers-still-show-evs-are-winners/",
+    },
+    {
+      title: "Factcheck: 21 misleading myths about electric vehicles — Carbon Brief (updated August 2025)",
+      url: "https://interactive.carbonbrief.org/factcheck/electric-vehicles/index.html",
+    },
+    {
+      title: "Global Electricity Review 2026 — Ember",
+      url: "https://ember-energy.org/latest-insights/global-electricity-review-2026/",
+    },
+    {
+      title: "Mineral Commodity Summaries 2026: Cobalt — US Geological Survey",
+      url: "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cobalt.pdf",
+    },
+    {
+      title: "GREET Model — Argonne National Laboratory, US Department of Energy",
+      url: "https://greet.anl.gov/",
     },
     {
       title: "Global EV Outlook 2024 — International Energy Agency",
@@ -471,24 +434,8 @@ export const evEnvironmentalImpactData = {
       url: "https://www.amnesty.org/en/documents/afr62/3183/2016/en/",
     },
     {
-      title: "Lithium Mineral Commodity Summaries 2024 — US Geological Survey",
-      url: "https://pubs.usgs.gov/periodicals/mcs2024/mcs2024-lithium.pdf",
-    },
-    {
-      title: "Environmental Assessment of Ogoniland — UN Environment Programme",
-      url: "https://www.unep.org/resources/report/environmental-assessment-ogoniland",
-    },
-    {
       title: "Nickel Unearthed: The Human and Climate Costs of Indonesia's Nickel Industry — Climate Rights International (2024)",
       url: "https://cri.org/reports/nickel-unearthed/",
-    },
-    {
-      title: "Electric Vehicle Outlook — BloombergNEF",
-      url: "https://about.bnef.com/electric-vehicle-outlook/",
-    },
-    {
-      title: "The Role of Critical Minerals in Clean Energy Transitions — International Energy Agency (2023)",
-      url: "https://www.iea.org/reports/the-role-of-critical-minerals-in-clean-energy-transitions",
     },
   ],
 };

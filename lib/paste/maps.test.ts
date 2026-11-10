@@ -7,9 +7,10 @@ import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import type { Pillar } from "@/lib/schemas/topic";
 import { EXPECTED_MAP_COUNT } from "./mapDocuments";
 import type { RankedMap } from "./mapIndex";
-import { decideMatch, evidenceForPaste, findMaps, getMapIndex, MAP_MATCH, matchOnMap, pickPillars } from "./maps";
+import { decideMatch, evidenceForPaste, findMaps, getMapIndex, MAP_MATCH, matchOnMap, matchOnTopic, pickPillars } from "./maps";
 import { ASSISTED_LIVING_PASTE, LEGACY_NUCLEAR_EXAMPLE, NUCLEAR_PASTE } from "./testPastes";
 import { PasteMapsResultSchema } from "./schemas";
+import { ONE_SIDED_PASTE, ONE_SIDED_TOPIC, oneSidedMaps, withoutSide } from "./testTopics";
 
 /**
  * A ranking with the given scores. Every word of the paste is scored, so
@@ -467,32 +468,39 @@ describe("findMaps", () => {
     expect(match.cards.map((card) => card.id)).toContain("public-support-rising");
   });
 
-  // Relies on tiktok-ban's free-speech-rights crux having no "for" card that
-  // is not an agreed fact, so the paste borrows one from another crux. If
-  // that crux gains a pair, repoint this test (and the matching ones in
-  // ./summary.test.ts and e2e/paste.spec.ts) to a crux still one-sided.
-  // Round 14 moved it here from student-debt-forgiveness, whose
-  // fairness-moral-hazard crux gained an "against" card.
+  // A fixture map (./testTopics.ts) with a one-sided crux, so this does not
+  // break whenever a content round gives some live map's crux its pair.
   it("keeps a contrasting card's own crux when the selected crux has evidence on only one side", async () => {
-    const result = await findMaps(
-      "Banning TikTok violates the First Amendment rights of the millions of Americans who use the app to speak and share their views.",
-    );
-    expect(result.match?.id).toBe("tiktok-ban");
-    expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
-    const own = result.match!.cards.find((card) => card.crux?.href === result.match!.crux!.href)!;
-    const borrowed = result.match!.cards.find((card) => card.crux?.href !== result.match!.crux!.href)!;
-    expect(own).toBeDefined();
-    expect(borrowed).toBeDefined();
-    expect(own.crux?.href).toBe(result.match!.crux!.href);
+    const result = await oneSidedMaps();
+    const match = result.match!;
+    expect(match.crux?.href).toBe("/topics/fixture-lighthouses#crux-lighthouse-funding");
+    expect(match.cards.map((card) => [card.id, card.side])).toEqual([
+      ["pilots-want-foghorn", "for"],
+      ["dues-fall-short", "against"],
+    ]);
+    const [borrowed, own] = match.cards;
+    expect(own.crux).toEqual({ question: match.crux!.question, href: match.crux!.href });
     expect(borrowed.crux).toEqual({
-      question: "Does foreign-adversary control of a major platform justify action by itself, or must harm be shown first?",
-      href: "/topics/tiktok-ban#crux-geopolitics-data-sovereignty",
+      question: "Do harbour pilots rely on a keeper during fog?",
+      href: "/topics/fixture-lighthouses#crux-harbour-pilots",
     });
-    expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(result.match!.cards);
+    expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(match.cards);
     expect(PasteMapsResultSchema.safeParse({
       ...result,
-      match: { ...result.match, cards: [{ ...borrowed, crux: { question: borrowed.crux!.question, href: 12 } }] },
+      match: { ...match, cards: [{ ...borrowed, crux: { question: borrowed.crux!.question, href: 12 } }] },
     }).success).toBe(false);
+  });
+
+  it("borrows both sides, each naming its crux, when the selected crux has no evidence", async () => {
+    const match = await matchOnTopic(
+      withoutSide(ONE_SIDED_TOPIC, "lighthouse-funding", "against"),
+      ONE_SIDED_PASTE,
+    );
+    expect(match.crux?.href).toBe("/topics/fixture-lighthouses#crux-lighthouse-funding");
+    expect(match.cards.map((card) => [card.id, card.crux?.href])).toEqual([
+      ["pilots-want-foghorn", "/topics/fixture-lighthouses#crux-harbour-pilots"],
+      ["automatic-foghorns", "/topics/fixture-lighthouses#crux-harbour-pilots"],
+    ]);
   });
 
   it("takes both sides from the selected crux once that crux has a card on each", async () => {

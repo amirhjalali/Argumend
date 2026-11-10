@@ -19,8 +19,8 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["nuclear-weapons-abolition", 1, "The 'knowledge cannot be abolished' argument proves too much"],
   ["nuclear-weapons-abolition", 2, "The humanitarian consequences of nuclear weapons use are so severe"],
   ["alternatives-to-democracy", 1, "Citizens' assemblies are advisory bodies"],
-  ["transgender-athletes-sports", 2, "The open category model is not exclusion"],
-  ["masculinity-crisis", 2, "The 'both sides fail' framing creates a false equivalence"],
+  ["transgender-athletes-sports", 3, "The open category model is not exclusion"],
+  ["masculinity-crisis", 2, "Programs for men are not where the evidence or the need points."],
   // Found by the same audit's scan of every legacy map.
   // Decided by the founder's go-ahead after round 3: the flips and both evidence
   // cards already treated "CBDCs threaten dollar power" as the claim's side.
@@ -29,7 +29,9 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["facial-recognition-policing", 1, "Every documented wrongful arrest is a failure of police procedure"],
   ["alcohol-no-safe-level", 0, "A statistically detectable relative-risk increase is not the same"],
   ["alcohol-no-safe-level", 1, "The strongest bias-corrected observational meta-analysis"],
-  ["alcohol-no-safe-level", 2, "Even in a meta-analysis built by the leading abstainer-bias critics"],
+  // Pillar 2 was rewritten as the guidelines pillar on 2026-11-03; the old
+  // J-curve pillar's text now lives in pillar 1, so the row pins the new one.
+  ["alcohol-no-safe-level", 2, "Telling everyone that any drink is harmful"],
   ["us-national-debt-crisis", 0, "Japan has maintained gross debt-to-GDP above 200%"],
   ["us-national-debt-crisis", 1, "Nominal interest payments are misleading without context"],
   ["tipping-culture", 0, "The $2.13 figure is real but misleading"],
@@ -38,28 +40,29 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["adhd-overdiagnosis", 0, "Rising diagnosis rates are exactly what improving recognition"],
   ["adhd-overdiagnosis", 1, "Lacking a single blood test does not make a disorder invalid"],
   ["adhd-overdiagnosis", 2, "The asymmetry runs the other way"],
-  ["seed-oils-health", 0, "The omega-6 to omega-3 ratio hypothesis sounds intuitive"],
-  ["seed-oils-health", 1, "The oxidation concern is legitimate for improperly handled oils"],
-  ["seed-oils-health", 2, "Ecological correlations between seed oil consumption"],
+  ["seed-oils-health", 0, "The ratio story sounds right and does not survive measurement"],
+  ["seed-oils-health", 1, "Every fat degrades when heated"],
+  ["seed-oils-health", 2, "Seed oil consumption rose alongside calories"],
   ["generative-ai-art-copyright", 0, "Copyright never granted a right to control all learning"],
   ["generative-ai-art-copyright", 1, "Copyright protects against substitution of specific works"],
   ["generative-ai-art-copyright", 2, "The leading generative-AI rulings cut the other way"],
   ["open-weight-ai-models", 2, "Democratization is a genuine good, but it is not unconditional"],
   ["open-weight-ai-models", 3, "The fact that China releases capable open weights"],
-  ["declining-birth-rates", 0, "The 'doom loop' framing confuses a challenging transition"],
+  ["declining-birth-rates", 0, "A shrinking population is a problem to manage, not a catastrophe."],
   ["congressional-term-limits", 0, "High re-election rates can reflect satisfied constituents"],
-  ["congressional-term-limits", 1, "The best natural experiment — 15 states that adopted"],
+  ["congressional-term-limits", 1, "The best natural experiment — the states that adopted"],
   ["return-to-office-productivity", 1, "The serendipity argument is the most romanticized"],
-  ["ai-deepfakes-truth-collapse", 0, "The liar's dividend concern is real but overstated"],
-  ["ai-deepfakes-truth-collapse", 1, "The detection pessimism overstates the case."],
+  // Rewritten in round 15 (pillars reordered: detection, liar's dividend, provenance).
+  ["ai-deepfakes-truth-collapse", 0, "Detection is not just pixel-peeping"],
+  ["ai-deepfakes-truth-collapse", 1, "The liar's dividend is real but smaller than feared"],
   ["occupational-licensing-reform", 0, "The 'no quality benefit' finding is real for low-stakes trades"],
   ["occupational-licensing-reform", 1, "Mobility frictions are a design flaw"],
   ["privacy-vs-convenience", 0, "The 'resistance is futile' framing overstates"],
   ["privacy-vs-convenience", 1, "The surveillance picture is more nuanced"],
   ["privacy-vs-convenience", 2, "The 'privacy is dead' narrative confuses"],
-  ["rent-control-effectiveness", 0, "Protecting existing tenants from large rent increases"],
-  ["rent-control-effectiveness", 1, "Preventing displacement has value beyond the rent payment itself"],
-  ["rent-control-effectiveness", 2, "Supply-side solutions are correct in the long run"],
+  ["rent-control-effectiveness", 0, "A cap only shrinks supply when it bites hard enough"],
+  ["rent-control-effectiveness", 1, "Being forced out of your home is one of the worst things"],
+  ["rent-control-effectiveness", 2, "New homes take years; rent increases arrive every year."],
   ["autonomous-weapons-ban", 0, "Existing international humanitarian law already assigns responsibility"],
   // Round 3, finishing the audit's suspects list.
   ["encryption-backdoors", 1, "The 'going dark' threat has been demonstrably overstated"],
@@ -68,7 +71,7 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["us-national-debt-crisis", 2, "Reports of the dollar's demise have been greatly exaggerated"],
   ["congressional-term-limits", 2, "The bar is far higher than popularity suggests."],
   ["facial-recognition-policing", 2, "A governance gap is an argument for governance, not abolition."],
-  ["ai-deepfakes-truth-collapse", 2, "The transition challenge is real but the trajectory is positive."],
+  ["ai-deepfakes-truth-collapse", 2, "The fix is arriving where it matters first."],
 ];
 
 // Crux flips that once pointed the wrong way. supporter_flip is what would

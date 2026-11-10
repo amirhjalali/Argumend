@@ -9,7 +9,7 @@ export const congressionalTermLimitsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "US House incumbents who run again win re-election in roughly 90% or more of cycles. In 1995 the Supreme Court ruled 5–4, in U.S. Term Limits v. Thornton, that congressional term limits require a constitutional amendment. Both sides accept these facts, and the 15 states that limit their own legislators offer the nearest test. The fight is over what forced turnover would do to Congress, and whether it could ever be enacted.",
+      "US House incumbents who run again win re-election in roughly 90% or more of cycles. In 1995 the Supreme Court ruled 5–4, in U.S. Term Limits v. Thornton, that congressional term limits require a constitutional amendment. Both sides accept these facts, and the 16 states that limit their own legislators (NCSL count, 2026) offer the nearest test. The fight is over what forced turnover would do to Congress, and whether it could ever be enacted.",
     confidence: 86,
     source:
       "OpenSecrets, 'Reelection Rates Over the Years'; U.S. Term Limits, Inc. v. Thornton, 514 U.S. 779 (1995)",
@@ -18,7 +18,7 @@ export const congressionalTermLimitsData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "Both sides accept that House incumbents win re-election roughly 90% of the time or more, that term limits cut legislators' average tenure and leave newer members leaning more on outside expertise, and that after Thornton congressional limits need a constitutional amendment.",
-    "They split over whether forced open seats bring more competitive races and new kinds of legislators or reshuffle similar ones; whether the lost experience shifts power to governors, agencies and lobbyists or loosens entrenched interests, where the 15 states with legislative limits are the main evidence; and whether an amendment can pass when the officials being limited control the process.",
+    "They split over whether forced open seats bring more competitive races and new kinds of legislators or reshuffle similar ones; whether the lost experience shifts power to governors, agencies and lobbyists or loosens entrenched interests, where the 16 states with legislative limits are the main evidence; and whether an amendment can pass when the officials being limited control the process.",
   ],
   last_updated: "2026-06-16",
   tags: ["governance", "elections", "congress", "reform", "incumbency"],
@@ -41,7 +41,7 @@ export const congressionalTermLimitsData = {
         description:
           "If term limits improve governance through accountability, the open seats they create should produce measurably more competitive elections and meaningfully different (e.g. more diverse, less entrenched) winners than the incumbent-held seats they replace.",
         methodology:
-          "Use the natural experiment of the 15 states that adopted legislative term limits since the 1990s. Compare margins of victory, number of candidates, and winner characteristics in open seats created by term limits vs. comparable open and incumbent seats in non-term-limited control states, before and after limits took effect (difference-in-differences).",
+          "Use the natural experiment of the 16 states that now limit legislative terms, most of them adopted in the 1990s. Compare margins of victory, number of candidates, and winner characteristics in open seats created by term limits vs. comparable open and incumbent seats in non-term-limited control states, before and after limits took effect (difference-in-differences).",
         verification_status: "verified" as const,
         settle: {
           condition:
@@ -50,7 +50,7 @@ export const congressionalTermLimitsData = {
         cost_to_verify: "$0 (existing election-returns data analysis)",
         falsification: {
           supporter_flip:
-            "If a clean difference-in-differences analysis of the 15 term-limited states showed open seats created by limits were no more competitive — similar margins of victory and candidate counts — than comparable seats in non-limited states, the accountability case would lose its core empirical support and reduce to 'high re-election rates feel bad' without a working fix.",
+            "If a clean difference-in-differences analysis of the 16 term-limited states showed open seats created by limits were no more competitive — similar margins of victory and candidate counts — than comparable seats in non-limited states, the accountability case would lose its core empirical support and reduce to 'high re-election rates feel bad' without a working fix.",
           skeptic_flip:
             "If studies found ~90%+ re-election rates holding even when generic-Congress approval was low and districts were uncompetitive by design, through gerrymandering and fundraising and name-recognition gaps, high re-election would look like structural insulation rather than earned approval.",
           common_ground:
@@ -118,9 +118,9 @@ export const congressionalTermLimitsData = {
         },
         {
           id: "term-limits-no-diversity-gain",
-          title: "Term Limits Did Not Increase Legislative Diversity",
+          title: "State Term Limits Did Not Increase the Number of Women Legislators (CAWP, 2005)",
           description:
-            "A Rutgers CAWP study (Carroll & Jenkins, 2005) found term limits did not produce consistent gains in the representation of women or minorities; in 1998 and 2000 more women were forced out by limits than were elected to the vacated seats, and most departing women's seats went to men.",
+            "A Rutgers CAWP study (Carroll & Jenkins, 2005) of state house elections found that 'more women state representatives were forced out of office by term limits in both 1998 and 2000 than were elected to seats vacated by term-limited incumbents,' and that term-limited women were replaced by other women in only about one-fourth of cases. Minorities fared differently: the number of minorities in term-limited state house seats increased after both elections, since most were replaced by members of the same racial or ethnic group.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -131,9 +131,9 @@ export const congressionalTermLimitsData = {
           source:
             "Carroll & Jenkins, 'Increasing Diversity or More of the Same? Term Limits and the Representation of Women, Minorities, and Minority Women in State Legislatures,' Center for American Women and Politics, Rutgers (2005)",
           sourceUrl:
-            "https://cawp.rutgers.edu/research-and-scholarship/increasing-diversity-or-more-same-term-limits-and-representation-women",
+            "https://cawp.rutgers.edu/sites/default/files/resources/termlimitsdiversity_0.pdf",
           reasoning:
-            "Rigorous comparative analysis from a non-partisan academic research center directly testing a core proponent promise (more diverse representation) and finding it unmet. Counts against the claim by undercutting an expected governance benefit.",
+            "Rigorous comparative analysis from a non-partisan academic research center directly testing a core proponent promise (more diverse representation) and finding it unmet for women, though not for minorities. Counts against the claim by undercutting an expected governance benefit.",
         },
       ],
     },
@@ -144,7 +144,7 @@ export const congressionalTermLimitsData = {
         "Term limits force out experienced legislators, and state-level evidence shows the lost institutional knowledge shifts power to governors, bureaucrats, and lobbyists.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The best natural experiment — 15 states that adopted legislative term limits — points the opposite way. The multi-organization Joint Project on Term Limits found the most significant effect was a decline in the legislature's power relative to the governor and executive agencies, with legislative adjustments to governors' budgets falling significantly. Inexperienced members rely more on the very actors term limits were meant to weaken: lobbyists and career staff who hold the institutional knowledge. Removing experience does not remove influence — it relocates it to unelected hands.",
+        "The best natural experiment — the states that adopted legislative term limits, 16 of which still have them — points the opposite way. The multi-organization Joint Project on Term Limits found the most significant effect was a decline in the legislature's power relative to the governor and executive agencies, with legislative adjustments to governors' budgets falling significantly. Inexperienced members rely more on the very actors term limits were meant to weaken: lobbyists and career staff who hold the institutional knowledge. Removing experience does not remove influence — it relocates it to unelected hands.",
       proponent_rebuttal:
         "Career legislators accumulate not just policy expertise but also entanglements — donors, lobbyists, and a personal stake in the status quo. Forcing regular turnover, proponents argue, dilutes those captured relationships, brings in citizens closer to ordinary life, and prevents the build-up of unaccountable seniority-based power. A legislature of relative newcomers is harder for any single interest to permanently own.",
       crux: {
@@ -178,7 +178,7 @@ export const congressionalTermLimitsData = {
           id: "carey-niemi-powell-burkean",
           title: "50-State Survey: 'Burkean Shift' Toward Governor, Not Constituents",
           description:
-            "A 2002 survey of 2,982 legislators in all 50 states (Carey, Niemi, Powell & Moncrief, 2006) found term limits had virtually no effect on who is elected but produced a 'Burkean shift' — term-limited members grew less beholden to their districts — and shifted power toward governors and away from legislative leaders.",
+            "A 2002 survey of legislators in all 50 states (Carey, Niemi, Powell & Moncrief, 2006) found term limits had virtually no effect on who is elected but produced a 'Burkean shift' — term-limited members grew less beholden to their districts — and shifted power toward governors and away from legislative leaders.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -233,7 +233,7 @@ export const congressionalTermLimitsData = {
           id: "apollonio-laraja-contributions",
           title: "Term Limits Cut Contributions to Incumbents and Weakened Caucus Leaders",
           description:
-            "Apollonio and La Raja (Legislative Studies Quarterly, 2006) used campaign contributions as a measure of legislators' influence in four term-limited states (Arizona, California, Florida and Maine) and four without limits (Iowa, Massachusetts, Washington and Wisconsin), before and after the limits took effect. 'The results indicate that term limits diffuse power in state legislatures, both by decreasing average contributions to incumbents and by reducing the power of party caucus leaders relative to other members.' The fall in contributions was smaller in upper chambers, which the authors read as a shift of power toward the senate in term-limited states.",
+            "Apollonio and La Raja (Legislative Studies Quarterly, 2006) used campaign contributions as a measure of legislators' influence comparing states with and without term limits, before and after the limits took effect. 'The results indicate that term limits diffuse power in state legislatures, both by decreasing average contributions to incumbents and by reducing the power of party caucus leaders relative to other members.' The authors add that 'the change in contribution levels across legislators in different chambers implies a shift in power to the upper chamber in states with term limits.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

@@ -133,7 +133,7 @@ describe("MapReplyClient", () => {
     // What the thread is about, and how many turns were not arguments:
     // turns are counted and numbered, never attributed to a named person.
     expect(view.getByText("What this thread is about")).toBeTruthy();
-    expect(view.getAllByText("Supply Effects").length).toBeGreaterThan(0);
+    expect(view.getAllByText("The rental supply").length).toBeGreaterThan(0);
     expect(view.getByText("Not an argument about the topic")).toBeTruthy();
     expect(view.queryByText(/gary_1962/)).toBeNull();
     expect(view.getByText(/1 of the 8 checked turns was not an argument about the topic/)).toBeTruthy();

@@ -27,7 +27,7 @@ export const factoryFarmingBanData = {
       id: "animal-welfare-ethics",
       title: "Animal Welfare & Ethics",
       short_summary:
-        "80 billion land animals are slaughtered annually, most after living in conditions that would be illegal if applied to dogs. The ethics hinge on how much moral weight you give a chicken.",
+        "By one estimate about 99% of US farmed animals live on factory farms. The ethics hinge on how much moral weight you give a pig or a chicken, and on what changing the system would cost.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "Animal welfare standards have improved significantly over the past two decades. Cage-free, free-range, and humanely raised options exist for consumers who want them — the market is responding. Banning factory farming would disrupt rural economies that depend on it and raise the cost of animal protein, since pasture systems use far more land per unit of output and grow animals more slowly; that cost burden would fall hardest on low-income households. The exact price increase is uncertain and contested, but the direction is upward. And whether animals are moral patients in a way that overrides these costs is a genuinely unsettled ethical question, not a settled one.",
@@ -85,7 +85,7 @@ export const factoryFarmingBanData = {
           id: "cambridge-declaration-consciousness",
           title: "Cambridge Declaration on Consciousness (2012)",
           description:
-            "A group of neuroscientists signed the Cambridge Declaration on Consciousness (July 7, 2012), concluding that 'humans are not unique in possessing the neurological substrates that generate consciousness' and that 'non-human animals, including all mammals and birds,' possess these substrates. This covers all major farmed species. It was proclaimed at the Francis Crick Memorial Conference at Churchill College, University of Cambridge, with Stephen Hawking as guest of honor.",
+            "A group of neuroscientists signed the Cambridge Declaration on Consciousness (July 7, 2012), concluding that 'humans are not unique in possessing the neurological substrates that generate consciousness' and that 'non-human animals, including all mammals and birds,' possess these substrates. This covers all major farmed species. It was proclaimed at the Francis Crick Memorial Conference at Churchill College, University of Cambridge, and signed that evening in the presence of Stephen Hawking.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -101,9 +101,9 @@ export const factoryFarmingBanData = {
         },
         {
           id: "welfare-improvement-trends",
-          title: "Animal Welfare Standards Have Steadily Improved",
+          title: "Confinement Can Be Regulated Without a Ban",
           description:
-            "The EU banned conventional battery cages (effective 2012) and restricted sow gestation crates (effective 2013). US states including California (Prop 12) and Massachusetts (Question 3) have passed confinement bans, and roughly a dozen states mandate cage-free eggs. Many major retailers pledged cage-free eggs by 2025, though several (including Walmart and Target) publicly fell short of that deadline citing supply and price. Industry groups argue voluntary improvement is more effective than prohibition.",
+            "The EU banned conventional battery cages from January 2012, and since a 2013 directive sow crates may not be used after the fourth week of pregnancy. California's Proposition 12, approved by 62.7% of voters in 2018, sets square-foot minimums for veal calves, breeding pigs and egg-laying hens, requires hens to be cage-free after December 31, 2021, and bans in-state sales of products that do not meet them; the US Supreme Court upheld it in National Pork Producers Council v. Ross. Reform advocates read such laws as evidence that the worst confinement practices can be legislated away without banning intensive farming.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -112,16 +112,16 @@ export const factoryFarmingBanData = {
             directness: 6,
           },
           source:
-            "EU Council Directive 1999/74/EC (battery cages) and 2008/120/EC (sows); California Proposition 12 (2018); industry reporting on cage-free pledges",
+            "Ballotpedia, 'California Proposition 12, Farm Animal Confinement Initiative (2018)'; EU rules as summarized in Wikipedia's 'Battery cage' and 'Gestation crate' articles (Council Directives 1999/74/EC and 2008/120/EC)",
           sourceUrl: "https://ballotpedia.org/California_Proposition_12,_Farm_Animal_Confinement_Initiative_(2018)",
           reasoning:
-            "Real legislative and corporate progress exists, but improvements are partial (cage-free still permits crowding) and several voluntary 2025 pledges were missed; the aggregated source is general rather than a single primary dataset, so weighted modestly.",
+            "Real legislative progress, but partial: cage-free still permits crowding, Prop 12 covers three species in one state and faces a July 2025 federal lawsuit, and the EU rules leave sow crates legal for the first weeks of pregnancy. The sources are summaries rather than a single primary dataset, so weighted modestly.",
         },
         {
           id: "food-price-impact",
-          title: "Replacing Factory Farming Would Sharply Raise Land and Production Costs",
+          title: "All-Grass-Fed Beef Would Need 30% More Cattle and More Land Than Pasture Offers",
           description:
-            "A peer-reviewed analysis found a nationwide US shift to exclusively grass-fed beef would require expanding the cattle herd from 77 to 100 million head (+30%), and that present-day pastureland can sustain only about 27% of current beef output without large pasture-productivity gains or land conversion. Because pasture systems grow animals more slowly and use far more land per unit of output, production costs and consumer prices would rise materially, which would weigh most on low-income households. The exact price increase is uncertain and depends on whether consumers shift toward cheaper plant proteins rather than buying like-for-like replacement meat.",
+            "Hayek and Garrett modeled a nationwide US shift to exclusively grass-fed beef at today's output: it would require increasing the national cattle herd from 77 to 100 million, an increase of 30%, while current pastureland can support only 27% of the current beef supply (up to 61% if cropland-raised forage is counted). They conclude that demand could be met domestically only if beef consumption fell, 'due to higher prices or other factors', and that meeting it with imported grass-fed beef would likely raise overall methane emissions.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -133,7 +133,7 @@ export const factoryFarmingBanData = {
             "Hayek MN, Garrett RD, 'Nationwide shift to grass-fed beef requires larger cattle population,' Environmental Research Letters 13(8) (2018)",
           sourceUrl: "https://iopscience.iop.org/article/10.1088/1748-9326/aad401",
           reasoning:
-            "Peer-reviewed land/herd estimate is solid, but the specific 20-50% price figure was not traceable to a single authoritative source, so the price claim is stated qualitatively and directness is weighted down; modeling also assumes substitution toward replacement meat rather than plant protein.",
+            "Peer-reviewed land and herd estimate. It models beef only, not pork or poultry, and does not estimate prices, so it shows the land constraint on pasture-based replacement rather than a measured cost of a ban; directness is weighted down accordingly.",
         },
       ],
     },
@@ -141,12 +141,12 @@ export const factoryFarmingBanData = {
       id: "environmental-health-impact",
       title: "Environmental & Health Impact",
       short_summary:
-        "Livestock accounts for 14.5% of global greenhouse emissions. 73% of antibiotics sold worldwide go to farm animals. These are public health numbers, not just animal welfare arguments.",
+        "Livestock accounts for 14.5% of global greenhouse emissions, and animals consume about three times the antimicrobials people do. These are public health numbers, not just animal welfare arguments.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Modern intensive agriculture supplies cheap calories and protein at a scale no prior system has matched. Poorly planned plant-based diets risk shortfalls in B12, iron, zinc, and omega-3s, a real concern where food diversity or supplementation is limited — even if well-planned vegan diets can be adequate. Cultivated ('lab-grown') meat is not yet cost-competitive at scale and may take years to match the price and texture of conventional meat. Abruptly dismantling the system that feeds billions, rather than reforming it incrementally, risks food-security and affordability harms that fall hardest on the poor.",
       proponent_rebuttal:
-        "Animal agriculture produces 14.5% of global greenhouse gas emissions (FAO lifecycle estimate). The often-repeated 'more than all transport combined' line is an apples-to-oranges comparison FAO itself disavows, but the absolute footprint is large regardless. Roughly two-thirds of medically important antibiotics sold in the US go to food animals (the ~70-73% figure is global), and confined operations are recognized drivers of antibiotic resistance and a plausible mixing-vessel for novel influenza — commercial swine herds are an established reservoir, and pig–human transmission is documented. Intensive crop and animal agriculture together drive nutrient runoff and ocean dead zones; the Gulf of Mexico hypoxic zone covers roughly 6,000 square miles, though cropland fertilizer, not manure, is the dominant nitrogen source.",
+        "Animal agriculture produces 14.5% of global greenhouse gas emissions (FAO lifecycle estimate). The often-repeated 'more than all transport combined' line is an apples-to-oranges comparison FAO itself disavows, but the absolute footprint is large regardless. Worldwide, antimicrobial consumption in animals is about threefold that of humans, and confined operations are recognized drivers of antibiotic resistance and a plausible mixing-vessel for novel influenza — commercial swine herds are an established reservoir, and pig–human transmission is documented. Intensive crop and animal agriculture together drive nutrient runoff and ocean dead zones; the Gulf of Mexico hypoxic zone measured about 6,300 square miles in 2021, though NOAA traces its nutrients to cities, farms and other sources across the watershed, not to livestock alone.",
       crux: {
         id: "ghg-antibiotic-impact",
         title: "Comprehensive Environmental & Health Cost Accounting",
@@ -180,7 +180,7 @@ export const factoryFarmingBanData = {
           id: "fao-livestock-ghg",
           title: "FAO: Livestock Produces 14.5% of Global GHG Emissions",
           description:
-            "The UN Food and Agriculture Organization's comprehensive lifecycle assessment found that livestock contributes 14.5% of all anthropogenic greenhouse gas emissions. Cattle alone account for 65% of the livestock sector's emissions, primarily through methane from enteric fermentation and nitrous oxide from manure.",
+            "The UN Food and Agriculture Organization's comprehensive lifecycle assessment found that livestock contributes 14.5% of all anthropogenic greenhouse gas emissions. Cattle account for about 65% of the sector's emissions. Across the sector, feed production and processing (45%) and enteric fermentation from ruminants (39%) are the two main sources, with manure storage and processing at 10%. The estimate is for the 2005 reference period.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -191,13 +191,13 @@ export const factoryFarmingBanData = {
           source: "FAO, 'Tackling Climate Change Through Livestock' (2013)",
           sourceUrl: "https://www.fao.org/3/i3437e/i3437e.pdf",
           reasoning:
-            "Gold-standard international assessment with transparent methodology; widely cited in climate policy. FAO confirms livestock = 14.5% of anthropogenic GHG and cattle = 65% of the sector's emissions.",
+            "Gold-standard international assessment with transparent methodology; widely cited in climate policy. FAO confirms livestock = 14.5% of anthropogenic GHG and cattle = 65% of the sector's emissions. The figures describe all livestock, not factory farms alone, and use a 2005 baseline.",
         },
         {
           id: "who-antibiotic-resistance",
           title: "Antibiotic Use in Livestock Contributes to Resistance Crisis",
           description:
-            "The Lancet/GRAM study estimated that bacterial antimicrobial resistance was directly responsible for 1.27 million deaths and associated with 4.95 million deaths globally in 2019. A widely cited (and contested) UK government review projected up to 10 million deaths per year by 2050. Health bodies identify antibiotic use in livestock as one driver of resistance. Roughly two-thirds of medically important antibiotics sold in the US go to food-producing animals (the ~80% figure refers to global sales, not the US).",
+            "The Lancet/GRAM study estimated that bacterial antimicrobial resistance was directly responsible for 1.27 million deaths and associated with 4.95 million deaths globally in 2019. A widely cited (and contested) UK government review projected up to 10 million deaths per year by 2050. Van Boeckel et al. (Science, 2019) estimate that antimicrobial consumption in animals is threefold that of humans, and found that from 2000 to 2018 the share of antimicrobials showing resistance above 50% rose from 0.15 to 0.41 in chickens and from 0.13 to 0.34 in pigs in low- and middle-income countries.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -206,16 +206,16 @@ export const factoryFarmingBanData = {
             directness: 5,
           },
           source:
-            "Murray CJL et al., 'Global burden of bacterial antimicrobial resistance in 2019,' The Lancet (2022); FDA antibiotic sales data; O'Neill Review on AMR (2016, for 2050 projection)",
+            "Murray CJL et al., 'Global burden of bacterial antimicrobial resistance in 2019,' The Lancet (2022); Van Boeckel TP et al., 'Global trends in antimicrobial resistance in animals in low- and middle-income countries,' Science 365:eaaw1944 (2019); O'Neill Review on AMR (2016, for 2050 projection)",
           sourceUrl: "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)02724-0/fulltext",
           reasoning:
-            "Death-burden figure is from the peer-reviewed Lancet GRAM study, re-attributed from an incorrect 'WHO report' label. The 10M/2050 projection is the contested O'Neill estimate, now flagged as such. The 80% antibiotics claim was overstated for the US (it is global; US is ~two-thirds), and the livestock-to-human-resistance link is real but not the sole cause, so directness is weighted down.",
+            "Death-burden figure is from the peer-reviewed Lancet GRAM study, re-attributed from an incorrect 'WHO report' label. The 10M/2050 projection is the contested O'Neill estimate, now flagged as such. The Lancet figures cover all antimicrobial resistance, not the share caused by livestock use; the animal-resistance trend is measured in animals, and its transfer to human disease is real but not quantified here, so directness is weighted down.",
         },
         {
           id: "plant-protein-adequacy",
-          title: "Plant-Based Diets Can Lack Key Nutrients Without Supplements",
+          title: "Dietitians: Vegan Diets Are Adequate Only When Planned, With a Reliable B12 Source",
           description:
-            "The Academy of Nutrition and Dietetics (formerly the American Dietetic Association) holds that appropriately planned vegetarian and vegan diets are healthful and nutritionally adequate for all life stages, including pregnancy, infancy, and older adulthood. The position stresses the 'appropriately planned' caveat, since poorly planned plant-based diets risk shortfalls in nutrients such as B12, iron, zinc, and omega-3s — a greater concern where food diversity or supplementation is limited.",
+            "The Academy of Nutrition and Dietetics (formerly the American Dietetic Association) holds that 'appropriately planned vegetarian, including vegan, diets are healthful, nutritionally adequate,' and appropriate for all stages of the life cycle, including pregnancy, infancy, and older adulthood. It adds that 'Vegans need reliable sources of vitamin B-12, such as fortified foods or supplements.' The skeptic reading rests on the 'appropriately planned' caveat: where fortified foods, supplements or food diversity are scarce, a forced shift away from animal foods carries nutritional risk.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -231,9 +231,9 @@ export const factoryFarmingBanData = {
         },
         {
           id: "mississippi-dead-zone",
-          title: "Agricultural Runoff Creates 6,000 sq mi Dead Zone",
+          title: "Nutrient Runoff Feeds a 6,300 sq mi Gulf Dead Zone",
           description:
-            "The Gulf of Mexico 'dead zone' (hypoxic area) measured about 6,334 square miles in 2021 — roughly the size of Connecticut and Rhode Island combined — and has averaged several thousand square miles annually; the largest on record was 8,776 sq mi in 2017. NOAA attributes it to excess nitrogen and phosphorus nutrient pollution carried from across the Mississippi River watershed, dominated by agriculture (including cropland fertilizer and livestock manure) alongside urban runoff.",
+            "NOAA measured the Gulf of Mexico 'dead zone' (hypoxic area) at approximately 6,334 square miles in 2021, against a five-year average of 5,380 square miles; the largest measured since 1985 was 8,776 square miles in 2017. NOAA attributes it to excess nutrients from cities, farms and other sources in upland watersheds draining into the Gulf.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -244,7 +244,7 @@ export const factoryFarmingBanData = {
           source: "NOAA / USGS, Gulf of Mexico hypoxia ('dead zone') measurements",
           sourceUrl: "https://www.noaa.gov/news-release/larger-than-average-gulf-of-mexico-dead-zone-measured",
           reasoning:
-            "Well-documented phenomenon, but directness is weighted down: NOAA attributes the nutrient load to the whole Mississippi watershed (cropland fertilizer is a dominant source), so the prior claim that animal manure is 'the largest single source' was an overstatement and has been corrected.",
+            "Well-documented phenomenon, but directness is weighted down: NOAA attributes the nutrient load to cities, farms and other sources across the watershed, and the page does not separate livestock from cropland fertilizer.",
         },
       ],
     },

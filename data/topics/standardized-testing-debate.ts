@@ -19,7 +19,7 @@ export const standardizedTestingDebateData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "Both sides accept that SAT scores correlate strongly with family income, that no admissions metric is free of bias, that families who can afford to will game whatever gets measured, and that the evidence from the 1,800-plus colleges that went test-optional is mixed.",
-    "They split over whether going test-optional raised diversity without losing the ability to spot talented students, as Dartmouth, MIT, Yale, Princeton and others reinstate the SAT and ACT; and over whether essays, portfolios and recommendations are fairer predictors than a common test or tilt admissions further toward wealthy families.",
+    "They split over whether going test-optional raised diversity without losing the ability to spot talented students, as Dartmouth, MIT, Yale, Princeton and others reinstate the SAT and ACT; and over whether high-school grades, essays, portfolios and recommendations are fairer predictors than a common test or tilt admissions further toward wealthy families.",
   ],
   pillars: [
     {
@@ -118,6 +118,43 @@ export const standardizedTestingDebateData = {
           reasoning:
             "The income gradient in scores is well-documented. However, this is a correlation, not proof the test is biased: family income also tracks school quality, educational resources, and other factors that independently affect measured achievement. The specific correlation coefficient (r=0.42) and per-dollar score figures in earlier versions of this claim could not be verified against a primary source and have been replaced with the documented Opportunity Insights findings; directness is therefore marked lower since these are score-distribution gaps, not a direct measure of test bias.",
         },
+        {
+          id: "bennett-test-optional-enrollment",
+          title: "Bennett (2022): Nearly 100 Private Colleges That Went Test-Optional Enrolled 10–12% More Underrepresented Minority Students and 3–4% More Pell Recipients",
+          description:
+            "Christopher Bennett studied nearly 100 private colleges that adopted test-optional admissions between 2005–06 and 2015–16, against comparable colleges that kept requirements. In the American Educational Research Journal he reports that 'test-optional policies were associated with a 3% to 4% increase in Pell Grant recipients', 'a 10% to 12% increase in first-time students from underrepresented racial/ethnic backgrounds' and 'a 6% to 8% increase in first-time enrollment of women.' He wrote: 'I do not detect clear evidence of changes in application volume or yield rate.' The increases are relative, so a 3–4% rise in Pell recipients is about one percentage point of the student body.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Christopher T. Bennett, 'Untested Admissions: Examining Changes in Application Behaviors and Student Demographics Under Test-Optional Policies', American Educational Research Journal 59(1) (2022; online April 2021)",
+          sourceUrl:
+            "https://www.aera.net/Newsroom/Untested-Admissions-Examining-Changes-in-Application-Behaviors-and-Student-Demographics-Under-Test-Optional-Policies",
+          reasoning:
+            "The most careful pre-pandemic estimate, from an independent researcher using a comparison-group design, and peer-reviewed. It supports the diversity half of the crux: going test-optional did raise diversity, if modestly. It does not measure the other half, whether these colleges lost the ability to spot talent, and it covers selective private colleges that chose the policy, not the Ivy-Plus schools now reinstating tests, so directness is 6.",
+        },
+        {
+          id: "dartmouth-2029-first-test-required-class",
+          title: "Dartmouth's First Test-Required Class in Five Years (2029) Was Projected at a Record 22% Pell-Eligible",
+          description:
+            "On 27 March 2025 Dartmouth admitted 1,702 of 28,230 applicants to the Class of 2029, 'the first in five years who were required to submit SAT or ACT scores.' The college said 16% are first-generation and 'an estimated 22% of U.S. citizens and permanent residents will qualify for a Pell Grant', adding: 'That initial projection would be a record high for Dartmouth.' It reported that 'Nearly 92% of admitted students have standardized test scores that rank among the top 25% percent of test-takers' at their own high schools. In October 2025 The Dartmouth reported that the college released only geographic and income data for the class and withheld gender and racial or ethnic breakdowns, after the 2023 Students for Fair Admissions ruling.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 4,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Dartmouth News, 'Dartmouth Offers Admission to 1,702 Undergrad Applicants' (27 March 2025); The Dartmouth, 'Dartmouth declines to release full Class of 2029 profile' (17 Oct 2025)",
+          sourceUrl: "https://home.dartmouth.edu/news/2025/03/admissions-class-2029",
+          reasoning:
+            "The first post-reinstatement outcome from the school whose study started the wave, and it cuts against the fear that requiring scores shrinks low-income access. Weighted low: it is the college's own projection for admitted, not enrolled, students; one class at one school; financial aid can move the Pell share independently of testing (the release says 27% will qualify for free tuition); and racial composition, the other diversity measure, was not published.",
+        },
       ],
     },
     {
@@ -134,7 +171,7 @@ export const standardizedTestingDebateData = {
         id: "alternative-assessment-comparison",
         title: "Head-to-Head Comparison of Assessment Methods",
         question:
-          "Are essays and portfolios fairer predictors than tests, or do they favor wealthy families more?",
+          "Are high-school grades, essays and portfolios fairer predictors than tests, or do they favor wealthy families more?",
         description:
           "Rigorously comparing the predictive validity, equity effects, and scalability of standardized tests vs. portfolios, mastery assessments, and holistic review.",
         methodology:
@@ -176,11 +213,29 @@ export const standardizedTestingDebateData = {
             "Credible because the UC system acted against its own faculty task force's recommendation. The earlier framing—that the SAT was simply 'more predictive than GPA for all groups' and that this was 'the largest single-institution analysis ever conducted'—overstated the report: the STTF actually found high school GPA's within-group validity more robust, and the 'largest ever' superlative is unverified. Claim and weights adjusted accordingly.",
         },
         {
+          id: "alvero-essays-track-income",
+          title: "Alvero et al. (2021): In 240,000 UC Admission Essays, Content and Style Tracked Household Income More Closely Than SAT Scores Did",
+          description:
+            "Stanford and UC researchers analyzed about 240,000 admission essays from 60,000 applicants to the University of California in November 2016, measuring content with topic models and style with Linguistic Inquiry and Word Count. In Science Advances they report that 'essay content and style had stronger correlations to self-reported household income than did SAT scores' and that 'essays explained much of the variance in SAT scores.' They conclude that 'college admission protocols should attend to how social class is encoded' in the non-numeric parts of an application.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Alvero, Giebel, Gebre-Medhin, antonio, Stevens & Domingue, 'Essay content and style are strongly related to household income and SAT scores: Evidence from 60,000 undergraduate applications', Science Advances 7(42): eabi9031 (13 Oct 2021)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8514086",
+          reasoning:
+            "A large peer-reviewed study that tests the crux's second half directly: the essay, the main alternative signal, carries at least as much of family income as the test. Directness is 7 rather than higher because it measures correlation with income, not how well essays predict college outcomes, and it covers one system's essays in one year.",
+        },
+        {
           id: "test-prep-industry-advantage",
           title: "Paid Test Prep Is a Multi-Billion-Dollar Market, But Coaching Gains Are Modest",
           description:
             "The US tutoring and test-preparation market is large—industry trackers put the broader sector in the low tens of billions of dollars annually—and high-end SAT/ACT coaching is concentrated among wealthier families. But peer-reviewed research on coaching effects is sobering: a NACAC review by Derek Briggs found average coaching gains of roughly 10-20 points on SAT math and 5-10 points on critical reading, far below the 100+ point gains advertised by prep companies. This is a real but smaller equity concern than prep marketing implies.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,
@@ -191,7 +246,44 @@ export const standardizedTestingDebateData = {
             "Derek Briggs / NACAC, \"Preparation for College Admission Exams\" (2009); industry market-size trackers (IBISWorld, Technavio)",
           sourceUrl: "https://files.eric.ed.gov/fulltext/ED505529.pdf",
           reasoning:
-            "A paid-prep advantage exists, but the prior version of this claim was inflated and unverifiable: the specific '$2.6 billion' figure, the '100-150 point' boost, and the '5x more likely' statistic could not be confirmed against primary sources, and the best peer-reviewed estimate (Briggs/NACAC) finds total coaching gains in the tens of points, not hundreds. Free options like Khan Academy's official SAT prep further narrow the gap. Weights de-inflated and directness lowered because market size does not directly measure score advantage.",
+            "A paid-prep advantage exists, but the prior version of this claim was inflated and unverifiable: the specific '$2.6 billion' figure, the '100-150 point' boost, and the '5x more likely' statistic could not be confirmed against primary sources, and the best peer-reviewed estimate (Briggs/NACAC) finds total coaching gains in the tens of points, not hundreds. Free options like Khan Academy's official SAT prep further narrow the gap. Weights de-inflated and directness lowered because market size does not directly measure score advantage. Filed on the testing side (it was on the skeptics' side until November 2026): its finding is that coaching moves scores by tens of points, which is the proponents' rebuttal to the coaching objection, not evidence for it.",
+        },
+        {
+          id: "allensworth-gpa-vs-act-chicago",
+          title: "Allensworth & Clark (2020): High-School GPA Was Five Times Stronger Than ACT Scores at Predicting College Graduation for 55,084 Chicago Graduates",
+          description:
+            "The University of Chicago Consortium on School Research followed 55,084 Chicago Public Schools graduates of 2006 to 2009 into college. Published in Educational Researcher (January 2020), the study found grades 'five times stronger than their ACT scores at predicting college graduation', and 'the predictive power of GPAs is consistent across high schools', the opposite of the usual worry that an A means different things at different schools. 'At many high schools, they discovered no connection between students' ACT scores and eventual college graduation.' After controlling for background and college characteristics, students with GPAs under 1.5 had around a 20% chance of graduating, against around 80% for GPAs of 3.75 or higher.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Allensworth & Clark, 'High School GPAs and ACT Scores as Predictors of College Completion: Examining Assumptions about Consistency across High Schools', Educational Researcher 49(3) (2020); UChicago News (5 Feb 2020)",
+          sourceUrl: "https://news.uchicago.edu/story/test-scores-dont-stack-gpas-predicting-college-success",
+          reasoning:
+            "A large, independent, peer-reviewed study that goes straight at the common-yardstick defense of tests. It measures graduation, while the Dartmouth and Opportunity Insights findings for tests measure first-year GPA and selective-college outcomes, so the two are not in direct conflict. One urban district, students largely bound for less selective colleges, and grades rather than essays or portfolios, so directness is 6.",
+        },
+        {
+          id: "galla-grades-self-regulation",
+          title: "Galla et al. (2019): Across 47,000 Applicants, High-School Grades Predicted Four-Year Graduation Better Than Test Scores, Because Grades Capture Self-Regulation",
+          description:
+            "Brian Galla (University of Pittsburgh) and colleagues tracked more than 47,300 students who applied to college through an electronic common application in 2009–10, and studied a further 1,600 students of the Class of 2013 from four public schools. In the American Educational Research Journal they report that after controlling for demographics, better high-school grades were more strongly associated with graduating within four years than stronger admissions test scores. Test scores tracked cognitive ability, while 'their grades were more strongly associated with measures of self-control and perseverance' (Education Week's summary). The authors wrote that 'the grades assigned to students by their high school teachers reveal quite a bit about their capacity' to sustain effort toward long-term goals.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Galla et al., 'Why High School Grades Are Better Predictors of On-Time College Graduation Than Are Admissions Test Scores', American Educational Research Journal 56(6) (2019); Education Week (7 May 2019)",
+          sourceUrl:
+            "https://edweek.org/teaching-learning/when-it-comes-to-college-high-school-grades-reveal-more-than-just-academics/2019/05",
+          reasoning:
+            "A second, national sample agreeing with the Chicago result and offering a mechanism. Directness is 5: it compares grades with tests on graduation, not the fairness of essays or portfolios, and it does not address the testing side's point that grades are inflated and not comparable across schools. The self-regulation measures in the smaller study came from questionnaires at four schools. Source is press coverage of the paper.",
         },
       ],
     },

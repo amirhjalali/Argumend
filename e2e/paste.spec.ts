@@ -1,5 +1,8 @@
+import { execFileSync } from "node:child_process";
+import path from "node:path";
 import { expect, test, waitForHydration } from "./fixtures";
 import { PASTE_LIMITS } from "../lib/paste/limits";
+import type { PasteMapMatch } from "../lib/paste/types";
 
 for (const entry of [
   { name: "paste form", path: "/analyze", label: "The argument to read", example: "See an example" },
@@ -162,11 +165,13 @@ test("uncovered family and school arguments stay unmapped while vaccine requirem
   await submit.click();
   const vaccineMap = result.locator('a[href="/topics/vaccine-mandates"]');
   await expect(vaccineMap).toBeVisible();
-  await expect(result.locator('a[href^="/topics/"]')).toHaveCount(1);
-  await expect(page.getByRole("region", { name: "This argument is already mapped" })).toHaveCount(0);
-  await vaccineMap.click();
+  // The paste fits two of the map's cruxes, so their links show too; no other map may appear.
+  await expect(result.locator('a[href^="/topics/"]:not([href^="/topics/vaccine-mandates"])')).toHaveCount(0);
+  // The rewritten vaccine map now matches this paste outright, so the full map result shows.
+  await expect(page.getByRole("region", { name: "This argument is already mapped" })).toBeVisible();
+  await vaccineMap.first().click();
   await expect(page).toHaveURL(/\/topics\/vaccine-mandates$/);
-  await expect(page.getByRole("heading", { level: 1, name: "Are government vaccine mandates a justified public-health measure?" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Should vaccines be mandatory for school and work?" })).toBeVisible();
 });
 
 test("AI-written essays lead to independent learning rather than the achievement gap", async ({ page }) => {
@@ -202,7 +207,7 @@ test("AI equity and teacher-support arguments keep their own cruxes and audited 
     {
       text: "AI tutors could finally give low-income students the personal help wealthy families pay for. Others worry these tools will reach rich schools first and widen achievement gaps.",
       crux: "learning-outcomes",
-      sources: ["https://doi.org/10.3102/0034654315581420", "https://digitalpromise.org/wp-content/uploads/2024/09/SRM-Gates-Khanmigo-Report-Final.pdf"],
+      sources: ["https://blogs.worldbank.org/en/education/From-chalkboards-to-chatbots-Transforming-learning-in-Nigeria", "https://digitalpromise.org/wp-content/uploads/2024/09/SRM-Gates-Khanmigo-Report-Final.pdf"],
     },
     {
       text: "Schools are buying AI tools to reduce teacher workloads. I worry districts will use the savings to replace teachers rather than let them spend more time with students.",
@@ -297,10 +302,11 @@ test("a family-policy argument keeps audited birth-rate evidence without unrelat
   await expect(result.locator('a[href="/topics/declining-birth-rates"]')).toBeVisible();
   await expect(result.locator('a[href="/topics/universal-basic-income"]')).toHaveCount(0);
   await expect(result.locator('a[href="/topics/space-exploration-value"]')).toHaveCount(0);
-  await expect(result.getByRole("link", { name: "Open the map at this crux", exact: true }))
+  // The paste now also fits the doom-loop crux, so the result offers two questions.
+  await expect(result.getByRole("link", { name: "Open the map at the first crux", exact: true }))
     .toHaveAttribute("href", "/topics/declining-birth-rates#crux-choice-theory");
   await expect(result.locator('a[href="https://www.unfpa.org/sites/default/files/pub-pdf/EN_State%20of%20World%20Population%20report%202025.pdf"]')).toBeVisible();
-  await expect(result.locator('a[href="https://doi.org/10.1257/aer.20121607"]')).toBeVisible();
+  await expect(result.locator('a[href="https://www.pewresearch.org/social-trends/2024/07/25/the-experiences-of-u-s-adults-who-dont-have-children/"]')).toBeVisible();
 });
 
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
@@ -369,24 +375,63 @@ test("a focused FOSTA paste surfaces the GAO evidence and opens its question", a
   await expect(entry.locator('a[href="https://www.gao.gov/products/gao-21-385"]')).toBeVisible();
 });
 
+/**
+ * A borrowed card needs a crux with no card on one side, and which live crux
+ * is one-sided changes with every content round (student-debt's, then
+ * tiktok-ban's, both gained their pair). So this test makes one: the live
+ * search runs as usual, and its answer's match is swapped for the match the
+ * paste would get if the selected crux had no "for" card, computed by the
+ * same code (lib/paste/maps.ts, via e2e/borrowedMatch.ts) on the live map
+ * with only those cards taken away. The borrowed card, its question and the
+ * map page it links to are all real.
+ */
+const BORROW_PASTE =
+  "Banning TikTok violates the First Amendment rights of the millions of Americans who use the app to speak and share their views.";
+const REPOINT = "Repoint BORROW_PASTE in e2e/paste.spec.ts to a paste that names a pillar map whose other cruxes have a \"for\" card.";
+
+function borrowedMatch() {
+  const root = path.resolve(__dirname, "..");
+  const output = execFileSync(
+    process.execPath,
+    [path.join(root, "node_modules/tsx/dist/cli.mjs"), path.join(__dirname, "borrowedMatch.ts"), BORROW_PASTE],
+    { cwd: root, encoding: "utf8" },
+  );
+  const { live, forced } = JSON.parse(output.trim().split("\n").at(-1)!) as {
+    live: PasteMapMatch | null;
+    forced: PasteMapMatch | null;
+  };
+  expect(live?.kind, `The paste no longer names a pillar map. ${REPOINT}`).toBe("map");
+  expect(forced?.crux?.href, `Without its "for" cards the crux is no longer the one picked. ${REPOINT}`)
+    .toBe(live!.crux!.href);
+  const match = forced!;
+  const borrowed = match.cards.find((card) => card.crux && card.crux.href !== match.crux!.href);
+  expect(borrowed, `No other crux on ${live!.id} lends a "for" card. ${REPOINT}`).toBeDefined();
+  return { match, borrowed: borrowed!, anchor: borrowed!.crux!.href.split("#")[1] };
+}
+
 test("a borrowed evidence card names its own question and keeps that link in the takeaway", async ({ page }) => {
+  const { match, borrowed, anchor } = borrowedMatch();
   const apiCalls: string[] = [];
   page.on("request", (request) => {
     const path = new URL(request.url()).pathname;
     if (path.startsWith("/api/")) apiCalls.push(`${request.method()} ${path}`);
   });
+  await page.route("**/api/analyze", async (route) => {
+    const response = await route.fetch();
+    const body = await response.json();
+    await route.fulfill({ response, json: { ...body, maps: { ...body.maps, match } } });
+  });
   await page.goto("/analyze");
   const input = page.getByRole("textbox", { name: "The argument to read" });
   await waitForHydration(input);
-  await input.fill("Banning TikTok violates the First Amendment rights of the millions of Americans who use the app to speak and share their views.");
+  await input.fill(BORROW_PASTE);
   await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
   const result = page.getByRole("region", { name: "Result" });
-  const question = "Does foreign-adversary control of a major platform justify action by itself, or must harm be shown first?";
+  const { question, href } = borrowed.crux!;
   const borrowedCard = result.getByText("From another question on this map", { exact: true }).locator("..").locator("..");
-  const borrowedTitle = await borrowedCard.getByRole("heading", { level: 4 }).innerText();
+  await expect(borrowedCard.getByRole("heading", { level: 4 })).toHaveText(borrowed.title);
   await expect(borrowedCard.getByText("From another question on this map", { exact: true })).toBeVisible();
   const origin = borrowedCard.getByRole("link", { name: question, exact: true });
-  const href = "/topics/tiktok-ban#crux-geopolitics-data-sovereignty";
   await expect(origin).toHaveAttribute("href", href);
   const ownCard = result.getByRole("heading", { level: 4 }).locator("..").filter({ hasNotText: "From another question on this map" });
   await expect(ownCard).toHaveCount(1);
@@ -400,11 +445,11 @@ test("a borrowed evidence card names its own question and keeps that link in the
   await expect(preview).toContainText(`Related evidence: ${question} https://argumend.org${href}`);
   await origin.click();
   await expect(page).toHaveURL(new RegExp(`${href}$`));
-  const entry = page.locator("#crux-geopolitics-data-sovereignty");
+  const entry = page.locator(`#${anchor}`);
   await expect(entry.locator(":scope > details")).toHaveAttribute("open", "");
   await expect(entry.locator(":scope > details > summary")).toBeFocused();
   await entry.getByText("Show the evidence on each side and the test", { exact: true }).click();
-  await expect(entry).toContainText(borrowedTitle);
+  await expect(entry).toContainText(borrowed.title);
   await page.getByRole("link", { name: "Paste an argument", exact: true }).first().click();
   await expect(origin).toHaveAttribute("href", href);
   expect(apiCalls).toEqual(["POST /api/analyze"]);

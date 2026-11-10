@@ -9,15 +9,15 @@ export const estateInheritanceTaxData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Of roughly 2.8 million U.S. deaths expected in 2023, only about 4,000 estates, around 0.2%, owed estate tax, for an estimated $24.0 billion. Stepped-up basis, which erases unrealized gains at death, is estimated to cost about $72.5 billion in forgone revenue in 2026. Both sides accept both figures. The fight is over how much of what the estate tax reaches was never taxed in life, and whether the tax is a net gain once avoidance is counted.",
+      "Of roughly 2.8 million U.S. deaths expected in 2023, only about 4,000 estates, under 0.2%, owed estate tax, for an estimated $24.0 billion. Stepped-up basis, which erases unrealized gains at death, is estimated to cost about $72.5 billion in forgone revenue in 2026. Both sides accept both figures. The fight is over how much of what the estate tax reaches was never taxed in life, and whether the tax is a net gain once avoidance is counted.",
     confidence: 92,
     source:
-      "Tax Policy Center Briefing Book, 'Who pays the estate tax?' (2023 figures); Joint Committee on Taxation estimates via Peter G. Peterson Foundation (2026)",
-    sourceUrl: "https://taxpolicycenter.org/briefing-book/who-pays-estate-tax",
+      "Tax Policy Center Briefing Book, 'How many people pay the estate tax?' (2023 figures); Joint Committee on Taxation estimates via Peter G. Peterson Foundation (2026)",
+    sourceUrl: "https://taxpolicycenter.org/briefing-book/how-many-people-pay-estate-tax",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that the estate tax reaches only about 0.2% of deaths and raises modest revenue, that stepped-up basis lets some unrealized gains escape income tax at death, and that the tax induces real avoidance, planning and deathbed transfers that carry a cost.",
+    "Both sides accept that the estate tax reaches under 0.2% of deaths and raises modest revenue, that stepped-up basis lets some unrealized gains escape income tax at death, and that the tax induces real avoidance, planning and deathbed transfers that carry a cost.",
     "They split over how much of the wealth in taxable estates is appreciation that was never taxed during the owner's life, which decides how much weight the 'double taxation' objection carries; and over whether, once avoidance, saving responses and reduced capital-gains lock-in are all counted, the estate tax is a net fiscal and economic gain, and how often it forces the sale of family farms and businesses.",
   ],
   last_updated: "2026-06-16",
@@ -32,7 +32,7 @@ export const estateInheritanceTaxData = {
       skeptic_premise:
         "Taxing an estate is double taxation: the wealth was already taxed when it was earned, so taxing it again at death penalizes thrift and the desire to provide for one's children — a near-universal moral impulse. The 'fairness' framing is contested by the people who feel it: a family that built a business or farm over decades did nothing wrong by wanting to pass it on intact. And because the rich hire lawyers to route assets through dynasty trusts and valuation discounts, the tax often falls hardest on the moderately wealthy who planned least, not the true dynasties it claims to target.",
       proponent_rebuttal:
-        "The estate tax is among the most progressive parts of the US code: only about 0.2% of decedents leave a taxable estate (roughly 4,000 of ~2.8 million deaths in 2023), and the exemption (~$12.92M per person / ~$25.84M per couple in 2023) shields all but the very largest fortunes. A large share of these fortunes is unrealized capital gains that were never taxed during life — so the 'double taxation' objection is often empirically false. Inherited (not self-made) wealth is estimated at roughly 35–45% of total wealth, so taxing very large transfers targets advantage that recipients did nothing to earn, and pushes back on dynastic concentration of opportunity.",
+        "The estate tax is among the most progressive parts of the US code: fewer than 0.2% of decedents leave a taxable estate (roughly 4,000 of ~2.8 million deaths in 2023), and the exemption (~$12.92M per person / ~$25.84M per couple in 2023) shields all but the very largest fortunes. A large share of these fortunes is unrealized capital gains that were never taxed during life — so the 'double taxation' objection is often empirically false. Inherited (not self-made) wealth is estimated at roughly 35–45% of total wealth, so taxing very large transfers targets advantage that recipients did nothing to earn, and pushes back on dynastic concentration of opportunity.",
       crux: {
         id: "share-never-taxed",
         title: "How Much Estate Wealth Was Never Taxed During Life",
@@ -54,7 +54,7 @@ export const estateInheritanceTaxData = {
           skeptic_flip:
             "If decomposition of large estates found much of their value in appreciated assets never sold during life, consistent with stepped-up basis forgoing an estimated ~$72.5B in 2026, about a quarter of capital-gains revenue, the 'double taxation' objection would not fit the fortunes the tax reaches.",
           common_ground:
-            "Both sides agree the estate tax hits only a tiny share of estates (~0.2% of deaths) and that stepped-up basis lets some unrealized gains escape income tax at death; the dispute is how large that never-taxed share is within taxable estates.",
+            "Both sides agree the estate tax hits only a tiny share of estates (under 0.2% of deaths) and that stepped-up basis lets some unrealized gains escape income tax at death; the dispute is how large that never-taxed share is within taxable estates.",
           live_disagreement:
             "The precise fraction of taxable-estate wealth that is unrealized appreciation versus already-taxed basis — resolvable by decomposing Form 706 microdata against the assets' original cost basis, which is not routinely published.",
         },
@@ -62,9 +62,9 @@ export const estateInheritanceTaxData = {
       evidence: [
         {
           id: "few-estates-pay",
-          title: "Only ~0.2% of Estates Owe Any Tax",
+          title: "Fewer Than 0.2% of Deaths Leave a Taxable Estate",
           description:
-            "Of ~2.8 million expected US deaths in 2023, just over 7,100 estate tax returns were filed and only about 4,000 (~0.2% of deaths) were taxable. Estate tax liability totaled an estimated $24.0 billion for 2023.",
+            "Of ~2.8 million expected US deaths in 2023, just over 7,100 estate tax returns were filed and only about 4,000 were taxable, 'less than 0.2 percent of the 2.8 million people expected to die in the year'. Estate tax liability totaled an estimated $24.0 billion for 2023.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -73,8 +73,8 @@ export const estateInheritanceTaxData = {
             directness: 8,
           },
           source:
-            "Tax Policy Center Briefing Book, 'Who pays the estate tax?' (drawing on IRS SOI and TPC estimates), 2023 figures",
-          sourceUrl: "https://taxpolicycenter.org/briefing-book/who-pays-estate-tax",
+            "Tax Policy Center Briefing Book, 'How many people pay the estate tax?' (TPC estimates for 2023 deaths)",
+          sourceUrl: "https://taxpolicycenter.org/briefing-book/how-many-people-pay-estate-tax",
           reasoning:
             "TPC is a respected nonpartisan source whose figures track IRS Statistics of Income microdata. The 'only the very richest pay' point is directly relevant to fairness and is easily replicated from published data; slight markdown for being a secondary aggregation rather than the raw SOI table.",
         },
@@ -82,7 +82,7 @@ export const estateInheritanceTaxData = {
           id: "stepped-up-basis-backstop",
           title: "Stepped-Up Basis Lets Vast Gains Escape Income Tax at Death",
           description:
-            "The stepped-up basis provision resets an inherited asset's tax basis to its market value at death, erasing accumulated unrealized capital gains. The Joint Committee on Taxation estimates this costs ~$72.5 billion in forgone federal revenue in 2026 — about a quarter of all capital-gains tax revenue. The estate tax is widely described as a backstop for this otherwise-untaxed income.",
+            "The stepped-up basis provision resets an inherited asset's tax basis to its market value at death, erasing accumulated unrealized capital gains. The Joint Committee on Taxation estimates this costs ~$72.5 billion in forgone federal revenue in 2026 — about a quarter of all capital-gains tax revenue. Supporters of the estate tax point to these gains as income that otherwise escapes tax entirely.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -120,7 +120,7 @@ export const estateInheritanceTaxData = {
           id: "double-taxation-burden",
           title: "Estate Tax Imposes Compliance Costs and Avoidance Distortions",
           description:
-            "Using estate tax return data, Kopczuk (QJE 2007) documents 'deathbed' tax planning: estates of those who die instantaneously are reported as 10–18% larger than estates of those who suffered a lengthy terminal illness, with onset of terminal illness cutting reported estates 15–20% (illness lasting months–years). This reflects costly avoidance activity rather than genuine wealth, implying real deadweight loss.",
+            "Using estate tax return data, Kopczuk (QJE 2007) finds that 'the onset of a terminal illness leads to a very significant reduction in the value of estates reported on tax returns', 15–20% when the illness lasts 'months to years' and about 5–10% when it lasts 'days to weeks'. Kopczuk shows the drop is not explained by medical costs or lost income but reflects 'deathbed' estate planning; critics of the tax read that planning as avoidance that shrinks the base and consumes real resources.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -175,9 +175,9 @@ export const estateInheritanceTaxData = {
       evidence: [
         {
           id: "lock-in-correction",
-          title: "Estate Tax Mitigates the Capital-Gains 'Lock-In' Distortion",
+          title: "Stepped-Up Basis Drives Capital-Gains 'Lock-In'; Taxing Gains at Death Would Ease It",
           description:
-            "Stepped-up basis is identified as a major driver of the 'lock-in effect' — holding appreciated assets to death purely to avoid capital-gains tax, distorting portfolio choice and liquidity. Taxing wealth transfers (and reforming basis) reduces this distortion, an efficiency gain, not just a cost.",
+            "A Congressional Research Service brief (Gravelle, 2021) says the current treatment of gains at death, where 'the basis is stepped up to the market value at the time of death', is 'viewed as a major reason for the lock-in effect', 'the tendency to hold on to assets to avoid the capital gains tax'. Taxing gains at death, rather than the estate tax as it now stands, is the reform that would ease this distortion; CRS notes 'disagreement about the magnitude of behavioral responses.' Supporters cite it as an efficiency case for taxing wealth at death in some form.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -186,7 +186,7 @@ export const estateInheritanceTaxData = {
             directness: 6,
           },
           source:
-            "Congressional Research Service, 'Tax Treatment of Capital Gains at Death' (IF11812)",
+            "Jane G. Gravelle, Congressional Research Service, 'Tax Treatment of Capital Gains at Death' (IF11812, updated June 2021)",
           sourceUrl: "https://www.congress.gov/crs-product/IF11812",
           reasoning:
             "CRS is nonpartisan and authoritative. The lock-in mechanism is well established in public-finance theory; it directly supports the 'economically sound' claim, though the net efficiency magnitude depends on modeling, so replicability/directness are moderate.",
@@ -212,9 +212,9 @@ export const estateInheritanceTaxData = {
         },
         {
           id: "forced-sales-rare",
-          title: "Forced Liquidation of Farms and Businesses Is Very Rare",
+          title: "Most Farm and Small-Business Estates Could Pay Without Selling (CBO)",
           description:
-            "A 2005 Congressional Budget Office analysis found that the large majority of farm and small-business estates large enough to owe tax held enough liquid assets to pay it without selling the operating business; the Tax Policy Center estimated only ~50 small-farm and small-business estates nationwide would owe any estate tax in 2017, paying under 6% of value on average. Special provisions also allow spreading payment over up to 15 years at low interest.",
+            "A 2005 Congressional Budget Office analysis of 1999–2000 estate tax returns found that 'the vast majority of estates, including those of farmers and small-business owners, had enough liquid assets to pay the estate taxes they owed.' Farm and small-business estates were less likely than average to have enough: in 2000 about 8% (138) of taxable farmers' estates owed more than their liquid assets, against about 5% of all taxable estates, figures CBO calls upper bounds. That was under a filing threshold of $650,000–$675,000; the Tax Policy Center estimates that under the 2023 exemption of $12.92 million no small farm or small business would owe any estate tax. Certain businesses can also spread payments over 15 years.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -223,11 +223,11 @@ export const estateInheritanceTaxData = {
             directness: 7,
           },
           source:
-            "Congressional Budget Office, 'Effects of the Federal Estate Tax on Farms and Small Businesses' (2005); Tax Policy Center estimates as summarized by the Center on Budget and Policy Priorities",
+            "Congressional Budget Office, 'Effects of the Federal Estate Tax on Farms and Small Businesses' (July 2005); Tax Policy Center Briefing Book, 'Who pays the estate tax?' (2023 estimate)",
           sourceUrl:
             "https://www.cbo.gov/sites/default/files/109th-congress-2005-2006/reports/07-06-estatetax.pdf",
           reasoning:
-            "CBO is nonpartisan and authoritative; the liquidity finding is the central empirical rebuttal to the 'forced sale' efficiency objection. The CBPP/TPC small-estate counts are advocacy-summarized but trace to TPC modeling, so independence is high but not maximal.",
+            "CBO is nonpartisan and authoritative; the liquidity finding is the central empirical rebuttal to the 'forced sale' efficiency objection. The 2000 data predate today's far higher exemption, and the TPC zero-small-farm figure is a model estimate, so independence is high but not maximal.",
         },
         {
           id: "farm-bureau-forced-sale",

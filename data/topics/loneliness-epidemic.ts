@@ -2,430 +2,502 @@ import type { TopicInput } from "@/lib/schemas/topic";
 
 export const lonelinessEpidemicData = {
   id: "loneliness-epidemic",
-  title: "Is Loneliness a Public Health Crisis?",
-  question: "Is loneliness a public health crisis?",
+  title: "The Loneliness Epidemic: Real or Overblown?",
+  question: "Is loneliness a public health crisis, or are we medicalizing a normal feeling?",
   meta_claim:
-    "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
+    "Loneliness has become widespread and harmful enough to health that it should be treated as a public health crisis, with governments and institutions acting to reduce it.",
   status: "contested" as const,
   category: "science" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  // As of 3 November 2026: BLS ATUS 2025 results (25 June 2026) put
+  // socializing and communicating at 35 minutes a day, against 41 in 2015;
+  // WHO Commission on Social Connection report (30 June 2025); Gallup on
+  // young US men (20 May 2025); England's Community Life Survey 2023/24
+  // (published 4 December 2024).
+  last_updated: "2026-11-03",
+  aliases: [
+    "Is loneliness a public health crisis?",
+    "Is there really a loneliness epidemic?",
+    "Is loneliness as deadly as smoking 15 cigarettes a day?",
+  ],
+  // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "Across 70 studies and 3.4 million people, social isolation was associated with 29% higher odds of death and loneliness with 26%. When a 2024 study of 476,100 UK Biobank participants used genetic variants to estimate causal effects, loneliness showed potentially causal links for six of the 26 diseases tested. Both findings stand. The fight is over how much of the excess risk loneliness itself causes, and how much it marks people who were already sick or poor.",
-    confidence: 80,
+      "Americans spent an average of 35 minutes a day socializing and communicating in 2025, down from 41 minutes in 2015. Time spent with friends fell from 60 minutes a day in 2003 to 34 in 2019, and to 20 in 2020. In 2023 the US Surgeon General called loneliness an epidemic, and in 2025 the World Health Organization linked it to 871,000 deaths a year. Both sides accept that people spend less time together. The fight is over whether that has made them lonelier, and whether loneliness itself makes people sick.",
+    confidence: 85,
     source:
-      "Holt-Lunstad et al., Perspectives on Psychological Science (2015); Liang et al., Nature Human Behaviour (2024)",
-    sourceUrl: "https://journals.sagepub.com/doi/10.1177/1745691614568352",
+      "Bureau of Labor Statistics, American Time Use Survey 2025 results (25 June 2026); Kannan and Veazie, SSM Population Health (2023); WHO (30 June 2025)",
+    sourceUrl: "https://www.bls.gov/news.release/atus.nr0.htm",
   },
-  // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that socially isolated people die earlier on average, that this group is disproportionately already sick, poor, disabled or depressed, that in-person socializing has measurably declined since the early 2000s while digital tools are a lifeline for the homebound, and that the UK's national loneliness strategy has not yet shown a population-level decline.",
-    "They split over whether loneliness itself causes early death, as the Surgeon General's 2023 advisory warns, or marks existing disadvantage; whether heavy technology use crowds out face-to-face contact or mostly adds to existing relationships; and whether policy like walkable neighborhoods and social prescribing can lower loneliness, or whether culture and individual choice drive it.",
-  ],
-  pillars: [
-    // =========================================================================
-    // PILLAR 1: Health Impact Evidence
-    // =========================================================================
-    {
-      id: "health-impact-evidence",
-      title: "Health Impact Evidence",
-      short_summary:
-        "The US Surgeon General declared loneliness an epidemic in 2023, citing meta-analytic evidence that social isolation increases mortality risk by 26-29%. The widely repeated claim that loneliness equals smoking 15 cigarettes a day comes from Julianne Holt-Lunstad's influential meta-analyses, but critics argue the comparison oversimplifies complex epidemiological data and conflates subjective loneliness with objective social isolation.",
-      icon_name: "AlertTriangle" as const,
-      skeptic_premise:
-        "The '15 cigarettes a day' comparison is a rhetorical device, not a precise epidemiological equivalence. Holt-Lunstad's 2010 meta-analysis combined 148 studies with highly heterogeneous measures of social relationships — from marital status to self-reported loneliness to living arrangements — into a single effect size (OR 1.50 for survival). Smoking 15 cigarettes a day produces a well-characterized dose-response curve through specific carcinogenic and cardiovascular mechanisms. Loneliness operates through diffuse, poorly understood pathways that overlap substantially with depression, poverty, disability, and other confounders. People who are socially isolated are disproportionately those who are already sick, disabled, poor, or suffering from mental illness — conditions that independently increase mortality. The observed association may be substantially driven by reverse causation (illness causes isolation, not isolation causes illness) and residual confounding. Furthermore, subjective loneliness and objective social isolation are different constructs that are only moderately correlated — some people with few social contacts are perfectly content, while some with extensive networks feel profoundly lonely. Treating loneliness as a unitary public health crisis on par with smoking risks medicalizing a normal human emotion and diverting resources from interventions with stronger causal evidence.",
-      proponent_rebuttal:
-        "The evidence for loneliness as a mortality risk factor is among the most robust in social epidemiology. Holt-Lunstad's 2015 meta-analysis — encompassing 70 studies and 3.4 million participants followed for an average of 7 years — found that social isolation increased mortality risk by 29%, loneliness by 26%, and living alone by 32%, after adjusting for baseline health status, depression, socioeconomic factors, and health behaviors. These effect sizes are comparable to well-established risk factors like obesity, physical inactivity, and air pollution. The '15 cigarettes' comparison, while simplified, is directionally accurate: the mortality increase from social isolation (29%) is in the same range as smoking up to 15 cigarettes daily (roughly 25-30% increased mortality). The mechanisms are increasingly well-characterized: chronic loneliness activates the hypothalamic-pituitary-adrenal axis, elevating cortisol and inflammatory markers (IL-6, C-reactive protein), suppresses immune function (reduced natural killer cell activity and impaired wound healing documented by Kiecolt-Glaser), and disrupts sleep architecture. Steve Cole's work on the conserved transcriptional response to adversity (CTRA) shows that social isolation upregulates inflammatory gene expression and downregulates antiviral responses at the cellular level — a molecular signature of threat that accelerates cardiovascular disease and cancer progression. The Surgeon General's advisory was not based on a single study but on decades of converging evidence across epidemiology, neuroscience, immunology, and endocrinology.",
-      crux: {
-        id: "loneliness-mortality-causation",
-        title: "The Loneliness-Mortality Causation Test",
-        question:
-          "Does loneliness itself cause early death, or is it a marker of existing disadvantage?",
-        description:
-          "Whether loneliness and social isolation causally increase mortality risk or primarily reflect confounding by pre-existing illness, disability, and socioeconomic disadvantage. If loneliness independently drives biological pathways (inflammation, immune suppression, cardiovascular stress) that accelerate disease and death, it is a legitimate public health target. If the association is largely explained by reverse causation and residual confounding, interventions targeting loneliness will have minimal health impact.",
-        methodology:
-          "Design a large-scale randomized controlled trial (5,000+ socially isolated older adults) comparing structured social integration interventions (group activities, befriending programs, community hubs) against active controls (health education without social component). Measure primary outcomes: all-cause mortality and cardiovascular events over 5 years. Secondary outcomes: inflammatory biomarkers (CRP, IL-6), cortisol diurnal patterns, immune function (NK cell activity), and validated loneliness scales (UCLA Loneliness Scale). Simultaneously analyze Mendelian randomization studies using genetic variants associated with social isolation tendencies to estimate causal effects independent of confounding.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "A randomized trial in 5,000+ isolated older adults comparing social-integration programs with health education alone on deaths and heart events over five years, read with Mendelian randomization studies.",
-        },
-        cost_to_verify:
-          "$20-40M (5-year RCT with biomarker panel plus parallel Mendelian randomization analyses using existing biobank data)",
-        falsification: {
-          supporter_flip:
-            "If a large RCT of social-integration interventions and converging Mendelian randomization studies showed that reducing isolation produced no drop in mortality, cardiovascular events, or inflammatory biomarkers — and that the observational link was driven by reverse causation and confounding — the 'loneliness kills like smoking' claim would collapse to a correlation, not a causal target.",
-          skeptic_flip:
-            "If Mendelian randomization with stronger instruments, testing all-cause mortality rather than disease incidence, found a loneliness effect, and mechanistic work like Cole's inflammatory gene expression and Kiecolt-Glaser's IL-6 findings replicated, the 2024 genetic null would no longer rule out a causal path.",
-          common_ground:
-            "Both sides agree that socially isolated people die earlier on average, and that this population is disproportionately already sick, poor, disabled, or depressed.",
-          live_disagreement:
-            "How much of the excess mortality is loneliness causally driving versus loneliness being a marker of pre-existing disadvantage — resolvable only by a randomized social-integration trial measuring hard mortality and biomarker endpoints alongside genetic-instrument analyses.",
-        },
-      },
-      evidence: [
-        {
-          id: "holt-lunstad-2015-meta-analysis",
-          title:
-            "Social Isolation Increases Mortality Risk by 29% Across 3.4 Million Participants",
-          description:
-            "Julianne Holt-Lunstad's 2015 meta-analysis published in Perspectives on Psychological Science analyzed 70 prospective studies encompassing over 3.4 million participants. Reported as weighted-average odds ratios, social isolation was associated with a 29% increased likelihood of mortality (OR 1.29), loneliness with a 26% increase (OR 1.26), and living alone with a 32% increase (OR 1.32). The study built on her earlier 2010 meta-analysis of 148 studies and 308,849 participants which found an overall 50% increased likelihood of survival for those with stronger social relationships (OR 1.50). A recognized limitation is that few primary studies fully adjusted for baseline health, leaving room for confounding.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 8,
-          },
-          source: "Perspectives on Psychological Science (SAGE)",
-          sourceUrl:
-            "https://journals.sagepub.com/doi/10.1177/1745691614568352",
-          reasoning:
-            "This is the largest and most frequently cited meta-analysis on social isolation and mortality, published in a high-impact psychology journal. The enormous sample size and consistent effects across diverse populations strengthen the finding. However, as a meta-analysis of observational studies, it cannot establish causation, and the heterogeneity of 'social isolation' measures across included studies introduces measurement uncertainty.",
-        },
-        {
-          id: "surgeon-general-advisory-2023",
-          title:
-            "US Surgeon General Declares Loneliness an Epidemic with Health Risks Rivaling Smoking",
-          description:
-            "In May 2023, US Surgeon General Vivek Murthy issued a formal advisory titled 'Our Epidemic of Loneliness and Isolation,' declaring social disconnection a public health crisis. The 82-page report cited evidence that lacking social connection increases the risk of premature death by 26-29%, comparable to smoking up to 15 cigarettes daily, and greater than the risk posed by obesity and physical inactivity. The advisory reported that approximately half of US adults experience measurable levels of loneliness, with rates highest among young adults aged 18-25. The report called for a national strategy including infrastructure investment, institutional policy changes, and public health campaigns.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "Office of the US Surgeon General",
-          sourceUrl:
-            "https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf",
-          reasoning:
-            "A Surgeon General advisory carries significant institutional authority and reflects a consensus review of existing evidence. However, advisory reports are not peer-reviewed research — they synthesize evidence selectively to support policy recommendations. The '15 cigarettes' comparison has been criticized as more rhetorical than scientific. Independence is somewhat reduced because the Surgeon General's office has a public health advocacy mandate that may lead to framing effects.",
-        },
-        {
-          id: "reverse-causation-confounding",
-          title:
-            "Genetic Evidence Disagrees With Observational Data on Loneliness Causing Disease",
-          description:
-            "A 2024 analysis published in Nature Human Behaviour by Liang et al. examined the loneliness-disease association using UK Biobank data from 476,100 participants over a median 12.2-year follow-up. Observationally, loneliness was associated with greater risk in 13 of 14 disease categories and 30 of 56 individual diseases. However, when the authors applied Mendelian randomization — using genetic variants associated with loneliness to estimate causal effects independent of confounding and reverse causation — genetic liability to loneliness showed a non-causal association for 20 of 26 specific diseases tested, with only six (including depression, sleep apnea, and substance abuse) showing potentially causal links. The authors concluded that loneliness 'may serve as a potential surrogate marker rather than a causal risk factor' for most diseases, implying that observational associations are substantially inflated by confounding (pre-existing illness, disability, socioeconomic disadvantage) and reverse causation.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 8,
-          },
-          source:
-            "Liang et al., 'Observational and genetic evidence disagree on the association between loneliness and risk of multiple diseases', Nature Human Behaviour 8, 2209-2221 (2024), doi:10.1038/s41562-024-01970-0",
-          sourceUrl:
-            "https://www.nature.com/articles/s41562-024-01970-0",
-          reasoning:
-            "Published in a top-tier journal with rigorous methodology using one of the world's largest biobank datasets. The sharp divergence between observational associations and Mendelian randomization estimates — with most disease links failing to replicate under genetic instruments — directly challenges the causal narrative and supports a major confounding/reverse-causation interpretation. However, residual confounding can never be fully eliminated in observational data, and Mendelian randomization for behavioral traits has known limitations including horizontal pleiotropy and weak-instrument bias; the directness score reflects that this study targets disease incidence rather than all-cause mortality directly.",
-        },
-        {
-          id: "inflammatory-biomarker-evidence",
-          title:
-            "Chronic Loneliness Elevates Inflammatory Markers and Suppresses Immune Function",
-          description:
-            "Multiple studies have demonstrated candidate biological pathways linking loneliness to health outcomes. Steve Cole's research on the conserved transcriptional response to adversity (CTRA) showed that socially isolated individuals exhibit upregulated pro-inflammatory gene expression (NF-kB pathway) and downregulated antiviral/antibody gene expression. Kiecolt-Glaser's longitudinal studies found that lonely individuals had elevated levels of inflammatory markers such as IL-6 that predict cardiovascular disease. However, a 2020 systematic review and meta-analysis in Neuroscience & Biobehavioral Reviews (Smith et al.) found a more limited and inconsistent picture: loneliness was significantly associated with IL-6 (in most-adjusted models) but NOT with CRP or fibrinogen, whereas objective social isolation was associated with CRP and fibrinogen. The authors emphasized that methodological heterogeneity strongly affected results, undercutting any clean inflammatory signature of loneliness specifically.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 6,
-            directness: 6,
-          },
-          source:
-            "PNAS (Cole); Psychoneuroendocrinology (Kiecolt-Glaser); Neuroscience & Biobehavioral Reviews (Smith et al., 2020)",
-          sourceUrl:
-            "https://www.pnas.org/doi/10.1073/pnas.0712251105",
-          reasoning:
-            "The biological plausibility evidence is important because it provides mechanistic support for a causal pathway. Cole's CTRA work is particularly compelling as it demonstrates gene-expression-level changes. However, the effect sizes for inflammatory biomarkers are small, and it remains unclear whether these subclinical elevations translate to meaningful disease progression. Many conditions (stress, poor diet, sedentary behavior) produce similar inflammatory profiles, making attribution to loneliness specifically difficult.",
-        },
-      ],
-    },
-
-    // =========================================================================
-    // PILLAR 2: Technology as Cause or Cure
-    // =========================================================================
-    {
-      id: "technology-cause-or-cure",
-      title: "Technology as Cause or Cure",
-      short_summary:
-        "Smartphone adoption and social media use have been blamed for rising loneliness, particularly among young people. Yet digital tools also provide lifelines for geographically isolated, disabled, and marginalized populations who would otherwise have no social connection. Whether technology is a net driver of loneliness or an imperfect but vital tool for connection remains deeply contested.",
-      icon_name: "Zap" as const,
-      skeptic_premise:
-        "The narrative that smartphones and social media 'cause' loneliness is not well-supported by the evidence. Jonathan Haidt's influential argument — that smartphone adoption around 2012 triggered a teen mental health and loneliness crisis — has been challenged by large-scale studies. The Oxford Internet Institute's analysis of 350,000+ adolescents across three datasets found that digital technology use explains only 0.4% of variation in well-being — less than the effect of wearing glasses or eating potatoes. Andrew Przybylski and Amy Orben's specification curve analysis showed that among thousands of possible analytical models, the negative effects of technology use on well-being were trivially small. Moreover, during COVID-19 lockdowns, digital communication was the primary means by which billions of people maintained social connections. Video calls, online communities, gaming platforms, and social media kept relationships alive when in-person contact was impossible. For people with disabilities, chronic illness, social anxiety, or geographic isolation (rural communities, deployed military, expats), digital tools are often the only practical means of social connection. Blaming technology for loneliness risks removing the very tools that vulnerable populations depend on while ignoring structural factors like urban sprawl, work culture, and community disinvestment.",
-      proponent_rebuttal:
-        "The displacement hypothesis is supported by time-use data showing that screen time has directly replaced face-to-face social interaction. The American Time Use Survey shows that time spent socializing in person declined from 6.5 hours per week in 2003 to 3.9 hours per week in 2022 — a 40% decline that tracks almost perfectly with smartphone adoption. Jean Twenge's analysis of Monitoring the Future data from 8.2 million US adolescents found that teens who spend 5+ hours daily on electronic devices are 66% more likely to have at least one risk factor for depression compared to those spending one hour. The Oxford Internet Institute's '0.4%' finding has been criticized for using a cross-sectional design that cannot capture within-person changes over time and for averaging effects across all levels of use — obscuring the fact that heavy users show substantially worse outcomes. Social media platforms are specifically engineered for engagement through intermittent variable reinforcement (likes, notifications), social comparison, and algorithmic amplification of divisive content — design patterns that exploit psychological vulnerabilities rather than foster genuine connection. The platforms' own internal research confirms harm: Facebook's leaked 2019 study found that 32% of teen girls said Instagram made them feel worse about their bodies. Digital connection is qualitatively different from in-person interaction — it lacks physical touch, shared physical experience, and the neurochemical benefits (oxytocin, endorphin release) of face-to-face presence.",
-      crux: {
-        id: "displacement-vs-supplement",
-        title: "The Displacement vs Supplementation Test",
-        question:
-          "Does heavy technology use crowd out face-to-face contact, or mostly add to existing relationships?",
-        description:
-          "Whether digital communication displaces in-person social interaction (net increase in loneliness) or supplements it (net decrease in loneliness for those who would otherwise be isolated). If heavy technology use causally reduces face-to-face interaction and deepens loneliness, platform design regulation is warranted. If technology primarily supplements existing relationships and provides essential connection for isolated populations, restricting access would be counterproductive.",
-        methodology:
-          "Conduct a pre-registered longitudinal study with passive smartphone tracking (app-by-app usage, not self-report) in 10,000+ participants across age groups. Measure in-person social interaction via ecological momentary assessment (random daily prompts) and validated loneliness measures (UCLA-3) at baseline, 6 months, and 12 months. Include subgroup analyses for populations with limited in-person access (rural residents, disabled, elderly homebound). Complement with a randomized experiment reducing social media use by 50% for 4 weeks in 2,000 participants and measuring loneliness, well-being, and in-person social time.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "A pre-registered study of 10,000+ people with passive app-by-app phone tracking, random daily prompts about in-person contact and the UCLA loneliness scale, following the same people over 12 months.",
-        },
-        cost_to_verify:
-          "$5-10M (12-month longitudinal study with passive tracking plus embedded randomized experiment)",
-        falsification: {
-          supporter_flip:
-            "If passive-tracking longitudinal data and a randomized social-media-reduction experiment showed that within-person increases in screen time did NOT reduce face-to-face contact or raise loneliness — and that cutting usage left loneliness unchanged — the 'technology drives loneliness' case would have to retreat to, at most, harm concentrated in a small heavy-use subgroup.",
-          skeptic_flip:
-            "If within-person tracking of heavy users found screen time displacing face-to-face contact, a test the cross-sectional Oxford '0.4% of variance' result could not make, and in-person socializing kept falling after its ~40% drop, displacement would look real despite small average effects.",
-          common_ground:
-            "Both sides agree digital tools are a genuine lifeline for geographically isolated, disabled, and homebound people, and that in-person socializing has measurably declined since the early 2000s.",
-          live_disagreement:
-            "Whether heavy technology use causally displaces face-to-face interaction and deepens loneliness, or mainly supplements existing relationships — answerable only by passive-usage tracking with momentary in-person-contact sampling plus a randomized usage-reduction trial.",
-        },
-      },
-      evidence: [
-        {
-          id: "time-use-decline",
-          title:
-            "In-Person Socializing Declined 40% From 2003 to 2022, Tracking Smartphone Adoption",
-          description:
-            "The American Time Use Survey, conducted annually by the Bureau of Labor Statistics with 26,000+ respondents per year, shows that time spent in face-to-face social interaction declined from approximately 6.5 hours per week in 2003 to 3.9 hours per week in 2022. The steepest decline occurred between 2012 and 2019, corresponding to the period of rapid smartphone and social media adoption. The decline was most pronounced among adults aged 15-24, who reduced in-person socializing by nearly 50%. This occurred even as total communication time (including digital) remained stable or increased, suggesting digital interaction displaced rather than supplemented face-to-face contact.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 7,
-          },
-          source: "Bureau of Labor Statistics, American Time Use Survey",
-          sourceUrl:
-            "https://www.bls.gov/tus/",
-          reasoning:
-            "The ATUS is a gold-standard nationally representative time-use survey with rigorous methodology. The temporal correlation with smartphone adoption is striking. However, correlation does not prove that smartphones caused the decline — other factors (suburbanization, work hours, economic pressures) changed concurrently. The directness score reflects that reduced in-person socializing is a plausible mechanism for increased loneliness but is not a direct measure of loneliness itself.",
-        },
-        {
-          id: "oxford-trivial-effect",
-          title:
-            "Oxford Internet Institute: Technology Explains Only 0.4% of Variation in Adolescent Well-Being",
-          description:
-            "Amy Orben and Andrew Przybylski at the Oxford Internet Institute published a specification curve analysis in Nature Human Behaviour (2019) examining 350,000+ adolescents across three large datasets (Monitoring the Future, Youth Risk Behavior Survey, Millennium Cohort Study). Testing 20,004 possible analytical models, they found that digital technology use was negatively associated with well-being but the effect size was tiny — explaining just 0.4% of variation, comparable to the effect of wearing glasses (negative) or eating potatoes (negative). The authors concluded that singling out screen time as a primary driver of adolescent well-being decline was not supported by the data.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 7,
-          },
-          source: "Nature Human Behaviour (Oxford Internet Institute)",
-          sourceUrl:
-            "https://www.nature.com/articles/s41562-018-0506-1",
-          reasoning:
-            "Published in a top-tier journal with a methodologically innovative approach (specification curve analysis) that guards against selective reporting. The finding directly challenges the technology-causes-loneliness narrative. However, the study used cross-sectional data which cannot capture how within-person changes in technology use affect well-being over time, and averaged effects across all usage levels obscure potential threshold effects at heavy use.",
-        },
-        {
-          id: "covid-digital-lifeline",
-          title:
-            "Digital Tools Maintained Social Connection for Billions During COVID-19 Lockdowns",
-          description:
-            "During the COVID-19 pandemic, digital communication tools became the primary means of social connection for billions of people. Zoom usage increased from 10 million daily meeting participants in December 2019 to 300 million by April 2020. A 2020 study in American Psychologist by Luchetti et al. tracking 1,545 US adults found that, despite unprecedented physical isolation during lockdowns, average loneliness levels did not increase significantly between January and April 2020 — though older adults showed a small increase after social distancing began. For elderly and immunocompromised individuals, telehealth and video calls were often vital social connections. However, other research finds that digital-only social interaction is associated with higher loneliness than mixed digital-and-in-person interaction.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 8,
-          },
-          source: "Luchetti et al., American Psychologist (2020), doi:10.1037/amp0000690",
-          sourceUrl:
-            "https://psycnet.apa.org/doi/10.1037/amp0000690",
-          reasoning:
-            "The COVID-19 period provided a natural experiment testing whether digital tools can mitigate loneliness during extreme physical isolation. The finding that loneliness did not spike as expected during lockdowns, partly due to digital connection, is an important counterpoint. However, the pandemic was an extraordinary context, and what works during forced isolation may not generalize to normal conditions where digital use might displace rather than substitute for in-person interaction.",
-        },
-        {
-          id: "heavy-use-depression-link",
-          title:
-            "Teens Spending 5+ Hours Daily on Devices Are 66% More Likely to Have Depression Risk Factor",
-          description:
-            "Jean Twenge's analysis of Monitoring the Future and YRBSS data from over 500,000 US adolescents (published in Clinical Psychological Science, 2017) found a dose-response relationship between electronic device use and suicide-related outcomes: 48% of teens who spent 5+ hours per day on electronic devices reported at least one suicide-related outcome, versus 28% of those spending less than one hour — a roughly 66% higher relative prevalence of depressive symptoms in the heavy-use group. The association was specific to new media (smartphones, social media) rather than older electronic media (TV, which showed a weaker relationship). A separate Twenge analysis of 8.2 million US adolescents (Journal of Social and Personal Relationships, 2019) found that in-person social interaction declined sharply among teens after 2010, with heavy digital-media users reporting higher loneliness scores.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "Clinical Psychological Science (SAGE)",
-          sourceUrl:
-            "https://journals.sagepub.com/doi/10.1177/2167702617723376",
-          reasoning:
-            "The enormous sample size and dose-response pattern strengthen the finding. However, this is cross-sectional data that cannot establish causation — depressed and lonely teens may seek more screen time as a coping mechanism (reverse causation). Twenge has been criticized for advocacy-driven analysis, and her conclusions are stronger than the cross-sectional design can support. Independence score reflects that Twenge has a public position on this issue that may influence analytical choices.",
-        },
-      ],
-    },
-
-    // =========================================================================
-    // PILLAR 3: Structural vs Individual Problem
-    // =========================================================================
-    {
-      id: "structural-vs-individual",
-      title: "Structural vs Individual Problem",
-      short_summary:
-        "If loneliness is an epidemic, is the cure better urban design, labor policy, and community infrastructure — or is it a cultural and individual-level shift driven by changing values around marriage, religion, and voluntary association? The answer determines whether governments should invest billions in social infrastructure or whether this is an area beyond the reach of policy.",
-      icon_name: "Users" as const,
-      skeptic_premise:
-        "Framing loneliness as a structural policy failure medicalizes and politicizes a fundamentally personal and cultural phenomenon. Loneliness rates have not increased uniformly — they are highest in individualistic Western cultures that deliberately prioritize personal autonomy, geographic mobility, and freedom from obligatory social bonds. Americans moved to suburbs by choice, seeking space, privacy, and independence. Young adults delay marriage and childbearing by choice, reflecting expanded life options. Church attendance has declined because people have chosen secular alternatives. These are not policy failures — they are the predictable consequences of a culture that values individual freedom over communal obligation. Government-funded 'loneliness interventions' — social prescribing programs, community hubs, befriending schemes — have shown modest effects at best. The UK's Ministry for Loneliness, established in 2018, has produced no measurable population-level reduction in loneliness despite significant investment. You cannot engineer belonging through policy when the underlying cultural preference is for autonomy and self-selected relationships. The solution lies in individual choices: joining communities, maintaining friendships, participating in religious or civic organizations — behaviors that policy cannot mandate in a free society.",
-      proponent_rebuttal:
-        "The structural drivers of loneliness are well-documented and eminently addressable through policy. Robert Putnam's research in 'Bowling Alone' and subsequent work demonstrated that social capital declined precipitously from the 1960s onward due to specific structural changes: suburban sprawl that eliminated walkable neighborhoods and incidental social encounters, the shift from single-earner to dual-earner households that eliminated time for community participation, the replacement of local institutions (neighborhood shops, churches, civic clubs) with car-dependent commercial infrastructure, and the erosion of 'third places' — the cafes, parks, libraries, and public squares where unplanned social interaction occurs. These are design choices, not inevitable consequences of freedom. Japanese cities, which are denser and more walkable than American suburbs, have higher rates of incidental social contact despite a culture stereotyped as reserved. Copenhagen's investment in public spaces, cycling infrastructure, and community housing has produced measurably higher social trust and lower loneliness than comparable but car-dependent cities. The strongest evidence comes from workplace policy: countries with shorter work weeks, longer parental leave, and stronger labor protections consistently report lower loneliness — not because policy forces people to socialize, but because it creates the time, energy, and physical spaces in which connection naturally occurs. The choice is not between mandating friendship and doing nothing — it is between designing environments that facilitate connection and continuing to design environments that make it structurally difficult.",
-      crux: {
-        id: "structural-intervention-effectiveness",
-        title: "The Structural Intervention Effectiveness Test",
-        question:
-          "Can policy changes like walkable neighborhoods lower loneliness, or is it driven by culture and choice?",
-        description:
-          "Whether structural changes — urban design, work policy, public space investment, community infrastructure — can measurably reduce population-level loneliness, or whether loneliness is primarily driven by cultural and individual-level factors beyond the reach of policy. If 'social infrastructure' investments (third places, walkable neighborhoods, shorter work weeks) produce measurable reductions in loneliness, structural intervention is justified. If loneliness persists regardless of structural conditions, the problem is cultural and individual.",
-        methodology:
-          "Conduct a natural experiment analysis comparing loneliness levels (measured by validated scales) in cities or countries that have implemented specific structural interventions — walkability improvements, public space investment, four-day work weeks, social prescribing programs — against matched controls that have not. Use difference-in-differences methodology with pre- and post-intervention surveys. Supplement with a cluster-randomized trial in 20+ neighborhoods, randomly assigning half to receive structural social infrastructure investments (community centers, pedestrian zones, programmed public spaces) and measuring loneliness at baseline, 12 months, and 24 months.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "Difference-in-differences comparisons of loneliness scores in cities or countries that invested in walkability, public space, shorter work weeks or social prescribing, against matched places that did not.",
-        },
-        cost_to_verify:
-          "$3-8M (Natural experiment analysis plus cluster-randomized neighborhood intervention study over 2 years)",
-        falsification: {
-          supporter_flip:
-            "If a cluster-randomized trial of social-infrastructure investments (walkability, third places, shorter work weeks) and difference-in-differences analysis of cities that adopted them showed no measurable drop in population-level loneliness — echoing the UK Ministry for Loneliness's flat results after five years — the structural-fix thesis would give way to a cultural/individual explanation policy can't reach.",
-          skeptic_flip:
-            "If a well-funded, at-scale test of built-environment changes, unlike the UK's modest, COVID-hit strategy, cut loneliness, and the 2-3x more incidental contact found in walkable neighborhoods held up, the UK null would no longer count against structural fixes.",
-          common_ground:
-            "Both sides agree the UK's national loneliness strategy produced no detectable population-level decline so far, and that built environment shapes how often people incidentally encounter one another.",
-          live_disagreement:
-            "Whether genuine, well-funded structural changes (walkable density, public space, shorter work weeks) can lower population-level loneliness, or whether it is driven by cultural expectations and individual choices beyond policy's reach — testable only by a cluster-randomized neighborhood trial and natural experiments with validated loneliness measures.",
-        },
-      },
-      evidence: [
-        {
-          id: "putnam-social-capital-decline",
-          title:
-            "Social Capital Has Declined Steadily Since the 1960s Due to Structural Changes",
-          description:
-            "Robert Putnam's landmark research, beginning with 'Bowling Alone' (2000) and updated through the Social Capital Project, documented that civic participation, organizational membership, informal socializing, and social trust all declined dramatically in the US from the 1960s onward. Membership in civic organizations fell by 50-60%, dinner party hosting declined by 45%, and time spent in informal socializing dropped by over one-third. Putnam attributed roughly 10% of the decline to suburban sprawl and commuting time, 10% to time and money pressures (dual-earner households), 25% to electronic entertainment (television initially), and 50% to generational change — each successive cohort joining fewer organizations than the previous one.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 7,
-          },
-          source:
-            "Robert D. Putnam, 'Bowling Alone: The Collapse and Revival of American Community' (Simon & Schuster, Revised and Updated edition)",
-          sourceUrl:
-            "https://www.simonandschuster.com/books/Bowling-Alone-Revised-and-Updated/Robert-D-Putnam/9781982130848",
-          reasoning:
-            "Putnam's work is the foundational text on social capital decline and has been extensively peer-reviewed and debated. The structural factors he identified (sprawl, commuting, work pressures) are actionable through policy. However, his finding that 50% of the decline is attributable to generational value change undercuts the purely structural argument. The data is also now 25+ years old, and the social landscape has changed considerably since initial publication.",
-        },
-        {
-          id: "uk-loneliness-ministry",
-          title:
-            "UK Ministry for Loneliness Produced No Measurable Population-Level Impact After 5 Years",
-          description:
-            "In January 2018, the UK appointed the world's first Minister for Loneliness, following a Jo Cox Commission report that found 9 million Britons were 'often or always lonely.' The government committed to a cross-departmental loneliness strategy including social prescribing programs (GPs referring patients to community activities), a loneliness measurement framework in national surveys, and community infrastructure investment. By 2023, evaluations showed that while individual social prescribing programs produced modest improvements for participants, population-level loneliness measures had not declined — and had worsened during COVID-19. The Community Life Survey found that chronic loneliness remained at 6-7% of the adult population, statistically unchanged from pre-strategy levels.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 9,
-          },
-          source:
-            "UK Department for Digital, Culture, Media & Sport; Community Life Survey",
-          sourceUrl:
-            "https://www.gov.uk/government/collections/community-life-survey--2",
-          reasoning:
-            "The UK experiment is the most direct test of whether government-led structural intervention can reduce population-level loneliness. The null result after 5 years is significant and directly challenges the structural intervention thesis. However, the strategy's implementation was limited (modest funding, no urban design changes), disrupted by COVID-19, and evaluated over a relatively short period. Proponents argue it tested social prescribing at small scale, not the comprehensive structural changes they advocate.",
-        },
-        {
-          id: "walkability-social-contact",
-          title:
-            "Residents of Walkable Neighborhoods Report More Social Connection Than Residents of Car-Dependent Suburbs",
-          description:
-            "Urban planning research links neighborhood walkability to social contact and community belonging. In a household survey across neighborhoods of Galway, Ireland, ranging from traditional mixed-use, pedestrian-oriented designs to modern car-dependent suburban subdivisions, Kevin Leyden found that residents of walkable, mixed-use neighborhoods had higher levels of social capital: they were more likely to know their neighbors, participate politically, trust others, and be socially engaged. Leyden concluded that walkable, mixed-use designs can encourage the development of social capital, the kind of everyday contact advocates say structural policy could restore.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 6,
-            directness: 6,
-          },
-          source:
-            "Leyden, \"Social capital and the built environment: the importance of walkable neighborhoods,\" American Journal of Public Health (2003)",
-          sourceUrl: "https://doi.org/10.2105/AJPH.93.9.1546",
-          reasoning:
-            "The study is peer-reviewed and directly compares neighborhood designs. However, it is a single cross-sectional survey in one city, and self-selection bias is a major concern: people who value social contact may choose walkable neighborhoods, producing the observed correlation without walkability being the cause. Directness is limited because social capital and incidental contact are not the same as relief from deep loneliness — casual encounters and meaningful belonging are different constructs.",
-        },
-        {
-          id: "cultural-variation-loneliness",
-          title:
-            "Loneliness Rates Vary Dramatically by Culture, Suggesting Individual and Cultural Drivers",
-          description:
-            "Cross-national surveys reveal substantial variation in loneliness that does not track simply with urbanization or technology adoption. A 2022 systematic review and meta-analysis in The BMJ (Surkalim et al.), covering 113 countries and territories, found wide geographical variation in problematic loneliness — for older adults, prevalence ranged from roughly 5% in northern European countries to over 21% in eastern European countries — with no consistent relationship to GDP, urbanization rate, or internet penetration, and major data gaps in low- and middle-income countries. Collectivist cultures (East Asia, Southern Europe) do not consistently show lower loneliness than individualist cultures. This suggests that loneliness is driven substantially by the gap between expected and actual social connection — a psychological variable shaped by cultural norms — rather than purely by structural features of the built environment.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 7,
-          },
-          source:
-            "Surkalim et al., 'The prevalence of loneliness across 113 countries: systematic review and meta-analysis', The BMJ (2022), doi:10.1136/bmj-2021-067068",
-          sourceUrl:
-            "https://doi.org/10.1136/bmj-2021-067068",
-          reasoning:
-            "Cross-national comparisons using validated loneliness measures provide important context that challenges simplistic structural explanations. The finding that loneliness varies several-fold across countries without tracking GDP, urbanization, or internet penetration suggests cultural expectations and social norms matter more than urban design alone. However, cross-cultural loneliness comparisons are complicated by measurement issues — validated scales may not capture the same construct across cultures, response biases vary by cultural context, and the BMJ review itself flags substantial data gaps in low- and middle-income countries.",
-        },
-      ],
-    },
+    "The answer decides whether doctors screen for loneliness, whether cities fund clubs, libraries and parks as health spending, and whether lawmakers treat social media as a threat to public health.",
+    "It is a live choice. England has had a minister for loneliness since 2018, the WHO set up a commission on social connection, and in May 2025 Gallup found a quarter of American men aged 15 to 34 had felt lonely for a lot of the previous day.",
   ],
   references: [
+    {
+      title: "Bureau of Labor Statistics, American Time Use Survey: 2025 Results (June 2026)",
+      url: "https://www.bls.gov/news.release/atus.nr0.htm",
+    },
+    {
+      title:
+        "Kannan and Veazie, 'US trends in social isolation, social engagement, and companionship, 2003-2020', SSM Population Health 21 (2023)",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9811250/",
+    },
     {
       title:
         "Our Epidemic of Loneliness and Isolation: The US Surgeon General's Advisory on the Healing Effects of Social Connection and Community (2023)",
       url: "https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf",
     },
     {
+      title: "WHO, 'Social connection linked to improved health and reduced risk of early death' (30 June 2025)",
+      url: "https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death",
+    },
+    {
+      title: "Esteban Ortiz-Ospina, 'Is there a loneliness epidemic?', Our World in Data (2019)",
+      url: "https://ourworldindata.org/loneliness-epidemic",
+    },
+    {
       title:
-        "Loneliness and Social Isolation as Risk Factors for Mortality: A Meta-Analytic Review — Holt-Lunstad et al., Perspectives on Psychological Science (2015)",
+        "Loneliness and Social Isolation as Risk Factors for Mortality: A Meta-Analytic Review, Holt-Lunstad et al., Perspectives on Psychological Science (2015)",
       url: "https://journals.sagepub.com/doi/10.1177/1745691614568352",
     },
     {
-      title:
-        "The Association Between Loneliness and Inflammation: A Systematic Review and Meta-Analysis — Neuroscience & Biobehavioral Reviews (2021)",
-      url: "https://www.sciencedirect.com/science/article/pii/S0149763421002463",
+      title: "Allcott, Braghieri, Eichmeyer and Gentzkow, 'The Welfare Effects of Social Media', American Economic Review (2020)",
+      url: "https://www.aeaweb.org/articles?id=10.1257/aer.20190658",
     },
   ],
-  questions: [
+  pillars: [
+    // =========================================================================
+    // PILLAR 1: Are people lonelier, or only more alone?
+    // =========================================================================
     {
-      id: "q1",
-      title:
-        "Is the '15 cigarettes a day' comparison scientifically valid or misleading?",
-      content:
-        "The Surgeon General's headline claim — that loneliness is as deadly as smoking 15 cigarettes a day — comes from Holt-Lunstad's meta-analyses showing a 26-29% increased mortality risk from social isolation. The comparison to smoking is based on approximate equivalence of relative risk magnitudes. But smoking produces harm through specific, well-characterized biological mechanisms with a clear dose-response curve, while loneliness operates through diffuse, poorly understood pathways that overlap with depression, poverty, and pre-existing illness. Critics argue that equating a complex psychosocial state with a discrete behavioral exposure trivializes the certainty of smoking harms and overstates the certainty of loneliness harms. Is this comparison a useful public health communication tool or a dangerous oversimplification?",
+      id: "loneliness-trend",
+      title: "Are We Lonelier, or Just More Alone?",
+      short_summary:
+        "Americans spend less time with friends than they did 20 years ago and more time alone. About one in five adults says they feel lonely. But studies that ask the same loneliness questions across generations have found little sign of a rise. Whether there is an epidemic at all, or a change in how people spend their time, is the first split.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "Time alone is not the same as loneliness, and the best long-run data show no clear rise in loneliness itself. Reviewing the studies that asked the same questions over decades, Esteban Ortiz-Ospina of Our World in Data found 'surprisingly no empirical support for the fact that loneliness is increasing': US high-school seniors in newer generations were not lonelier than earlier ones, and older adults in the US, Finland, Germany, England and Sweden showed little or no rise. In England, the share of adults who feel lonely often or always stayed between 5% and 6% from 2013/14 to 2021/22. People live alone, marry later and spend evenings on screens because they choose to, and many are content. Calling that an epidemic turns a change in habits into a disease.",
+      proponent_rebuttal:
+        "The decline in time together is large, measured and recent. In the American Time Use Survey, which records what people did hour by hour, time spent with friends fell from 60 minutes a day in 2003 to 34 in 2019 and 20 in 2020, while time alone rose from 285 to 333 minutes a day. In 2025 Americans averaged 35 minutes a day socializing and communicating, down from 41 in 2015. One in five US adults, 21%, said they felt lonely in a 2024 Harvard survey, and a quarter of American men aged 15 to 34 said they felt lonely a lot of the previous day, against a median of 15% for young men across the OECD. Many of the trend studies the skeptics cite stop before smartphones spread, and they cover older adults most. Young people, where the change is sharpest, are the ones least studied over time.",
+      crux: {
+        id: "loneliness-trend-measured",
+        title: "The Trend Test",
+        question:
+          "Do people report more loneliness than past generations did, or only spend more time alone?",
+        description:
+          "Time-use diaries show less time with friends and more time alone. Loneliness is a feeling, measured by asking people. The test is whether the same loneliness questions, asked of the same age groups over decades, show a rise, especially among young adults since the early 2010s.",
+        methodology:
+          "Compare validated loneliness scales asked in identical form across survey waves, by age group, from the 1990s to the 2020s, alongside time-use data for the same years. Check whether time alone predicts loneliness within the same people over time.",
+        verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Identical loneliness questions asked in national surveys of young adults from the 1990s through the 2020s, read alongside American Time Use Survey diaries for the same years and age groups.",
+        },
+        cost_to_verify: "$100K (Existing survey and time-use data)",
+        falsification: {
+          supporter_flip:
+            "If identical loneliness questions asked of young adults since the 1990s showed no rise through the 2020s, despite the fall in time with friends, the case that there is a loneliness epidemic would weaken.",
+          skeptic_flip:
+            "If those surveys showed loneliness among young adults rising from the early 2010s, tracking the fall in time with friends in the time-use diaries, the view that the epidemic is a change in habits rather than in feelings would be hard to hold.",
+          common_ground:
+            "Both sides agree Americans spend less time with friends and more time alone than in 2003, and that around one in five adults says they feel lonely.",
+          live_disagreement:
+            "Whether less time together has made people lonelier, or whether many people are alone by choice and content, so that the trend is a change in habits rather than a rise in suffering.",
+        },
+      },
+      evidence: [
+        {
+          id: "time-use-decline",
+          title: "Time-Use Diaries: Time With Friends Fell From 60 Minutes a Day in 2003 to 34 in 2019",
+          description:
+            "Using the American Time Use Survey, Viji Diane Kannan and Peter Veazie found average time spent socially engaged with friends fell from 60 minutes a day in 2003 to 34 in 2019, and to 20 in 2020. Time alone rose from 285 to 309 minutes a day between 2003 and 2019, and reached 333 in 2020. The Bureau of Labor Statistics' 2025 results put time spent socializing and communicating at 35 minutes a day, against 41 in 2015.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 5,
+          },
+          source:
+            "Kannan and Veazie, SSM Population Health 21:101331 (2023); BLS, American Time Use Survey 2025 Results (25 June 2026)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9811250/",
+          reasoning:
+            "Diary data from a large federal survey are the most reliable measure of how people spend their time. They measure time, not feelings: someone alone for an evening may not be lonely, and 2020 was distorted by the pandemic.",
+        },
+        {
+          id: "harvard-mcc-loneliness-2024",
+          title: "Harvard 2024 Survey: 21% of US Adults Feel Lonely",
+          description:
+            "A nationally representative survey for Harvard's Making Caring Common project, fielded in May 2024, found 21% of US adults feel lonely. Respondents most often blamed technology (73%), families not spending enough time together (66%) and overwork or exhaustion (62%). Lonely adults were much more likely to report anxiety or depression (81%).",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Making Caring Common, Harvard Graduate School of Education, 'Loneliness in America: Just the Tip of the Iceberg?' (2024)",
+          sourceUrl: "https://mcc.gse.harvard.edu/reports/loneliness-in-america-2024",
+          reasoning:
+            "A current measure of how many people feel lonely. It is one survey with no earlier wave to compare, so it shows a level, not a trend, and what respondents blame is opinion.",
+        },
+        {
+          id: "owid-no-rising-trend",
+          title: "Our World in Data: Repeated Surveys Show No Clear Rise in Loneliness Across Generations",
+          description:
+            "Reviewing studies that compared generations using the same questions, Esteban Ortiz-Ospina found 'surprisingly no empirical support for the fact that loneliness is increasing.' Newer generations of US high-school seniors were not more likely to report loneliness than earlier ones; US older adults showed little difference across generations; and repeated surveys of Swedes aged 85 to 95 found no rise over ten years, with similar results in Finland, Germany and England. He called headlines about a loneliness epidemic 'wrong and unhelpful'.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Esteban Ortiz-Ospina, 'Is there a loneliness epidemic?', Our World in Data (2019)",
+          sourceUrl: "https://ourworldindata.org/loneliness-epidemic",
+          reasoning:
+            "The strongest case that feelings of loneliness have not risen, built on studies that use like-for-like questions. It was written in 2019, the studies it reviews mostly end before the smartphone years, and most cover older adults rather than the young.",
+        },
+        {
+          id: "uk-chronic-loneliness-stable",
+          title: "England's Community Life Survey: Chronic Loneliness Stayed Between 5% and 6% for Eight Years, Then 7%",
+          description:
+            "Between 2013/14 and 2021/22 the share of adults in England who felt lonely often or always stayed roughly between 5% and 6%. In 2023/24 it was 7%, about 3.1 million people, one point above 2021/22. Adults aged 16 to 24 had the highest rate, 10%.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "UK Department for Culture, Media and Sport, Community Life Survey 2023/24: Loneliness and support networks (4 December 2024)",
+          sourceUrl: "https://www.gov.uk/government/statistics/community-life-survey-202324-annual-publication/community-life-survey-202324-loneliness-and-support-networks--2",
+          reasoning:
+            "An official series with the same question each year shows a flat rate for most of a decade, not a surge. The latest year is the highest in the series and young adults are well above average, so it also gives the other side something.",
+        },
+      ],
     },
+
+    // =========================================================================
+    // PILLAR 2: Does loneliness make people sick?
+    // =========================================================================
     {
-      id: "q2",
-      title:
-        "Should social media be regulated as a driver of loneliness, or protected as a lifeline for the isolated?",
-      content:
-        "Time spent socializing in person has declined 40% since 2003, tracking smartphone adoption. Heavy social media users show higher loneliness and depression. But during COVID-19, digital tools were the primary means of social connection for billions, and for disabled, rural, and elderly populations, online communities may be the only accessible form of social participation. Platform design — engagement-maximizing algorithms, social comparison features, intermittent reinforcement through likes — may be the real problem rather than digital connection per se. Should regulation target specific design patterns while preserving access, or is the displacement of in-person interaction an inherent feature of the medium?",
+      id: "health-impact-evidence",
+      title: "Does Loneliness Make People Sick?",
+      short_summary:
+        "Lonely and isolated people die earlier: about 26% to 29% higher odds across 70 studies. That is where the '15 cigarettes a day' line comes from. But lonely people are also more often sick, poor or depressed in the first place, and a 2024 genetic study found loneliness looked causal for only six of 26 diseases. Whether loneliness itself does the harm is the second split.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "Loneliness travels with illness, poverty and depression, so its link to early death is mostly a marker, not a cause. People who are sick, disabled or depressed see fewer people. In a 2024 study of 476,100 UK Biobank participants, loneliness was linked to 30 of 56 diseases in the ordinary data, but when the authors used genetic variants to test cause and effect, only six of 26 diseases showed a potentially causal link, among them depression and sleep apnoea. They concluded loneliness 'may serve as a potential surrogate marker rather than a causal risk factor' for most diseases. The '15 cigarettes a day' comparison sets a feeling beside a toxin whose harm runs through known chemistry. Treating loneliness as a disease risks spending health money on befriending schemes instead of the illnesses that cause both.",
+      proponent_rebuttal:
+        "The link between social connection and survival is one of the most consistent in public health. Across 148 studies and 308,849 people, Julianne Holt-Lunstad found people with stronger social relationships had a 50% higher likelihood of survival, an effect she called 'comparable with quitting smoking.' Her 2015 review of 70 studies and 3.4 million people found isolation raised the odds of death by 29% and loneliness by 26%. Many of those studies adjusted for baseline health, depression and income, and the link held. In June 2025 the World Health Organization's Commission on Social Connection linked loneliness to about 871,000 deaths a year, roughly 100 every hour. Genetic studies of a trait as tangled as loneliness have weak instruments, and the 2024 study tested disease onset, not death.",
+      crux: {
+        id: "loneliness-mortality-causation",
+        title: "The Cause-or-Marker Test",
+        question:
+          "Does loneliness itself cause illness and early death, or does it mark people who were already sick or poor?",
+        description:
+          "Lonely people die earlier on average. The test is whether reducing loneliness, with everything else held equal, changes health outcomes, or whether the link disappears once prior illness, disability and poverty are accounted for.",
+        methodology:
+          "A large randomized trial of programs that reduce loneliness in isolated older adults, measuring heart events and deaths over five years, alongside genetic studies with stronger instruments that test all-cause mortality rather than disease onset.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial in 5,000 or more isolated older adults comparing a program that measurably cuts loneliness with health education alone, counting heart attacks, strokes and deaths over five years.",
+        },
+        cost_to_verify: "$20-40M (Five-year randomized trial plus biobank analyses)",
+        falsification: {
+          supporter_flip:
+            "If a large trial cut loneliness in isolated older adults but left heart events and deaths unchanged, and genetic studies of mortality also found no causal effect, the case that loneliness is a health hazard in its own right would weaken.",
+          skeptic_flip:
+            "If people randomly assigned to a program that cut loneliness had fewer heart events and deaths than the control group, the view that loneliness is only a marker of other problems would be hard to hold.",
+          common_ground:
+            "Both sides agree that lonely and isolated people die earlier on average, and that they are more often sick, poor, disabled or depressed in the first place.",
+          live_disagreement:
+            "How much of the extra risk loneliness itself causes, and so whether money spent reducing loneliness buys better health or only better company.",
+        },
+      },
+      evidence: [
+        {
+          id: "holt-lunstad-2015-meta-analysis",
+          title: "Holt-Lunstad 2015: Isolation Raised the Odds of Death 29% and Loneliness 26%, Across 3.4 Million People",
+          description:
+            "A meta-analysis of 70 prospective studies with more than 3.4 million participants, followed for an average of seven years, found social isolation associated with 29% higher odds of death, loneliness with 26% and living alone with 32%. Holt-Lunstad's 2010 review of 148 studies and 308,849 participants had found a 50% higher likelihood of survival for people with stronger social relationships, an effect 'comparable with quitting smoking.'",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source:
+            "Holt-Lunstad et al., Perspectives on Psychological Science 10(2) (2015); Holt-Lunstad, Smith and Layton, PLOS Medicine (2010)",
+          sourceUrl: "https://journals.sagepub.com/doi/10.1177/1745691614568352",
+          reasoning:
+            "The largest body of evidence on the question, and the basis of the Surgeon General's warning. The studies are observational, they measure isolation and loneliness in many different ways, and adjustment for prior health varies, so they cannot show cause.",
+        },
+        {
+          id: "who-commission-2025",
+          title: "WHO Commission, June 2025: Loneliness Linked to About 871,000 Deaths a Year",
+          description:
+            "The WHO Commission on Social Connection reported that 1 in 6 people worldwide is affected by loneliness and that loneliness is linked to an estimated 100 deaths every hour, more than 871,000 a year. Between 17% and 21% of people aged 13 to 29 reported feeling lonely, with the highest rates among teenagers.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "World Health Organization, news release on the WHO Commission on Social Connection report (30 June 2025)",
+          sourceUrl: "https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death",
+          reasoning:
+            "Shows how seriously global health bodies now treat loneliness. The death toll is a modelled estimate built on the same observational studies, so it inherits their uncertainty about cause.",
+        },
+        {
+          id: "surgeon-general-advisory-2023",
+          title: "US Surgeon General, May 2023: 'Our Epidemic of Loneliness and Isolation'",
+          description:
+            "In May 2023 Surgeon General Vivek Murthy issued an advisory titled 'Our Epidemic of Loneliness and Isolation,' warning that lacking social connection raises the risk of premature death by a margin comparable to smoking up to 15 cigarettes a day, and calling for a national strategy to rebuild social connection.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "Office of the US Surgeon General (2023)",
+          sourceUrl: "https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf",
+          reasoning:
+            "An official advisory carries weight and put the issue on the national agenda. It is a summary of existing studies written to drive policy, not new evidence, and its smoking comparison is a communication device.",
+        },
+        {
+          id: "reverse-causation-confounding",
+          title: "Liang et al. 2024: Genetic Tests Found Loneliness Potentially Causal for Only 6 of 26 Diseases",
+          description:
+            "Using UK Biobank data on 476,100 people followed for a median 12.2 years, the authors found loneliness associated with higher risk in 30 of 56 diseases in ordinary observational analysis. Mendelian randomization, which uses genetic variants to estimate cause and effect, found potentially causal links for only six of 26 diseases tested, including depression, sleep apnoea and substance use. The authors concluded loneliness 'may serve as a potential surrogate marker rather than a causal risk factor' for most diseases.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source:
+            "Liang et al., 'Observational and genetic evidence disagree on the association between loneliness and risk of multiple diseases', Nature Human Behaviour 8, 2209-2221 (2024)",
+          sourceUrl: "https://www.nature.com/articles/s41562-024-01970-0",
+          reasoning:
+            "The best test so far of whether the association is causal, and it cuts the list sharply. Genetic instruments for a behaviour are weak and can act through other traits, and the study measured disease onset, not deaths.",
+        },
+      ],
     },
+
+    // =========================================================================
+    // PILLAR 3: Do phones and social media drive it?
+    // =========================================================================
     {
-      id: "q3",
-      title:
-        "Can governments actually reduce loneliness, or is this beyond the reach of policy?",
-      content:
-        "The UK created the world's first Ministry for Loneliness in 2018, but five years later, population-level loneliness measures have not improved. Social prescribing programs show modest individual benefits but no systemic impact. Yet urban planning research shows walkable neighborhoods produce 2-3x more social interaction, and countries with shorter work weeks report lower loneliness. The question is whether loneliness is a structural problem amenable to infrastructure and policy solutions — better public spaces, shorter work hours, mixed-use neighborhoods — or a cultural and psychological phenomenon driven by values around autonomy, mobility, and personal choice that no policy can override.",
+      id: "technology-cause-or-cure",
+      title: "Are Phones and Social Media to Blame?",
+      short_summary:
+        "When researchers paid people to quit Facebook for a month, they spent more time with friends and family and felt slightly better. Yet across 350,000 teenagers, screen use explained 0.4% of the variation in well-being. Whether screens crowd out time together, or mostly add to it, is the third split.",
+      icon_name: "Zap" as const,
+      skeptic_premise:
+        "Screens explain very little of how people feel, and for many isolated people they are the connection. Amy Orben and Andrew Przybylski tested more than 20,000 ways of analysing data on over 350,000 adolescents and found digital technology use explained at most 0.4% of the variation in well-being, about as much as eating potatoes. When lockdowns cut people off in 2020, a study tracking 1,545 US adults found no significant overall rise in loneliness. For people who are disabled, housebound or far from family, online contact is often the only kind they can get. Blaming platforms risks taking away a lifeline while ignoring work hours, commutes and the loss of places to meet.",
+      proponent_rebuttal:
+        "The best experiment points to displacement. In a randomized trial by economists Hunt Allcott, Luca Braghieri, Sarah Eichmeyer and Matthew Gentzkow, people paid to deactivate Facebook for four weeks before the 2018 midterms spent more time offline, including socializing with family and friends, reported higher well-being, and used Facebook less afterwards. Time with friends in the US time-use survey fell by 26 minutes a day between 2003 and 2019, and 73% of Americans in a 2024 Harvard survey named technology as a cause of loneliness. The 0.4% figure averages light and heavy users and comes from snapshots, not from people followed over time. Platforms are built to hold attention, and every hour spent scrolling alone is an hour not spent with someone.",
+      crux: {
+        id: "displacement-vs-supplement",
+        title: "The Displacement Test",
+        question:
+          "Does heavy social media use crowd out time with people in person, or mostly add to existing friendships?",
+        description:
+          "Screens could replace time with people, or fill time that would have been spent alone anyway. The test is what happens to in-person contact and loneliness when people use social media less, chosen at random rather than by the user.",
+        methodology:
+          "Randomized trials that cut social media use for weeks or months, measured by phone logs rather than self-report, counting in-person contact through daily prompts and loneliness on validated scales, with results reported separately for teenagers, young adults and housebound people.",
+        verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Randomized trials that cut teenagers' and young adults' social media use for three months or longer, logged by phone rather than self-report, counting in-person contact with daily prompts and measuring loneliness on the UCLA scale.",
+        },
+        cost_to_verify: "$5-10M (Multi-site randomized trial with phone logging)",
+        falsification: {
+          supporter_flip:
+            "If longer randomized trials that cut young people's social media use left their in-person contact and loneliness unchanged, the case that technology is driving loneliness would weaken.",
+          skeptic_flip:
+            "If such trials repeated the Facebook deactivation result at larger scale and over months, with more in-person contact and less loneliness, the view that screens mostly add to friendships would be hard to hold.",
+          common_ground:
+            "Both sides agree that time with friends has fallen since 2003, and that online contact is a real lifeline for housebound, disabled and isolated people.",
+          live_disagreement:
+            "Whether screens took the place of time together or filled a gap left by other changes, and whether the answer differs for teenagers and for the isolated.",
+        },
+      },
+      evidence: [
+        {
+          id: "allcott-facebook-deactivation",
+          title: "Allcott et al. 2020: Quitting Facebook for Four Weeks Raised Time With Family and Friends and Well-Being",
+          description:
+            "In a randomized experiment, deactivating Facebook for the four weeks before the 2018 US midterm election reduced online activity while increasing offline activities such as watching TV alone and socializing with family and friends. It also reduced news knowledge and political polarization, increased subjective well-being, and caused a large, lasting reduction in Facebook use after the experiment.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Allcott, Braghieri, Eichmeyer and Gentzkow, 'The Welfare Effects of Social Media', American Economic Review 110(3), 629-76 (2020)",
+          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20190658",
+          reasoning:
+            "A randomized test of the displacement question, published in a leading journal. It covers adult Facebook users for four weeks, measures well-being rather than loneliness directly, and the freed time also went to watching TV alone.",
+        },
+        {
+          id: "oxford-trivial-effect",
+          title: "Orben and Przybylski 2019: Screen Use Explains 0.4% of Teenagers' Well-Being, About as Much as Eating Potatoes",
+          description:
+            "Testing more than 20,000 possible analyses of three large datasets covering over 350,000 adolescents in the US and UK, the Oxford researchers found digital technology use was negatively associated with well-being, but the association explained at most 0.4% of the variation, about the same as the link with eating potatoes.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "Amy Orben and Andrew Przybylski, Nature Human Behaviour 3, 173-182 (2019)",
+          sourceUrl: "https://www.nature.com/articles/s41562-018-0506-1",
+          reasoning:
+            "A careful guard against cherry-picked analyses that finds a tiny average effect. The data are snapshots, they average light and heavy use, and they measure well-being in general rather than loneliness or time with friends.",
+        },
+        {
+          id: "covid-digital-lifeline",
+          title: "Luchetti et al. 2020: No Significant Rise in Loneliness in Early Lockdown Among 1,545 US Adults",
+          description:
+            "Tracking 1,545 US adults between January and April 2020, as stay-at-home orders spread, the researchers found no significant overall increase in loneliness.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "Luchetti et al., 'The trajectory of loneliness in response to COVID-19', American Psychologist (2020)",
+          sourceUrl: "https://psycnet.apa.org/doi/10.1037/amp0000690",
+          reasoning:
+            "Suggests people can stay connected without meeting in person, at least for weeks. Lockdown was an emergency in which everyone was cut off at once, which says little about ordinary times when screens compete with in-person contact.",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 4: What can be done?
+    // =========================================================================
+    {
+      id: "structural-vs-individual",
+      title: "Can Policy Make People Less Lonely?",
+      short_summary:
+        "England appointed a minister for loneliness in 2018; its chronic loneliness rate was 7% in 2023/24, against 5% to 6% before. Trials of programs for lonely people show modest effects, best for those that change how people think about others. Whether governments should treat loneliness as theirs to fix, and whether they can, is the fourth split.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Governments cannot manufacture friendship, and the main national experiment has not moved the numbers. England appointed the world's first minister for loneliness in 2018 and built a national strategy around social prescribing, in which doctors refer patients to clubs and activities. By 2023/24, 7% of adults felt lonely often or always, against 5% to 6% in every year from 2013/14 to 2021/22. Loneliness varies widely between countries in ways that track culture as much as policy: one 2022 review found problematic loneliness among older adults ranged from about 5% in northern Europe to over 20% in eastern Europe. Who people see is a private choice. The state can fund libraries and parks for their own sake, but treating each lonely person as a patient medicalizes ordinary life.",
+      proponent_rebuttal:
+        "Some interventions work, and the places people meet are shaped by policy. A meta-analysis of interventions by Christopher Masi, John Cacioppo and colleagues found randomized trials reduced loneliness modestly, with an average effect of about 0.2 standard deviations, and that 'the most successful interventions addressed maladaptive social cognition,' the habit lonely people fall into of expecting rejection. Where people live matters too: in Kevin Leyden's survey of Galway neighbourhoods, residents of walkable, mixed-use areas were more likely to know their neighbours, trust others and take part in community life than those in car-dependent suburbs. Zoning, transit and the opening hours of libraries are all public choices. England's strategy was small, cut across by the pandemic, and never changed how towns are built; one modest program does not show the problem is out of reach.",
+      crux: {
+        id: "structural-intervention-effectiveness",
+        title: "The Intervention Test",
+        question:
+          "Can programs, places or public policy measurably reduce loneliness across a whole population?",
+        description:
+          "Programs for lonely individuals show small effects in trials. The test is whether anything a government can do, from social prescribing to walkable neighbourhoods and public spaces, lowers loneliness across a city or country, and whether it should try.",
+        methodology:
+          "Cluster-randomized trials that assign whole neighbourhoods to new public spaces, programming or social prescribing, measuring loneliness on validated scales before and after, plus comparisons of places that changed zoning or transit with matched places that did not.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Cluster-randomized trials across 20 or more neighbourhoods given new community spaces and programming, with loneliness measured on the UCLA scale at baseline, one year and two years, compared with matched neighbourhoods left as they were.",
+        },
+        cost_to_verify: "$3-8M (Neighbourhood cluster trial over two years)",
+        falsification: {
+          supporter_flip:
+            "If neighbourhoods randomly given new community spaces and programming showed no fall in loneliness after two years compared with matched neighbourhoods, the case that policy can reduce loneliness at scale would weaken.",
+          skeptic_flip:
+            "If those neighbourhoods showed a clear fall in loneliness that lasted, the view that loneliness lies beyond the reach of policy would be hard to hold.",
+          common_ground:
+            "Both sides agree England's national strategy has not lowered its chronic loneliness rate, and that individual programs show modest effects in randomized trials.",
+          live_disagreement:
+            "Whether better-designed and better-funded public action could lower loneliness, and a value question no data settles: whether who people spend time with is any of the government's business.",
+        },
+      },
+      evidence: [
+        {
+          id: "masi-intervention-meta-analysis",
+          title: "Masi et al.: Randomized Trials Cut Loneliness Modestly, Best When They Target How Lonely People Think",
+          description:
+            "A meta-analysis of interventions to reduce loneliness found that single-group before-and-after studies and non-randomized comparisons reported larger effects than randomized trials. In randomized trials the average effect was about -0.20 standard deviations, and 'the most successful interventions addressed maladaptive social cognition' rather than simply providing more contact or social support.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Masi, Chen, Hawkley and Cacioppo, 'A Meta-Analysis of Interventions to Reduce Loneliness', Personality and Social Psychology Review 15(3) (2011)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3865701/",
+          reasoning:
+            "Shows loneliness can be reduced, and which approach works best. The effects are small, the trials are of individuals who sought help, and nothing here shows a program working across a whole population.",
+        },
+        {
+          id: "walkability-social-contact",
+          title: "Leyden 2003: Residents of Walkable Galway Neighbourhoods Knew Neighbours and Trusted Others More",
+          description:
+            "In a household survey of Galway, Ireland, comparing traditional mixed-use, pedestrian-oriented neighbourhoods with car-dependent suburbs, Kevin Leyden found residents of walkable neighbourhoods had more social capital: they were more likely to know their neighbours, take part in politics, trust others and be socially engaged.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 5,
+            directness: 4,
+          },
+          source:
+            "Leyden, 'Social capital and the built environment: the importance of walkable neighborhoods', American Journal of Public Health 93(9) (2003)",
+          sourceUrl: "https://doi.org/10.2105/AJPH.93.9.1546",
+          reasoning:
+            "Links the built environment to everyday contact. It is one city, one survey, and people who want contact may choose walkable places; knowing neighbours is not the same as not being lonely.",
+        },
+        {
+          id: "uk-loneliness-ministry",
+          title: "England Since 2018: A Minister and a Strategy, and Chronic Loneliness at 7% in 2023/24",
+          description:
+            "England appointed a minister for loneliness in January 2018 and adopted a cross-government strategy built around social prescribing and better measurement. The Community Life Survey found 7% of adults felt lonely often or always in 2023/24, against roughly 5% to 6% between 2013/14 and 2021/22.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "UK Department for Culture, Media and Sport, Community Life Survey 2023/24 (4 December 2024)",
+          sourceUrl: "https://www.gov.uk/government/statistics/community-life-survey-202324-annual-publication/community-life-survey-202324-loneliness-and-support-networks--2",
+          reasoning:
+            "The most direct national test so far, and the numbers have not fallen. The strategy was modestly funded, the pandemic hit in its second year, and there is no measure of what would have happened without it.",
+        },
+        {
+          id: "cultural-variation-loneliness",
+          title: "BMJ 2022 Review of 113 Countries: Loneliness Among Older Adults Ranged From About 5% to Over 20%",
+          description:
+            "A systematic review and meta-analysis of loneliness across 113 countries and territories found wide geographical variation. Among older adults, problematic loneliness ranged from about 5% in northern European countries to over 20% in eastern European countries. The authors flagged large data gaps in low- and middle-income countries.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 4,
+          },
+          source:
+            "Surkalim et al., 'The prevalence of loneliness across 113 countries: systematic review and meta-analysis', The BMJ (2022)",
+          sourceUrl: "https://doi.org/10.1136/bmj-2021-067068",
+          reasoning:
+            "Shows that loneliness rates differ a lot between societies, which fits explanations rooted in culture and history. The review cannot say which differences are caused by policy, and surveys may not measure loneliness the same way in every language.",
+        },
+      ],
     },
   ],
 } satisfies TopicInput;

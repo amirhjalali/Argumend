@@ -51,7 +51,8 @@ describe("related maps", () => {
 
   it("gives the flagship maps neighbours on their own subject", async () => {
     const jobs = (await getRelatedMaps("ai-mass-unemployment")).map((map) => map.id);
-    expect(jobs.some((id) => id.startsWith("ai-") || id === "universal-basic-income")).toBe(true);
+    // An AI map ("ai-…", "…-after-ai") or basic income: a map about AI and work.
+    expect(jobs.some((id) => /(?:^ai-|-ai$|-ai-)/.test(id) || id === "universal-basic-income")).toBe(true);
     expect(jobs).not.toContain("us-israel-support");
     const israel = (await getRelatedMaps("us-israel-support")).map((map) => map.id);
     expect(israel.some((id) => /iran|israel|gaza|weapons|ukraine|taiwan/.test(id))).toBe(true);
