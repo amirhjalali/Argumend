@@ -133,7 +133,60 @@ export function loadHomeMaps(shownClaimIds: ReadonlySet<string> = new Set()): Ho
   });
 }
 
-const NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+/**
+ * The flagship map counted for home's scroll story: how many claims the
+ * argument holds, how many of them are not in dispute, how many are, and how
+ * many questions the contested ones turn on. Counted from the same graph the
+ * map page renders, so the story cannot quote a number the map does not have.
+ */
+export interface HomeStory {
+  topicId: string;
+  /** The map's question, as its page titles it. */
+  question: string;
+  /** Every live claim on the map (superseded ones are not counted). */
+  claimCount: number;
+  /** Claims the map marks uncontested or broadly accepted. */
+  acceptedCount: number;
+  /** Claims the map marks contested or unresolved. */
+  openCount: number;
+  /** How many of the open claims are unresolved rather than contested. */
+  unresolvedCount: number;
+  cruxCount: number;
+  /** One accepted claim, in the map's words, as the example. */
+  acceptedExample: string | null;
+}
+
+export function loadHomeStory(topicId: string = HOME_FLAGSHIP_ID): HomeStory | null {
+  const topic = loadArgumentTopic(topicId);
+  if (!topic) return null;
+  const claims = topic.graph.nodes.filter(
+    (node): node is Claim => node.type === "claim" && node.status !== "superseded",
+  );
+  const accepted = claims.filter(
+    (claim) => claim.status === "uncontested" || claim.status === "broadly_accepted",
+  );
+  const cruxCount = topic.cruxes.length;
+  if (claims.length === 0 || accepted.length === 0 || cruxCount === 0) return null;
+
+  // The map's own "what both sides agree on" list comes first; any accepted
+  // claim will do if that list is empty.
+  const acceptedIds = new Set(accepted.map((claim) => claim.id));
+  const exampleId = (topic.meta.agreementClaims ?? []).find((id) => acceptedIds.has(id));
+  const example = accepted.find((claim) => claim.id === exampleId) ?? accepted[0];
+
+  return {
+    topicId,
+    question: topic.meta.title,
+    claimCount: claims.length,
+    acceptedCount: accepted.length,
+    openCount: claims.length - accepted.length,
+    unresolvedCount: claims.filter((claim) => claim.status === "unresolved").length,
+    cruxCount,
+    acceptedExample: example ? (example.summary ?? example.statement) : null,
+  };
+}
+
+const NUMBER_WORDS =["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
 /** "five", for counts a reader should read as words. */
 export function numberWord(n: number): string {

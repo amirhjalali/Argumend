@@ -10,7 +10,10 @@ import {
   HOME_EVIDENCE_HREF,
   HOME_FLAGSHIP_HREF,
   loadHomeCrux,
+  loadHomeStory,
+  numberWord,
 } from "@/components/home/homeModel";
+import { STATE_COUNT } from "@/components/home/threadGeometry";
 
 // The shell is the foundation's; home only has to render inside it.
 vi.mock("@/components/AppShell", () => ({
@@ -80,10 +83,44 @@ describe("home: one argument, two doors", () => {
     const view = renderHome();
     const primary = view.getByRole("link", { name: /See it on AI and jobs/ });
     const evidence = view.getByRole("complementary", { name: "One pilot test" });
-    // Node.DOCUMENT_POSITION_FOLLOWING === 4. From md the grid places the
-    // evidence in its own right-hand column, whatever the source order.
+    // Node.DOCUMENT_POSITION_FOLLOWING === 4. The evidence sits under the
+    // doors at every width: the right half belongs to the thread figure.
     expect(primary.compareDocumentPosition(evidence) & 4).toBe(4);
-    expect(evidence.className).toContain("md:col-start-2");
+  });
+
+  it("pulls the flagship map apart in four steps, with the map's own counts", () => {
+    const story = loadHomeStory();
+    expect(story).not.toBeNull();
+    // The counts are the map's: every live claim is either accepted or open,
+    // and the crux count is the one the worked crux reports.
+    expect(story!.acceptedCount + story!.openCount).toBe(story!.claimCount);
+    expect(story!.acceptedCount).toBeGreaterThan(0);
+    expect(story!.openCount).toBeGreaterThan(0);
+    expect(story!.cruxCount).toBe(loadHomeCrux()!.cruxCount);
+    expect(`/topics/${story!.topicId}`).toBe(HOME_FLAGSHIP_HREF);
+
+    const view = renderHome();
+    const section = view.container.querySelector("[data-thread-section]");
+    expect(section).not.toBeNull();
+    // The hero is the story's first step, then one step per arrangement of
+    // the figure after the tangle (components/home/threadGeometry.ts).
+    const steps = section!.querySelectorAll("[data-thread-step]");
+    expect(steps).toHaveLength(STATE_COUNT);
+    expect(steps[0].querySelector("h1")).not.toBeNull();
+    const titles = Array.from(section!.querySelectorAll("h2")).map((h2) => h2.textContent);
+    expect(titles).toEqual([
+      `One argument, ${story!.claimCount} claims.`,
+      `${story!.acceptedCount} of them are not in dispute.`,
+      `${story!.openCount} are contested. They turn on ${numberWord(story!.cruxCount)} questions.`,
+      "No winner. Only where to look.",
+    ]);
+    // The example claim is quoted in the map's words.
+    expect(story!.acceptedExample).toBeTruthy();
+    expect(section!.textContent).toContain(story!.acceptedExample!);
+    // The figure is decoration: hidden from assistive technology, no pointer events.
+    const stage = section!.querySelector("[data-thread-stage]");
+    expect(stage?.getAttribute("aria-hidden")).toBe("true");
+    expect(stage?.className).toContain("pointer-events-none");
   });
 
   it("works through crux #1 of the same map the button opens", () => {
