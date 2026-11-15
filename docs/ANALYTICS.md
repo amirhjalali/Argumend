@@ -42,9 +42,9 @@ claims about all this are mapped to code in `docs/PRIVACY_AND_CONSENT.md`.
     and it lists the events below.
   - **The GA ID was interpolated into inline script text unchecked.** It is now
     validated (`G-` followed by letters and digits), and no inline script is left.
-- **Not changed (founder decision): consent.** With GA configured, GA loads without a
-  cookie banner. `/privacy` says so in a `[Pending founder decision]` block. See
-  "Choosing a provider" below.
+- **Consent: decided 2026-11-15.** The founder chose GA4 with no cookie banner.
+  `/privacy` says so and links Google's opt-out add-on. See "Choosing a provider"
+  below for what a banner or a cookieless provider would change.
 - **Not added: Do Not Track or Global Privacy Control.** The existing code did not
   honour either one, and this change keeps it that way rather than deciding for the
   founder. Umami supports it with one attribute (`data-do-not-track="true"` in

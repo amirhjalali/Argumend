@@ -125,10 +125,10 @@ here so nothing hides.
    it, and says nothing about what its access logs retain. `nixpacks.toml` and the
    `Dockerfile` imply a Coolify deployment; that is an inference about deployment,
    not a statement of fact about the operator.
-6. **No cookie banner exists.** Google Analytics loads without consent when
-   configured. The page states this plainly. Whether that is acceptable depends on
-   where visitors are, which is a founder decision; `docs/ANALYTICS.md` sets out the
-   cookieless alternatives (Plausible, Umami) the code now supports. "Plausible and
+6. **No cookie banner exists, by founder decision (2026-11-15).** Google Analytics
+   loads without consent when configured. The page states this plainly and points to
+   Google's opt-out add-on. `docs/ANALYTICS.md` sets out the cookieless alternatives
+   (Plausible, Umami) the code supports, should the decision change. "Plausible and
    Umami are built to count visits without cookies" is the vendors' own description,
    not something this repository can verify.
 7. **No retention schedule and no deletion job exist** for any stored record. The
