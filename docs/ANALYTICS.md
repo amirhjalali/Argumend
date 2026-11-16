@@ -42,9 +42,9 @@ claims about all this are mapped to code in `docs/PRIVACY_AND_CONSENT.md`.
     and it lists the events below.
   - **The GA ID was interpolated into inline script text unchecked.** It is now
     validated (`G-` followed by letters and digits), and no inline script is left.
-- **Not changed (founder decision): consent.** With GA configured, GA loads without a
-  cookie banner. `/privacy` says so in a `[Pending founder decision]` block. See
-  "Choosing a provider" below.
+- **Consent: decided 2026-11-15.** The founder chose GA4 with no cookie banner.
+  `/privacy` says so and links Google's opt-out add-on. See "Choosing a provider"
+  below for what a banner or a cookieless provider would change.
 - **Not added: Do Not Track or Global Privacy Control.** The existing code did not
   honour either one, and this change keeps it that way rather than deciding for the
   founder. Umami supports it with one attribute (`data-do-not-track="true"` in
@@ -125,6 +125,24 @@ Then, in GA Admin → Custom definitions, register these event-scoped custom dim
 so the parameters appear in reports: `topicId`, `topicKind`, `cruxIndex`, `percent`,
 `result`, `lengthBucket`, `contentType`, `surface`, `resultsBucket`, `platform`.
 Optionally mark `first_crux_seen`, `evidence_expand` and `paste_submit` as key events.
+(Done 2026-11-16 on the `argumend.org` property; the `platform` parameter is registered
+under the name `sharePlatform`, because GA has a built-in "Platform" dimension.)
+
+**Two stream settings must stay off.** In GA Admin → Data streams → the web stream →
+Enhanced measurement (the gear):
+
+- Page views → Show advanced settings → **"Page changes based on browser history
+  events": off.** With it on, GA sends its own `page_view` on every client-side
+  navigation, with the raw address. That doubles every page view the site already
+  sends, and it puts `?q=` search text into `page_location` and `page_referrer`,
+  which `/privacy` says never happens. It would also send a `/study` address, which
+  carries a participant id.
+- **"Site search": off.** It reads the search term out of the address.
+
+Both were on by default and were seen doing exactly this on the first live deploy
+(2026-11-16); they were switched off the same hour. The site's code cannot turn them
+off: they are settings of the stream, applied by Google's script. Check them again if
+the stream is ever recreated.
 
 **Plausible**
 ```

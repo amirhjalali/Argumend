@@ -335,12 +335,19 @@ export default function PrivacyPage() {
               key, text handed from the home page to the analyzer — is stored in your own browser
               and never sent to us.
             </p>
-            <Pending>
-              Argumend does not show a cookie banner or ask for analytics consent before loading
-              Google Analytics. If the site expects visitors in the EU or the UK, either that needs to
-              change, with this section describing the choice they are given, or the site should use
-              a cookieless provider instead. See docs/ANALYTICS.md for the trade-off.
-            </Pending>
+            <p>
+              Argumend does not show a cookie banner or ask for consent before loading Google
+              Analytics. To keep it from counting you, block its script in your browser or install{" "}
+              <a
+                className={LINK}
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google&rsquo;s opt-out add-on
+              </a>
+              . The site works the same either way.
+            </p>
           </Section>
 
           <Section id="logs" heading="Server logs, rate limits, and abuse prevention">
