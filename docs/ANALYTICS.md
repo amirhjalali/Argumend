@@ -125,6 +125,24 @@ Then, in GA Admin → Custom definitions, register these event-scoped custom dim
 so the parameters appear in reports: `topicId`, `topicKind`, `cruxIndex`, `percent`,
 `result`, `lengthBucket`, `contentType`, `surface`, `resultsBucket`, `platform`.
 Optionally mark `first_crux_seen`, `evidence_expand` and `paste_submit` as key events.
+(Done 2026-11-16 on the `argumend.org` property; the `platform` parameter is registered
+under the name `sharePlatform`, because GA has a built-in "Platform" dimension.)
+
+**Two stream settings must stay off.** In GA Admin → Data streams → the web stream →
+Enhanced measurement (the gear):
+
+- Page views → Show advanced settings → **"Page changes based on browser history
+  events": off.** With it on, GA sends its own `page_view` on every client-side
+  navigation, with the raw address. That doubles every page view the site already
+  sends, and it puts `?q=` search text into `page_location` and `page_referrer`,
+  which `/privacy` says never happens. It would also send a `/study` address, which
+  carries a participant id.
+- **"Site search": off.** It reads the search term out of the address.
+
+Both were on by default and were seen doing exactly this on the first live deploy
+(2026-11-16); they were switched off the same hour. The site's code cannot turn them
+off: they are settings of the stream, applied by Google's script. Check them again if
+the stream is ever recreated.
 
 **Plausible**
 ```
