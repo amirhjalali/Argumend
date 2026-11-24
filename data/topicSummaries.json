@@ -19,7 +19,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "helpline wagered bettors sportsbook gamblers ncaa upset earmarked arnesen balthrop geocomply if12761 kotter matsuzawa pisciotta"
+    "keywords": "helpline wagered bettors sportsbook gamblers ncaa intimate upset earmarked arnesen balthrop geocomply if12761 kotter matsuzawa"
   },
   {
     "id": "pfas-forever-chemicals",
@@ -451,7 +451,7 @@
       "Pelosi stock trades",
       "Congress insider trading"
     ],
-    "keywords": "belmont burr hoek sehgal hainmueller perlmutter schulp ziobrowski rally sacerdote yahoo nancy maybe shouldnt toomey"
+    "keywords": "belmont burr hoek sehgal hainmueller perlmutter schulp ziobrowski rally sacerdote nancy yahoo maybe shouldnt toomey"
   },
   {
     "id": "partisan-gerrymandering",
@@ -655,7 +655,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "overdose cannabis portugal emcdda recidivism spencer incarceration karolinska decriminalisation fentanyl gabri galanti mackenzie magnusson marlowe"
+    "keywords": "overdose cannabis portugal emcdda recidivism spencer aclu incarceration karolinska decriminalisation fentanyl gabri galanti mackenzie magnusson"
   },
   {
     "id": "death-penalty-deterrence",
@@ -907,7 +907,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "compact morley npvic chiafalo trifecta gore infirmities inadvertent bush cabal faithless foleys hillary impenetrable lsb10807"
+    "keywords": "compact morley npvic chiafalo trifecta gore infirmities bush inadvertent cabal faithless foleys hillary impenetrable lsb10807"
   },
   {
     "id": "surveillance-public-safety",
@@ -929,7 +929,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo bridgedetroit buolamwini criminology farrington gebru munyo piza rossi shades welsh zhan"
+    "keywords": "detroit smartlink aclu medell montevideo bridgedetroit buolamwini criminology farrington gebru munyo piza rossi shades welsh"
   },
   {
     "id": "us-iran-conflict",
@@ -1293,7 +1293,7 @@
       "Could AI escape human control?",
       "Could a misaligned superintelligence wipe out humanity?"
     ],
-    "keywords": "apollo kapoor narayanan rlhf amodei astra opus hyperfocused redwood sonnet circled sandbox boat deliberative mini"
+    "keywords": "apollo kapoor narayanan rlhf amodei deceptive astra opus hyperfocused redwood sandbox sonnet circled boat deliberative"
   },
   {
     "id": "ai-content-labeling",
@@ -1337,7 +1337,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "mehta headwind boasberg chrome monopolist brynjolfsson genai wrested monopolized android crippling brinkema gses kamepalli perplexity"
+    "keywords": "mehta boasberg headwind chrome monopolist brynjolfsson genai wrested monopolized android crippling brinkema gses kamepalli perplexity"
   },
   {
     "id": "cancel-culture",
@@ -1609,9 +1609,9 @@
     "title": "Have We Already Lost the Battle for Digital Privacy?",
     "question": "Have we already lost the battle for digital privacy?",
     "meta_claim": "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 73,
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1622,9 +1622,14 @@
     "evidenceCount": 12,
     "firstCrux": "Can careful privacy habits shrink corporate profiling, or does data aggregation rebuild the profile anyway?",
     "tags": [
-      "technology"
+      "technology",
+      "privacy",
+      "surveillance",
+      "data",
+      "regulation",
+      "encryption"
     ],
-    "keywords": "gdpr brave encryption cookies reauthorized fingerprinting carpenter whatsapp acxiom adppa aguiar clearview duckduckgo inria kagal"
+    "keywords": "gdpr brave ieee cookies browsing unctad adppa fisa carpenter whatsapp fingerprints aguiar apra eckersley gravy"
   },
   {
     "id": "climate-change",
@@ -1746,7 +1751,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "cas9 ccr5 jiankui nuffield anzalone mosaic sickle asrm hfea komor lulu monogenic nana shenzhen sandel"
+    "keywords": "cas9 ccr5 jiankui nuffield anzalone mosaic sickle asrm hfea komor lulu monogenic nana shenzhen deletion"
   },
   {
     "id": "space-exploration-value",
@@ -2344,22 +2349,26 @@
     "title": "The Four-Day Work Week",
     "question": "Should a four-day week with no pay cut be adopted broadly?",
     "meta_claim": "A four-day work week with no reduction in pay leads to equal or higher productivity, improved worker wellbeing, and should be adopted broadly across industries.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 61,
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 67,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "Is maintained productivity a real effect of the schedule, or of self-selected, motivated firms?",
     "tags": [
-      "economics"
+      "economics",
+      "labor",
+      "work",
+      "productivity",
+      "wellbeing"
     ],
-    "keywords": "burnout collar ambivalent cipd bambra overtime qinglong shao frontline salaried absenteeism akers aubry eurostat everybody"
+    "keywords": "burnout salaried ambivalent cipd askenazy backmann bambra estev filipa guolin hoch juliet marcello nster orla"
   },
   {
     "id": "student-debt-forgiveness",
@@ -2936,7 +2945,7 @@
       "Have AI deepfakes made it impossible to trust any digital media?",
       "Can you tell a deepfake from a real video?"
     ],
-    "keywords": "c2pa leica nikon sora adobe deloitte iproov schiff vall hampshire eval robocall acquitted hollywood dialogue"
+    "keywords": "c2pa leica nikon sora pixel adobe deloitte iproov schiff vall hampshire eval robocall acquitted hollywood"
   },
   {
     "id": "declining-birth-rates",
@@ -3088,7 +3097,7 @@
       "Is affirmative action fair?",
       "Should colleges consider race in admissions?"
     ],
-    "keywords": "arcidiacono sffa bleemer freeman kinsler ransom mismatch disapproved huang athletes aucejo gurin hanna hotz lovenheim"
+    "keywords": "arcidiacono sffa bleemer freeman kinsler ransom mismatch disapproved huang athletes contractors aucejo gurin hanna hotz"
   },
   {
     "id": "ukraine-peace-terms",
@@ -3199,7 +3208,7 @@
       "How much did DOGE really save?",
       "DOGE & Federal Spending Cuts"
     ],
-    "keywords": "fy2025 kettl pahlka rehire slaughter callers disinvestment executor humphreys nextgov opms overruled forgoes layoff ssas"
+    "keywords": "fy2025 kettl pahlka rehire slaughter callers disinvestment executor humphreys nextgov opms overruled forgoes ssas usaid"
   },
   {
     "id": "open-weight-ai-models",
@@ -3493,7 +3502,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt metropolitan nistir affidavit clare frte garvie grother hanaoka misidentification mugshot ngan nijeer passers porcha"
+    "keywords": "frvt metropolitan nistir aclu affidavit clare frte garvie grother hanaoka misidentification mugshot ngan nijeer passers"
   },
   {
     "id": "gmo-crops-safety",

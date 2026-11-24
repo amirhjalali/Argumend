@@ -12,6 +12,86 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // How Argumend Evolved—and the Five-Stage Formula We Now Use to Map a Disagreement
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "how-argumend-evolved-and-how-we-map-a-topic",
+    title: "How Argumend Evolved—and the Five-Stage Formula We Now Use to Map a Disagreement",
+    description:
+      "Building Argumend taught us that good intentions are not enough to keep bias and weak citations out of an argument map. Here is how our approach evolved, the five-stage method we now follow, and what happened when we ran it end to end on the four-day work week.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-23T14:00:00Z",
+    readingTime: "9 min read",
+    tags: ["methodology", "argument mapping", "crux", "epistemic hygiene", "four-day work week"],
+    category: "Methodology",
+    content: `## Why we had to learn this the hard way
+
+When we started building Argumend, the goal sounded straightforward: take a heated public question, pull apart the positions and the evidence, and lay out what the disagreement actually turns on—without declaring a winner.
+
+What we discovered by building it is that fairness, accuracy, and readability do not happen automatically just because you want them to. Every stage of Argumend has been an evolution driven by catching our own blind spots—and turning each lesson into part of the method itself.
+
+This post is an honest record of where we came from, what our own audits exposed, and the repeatable five-stage formula we now use to analyze a topic so that the result is accurate, fair, and worth reading.
+
+## How the platform evolved
+
+### 1. From diagrams first to cruxes first
+
+Early versions of Argumend leaned heavily on node-and-edge canvas views. A diagram is great once you already understand the landscape of a debate, and we still keep diagrams available as a secondary view on many maps.
+
+But watching how people actually arrive at a contentious question changed our mind about what should come first. When someone is stuck in a real disagreement—or trying to make sense of a policy fight in two minutes—they do not start by panning around boxes and arrows. They want three things immediately:
+
+1. What do both sides already accept?
+2. Which two or three load-bearing questions—the **cruxes**—actually separate the camps?
+3. What specific observation would move each side's mind?
+
+That realization reshaped every topic page around a single crux-first reading sheet, and it sharpened our north star: **close the gap between how much people think they disagree and how much they actually do.** The goal is not to end arguments—arguments are how a society figures things out. The goal is to strip away the counterfeit fight so people can reason about the real one.
+
+### 2. Discovering that the team frame was inside our own data
+
+Once we started auditing our own library systematically, we found three uncomfortable patterns:
+
+- **Asymmetric "mind-change" language.** Across 387 of 432 older cruxes, the supporter's mind-change condition was written as a fair conditional (*"If new data showed..."*), while the skeptic's condition quietly lectured them (*"A skeptic should weigh that..."* or *"the burden of proof rests on..."*). That creates an implied winner even when no verdict is printed on the page.
+- **Misfiled evidence cards.** Our side-adjudication audit caught three maps whose evidence was inverted and 23 more cards filed under the wrong side—almost always because cards were filed by *who cites a study* rather than *what the finding actually shows*.
+- **Schema-first citation drift.** When an author or model drafts an argument map first and attaches citations afterward to fill template fields, citations quietly rot: paraphrased quotes slip in, generic homepages or Wikipedia links stand in for primary papers, and in the worst cases a study does not say what the card claims it says.
+
+Instead of patching those defects one by one and hoping they would not return, we turned the fixes into mechanical tests that run on every map in CI: opening contracts that block poll headcounts and hidden verdicts, settle contracts that reject vague "more research is needed" lines, flip contracts that enforce symmetric conditionals on both sides, and agreed-fact checks that keep a map from recycling shared common ground as one side's "best card."
+
+### 3. Adding the missing leg: making neutrality compelling
+
+Strict fairness checklists solve bias, but they introduce a subtler danger: **encyclopedic flatness**. A map can pass every neutrality check and still read like a dry textbook nobody wants to finish or share.
+
+What makes a fair analysis compelling without taking a side is **intellectual contrast**—opening on the real surprise or perception gap rather than a dictionary definition, titling evidence cards with what the study actually found instead of generic labels like "Economic Impact," and naming concrete falsifiers that make the reader stop and think, *"Wait—what would actually change my mind on this?"*
+
+## The five-stage formula we use now
+
+Everything we learned across those iterations now lives in one repeatable pipeline (\`docs/TOPIC_ANALYSIS_PLAYBOOK.md\`). Each stage has a hard exit gate before the next begins:
+
+1. **Frame & Scope.** Write an open, non-loaded root question, check the library for near-duplicates so we maintain one canonical map per question, name the real constituencies (often three or four, not a caricature binary), and state the initial perception-gap hypothesis.
+2. **Evidence Dossier First—Zero Map Prose.** Before drafting a single sentence of map copy, we assemble a verified primary-source dossier (\`docs/dossiers/<topic-id>.md\`). Every entry requires a verified direct URL or DOI, exact figures with denominators and dates, funding or institutional interest disclosures, and the study's main scope limit. **Hard wall:** Stage 3 may cite *only* sources in the dossier. No citation can ever be invented to satisfy a template.
+3. **Crux Extraction & Story Draft.** Open on the sharpest verified contrast, lay out agreed ground cleanly, order two to four cruxes as a readable narrative arc, give every card a finding-stating title with its scope limit built in, and write concrete, symmetric mind-change conditionals.
+4. **Adversarial Fairness Pass.** Stress-test the draft from inside each camp with one explicit prompt: *"Argue that this map is unfair to your position. Grant nothing you would not grant in print."* Check every evidence card's direction by what the finding shows, check that scope caveats apply equally to both sides, and strip any unverified prose claim that slipped past the dossier.
+5. **Automated Mechanical Gate.** Regenerate lightweight summaries and run the full automated contract suite—opening checks, settle-line checks, flip symmetry checks, agreed-fact checks, duplicate checks, and source-URL verification—before marking the map reviewed.
+
+## Watching the formula work on one real topic
+
+Abstract methodology is easy to promise and hard to prove, so we ran the five-stage formula end to end on an older, unaudited map in our own library: [The Four-Day Work Week](/topics/four-day-work-week).
+
+Here is what the process caught and changed in a single pass:
+
+- **Stage 2 (Dossier First) eliminated weak and unverified claims.** The older version of the map still carried two uncited statistics in its prose (a "2024 meta-analysis of 30 trials" and an "Occupational Health Psychology" stress figure) and two placeholder evidence cards pointing to a generic OECD employment homepage and Wikipedia after earlier fabricated citations had been flagged. Building the dossier from scratch replaced all of them with verified primary research: the July 2025 *Nature Human Behaviour* study across 141 organizations and 2,896 workers in six countries (with 12 control companies), the February 2024 one-year follow-up to the UK pilot (54 of 61 firms still running a four-day week, 31 permanently), the University of Münster's 2024 German pilot (45 firms, including smartwatch biometric data—and roughly 20% returning to five-day schedules), Estevão and Sá's quasi-experimental *Economic Policy* evaluation of France's 35-hour mandate, Philippe Askenazy's *Cambridge Journal of Economics* review of France's payroll subsidies and rising work intensity, and U.S. Bureau of Labor Statistics Report 1115 showing **80.3 million** U.S. workers (**55.6%**) were paid at hourly rates in 2024.
+- **Stage 3 (Story Draft) sharpened the opening contrast.** Instead of opening with generic pilot hype or textbook framing, the map now opens on the exact tension that explains the whole debate: 141 volunteer organizations lowered burnout over six months and 54 of 61 UK pilot firms kept the schedule a year later—yet 55.6% of U.S. workers are paid by the hour, where staffing tracks coverage rather than meeting slack, and Belgium's legal right to *compress* 38–40 hours into four longer days drew under 1% worker uptake.
+- **Stage 4 (Adversarial Pass) strengthened *both* sides.** From the proponent side, the pass caught that the older map was stuck in 2022–2023 and missed both the UK one-year follow-up and the 2025 peer-reviewed *Nature Human Behaviour* control-group study. From the skeptic and labor-economics side, it caught that citing France's high GDP per hour without mentioning recurring payroll-tax subsidies, higher turnover, dual-job holding, and work intensification told only half the story.
+- **Stage 5 (Mechanical Gate) verified every invariant.** Every opening sentence, settle condition, mind-change flip, agreed-fact boundary, and paste-matching regression passed automatically.
+
+## Where this goes next
+
+Our goal is not to pretend any single map is the final word. Public evidence moves, studies get replicated or overturned, and reasonable people notice blind spots an author missed.
+
+What a repeatable formula gives us—and gives you as a reader—is **inspectable process**. When you open a map on Argumend, you should be able to see where the numbers came from, why each side's best evidence is sitting where it is, what observation would genuinely move either camp, and when the map was last audited.
+
+If you want to see the result in practice, read the newly audited [four-day work week map](/topics/four-day-work-week) or our follow-up audit of [digital privacy](/topics/privacy-vs-convenience), browse [the full library](/topics), or [paste an argument you are actually in](/analyze) to see which question it turns on.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // What the AI-Safety Evidence of 2026 Actually Shows
   // ──────────────────────────────────────────────────────────────────────────
   {

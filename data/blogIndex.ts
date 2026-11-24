@@ -36,6 +36,16 @@ export interface ArticleSummary {
 /** Pre-computed summaries — no `content`, so importing this stays lightweight. */
 export const articleSummaries: ArticleSummary[] = [
   {
+    slug: "how-argumend-evolved-and-how-we-map-a-topic",
+    title: "How Argumend Evolved—and the Five-Stage Formula We Now Use to Map a Disagreement",
+    description:
+      "Building Argumend taught us that good intentions are not enough to keep bias and weak citations out of an argument map. Here is how our approach evolved, the five-stage method we now follow, and what happened when we ran it end to end on the four-day work week.",
+    tags: ["methodology", "argument mapping", "crux", "epistemic hygiene", "four-day work week"],
+    category: "Methodology",
+    publishedAt: "2026-11-23T14:00:00Z",
+    readingTime: "9 min read",
+  },
+  {
     slug: "what-the-ai-safety-evidence-of-2026-shows",
     title: "What the AI-Safety Evidence of 2026 Actually Shows",
     description:
