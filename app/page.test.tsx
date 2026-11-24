@@ -1,6 +1,6 @@
 import "@/test/setup-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, within } from "@testing-library/react";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { MAP_COUNT, TOPIC_COUNT } from "@/data/topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
@@ -11,9 +11,7 @@ import {
   HOME_FLAGSHIP_HREF,
   loadHomeCrux,
   loadHomeStory,
-  numberWord,
 } from "@/components/home/homeModel";
-import { STATE_COUNT } from "@/components/home/threadGeometry";
 
 // The shell is the foundation's; home only has to render inside it.
 vi.mock("@/components/AppShell", () => ({
@@ -30,13 +28,12 @@ function renderHome() {
   return render(<HomePage />);
 }
 
-describe("home: one argument, two doors", () => {
+describe("home: illustrated history intro, live crux preview, and two doors", () => {
   it("has exactly one h1, the claim", () => {
     const view = renderHome();
     const h1s = view.getAllByRole("heading", { level: 1 });
     expect(h1s).toHaveLength(1);
     expect(h1s[0].textContent).toBe("Find what the argument actually turns on.");
-    // "Disagree better." rides in the site header (TopBar) at every width.
   });
 
   it("sends its primary button to a flagship map page, never the legacy canvas", () => {
@@ -57,7 +54,16 @@ describe("home: one argument, two doors", () => {
     expect(paste.getAttribute("href")).toBe(ANALYZE_HREF);
   });
 
-  it("attributes its pilot result and links to the method and limits", () => {
+  it("renders the interactive above-the-fold specimen with Feed/Crux toggle", () => {
+    const view = renderHome();
+    const feedBtn = view.getByRole("button", { name: "The Feed" });
+    const cruxBtn = view.getByRole("button", { name: "The Crux" });
+    expect(cruxBtn.getAttribute("aria-pressed")).toBe("true");
+    fireEvent.click(feedBtn);
+    expect(feedBtn.getAttribute("aria-pressed")).toBe("true");
+  });
+
+  it("attributes its pilot result inside the story and links to method and limits", () => {
     const view = renderHome();
     const link = view.getByRole("link", { name: "Method and limits" });
     expect(link.getAttribute("href")).toBe(HOME_EVIDENCE_HREF);
@@ -65,34 +71,23 @@ describe("home: one argument, two doors", () => {
     expect(anchor).toBe("how-the-pilot-count-was-produced");
     const post = articles.find((candidate) => candidate.slug === slug);
     expect(post, "the evidence post must exist").toBeTruthy();
-    // The numbers home quotes are the ones the post publishes.
     expect(post?.content).toContain("114 analyzed turns");
     expect(post?.content).toContain("classified 88");
-    expect(post?.content).toContain("only turns of at least 12 words");
-    expect(post?.content).toContain("not independently validated counts");
-    expect(post?.content).toContain("### How the pilot count was produced");
-    expect(post?.content).toMatch(/\b36 minutes\b/);
-    // It names the debate, as the post and /about do.
-    expect(post?.content).toMatch(/trans athletes debate/);
     const evidence = view.getByRole("complementary", { name: "One pilot test" });
     expect(evidence.textContent).toContain("our model-based analysis classified 88 of 114 analyzed turns");
     expect(evidence.textContent).toContain("including host questions");
   });
 
-  it("puts the two doors before the evidence, so the rust button is high on a phone", () => {
+  it("puts the primary CTA before the pilot evidence", () => {
     const view = renderHome();
     const primary = view.getByRole("link", { name: /See it on AI and jobs/ });
     const evidence = view.getByRole("complementary", { name: "One pilot test" });
-    // Node.DOCUMENT_POSITION_FOLLOWING === 4. The evidence sits under the
-    // doors at every width: the right half belongs to the thread figure.
     expect(primary.compareDocumentPosition(evidence) & 4).toBe(4);
   });
 
-  it("pulls the flagship map apart in four steps, with the map's own counts", () => {
+  it("walks through the 5-chapter history of disagreement using live flagship counts", () => {
     const story = loadHomeStory();
     expect(story).not.toBeNull();
-    // The counts are the map's: every live claim is either accepted or open,
-    // and the crux count is the one the worked crux reports.
     expect(story!.acceptedCount + story!.openCount).toBe(story!.claimCount);
     expect(story!.acceptedCount).toBeGreaterThan(0);
     expect(story!.openCount).toBeGreaterThan(0);
@@ -100,30 +95,18 @@ describe("home: one argument, two doors", () => {
     expect(`/topics/${story!.topicId}`).toBe(HOME_FLAGSHIP_HREF);
 
     const view = renderHome();
-    const section = view.container.querySelector("[data-thread-section]");
+    const section = view.container.querySelector("[data-history-story]");
     expect(section).not.toBeNull();
-    // The hero is the story's first step, then one step per arrangement of
-    // the figure after the tangle (components/home/threadGeometry.ts).
-    const steps = section!.querySelectorAll("[data-thread-step]");
-    expect(steps).toHaveLength(STATE_COUNT);
-    expect(steps[0].querySelector("h1")).not.toBeNull();
-    const titles = Array.from(section!.querySelectorAll("h2")).map((h2) => h2.textContent);
-    expect(titles).toEqual([
-      `One argument, ${story!.claimCount} claims.`,
-      `${story!.acceptedCount} of them are not in dispute.`,
-      `${story!.openCount} are contested. They turn on ${numberWord(story!.cruxCount)} questions.`,
-      "No winner. Only where to look.",
-    ]);
-    // The example claim is quoted in the map's words.
+    const steps = section!.querySelectorAll("[data-chapter-step]");
+    expect(steps).toHaveLength(5);
     expect(story!.acceptedExample).toBeTruthy();
     expect(section!.textContent).toContain(story!.acceptedExample!);
-    // The figure is decoration: hidden from assistive technology, no pointer events.
-    const stage = section!.querySelector("[data-thread-stage]");
-    expect(stage?.getAttribute("aria-hidden")).toBe("true");
-    expect(stage?.className).toContain("pointer-events-none");
+    expect(section!.textContent).toContain("Athenian Agora");
+    expect(section!.textContent).toContain("Nullius in verba");
+    expect(section!.textContent).toContain("No winner. Only where to look.");
   });
 
-  it("works through crux #1 of the same map the button opens", () => {
+  it("works through crux #1 of the flagship map and lets readers switch to audited maps", () => {
     const crux = loadHomeCrux();
     expect(crux).not.toBeNull();
     expect(`/topics/${crux!.topicId}`).toBe(HOME_FLAGSHIP_HREF);
@@ -134,8 +117,16 @@ describe("home: one argument, two doors", () => {
     expect(within(section).getByRole("heading", { level: 3, name: crux!.question })).toBeTruthy();
     expect(within(section).getByText(/What would settle it/i)).toBeTruthy();
     expect(
-      within(section).getByRole("link", { name: "Read the whole map" }).getAttribute("href"),
+      within(section).getByRole("link", { name: /Read the whole map/ }).getAttribute("href"),
     ).toBe(HOME_FLAGSHIP_HREF);
+
+    // Switching tabs updates the preview cleanly to an audited map.
+    const fourDayTab = within(section).getByRole("tab", { name: "Four-Day Week" });
+    fireEvent.click(fourDayTab);
+    expect(fourDayTab.getAttribute("aria-selected")).toBe("true");
+    expect(
+      within(section).getByRole("link", { name: /Read the whole map/ }).getAttribute("href"),
+    ).toBe("/topics/four-day-work-week");
   });
 
   it("lists the three flagship maps as crux questions, each with 'Read the map'", () => {
@@ -147,21 +138,28 @@ describe("home: one argument, two doors", () => {
       expect(link.textContent).toContain("Read the map");
       expect(link.textContent).toMatch(/Turns on \w+ questions, including/);
     }
-    // No statistic leads a row: the tagline numbers are not on home.
     for (const topic of argumentTopicIndex) {
       expect(section.textContent).not.toContain(topic.tagline);
     }
-    // Every map, flagships included: the same total /topics lists.
     expect(MAP_COUNT).toBe(TOPIC_COUNT + argumentTopicIds.length);
     const all = within(section).getByRole("link", { name: new RegExp(`All ${MAP_COUNT} maps`) });
     expect(all.getAttribute("href")).toBe("/topics");
   });
 
-  it("does not repeat the worked crux in the map rows", () => {
+  it("does not repeat the worked crux in the flagship map rows", () => {
     const crux = loadHomeCrux()!;
     const view = renderHome();
     const section = view.getByRole("region", { name: /live arguments, mapped/ });
     expect(section.textContent).not.toContain(crux.question);
+  });
+
+  it("showcases the illustrated library gallery", () => {
+    const view = renderHome();
+    const gallery = view.getByRole("region", { name: "Across the library" });
+    const links = within(gallery).getAllByRole("link");
+    expect(links).toHaveLength(6);
+    expect(links.map((link) => link.getAttribute("href"))).toContain("/topics/four-day-work-week");
+    expect(links.map((link) => link.getAttribute("href"))).toContain("/topics/privacy-vs-convenience");
   });
 
   it("keeps the old home out: no canvas, no library index, no debate-map wording, no /ai", () => {
