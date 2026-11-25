@@ -3,7 +3,7 @@ export const FILM = {
   base: "/home-film/v1",
   counts: { claims: 54, agreed: 23, contested: 31, cruxes: 5 },
   beats: [0, 0.2, 0.4, 0.6, 0.8, 1],
-  themes: ["light"],
+  themes: ["light", "dark"],
   desktop: { dir: "d", frames: 150, width: 1600, height: 900 },
   mobile: { dir: "m", frames: 75, width: 720, height: 1280 },
 } as const;
