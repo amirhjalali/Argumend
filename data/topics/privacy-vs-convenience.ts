@@ -5,7 +5,7 @@ export const privacyVsConvenienceData = {
   title: "Have We Already Lost the Battle for Digital Privacy?",
   question: "Have we already lost the battle for digital privacy?",
   meta_claim:
-    "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
+    "Meaningful digital privacy is no longer achievable for ordinary citizens: the surveillance infrastructure is too embedded in daily life to resist.",
   status: "contested" as const,
   category: "technology" as const,
   last_updated: "2026-11-23",
@@ -13,10 +13,10 @@ export const privacyVsConvenienceData = {
   // ── Stage 1: the opening contrast shown above everything ──
   keystone_fact: {
     statement:
-      "When Apple asked iOS users directly before cross-app tracking, most said no—cutting Meta's annual ad revenue by an estimated $10 billion—and Congress let FISA Section 702 statutorily lapse in June 2026 over warrant demands. Yet browser fingerprinting uniquely identifies 89.4% of tested modern browsers without cookies, and prior FISA Court certifications kept Section 702 surveillance running into 2027 anyway. The fight is whether opt-outs, encryption, and laws actually shrink exposure—or only move where collection happens.",
+      "When Apple asked iOS users directly before cross-app tracking, most said no, cutting Meta's annual ad revenue by an estimated $10 billion, and in June 2026 the House rejected a short-term extension of FISA Section 702 by 198 to 218, after which the statute lapsed. Yet browser fingerprinting uniquely identifies 89.4% of tested modern browsers without cookies, and FISA Court certifications approved in March 2026 were reported to keep Section 702 surveillance running into 2027 anyway. The fight is whether opt-outs, encryption, and laws actually shrink exposure, or only move where collection happens.",
     confidence: 82,
     source:
-      "Meta Q4 2021 Earnings / Financial Times (2022); Laperdrix et al., IEEE S&P (2016); CRS R48592 & 2026 Section 702 legislative record",
+      "Meta Q4 2021 Earnings / Financial Times (2022); Laperdrix et al., IEEE S&P (2016); CRS R48592 (2024 law); Roll Call, June 11, 2026 (House vote)",
     sourceUrl: "https://doi.org/10.1109/SP.2016.57",
   },
   // ── Stage 2: the honest two-paragraph orientation ──
@@ -35,9 +35,9 @@ export const privacyVsConvenienceData = {
         "Apple's App Tracking Transparency wiped billions from targeted ad revenue and privacy tools now serve tens of millions, yet shadow profiles on non-users and cookie-free browser fingerprinting still track people who never opted in.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "The 'resistance is futile' framing overstates corporate omniscience and understates both the impact of privacy tools and the value many users consciously trade for free services. Apple's App Tracking Transparency (ATT) in iOS 14.5 prompted a large majority of iOS users to decline cross-app tracking and cost Meta an estimated $10 billion in annual ad revenue—demonstrating that when opt-out is clear and low-friction, consumer agency has real financial bite. Privacy-respecting alternatives have reached meaningful scale: Brave passed 100 million monthly active users in late 2025, and Signal disclosed roughly 40 million monthly users. Regulators have also moved against location brokers, with the FTC finalizing bans on sensitive location-data sales against X-Mode/Outlogic (2024) and Gravy Analytics/Venntel (January 2025). Meanwhile, ad-supported search, maps, and email remain free to billions who would not pay subscriptions, suggesting the core task is transparent consent and firm boundaries rather than surrendering.",
+        "The 'resistance is futile' framing overstates corporate omniscience and understates both the impact of privacy tools and the value many users consciously trade for free services. Apple's App Tracking Transparency (ATT) in iOS 14.5 prompted a large majority of iOS users to decline cross-app tracking and cost Meta an estimated $10 billion in annual ad revenue, demonstrating that when opt-out is clear and low-friction, consumer agency has real financial bite. Privacy-respecting alternatives have reached meaningful scale: Brave passed 100 million monthly active users in late 2025, and Signal disclosed roughly 40 million monthly users. Regulators have also moved against location brokers, with the FTC finalizing bans on sensitive location-data sales against X-Mode/Outlogic (2024) and Gravy Analytics/Venntel (January 2025). Meanwhile, ad-supported search, maps, and email remain free to billions who would not pay subscriptions, suggesting the core task is transparent consent and firm boundaries rather than surrendering.",
       proponent_rebuttal:
-        "Individual opt-out cannot beat an economy built around passive aggregation. Academic research by Aguiar and colleagues (2022) estimated that Facebook can track roughly 40% of web browsing time for both users and non-users—and infer demographic attributes of people who never signed up, a collection practice Mark Zuckerberg acknowledged in 2018 congressional testimony. Blocking cookies does not stop identification: Eckersley's EFF Panopticlick study found 83.6% of tested browsers unique (94.2% with Flash or Java), and Laperdrix et al. (IEEE S&P 2016) found 89.4% of modern browser configurations uniquely fingerprintable via Canvas, WebGL, and system traits. Even when one platform adds friction like Apple ATT, ad-tech firms shift toward first-party data graphs and third-party brokers whose dossiers assemble purchase, location, and public-record trails without direct consent.",
+        "Individual opt-out cannot beat an economy built around passive aggregation. Academic research by Aguiar and colleagues (2022) estimated that Facebook can track roughly 40% of web browsing time for both users and non-users, and infer demographic attributes of people who never signed up, a collection practice Mark Zuckerberg acknowledged in 2018 congressional testimony. Blocking cookies does not stop identification: Eckersley's EFF Panopticlick study found 83.6% of tested browsers unique (94.2% with Flash or Java), and Laperdrix et al. (IEEE S&P 2016) found 89.4% of modern browser configurations uniquely fingerprintable via Canvas, WebGL, and system traits. Even when one platform adds friction like Apple ATT, ad-tech firms shift toward first-party data graphs and third-party brokers whose dossiers assemble purchase, location, and public-record trails without direct consent.",
       crux: {
         id: "opt-out-effectiveness",
         title: "The Opt-Out Effectiveness Test",
@@ -71,7 +71,7 @@ export const privacyVsConvenienceData = {
           title:
             "Apple ATT (2021–2022): Most iOS Users Declined Tracking, Costing Meta an Estimated $10B Annually",
           description:
-            "Apple's App Tracking Transparency, launched in iOS 14.5 in April 2021, required apps to ask explicit permission before tracking users across third-party apps and websites. A large majority of iOS users declined cross-app tracking, and in February 2022 Meta disclosed an estimated $10 billion annual revenue headwind. Scope limit: this was a platform-level default shift by Apple—which also operates its own ad business—rather than pure user self-defense, and it did not stop first-party tracking inside apps.",
+            "Apple's App Tracking Transparency, launched in iOS 14.5 in April 2021, required apps to ask explicit permission before tracking users across third-party apps and websites. A large majority of iOS users declined cross-app tracking, and in February 2022 Meta disclosed an estimated $10 billion annual revenue headwind. Scope limit: this was a platform-level default shift by Apple, which also operates its own ad business, rather than pure user self-defense, and it did not stop first-party tracking inside apps.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -109,7 +109,7 @@ export const privacyVsConvenienceData = {
           title:
             "IEEE S&P (2016) & EFF (2010): 83.6% to 89.4% of Tested Browsers Are Uniquely Identifiable Without Cookies",
           description:
-            "Peter Eckersley's landmark 2010 EFF Panopticlick study found that 83.6% of tested browser configurations were unique (94.2% when Flash or Java plugins were enabled). Even as plugins were phased out, Pierre Laperdrix, Walter Rudametkin, and Benoit Baudry (IEEE Symposium on Security and Privacy, 2016) analyzed modern browsers through the AmIUnique project and found 89.4% of collected fingerprints remained unique using attributes like HTML5 Canvas, WebGL, fonts, and screen geometry—allowing identification without cookies. Scope limit: volunteer study visitors skew more technically diverse than typical consumers, and privacy browsers have since added fingerprint randomization.",
+            "Peter Eckersley's landmark 2010 EFF Panopticlick study found that 83.6% of tested browser configurations were unique (94.2% when Flash or Java plugins were enabled). Even as plugins were phased out, Pierre Laperdrix, Walter Rudametkin, and Benoit Baudry (IEEE Symposium on Security and Privacy, 2016) analyzed modern browsers through the AmIUnique project and found 89.4% of collected fingerprints remained unique using attributes like HTML5 Canvas, WebGL, fonts, and screen geometry, allowing identification without cookies. Scope limit: volunteer study visitors skew more technically diverse than typical consumers, and privacy browsers have since added fingerprint randomization.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -152,12 +152,12 @@ export const privacyVsConvenienceData = {
       id: "government-surveillance",
       title: "Government Surveillance",
       short_summary:
-        "Default encryption, the Supreme Court's Carpenter warrant ruling, and Congress letting FISA Section 702 lapse in June 2026 show real pushback—yet prior FISA Court certifications kept collection running into 2027 and 18 of 24 major federal agencies use facial recognition.",
+        "Default encryption, the Supreme Court's Carpenter warrant ruling, and the House's June 2026 rejection of a short-term Section 702 extension show real pushback, yet FISA Court certifications were reported to keep collection running into 2027, and 18 of 24 major federal agencies reported using facial recognition.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The surveillance picture is more nuanced than a one-way slide into total state visibility. Congress ended bulk phone metadata collection under Section 215 in the 2015 USA FREEDOM Act, and in June 2026 the House rejected a FISA Section 702 reauthorization bill 218–198 amid bipartisan demands for warrant rules, letting the statute lapse. In Carpenter v. United States (2018), the Supreme Court held that historical cell-site location data requires a Fourth Amendment warrant. Technically, default full-disk encryption on iOS and Android plus end-to-end encryption in iMessage, WhatsApp, and Signal have created real blind spots that service providers cannot unlock even with a court order. Government surveillance capability remains vast, but legal, political, and cryptographic pushback has produced tangible limits.",
+        "The surveillance picture is more nuanced than a one-way slide into total state visibility. Congress ended bulk phone metadata collection under Section 215 in the 2015 USA FREEDOM Act, and in June 2026 the House rejected a short-term extension of FISA Section 702 by 198 to 218, with 19 Republicans opposed, some citing warrantless-search concerns, and Democratic opposition also tied to the president's pick of Bill Pulte as acting Director of National Intelligence, after which the statute lapsed. In Carpenter v. United States (2018), the Supreme Court held that historical cell-site location data requires a Fourth Amendment warrant. Technically, default full-disk encryption on iOS and Android plus end-to-end encryption in iMessage, WhatsApp, and Signal have created real blind spots that service providers cannot unlock even with a court order. Government surveillance capability remains vast, but legal, political, and cryptographic pushback has produced tangible limits.",
       proponent_rebuttal:
-        "Even visible legislative victories rarely shut down state collection. When Congress reauthorized FISA Section 702 in April 2024 (RISAA), it rejected a warrant requirement for U.S.-person queries and widened which entities can be compelled to assist surveillance—and even after the statute lapsed on June 12, 2026, yearlong FISA Court certifications approved in March 2026 kept surveillance operations and provider directives legally running through March 17, 2027. Meanwhile, Carpenter was explicitly framed as a narrow ruling that left real-time tracking, tower dumps, and commercial data-broker purchases unresolved, and the U.S. Government Accountability Office (GAO-22-106100) found 18 of the 24 largest federal agencies using facial recognition technology—with 14 of 42 federal agencies employing law-enforcement officers using it in criminal investigations. When one authority tightens, agencies shift to court certifications, commercial brokers, or newer biometric tools.",
+        "Even visible legislative victories rarely shut down state collection. When Congress reauthorized FISA Section 702 in April 2024 (RISAA), it rejected a warrant requirement for U.S.-person queries and widened which entities can be compelled to assist surveillance, and even after the statute lapsed in June 2026, yearlong FISA Court certifications approved in March 2026 were reported to keep surveillance running into 2027. Meanwhile, Carpenter was explicitly framed as a narrow ruling that left real-time tracking, tower dumps, and commercial data-broker purchases unresolved, and the U.S. Government Accountability Office found that 18 of the 24 largest federal agencies reported using facial recognition technology (GAO-21-526), and that 14 of 42 federal agencies employing law-enforcement officers reported using it to support criminal investigations, all of them via systems owned by non-federal entities (GAO-21-518). When one authority tightens, agencies shift to court certifications, commercial brokers, or newer biometric tools.",
       crux: {
         id: "surveillance-reform-substance",
         title: "The Surveillance Reform Substance Test",
@@ -191,7 +191,7 @@ export const privacyVsConvenienceData = {
           title:
             "FISA Section 702 (2024–2026): Statute Lapsed in June 2026, Yet Court Certifications Kept Surveillance Active Into 2027",
           description:
-            "In April 2024 Congress passed the Reforming Intelligence and Securing America Act (RISAA), extending Section 702 for two years without a U.S.-person query warrant requirement and widening the definition of covered service providers. After short-term extensions in April 2026, a House reauthorization bill failed 218–198 on June 11, 2026, and the statute officially lapsed on June 12. Yet because the Foreign Intelligence Surveillance Court approved yearlong programmatic certifications in March 2026, collection and provider directives legally continued through March 17, 2027—illustrating both growing legislative resistance and how deeply entrenched surveillance operations remain.",
+            "In April 2024 Congress passed the Reforming Intelligence and Securing America Act (RISAA), extending Section 702 for two years without a U.S.-person query warrant requirement and widening the definition of covered service providers. On June 11, 2026 the House rejected a short-term extension of the authority by 198 to 218. Nineteen Republicans voted against it, and Democratic opposition was also tied to the president's pick of Bill Pulte as acting Director of National Intelligence. The statute then lapsed. Yet because the Foreign Intelligence Surveillance Court was reported to have approved yearlong certifications in March 2026, collection was widely expected to continue into 2027. Whether Congress has since reauthorized the authority was not confirmed as of November 2026. The vote shows legislative resistance and how entrenched the surveillance operations remain.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -200,10 +200,11 @@ export const privacyVsConvenienceData = {
             directness: 9,
           },
           source:
-            "Congressional Research Service (R48592), 'FISA Section 702 and the 2024 Reforming Intelligence and Securing America Act'; U.S. House roll call & FISC 2026 certification record",
-          sourceUrl: "https://www.congress.gov/crs-product/R48592",
+            "Roll Call, 'House vote puts surveillance authority on path to lapse' (June 11, 2026); Congressional Research Service (R48592) for the 2024 law",
+          sourceUrl:
+            "https://rollcall.com/2026/06/11/house-vote-puts-surveillance-authority-on-path-to-lapse/",
           reasoning:
-            "Primary legislative and court-certification records show why surveillance skeptics remain unconvinced by statutory sunsets: even a failed reauthorization vote and formal lapse did not halt ongoing collection under prior FISA Court certifications.",
+            "Contemporaneous reporting on the vote, together with the reported yearlong certifications, shows why surveillance skeptics remain unconvinced by statutory sunsets: a failed extension vote and a lapse were not expected to halt collection under existing FISA Court certifications. The certification term comes from press reports, not a court record.",
         },
         {
           id: "carpenter-ruling",
@@ -227,9 +228,9 @@ export const privacyVsConvenienceData = {
         {
           id: "facial-recognition-proliferation",
           title:
-            "GAO Audit (GAO-22-106100): 18 of 24 Largest Federal Agencies Reported Using Facial Recognition",
+            "GAO Audits (2021): 18 of 24 Largest Federal Agencies Reported Using Facial Recognition",
           description:
-            "In GAO-22-106100, the U.S. Government Accountability Office found that 18 of the 24 largest federal agencies surveyed reported using facial recognition technology for purposes including digital access, physical security, and domestic law enforcement. In GAO's companion survey of federal agencies employing law-enforcement officers, 14 of 42 reported using facial recognition to support criminal investigations. Scope limit: covers federal agencies rather than state or local police, and bundles routine device/building authentication with investigative searches.",
+            "In GAO-21-526 (August 2021), the U.S. Government Accountability Office reported that 18 of the 24 agencies it surveyed (the Chief Financial Officers Act agencies) reported using facial recognition technology in fiscal year 2020, most often for digital access and domestic law enforcement. In GAO-21-518 (June 2021), a survey of 42 federal agencies that employ law-enforcement officers found that 20 reported owning facial recognition systems or using systems owned by other entities, and that 14 reported using the technology to support criminal investigations, all 14 through systems owned by non-federal entities. GAO's June 2022 testimony (GAO-22-106100) restates both sets of findings. Scope limit: covers federal agencies rather than state or local police, and bundles routine device/building authentication with investigative searches.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -238,8 +239,8 @@ export const privacyVsConvenienceData = {
             directness: 8,
           },
           source:
-            "U.S. Government Accountability Office, 'Facial Recognition Technology: Federal Agencies' Use and Related Privacy Protections,' GAO-22-106100 (2022)",
-          sourceUrl: "https://www.gao.gov/products/gao-22-106100",
+            "U.S. Government Accountability Office, GAO-21-526, 'Facial Recognition Technology: Current and Planned Uses by Federal Agencies' (Aug 2021); GAO-21-518 (Jun 2021); restated in testimony GAO-22-106100 (Jun 2022)",
+          sourceUrl: "https://www.gao.gov/products/gao-21-526",
           reasoning:
             "Authoritative federal audit confirming broad adoption of biometric identification across U.S. government agencies, while keeping routine access control distinct from criminal investigation uses.",
         },
@@ -248,7 +249,7 @@ export const privacyVsConvenienceData = {
           title:
             "Default Device & Messaging Encryption Creates Real Content Blind Spots for Investigators",
           description:
-            "Since 2014, Apple and Google have enabled default device encryption on iOS and Android, and end-to-end encryption in iMessage, WhatsApp, and Signal prevents service providers from decrypting message contents even under warrant. Although the FBI initially told Congress in 2017–2018 it could not access nearly 7,800 locked devices before admitting a programming error inflated the count—with the true figure closer to 1,200–2,000—the technical barrier to content decryption is genuine. Scope limit: encryption shields message content, not metadata (who contacted whom and when) or endpoint compromise.",
+            "Since 2014, Apple and Google have enabled default device encryption on iOS and Android, and end-to-end encryption in iMessage, WhatsApp, and Signal prevents service providers from decrypting message contents even under warrant. Although the FBI initially told Congress in 2017–2018 it could not access nearly 7,800 locked devices before admitting a programming error inflated the count (with the true figure closer to 1,200–2,000), the technical barrier to content decryption is genuine. Scope limit: encryption shields message content, not metadata (who contacted whom and when) or endpoint compromise.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -261,7 +262,7 @@ export const privacyVsConvenienceData = {
           sourceUrl:
             "https://www.washingtonpost.com/world/national-security/fbi-repeatedly-overstated-encryption-threat-figures-to-congress-public/2018/05/22/5b68ae90-5dce-11e8-a4a4-c070ef53f315_story.html",
           reasoning:
-            "Even after correcting the FBI's overcount, widespread default encryption represents a major technical gain for user privacy since 2013—though metadata and endpoint access remain open flanks.",
+            "Even after correcting the FBI's overcount, widespread default encryption represents a major technical gain for user privacy since 2013, though metadata and endpoint access remain open flanks.",
         },
       ],
     },
@@ -273,12 +274,12 @@ export const privacyVsConvenienceData = {
       id: "privacy-nihilism-vs-regulation",
       title: "Privacy Nihilism vs Regulation",
       short_summary:
-        "Roughly 71% of countries now have data-protection laws, GDPR has levied billions in fines, and the FTC has banned major brokers from selling sensitive location data—yet U.S. federal legislation keeps stalling and dark-pattern cookie banners undermine consent.",
+        "Roughly 71% of countries now have data-protection laws, GDPR has levied billions in fines, and the FTC has banned major brokers from selling sensitive location data, yet U.S. federal legislation keeps stalling and dark-pattern cookie banners undermine consent.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The 'privacy is dead' narrative confuses hard enforcement with impossible enforcement. Globally, UNCTAD tracks 137 of 194 countries (71%) with enacted data-protection legislation, including Brazil's LGPD and India's Digital Personal Data Protection Act (2023). In Europe, regulators have moved beyond token warnings—imposing a €1.2 billion fine on Meta over EU-U.S. transfers (May 2023) and €746 million on Amazon (2021)—while in the United States, the FTC finalized landmark bans prohibiting location brokers X-Mode/Outlogic (2024) and Gravy Analytics/Venntel (January 2025) from selling sensitive geolocation data without verifiable consent. Paired with privacy-enhancing technologies like differential privacy and zero-knowledge proofs, the regulatory and technical floor is steadily rising.",
+        "The 'privacy is dead' narrative confuses hard enforcement with impossible enforcement. Globally, UNCTAD tracks 137 of 194 countries (71%) with enacted data-protection legislation, including Brazil's LGPD and India's Digital Personal Data Protection Act (2023). In Europe, regulators have moved beyond token warnings, imposing a €1.2 billion fine on Meta over EU-U.S. transfers (May 2023) and €746 million on Amazon (2021), while in the United States, the FTC finalized landmark bans prohibiting location brokers X-Mode/Outlogic (2024) and Gravy Analytics/Venntel (January 2025) from selling sensitive geolocation data without verifiable consent. Paired with privacy-enhancing technologies like differential privacy and zero-knowledge proofs, the regulatory and technical floor is steadily rising.",
       proponent_rebuttal:
-        "Passing laws and levying fines has not dismantled surveillance business models. In a peer-reviewed CHI 2020 audit of consent pop-ups across the top 10,000 UK websites, Nouwens and colleagues found only 11.8% met minimal European legal requirements—and removing a first-page 'reject all' button boosted consent rates by 22–23 percentage points, turning GDPR's consent model into interface theater. In the United States, comprehensive federal privacy legislation has repeatedly stalled: the bipartisan American Data Privacy and Protection Act passed committee 53–2 in 2022 only to die over state preemption, and the 2024 American Privacy Rights Act stalled as well, leaving a fragmented state patchwork while connected cars, smart appliances, and ad-tech brokers keep expanding collection.",
+        "Passing laws and levying fines has not dismantled surveillance business models. In a peer-reviewed CHI 2020 audit of consent pop-ups across the top 10,000 UK websites, Nouwens and colleagues found only 11.8% met minimal European legal requirements, and removing a first-page 'reject all' button boosted consent rates by 22–23 percentage points, turning GDPR's consent model into interface theater. In the United States, comprehensive federal privacy legislation has repeatedly stalled: the bipartisan American Data Privacy and Protection Act passed committee 53–2 in 2022 only to die over state preemption, and the 2024 American Privacy Rights Act stalled as well, leaving a fragmented state patchwork while connected cars, smart appliances, and ad-tech brokers keep expanding collection.",
       crux: {
         id: "regulatory-behavioral-impact",
         title: "The Regulatory Behavioral Impact Test",
@@ -297,7 +298,7 @@ export const privacyVsConvenienceData = {
           "$300K-800K (Cross-jurisdictional DSAR study and comparative profile measurement)",
         falsification: {
           supporter_flip:
-            "If cross-jurisdiction access requests found profiles measurably smaller under GDPR, CCPA, and FTC broker orders—rather than the same data relabeled from 'consent' to 'legitimate interest'—the claim that regulation is mostly bureaucracy would weaken.",
+            "If cross-jurisdiction access requests found profiles measurably smaller under GDPR, CCPA, and FTC broker orders, rather than the same data relabeled from 'consent' to 'legitimate interest', the claim that regulation is mostly bureaucracy would weaken.",
           skeptic_flip:
             "If cross-jurisdiction data showed platforms holding equally large, granular profiles on users in heavily regulated and lightly regulated markets, the case that regulation meaningfully shrinks data collection would lose much of its force.",
           common_ground:
@@ -325,7 +326,7 @@ export const privacyVsConvenienceData = {
           sourceUrl:
             "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-finalizes-order-prohibiting-gravy-analytics-venntel-selling-sensitive-location-data",
           reasoning:
-            "Binding FTC bans on major sensitive-location brokers and billion-euro GDPR penalties show regulators can impose structural restrictions, not merely symbolic fines—though direct impact on aggregate per-user profiling remains contested.",
+            "Binding FTC bans on major sensitive-location brokers and billion-euro GDPR penalties show regulators can impose structural restrictions, not merely symbolic fines, though direct impact on aggregate per-user profiling remains contested.",
         },
         {
           id: "dark-patterns-consent",
@@ -371,7 +372,7 @@ export const privacyVsConvenienceData = {
           title:
             "UNCTAD Tracker: 137 of 194 Countries (~71%) Have Enacted Data-Protection Legislation",
           description:
-            "According to UN Trade and Development (UNCTAD), 137 of 194 countries (roughly 71%) have enacted data-protection and privacy legislation, with another 9% holding draft bills—including Brazil's LGPD and India's Digital Personal Data Protection Act (2023). Scope limit: enacting a statute on paper does not ensure strong enforcement agencies or measurably smaller corporate profiles.",
+            "According to UN Trade and Development (UNCTAD), 137 of 194 countries (roughly 71%) have enacted data-protection and privacy legislation, with another 9% holding draft bills, including Brazil's LGPD and India's Digital Personal Data Protection Act (2023). Scope limit: enacting a statute on paper does not ensure strong enforcement agencies or measurably smaller corporate profiles.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -391,32 +392,47 @@ export const privacyVsConvenienceData = {
   references: [
     {
       title:
-        "Laperdrix, Rudametkin & Baudry — Beauty and the Beast: Diverting Modern Web Browsers to Build Unique Browser Fingerprints, IEEE S&P (2016)",
+        "Laperdrix, Rudametkin & Baudry: Beauty and the Beast: Diverting Modern Web Browsers to Build Unique Browser Fingerprints, IEEE S&P (2016)",
       url: "https://doi.org/10.1109/SP.2016.57",
     },
     {
       title:
-        "Nouwens, Liccardi, Veale, Karger & Kagal — Dark Patterns after the GDPR, CHI (2020)",
+        "Nouwens, Liccardi, Veale, Karger & Kagal: Dark Patterns after the GDPR, CHI (2020)",
       url: "https://dl.acm.org/doi/10.1145/3313831.3376321",
     },
     {
       title:
-        "FTC — Final Order Prohibiting Gravy Analytics, Venntel from Selling Sensitive Location Data (Jan 2025)",
+        "FTC: Final Order Prohibiting Gravy Analytics, Venntel from Selling Sensitive Location Data (Jan 2025)",
       url: "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-finalizes-order-prohibiting-gravy-analytics-venntel-selling-sensitive-location-data",
     },
     {
       title:
-        "Congressional Research Service — FISA Section 702 and the 2024 Reforming Intelligence and Securing America Act (R48592)",
+        "Roll Call: House vote puts surveillance authority on path to lapse (June 11, 2026)",
+      url: "https://rollcall.com/2026/06/11/house-vote-puts-surveillance-authority-on-path-to-lapse/",
+    },
+    {
+      title:
+        "Congressional Research Service: FISA Section 702 and the 2024 Reforming Intelligence and Securing America Act (R48592)",
       url: "https://www.congress.gov/crs-product/R48592",
     },
     {
       title:
-        "U.S. Government Accountability Office — Facial Recognition Technology: Federal Agencies' Use and Related Privacy Protections (GAO-22-106100)",
+        "U.S. Government Accountability Office: Facial Recognition Technology: Current and Planned Uses by Federal Agencies (GAO-21-526)",
+      url: "https://www.gao.gov/products/gao-21-526",
+    },
+    {
+      title:
+        "U.S. Government Accountability Office: Facial Recognition Technology: Federal Law Enforcement Agencies Should Better Assess Privacy and Other Risks (GAO-21-518)",
+      url: "https://www.gao.gov/products/gao-21-518",
+    },
+    {
+      title:
+        "U.S. Government Accountability Office: Facial Recognition Technology: Federal Agencies' Use and Related Privacy Protections (GAO-22-106100, testimony)",
       url: "https://www.gao.gov/products/gao-22-106100",
     },
     {
       title:
-        "Supreme Court of the United States — Carpenter v. United States, 585 U.S. 296 (2018)",
+        "Supreme Court of the United States: Carpenter v. United States, 585 U.S. 296 (2018)",
       url: "https://www.supremecourt.gov/opinions/17pdf/16-402_h315.pdf",
     },
   ],
@@ -425,14 +441,14 @@ export const privacyVsConvenienceData = {
       id: "q1",
       title: "Is opting out of corporate tracking actually possible?",
       content:
-        "Apple's App Tracking Transparency showed that when opt-out is frictionless, most users decline cross-app tracking and ad-tech revenues take a real hit. Yet shadow-profile research (Aguiar et al., 2022) and browser-fingerprinting studies (Laperdrix et al., 2016) show that platforms can still track non-users and identify 89.4% of tested browsers without cookies—leaving open how much individual privacy tools shrink real-world profiles.",
+        "Apple's App Tracking Transparency showed that when opt-out is frictionless, most users decline cross-app tracking and ad-tech revenues take a real hit. Yet shadow-profile research (Aguiar et al., 2022) and browser-fingerprinting studies (Laperdrix et al., 2016) show that platforms can still track non-users and identify 89.4% of tested browsers without cookies, leaving open how much individual privacy tools shrink real-world profiles.",
     },
     {
       id: "q2",
       title:
         "Have post-Snowden reforms meaningfully constrained government surveillance?",
       content:
-        "Default device encryption, the Supreme Court's Carpenter warrant ruling, and Congress letting FISA Section 702 statutorily lapse in June 2026 show genuine legal and technical resistance. At the same time, March 2026 FISA Court certifications kept Section 702 collection running into 2027, and 18 of 24 major federal agencies reported using facial recognition (GAO-22-106100).",
+        "Default device encryption, the Supreme Court's Carpenter warrant ruling, and the House's June 2026 rejection of a short-term Section 702 extension show genuine legal and technical resistance. At the same time, March 2026 FISA Court certifications were reported to keep Section 702 collection running into 2027, and 18 of 24 major federal agencies reported using facial recognition (GAO-21-526).",
     },
     {
       id: "q3",

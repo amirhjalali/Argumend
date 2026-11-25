@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
+import type { KeyboardEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -19,8 +20,9 @@ interface InteractiveCruxShowcaseProps {
  * Interactive "Try one live" tab switcher on the homepage.
  * Tab 0 renders the server-rendered flagship WorkedCrux (so the default view
  * works identically with or without JS and preserves every flagship contract).
- * Additional tabs let visitors click straight into freshly audited real maps
- * to see agreed ground, crux #1, and symmetric mind-change flips in seconds.
+ * Additional tabs let visitors click straight into real maps
+ * to see agreed ground, crux #1, and symmetric mind-change flips in seconds. Only maps with a
+ * verified evidence dossier (`audited`) are labelled "Audited map".
  */
 export function InteractiveCruxShowcase({
   flagshipPanel,
@@ -30,6 +32,8 @@ export function InteractiveCruxShowcase({
 }: InteractiveCruxShowcaseProps) {
   const [activeId, setActiveId] = useState<string>("flagship");
   const reducedMotion = useReducedMotion();
+  const baseId = useId();
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   const activeExample = examples.find((example) => example.id === activeId) ?? null;
 
@@ -37,6 +41,21 @@ export function InteractiveCruxShowcase({
     { id: "flagship", label: flagshipLabel },
     ...examples.map((example) => ({ id: example.id, label: example.shortLabel })),
   ];
+
+  const tabDomId = (id: string) => `${baseId}-tab-${id}`;
+  const panelDomId = (id: string) => `${baseId}-panel-${id}`;
+
+  const onTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    let next = index;
+    if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+    else if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = tabs.length - 1;
+    else return;
+    event.preventDefault();
+    setActiveId(tabs[next].id);
+    tabRefs.current[next]?.focus();
+  };
 
   return (
     <div>
@@ -46,15 +65,22 @@ export function InteractiveCruxShowcase({
         aria-label="Preview a live argument map"
         className="mb-5 flex flex-wrap items-center gap-2"
       >
-        {tabs.map((tab) => {
+        {tabs.map((tab, index) => {
           const selected = tab.id === activeId;
           return (
             <button
               key={tab.id}
+              ref={(node) => {
+                tabRefs.current[index] = node;
+              }}
+              id={tabDomId(tab.id)}
               type="button"
               role="tab"
               aria-selected={selected}
+              aria-controls={panelDomId(tab.id)}
+              tabIndex={selected ? 0 : -1}
               onClick={() => setActiveId(tab.id)}
+              onKeyDown={(event) => onTabKeyDown(event, index)}
               className={`min-h-10 rounded-full border px-4 py-1.5 font-sans text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
                 selected
                   ? "border-primary bg-primary text-canvas"
@@ -70,7 +96,9 @@ export function InteractiveCruxShowcase({
       {activeExample === null ? (
         <motion.div
           key="flagship"
+          id={panelDomId("flagship")}
           role="tabpanel"
+          aria-labelledby={tabDomId("flagship")}
           initial={reducedMotion ? false : { opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: reducedMotion ? 0 : 0.22 }}
@@ -89,7 +117,9 @@ export function InteractiveCruxShowcase({
       ) : (
         <motion.div
           key={activeExample.id}
+          id={panelDomId(activeExample.id)}
           role="tabpanel"
+          aria-labelledby={tabDomId(activeExample.id)}
           initial={reducedMotion ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: reducedMotion ? 0 : 0.22 }}
@@ -111,7 +141,7 @@ export function InteractiveCruxShowcase({
 
               {/* Structured crux preview */}
               <div className="p-5 sm:p-6">
-                <p className="label-caps">{activeExample.category} · Audited map</p>
+                <p className="label-caps">{activeExample.audited ? `${activeExample.category} · Audited map` : activeExample.category}</p>
                 <h3 className="mt-1 font-serif text-[1.4375rem] font-medium leading-snug text-primary dark:text-stone-100 sm:text-[1.625rem]">
                   {activeExample.title}
                 </h3>

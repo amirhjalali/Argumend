@@ -5,7 +5,7 @@ import { ReportSection } from "./ReportSection";
 /**
  * The remaining disagreements, one brief each: the disputed question, what
  * kind of question it is, who stands where, and what would resolve it. The
- * kind is the point of this box in the spec — a disagreement about a value is
+ * kind is the point of this box in the spec: a disagreement about a value is
  * not waiting on more evidence, and saying which kind each one is keeps the
  * report from implying it is.
  */

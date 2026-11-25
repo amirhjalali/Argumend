@@ -1,9 +1,9 @@
 /**
- * GET /api/v1 — self-describing index for the public Argumend API.
+ * GET /api/v1: self-describing index for the public Argumend API.
  *
  * A tiny static JSON document listing the available endpoints, their query
  * params, and example usage, so developers can discover the API by hitting
- * its root. No database, no request data — fully static, revalidated daily.
+ * its root. No database, no request data: fully static, revalidated daily.
  */
 
 import { MAP_COUNT, TOPIC_COUNT } from "@/data/topicIndex";
@@ -18,7 +18,7 @@ export function GET() {
     name: "Argumend Public API",
     version: "1",
     description:
-      "Read-only access to Argumend's analyzed debate topics — positions, evidence, cruxes, evidence balance, weight, and verdicts. Free, no API key, CORS-enabled.",
+      "Read-only access to Argumend's analyzed debate topics, positions, evidence, cruxes, evidence balance, weight, and verdicts. Free, no API key, CORS-enabled.",
     documentation: `${SITE_URL}/api/v1`,
     website: `${SITE_URL}/about`,
     map_count: MAP_COUNT,

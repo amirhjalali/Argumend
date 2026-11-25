@@ -25,7 +25,7 @@ function citationCoverage(): { pct: number; withUrl: number; total: number } {
 }
 
 /**
- * /llms.txt — a plain-text, LLM-friendly index of the site.
+ * /llms.txt: a plain-text, LLM-friendly index of the site.
  * Convention: https://llmstxt.org. Helps language models discover and cite
  * Argumend's argument maps with stable URLs and one-line claims.
  */
@@ -49,21 +49,21 @@ ${topicSummaries.length} two-sided maps, each setting a skeptic's case against t
 Maps last reviewed: ${CONTENT_LAST_UPDATED}.
 
 ## How to read a map
-- **Question** — each map is named by the question it answers. The sides are the people who
+- **Question**: each map is named by the question it answers. The sides are the people who
   say yes and the people who say no.
-- **What both sides already agree on** — the common ground, stated before the dispute.
-- **Cruxes** — the questions the disagreement turns on. Answer one a certain way and one
+- **What both sides already agree on**: the common ground, stated before the dispute.
+- **Cruxes**: the questions the disagreement turns on. Answer one a certain way and one
   side's case gets stronger.
-- **What would settle it** — under each crux: the study, data or observation that would move
+- **What would settle it**: under each crux: the study, data or observation that would move
   informed people. Where no evidence could (a disagreement about values, or a counterfactual
   no one can rerun), the map says so and why.
-- **Evidence** — cards on each side with their sources, so a reader can check the claim.
-- **Crux ledger** — on flagship maps, a dated record of how each crux has moved: open,
+- **Evidence**: cards on each side with their sources, so a reader can check the claim.
+- **Crux ledger**: on flagship maps, a dated record of how each crux has moved: open,
   narrowed, resolved, or unresolvable by evidence.
 
 ## Citation integrity
 - **${pct}% of the evidence items on the two-sided maps (${withUrl.toLocaleString("en-US")} of
-  ${total.toLocaleString("en-US")}) carry a direct source URL** —
+  ${total.toLocaleString("en-US")}) carry a direct source URL**:
   with peer-reviewed papers, government datasets, court filings, and official reports
   preferred where they directly support the claim.
 - Maps are adversarially fact-checked: citations are traced to the primary source, and

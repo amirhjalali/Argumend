@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Parse + validate the body. Malformed JSON or an invalid email is a genuine
-  // client error and still returns 400 — validation behavior is unchanged.
+  // client error and still returns 400: validation behavior is unchanged.
   let email: string;
   let source: string | undefined;
   try {
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
   // rest of the product usable, but must not claim a signup succeeded when no
   // database accepted it or leak a visitor's email address into application logs.
   try {
-    // Insert into DB — on conflict (already subscribed), do nothing
+    // Insert into DB: on conflict (already subscribed), do nothing
     await getDb()
       .insert(newsletters)
       .values({

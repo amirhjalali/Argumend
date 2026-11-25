@@ -180,7 +180,7 @@ describe("embed widget: every map", () => {
 
   it("titles new-model embeds from the lightweight index and 404s unknown ids", async () => {
     const metadata = await generateMetadata({ params: Promise.resolve({ topicId: "capitalism-after-ai" }) });
-    expect(metadata.title).toBe("Can capitalism survive AI? — Embed");
+    expect(metadata.title).toBe("Embed: Can capitalism survive AI?");
     expect(metadata.robots).toEqual({ index: false, follow: false });
     await expect(renderEmbed("definitely-missing")).rejects.toThrow();
   });

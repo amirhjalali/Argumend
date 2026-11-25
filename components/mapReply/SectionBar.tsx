@@ -5,7 +5,7 @@ import { ResultSection } from "./ResultSection";
  * Where the thread's turns actually landed on the map.
  *
  * One stacked bar rather than a chart: the only quantity is a count of turns,
- * and the thing worth seeing at a glance is the proportion — whether the
+ * and the thing worth seeing at a glance is the proportion: whether the
  * argument is concentrated in one section or scattered across three, how much
  * of it was not an argument at all, and how much the model could not place.
  *

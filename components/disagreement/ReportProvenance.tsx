@@ -9,7 +9,7 @@ function plural(count: number, one: string, many: string): string {
  * The report's contents, with the count behind each section.
  *
  * On a phone it sits directly under the headline, so the shape of the
- * argument — how much is shared, how much is split — is visible before the
+ * argument (how much is shared, how much is split) is visible before the
  * long scroll; on a desktop it heads the sticky rail. The counts are the ones
  * the old "at a glance" block showed: counts of items, never a share of
  * agreement.
@@ -153,7 +153,7 @@ export function ReportProvenance({
             How confident is Argumend in this representation?
           </summary>
           <p className="pb-2 leading-relaxed text-[var(--text-secondary)]">
-            {bandLabel(report.diagnosis.confidence)} — {report.diagnosis.confidenceBasis}
+            {bandLabel(report.diagnosis.confidence)}: {report.diagnosis.confidenceBasis}
           </p>
         </details>
       ) : null}

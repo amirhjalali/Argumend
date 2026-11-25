@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   // An object, not a plain string: a string title here resets the root
   // "%s | ARGUMEND" template for every page below this segment.
   title: {
-    default: "For Educators — Teach Critical Thinking with Argument Maps",
+    default: "For Educators: Teach Critical Thinking with Argument Maps",
     template: "%s | ARGUMEND",
   },
   description:
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     "teach critical thinking",
   ],
   openGraph: {
-    title: "For Educators — Teach Critical Thinking with Argument Maps",
+    title: "For Educators: Teach Critical Thinking with Argument Maps",
     description: "Free lesson plans and tools for teaching critical thinking through structured argument mapping.",
     url: "https://argumend.org/for-educators",
     images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "For Educators — Teach Critical Thinking",
+    title: "For Educators: Teach Critical Thinking",
     description: "Free argument mapping tools and lesson plans for classrooms.",
     images: [DEFAULT_SOCIAL_IMAGE_URL],
   },

@@ -6,9 +6,9 @@ Status: operational formula, 2026-11-23. Unifies the formal argument model (`doc
 
 Every Argumend map has to pass three bars at once:
 
-1. **Accurate** — Every figure, quote, date, and URL comes from a verified primary source, with its denominator and scope limit attached. Nothing is invented to fill a template slot.
-2. **Fair** — Every serious camp is stated in its strongest recognizable form, evidence is filed by what the finding shows (never by who cites it), and no side is lectured or declared the winner.
-3. **Compelling** — A reader understands what the fight actually turns on within 30 seconds. Neutrality is never an excuse for dry, encyclopedic throat-clearing; the intellectual drama comes from exposing the gap between what people think they are arguing about and what the disagreement actually hinges on.
+1. **Accurate**: Every figure, quote, date, and URL comes from a verified primary source, with its denominator and scope limit attached. Nothing is invented to fill a template slot.
+2. **Fair**: Every serious camp is stated in its strongest recognizable form, evidence is filed by what the finding shows (never by who cites it), and no side is lectured or declared the winner.
+3. **Compelling**: A reader understands what the fight actually turns on within 30 seconds. Neutrality is never an excuse for dry, encyclopedic throat-clearing; the intellectual drama comes from exposing the gap between what people think they are arguing about and what the disagreement actually hinges on.
 
 The failure mode we learned to eliminate is **schema-first authoring**: drafting a polished argument map from memory and then hunting for citations to decorate it. That order reliably produces misattributed quotes, generic homepage links, asymmetric "skeptic lecturing," and textbook openings nobody finishes.
 
@@ -16,7 +16,7 @@ This playbook enforces a strict five-stage sequence. No stage starts until the p
 
 ---
 
-## Stage 1 — Frame & Scope
+## Stage 1: Frame & Scope
 
 **Goal:** Define an open, non-loaded question and identify the real camps before reading or drafting.
 
@@ -39,35 +39,35 @@ This playbook enforces a strict five-stage sequence. No stage starts until the p
 
 ---
 
-## Stage 2 — Evidence Dossier First (Zero Map Prose)
+## Stage 2: Evidence Dossier First (Zero Map Prose)
 
 **Goal:** Build a verified, primary-source Evidence Dossier at `docs/dossiers/<topic-id>.md` *before* writing a single sentence of map prose.
 
 ### Hard Rules
 
-- **Dossier-only citation wall:** Stage 3 may cite **only** sources recorded in the topic's Evidence Dossier. If a claim or statistic is not in the dossier, it cannot carry a citation—and if it is an empirical claim about a study, it must be omitted or verified and added to the dossier first.
+- **Dossier-only citation wall:** Stage 3 may cite **only** sources recorded in the topic's Evidence Dossier. If a claim or statistic is not in the dossier, it cannot carry a citation, and if it is an empirical claim about a study, it must be omitted or verified and added to the dossier first.
 - **Primary sources over commentary:** Cite the peer-reviewed paper (with DOI), official statistical agency (BLS, OECD, CDC, CBO, court filing), or primary trial report directly. Journalism may establish events or public statements, never stand in for an underlying study.
 - **No placeholder URLs:** Never use Wikipedia, an organization's generic homepage, or an unverified link to satisfy a URL field.
-- **Balanced sourcing:** Collect the strongest empirical anchors for *every* major camp—including methodological critiques, natural experiments, and scope limits of headline studies.
+- **Balanced sourcing:** Collect the strongest empirical anchors for *every* major camp, including methodological critiques, natural experiments, and scope limits of headline studies.
 
 ### Required Fields per Dossier Entry (`D1`, `D2`, …)
 
 ```markdown
-### D1 — <Short finding-stating label>
+### D1: <Short finding-stating label>
 - **Citation:** Author(s) / Institution (Year), *Title*, Publication / Report No.
 - **URL / DOI:** <verified direct link> (verified YYYY-MM-DD)
 - **Source kind:** peer-reviewed | government | institutional | advocacy | journalism | primary-document
 - **Interest / funding disclosure:** <who funded or ran it, or "None identified">
 - **Verified finding:** <exact figure(s), denominator, time period, and geography>
 - **Scope limit / counter-reading:** <what this does NOT show, e.g., self-selection, no control group, short window, compressed vs. reduced hours>
-- **Direction (`side`):** `for` | `against` | `qualifying` — judged strictly by what the finding shows relative to the root question, not by who quotes it.
+- **Direction (`side`):** `for` | `against` | `qualifying`: judged strictly by what the finding shows relative to the root question, not by who quotes it.
 ```
 
 **Exit gate:** At least 2 verified primary sources per crux (minimum 1 `for` and 1 `against` per empirical crux, unless an explicit evidence gap is documented), zero unverified URLs, and every figure paired with its denominator, date, and scope limit.
 
 ---
 
-## Stage 3 — Crux Extraction & Story Draft
+## Stage 3: Crux Extraction & Story Draft
 
 **Goal:** Turn the Evidence Dossier into a clear, fair, genuinely compelling map.
 
@@ -75,20 +75,20 @@ This playbook enforces a strict five-stage sequence. No stage starts until the p
 
 1. **Open on the surprise, not a textbook definition:**
    - The hook (`keystone_fact.statement`) and crux-sheet framing (`simple_case`) are the site speaking, never a side.
-   - Start with the sharpest verified contrast or perception gap—two real facts side by side that immediately explain *why* serious people disagree—rather than *"X is a policy that..."*
+   - Start with the sharpest verified contrast or perception gap, two real facts side by side that immediately explain *why* serious people disagree, rather than *"X is a policy that..."*
    - Never open with an expert poll percentage, a consensus headcount, or a sentence that answers one of the map's own cruxes.
-2. **State the agreed ground cleanly—and never reuse it as a side's "best card":**
+2. **State the agreed ground cleanly, and never reuse it as a side's "best card":**
    - Put what both camps already accept up front so the reader sees how much of the noise isn't actually in dispute.
    - Keep each side's evidence cards distinct from the agreed-facts block (enforced by `lib/topicPage/agreedFacts.test.ts`).
 3. **Order cruxes as a narrative arc (2–4 load-bearing questions):**
    - Put the most intuitive, load-bearing question first (what a reader asks in the first 30 seconds), then deepen into persistence/mechanism, then into macro trade-offs, equity, or values.
-   - Distinguish **empirical**, **predictive**, **definitional**, **normative**, and **procedural** disagreements—never label a value trade-off as an "evidence shortage."
+   - Distinguish **empirical**, **predictive**, **definitional**, **normative**, and **procedural** disagreements, never label a value trade-off as an "evidence shortage."
 4. **Write finding-stating card titles:**
    - Bad: *"Productivity Impact"* or *"Employer Survey"*
    - Good: *"Six-Country Study (2,896 Workers): Burnout Fell and Job Satisfaction Rose Over Six Months vs. Control Firms (2025)"*
    - Put the scope limit directly inside the card's description and reasoning so no study is oversold.
 5. **Write concrete, symmetric falsifiers:**
-   - Every crux's `settle.condition` names a specific, runnable observation, dataset, or natural experiment—never *"more research is needed"* and never a restatement of the crux question.
+   - Every crux's `settle.condition` names a specific, runnable observation, dataset, or natural experiment, never *"more research is needed"* and never a restatement of the crux question.
    - Both `supporter_flip` and `skeptic_flip` open with `"If ..."`, use `"would"` (never `"should"`), assign no burden of proof, state no verdict, and stay within a 2.5× length ratio of each other.
 6. **Check the 30-second test:**
    - Read only the title, hook, `simple_case`, and the crux questions. If a thoughtful friend could not immediately say *"oh, I didn't realize those were the three questions this actually turns on,"* tighten the framing before moving to Stage 4.
@@ -97,7 +97,7 @@ This playbook enforces a strict five-stage sequence. No stage starts until the p
 
 ---
 
-## Stage 4 — Adversarial Fairness Pass
+## Stage 4: Adversarial Fairness Pass
 
 **Goal:** Stress-test the draft from inside each camp before trusting it.
 
@@ -119,7 +119,7 @@ Record accepted and rejected critiques in the **Adversarial Review Log** at the 
 
 ---
 
-## Stage 5 — Automated Mechanical CI Gate
+## Stage 5: Automated Mechanical CI Gate
 
 **Goal:** Let deterministic code enforce what human and AI eyes miss at scale.
 
@@ -134,12 +134,12 @@ Record accepted and rejected critiques in the **Adversarial Review Log** at the 
    bun run typecheck
    ```
    This automatically verifies:
-   - `lib/topicPage/ledeContract.test.ts` — no poll headcounts, verdict language, or crux-answering in openings
-   - `lib/topicPage/settleContract.test.ts` — concrete observations, no restatements, no duplicate settle lines
-   - `lib/topicPage/flipContract.test.ts` — symmetric `If ...` conditionals, no lecturing, no verdict words, <2.5× length ratio
-   - `lib/topicPage/agreedFacts.test.ts` — no side's best card merely repeats an agreed fact
-   - `lib/mapDuplicates.test.ts` — no accidental duplicate map
-   - `lib/paste/maps.test.ts` — paste-matching regressions stay green
+   - `lib/topicPage/ledeContract.test.ts`, no poll headcounts, verdict language, or crux-answering in openings
+   - `lib/topicPage/settleContract.test.ts`, concrete observations, no restatements, no duplicate settle lines
+   - `lib/topicPage/flipContract.test.ts`, symmetric `If ...` conditionals, no lecturing, no verdict words, <2.5× length ratio
+   - `lib/topicPage/agreedFacts.test.ts`, no side's best card merely repeats an agreed fact
+   - `lib/mapDuplicates.test.ts`, no accidental duplicate map
+   - `lib/paste/maps.test.ts`, paste-matching regressions stay green
 3. **Verify shipped URLs when online:**
    ```bash
    bun run check:sources
@@ -158,7 +158,7 @@ Record accepted and rejected critiques in the **Adversarial Review Log** at the 
 
 Argumend currently maintains two data shapes that render through the same crux-first reading template (`components/topic/TopicPage.tsx`):
 
-- **Standard topic maps (`data/topics/<id>.ts`)** — Best for repeatable library coverage (2–4 pillars/cruxes, 2–4 verified primary cards per crux, ~1–2 hours end-to-end with this playbook).
-- **Flagship `ArgumentGraph` maps (`data/topics/drafts/<id>.draft.json`)** — Reserved for high-stakes living debates where multi-camp topology, attack-driven `INFERENCE` nodes, computed crux ranking, and a movement ledger justify deeper curation.
+- **Standard topic maps (`data/topics/<id>.ts`)**: Best for repeatable library coverage (2–4 pillars/cruxes, 2–4 verified primary cards per crux, ~1–2 hours end-to-end with this playbook).
+- **Flagship `ArgumentGraph` maps (`data/topics/drafts/<id>.draft.json`)**: Reserved for high-stakes living debates where multi-camp topology, attack-driven `INFERENCE` nodes, computed crux ranking, and a movement ledger justify deeper curation.
 
 Both formats follow the exact same five stages above. The difference is graph granularity, never evidence rigor or fairness standards.

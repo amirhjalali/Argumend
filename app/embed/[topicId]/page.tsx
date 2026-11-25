@@ -41,7 +41,7 @@ export async function generateMetadata({
   if (!meta) return { title: "Not Found" };
 
   return {
-    title: `${meta.title} — Embed`,
+    title: `Embed: ${meta.title}`,
     description: meta.description,
     robots: { index: false, follow: false },
   };

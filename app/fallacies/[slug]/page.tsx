@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const title = `${fallacy.name} — Logical Fallacy`;
+  const title = `${fallacy.name}: Logical Fallacy`;
   const description = fitMetaDescription(fallacy.shortDefinition);
   const url = `https://argumend.org/fallacies/${fallacy.slug}`;
   const ogImage = buildGenericOgUrl({

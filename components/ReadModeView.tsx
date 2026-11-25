@@ -1,5 +1,5 @@
 /**
- * ReadModeView — legacy pillar maps on the one topic-page template.
+ * ReadModeView: legacy pillar maps on the one topic-page template.
  *
  * The map's own text, rearranged crux-first by lib/topicPage/legacy.ts and
  * rendered by components/topic/TopicPage.tsx, the same template the

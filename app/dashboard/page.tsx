@@ -11,7 +11,7 @@ import { PageContainer, PageHeader, TextAction } from "@/components/ui";
 import { mapDisplayTitle } from "@/lib/mapNaming";
 
 export const metadata: Metadata = {
-  // Plain string — the root title template ("%s | ARGUMEND") adds the suffix;
+  // Plain string: the root title template ("%s | ARGUMEND") adds the suffix;
   // baking it in here produced a doubled "Dashboard | ARGUMEND | ARGUMEND".
   title: "Your saved maps",
   description: "The maps you have saved, on any device you sign in on.",

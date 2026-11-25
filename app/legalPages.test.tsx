@@ -32,7 +32,7 @@ describe("/privacy", () => {
     const view = render(<PrivacyPage />);
     const notice = view.getByRole("note", { name: "Draft status" });
 
-    expect(notice.textContent).toContain("Draft — pending legal review");
+    expect(notice.textContent).toContain("Draft: pending legal review");
     expect(notice.textContent).toContain("has not been reviewed by a lawyer");
   });
 
@@ -128,7 +128,7 @@ describe("/terms", () => {
   it("says plainly that it is an unreviewed draft", () => {
     const notice = render(<TermsPage />).getByRole("note", { name: "Draft status" });
 
-    expect(notice.textContent).toContain("Draft — pending legal review");
+    expect(notice.textContent).toContain("Draft: pending legal review");
   });
 
   it("keeps the no-winner, educational framing the product is built on", () => {

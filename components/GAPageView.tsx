@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 
 // Fires GA4 page_view on Next.js App Router client-side route changes.
-// Without this, gtag('config', ID) only records the initial landing page —
+// Without this, gtag('config', ID) only records the initial landing page,
 // every subsequent navigation goes uncounted, which can undercount real
 // engagement by 5-10x on multi-page browsing sessions.
 //

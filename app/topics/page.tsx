@@ -33,8 +33,8 @@ export async function generateMetadata({ searchParams }: TopicsPageProps): Promi
 
   return {
     title: state.page > 1
-      ? `${shelf} — page ${state.page}`
-      : `${shelf} — ${count} contested questions`,
+      ? `${shelf}: page ${state.page}`
+      : `${shelf}: ${count} contested questions`,
     // The bare library keeps the layout's description.
     ...(description ? { description: fitMetaDescription(description) } : {}),
     alternates: {

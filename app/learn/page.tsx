@@ -25,11 +25,11 @@ const URL = `${SITE_URL}/learn`;
 const OG_IMAGE = buildGenericOgUrl({ title: TITLE, subtitle: "Learn" });
 
 export const metadata: Metadata = {
-  title: `Learn — ${TITLE}`,
+  title: `Learn: ${TITLE}`,
   description: DESCRIPTION,
   alternates: { canonical: URL },
   openGraph: {
-    title: `Learn — ${TITLE}`,
+    title: `Learn: ${TITLE}`,
     description: DESCRIPTION,
     url: URL,
     type: "website",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Learn — ${TITLE}`,
+    title: `Learn: ${TITLE}`,
     description: DESCRIPTION,
     images: [OG_IMAGE],
   },

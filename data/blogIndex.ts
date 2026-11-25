@@ -37,7 +37,7 @@ export interface ArticleSummary {
 export const articleSummaries: ArticleSummary[] = [
   {
     slug: "how-argumend-evolved-and-how-we-map-a-topic",
-    title: "How Argumend Evolved—and the Five-Stage Formula We Now Use to Map a Disagreement",
+    title: "How Argumend Evolved and the Five-Stage Formula We Now Use to Map a Disagreement",
     description:
       "Building Argumend taught us that good intentions are not enough to keep bias and weak citations out of an argument map. Here is how our approach evolved, the five-stage method we now follow, and what happened when we ran it end to end on the four-day work week.",
     tags: ["methodology", "argument mapping", "crux", "epistemic hygiene", "four-day work week"],

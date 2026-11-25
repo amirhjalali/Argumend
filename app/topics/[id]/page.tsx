@@ -145,14 +145,14 @@ export async function generateMetadata({
 }
 
 // ---------------------------------------------------------------------------
-// Page Component — thin server wrapper, rendering done client-side
+// Page Component: thin server wrapper, rendering done client-side
 // ---------------------------------------------------------------------------
 
 export default async function TopicPage({ params, searchParams }: PageProps) {
   const { id } = await params;
 
   // New-model (ArgumentGraph) topics render the progressive-disclosure
-  // DebateView — no canvas bundle, no hydration for the core experience.
+  // DebateView: no canvas bundle, no hydration for the core experience.
   const argumentTopic = loadArgumentTopic(id);
   if (argumentTopic) {
     // Nearest subject first, read from the maps' own words (lib/relatedMaps.ts).

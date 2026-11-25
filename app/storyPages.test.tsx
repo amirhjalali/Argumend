@@ -95,7 +95,7 @@ describe("/about", () => {
     expect(card, "the crux card").not.toBeNull();
     expect(crux!.claimId).toBe("c-firms-cut-hiring-not-output");
     expect(within(card as HTMLElement).getByRole("heading", { level: 3 }).textContent).toBe(
-      "When AI makes a firm more productive, does it hire fewer people — or just sell more?",
+      "When AI makes a firm more productive, does it hire fewer people, or just sell more?",
     );
     // The map's own settle line, verbatim.
     expect(card!.textContent).toContain("What would settle it");

@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
   const ip = clientIp(req);
   const limit = rateLimit(`topic-views:${ip}`, { maxRequests: 60, windowMs: 60 * 1000 });
   if (!limit.success) {
-    // Silently accept but don't record — don't leak rate limit info to scrapers
+    // Silently accept but don't record: don't leak rate limit info to scrapers
     return NextResponse.json({ ok: true });
   }
 
@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
       userId = undefined;
     }
 
-    // Fire-and-forget — don't block the response on DB write
+    // Fire-and-forget: don't block the response on DB write
     recordTopicView(topicId, userId).catch(() => {
       // Silently swallow DB errors for view tracking
     });

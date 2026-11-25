@@ -58,7 +58,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   const canonical = `${SITE_URL}${buildPageHref("/questions", page, filterParams(category))}`;
   const title = category ? `${CATEGORY_LABELS[category]} questions` : TITLE;
   return {
-    title: page > 1 ? `${title} — Page ${page}` : title,
+    title: page > 1 ? `${title}: Page ${page}` : title,
     description: DESCRIPTION,
     alternates: { canonical },
     openGraph: {

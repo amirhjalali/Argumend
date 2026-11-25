@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Report not found", robots: { index: false, follow: false } };
   }
   return {
-    title: `${row.report.diagnosis.headline} — ARGUMEND`,
+    title: `${row.report.diagnosis.headline}: ARGUMEND`,
     description: row.report.diagnosis.insight,
     robots: { index: false, follow: true },
     alternates: { canonical: `https://argumend.org/d/${slug}` },

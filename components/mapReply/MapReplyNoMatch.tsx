@@ -11,7 +11,7 @@ import { Meter, percentLabel } from "./meters";
  * The pipeline is built to refuse rather than to guess: below the confidence
  * bar it returns no map at all, because a reply built off the wrong map would
  * be confidently, specifically wrong. So this view has to read as an answer,
- * not an error — it shows the bar that was missed, and the maps that came
+ * not an error: it shows the bar that was missed, and the maps that came
  * closest, so a reader can see whether their argument is one Argumend has
  * simply never mapped.
  */

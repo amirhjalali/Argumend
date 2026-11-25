@@ -1,11 +1,11 @@
 /**
- * ShareCard — the one screenshot-native object on the page.
+ * ShareCard: the one screenshot-native object on the page.
  *
  * Two numbers, one line under them. Sized and styled to survive being
  * screenshotted and dropped into a group chat with no surrounding context,
  * which is how this page actually travels. Palette validated with the dataviz
  * six-checks script (#0f9284 / #a23b3b on parchment; #17a091 / #e66767 on the
- * dark surface). Identity never rests on color alone — each figure carries its
+ * dark surface). Identity never rests on color alone: each figure carries its
  * own label.
  */
 

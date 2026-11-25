@@ -329,7 +329,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const canonical = `https://argumend.org/for-educators/worksheets/${ws.id}`;
   // The layout's template adds "| ARGUMEND"; the name here would repeat it.
-  const title = `${ws.title} — for teachers`;
+  const title = `${ws.title}: for teachers`;
   const description = fitMetaDescription(ws.instructions);
 
   return {

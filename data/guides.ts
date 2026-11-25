@@ -581,7 +581,7 @@ There are two kinds of map. The flagship maps, such as [Will AI cause mass unemp
         title: "Start with the cruxes",
         content: `A [crux](/concepts/cruxes) is the question a fight turns on, and what would settle it. Answer it one way and one side's case gets stronger; answer it the other way and the other side's does. A map says how many it has ("This turns on five questions") and lists them first, because they are what you should meet first.
 
-Take one from the AI unemployment map: "When AI makes a firm more productive, does it hire fewer people — or just sell more?" Under it, the map says what would settle it: firm-level panels linking AI adoption to headcount, output, and pricing decisions over multiple years. Two people can agree that AI makes firms more productive and still split on this question, and the split decides much of the rest.
+Take one from the AI unemployment map: "When AI makes a firm more productive, does it hire fewer people, or just sell more?" Under it, the map says what would settle it: firm-level panels linking AI adoption to headcount, output, and pricing decisions over multiple years. Two people can agree that AI makes firms more productive and still split on this question, and the split decides much of the rest.
 
 Not every crux is settled by evidence, and the line under the question says which kind it is:`,
         subsections: [
@@ -589,7 +589,7 @@ Not every crux is settled by evidence, and the line under the question says whic
             title: "What would settle it",
             content: `A test on evidence, run now or once the future arrives ("What would settle it, in time"). Once a crux has closed, the line reads "What settled it".
 
-Agreement on terms, or on who decides. "What counts as 'mass unemployment' — are both sides even arguing about the same disaster?" closes when the sides agree on a measure, not when a new study comes out.
+Agreement on terms, or on who decides. "What counts as 'mass unemployment': are both sides even arguing about the same disaster?" closes when the sides agree on a measure, not when a new study comes out.
 
 Nothing at all, when the fight is about values. "If an $80K office worker becomes a $35K care worker, did the economy 'adjust'?" There the map says "Nothing does" and keeps both answers.
 

@@ -17,6 +17,8 @@ export interface InteractiveCruxExample {
   readonly id: string;
   readonly shortLabel: string;
   readonly category: string;
+  /** True only for maps that have a verified evidence dossier under docs/dossiers. */
+  readonly audited: boolean;
   readonly title: string;
   readonly href: string;
   readonly cruxHref: string;
@@ -40,13 +42,13 @@ export interface GalleryMapCard {
 }
 
 const PREVIEW_SPECS = [
-  { data: fourDayWorkWeekData, shortLabel: "Four-Day Week", category: "Economics" },
-  { data: privacyVsConvenienceData, shortLabel: "Digital Privacy", category: "Technology" },
-  { data: congestionPricingData, shortLabel: "Congestion Pricing", category: "Policy" },
+  { data: fourDayWorkWeekData, shortLabel: "Four-Day Week", category: "Economics", audited: true },
+  { data: privacyVsConvenienceData, shortLabel: "Digital Privacy", category: "Technology", audited: true },
+  { data: congestionPricingData, shortLabel: "Congestion Pricing", category: "Policy", audited: false },
 ] as const;
 
 export function loadInteractiveExamples(): InteractiveCruxExample[] {
-  return PREVIEW_SPECS.map(({ data, shortLabel, category }) => {
+  return PREVIEW_SPECS.map(({ data, shortLabel, category, audited }) => {
     const pillar = data.pillars[0];
     const crux = pillar.crux;
     const media = getGeneratedMedia("topic", data.id);
@@ -54,9 +56,10 @@ export function loadInteractiveExamples(): InteractiveCruxExample[] {
       id: data.id,
       shortLabel,
       category,
+      audited,
       title: data.question ?? data.title,
       href: `/topics/${data.id}`,
-      cruxHref: `/topics/${data.id}#crux-${crux.id}`,
+      cruxHref: `/topics/${data.id}#crux-${pillar.id}`,
       heroSrc: media?.hero.src ?? null,
       heroAlt: media?.hero.alt ?? data.title,
       agreedGround: crux.falsification.common_ground,

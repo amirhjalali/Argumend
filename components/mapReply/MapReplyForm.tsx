@@ -81,7 +81,7 @@ export function MapReplyForm({
             }`}
           >
             {value.length.toLocaleString()} / {maxCharacters.toLocaleString()} characters
-            {atCap ? " — at the cap" : ""}
+            {atCap ? ": at the cap" : ""}
           </p>
         </div>
       </div>

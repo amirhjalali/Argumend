@@ -123,14 +123,14 @@ import { gigEconomyRegulationData } from "./topics/gig-economy-regulation";
 import { surveillancePublicSafetyData } from "./topics/surveillance-public-safety";
 import { meaningWithoutReligionData } from "./topics/meaning-without-religion";
 
-// New topics (June 2026 batch — current controversies)
+// New topics (June 2026 batch: current controversies)
 import { ukrainePeaceTermsData } from "./topics/ukraine-peace-terms";
 import { trumpTariffsData } from "./topics/trump-tariffs";
 import { rfkHealthPolicyData } from "./topics/rfk-health-policy";
 import { dogeFederalCutsData } from "./topics/doge-federal-cuts";
 import { openWeightAiModelsData } from "./topics/open-weight-ai-models";
 
-// Breadth Sprint — Tier 1 (June 2026): web-verified, firewall-passed maps
+// Breadth Sprint: Tier 1 (June 2026): web-verified, firewall-passed maps
 import { carbonTaxEffectivenessData } from "./topics/carbon-tax-effectiveness";
 import { congestionPricingData } from "./topics/congestion-pricing";
 import { rightToRepairData } from "./topics/right-to-repair";
@@ -146,7 +146,7 @@ import { vaccineMandatesData } from "./topics/vaccine-mandates";
 import { ssriAntidepressantEfficacyData } from "./topics/ssri-antidepressant-efficacy";
 import { socialSecurityRetirementAgeData } from "./topics/social-security-retirement-age";
 
-// Breadth Sprint — Tier 2 (June 2026): web-verified, firewall-passed maps
+// Breadth Sprint: Tier 2 (June 2026): web-verified, firewall-passed maps
 import { estateInheritanceTaxData } from "./topics/estate-inheritance-tax";
 import { occupationalLicensingReformData } from "./topics/occupational-licensing-reform";
 import { encryptionBackdoorsData } from "./topics/encryption-backdoors";
@@ -296,7 +296,7 @@ export const rfkHealthPolicy = buildTopic(rfkHealthPolicyData);
 export const dogeFederalCuts = buildTopic(dogeFederalCutsData);
 export const openWeightAiModels = buildTopic(openWeightAiModelsData);
 
-// Breadth Sprint — Tier 1 (June 2026)
+// Breadth Sprint: Tier 1 (June 2026)
 export const carbonTaxEffectiveness = buildTopic(carbonTaxEffectivenessData);
 export const congestionPricing = buildTopic(congestionPricingData);
 export const rightToRepair = buildTopic(rightToRepairData);
@@ -312,7 +312,7 @@ export const vaccineMandates = buildTopic(vaccineMandatesData);
 export const ssriAntidepressantEfficacy = buildTopic(ssriAntidepressantEfficacyData);
 export const socialSecurityRetirementAge = buildTopic(socialSecurityRetirementAgeData);
 
-// Breadth Sprint — Tier 2 (June 2026)
+// Breadth Sprint: Tier 2 (June 2026)
 export const estateInheritanceTax = buildTopic(estateInheritanceTaxData);
 export const occupationalLicensingReform = buildTopic(occupationalLicensingReformData);
 export const encryptionBackdoors = buildTopic(encryptionBackdoorsData);

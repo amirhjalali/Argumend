@@ -1,5 +1,5 @@
 /**
- * GET /api/v1/topics — public, read-only list of analyzed topics.
+ * GET /api/v1/topics: public, read-only list of analyzed topics.
  *
  * Returns lightweight summaries (from the static topic index, ~17KB) rather
  * than full topic graphs. No database is touched. Because the handler reads
@@ -29,7 +29,7 @@ import {
 } from "./_schemas";
 import { ApiErrorResponseSchema } from "../_schemas";
 
-/** Public shape for a single topic in the list — summary fields + canonical url. */
+/** Public shape for a single topic in the list: summary fields + canonical url. */
 function toApiTopic(t: TopicSummary) {
   return {
     id: t.id,

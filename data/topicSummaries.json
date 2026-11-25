@@ -1608,7 +1608,7 @@
     "id": "privacy-vs-convenience",
     "title": "Have We Already Lost the Battle for Digital Privacy?",
     "question": "Have we already lost the battle for digital privacy?",
-    "meta_claim": "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
+    "meta_claim": "Meaningful digital privacy is no longer achievable for ordinary citizens: the surveillance infrastructure is too embedded in daily life to resist.",
     "confidence_score": 52,
     "balance": 52,
     "weight": 74,
@@ -1629,7 +1629,7 @@
       "regulation",
       "encryption"
     ],
-    "keywords": "gdpr brave ieee cookies browsing unctad adppa fisa carpenter whatsapp fingerprints aguiar apra eckersley gravy"
+    "keywords": "gdpr brave ieee cookies browsing unctad adppa carpenter whatsapp fingerprints aguiar apra eckersley fisa gravy"
   },
   {
     "id": "climate-change",

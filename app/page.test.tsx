@@ -10,8 +10,11 @@ import {
   HOME_EVIDENCE_HREF,
   HOME_FLAGSHIP_HREF,
   loadHomeCrux,
+  loadHomeCruxLinks,
   loadHomeStory,
+  numberWord,
 } from "@/components/home/homeModel";
+import { FILM } from "@/components/home/filmManifest";
 
 // The shell is the foundation's; home only has to render inside it.
 vi.mock("@/components/AppShell", () => ({
@@ -28,7 +31,7 @@ function renderHome() {
   return render(<HomePage />);
 }
 
-describe("home: illustrated history intro, live crux preview, and two doors", () => {
+describe("home: one argument on film, two doors", () => {
   it("has exactly one h1, the claim", () => {
     const view = renderHome();
     const h1s = view.getAllByRole("heading", { level: 1 });
@@ -54,16 +57,7 @@ describe("home: illustrated history intro, live crux preview, and two doors", ()
     expect(paste.getAttribute("href")).toBe(ANALYZE_HREF);
   });
 
-  it("renders the interactive above-the-fold specimen with Feed/Crux toggle", () => {
-    const view = renderHome();
-    const feedBtn = view.getByRole("button", { name: "The Feed" });
-    const cruxBtn = view.getByRole("button", { name: "The Crux" });
-    expect(cruxBtn.getAttribute("aria-pressed")).toBe("true");
-    fireEvent.click(feedBtn);
-    expect(feedBtn.getAttribute("aria-pressed")).toBe("true");
-  });
-
-  it("attributes its pilot result inside the story and links to method and limits", () => {
+  it("attributes its pilot result inside the story and links to the method and limits", () => {
     const view = renderHome();
     const link = view.getByRole("link", { name: "Method and limits" });
     expect(link.getAttribute("href")).toBe(HOME_EVIDENCE_HREF);
@@ -71,23 +65,36 @@ describe("home: illustrated history intro, live crux preview, and two doors", ()
     expect(anchor).toBe("how-the-pilot-count-was-produced");
     const post = articles.find((candidate) => candidate.slug === slug);
     expect(post, "the evidence post must exist").toBeTruthy();
+    // The numbers home quotes are the ones the post publishes.
     expect(post?.content).toContain("114 analyzed turns");
     expect(post?.content).toContain("classified 88");
+    expect(post?.content).toContain("only turns of at least 12 words");
+    expect(post?.content).toContain("not independently validated counts");
+    expect(post?.content).toContain("### How the pilot count was produced");
+    expect(post?.content).toMatch(/\b36 minutes\b/);
+    // It names the debate, as the post and /about do.
+    expect(post?.content).toMatch(/trans athletes debate/);
     const evidence = view.getByRole("complementary", { name: "One pilot test" });
     expect(evidence.textContent).toContain("our model-based analysis classified 88 of 114 analyzed turns");
     expect(evidence.textContent).toContain("including host questions");
   });
 
-  it("puts the primary CTA before the pilot evidence", () => {
+  it("puts the two doors before the pilot evidence, on the first screen", () => {
     const view = renderHome();
     const primary = view.getByRole("link", { name: /See it on AI and jobs/ });
     const evidence = view.getByRole("complementary", { name: "One pilot test" });
+    // Node.DOCUMENT_POSITION_FOLLOWING === 4.
     expect(primary.compareDocumentPosition(evidence) & 4).toBe(4);
+    // The doors are in the film's first step, the one a returning visitor keeps.
+    expect(primary.closest("[data-film-step]")?.hasAttribute("data-film-hero")).toBe(true);
+    expect(evidence.closest("[data-film-step]")?.hasAttribute("data-film-hero")).toBe(false);
   });
 
-  it("walks through the 5-chapter history of disagreement using live flagship counts", () => {
+  it("pulls the flagship map apart on film, with the map's own counts", () => {
     const story = loadHomeStory();
     expect(story).not.toBeNull();
+    // The counts are the map's: every live claim is either accepted or open,
+    // and the crux count is the one the worked crux reports.
     expect(story!.acceptedCount + story!.openCount).toBe(story!.claimCount);
     expect(story!.acceptedCount).toBeGreaterThan(0);
     expect(story!.openCount).toBeGreaterThan(0);
@@ -95,18 +102,70 @@ describe("home: illustrated history intro, live crux preview, and two doors", ()
     expect(`/topics/${story!.topicId}`).toBe(HOME_FLAGSHIP_HREF);
 
     const view = renderHome();
-    const section = view.container.querySelector("[data-history-story]");
+    const section = view.container.querySelector("[data-home-film]");
     expect(section).not.toBeNull();
-    const steps = section!.querySelectorAll("[data-chapter-step]");
-    expect(steps).toHaveLength(5);
+    // The hero is the film's first step, then one step per later beat of the
+    // rendered sequence (components/home/filmManifest.ts).
+    const steps = section!.querySelectorAll("[data-film-step]");
+    expect(steps).toHaveLength(FILM.beats.length);
+    expect(steps[0].querySelector("h1")).not.toBeNull();
+    expect(steps[0].hasAttribute("data-film-hero")).toBe(true);
+    const titles = Array.from(section!.querySelectorAll("h2")).map((h2) => h2.textContent);
+    expect(titles).toEqual([
+      `One argument, ${story!.claimCount} claims.`,
+      "The harder each side pulls, the tighter it gets.",
+      `${story!.acceptedCount} of them are not in dispute.`,
+      `${story!.openCount} are contested. They turn on ${numberWord(story!.cruxCount)} questions.`,
+      "No winner. Only where to look.",
+    ]);
+    // The example claim is quoted in the map's words.
     expect(story!.acceptedExample).toBeTruthy();
     expect(section!.textContent).toContain(story!.acceptedExample!);
-    expect(section!.textContent).toContain("Athenian Agora");
-    expect(section!.textContent).toContain("Nullius in verba");
-    expect(section!.textContent).toContain("No winner. Only where to look.");
+    // The picture is decoration: hidden from assistive technology, no pointer events.
+    const stage = section!.querySelector("[data-film-stage]");
+    expect(stage?.getAttribute("aria-hidden")).toBe("true");
+    expect(stage?.className).toContain("pointer-events-none");
   });
 
-  it("works through crux #1 of the flagship map and lets readers switch to audited maps", () => {
+  it("names the knots: the film ends on the map's own cruxes, each linked to its place on the map", () => {
+    const story = loadHomeStory()!;
+    const links = loadHomeCruxLinks();
+    expect(links).toHaveLength(story.cruxCount);
+    expect(links[0].question).toBe(loadHomeCrux()!.question);
+    const view = renderHome();
+    const list = view.getByRole("list", { name: `The ${numberWord(story.cruxCount)} questions` });
+    const anchors = within(list).getAllByRole("link");
+    expect(anchors.map((anchor) => anchor.getAttribute("href"))).toEqual(links.map((link) => link.href));
+    for (const [index, anchor] of anchors.entries()) {
+      expect(anchor.textContent).toContain(links[index].question);
+      expect(anchor.getAttribute("href")).toMatch(new RegExp(`^${HOME_FLAGSHIP_HREF}#crux-`));
+    }
+    // The last step of the film, after the cruxes have gathered.
+    const steps = view.container.querySelectorAll("[data-film-step]");
+    expect(steps[steps.length - 1].contains(list)).toBe(true);
+  });
+
+  it("was rendered from the counts the map has today", () => {
+    // The film is pre-rendered: one strand per claim, one knot per crux. If the
+    // flagship map's counts change, re-render it (scripts/home-film/README.md)
+    // so the picture does not contradict the text beside it.
+    const story = loadHomeStory()!;
+    expect(FILM.counts).toEqual({
+      claims: story.claimCount,
+      agreed: story.acceptedCount,
+      contested: story.openCount,
+      cruxes: story.cruxCount,
+    });
+  });
+
+  it("offers a first-time visitor a way past the film, and a returning one a replay", () => {
+    const view = renderHome();
+    expect(view.getByRole("link", { name: "Skip the intro" }).getAttribute("href")).toBe("#home-crux");
+    expect(view.getByRole("button", { name: "Replay the intro" })).toBeTruthy();
+    expect(view.container.querySelector("#home-crux")).not.toBeNull();
+  });
+
+  it("works through crux #1 of the flagship map and lets readers switch to other maps", () => {
     const crux = loadHomeCrux();
     expect(crux).not.toBeNull();
     expect(`/topics/${crux!.topicId}`).toBe(HOME_FLAGSHIP_HREF);
@@ -120,7 +179,7 @@ describe("home: illustrated history intro, live crux preview, and two doors", ()
       within(section).getByRole("link", { name: /Read the whole map/ }).getAttribute("href"),
     ).toBe(HOME_FLAGSHIP_HREF);
 
-    // Switching tabs updates the preview cleanly to an audited map.
+    // Switching tabs swaps the preview to another map.
     const fourDayTab = within(section).getByRole("tab", { name: "Four-Day Week" });
     fireEvent.click(fourDayTab);
     expect(fourDayTab.getAttribute("aria-selected")).toBe("true");
@@ -180,7 +239,7 @@ describe("home: illustrated history intro, live crux preview, and two doors", ()
 
   it("titles the page in the same voice as its h1", () => {
     const title = metadata.title as { absolute: string };
-    expect(title.absolute).toBe("ARGUMEND — Find what the argument actually turns on");
+    expect(title.absolute).toBe("ARGUMEND: Find what the argument actually turns on");
     expect(title.absolute).not.toMatch(/Not Win Them/);
     expect(metadata.description).toContain("never names a winner");
   });

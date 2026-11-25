@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   CSS Custom Properties — Light & Dark Mode
+   CSS Custom Properties: Light & Dark Mode
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root {
@@ -113,7 +113,7 @@
   --bg-subtle-rgb: 48 46 42;
   --border-divider-rgb: 61 58 54;
 
-  --crux-crimson: #c45c5c; /* crux.light — brighter for dark backgrounds */
+  --crux-crimson: #c45c5c; /* crux.light: brighter for dark backgrounds */
 
   --accent-text: #8bb5b1;
   --accent-text-rgb: 139 181 177;
@@ -628,7 +628,7 @@ html {
 
 /* Utility Classes */
 
-/* Accessible focus indicators — WCAG 2.1 AA */
+/* Accessible focus indicators: WCAG 2.1 AA */
 :focus-visible {
   outline: 2px solid rgb(var(--focus-ring-rgb));
   outline-offset: 2px;
@@ -706,7 +706,7 @@ html {
    Micro-interactions & Hover Effects
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Button lift on hover — subtle elevation shift */
+/* Button lift on hover: subtle elevation shift */
 .btn-lift {
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -720,7 +720,7 @@ html {
   box-shadow: 0 2px 6px -2px rgba(0,0,0,0.1);
 }
 
-/* Card hover — gentle lift with shadow deepening */
+/* Card hover: gentle lift with shadow deepening */
 .card-hover {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -731,7 +731,7 @@ html {
   box-shadow: 0 12px 40px rgba(32, 25, 16, 0.1);
 }
 
-/* Link underline animation — grows from left */
+/* Link underline animation: grows from left */
 .link-underline {
   position: relative;
   text-decoration: none;
@@ -750,7 +750,7 @@ html {
   width: 100%;
 }
 
-/* Score bar fill animation — for bars that start at 0 width */
+/* Score bar fill animation: for bars that start at 0 width */
 @keyframes barFill {
   from { width: 0; }
 }
@@ -758,7 +758,7 @@ html {
   animation: barFill 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Gentle pulse — for confidence gauge or live indicators */
+/* Gentle pulse: for confidence gauge or live indicators */
 @keyframes gentlePulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
@@ -767,7 +767,7 @@ html {
   animation: gentlePulse 2.5s ease-in-out infinite;
 }
 
-/* Shimmer — loading state accent */
+/* Shimmer: loading state accent */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -778,7 +778,7 @@ html {
   animation: shimmer 2s ease-in-out infinite;
 }
 
-/* Stagger entrance — utility for child elements */
+/* Stagger entrance: utility for child elements */
 .stagger-children > * {
   opacity: 0;
   animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -905,5 +905,41 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .animate-sheet-in {
     animation: none;
+  }
+}
+
+/* ── Home film (components/home/film) ─────────────────────────────────────
+   Each step's copy rises in, piece by piece, as its step reaches the reading
+   position: the label, the figure, the title word by word, then the body.
+   `--i` is the piece's place in that order. Only once the stage is running
+   (`data-film-live`) and only from `lg`: without JavaScript, with reduced
+   motion, and on a phone (where the copy is a sheet sliding over the
+   picture), it is simply there. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+  [data-home-film][data-film-live]:not([data-seen]) [data-film-step]:not([data-film-hero]) [data-film-rise] {
+    opacity: 0;
+    transform: translate3d(0, 0.6em, 0);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+  [data-home-film][data-film-live]:not([data-seen]) [data-film-step][data-active] [data-film-rise] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 38ms),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i, 0) * 38ms);
+  }
+}
+
+/* The film's server-rendered still. Upright frames (below `lg`, upright
+   screen) fit the width and hang from the top; the wide frames cover the
+   stage, held on the thread. The query is the complement of MOBILE_QUERY in
+   components/home/film/FilmStage.tsx. */
+@media (min-width: 1024px), (min-aspect-ratio: 1001/1000) {
+  [data-film-poster] img {
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% 50%;
   }
 }

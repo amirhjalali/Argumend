@@ -25,7 +25,7 @@ describe("/faq", () => {
   });
 
   it("keeps its metadata on the same name", () => {
-    expect(String(metadata.title)).toMatch(/^FAQ — Common questions/);
+    expect(String(metadata.title)).toMatch(/^FAQ: Common questions/);
     expect(String(metadata.openGraph?.title)).toMatch(/Common questions/);
   });
 

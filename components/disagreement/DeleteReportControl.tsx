@@ -12,7 +12,7 @@ function manageTokenKey(slug: string) {
 
 /**
  * Renders "Delete public report" only when the visitor's browser holds a
- * management token for this slug in localStorage — i.e. only for the person
+ * management token for this slug in localStorage: i.e. only for the person
  * who published it. A random visitor never sees this control.
  */
 export function DeleteReportControl({

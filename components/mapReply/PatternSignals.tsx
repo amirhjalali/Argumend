@@ -10,8 +10,8 @@ import type { MeterTone } from "./meters";
  *
  * Each signal is drawn with the threshold as a tick on its own track. A
  * signal at 49% against a 50% bar is the single most useful thing on this
- * panel — it is the difference between "they are not talking past each other"
- * and "we could not tell" — and a UI that only listed the signals that fired
+ * panel: it is the difference between "they are not talking past each other"
+ * and "we could not tell": and a UI that only listed the signals that fired
  * would throw that away and read as more certain than the pipeline is.
  *
  * The two signals that decide whether this is a fact fight or a values fight

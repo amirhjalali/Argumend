@@ -59,7 +59,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Crux",
     definition:
-      "The question a fight turns on, and what would settle it. Answer it one way and one side's case gets stronger; answer it the other way and the other side's does. On the map of whether AI will cause mass unemployment, one crux asks: \"When AI makes a firm more productive, does it hire fewer people — or just sell more?\" Under it, the map says what would settle it: several years of firm-level data on AI adoption, headcount, output and prices.",
+      "The question a fight turns on, and what would settle it. Answer it one way and one side's case gets stronger; answer it the other way and the other side's does. On the map of whether AI will cause mass unemployment, one crux asks: \"When AI makes a firm more productive, does it hire fewer people, or just sell more?\" Under it, the map says what would settle it: several years of firm-level data on AI adoption, headcount, output and prices.",
     example: "See the cruxes on the AI unemployment map",
     exampleHref: "/topics/ai-mass-unemployment#cruxes",
     learnMoreHref: "/concepts/cruxes",
@@ -126,7 +126,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Falsifiability",
     definition:
-      "Whether a claim rules anything out. A belief only tells you something about the world if some possible observation could prove it wrong — if nothing could, it explains everything and predicts nothing. The honest move is to state, in advance, the evidence that would change your mind.",
+      "Whether a claim rules anything out. A belief only tells you something about the world if some possible observation could prove it wrong, if nothing could, it explains everything and predicts nothing. The honest move is to state, in advance, the evidence that would change your mind.",
     example: "See what would change each side's mind on the Nuclear Energy map",
     exampleHref: "/topics/nuclear-energy-safety",
     learnMoreHref: "/blog/what-would-change-your-mind",
@@ -136,7 +136,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Double Crux",
     definition:
-      "A single fact that both sides agree would change their mind. Finding it turns an unwinnable values fight into one shared, answerable question — and usually reveals the real disagreement is far narrower than the argument suggested.",
+      "A single fact that both sides agree would change their mind. Finding it turns an unwinnable values fight into one shared, answerable question, and usually reveals the real disagreement is far narrower than the argument suggested.",
     example: "See the crux on the Rent Control map",
     exampleHref: "/topics/rent-control-effectiveness",
     learnMoreHref: "/blog/what-would-change-your-mind",
@@ -146,7 +146,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Burden of Proof",
     definition:
-      "The obligation to support a claim with evidence. It rests on whoever asserts the claim, not on those who doubt it — so 'you can't prove it's false' is not evidence that it is true. Extraordinary claims require extraordinary evidence, and an assertion with nothing behind it does not move the question at all.",
+      "The obligation to support a claim with evidence. It rests on whoever asserts the claim, not on those who doubt it, so 'you can't prove it's false' is not evidence that it is true. Extraordinary claims require extraordinary evidence, and an assertion with nothing behind it does not move the question at all.",
     example: "See an unmet burden on the Death Penalty Deterrence map",
     exampleHref: "/topics/death-penalty-deterrence",
     category: "reasoning",
@@ -219,7 +219,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Motivated Reasoning",
     definition:
-      "Reasoning toward a predetermined conclusion rather than from the evidence — becoming a lawyer for the verdict you want instead of a scientist weighing what's true. Unlike confirmation bias (a passive filter), motivated reasoning is the active construction of arguments for a desired outcome, holding disliked evidence to a higher standard than evidence you welcome.",
+      "Reasoning toward a predetermined conclusion rather than from the evidence, becoming a lawyer for the verdict you want instead of a scientist weighing what's true. Unlike confirmation bias (a passive filter), motivated reasoning is the active construction of arguments for a desired outcome, holding disliked evidence to a higher standard than evidence you welcome.",
     example: "See motivated reasoning confronted on the Gun Control map",
     exampleHref: "/topics/gun-control-effectiveness",
     learnMoreHref: "/guides/understanding-bias",
@@ -237,7 +237,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Inference to the Best Explanation",
     definition:
-      "Also called abduction: reasoning from a body of observations to the hypothesis that, if true, would best account for them. The strength of the inference depends on how decisively the leading explanation beats its rivals on scope, simplicity, and fit — which is why ruling out alternatives matters as much as supporting your favored account.",
+      "Also called abduction: reasoning from a body of observations to the hypothesis that, if true, would best account for them. The strength of the inference depends on how decisively the leading explanation beats its rivals on scope, simplicity, and fit, which is why ruling out alternatives matters as much as supporting your favored account.",
     example: "See abductive reasoning at work on the COVID Origins map",
     exampleHref: "/topics/lab-leak-theory",
     category: "reasoning",
@@ -245,7 +245,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Anchoring",
     definition:
-      "The tendency to rely too heavily on the first piece of information encountered — an opening figure or framing — when making subsequent judgments, even when that anchor is arbitrary. In debates, whoever sets the initial number or reference point disproportionately shapes the whole discussion that follows.",
+      "The tendency to rely too heavily on the first piece of information encountered, an opening figure or framing, when making subsequent judgments, even when that anchor is arbitrary. In debates, whoever sets the initial number or reference point disproportionately shapes the whole discussion that follows.",
     example: "See anchoring shape the Rent Control debate",
     exampleHref: "/topics/rent-control-effectiveness",
     learnMoreHref: "/guides/cognitive-bias-field-guide",
@@ -255,7 +255,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Availability Heuristic",
     definition:
-      "Judging how likely or common something is by how easily examples come to mind, rather than by actual frequency. Vivid, recent, or emotionally charged events feel more probable than they are — which is why memorable disasters can make a statistically safe option feel dangerous.",
+      "Judging how likely or common something is by how easily examples come to mind, rather than by actual frequency. Vivid, recent, or emotionally charged events feel more probable than they are, which is why memorable disasters can make a statistically safe option feel dangerous.",
     example: "See why nuclear accidents feel more common than they are",
     exampleHref: "/topics/nuclear-energy-safety",
     learnMoreHref: "/guides/cognitive-bias-field-guide",
@@ -265,7 +265,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Gish Gallop",
     definition:
-      "A rhetorical tactic of overwhelming an opponent with a rapid flood of claims, so many that none can be answered in the time available — and the sheer volume is mistaken for strength. The cure is to ignore the count and isolate the load-bearing claim, since a hundred weak assertions don't add up to one strong one.",
+      "A rhetorical tactic of overwhelming an opponent with a rapid flood of claims, so many that none can be answered in the time available, and the sheer volume is mistaken for strength. The cure is to ignore the count and isolate the load-bearing claim, since a hundred weak assertions don't add up to one strong one.",
     example: "See signal separated from volume on the Climate Change map",
     exampleHref: "/topics/climate-change",
     learnMoreHref: "/fallacies/gish-gallop",
@@ -275,7 +275,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Calibration",
     definition:
-      "The degree to which stated confidence matches actual accuracy. A perfectly calibrated person is right about 70% of the time when they say they are 70% confident — and wrong half the time when they say 50%. Calibration is distinct from being right more often: it is about your confidence meaning exactly what it claims, which is why being occasionally wrong at high confidence is a feature, not a failure.",
+      "The degree to which stated confidence matches actual accuracy. A perfectly calibrated person is right about 70% of the time when they say they are 70% confident, and wrong half the time when they say 50%. Calibration is distinct from being right more often: it is about your confidence meaning exactly what it claims, which is why being occasionally wrong at high confidence is a feature, not a failure.",
     example: "See uncertainty stated plainly on the AI Risk map",
     exampleHref: "/topics/ai-risk",
     learnMoreHref: "/guides/reading-confidence-like-a-forecaster",
@@ -285,7 +285,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Correlation vs. Causation",
     definition:
-      "The principle that two things moving together does not establish that one causes the other. The association may run the opposite way, be driven by a hidden third factor, or be pure coincidence. Establishing causation requires more — a randomized trial, a natural experiment, or converging evidence backed by a plausible mechanism — which is why a strong correlation alone earns only modest weight.",
+      "The principle that two things moving together does not establish that one causes the other. The association may run the opposite way, be driven by a hidden third factor, or be pure coincidence. Establishing causation requires more (a randomized trial, a natural experiment, or converging evidence backed by a plausible mechanism) which is why a strong correlation alone earns only modest weight.",
     example: "See cause untangled from correlation on the Social Media & Mental Health map",
     exampleHref: "/topics/social-media-mental-health",
     learnMoreHref: "/fallacies/false-cause",
@@ -315,7 +315,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Motte-and-Bailey",
     definition:
-      "A tactic of defending a bold, contestable claim (the bailey) by retreating, when challenged, to a modest claim almost no one disputes (the motte) — then advancing to the bold claim again once the pressure lifts. Naming it forces the arguer to pick one position and defend that, rather than equivocating between the two.",
+      "A tactic of defending a bold, contestable claim (the bailey) by retreating, when challenged, to a modest claim almost no one disputes (the motte), then advancing to the bold claim again once the pressure lifts. Naming it forces the arguer to pick one position and defend that, rather than equivocating between the two.",
     example: "Watch definitions shift on the Free Will map",
     exampleHref: "/topics/free-will",
     learnMoreHref: "/fallacies/motte-and-bailey",
@@ -335,7 +335,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Slippery Slope",
     definition:
-      "The claim that one small step will inevitably lead to an extreme outcome, without showing why each link in the chain must follow. It is not always a fallacy — sometimes a chain of consequences is genuinely well-evidenced — but it fails when the inevitability is asserted rather than demonstrated. The test is whether each step is actually likely given the one before it, or whether the alarming conclusion is simply smuggled in at the end.",
+      "The claim that one small step will inevitably lead to an extreme outcome, without showing why each link in the chain must follow. It is not always a fallacy, sometimes a chain of consequences is genuinely well-evidenced, but it fails when the inevitability is asserted rather than demonstrated. The test is whether each step is actually likely given the one before it, or whether the alarming conclusion is simply smuggled in at the end.",
     example: "See chains of consequence weighed on the Gun Control map",
     exampleHref: "/topics/gun-control-effectiveness",
     learnMoreHref: "/fallacies/slippery-slope",
@@ -355,7 +355,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Principle of Charity",
     definition:
-      "The habit of interpreting an argument in its most reasonable form before responding — assuming the other person is rational, resolving ambiguity in their favor, and not attributing an obviously foolish view when a sensible one fits. It is the mindset behind steel-manning, and it is about accuracy rather than politeness: if you defeat only a weak misreading, you have learned nothing about whether the real argument holds.",
+      "The habit of interpreting an argument in its most reasonable form before responding, assuming the other person is rational, resolving ambiguity in their favor, and not attributing an obviously foolish view when a sensible one fits. It is the mindset behind steel-manning, and it is about accuracy rather than politeness: if you defeat only a weak misreading, you have learned nothing about whether the real argument holds.",
     example: "See charitable readings of every side on the Climate Change map",
     exampleHref: "/topics/climate-change",
     learnMoreHref: "/concepts/steel-manning",
@@ -365,7 +365,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Epistemic Humility",
     definition:
-      "Holding beliefs in proportion to the evidence — confident where it is strong, uncertain where it is weak, and willing to update when it shifts. It is not relativism; some questions really are answered. It simply means separating how sure you feel from how sure the evidence warrants. 'The evidence is still divided, and here is what would settle it' is more honest than manufactured certainty.",
+      "Holding beliefs in proportion to the evidence: confident where it is strong, uncertain where it is weak, and willing to update when it shifts. It is not relativism; some questions really are answered. It simply means separating how sure you feel from how sure the evidence warrants. 'The evidence is still divided, and here is what would settle it' is more honest than manufactured certainty.",
     example: "See uncertainty stated honestly on the Consciousness map",
     exampleHref: "/topics/consciousness-hard-problem",
     learnMoreHref: "/concepts/cruxes",

@@ -1,5 +1,5 @@
 /**
- * DebateView — new-model (ArgumentGraph) maps on the one topic-page template.
+ * DebateView: new-model (ArgumentGraph) maps on the one topic-page template.
  *
  * Since 2026-09-29 every map on /topics/[id] renders through
  * components/topic/TopicPage.tsx; this file only turns an ArgumentGraph, its
@@ -333,7 +333,7 @@ function positionCards(meta: ArgumentTopicMeta, positions: Position[]): Position
   });
 }
 
-/** "Settling this strengthens X and weakens Y." — stakes as one plain sentence. */
+/** "Settling this strengthens X and weakens Y.": stakes as one plain sentence. */
 function renderStakes(
   crux: CruxResult,
   nodesById: Map<string, ArgumentNode>

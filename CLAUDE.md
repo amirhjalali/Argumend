@@ -1,4 +1,4 @@
-# CLAUDE.md — Argumend
+# CLAUDE.md: Argumend
 
 AI-powered argument mapping platform. Visualizes controversial topics as interactive graphs showing positions, evidence, cruxes, and fallacies.
 
@@ -15,14 +15,14 @@ bun run db:push      # push schema to postgres
 bun run db:studio    # open drizzle studio
 ```
 
-No API keys or database needed for local dev — the app runs offline by default with static data from `data/`.
+No API keys or database needed for local dev: the app runs offline by default with static data from `data/`.
 
 ## Tech Stack
 
 - **Framework:** Next.js 16+ (App Router), React 19, TypeScript (strict)
 - **Package manager:** Bun (`bun --bun` for scripts, `bun.lock`)
 - **Styling:** Tailwind CSS 3, CSS custom properties in `globals.css`, Framer Motion
-- **Graph visualization:** React Flow (`@xyflow/react`) — the core interactive canvas
+- **Graph visualization:** React Flow (`@xyflow/react`): the core interactive canvas
 - **Database:** PostgreSQL via Drizzle ORM + `postgres` driver
 - **Auth:** NextAuth v5 beta with Google OAuth, DrizzleAdapter
 - **AI providers:** Anthropic SDK, OpenAI, Google Generative AI
@@ -35,7 +35,7 @@ No API keys or database needed for local dev — the app runs offline by default
 ```
 app/                    # Next.js App Router pages
   api/                  # API routes (analyze, debate, judge, auth, etc.)
-  page.tsx              # Home (server page: components/home/*)
+  page.tsx              # Home (server page: components/home/*, opening on the scroll film)
   topics/               # Maps library; topics/[id] = one crux-first page for every map
   topics/[id]/map/      # Diagram view (React Flow), noindex
   analyze/              # The one paste tool (map match; diagnosis when its lane is on)
@@ -68,6 +68,27 @@ drizzle/                # Migration files
 
 ## Key Conventions
 
+### Copy Style
+
+Applies to every new or edited string a reader or listener sees: UI copy, map data
+(`data/topics/*`), blog posts, guides, docs, image alt text, and commit messages.
+
+- **No em dashes (U+2014).** Reword with a comma, colon, period or parentheses so the
+  sentence still reads well. Do not swap in " - ", "--" or an en dash (ranges like
+  2024–2026 are fine). Older content still has many; do not bulk-replace them in
+  passing, just never add one. `lib/copyStyle.test.ts` is a ratchet: it counts
+  em dashes per file against `lib/copyStyle.baseline.json` and fails if a count goes
+  up or a new file contains one. When you remove some, lower that file's baseline
+  (delete the entry at zero). Never raise it.
+- **Never amber or tangerine** (see Design System).
+- **Argumend never names a winner**, and copy must not imply one.
+- **Do not say "every map" follows a process unless that is true of every map.** For
+  example, only maps with a dossier in `docs/dossiers/` have been through the
+  five-stage playbook (`docs/TOPIC_ANALYSIS_PLAYBOOK.md`).
+- **Every figure needs a linked source** that actually states it. Cite the report that
+  originated a number, not a later document that restates it, and check that the
+  source covers the event (a report on a 2024 law cannot source a 2026 vote).
+
 ### Database Access
 
 Always use `getDb()` (lazy initialization), never import `db` directly. This prevents crashes when the database is unreachable:
@@ -81,33 +102,33 @@ const db = getDb(); // throws if unavailable, but doesn't crash at import time
 
 Set via environment variables. All default to off (offline mode):
 
-- `ENABLE_LIVE_DEBATE_API=true` — authorizes live debate generation; the matching
+- `ENABLE_LIVE_DEBATE_API=true`: authorizes live debate generation; the matching
   `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API` flag exposes the browser mode
-- `ENABLE_LIVE_JUDGING_API=true` — authorizes live multi-model judging; the matching
+- `ENABLE_LIVE_JUDGING_API=true`: authorizes live multi-model judging; the matching
   `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API` flag exposes the browser mode
 - The legacy `ENABLE_LIVE_ANALYZE_API` flags no longer enable extraction at
   `/api/analyze`, which always matches against existing maps offline.
-- `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis, shown above the
+- `ENABLE_DISAGREEMENT_V2=true`: source-only disagreement diagnosis, shown above the
   map match at `/analyze` (with the flag off, `/analyze` still matches pasted text to a
   map offline; `/analyze-v2` redirects to `/analyze`)
-- `CRUX_PROJECTION_JEV_GATE=true` — withhold a ranked crux whose calibrated contestedness (from a probe such as Jev) is below the floor. Inert unless a caller supplies probe values, which no production lane does; it sends nothing anywhere by itself.
-- `ENABLE_JEV_MAP_REPLY=true` — `POST /api/map-reply`: route a pasted thread to a
+- `CRUX_PROJECTION_JEV_GATE=true`: withhold a ranked crux whose calibrated contestedness (from a probe such as Jev) is below the floor. Inert unless a caller supplies probe values, which no production lane does; it sends nothing anywhere by itself.
+- `ENABLE_JEV_MAP_REPLY=true`: `POST /api/map-reply`: route a pasted thread to a
   topic map via TypeSafe AI's Jev. **Sends the pasted text to a third party**
   (scrubbed and speaker-renamed first); keep off unless that is acceptable. Needs
   `TYPESAFE_API_KEY`. See `docs/MAP_REPLY.md`.
-- `NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY=true` — renders the `/reply` page. Read at
+- `NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY=true`: renders the `/reply` page. Read at
   build time like every `NEXT_PUBLIC_` variable; `/reply` 404s while it is off.
   Independent of the flag above: rendering a page is not the decision to send
   text to a third party, so both have to be on for a submit to reach the model.
-- `ENABLE_GAP_METRIC_LOGGING=true` — after a successful `/api/map-reply` or
+- `ENABLE_GAP_METRIC_LOGGING=true`: after a successful `/api/map-reply` or
   `/api/disagreements/analyze` response, insert one counts-only row into
   `gap_observations` (north-star metric). No text, ever: the record is a strict
   schema of enums, counts and slug ids. Fire-and-forget; a no-op without
   `DATABASE_URL`; never fails the request. Weekly table:
   `npx tsx scripts/gap-metric-report.ts`. See `docs/GAP_METRIC.md`.
-- `NEXT_PUBLIC_ENABLE_STUDY=true` — renders `/study`, the pre-registered perception-gap
+- `NEXT_PUBLIC_ENABLE_STUDY=true`: renders `/study`, the pre-registered perception-gap
   study (`docs/plans/2026-11-03-study-plan.md`); 404 while off. Build-time.
-- `ENABLE_STUDY_RESPONSES=true` — opens `POST /api/study/assign` and `/api/study/response`
+- `ENABLE_STUDY_RESPONSES=true`: opens `POST /api/study/assign` and `/api/study/response`
   (404 while off). Stores integers and enums only, under an HMAC of the Prolific id
   (`STUDY_PID_SECRET`, required with `DATABASE_URL`); a dry run without `DATABASE_URL`.
   Report: `npx tsx scripts/study-report.ts` (`--health` while collecting).
@@ -130,7 +151,7 @@ harness that evaluates the pipeline against the flagship ArgumentGraphs.
 `POST /api/map-reply` turns a pasted thread into an Argumend map reply: dominant
 section, who did not make an argument, which cruxes the thread touched, and the
 strongest weighted evidence per side. Composed entirely from probe numbers and
-sentences that already exist in the topic data — no generated prose, no winner.
+sentences that already exist in the topic data: no generated prose, no winner.
 Pipeline in `lib/mapReply/`, typed client in `lib/jev/`, UI at `/reply`
 (`app/reply/page.tsx` plus `components/mapReply/`). Off by default and
 documented in `docs/MAP_REPLY.md`, which also covers the scope limit (pasted
@@ -141,6 +162,25 @@ drawn as a tick on its own meter, so a signal that just missed the bar is
 visible instead of absent, and a section placement under 70% confidence is
 marked as a guess. The consent line above the submit button is built from
 `lib/aiProviders.ts`.
+
+### Home Film
+
+Home opens on a pre-rendered 3D film of the flagship map as thread, scrubbed by
+scroll (`components/home/film/`, composed in `components/home/HomeLanding.tsx`).
+The frames are WebP sequences under `public/home-film/v1/<theme>/` (`d` desktop,
+`m` upright), described by `components/home/filmManifest.ts` and rendered in
+Blender by `scripts/home-film/` (see its README; the final sets were rendered on
+the RTX 3090 PC, `ssh pc`). The picture is decoration: every number and sentence
+is text in the steps. Three things to keep true:
+
+- The film draws one strand per claim and one knot per crux. `app/page.test.tsx`
+  fails when the flagship map's counts stop matching `FILM.counts`; re-render
+  rather than editing the manifest.
+- A visitor who scrolls to the end is remembered (`localStorage`
+  `argumend:home-film-seen`) and gets the hero alone next time, with "Replay the
+  intro". Reduced motion and Save-Data get the six stills.
+- A re-render with a different look goes in a new folder (`v2`) and the manifest's
+  `base` moves with it: `/home-film/v*/` is served immutable (`next.config.js`).
 
 ### One Map per Question (no duplicate maps)
 
@@ -161,30 +201,30 @@ Heavy components are loaded with `next/dynamic` to reduce initial bundle size. T
 
 Schema at `lib/db/schema.ts`. Drizzle config reads `.env.local` for `DATABASE_URL`. Key tables:
 
-- `analyses` — extracted positions, cruxes, fallacies (jsonb columns)
-- `debates`, `debate_rounds` — multi-round AI debates
-- `judgments`, `judge_verdicts` — multi-model judge council results
-- `users`, `accounts`, `sessions` — NextAuth auth tables
+- `analyses`: extracted positions, cruxes, fallacies (jsonb columns)
+- `debates`, `debate_rounds`: multi-round AI debates
+- `judgments`, `judge_verdicts`: multi-model judge council results
+- `users`, `accounts`, `sessions`: NextAuth auth tables
 - `saved_topics`, `topic_subscriptions`, `topic_views`, `newsletters`
 
 ### Auth
 
-NextAuth v5 beta with Google OAuth. Auth middleware is currently disabled in `middleware.ts`. The auth system degrades gracefully — falls back to JWT sessions when the database is unavailable.
+NextAuth v5 beta with Google OAuth. Auth middleware is currently disabled in `middleware.ts`. The auth system degrades gracefully: it falls back to JWT sessions when the database is unavailable.
 
 ## Design System
 
 Stoic/parchment aesthetic inspired by LessWrong.
 
 ### Typography
-- **Serif:** EB Garamond (`--font-serif`) — headings, body prose
-- **Sans:** Plus Jakarta Sans (`--font-sans`) — UI elements, labels
+- **Serif:** EB Garamond (`--font-serif`): headings, body prose
+- **Sans:** Plus Jakarta Sans (`--font-sans`): UI elements, labels
 
 ### Color Palette
 - Canvas background: `#f4f1eb` (light), `#1a1917` (dark)
-- Deep teal: `#3a6965` — primary accent, evidence nodes, high-confidence scores
-- Rust: `#C4613C` — CTAs, proponent side, mid-confidence. **Never use amber/tangerine.**
-- Brown: `#8B5A3C` — skeptic side, low-confidence
-- Crux crimson: `#a23b3b` — crux highlights
+- Deep teal: `#3a6965`: primary accent, evidence nodes, high-confidence scores
+- Rust: `#C4613C`: CTAs, proponent side, mid-confidence. **Never use amber/tangerine.**
+- Brown: `#8B5A3C`: skeptic side, low-confidence
+- Crux crimson: `#a23b3b`: crux highlights
 - Stone grays for text: primary `#3d3a36`, secondary `#564d45`, muted `#7a7068`
 
 ### Dark Mode
@@ -208,9 +248,9 @@ Security headers (CSP, HSTS, X-Frame-Options) are configured in `next.config.js`
 
 See `.env.example`. Key variables:
 
-- `DATABASE_URL` — Postgres connection string
-- `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GOOGLE_AI_API_KEY` — AI providers
-- `AUTH_SECRET`, `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET` — NextAuth
-- `NEXT_PUBLIC_GA_MEASUREMENT_ID` — Google Analytics
+- `DATABASE_URL`: Postgres connection string
+- `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GOOGLE_AI_API_KEY`: AI providers
+- `AUTH_SECRET`, `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`: NextAuth
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID`: Google Analytics
 
 Local env files go in `.env.local` (gitignored).

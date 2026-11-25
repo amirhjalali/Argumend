@@ -1,7 +1,7 @@
 /**
  * Elegant staggered-line menu icon.
  *
- * Three horizontal lines with decreasing widths — feels more
+ * Three horizontal lines with decreasing widths: feels more
  * designed than the standard equal-width hamburger.
  */
 

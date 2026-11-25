@@ -99,6 +99,28 @@ function cruxAt(topicId: string, index: number): HomeCrux | null {
   };
 }
 
+/** One crux of the flagship map as a link: its question, and where the map works through it. */
+export interface HomeCruxLink {
+  rank: number;
+  question: string;
+  href: string;
+}
+
+/**
+ * Every crux of the flagship map in rank order, each linked to its place on
+ * the map page (the page's own `crux-…` anchors, components/argument/DebateView).
+ */
+export function loadHomeCruxLinks(topicId: string = HOME_FLAGSHIP_ID): HomeCruxLink[] {
+  const topic = loadArgumentTopic(topicId);
+  if (!topic) return [];
+  return topic.cruxes.flatMap((_, index) => {
+    const crux = cruxAt(topicId, index);
+    return crux
+      ? [{ rank: crux.rank, question: crux.question, href: `/topics/${topicId}#crux-${crux.claimId}` }]
+      : [];
+  });
+}
+
 /** Crux #1 of the flagship map: the worked example on home. */
 export function loadHomeCrux(topicId: string = HOME_FLAGSHIP_ID): HomeCrux | null {
   return cruxAt(topicId, 0);

@@ -38,7 +38,7 @@ export interface SearchResult {
   href: string;
   // Topic-specific fields
   category?: TopicCategory;
-  // Extra searchable text (not rendered) — indexed by lib/siteSearch.ts.
+  // Extra searchable text (not rendered): indexed by lib/siteSearch.ts.
   /** Other names for a map: its old short title and "Also asked as" phrasings. */
   altNames?: string;
   meta_claim?: string;
@@ -286,7 +286,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const allItems = useMemo<SearchResult[]>(() => buildSearchItems(), []);
 
   // -----------------------------------------------------------------------
-  // Build the search index from allItems (memoized — built once on the
+  // Build the search index from allItems (memoized: built once on the
   // client). Ranking lives in lib/siteSearch.ts: names (question, old title,
   // "Also asked as") over body text, question words ignored.
   // -----------------------------------------------------------------------
@@ -321,7 +321,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       ];
     }
 
-    // Ranked search — results come back best first.
+    // Ranked search: results come back best first.
     const matched = search(trimmed);
 
     // Group by type; both map models share one "Maps" group, in score order.
