@@ -9,7 +9,7 @@
  */
 import { fourDayWorkWeekData } from "@/data/topics/four-day-work-week";
 import { privacyVsConvenienceData } from "@/data/topics/privacy-vs-convenience";
-import { congestionPricingData } from "@/data/topics/congestion-pricing";
+import { nuclearEnergySafetyData } from "@/data/topics/nuclear-energy-safety";
 import { topicSummaries } from "@/data/topicIndex";
 import { getGeneratedMedia } from "@/data/generatedMedia";
 
@@ -44,7 +44,7 @@ export interface GalleryMapCard {
 const PREVIEW_SPECS = [
   { data: fourDayWorkWeekData, shortLabel: "Four-Day Week", category: "Economics", audited: true },
   { data: privacyVsConvenienceData, shortLabel: "Digital Privacy", category: "Technology", audited: true },
-  { data: congestionPricingData, shortLabel: "Congestion Pricing", category: "Policy", audited: false },
+  { data: nuclearEnergySafetyData, shortLabel: "Nuclear Power", category: "Policy", audited: false },
 ] as const;
 
 export function loadInteractiveExamples(): InteractiveCruxExample[] {

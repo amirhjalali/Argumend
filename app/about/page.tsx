@@ -69,7 +69,7 @@ export default function AboutPage() {
               <>
                 A crux is the question a fight turns on, and what would settle
                 it. This is the first of {numberWord(crux.cruxCount)} on{" "}
-                <em>{crux.topicTitle}</em>, exactly as the map shows it.
+                <em>{crux.topicTitle}</em>, in the map&rsquo;s own words.
               </>
             ) : (
               "A crux is the question a fight turns on, and what would settle it."
