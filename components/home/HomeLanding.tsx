@@ -161,8 +161,8 @@ function HomeHero({ film = false }: { film?: boolean }) {
     "Argumend maps the questions behind a disagreement, the evidence on each side, and what would change each side’s mind. It never names a winner.";
   return (
     // On an upright phone or tablet the film's thread has the top of the
-    // frame (74vw of it), so the hero's copy starts below it, on the paper.
-    <HomeBeat className={film ? "max-lg:portrait:pt-[74vw]" : undefined}>
+    // frame (80vw of it), so the hero's copy starts below it, on the paper.
+    <HomeBeat className={film ? "max-lg:portrait:pt-[80vw]" : undefined}>
       <PageHeader
         size="display"
         titleId="home-heading"
@@ -171,7 +171,7 @@ function HomeHero({ film = false }: { film?: boolean }) {
         lede={film ? undefined : lede}
         className={
           film
-            ? "!mb-0 pb-6 pt-4 lg:max-w-[27rem] lg:pb-10 lg:pt-10"
+            ? "!mb-0 pb-6 pt-4 lg:max-w-[25rem] lg:pb-10 lg:pt-10"
             : "!mb-0 pb-10 pt-7 md:pb-16 md:pt-14"
         }
       >
@@ -387,7 +387,7 @@ function HomeStorySteps({
                 over the pinned picture; from `lg` it sits beside it. */}
             <div
               data-film-copy=""
-              className="max-lg:-mx-4 max-lg:border-t max-lg:border-divider max-lg:bg-canvas/95 max-lg:px-4 max-lg:pb-[6svh] max-lg:pt-5 max-lg:backdrop-blur-sm sm:max-lg:-mx-6 sm:max-lg:px-6 lg:max-w-[26rem]"
+              className="max-lg:-mx-4 max-lg:border-t max-lg:border-divider max-lg:bg-canvas/95 max-lg:px-4 max-lg:pb-[6svh] max-lg:pt-5 max-lg:backdrop-blur-sm sm:max-lg:-mx-6 sm:max-lg:px-6 lg:max-w-[24rem] xl:max-w-[26rem]"
             >
               <p
                 data-film-rise=""

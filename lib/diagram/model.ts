@@ -203,7 +203,7 @@ function settleLine(
   status: Topic["pillars"][number]["crux"]["verification_status"] | undefined,
 ): DiagramCruxNode["settleLine"] {
   if (crux.settle.mode === "standing") {
-    // "Nothing does — this is a standing value disagreement", without the
+    // "Nothing does: this is a standing value disagreement", without the
     // clause about what the map holds.
     return { text: standingLineFor(crux.settle.kind).split(";")[0], tone: "standing" };
   }

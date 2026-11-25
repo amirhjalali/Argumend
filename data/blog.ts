@@ -12,11 +12,11 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
-  // How Argumend Evolved and the Five-Stage Formula We Now Use to Map a Disagreement
+  // How Argumend evolved, and the five-stage method we now use to map a disagreement
   // ──────────────────────────────────────────────────────────────────────────
   {
     slug: "how-argumend-evolved-and-how-we-map-a-topic",
-    title: "How Argumend Evolved and the Five-Stage Formula We Now Use to Map a Disagreement",
+    title: "How Argumend evolved, and the five-stage method we now use to map a disagreement",
     description:
       "Building Argumend taught us that good intentions are not enough to keep bias and weak citations out of an argument map. Here is how our approach evolved, the five-stage method we now follow, and what happened when we ran it end to end on the four-day work week.",
     author: "Argumend Team",
@@ -54,7 +54,7 @@ Once we started auditing our own library systematically, we found three uncomfor
 - **Misfiled evidence cards.** Our side-adjudication audit caught three maps whose evidence was inverted and 23 more cards filed under the wrong side, almost always because cards were filed by *who cites a study* rather than *what the finding actually shows*.
 - **Schema-first citation drift.** When an author or model drafts an argument map first and attaches citations afterward to fill template fields, citations quietly rot: paraphrased quotes slip in, generic homepages or Wikipedia links stand in for primary papers, and in the worst cases a study does not say what the card claims it says.
 
-Instead of patching those defects one by one and hoping they would not return, we turned the fixes into mechanical tests that run on every map in CI: opening contracts that block poll headcounts and hidden verdicts, settle contracts that reject vague "more research is needed" lines, flip contracts that enforce symmetric conditionals on both sides, and agreed-fact checks that keep a map from recycling shared common ground as one side's "best card."
+Instead of patching those defects one by one and hoping they would not return, we turned the fixes into automatic checks that run on every map before it is published: opening checks that block poll headcounts and hidden verdicts, settle checks that reject vague "more research is needed" lines, flip checks that enforce symmetric conditionals on both sides, and agreed-fact checks that keep a map from recycling shared common ground as one side's "best card."
 
 ### 3. Adding the missing leg: making neutrality compelling
 
@@ -67,10 +67,10 @@ What makes a fair analysis compelling without taking a side is **intellectual co
 Everything we learned across those iterations now lives in one repeatable five-stage playbook that we keep in our repository. So far two maps, the four-day work week and digital privacy, have been taken through the full pipeline; the rest of the library is being brought up to it. Each stage has a hard exit gate before the next begins:
 
 1. **Frame & Scope.** Write an open, non-loaded root question, check the library for near-duplicates so we maintain one canonical map per question, name the real constituencies (often three or four, not a caricature binary), and state the initial perception-gap hypothesis.
-2. **Evidence Dossier First: Zero Map Prose.** Before drafting a single sentence of map copy, we assemble a verified primary-source dossier (\`docs/dossiers/<topic-id>.md\`). Every entry requires a verified direct URL or DOI, exact figures with denominators and dates, funding or institutional interest disclosures, and the study's main scope limit. **Hard wall:** Stage 3 may cite *only* sources in the dossier. No citation can ever be invented to satisfy a template.
+2. **Evidence Dossier First: Zero Map Prose.** Before drafting a single sentence of map copy, we assemble a verified primary-source dossier. Every entry requires a verified direct URL or DOI, exact figures with denominators and dates, funding or institutional interest disclosures, and the study's main scope limit. **Hard wall:** Stage 3 may cite *only* sources in the dossier. No citation can ever be invented to satisfy a template.
 3. **Crux Extraction & Story Draft.** Open on the sharpest verified contrast, lay out agreed ground cleanly, order two to four cruxes as a readable narrative arc, give every card a finding-stating title with its scope limit built in, and write concrete, symmetric mind-change conditionals.
 4. **Adversarial Fairness Pass.** Stress-test the draft from inside each camp with one explicit prompt: *"Argue that this map is unfair to your position. Grant nothing you would not grant in print."* Check every evidence card's direction by what the finding shows, check that scope caveats apply equally to both sides, and strip any unverified prose claim that slipped past the dossier.
-5. **Automated Mechanical Gate.** Regenerate lightweight summaries and run the full automated contract suite (opening checks, settle-line checks, flip symmetry checks, agreed-fact checks, duplicate checks, and source-URL verification) before marking the map reviewed.
+5. **Automatic checks.** Regenerate the map's summaries and run the full set of automatic checks (opening checks, settle-line checks, flip symmetry checks, agreed-fact checks, duplicate checks, and source-URL verification) before marking the map reviewed.
 
 ## Watching the formula work on one real topic
 
@@ -81,7 +81,7 @@ Here is what the process caught and changed in a single pass:
 - **Stage 2 (Dossier First) eliminated weak and unverified claims.** The older version of the map still carried two uncited statistics in its prose (a "2024 meta-analysis of 30 trials" and an "Occupational Health Psychology" stress figure) and two placeholder evidence cards pointing to a generic OECD employment homepage and Wikipedia after earlier fabricated citations had been flagged. Building the dossier from scratch replaced all of them with verified primary research: the July 2025 *Nature Human Behaviour* study across 141 organizations and 2,896 workers in six countries (with 12 control companies), the February 2024 one-year follow-up to the UK pilot (54 of 61 firms still running a four-day week, 31 permanently), the University of Münster's 2024 German pilot (45 firms, including smartwatch biometric data, and roughly 20% returning to five-day schedules), Estevão and Sá's quasi-experimental *Economic Policy* evaluation of France's 35-hour mandate, Philippe Askenazy's *Cambridge Journal of Economics* review of France's payroll subsidies and rising work intensity, and U.S. Bureau of Labor Statistics Report 1115 showing **80.3 million** U.S. workers (**55.6%**) were paid at hourly rates in 2024.
 - **Stage 3 (Story Draft) sharpened the opening contrast.** Instead of opening with generic pilot hype or textbook framing, the map now opens on the exact tension that explains the whole debate: 141 volunteer organizations lowered burnout over six months and 54 of 61 UK pilot firms kept the schedule a year later, yet 55.6% of U.S. workers are paid by the hour, where staffing tracks coverage rather than meeting slack, and Belgium's legal right to *compress* 38–40 hours into four longer days drew under 1% worker uptake.
 - **Stage 4 (Adversarial Pass) strengthened *both* sides.** From the proponent side, the pass caught that the older map was stuck in 2022–2023 and missed both the UK one-year follow-up and the 2025 peer-reviewed *Nature Human Behaviour* control-group study. From the skeptic and labor-economics side, it caught that citing France's high GDP per hour without mentioning recurring payroll-tax subsidies, higher turnover, dual-job holding, and work intensification told only half the story.
-- **Stage 5 (Mechanical Gate) verified every invariant.** Every opening sentence, settle condition, mind-change flip, agreed-fact boundary, and paste-matching regression passed automatically.
+- **Stage 5 (automatic checks) passed.** Every opening sentence, settle condition, mind-change flip and agreed-fact boundary passed its check, and pasted arguments on this subject still route to the right crux.
 
 ## Where this goes next
 
