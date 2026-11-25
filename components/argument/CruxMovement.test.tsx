@@ -340,7 +340,7 @@ describe("standingLineFor", () => {
     expect(standingLineFor("value-difference")).toBe(STANDING_DISAGREEMENT_LINE);
     expect(standingLineFor(undefined)).toBe(STANDING_DISAGREEMENT_LINE);
     expect(STANDING_DISAGREEMENT_LINE).toBe(
-      "Nothing does: this is a standing value disagreement; the map holds both horns.",
+      "Nothing does: this is a standing value disagreement; the map lays out both sides.",
     );
   });
 

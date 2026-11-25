@@ -63,7 +63,7 @@ export const molochData = {
       skeptic_premise:
         "The Prisoner's Dilemma is a toy. Real interactions are not one-shot games between strangers; they are embedded in reputation, repetition, and enforceable contracts. Modeling civilization as a giant single-round defection game smuggles the pessimistic conclusion into the setup.",
       proponent_rebuttal:
-        "The dominance of defection in the one-shot game is a theorem, not a mood. Wherever exit is cheap, horizons are short, or the number of players is large enough that individual reputation dissolves, international competition, advertising, factory-farming standards, the payoff structure really does approximate the one-shot case, and the Nash equilibrium really is Pareto-inferior.",
+        "The dominance of defection in the one-shot game is a theorem, not a mood. Wherever exit is cheap, horizons are short, or the number of players is large enough that individual reputation dissolves (international competition, advertising, factory-farming standards), the payoff structure really does approximate the one-shot case, and the Nash equilibrium really is Pareto-inferior.",
       crux: {
         id: "one-shot-vs-repeated",
         title: "The One-Shot vs. Repeated-Game Test",
@@ -89,7 +89,7 @@ export const molochData = {
           common_ground:
             "Both sides accept the game theory itself: defection dominates the one-shot Prisoner's Dilemma, and the Folk Theorem makes cooperation sustainable in repeated games with a long enough shadow of the future.",
           live_disagreement:
-            "Which real domains are effectively one-shot, cheap exit, short horizons, anonymous players, and which are repeated games where reputation and contracts sustain cooperation.",
+            "Which real domains are effectively one-shot (cheap exit, short horizons, anonymous players), and which are repeated games where reputation and contracts sustain cooperation.",
         },
       },
       evidence: [
@@ -520,9 +520,9 @@ export const molochData = {
           skeptic_flip:
             "If a coded record of coordination attempts showed success mainly where substitutes were cheap and the science clear, as with the Montreal Protocol, and failure where abatement is costly and free-riding easy, as with climate targets, the ozone case would stop standing for cooperation in general.",
           common_ground:
-            "Both sides accept the successes as real, the Montreal Protocol is healing the ozone layer, and arms-control treaties cut deployed warheads by large margins, and that some coordination efforts have fallen short.",
+            "Both sides accept the successes as real (the Montreal Protocol is healing the ozone layer, and arms-control treaties cut deployed warheads by large margins), and that some coordination efforts have fallen short.",
           live_disagreement:
-            "Whether cooperation's successes show a general human capacity to defeat Moloch, or cluster where the game is favorable, cheap substitutes, clear science, few players, and fail where it is not.",
+            "Whether cooperation's successes show a general human capacity to defeat Moloch, or cluster where the game is favorable (cheap substitutes, clear science, few players) and fail where it is not.",
         },
       },
       evidence: [

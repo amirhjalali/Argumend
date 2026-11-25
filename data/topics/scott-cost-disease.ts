@@ -65,7 +65,7 @@ export const scottCostDiseaseData = {
       skeptic_premise:
         "Baumol is the boring default and it fits: a teacher or nurse in 2020 does roughly what one did in 1960, but must be paid a 2020 wage set by economy-wide productivity. Rising relative prices are a mechanical accounting identity, not a pathology to be fixed.",
       proponent_rebuttal:
-        "Baumol predicts higher prices, it does NOT predict flat or falling output. Yet U.S. K–12 delivered flat NAEP scores while real per-pupil spending doubled, and some Baumol-exposed sectors (restaurants, haircuts) never exploded. Baumol is the floor of the stack, not the whole building.",
+        "Baumol predicts higher prices; it does NOT predict flat or falling output. Yet U.S. K–12 delivered flat NAEP scores while real per-pupil spending doubled, and some Baumol-exposed sectors (restaurants, haircuts) never exploded. Baumol is the floor of the stack, not the whole building.",
       crux: {
         id: "wage-decomposition",
         title: "The Wage-Decomposition Test",
@@ -99,7 +99,7 @@ export const scottCostDiseaseData = {
           id: "helland-tabarrok",
           title: "Helland & Tabarrok: Baumol carries the majority",
           description:
-            "Their 2019 Mercatus study concludes the Baumol mechanism accounts for the bulk of real price growth in education and a substantial share in health care, the sectors that exploded are the least automatable.",
+            "Their 2019 Mercatus study concludes the Baumol mechanism accounts for the bulk of real price growth in education and a substantial share in health care; the sectors that exploded are the least automatable.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -392,7 +392,7 @@ export const scottCostDiseaseData = {
       skeptic_premise:
         "Cross-country comparisons are apples-to-oranges: geology, labor law, wages, density, and project scope all differ. Some of the apparent gap is measurement, not dysfunction.",
       proponent_rebuttal:
-        "Matched-project studies control for exactly that and the gap survives: U.S. subway tunneling runs several times French or Korean costs for comparable work, and per-mile Interstate costs tripled as litigation and 'citizen voice' grew. This is the one branch of cost disease with no productivity-growth excuse, a tunnel is a tunnel.",
+        "Matched-project studies control for exactly that and the gap survives: U.S. subway tunneling runs several times French or Korean costs for comparable work, and per-mile Interstate costs tripled as litigation and 'citizen voice' grew. This is the one branch of cost disease with no productivity-growth excuse: a tunnel is a tunnel.",
       crux: {
         id: "matched-project-ratio",
         title: "The Matched-Project Cost Ratio",

@@ -166,7 +166,7 @@ export const effectiveAltruismData = {
           skeptic_flip:
             "If the maximizing principle were shown to accommodate institutional reform where that does the most good, as Berkey 2018 argues, and the movement's own self-criticism were what surfaced and repudiated cases like SBF, the failures would look like execution rather than the method.",
           common_ground:
-            "Both sides agree real harms occurred, the FTX fraud and a measurable bias toward quantifiable interventions, and that movements should be judged partly by whether their core method can diagnose and correct such failures.",
+            "Both sides agree real harms occurred: the FTX fraud and a measurable bias toward quantifiable interventions, and that movements should be judged partly by whether their core method can diagnose and correct such failures.",
           live_disagreement:
             "Whether EA's harms follow necessarily from its maximizing, impartial-good principle or only from contingent choices of metrics, people, and time horizons, testable by tracing each harm to its premises and checking whether rival do-gooding frameworks avoid the same failure mode in practice.",
         },

@@ -29,7 +29,7 @@ export const modernMonetaryTheoryData = {
       id: "monetary-sovereignty",
       title: "Monetary Sovereignty",
       short_summary:
-        "A government that issues its own floating fiat currency can always make payments in that currency and cannot be forced into involuntary default, the question is whether that descriptive fact justifies MMT's spending prescriptions.",
+        "A government that issues its own floating fiat currency can always make payments in that currency and cannot be forced into involuntary default; the question is whether that descriptive fact justifies MMT's spending prescriptions.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "MMT smuggles a radical policy conclusion out of a banal accounting truth. Yes, a currency-issuer can always print to pay nominal debts, but 'no involuntary default' is not the same as 'no constraint.' The real limit is what the economy can produce; printing past that erodes purchasing power, which is just default by inflation. Markets can also force a currency-issuer's hand long before it 'runs out of money': bond vintages, exchange rates, and interest costs can spiral, as the UK's September 2022 gilt crisis showed. Treating the absence of nominal default as a green light for open-ended deficits confuses solvency with sustainability.",

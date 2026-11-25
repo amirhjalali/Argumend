@@ -297,7 +297,7 @@ export const freeWillData = {
           sourceUrl:
             "https://plato.stanford.edu/entries/determinism-causal/",
           reasoning:
-            "Well-established physics, but directness is very low: quantum randomness undermines determinism without delivering agent control, randomness is not the same as free will.",
+            "Well-established physics, but directness is very low: quantum randomness undermines determinism without delivering agent control; randomness is not the same as free will.",
         },
       ],
     },
@@ -358,7 +358,7 @@ export const freeWillData = {
           sourceUrl:
             "https://en.wikipedia.org/wiki/Cultural_universal",
           reasoning:
-            "Universality of the practice doesn't establish libertarian free will, the intuition could be pragmatic or adaptive rather than tracking a metaphysical fact.",
+            "Universality of the practice doesn't establish libertarian free will; the intuition could be pragmatic or adaptive rather than tracking a metaphysical fact.",
         },
         {
           id: "responsibility-beliefs-matter",

@@ -128,7 +128,7 @@ export const generativeAiArtCopyrightData = {
         "Does training-fueled AI demonstrably displace creators' income and markets, the decisive 'fourth factor' in fair-use law?",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Copyright protects against substitution of specific works, not against new competition or stylistic influence, styles and ideas are not copyrightable. Self-reported survey losses conflate AI training with broader market shifts and AI tools generally, and cannot isolate the effect of unlicensed training. The remedy for market harm the law actually recognizes is licensing (now emerging) and output controls, not a blanket prohibition on learning from works.",
+        "Copyright protects against substitution of specific works, not against new competition or stylistic influence; styles and ideas are not copyrightable. Self-reported survey losses conflate AI training with broader market shifts and AI tools generally, and cannot isolate the effect of unlicensed training. The remedy for market harm the law actually recognizes is licensing (now emerging) and output controls, not a blanket prohibition on learning from works.",
       proponent_rebuttal:
         "Generative models trained on creators' work now flood the same markets those creators sell into, depressing demand for human work. Surveys of professional creators already report lost commissions and falling rates, and the US Copyright Office concluded that AI training 'threatens significant potential harm to the market for or value of copyrighted works,' including lost sales, lost licensing revenue, and 'market dilution' by AI outputs in the style of the training data.",
       crux: {

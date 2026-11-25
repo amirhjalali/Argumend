@@ -108,7 +108,7 @@ export const homeschoolingEffectivenessData = {
           source: "Ray, Academic Leadership Live: The Online Journal, 8(1), 2010",
           sourceUrl: "https://nheri.org/academic-achievement-and-demographic-traits-of-homeschool-students-a-nationwide-study-2010/",
           reasoning:
-            "Large but self-selected/convenience sample, authored by the NHERI founder with an advocacy position. Published in a now-defunct online journal. The original 'for' framing (that gains held even among low-income, non-college families) is not supported by the study, its sample was heavily affluent and college-educated, and reviewers attribute results to family demographics rather than to homeschooling.",
+            "Large but self-selected/convenience sample, authored by the NHERI founder with an advocacy position. Published in a now-defunct online journal. The original 'for' framing (that gains held even among low-income, non-college families) is not supported by the study; its sample was heavily affluent and college-educated, and reviewers attribute results to family demographics rather than to homeschooling.",
         },
         {
           id: "hs-crhe-data",

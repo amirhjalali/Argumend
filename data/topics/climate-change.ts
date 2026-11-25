@@ -124,7 +124,7 @@ export const climateChangeData = {
           common_ground:
             "Both sides agree CO₂ has varied naturally over Earth's history and that the modern level is the highest in at least ~800,000 years.",
           live_disagreement:
-            "Essentially none on source attribution, the isotopic fingerprint is not seriously contested in the literature; the real dispute is about consequences, not origin.",
+            "Essentially none on source attribution; the isotopic fingerprint is not seriously contested in the literature; the real dispute is about consequences, not origin.",
         },
       },
       evidence: [
@@ -212,7 +212,7 @@ export const climateChangeData = {
       skeptic_premise:
         "The case rests on models that missed things they should have caught. Temperatures stalled from 1998 to 2014 while emissions kept climbing, and the models did not predict it; a subset of the newest generation still runs hotter than the thermometers. Climate shifted before, too: the Medieval Warm Period and the Roman Climate Optimum came and went with no industry at all. A theory that explains the warm years and calls the flat ones natural variability is hard to catch out.",
       proponent_rebuttal:
-        "The attribution does not rest on models alone, and where it does, they have been tested against things they did not know in advance. Models reproduce the whole 20th-century record, including the mid-century cooling caused by aerosols. The 'hiatus' was within model uncertainty bounds and is now understood as a short-term slowdown linked to a negative Pacific Decadal Oscillation phase; later reanalyses (e.g. Karl et al. 2015) found little or no actual slowdown once data biases were corrected. The Medieval Warm Period and Roman Climate Optimum were real but largely regional, IPCC AR6 finds no globally synchronous warm epoch in the past 2,000 years, whereas today's warming is globally coherent and, in rate, unprecedented over that span. Crucially, models predict specific 'fingerprints': stratospheric cooling while the troposphere warms (greenhouse signature), nights warming faster than days, and polar amplification. All three fingerprints are observed. IPCC AR6 estimates human-induced warming of about 1.1°C since 1850–1900, with natural forcings contributing only roughly −0.1°C to +0.1°C, so natural factors alone cannot explain the observed trend; only adding anthropogenic forcing matches reality.",
+        "The attribution does not rest on models alone, and where it does, they have been tested against things they did not know in advance. Models reproduce the whole 20th-century record, including the mid-century cooling caused by aerosols. The 'hiatus' was within model uncertainty bounds and is now understood as a short-term slowdown linked to a negative Pacific Decadal Oscillation phase; later reanalyses (e.g. Karl et al. 2015) found little or no actual slowdown once data biases were corrected. The Medieval Warm Period and Roman Climate Optimum were real but largely regional; IPCC AR6 finds no globally synchronous warm epoch in the past 2,000 years, whereas today's warming is globally coherent and, in rate, unprecedented over that span. Crucially, models predict specific 'fingerprints': stratospheric cooling while the troposphere warms (greenhouse signature), nights warming faster than days, and polar amplification. All three fingerprints are observed. IPCC AR6 estimates human-induced warming of about 1.1°C since 1850–1900, with natural forcings contributing only roughly −0.1°C to +0.1°C, so natural factors alone cannot explain the observed trend; only adding anthropogenic forcing matches reality.",
       crux: {
         id: "fingerprint-detection",
         title: "The Fingerprint Detection Test",
@@ -328,7 +328,7 @@ export const climateChangeData = {
       skeptic_premise:
         "Everything about Earth's climate begins with the sun, and small changes in its output can be amplified through cosmic rays seeding clouds or ultraviolet light altering ozone. Direct satellite measurement goes back only to 1978, a short record for a star. The sun has moved climate before: the Maunder Minimum of 1645-1715 coincided with Europe's bitterest winters. The honest worry is not that the sun explains everything, but that natural variability may be larger than the budget allows for.",
       proponent_rebuttal:
-        "The sun was the first suspect, and it was checked. Solar irradiance has been flat or slightly declining since 1980 while temperatures accelerated upward, so the correlation broke. Cosmic ray flux shows no trend matching temperature. Volcanic eruptions cause temporary cooling (Pinatubo 1991 clearly visible), confirming models work, but there's no volcanic trend to explain warming. Orbital (Milankovitch) cycles operate on 10,000+ year timescales and currently favor slight cooling. When you sum all natural factors, the net contribution to warming since 1850–1900 is near zero, IPCC AR6 puts natural forcings at roughly −0.1°C to +0.1°C. The energy imbalance (~0.5–1 W/m²) measured by satellites and Argo floats requires an additional forcing, greenhouse gases are the only candidate that fits.",
+        "The sun was the first suspect, and it was checked. Solar irradiance has been flat or slightly declining since 1980 while temperatures accelerated upward, so the correlation broke. Cosmic ray flux shows no trend matching temperature. Volcanic eruptions cause temporary cooling (Pinatubo 1991 clearly visible), confirming models work, but there's no volcanic trend to explain warming. Orbital (Milankovitch) cycles operate on 10,000+ year timescales and currently favor slight cooling. When you sum all natural factors, the net contribution to warming since 1850–1900 is near zero; IPCC AR6 puts natural forcings at roughly −0.1°C to +0.1°C. The energy imbalance (~0.5–1 W/m²) measured by satellites and Argo floats requires an additional forcing; greenhouse gases are the only candidate that fits.",
       crux: {
         id: "energy-budget-closure",
         title: "The Energy Budget Closure Test",
@@ -353,7 +353,7 @@ export const climateChangeData = {
           common_ground:
             "Both sides agree the sun is the ultimate driver of Earth's climate and that volcanic eruptions and orbital cycles measurably affect it.",
           live_disagreement:
-            "Whether there is an under-measured natural forcing large enough to matter, the satellite/Argo energy budget leaves little room, but that bound is what's debated.",
+            "Whether there is an under-measured natural forcing large enough to matter; the satellite/Argo energy budget leaves little room, but that bound is what's debated.",
         },
       },
       evidence: [

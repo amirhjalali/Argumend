@@ -281,7 +281,7 @@ export const nuclearWeaponsAbolitionData = {
           skeptic_flip:
             "If further crises passed without nuclear use, extending an 80-year record, and studies linked deterrence to the absence of conventional great-power wars like those that killed 80+ million people before 1950, the catastrophic risk would have a large offsetting benefit.",
           common_ground:
-            "Both sides agree any nuclear use would be a humanitarian catastrophe, the Red Cross and Red Crescent Movement finds 'the lack of any adequate humanitarian response capacity', and that this horror sits at the center of the argument either way.",
+            "Both sides agree any nuclear use would be a humanitarian catastrophe (the Red Cross and Red Crescent Movement finds 'the lack of any adequate humanitarian response capacity'), and that this horror sits at the center of the argument either way.",
           live_disagreement:
             "Whether nuclear winter models are right that even a limited exchange would cause global famine, making the tail risk outweigh any deterrence benefit, or overstated, leaving the record of non-use as the weightier fact.",
         },

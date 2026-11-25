@@ -71,7 +71,7 @@ export const gainOfFunctionResearchBanData = {
         "A single lab accident with an enhanced pathogen could trigger a pandemic killing millions. Even if the probability of any individual accident is low, the catastrophic magnitude of the consequence makes the expected cost extraordinarily high, potentially an existential or civilizational-scale risk.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The existential risk framing is disproportionate and fear-driven. BSL-4 laboratories have operated for over 50 years with no confirmed pandemic originating from a lab accident. The safety record of high-containment facilities is remarkably strong, documented incidents have been contained locally. The risk of a natural pandemic arising from zoonotic spillover in wet markets, factory farms, and deforested habitats is far higher than the lab-accident risk and receives far less policy attention. Banning GOF research based on theoretical catastrophic risk would set a precedent that could justify banning any technology with a nonzero chance of civilizational harm, including nuclear energy, AI research, and spaceflight. Risk must be assessed proportionally, not catastrophically.",
+        "The existential risk framing is disproportionate and fear-driven. BSL-4 laboratories have operated for over 50 years with no confirmed pandemic originating from a lab accident. The safety record of high-containment facilities is remarkably strong: documented incidents have been contained locally. The risk of a natural pandemic arising from zoonotic spillover in wet markets, factory farms, and deforested habitats is far higher than the lab-accident risk and receives far less policy attention. Banning GOF research based on theoretical catastrophic risk would set a precedent that could justify banning any technology with a nonzero chance of civilizational harm, including nuclear energy, AI research, and spaceflight. Risk must be assessed proportionally, not catastrophically.",
       proponent_rebuttal:
         "The safety record argument is survivorship bias in its most literal form; we are here to discuss it because no lab-created pandemic has killed us yet, not because the risk is low. Documented lab incidents include the 2004 SARS escapes from a Beijing virology institute (nine infections in two transmission chains, one death), the 2014 CDC anthrax and smallpox exposure events, and the 1979 Sverdlovsk anthrax release that killed at least 66 people. These are individual failures in a system that needs 100% success indefinitely. The probability of a catastrophic lab leak is estimated at 0.01-0.1% per lab per year, with dozens of BSL-4 labs worldwide, the cumulative probability over decades becomes substantial. When the consequence is potentially millions or billions of deaths, even a small probability demands extraordinary precaution.",
       crux: {
@@ -212,7 +212,7 @@ export const gainOfFunctionResearchBanData = {
           source: "Nature Medicine; UNC-Chapel Hill",
           sourceUrl: "https://www.nature.com/articles/nm.3985",
           reasoning:
-            "Published in a top journal with significant policy impact. However, the claim that this research was essential to the COVID response is contested, the mRNA vaccines were developed from natural SARS-CoV-2 sequences, not from Baric's chimeric work. Independence is slightly lower because the scientific necessity claim is partly self-assessment by the researchers who conducted the work.",
+            "Published in a top journal with significant policy impact. However, the claim that this research was essential to the COVID response is contested; the mRNA vaccines were developed from natural SARS-CoV-2 sequences, not from Baric's chimeric work. Independence is slightly lower because the scientific necessity claim is partly self-assessment by the researchers who conducted the work.",
         },
         {
           id: "alphafold-alternative-methods",
@@ -229,7 +229,7 @@ export const gainOfFunctionResearchBanData = {
           source: "Nature; DeepMind; Science",
           sourceUrl: "https://www.nature.com/articles/s41586-021-03819-2",
           reasoning:
-            "AlphaFold represents a genuine paradigm shift in structural biology that reduces the need for some GOF experiments. However, structural prediction and functional prediction are different, knowing a protein's shape does not fully predict its behavior in a living system, which limits the directness of this as a substitute for all GOF research.",
+            "AlphaFold represents a genuine paradigm shift in structural biology that reduces the need for some GOF experiments. However, structural prediction and functional prediction are different: knowing a protein's shape does not fully predict its behavior in a living system, which limits the directness of this as a substitute for all GOF research.",
         },
       ],
     },
@@ -246,7 +246,7 @@ export const gainOfFunctionResearchBanData = {
       skeptic_premise:
         "A GOF ban is unenforceable and counterproductive. Unlike nuclear weapons, which require specialized materials (enriched uranium/plutonium) and massive infrastructure, dangerous biological research can be conducted with commercially available equipment in a university-scale laboratory. The Biological Weapons Convention has been in effect since 1975 with no verification mechanism, multiple signatory states have maintained covert biological weapons programs. A ban on GOF research would push the work underground and offshore to countries with less transparency, creating the worst possible outcome: the research continues with lower safety standards and no oversight. Better to have the research conducted openly in well-regulated BSL-4 facilities with international inspection than behind closed doors.",
       proponent_rebuttal:
-        "The enforceability objection is overstated and proves too much, by this logic, we should not ban bioweapons, chemical weapons, or human cloning either. The goal is not perfect enforcement but raising the cost and reducing the volume of dangerous research. The vast majority of GOF research is conducted by legitimate scientists at funded institutions who would comply with a ban. Funding restrictions alone would eliminate most GOF research, since the NIH funds the majority of relevant work globally. International CRISPR registries and DNA synthesis screening already demonstrate that biological research can be monitored at the supply chain level. A ban complemented by synthesis screening, international inspection, and whistleblower protections would not eliminate all risk but would substantially reduce the probability of a lab-created pandemic.",
+        "The enforceability objection is overstated and proves too much; by this logic, we should not ban bioweapons, chemical weapons, or human cloning either. The goal is not perfect enforcement but raising the cost and reducing the volume of dangerous research. The vast majority of GOF research is conducted by legitimate scientists at funded institutions who would comply with a ban. Funding restrictions alone would eliminate most GOF research, since the NIH funds the majority of relevant work globally. International CRISPR registries and DNA synthesis screening already demonstrate that biological research can be monitored at the supply chain level. A ban complemented by synthesis screening, international inspection, and whistleblower protections would not eliminate all risk but would substantially reduce the probability of a lab-created pandemic.",
       crux: {
         id: "enforcement-effectiveness-test",
         title: "The Enforcement Feasibility Analysis",
@@ -296,7 +296,7 @@ export const gainOfFunctionResearchBanData = {
           id: "dna-synthesis-screening-progress",
           title: "DNA Synthesis Screening Could Monitor GOF Research at the Supply Chain Level",
           description:
-            "The International Gene Synthesis Consortium (IGSC) screens DNA synthesis orders against databases of regulated pathogen sequences, flagging orders that could enable bioweapons. Over 80% of commercial DNA synthesis globally is covered by screening protocols. Executive orders in the US now require synthesis screening for federally funded research. While imperfect, this approach demonstrates that biological research can be monitored at the supply chain level, researchers need to order synthetic DNA to conduct most GOF work.",
+            "The International Gene Synthesis Consortium (IGSC) screens DNA synthesis orders against databases of regulated pathogen sequences, flagging orders that could enable bioweapons. Over 80% of commercial DNA synthesis globally is covered by screening protocols. Executive orders in the US now require synthesis screening for federally funded research. While imperfect, this approach demonstrates that biological research can be monitored at the supply chain level; researchers need to order synthetic DNA to conduct most GOF work.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -308,7 +308,7 @@ export const gainOfFunctionResearchBanData = {
             "International Gene Synthesis Consortium; Nuclear Threat Initiative, \"Common Mechanism to Prevent Illicit Gene Synthesis\"",
           sourceUrl: "https://www.nti.org/analysis/articles/common-mechanism-prevent-illicit-gene-synthesis/",
           reasoning:
-            "DNA synthesis screening provides a concrete enforcement mechanism that already exists and covers the majority of the market. However, gaps remain, not all synthesis providers participate, and advanced labs can synthesize DNA without commercial suppliers. The 80% coverage rate suggests meaningful but imperfect enforcement.",
+            "DNA synthesis screening provides a concrete enforcement mechanism that already exists and covers the majority of the market. However, gaps remain: not all synthesis providers participate, and advanced labs can synthesize DNA without commercial suppliers. The 80% coverage rate suggests meaningful but imperfect enforcement.",
         },
         {
           id: "gain-of-function-moratorium",

@@ -589,7 +589,7 @@ export const dogeFederalCutsData = {
       id: "q2",
       title: "Was the disruption transitional, or a permanent loss of capacity?",
       content:
-        "Service metrics worsened sharply after the cuts, SSA phone waits of up to two or three hours, a reported 35-day average wait for new VA mental-health patients, and fired nuclear-stockpile, bird-flu and weather staff brought back once agencies found them essential. Proponents call this transitional growing pain that the system self-corrects. Critics call it a durable disinvestment a future president cannot easily reverse. Which reading does the multi-year data support?",
+        "Service metrics worsened sharply after the cuts: SSA phone waits of up to two or three hours, a reported 35-day average wait for new VA mental-health patients, and fired nuclear-stockpile, bird-flu and weather staff brought back once agencies found them essential. Proponents call this transitional growing pain that the system self-corrects. Critics call it a durable disinvestment a future president cannot easily reverse. Which reading does the multi-year data support?",
     },
     {
       id: "q3",

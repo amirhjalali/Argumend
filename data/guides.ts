@@ -198,7 +198,7 @@ There are two categories to understand: cognitive biases (systematic errors in h
             title: "In-group bias",
             content: `We automatically favor members of groups we belong to and view outsiders with suspicion. This operates across political parties, nationalities, professional identities, and even arbitrary lab-assigned groups. We attribute better motives to our group's actions and worse motives to the other group's identical actions.
 
-**Counter-strategy:** Apply the "ideological Turing test"; can you explain the other side's position well enough that they'd recognize it as accurate? If not, you don't understand it well enough to critique it.`,
+**Counter-strategy:** Apply the "ideological Turing test": can you explain the other side's position well enough that they'd recognize it as accurate? If not, you don't understand it well enough to critique it.`,
           },
           {
             title: "The Dunning-Kruger effect",
@@ -935,7 +935,7 @@ Definitional cruxes are resolved not by evidence but by explicit clarification. 
       },
       {
         title: "How to find your own crux",
-        content: `Finding your crux requires a specific kind of intellectual honesty; the willingness to ask yourself what would actually change your mind, and then take your own answer seriously.
+        content: `Finding your crux requires a specific kind of intellectual honesty: the willingness to ask yourself what would actually change your mind, and then take your own answer seriously.
 
 Here's a step-by-step process:
 
@@ -945,7 +945,7 @@ Here's a step-by-step process:
 
 For example, if you believe AI poses an existential risk, your crux might be: "If someone demonstrated a reliable, proven method for aligning AI systems with human values that scales to superintelligent systems, I would no longer consider AI an existential risk." That's specific and testable.
 
-**Step 3: Check with the other side.** Ask your interlocutor: "If I could show you X, would that change your mind?" If they say yes, you've found a shared crux; the specific point both of you agree would be decisive. If they say no, dig deeper: what would they need to see? Their answer reveals where the crux actually lies versus where you assumed it was.
+**Step 3: Check with the other side.** Ask your interlocutor: "If I could show you X, would that change your mind?" If they say yes, you've found a shared crux: the specific point both of you agree would be decisive. If they say no, dig deeper: what would they need to see? Their answer reveals where the crux actually lies versus where you assumed it was.
 
 **Step 4: Verify it's load-bearing.** A true crux is one where resolving it would genuinely shift your overall conclusion, not just one minor sub-argument. Test this by imagining the crux resolved in the direction you don't expect. Does your position really change? If so, it's a genuine crux. If you find yourself generating new objections immediately, the thing you identified wasn't actually your crux, keep digging.
 
@@ -1036,7 +1036,7 @@ Bayesian thinking is the antidote. It provides a framework for updating beliefs 
       },
       {
         title: "Priors: what you believe before seeing evidence",
-        content: `Before you see any specific piece of evidence, you already have beliefs. These are your "priors"; your starting probability estimates based on everything you knew before this particular data point arrived.
+        content: `Before you see any specific piece of evidence, you already have beliefs. These are your "priors": your starting probability estimates based on everything you knew before this particular data point arrived.
 
 Priors matter enormously because they determine how much a piece of evidence should move you. Consider two claims:
 
@@ -1055,7 +1055,7 @@ A claim that "vaccines cause autism" starts with an extremely low prior because 
       },
       {
         title: "Likelihood: how surprising is this evidence?",
-        content: `Once you have your prior, the next question is: how much should this specific evidence move you? The answer depends on how "diagnostic" the evidence is; how much more likely you'd be to see this evidence if the claim were true versus if it were false.
+        content: `Once you have your prior, the next question is: how much should this specific evidence move you? The answer depends on how "diagnostic" the evidence is: how much more likely you'd be to see this evidence if the claim were true versus if it were false.
 
 Imagine you're trying to determine whether a coin is fair (50/50) or biased (80/20 toward heads). You flip it once and get heads. How much should this update you?
 
@@ -1101,11 +1101,11 @@ A perfectly calibrated person, when they say they're "80% sure" about something,
 
 Most people are not calibrated. Research consistently shows that people are overconfident; when they say they're 90% sure, they're right only about 70% of the time. This overconfidence is especially pronounced for hard questions and for questions touching on identity or politics.
 
-You can test your own calibration. Take a set of factual questions (historical dates, scientific facts, geographical data) and for each one, write down your answer and your confidence level (50%, 60%, 70%, 80%, 90%, 95%, 99%). After answering many questions, check: of the questions where you said 80%, were you right about 80% of the time?
+You can test your own calibration. Take a set of factual questions (historical dates, scientific facts, geographical data), and for each one, write down your answer and your confidence level (50%, 60%, 70%, 80%, 90%, 95%, 99%). After answering many questions, check: of the questions where you said 80%, were you right about 80% of the time?
 
 Most people discover they're systematically overconfident. The things they rated at 90% confidence are right only 70-75% of the time. This is a profound discovery because it means your sense of certainty is miscalibrated; you feel more sure than you should be.
 
-The connection to Argumend is direct. When you look at a topic and form an opinion, your gut-level confidence is probably too high. If you feel 90% sure about a contested topic (say, whether AI poses an existential risk or whether universal basic income would work) honest Bayesian calibration suggests your real confidence should probably be closer to 70-75%.
+The connection to Argumend is direct. When you look at a topic and form an opinion, your gut-level confidence is probably too high. If you feel 90% sure about a contested topic (say, whether AI poses an existential risk or whether universal basic income would work), honest Bayesian calibration suggests your real confidence should probably be closer to 70-75%.
 
 This doesn't mean you should doubt everything equally. It means you should practice what Philip Tetlock calls "calibrated uncertainty", being confident in proportion to the evidence, not in proportion to how strongly you feel. Superforecasters, the most accurate predictors Tetlock studied, were distinguished not by having better information but by being better calibrated. They knew what they didn't know.
 
@@ -1150,7 +1150,7 @@ The first step of your audit is simply asking: "Is this an empirical, causal, pr
         title: "Step 2: source check",
         content: `Now that you know what type of claim you're evaluating, ask three questions about who's making it.
 
-**Who said it?** Trace the claim to its original source. Social media posts citing "studies show" almost never link the actual study. News articles may reference a report without naming it. Your job is to find the primary source; the actual person, institution, or publication that generated the claim. If you can't find the original source after a reasonable search, that's itself a red flag.
+**Who said it?** Trace the claim to its original source. Social media posts citing "studies show" almost never link the actual study. News articles may reference a report without naming it. Your job is to find the primary source: the actual person, institution, or publication that generated the claim. If you can't find the original source after a reasonable search, that's itself a red flag.
 
 **What's their track record?** A source that has been consistently accurate in the past is more likely to be accurate now. This applies to individual experts, institutions, and publications. A climate scientist publishing in Nature has a different track record than an anonymous blog. A government statistical agency that has reported economic data reliably for decades is more trustworthy than a newly launched advocacy group's in-house "research."
 
@@ -1210,7 +1210,7 @@ A 0-100 scale works well, and you can use it for any claim you evaluate:
 
 **Below 30: Very low confidence.** The claim contradicts established evidence, fails to triangulate, comes from unreliable sources, or has a very low base rate of being true. You should actively expect this claim to be wrong.
 
-**The critical habit: write it down and date it.** When you assign a confidence level, record it. When new evidence arrives (a replication study, a new dataset, a credible rebuttal) reassess and record your new confidence. Over time, this practice trains your calibration. You'll discover where you're systematically too confident and where you're too cautious.
+**The critical habit: write it down and date it.** When you assign a confidence level, record it. When new evidence arrives (a replication study, a new dataset, a credible rebuttal), reassess and record your new confidence. Over time, this practice trains your calibration. You'll discover where you're systematically too confident and where you're too cautious.
 
 The entire audit, all five steps, should take about ten minutes for a typical claim. With practice, it becomes a mental habit rather than a formal process. You'll start automatically asking "What type of claim is this?" and "What's the base rate?" whenever you encounter a new assertion. That instinct alone will make you a dramatically better evaluator of information.`,
       },
@@ -1283,7 +1283,7 @@ On Argumend, every topic's argument map already presents both sides' evidence in
       },
       {
         title: "The logic step",
-        content: `You've empathized with the position and gathered the strongest evidence. Now construct the argument; the logical chain from evidence to conclusion that makes the opposing case as compelling as possible.
+        content: `You've empathized with the position and gathered the strongest evidence. Now construct the argument: the logical chain from evidence to conclusion that makes the opposing case as compelling as possible.
 
 A well-constructed steelman has three properties:
 
@@ -1295,7 +1295,7 @@ A well-constructed steelman has three properties:
 
 Here's what a steelman might look like for a position many people dismiss, say, skepticism of space colonization funding. Instead of the straw man ("they don't believe in science"), the steelman might go:
 
-"Given that we face urgent, solvable problems on Earth (climate change, pandemic preparedness, extreme poverty) directing hundreds of billions toward Mars colonization represents a massive opportunity cost. The technology for addressing Earth-bound problems exists and is proven; Mars colonization technology is speculative and decades away. A dollar spent on pandemic preparedness has a measurable expected return in lives saved; a dollar spent on Mars has an unmeasurable return on a timeline that may exceed our civilization's planning horizon. The moral case for prioritizing proven interventions over speculative ones is strong, especially when the speculative ones primarily benefit a future, hypothetical population while ignoring present, real suffering."
+"Given that we face urgent, solvable problems on Earth (climate change, pandemic preparedness, extreme poverty), directing hundreds of billions toward Mars colonization represents a massive opportunity cost. The technology for addressing Earth-bound problems exists and is proven; Mars colonization technology is speculative and decades away. A dollar spent on pandemic preparedness has a measurable expected return in lives saved; a dollar spent on Mars has an unmeasurable return on a timeline that may exceed our civilization's planning horizon. The moral case for prioritizing proven interventions over speculative ones is strong, especially when the speculative ones primarily benefit a future, hypothetical population while ignoring present, real suffering."
 
 Notice: no mockery, no caricature, no weakening. This is an argument that a thoughtful advocate of this position would recognize as their own. That's the test.`,
       },

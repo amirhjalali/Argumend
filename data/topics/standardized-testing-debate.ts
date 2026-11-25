@@ -190,7 +190,7 @@ export const standardizedTestingDebateData = {
           common_ground:
             "Both sides agree no admissions metric is bias-free, and that whatever is measured gets gamed by families who can afford to (Goodhart's Law).",
           live_disagreement:
-            "Whether holistic and portfolio methods are more equitable and predictive than a standardized test, or merely move the advantage to wealthy families through harder-to-standardize channels; a comparison no rigorous head-to-head trial has run.",
+            "Whether holistic and portfolio methods are more equitable and predictive than a standardized test, or merely move the advantage to wealthy families through harder-to-standardize channels, a comparison no rigorous head-to-head trial has run.",
         },
       },
       evidence: [

@@ -99,7 +99,7 @@ export const returnToOfficeProductivityData = {
             "Ding & Ma, 'Return-to-Office Mandates' (SSRN working paper, 2024)",
           sourceUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4675401",
           reasoning:
-            "Large-scale empirical study with a credible difference-in-differences design, though it is a working paper rather than a peer-reviewed publication, so reliability is moderate. Financial metrics are objective but blunt instruments for productivity, they lag operational changes and have many confounders, so the absence of improvement does not prove remote work is equally productive.",
+            "Large-scale empirical study with a credible difference-in-differences design, though it is a working paper rather than a peer-reviewed publication, so reliability is moderate. Financial metrics are objective but blunt instruments for productivity: they lag operational changes and have many confounders, so the absence of improvement does not prove remote work is equally productive.",
         },
         {
           id: "microsoft-network-siloing",

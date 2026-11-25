@@ -118,7 +118,7 @@ export const electoralCollegeReformData = {
           id: "npvic-progress",
           title: "Virginia Brought the NPVIC to 222 of the 270 Electoral Votes It Needs (April 2026)",
           description:
-            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join when Gov. Abigail Spanberger signed the bill on Monday, April 13, 2026, NPR reported). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined, an additional 48 are needed. Every state that has enacted it joined under a Democratic governor.",
+            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join when Gov. Abigail Spanberger signed the bill on Monday, April 13, 2026, NPR reported). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined; an additional 48 are needed. Every state that has enacted it joined under a Democratic governor.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -148,7 +148,7 @@ export const electoralCollegeReformData = {
             "Ballotpedia, \"National Popular Vote Interstate Compact\" (partisan-control analysis of member states)",
           sourceUrl: "https://ballotpedia.org/National_Popular_Vote_Interstate_Compact",
           reasoning:
-            "The partisan pattern in enactment is real, but the original claim that 'no Republican legislature has passed the compact' overstated it, Republican-controlled chambers have passed it in one chamber in several states. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
+            "The partisan pattern in enactment is real, but the original claim that 'no Republican legislature has passed the compact' overstated it; Republican-controlled chambers have passed it in one chamber in several states. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
         },
       ],
     },

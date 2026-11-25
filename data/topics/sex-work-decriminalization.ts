@@ -54,7 +54,7 @@ export const sexWorkDecriminalizationData = {
           skeptic_flip:
             "If more reviews matched the PLOS Medicine finding that repressive policing roughly triples the odds of violence (OR 2.99), and reforms like New Zealand's in 2003 kept protecting rights without growing the number of sex workers, the market-expansion fear would weaken.",
           common_ground:
-            "Both sides agree the trafficked and coerced are the hardest group to count, so recorded trafficking figures are an imperfect guide, the UNODC itself warns its counts are not victim counts.",
+            "Both sides agree the trafficked and coerced are the hardest group to count, so recorded trafficking figures are an imperfect guide: the UNODC itself warns its counts are not victim counts.",
           live_disagreement:
             "Whether full decriminalization, unlike licensed legalization, makes sex workers safer without expanding a market traffickers exploit, and whether changes after a law passes reflect the law or shifts in reporting, migration and enforcement.",
         },

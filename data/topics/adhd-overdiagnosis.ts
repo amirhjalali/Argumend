@@ -93,7 +93,7 @@ export const adhdOverdiagnosisData = {
             "Danielson ML et al., 'ADHD Prevalence Among U.S. Children and Adolescents in 2022', Journal of Clinical Child & Adolescent Psychology 53(3):343-360 (2024); Polanczyk G et al., American Journal of Psychiatry 164(6):942-948 (2007); Polanczyk GV et al., International Journal of Epidemiology 43(2):434-442 (2014)",
           sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11334226/",
           reasoning:
-            "Authoritative US government surveillance data. Directness is limited because a diagnosed rate exceeding the ~5% community estimate is consistent with overdiagnosis but does not by itself prove the extra cases are false positives rather than previously-missed real cases, that inference is what the crux tests.",
+            "Authoritative US government surveillance data. Directness is limited because a diagnosed rate exceeding the ~5% community estimate is consistent with overdiagnosis but does not by itself prove the extra cases are false positives rather than previously-missed real cases; that inference is what the crux tests.",
         },
         {
           id: "ncs-r-adult-adhd-untreated",
@@ -217,7 +217,7 @@ export const adhdOverdiagnosisData = {
         cost_to_verify: "$5M+ (long-horizon RCT on borderline cases)",
         falsification: {
           supporter_flip:
-            "If long-term follow-up of borderline-eligible people showed that diagnosing and treating them produced clear net benefit on hard outcomes (attainment, accidents, self-harm, employment), the 'overdiagnosis does net harm at the margin' claim would fail, the extra diagnoses would be helping the people who get them.",
+            "If long-term follow-up of borderline-eligible people showed that diagnosing and treating them produced clear net benefit on hard outcomes (attainment, accidents, self-harm, employment), the 'overdiagnosis does net harm at the margin' claim would fail; the extra diagnoses would be helping the people who get them.",
           skeptic_flip:
             "If long-term follow-up of borderline-eligible people found no net benefit on attainment, accidents, self-harm or employment, matching the diminishing returns the JAMA review describes for milder cases, the Danish cohort's mortality ratio of 2.07 across all ADHD would say little about the diagnostic margin.",
           common_ground:
@@ -243,7 +243,7 @@ export const adhdOverdiagnosisData = {
             "Kazda L, et al. JAMA Network Open, April 2021 (subset analysis of benefits/harms in milder cases)",
           sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8042533/",
           reasoning:
-            "Directly addresses whether the extra diagnoses do net harm. Weighted down on replicability because the review found only about 5 studies evaluating benefits-vs-harms in milder cases, and the authors explicitly call for higher-quality long-term studies, the crux here is rated 'theoretical' for exactly this reason.",
+            "Directly addresses whether the extra diagnoses do net harm. Weighted down on replicability because the review found only about 5 studies evaluating benefits-vs-harms in milder cases, and the authors explicitly call for higher-quality long-term studies; the crux here is rated 'theoretical' for exactly this reason.",
         },
         {
           id: "adhd-mortality",

@@ -109,7 +109,7 @@ export const facialRecognitionPolicingData = {
           id: "nist-accuracy-gains",
           title: "Best Algorithms Are Near-Perfect, but Accuracy Gains Don't Erase Bias",
           description:
-            "Ongoing NIST testing shows recognition error fell roughly threefold from 2020 to 2025, with the top mugshot-identification algorithm reaching a ~0.13% false-negative rate. But the FAS analysis cautions that these accuracy gains do not reliably reduce demographic bias: as overall error falls the absolute disparity between groups may shrink while the relative disparity persists, and across vendors bias reduction is uneven, some companies have lowered both absolute and relative bias while others have not, or have grown more biased.",
+            "Ongoing NIST testing shows recognition error fell roughly threefold from 2020 to 2025, with the top mugshot-identification algorithm reaching a ~0.13% false-negative rate. But the FAS analysis cautions that these accuracy gains do not reliably reduce demographic bias: as overall error falls the absolute disparity between groups may shrink while the relative disparity persists, and across vendors bias reduction is uneven: some companies have lowered both absolute and relative bias while others have not, or have grown more biased.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -134,7 +134,7 @@ export const facialRecognitionPolicingData = {
       skeptic_premise:
         "Every documented wrongful arrest is a failure of police procedure, not proof the technology should be banned. In each case officers violated the near-universal rule that a match is an investigative lead requiring independent corroboration; they arrested on the match alone. The technology also clears and exonerates: it generates leads in robberies, assaults, child-exploitation, and cold cases that traditional methods miss. The corrective is enforceable safeguards (mandatory disclosure, human verification, corroboration requirements, and a ban on arrests based on a match alone) which target the actual cause of harm without discarding a tool that solves real crimes.",
       proponent_rebuttal:
-        "The concrete harm is no longer hypothetical. The ACLU has documented at least 14 people wrongfully arrested in the US after a facial-recognition match, the majority of them Black; several were jailed for days, including a woman who was eight months pregnant. Investigators repeatedly treated the algorithm's 'possible match' as confirmation and skipped basic follow-up, the misidentified people were sometimes inches taller, heavier, or visibly different from the suspect. Georgetown Law calls it 'a forensic without the science': an unvalidated identification method whose output is used as probable cause despite policies that say it should only be a lead.",
+        "The concrete harm is no longer hypothetical. The ACLU has documented at least 14 people wrongfully arrested in the US after a facial-recognition match, the majority of them Black; several were jailed for days, including a woman who was eight months pregnant. Investigators repeatedly treated the algorithm's 'possible match' as confirmation and skipped basic follow-up; the misidentified people were sometimes inches taller, heavier, or visibly different from the suspect. Georgetown Law calls it 'a forensic without the science': an unvalidated identification method whose output is used as probable cause despite policies that say it should only be a lead.",
       crux: {
         id: "sole-basis-test",
         title: "The Sole-Basis Test",
@@ -252,7 +252,7 @@ export const facialRecognitionPolicingData = {
           skeptic_flip:
             "If comparative analysis found jurisdictions with binding statutes (sole-basis bans, mandatory training, disclosure) no better than others on disclosure to defendants, compliance or wrongful arrests, the safeguards would look unenforceable and a harder restriction the only working constraint.",
           common_ground:
-            "Both sides agree the technology was deployed far faster than oversight could govern it, ~60,000 federal searches before any training mandate, four of seven agencies lacking civil-rights policies, and that enforceable safeguards (training, disclosure, corroboration, audit) are necessary.",
+            "Both sides agree the technology was deployed far faster than oversight could govern it: ~60,000 federal searches before any training mandate, four of seven agencies lacking civil-rights policies, and that enforceable safeguards (training, disclosure, corroboration, audit) are necessary.",
           live_disagreement:
             "Whether such safeguards, once enacted, are actually implemented and obeyed (measured by compliance rates, disclosure-to-defendant rates, and wrongful-arrest incidence before versus after the rules take effect, and benchmarked against jurisdictions without them) which a comparative policy-and-records study can resolve.",
         },

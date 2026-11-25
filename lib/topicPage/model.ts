@@ -33,7 +33,7 @@ export const HIDDEN_ASSUMPTION_NOTE =
 
 /** The engine's line for a crux no evidence can settle (docs/CRUX_ENGINE.md). */
 export const STANDING_DISAGREEMENT_LINE =
-  "Nothing does: this is a standing value disagreement; the map holds both horns.";
+  "Nothing does: this is a standing value disagreement; the map lays out both sides.";
 
 /**
  * The standing line for the kind of fork. A value fork keeps the engine's

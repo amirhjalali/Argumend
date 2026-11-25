@@ -726,7 +726,7 @@ A few years ago, asking whether an AI might be conscious would have gotten you l
 
 None of that means AI *is* conscious. It means the question has crossed from science fiction into a topic that serious scientists, philosophers, and labs now treat as worth investigating. And the honest answer to "is it?" is uncomfortable for both the dismissive and the credulous: **we don't know, and right now we can't.** Our full [AI consciousness analysis](/topics/consciousness-ai-systems) maps why.
 
-## The problem: we have no test: even for each other
+## The problem: we have no test, even for each other
 
 The deepest obstacle isn't about AI at all. It's that we have no agreed, objective test for consciousness in *anything*. You infer that other humans are conscious because they are built like you and behave like you, but that's an inference, not a measurement. Philosophers call this the "hard problem": physical processes can be described in full, yet why any of it is accompanied by subjective experience remains genuinely unexplained.
 
@@ -985,9 +985,9 @@ They can argue forever, because they are having two different fights at once and
 
 ## The distinction, made simple
 
-A **factual claim** describes how the world is. It is true or false, and evidence settles it, at least in principle. "The death penalty reduces the murder rate." "Nuclear power causes fewer deaths per unit of energy than coal." "Rent control reduces the housing supply." You might not know the answer, the answer might be genuinely uncertain, but there *is* an answer out there, and better data moves you closer to it.
+A **factual claim** describes how the world is. It is true or false, and evidence settles it, at least in principle. "The death penalty reduces the murder rate." "Nuclear power causes fewer deaths per unit of energy than coal." "Rent control reduces the housing supply." You might not know the answer; the answer might be genuinely uncertain, but there *is* an answer out there, and better data moves you closer to it.
 
-A **value claim** describes how the world should be, or what matters. It is not true or false in the same way, and no amount of data settles it by itself. "It is wrong for the state to take a life." "Individual liberty matters more than collective safety." "We owe more to people alive today than to those not yet born." Evidence is relevant, it tells you the consequences of acting on a value, but it cannot, on its own, tell you which value to hold.
+A **value claim** describes how the world should be, or what matters. It is not true or false in the same way, and no amount of data settles it by itself. "It is wrong for the state to take a life." "Individual liberty matters more than collective safety." "We owe more to people alive today than to those not yet born." Evidence is relevant: it tells you the consequences of acting on a value, but it cannot, on its own, tell you which value to hold.
 
 Philosophers call the confusion between these the **is–ought gap**: you cannot derive what *ought* to be purely from what *is*. Facts about the world never, by themselves, generate an obligation. You always need a value premise to get there.
 
@@ -1003,7 +1003,7 @@ Almost every argument that goes in circles is one where the two kinds of claim h
 
 ## The litmus test you already have
 
-Here's the shortcut: **ask what would change your mind.** If you can name a piece of evidence that would flip your position, you're in a factual disagreement, go find the evidence. If *no* fact would change you, you're holding a value, and that's fine, but you should say so honestly, because no study is going to resolve it. (This is the same move we wrote about in [What Would Change Your Mind?](/blog/what-would-change-your-mind); it doubles as a fact-or-value detector.)
+Here's the shortcut: **ask what would change your mind.** If you can name a piece of evidence that would flip your position, you're in a factual disagreement; go find the evidence. If *no* fact would change you, you're holding a value, and that's fine, but you should say so honestly, because no study is going to resolve it. (This is the same move we wrote about in [What Would Change Your Mind?](/blog/what-would-change-your-mind); it doubles as a fact-or-value detector.)
 
 ## How it plays out in real debates
 
@@ -4138,7 +4138,7 @@ The most significant clinical evidence comes from a landmark 2024 study publishe
 
 This was not merely a detection study. It demonstrated a quantitative dose-response relationship, higher microplastic concentrations correlated with worse outcomes. It found elevated inflammatory markers (interleukin-18, interleukin-1beta, TNF-alpha) in affected tissue, suggesting a plausible biological mechanism: plastic fragments embedded in arterial plaque may provoke chronic inflammation that destabilizes the plaque and increases the risk of catastrophic cardiovascular events.
 
-Beyond cardiovascular disease, the endocrine disruption evidence adds another layer of concern. Microplastics act as vehicles for chemical additives, bisphenol A (BPA), phthalates, PFAS, that are known endocrine disruptors. These chemicals mimic or block hormones at extremely low concentrations. A comprehensive meta-analysis by Levine et al., updated in 2023 in *Human Reproduction Update* and encompassing 223 studies from 53 countries, found that global sperm counts have fallen 62% since 1973, with the rate of decline *accelerating* since 2000. Animal studies have demonstrated that phthalate exposure produces reproductive abnormalities at doses proportional to the upper range of measured human exposure.
+Beyond cardiovascular disease, the endocrine disruption evidence adds another layer of concern. Microplastics act as vehicles for chemical additives (bisphenol A (BPA), phthalates, PFAS) that are known endocrine disruptors. These chemicals mimic or block hormones at extremely low concentrations. A comprehensive meta-analysis by Levine et al., updated in 2023 in *Human Reproduction Update* and encompassing 223 studies from 53 countries, found that global sperm counts have fallen 62% since 1973, with the rate of decline *accelerating* since 2000. Animal studies have demonstrated that phthalate exposure produces reproductive abnormalities at doses proportional to the upper range of measured human exposure.
 
 The inflammatory evidence extends beyond the cardiovascular system. Laboratory studies show that microplastic particles trigger inflammatory responses in cell cultures and animal models. They cross the blood-brain barrier. They cross the placental barrier, raising concerns about prenatal exposure during critical developmental windows. The consistency of findings across independent research groups, tissue types, and analytical methods builds a cumulative case that, while no single study is definitive, mirrors the early epidemiology of lead and asbestos before causal mechanisms were fully elucidated.
 
@@ -4382,7 +4382,7 @@ The Bernanke-Blanchard model found that commodity price shocks (energy and food)
 
 **The strongest version of this argument:** A once-in-a-century pandemic simultaneously disrupted production and shipping worldwide while geopolitical conflict drove energy prices to record levels. These supply shocks would have caused significant inflation in any macroeconomic environment. The timing proves it: prices began rising in specific categories (used cars, lumber, shipping) tied directly to identifiable bottlenecks, not in broad demand-driven patterns.
 
-## Explanation 3: Corporate Pricing Power: The "Greedflation" Debate
+## Explanation 3: Corporate Pricing Power (The "Greedflation" Debate)
 
 The most politically charged explanation, and the one that generates the most heated disagreement among economists, is that corporations exploited the inflationary environment to raise prices beyond what cost increases justified, expanding their profit margins at consumers' expense.
 
@@ -5301,7 +5301,7 @@ This refuses to let the straw man stand in for your position, and it puts the bu
 
 ## The Connection to Steel-Manning
 
-The straw man has a precise opposite, and it is the single most valuable habit in honest argument: [steel-manning](/concepts/fallacies). Where a straw man states the *weakest* version of the opposing argument, a steel man states the *strongest*; so strong that a proponent would say "yes, that's exactly what I mean," and maybe even "I wish I'd put it that well."
+The straw man has a precise opposite, and it is the single most valuable habit in honest argument: [steel-manning](/concepts/fallacies). Where a straw man states the *weakest* version of the opposing argument, a steel man states the *strongest*: so strong that a proponent would say "yes, that's exactly what I mean," and maybe even "I wish I'd put it that well."
 
 Steel-manning is not a courtesy; it is a requirement for being right. You have not actually refuted a position until you have defeated its best version, not its worst. This is why every analysis at Argumend begins by steel-manning both sides before evaluating them. If you want to go deeper on the practice and its place among the reasoning tools, start with our [concepts and fallacies hub](/concepts/fallacies).
 
@@ -5511,7 +5511,7 @@ This keeps you out of both ditches. You are neither blindly deferring nor reflex
 
 [Steel-manning](/concepts/fallacies) an authority-based argument means asking what the *strongest* version of the deference is: not "trust this person because they're famous," but "this represents the considered judgment of a field that has examined a vast body of evidence, and here is what that evidence shows." The strong version always reconnects the authority to its evidential basis. The weak, fallacious version severs that connection and asks for trust alone.
 
-This is how Argumend handles expertise throughout: as weighted evidence anchored to its sources, never as an argument-ending trump card. Appeal to authority sits alongside the [bandwagon fallacy](/fallacies/bandwagon), popularity and prestige both substitute social signals for actual reasons. You can explore the full set in our [concepts and fallacies hub](/concepts/fallacies).
+This is how Argumend handles expertise throughout: as weighted evidence anchored to its sources, never as an argument-ending trump card. Appeal to authority sits alongside the [bandwagon fallacy](/fallacies/bandwagon): popularity and prestige both substitute social signals for actual reasons. You can explore the full set in our [concepts and fallacies hub](/concepts/fallacies).
 
 ## The Bottom Line
 
@@ -5681,7 +5681,7 @@ That is the genuine disagreement: a clash of moral axioms about justice, state p
 
 ## The Fallacies to Watch
 
-This debate is thick with [logical fallacies](/blog/5-logical-fallacies-in-online-debates). [Appeal to emotion](/fallacies) runs both ways, horrific crime-scene details for one side, a single wrongful execution for the other, and emotion, while relevant, is not an argument. The [false dilemma](/fallacies/false-dilemma) of "execution or letting murderers go free" ignores life-without-parole. And [appeals to authority](/blog/appeal-to-authority-fallacy-explained) about what "the studies show" deserve scrutiny precisely because, here, the studies show less than either side claims.
+This debate is thick with [logical fallacies](/blog/5-logical-fallacies-in-online-debates). [Appeal to emotion](/fallacies) runs both ways (horrific crime-scene details for one side, a single wrongful execution for the other) and emotion, while relevant, is not an argument. The [false dilemma](/fallacies/false-dilemma) of "execution or letting murderers go free" ignores life-without-parole. And [appeals to authority](/blog/appeal-to-authority-fallacy-explained) about what "the studies show" deserve scrutiny precisely because, here, the studies show less than either side claims.
 
 ## Inspect the Evidence Yourself
 
@@ -5947,7 +5947,7 @@ In all four, the slogan-level question ("is it good?") dissolves into a trade-of
     category: "Issue Guides",
     content: `## Some Debates Don't End With a Better Study
 
-We are evidence-first at Argumend, but honesty requires admitting that some disagreements aren't waiting on a better dataset. They turn on a value or on the meaning of a legal text. The useful thing a map can do here is show *exactly where* the empirical questions end and the irreducible disagreement begins; so people stop pretending a values fight is a facts fight. Two maps make this vivid.
+We are evidence-first at Argumend, but honesty requires admitting that some disagreements aren't waiting on a better dataset. They turn on a value or on the meaning of a legal text. The useful thing a map can do here is show *exactly where* the empirical questions end and the irreducible disagreement begins, so people stop pretending a values fight is a facts fight. Two maps make this vivid.
 
 ## Assisted Dying: Autonomy Versus the Slippery Slope
 
@@ -5989,9 +5989,9 @@ For companion debates where the same empirical-versus-moral split runs deep, see
     category: "Logic & Reasoning",
     content: `## What the Motte-and-Bailey Fallacy Actually Is
 
-The motte-and-bailey fallacy is a bait-and-switch over what is actually being claimed. A person advances a bold, controversial position, the *bailey*, and then, the instant it is challenged, retreats to a much weaker, almost unarguable version; the *motte*. Once the critic backs off the easy target, they quietly move back out to the bold claim as if it had survived the challenge. It hasn't. Two different claims have been swapped for one another, and the strong one was never actually defended.
+The motte-and-bailey fallacy is a bait-and-switch over what is actually being claimed. A person advances a bold, controversial position, the *bailey*, and then, the instant it is challenged, retreats to a much weaker, almost unarguable version: the *motte*. Once the critic backs off the easy target, they quietly move back out to the bold claim as if it had survived the challenge. It hasn't. Two different claims have been swapped for one another, and the strong one was never actually defended.
 
-The name comes from medieval fortifications. A motte-and-bailey castle paired a fortified tower on a raised mound, the motte, with a spacious, useful, but lightly defended courtyard around it; the bailey. People lived and worked in the bailey because that was where the value was; when attackers arrived, everyone fell back to the motte, which was easy to hold; once the threat passed, they returned to the bailey. The fallacy copies that structure precisely. The bold claim is the bailey the arguer wants to occupy; the modest claim is the motte they retreat to under fire. Our [motte-and-bailey entry](/fallacies/motte-and-bailey) in the fallacy catalog gives the formal definition.
+The name comes from medieval fortifications. A motte-and-bailey castle paired a fortified tower on a raised mound, the motte, with a spacious, useful, but lightly defended courtyard around it: the bailey. People lived and worked in the bailey because that was where the value was; when attackers arrived, everyone fell back to the motte, which was easy to hold; once the threat passed, they returned to the bailey. The fallacy copies that structure precisely. The bold claim is the bailey the arguer wants to occupy; the modest claim is the motte they retreat to under fire. Our [motte-and-bailey entry](/fallacies/motte-and-bailey) in the fallacy catalog gives the formal definition.
 
 ## Why It Works
 
@@ -6313,7 +6313,7 @@ The appeal to ignorance converts "we don't know" into "therefore it's true" or "
     slug: "tu-quoque-fallacy-explained",
     title: "The Tu Quoque Fallacy (Appeal to Hypocrisy), Explained",
     description:
-      "Tu quoque dodges a criticism by pointing at the critic's hypocrisy; 'you do it too.' Learn why hypocrisy doesn't refute an argument, and the cases where it actually matters.",
+      "Tu quoque dodges a criticism by pointing at the critic's hypocrisy: 'you do it too.' Learn why hypocrisy doesn't refute an argument, and the cases where it actually matters.",
     author: "Argumend Team",
     publishedAt: "2026-06-29T14:00:00Z",
     readingTime: "8 min read",
@@ -6337,7 +6337,7 @@ Most subtly, it exploits a confusion between two different things: the *truth* o
 
 Political debate runs on tu quoque almost as a native language. A politician is criticized for a broken promise and responds not by defending the record but by pointing out that the other party broke the same kind of promise. A country's human-rights record is raised, and the reply is a list of the critic's own abuses. None of this addresses whether the original criticism is accurate; it simply ensures that no one's conduct ever has to be defended on its own terms, because the conversation can always be redirected to someone else's.
 
-Climate arguments are a textbook case. A common deflection is to point out that a climate advocate flew on a plane, owns a large house, or eats meat; "you don't even live by your own rules, so why should I listen?" Whatever one thinks of the hypocrisy, it has no bearing on the physical question of whether emissions warm the planet. That question is answered by atmospheric science, not by the carbon footprint of the person citing it. Our [climate change](/topics/climate-change) analysis keeps the empirical claims separate from the character of whoever raises them, which is the only way to keep the hypocrisy charge from hijacking the evidence.
+Climate arguments are a textbook case. A common deflection is to point out that a climate advocate flew on a plane, owns a large house, or eats meat: "you don't even live by your own rules, so why should I listen?" Whatever one thinks of the hypocrisy, it has no bearing on the physical question of whether emissions warm the planet. That question is answered by atmospheric science, not by the carbon footprint of the person citing it. Our [climate change](/topics/climate-change) analysis keeps the empirical claims separate from the character of whoever raises them, which is the only way to keep the hypocrisy charge from hijacking the evidence.
 
 The pattern is just as common in everyday life. A parent's advice is dismissed because "you did worse at my age", a colleague's process criticism is waved off because "your code has bugs too." Sometimes the counter-charge is even accurate, but accurate or not, it leaves the original point exactly where it was. The advice might be sound and the critic might be a hypocrite, both at once.
 

@@ -53,7 +53,7 @@ export const rightToRepairData = {
         cost_to_verify: "$300K (multi-state panel data analysis)",
         falsification: {
           supporter_flip:
-            "If difference-in-differences on states that enacted right-to-repair (New York 2023, Minnesota, California 2024) showed device prices rising and total cost of ownership flat or higher relative to control states once firms adjusted, the predicted 'lose-lose-lose' equilibrium, the household-savings case would collapse from 'hundreds of dollars saved' to 'no measurable consumer benefit.'",
+            "If difference-in-differences on states that enacted right-to-repair (New York 2023, Minnesota, California 2024) showed device prices rising and total cost of ownership flat or higher relative to control states once firms adjusted (the predicted 'lose-lose-lose' equilibrium), the household-savings case would collapse from 'hundreds of dollars saved' to 'no measurable consumer benefit.'",
           skeptic_flip:
             "If measured cost data from states with repair laws matched the FTC's finding that repair restrictions raise costs with 'scant evidence' of offsetting benefit, the strategic-pricing harm in the Management Science model would remain a theory rather than a measured effect.",
           common_ground:

@@ -163,7 +163,7 @@ export const usIranConflictData = {
           sourceUrl:
             "https://www.congress.gov/committee-report/108th-congress/senate-report/301/1",
           reasoning:
-            "The Iraq precedent is historically verified, the Senate report found prewar WMD estimates 'overstated' and 'not supported by the intelligence', and is directly relevant as an institutional warning. However, directness is limited because the Iran case rests on different evidence sources (IAEA on-site measurement vs. national intelligence and defector reporting) and different factual circumstances.",
+            "The Iraq precedent is historically verified (the Senate report found prewar WMD estimates 'overstated' and 'not supported by the intelligence'), and is directly relevant as an institutional warning. However, directness is limited because the Iran case rests on different evidence sources (IAEA on-site measurement vs. national intelligence and defector reporting) and different factual circumstances.",
         },
         {
           id: "nie-no-weapons-program",
@@ -400,7 +400,7 @@ export const usIranConflictData = {
       id: "sanctions-effectiveness",
       title: "Sanctions & Economic Pressure",
       short_summary:
-        "US sanctions crashed Iran's currency, halved its GDP and caused severe civilian hardship, and since 13 April 2026 a US naval blockade of Iranian ports has cut its oil revenue further. Iran kept funding proxies and exporting oil covertly, so does economic pressure coerce the regime, or mainly punish its citizens?",
+        "US sanctions crashed Iran's currency, halved its GDP and caused severe civilian hardship, and since 13 April 2026 a US naval blockade of Iranian ports has cut its oil revenue further. Iran kept funding proxies and exporting oil covertly. So does economic pressure coerce the regime, or mainly punish its citizens?",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Sanctions have devastated the Iranian population without changing regime behavior. Iran's GDP fell from $600 billion to $356 billion. The rial collapsed from 42,000 to over 1.4 million per dollar. Food inflation exceeds 72%. Six million patients lack adequate medicine, including 40,000 hemophiliacs unable to obtain blood-clotting medication. Meanwhile, the regime kept enriching uranium until the 2025 strikes, funding proxies with an estimated $700 million to $1 billion annually for Hezbollah alone, and finding covert oil export routes through China. The 2026 war and blockade deepened the damage: by August 2026 the rial had effectively collapsed and food prices had surged, and on 25 October 2026 Iran's parliament speaker said natural gas consumption across the country had to be cut by 10%. Sanctions are collective punishment of 88 million civilians that strengthens regime narratives of victimhood.",
@@ -608,7 +608,7 @@ export const usIranConflictData = {
           id: "iran-enrichment-escalation",
           title: "Iran Amasses 408 kg of 60% Enriched Uranium by 2025",
           description:
-            "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium; a roughly 50% increase since the February 2025 report. The IAEA had earlier detected particles enriched to 83.7% at Fordow in January 2023. By the IAEA's yardstick, about 42 kg of 60% uranium is theoretically enough for one bomb if further enriched to 90%, so the May 2025 stockpile was enough in principle for about nine; IAEA chief Rafael Grossi said it was enough for 'several' bombs if Iran chose to make them.",
+            "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium, a roughly 50% increase since the February 2025 report. The IAEA had earlier detected particles enriched to 83.7% at Fordow in January 2023. By the IAEA's yardstick, about 42 kg of 60% uranium is theoretically enough for one bomb if further enriched to 90%, so the May 2025 stockpile was enough in principle for about nine; IAEA chief Rafael Grossi said it was enough for 'several' bombs if Iran chose to make them.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,

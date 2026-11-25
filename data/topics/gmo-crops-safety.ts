@@ -30,7 +30,7 @@ export const gmoCropsSafetyData = {
         "Decades of consumption and major scientific reviews find no demonstrated health difference between GE and conventional foods, but long-term and subtle effects are hard to rule out.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Absence of evidence of harm is not evidence of safety. There have been no large-scale, long-term, randomized human feeding trials, safety conclusions rest on animal studies, compositional-equivalence arguments, and epidemiology that cannot detect subtle or delayed effects. The National Academies committee itself acknowledged the genuine difficulty of detecting long-term or diffuse health effects. Each new trait is a distinct product, so a clean record for today's commercial varieties does not guarantee the safety of every future one, and most safety data is generated or funded by the developers seeking approval.",
+        "Absence of evidence of harm is not evidence of safety. There have been no large-scale, long-term, randomized human feeding trials; safety conclusions rest on animal studies, compositional-equivalence arguments, and epidemiology that cannot detect subtle or delayed effects. The National Academies committee itself acknowledged the genuine difficulty of detecting long-term or diffuse health effects. Each new trait is a distinct product, so a clean record for today's commercial varieties does not guarantee the safety of every future one, and most safety data is generated or funded by the developers seeking approval.",
       proponent_rebuttal:
         "Hundreds of independent and government reviews spanning 25+ years and billions of meals converge on the same conclusion: no substantiated evidence of a difference in human-health risk between current commercial GE crops and conventionally bred crops. Every approved trait undergoes compositional, allergenicity, and toxicity assessment before market. Conventional breeding (including mutagenesis) is actually less characterized than transgenic breeding, yet faces no comparable scrutiny, so the safety bar for GE crops is higher, not lower, than for the food it replaces.",
       crux: {
@@ -96,7 +96,7 @@ export const gmoCropsSafetyData = {
           sourceUrl:
             "https://www.ncbi.nlm.nih.gov/books/NBK424534/",
           reasoning:
-            "Authoritative caveat from the same consensus body, so highly reliable. Scored lower on directness/replicability because it establishes the limits of current knowledge rather than affirmatively demonstrating harm, it is an honest uncertainty, not positive evidence against safety.",
+            "Authoritative caveat from the same consensus body, so highly reliable. Scored lower on directness/replicability because it establishes the limits of current knowledge rather than affirmatively demonstrating harm; it is an honest uncertainty, not positive evidence against safety.",
         },
       ],
     },

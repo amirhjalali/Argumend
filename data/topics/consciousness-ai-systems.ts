@@ -113,7 +113,7 @@ export const aiConsciousnessData = {
           id: "butlin-long-indicator-properties",
           title: "Butlin & Long et al.: No Current AI Is Conscious, But No In-Principle Barrier",
           description:
-            "The 2023 report 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness,' co-authored by 19 researchers including Patrick Butlin, Robert Long, Yoshua Bengio, and Jonathan Birch, derives 'indicator properties' of consciousness from leading neuroscientific theories (recurrent processing, global workspace, higher-order, predictive processing, attention schema). Assessing existing AI systems, it concludes that no current AI system is conscious, they satisfy few of the indicators, while finding no obvious technical barrier to building systems that do. This is the canonical multi-theory reference and cuts both ways: skeptical about current systems, but legitimizing the question.",
+            "The 2023 report 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness,' co-authored by 19 researchers including Patrick Butlin, Robert Long, Yoshua Bengio, and Jonathan Birch, derives 'indicator properties' of consciousness from leading neuroscientific theories (recurrent processing, global workspace, higher-order, predictive processing, attention schema). Assessing existing AI systems, it concludes that no current AI system is conscious: they satisfy few of the indicators, while finding no obvious technical barrier to building systems that do. This is the canonical multi-theory reference and cuts both ways: skeptical about current systems, but legitimizing the question.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -192,7 +192,7 @@ export const aiConsciousnessData = {
           source: "I. M. Comsa & M. Shanahan, 'Does It Make Sense to Speak of Introspection in Large Language Models?' (2025), arXiv:2506.05068",
           sourceUrl: "https://arxiv.org/abs/2506.05068",
           reasoning:
-            "Directly addresses the most common naive 'evidence' for AI consciousness, the model says so. Strong on the negative claim (self-reports are unreliable) while remaining honest that it does not prove the absence of experience, only the unreliability of one popular indicator.",
+            "Directly addresses the most common naive 'evidence' for AI consciousness: the model says so. Strong on the negative claim (self-reports are unreliable) while remaining honest that it does not prove the absence of experience, only the unreliability of one popular indicator.",
         },
       ],
     },
@@ -255,7 +255,7 @@ export const aiConsciousnessData = {
           id: "taking-ai-welfare-seriously",
           title: "Long & Sebo et al.: Take AI Welfare Seriously Under Uncertainty",
           description:
-            "'Taking AI Welfare Seriously' (2024), co-authored by Robert Long, Jeff Sebo, Patrick Butlin, David Chalmers, Jonathan Birch and others, argues there is a realistic (non-negligible) possibility that some near-future AI systems will be conscious and/or robustly agentic, and that AI companies have a responsibility to begin assessing and preparing for AI welfare now. Crucially, it makes the precautionary case without claiming current systems are conscious, the argument is about acting wisely under deep uncertainty, mirroring how we extend protections to animals whose inner experience we cannot verify.",
+            "'Taking AI Welfare Seriously' (2024), co-authored by Robert Long, Jeff Sebo, Patrick Butlin, David Chalmers, Jonathan Birch and others, argues there is a realistic (non-negligible) possibility that some near-future AI systems will be conscious and/or robustly agentic, and that AI companies have a responsibility to begin assessing and preparing for AI welfare now. Crucially, it makes the precautionary case without claiming current systems are conscious; the argument is about acting wisely under deep uncertainty, mirroring how we extend protections to animals whose inner experience we cannot verify.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

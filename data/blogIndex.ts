@@ -1081,7 +1081,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "tu-quoque-fallacy-explained",
     title: "The Tu Quoque Fallacy (Appeal to Hypocrisy), Explained",
-    description: "Tu quoque dodges a criticism by pointing at the critic's hypocrisy; 'you do it too.' Learn why hypocrisy doesn't refute an argument, and the cases where it actually matters.",
+    description: "Tu quoque dodges a criticism by pointing at the critic's hypocrisy: 'you do it too.' Learn why hypocrisy doesn't refute an argument, and the cases where it actually matters.",
     tags: [
       "tu quoque",
       "logical fallacies",

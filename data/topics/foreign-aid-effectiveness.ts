@@ -108,7 +108,7 @@ export const foreignAidEffectivenessData = {
           source: "KFF, 'The U.S. President's Emergency Plan for AIDS Relief (PEPFAR)' fact sheet (updated May 2026), citing PEPFAR program data",
           sourceUrl: "https://www.kff.org/global-health-policy/fact-sheet/the-u-s-presidents-emergency-plan-for-aids-relief-pepfar/",
           reasoning:
-            "Massive, well-documented program with clear outcome metrics. Government-reported numbers may be slightly inflated. Replicability for other diseases is uncertain. Directness is high, lives saved is the most important outcome.",
+            "Massive, well-documented program with clear outcome metrics. Government-reported numbers may be slightly inflated. Replicability for other diseases is uncertain. Directness is high: lives saved is the most important outcome.",
         },
         {
           id: "world-bank-aid-growth",
@@ -138,7 +138,7 @@ export const foreignAidEffectivenessData = {
       skeptic_premise:
         "A meaningful share of every aid dollar is consumed before it reaches the intended recipient, through layered overhead, expatriate consultant fees, and, in weak-governance settings, outright leakage. Tied aid, which requires recipients to procure goods from the donor country, demonstrably raises costs and serves donor economic interests more than recipient needs. Aid conditionality has at times imposed harmful structural adjustment. And the aid industry itself sustains a large, well-paid professional class in donor countries, creating an institutional interest in aid volume rather than aid outcomes.",
       proponent_rebuttal:
-        "Cash transfer programs collapse most of the overhead and put money directly in the hands of the poor: GiveDirectly reports that 87% of donations to its Poverty Relief programs reach recipients as cash, and RCTs (Haushofer & Shapiro 2016; Egger et al. 2022) show transfers raise consumption, assets, and food security with large local spillovers. Where leakage is documented, it concentrates in specific weak-governance contexts rather than describing aid as a whole. Aid transparency has also improved since the 2000s under the IATI reporting standard. And 'better than nothing' is the wrong counterfactual, the real question is whether a given channel beats the alternatives.",
+        "Cash transfer programs collapse most of the overhead and put money directly in the hands of the poor: GiveDirectly reports that 87% of donations to its Poverty Relief programs reach recipients as cash, and RCTs (Haushofer & Shapiro 2016; Egger et al. 2022) show transfers raise consumption, assets, and food security with large local spillovers. Where leakage is documented, it concentrates in specific weak-governance contexts rather than describing aid as a whole. Aid transparency has also improved since the 2000s under the IATI reporting standard. And 'better than nothing' is the wrong counterfactual; the real question is whether a given channel beats the alternatives.",
       crux: {
         id: "delivery-mechanism-comparison",
         title: "Aid Delivery Mechanism Efficiency Comparison",
@@ -232,7 +232,7 @@ export const foreignAidEffectivenessData = {
           source: "Angus Deaton, 'The Great Escape: Health, Wealth, and the Origins of Inequality' (Princeton University Press, 2013)",
           sourceUrl: "https://press.princeton.edu/books/hardcover/9780691153544/the-great-escape",
           reasoning:
-            "Nobel Prize-winning economist with deep expertise. Theoretical argument is compelling but hard to test empirically (low replicability). Directness is moderate, the accountability argument applies most to budget support, less to targeted health programs.",
+            "Nobel Prize-winning economist with deep expertise. Theoretical argument is compelling but hard to test empirically (low replicability). Directness is moderate; the accountability argument applies most to budget support, less to targeted health programs.",
         },
       ],
     },

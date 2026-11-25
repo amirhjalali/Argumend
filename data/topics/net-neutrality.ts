@@ -38,7 +38,7 @@ export const netNeutralityData = {
       skeptic_premise:
         "The 'open internet' is not actually under threat, so prophylactic common-carrier regulation solves a hypothetical problem. The documented violations are a short list spread over two decades, most were resolved by public pressure, FTC competition law, or transparency rules rather than Title II, and several involved legitimate network-management or business-model disputes. Heavy ex-ante regulation imposes real compliance costs to guard against abuses that competition and antitrust already deter.",
       proponent_rebuttal:
-        "ISPs have repeatedly blocked or degraded lawful traffic when they had the incentive and no enforceable rule stopped them: Madison River blocked Vonage VoIP (2005), Comcast secretly throttled BitTorrent (FCC found a violation in 2008), AT&T blocked FaceTime on cheaper plans (2012), and multiple ISPs let Netflix interconnection congest in 2013-2014. Broadband is highly concentrated, many Americans have one or two wireline options, so market discipline is weak and clear, enforceable rules are the reliable backstop.",
+        "ISPs have repeatedly blocked or degraded lawful traffic when they had the incentive and no enforceable rule stopped them: Madison River blocked Vonage VoIP (2005), Comcast secretly throttled BitTorrent (FCC found a violation in 2008), AT&T blocked FaceTime on cheaper plans (2012), and multiple ISPs let Netflix interconnection congest in 2013-2014. Broadband is highly concentrated: many Americans have one or two wireline options, so market discipline is weak and clear, enforceable rules are the reliable backstop.",
       crux: {
         id: "violation-frequency",
         title: "Do Violations Recur Without Enforceable Rules?",
@@ -83,7 +83,7 @@ export const netNeutralityData = {
           sourceUrl:
             "https://www.fcc.gov/document/formal-complaint-free-press-and-public-knowledge-broadband-industry",
           reasoning:
-            "Official agency adjudication with a documented factual record. Directness is tempered because the D.C. Circuit later (Comcast v. FCC, 2010) vacated the order on jurisdictional grounds, the throttling finding stands, but it shows rules' fragility as much as their necessity.",
+            "Official agency adjudication with a documented factual record. Directness is tempered because the D.C. Circuit later (Comcast v. FCC, 2010) vacated the order on jurisdictional grounds (the throttling finding stands), but it shows rules' fragility as much as their necessity.",
         },
         {
           id: "violation-history",

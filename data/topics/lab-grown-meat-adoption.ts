@@ -159,7 +159,7 @@ export const labGrownMeatData = {
         cost_to_verify: "$200K (Consumer taste trial study)",
         falsification: {
           supporter_flip:
-            "If large double-blind tests at equal price showed consumers consistently prefer conventional meat or won't repeat-purchase cultivated even when they can't taste the difference, the 'acceptance improves after tasting' case would weaken, the yuck factor would be a durable barrier, not a marketing problem.",
+            "If large double-blind tests at equal price showed consumers consistently prefer conventional meat or won't repeat-purchase cultivated even when they can't taste the difference, the 'acceptance improves after tasting' case would weaken: the yuck factor would be a durable barrier, not a marketing problem.",
           skeptic_flip:
             "If people who taste cultivated meat kept warming to it, younger consumers' reported 65–70% willingness turned into repeat purchases, and it followed plant-based meat onto mainstream shelves, the yuck factor would look like a passing barrier.",
           common_ground:

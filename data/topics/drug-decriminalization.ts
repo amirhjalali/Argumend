@@ -131,7 +131,7 @@ export const drugDecriminalizationData = {
             "CDC NCHS, 'U.S. Overdose Deaths Decrease in 2023, First Time Since 2018' (15 May 2024); Martha Mendoza, Associated Press, 'US drug war has met none of its goals' (13 May 2010)",
           sourceUrl: "https://www.cdc.gov/nchs/pressroom/nchs_press_releases/2024/20240515.htm",
           reasoning:
-            "Highly reliable mortality data showing criminalization has coincided with record harm. Low directness: correlation, not causation, rising deaths are driven primarily by the fentanyl supply shift, not the choice between criminalization and decriminalization. The prior '50-fold increase since 1979' framing was dropped as it overstated a clean causal story.",
+            "Highly reliable mortality data showing criminalization has coincided with record harm. Low directness: correlation, not causation; rising deaths are driven primarily by the fentanyl supply shift, not the choice between criminalization and decriminalization. The prior '50-fold increase since 1979' framing was dropped as it overstated a clean causal story.",
         },
         {
           id: "bc-decrim-pilot-ended-2026",
@@ -226,7 +226,7 @@ export const drugDecriminalizationData = {
           sourceUrl:
             "https://www.aclu.org/report/tale-two-countries-racially-targeted-arrests-era-marijuana-reform",
           reasoning:
-            "Advocacy organization but using FBI Uniform Crime Report data; the 3.64x national figure is the report's headline (an earlier draft of this item said 3.73x). The '40% lifetime earnings' claim was removed as it could not be sourced to the report. Findings independently replicable from public arrest data. Directness is good, racial disparities are a core harm of criminalization.",
+            "Advocacy organization but using FBI Uniform Crime Report data; the 3.64x national figure is the report's headline (an earlier draft of this item said 3.73x). The '40% lifetime earnings' claim was removed as it could not be sourced to the report. Findings independently replicable from public arrest data. Directness is good: racial disparities are a core harm of criminalization.",
         },
         {
           id: "cato-portugal-analysis",
@@ -299,7 +299,7 @@ export const drugDecriminalizationData = {
             "Prison Policy Initiative, 'Following the Money of Mass Incarceration' (2017); Bureau of Justice Statistics, 'Sentencing Decisions for Persons in Federal Prison for Drug Offenses, 2013-2018' (2023); Vera Institute of Justice, 'The Price of Prisons: Examining State Spending Trends, 2010-2015' (2017)",
           sourceUrl: "https://www.prisonpolicy.org/research/economics_of_incarceration/",
           reasoning:
-            "Reliable cost data, but the figures were reconciled: the $182B is the whole criminal-justice system (not drug enforcement alone), and 47% is the federal, not overall, drug-offender share, so the prior '$80B+ drug incarceration' title, and a later 'above $100,000 in some states' per-prisoner claim that Vera's table does not support, and '45% of federal prisoners' phrasing overstated the link. Directness lowered to 5, high costs and recidivism suggest the status quo is failing but don't prove decriminalization would do better.",
+            "Reliable cost data, but the figures were reconciled: the $182B is the whole criminal-justice system (not drug enforcement alone), and 47% is the federal, not overall, drug-offender share, so the prior '$80B+ drug incarceration' title, and a later 'above $100,000 in some states' per-prisoner claim that Vera's table does not support, and '45% of federal prisoners' phrasing overstated the link. Directness lowered to 5: high costs and recidivism suggest the status quo is failing but don't prove decriminalization would do better.",
         },
       ],
     },

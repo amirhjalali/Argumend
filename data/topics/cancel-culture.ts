@@ -115,7 +115,7 @@ export const cancelCultureData = {
           id: "historical-accountability-comparison",
           title: "Social Consequences for Speech Predate the Internet",
           description:
-            "Boycotts, public shaming, and social ostracism long predate social media, for example, the Civil Rights movement used boycotts and organized public pressure to force change. This is a conceptual/historical argument that today's 'cancel culture' shares a mechanism with older forms of social accountability, differing mainly in speed and scale.",
+            "Boycotts, public shaming, and social ostracism long predate social media; for example, the Civil Rights movement used boycotts and organized public pressure to force change. This is a conceptual/historical argument that today's 'cancel culture' shares a mechanism with older forms of social accountability, differing mainly in speed and scale.",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -227,7 +227,7 @@ export const cancelCultureData = {
           id: "ordinary-person-cancelation-cases",
           title: "Some Non-Public Figures Have Faced Severe Consequences",
           description:
-            "Individual cases involving lesser-known people illustrate severe professional fallout from online controversy, for example, data analyst David Shor was let go by Civis Analytics in 2020 after tweeting a peer-reviewed political-science study on protest tactics. Such anecdotes show ordinary people can face career consequences with little recourse, but they are selected examples, not a representative sample.",
+            "Individual cases involving lesser-known people illustrate severe professional fallout from online controversy; for example, data analyst David Shor was let go by Civis Analytics in 2020 after tweeting a peer-reviewed political-science study on protest tactics. Such anecdotes show ordinary people can face career consequences with little recourse, but they are selected examples, not a representative sample.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
