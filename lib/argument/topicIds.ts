@@ -40,7 +40,7 @@ export const argumentTopicIndex = [
     id: REGISTERED_ARGUMENT_TOPIC_IDS[1],
     title: "Can capitalism survive AI?",
     tagline:
-      "Labor's share of income has declined globally over four decades, and the U.S. index is down since 2000. Four camps ask what AI means for the wage channel — and what “survive” even means.",
+      "Labor's share of income has declined globally over four decades, and the U.S. index is down since 2000. Four camps ask what AI means for the wage channel, and what “survive” even means.",
     aliases: [
       "capitalism after artificial intelligence",
       "labor share wages markets ownership UBI",
