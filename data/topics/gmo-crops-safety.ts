@@ -30,9 +30,9 @@ export const gmoCropsSafetyData = {
         "Decades of consumption and major scientific reviews find no demonstrated health difference between GE and conventional foods, but long-term and subtle effects are hard to rule out.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Absence of evidence of harm is not evidence of safety. There have been no large-scale, long-term, randomized human feeding trials — safety conclusions rest on animal studies, compositional-equivalence arguments, and epidemiology that cannot detect subtle or delayed effects. The National Academies committee itself acknowledged the genuine difficulty of detecting long-term or diffuse health effects. Each new trait is a distinct product, so a clean record for today's commercial varieties does not guarantee the safety of every future one, and most safety data is generated or funded by the developers seeking approval.",
+        "Absence of evidence of harm is not evidence of safety. There have been no large-scale, long-term, randomized human feeding trials, safety conclusions rest on animal studies, compositional-equivalence arguments, and epidemiology that cannot detect subtle or delayed effects. The National Academies committee itself acknowledged the genuine difficulty of detecting long-term or diffuse health effects. Each new trait is a distinct product, so a clean record for today's commercial varieties does not guarantee the safety of every future one, and most safety data is generated or funded by the developers seeking approval.",
       proponent_rebuttal:
-        "Hundreds of independent and government reviews spanning 25+ years and billions of meals converge on the same conclusion: no substantiated evidence of a difference in human-health risk between current commercial GE crops and conventionally bred crops. Every approved trait undergoes compositional, allergenicity, and toxicity assessment before market. Conventional breeding (including mutagenesis) is actually less characterized than transgenic breeding, yet faces no comparable scrutiny — so the safety bar for GE crops is higher, not lower, than for the food it replaces.",
+        "Hundreds of independent and government reviews spanning 25+ years and billions of meals converge on the same conclusion: no substantiated evidence of a difference in human-health risk between current commercial GE crops and conventionally bred crops. Every approved trait undergoes compositional, allergenicity, and toxicity assessment before market. Conventional breeding (including mutagenesis) is actually less characterized than transgenic breeding, yet faces no comparable scrutiny, so the safety bar for GE crops is higher, not lower, than for the food it replaces.",
       crux: {
         id: "health-outcome-comparison",
         title: "Population Health Outcome Comparison",
@@ -52,7 +52,7 @@ export const gmoCropsSafetyData = {
           supporter_flip:
             "If large, well-powered long-term studies or population health datasets detected a consistent, replicated health difference attributable to eating approved GE crops, the 'safe to eat' conclusion would have to be revised.",
           skeptic_flip:
-            "If long-term population data keep showing no health divergence between GE-consuming and non-GE-consuming populations — as they have for 25+ years — the 'we just can't rule out hidden harm' objection loses its force.",
+            "If long-term population data keep showing no health divergence between GE-consuming and non-GE-consuming populations, as they have for 25+ years, the 'we just can't rule out hidden harm' objection loses its force.",
           common_ground:
             "Both sides agree there is no demonstrated health harm from current commercial GE foods, and that each new trait is its own product needing its own assessment.",
           live_disagreement:
@@ -83,7 +83,7 @@ export const gmoCropsSafetyData = {
           id: "nas-2016-limits",
           title: "National Academies: Long-Term/Subtle Effects Hard to Detect",
           description:
-            "The same 2016 National Academies committee explicitly recognized the inherent difficulty of detecting subtle, long-term, or diffuse effects on human health, noting that available studies cannot fully rule them out — a limitation, not a finding of harm.",
+            "The same 2016 National Academies committee explicitly recognized the inherent difficulty of detecting subtle, long-term, or diffuse effects on human health, noting that available studies cannot fully rule them out, a limitation, not a finding of harm.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -96,7 +96,7 @@ export const gmoCropsSafetyData = {
           sourceUrl:
             "https://www.ncbi.nlm.nih.gov/books/NBK424534/",
           reasoning:
-            "Authoritative caveat from the same consensus body, so highly reliable. Scored lower on directness/replicability because it establishes the limits of current knowledge rather than affirmatively demonstrating harm — it is an honest uncertainty, not positive evidence against safety.",
+            "Authoritative caveat from the same consensus body, so highly reliable. Scored lower on directness/replicability because it establishes the limits of current knowledge rather than affirmatively demonstrating harm, it is an honest uncertainty, not positive evidence against safety.",
         },
       ],
     },
@@ -107,16 +107,16 @@ export const gmoCropsSafetyData = {
         "GE traits have raised yields and farmer profits and cut insecticide use, but herbicide-tolerant crops drove rising herbicide volumes and resistant 'superweeds'.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The dominant GE trait — herbicide tolerance — created a treadmill: blanket glyphosate spraying selected for glyphosate-resistant weeds, pushing total US herbicide volume up sharply and forcing a return to older, more toxic herbicides. Benefits also accrue mainly to a handful of commodity crops and seed firms, raise seed costs and patent dependency for farmers, and the 'benefit' of insect resistance is being eroded as target pests evolve resistance to Bt toxins.",
+        "The dominant GE trait, herbicide tolerance, created a treadmill: blanket glyphosate spraying selected for glyphosate-resistant weeds, pushing total US herbicide volume up sharply and forcing a return to older, more toxic herbicides. Benefits also accrue mainly to a handful of commodity crops and seed firms, raise seed costs and patent dependency for farmers, and the 'benefit' of insect resistance is being eroded as target pests evolve resistance to Bt toxins.",
       proponent_rebuttal:
-        "Across 147 studies, GE adoption raised yields ~22%, cut chemical pesticide use ~37%, and lifted farmer profits ~68%, with the largest gains for smallholders in developing countries. Insect-resistant Bt cotton slashed insecticide spraying (e.g. ~69% fewer sprays in parts of China) and produced area-wide 'halo' suppression of pests that even benefited non-GE growers. Herbicide-resistance is a weed-management problem common to all herbicides, addressable through stewardship and trait rotation — not a property unique to GE crops.",
+        "Across 147 studies, GE adoption raised yields ~22%, cut chemical pesticide use ~37%, and lifted farmer profits ~68%, with the largest gains for smallholders in developing countries. Insect-resistant Bt cotton slashed insecticide spraying (e.g. ~69% fewer sprays in parts of China) and produced area-wide 'halo' suppression of pests that even benefited non-GE growers. Herbicide-resistance is a weed-management problem common to all herbicides, addressable through stewardship and trait rotation, not a property unique to GE crops.",
       crux: {
         id: "net-agronomic-ledger",
         title: "Net Agronomic Ledger by Trait",
         question:
           "Across yield, inputs, profit and resistance, are GM crops a net gain, and does it differ by trait?",
         description:
-          "Whether, summed across yield, input use, profit, and resistance costs, the net effect of GE adoption is positive — and whether that net differs sharply between insect-resistant (Bt) traits and herbicide-tolerant traits.",
+          "Whether, summed across yield, input use, profit, and resistance costs, the net effect of GE adoption is positive, and whether that net differs sharply between insect-resistant (Bt) traits and herbicide-tolerant traits.",
         methodology:
           "Disaggregate meta-analytic impact estimates by trait (Bt vs HT) and region; net herbicide-volume increases and resistance-management costs against yield, profit, and insecticide-reduction gains using USDA/ERS and peer-reviewed field data.",
         verification_status: "verified" as const,
@@ -127,13 +127,13 @@ export const gmoCropsSafetyData = {
         cost_to_verify: "$0 (data analysis of USDA and published meta-analyses)",
         falsification: {
           supporter_flip:
-            "If a trait-disaggregated ledger showed herbicide-tolerant crops' rising herbicide use and resistant-weed costs outweigh the yield, profit, and insecticide-reduction gains, the 'net beneficial' claim fails — at least for HT traits.",
+            "If a trait-disaggregated ledger showed herbicide-tolerant crops' rising herbicide use and resistant-weed costs outweigh the yield, profit, and insecticide-reduction gains, the 'net beneficial' claim fails, at least for HT traits.",
           skeptic_flip:
-            "If the ledger confirms large net gains (the ~+22% yield, −37% pesticide, +68% profit pattern) survive once resistance costs are netted in — especially for Bt traits — the 'benefits are illusory' critique fails.",
+            "If the ledger confirms large net gains (the ~+22% yield, −37% pesticide, +68% profit pattern) survive once resistance costs are netted in, especially for Bt traits, the 'benefits are illusory' critique fails.",
           common_ground:
             "Both sides agree insect-resistant Bt traits cut insecticide use and that herbicide-tolerant traits drove rising herbicide volumes and glyphosate-resistant weeds.",
           live_disagreement:
-            "Whether, summed across yield, inputs, profit, and resistance costs, GE adoption is net-positive — and how sharply that net differs between Bt and herbicide-tolerant traits.",
+            "Whether, summed across yield, inputs, profit, and resistance costs, GE adoption is net-positive, and how sharply that net differs between Bt and herbicide-tolerant traits.",
         },
       },
       evidence: [
@@ -154,7 +154,7 @@ export const gmoCropsSafetyData = {
           sourceUrl:
             "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111629",
           reasoning:
-            "Peer-reviewed meta-analysis aggregating 147 studies with open data and transparent methods — directly addresses the 'beneficial for agriculture' claim. Not maxed on independence because it pools many studies of varying quality, some industry-linked.",
+            "Peer-reviewed meta-analysis aggregating 147 studies with open data and transparent methods, directly addresses the 'beneficial for agriculture' claim. Not maxed on independence because it pools many studies of varying quality, some industry-linked.",
         },
         {
           id: "bt-cotton-china",
@@ -179,7 +179,7 @@ export const gmoCropsSafetyData = {
           id: "benbrook-herbicide-rise",
           title: "Herbicide-Tolerant Crops Drove Rising Herbicide Use and Resistant Weeds",
           description:
-            "Benbrook's peer-reviewed analysis (Environmental Sciences Europe) found that glyphosate-resistant weeds spreading across HT-crop acreage drove herbicide volumes sharply upward — the extra herbicide needed to control tougher weeds rose from ~1.5 million lbs (1999) to ~90 million lbs (2011), increasing the herbicide burden by roughly 25%.",
+            "Benbrook's peer-reviewed analysis (Environmental Sciences Europe) found that glyphosate-resistant weeds spreading across HT-crop acreage drove herbicide volumes sharply upward, the extra herbicide needed to control tougher weeds rose from ~1.5 million lbs (1999) to ~90 million lbs (2011), increasing the herbicide burden by roughly 25%.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -188,7 +188,7 @@ export const gmoCropsSafetyData = {
             directness: 8,
           },
           source:
-            "Benbrook CM (2012), 'Impacts of genetically engineered crops on pesticide use in the U.S. — the first sixteen years', Environmental Sciences Europe 24:24 (Washington State University summary)",
+            "Benbrook CM (2012), 'Impacts of genetically engineered crops on pesticide use in the U.S., the first sixteen years', Environmental Sciences Europe 24:24 (Washington State University summary)",
           sourceUrl:
             "https://news.cahnrs.wsu.edu/article/pesticide-use-rises-as-herbicide-resistant-weeds-undermine-performance-of-major-ge-crops-new-wsu-study-shows/",
           reasoning:
@@ -198,7 +198,7 @@ export const gmoCropsSafetyData = {
           id: "nas-resistant-weeds",
           title: "National Academies: Glyphosate-Resistant Weeds a 'Major Problem'",
           description:
-            "The 2016 National Academies report independently concluded that evolved resistance to GE traits — especially glyphosate-resistant weeds on HT-crop land — is a major agricultural problem requiring integrated management, corroborating the resistance concern from a non-advocacy source.",
+            "The 2016 National Academies report independently concluded that evolved resistance to GE traits, especially glyphosate-resistant weeds on HT-crop land, is a major agricultural problem requiring integrated management, corroborating the resistance concern from a non-advocacy source.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
@@ -219,19 +219,19 @@ export const gmoCropsSafetyData = {
       id: "glyphosate-controversy",
       title: "Glyphosate & Cancer",
       short_summary:
-        "The herbicide most tied to GE crops, glyphosate, is judged 'probably carcinogenic' by WHO's IARC but 'not likely carcinogenic' by EPA/EFSA — a regulatory split now litigated in court.",
+        "The herbicide most tied to GE crops, glyphosate, is judged 'probably carcinogenic' by WHO's IARC but 'not likely carcinogenic' by EPA/EFSA, a regulatory split now litigated in court.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "GE crops are inseparable from the chemicals engineered to be used with them. WHO's cancer agency (IARC) classified glyphosate as 'probably carcinogenic to humans' (Group 2A), citing limited human evidence for non-Hodgkin lymphoma, sufficient animal evidence, and strong genotoxicity evidence. US juries have repeatedly found Roundup caused plaintiffs' cancers, and a US appeals court ordered EPA to redo its 'not likely carcinogenic' finding for ignoring evidence — so the safety verdict the proponents lean on is itself legally vacated.",
+        "GE crops are inseparable from the chemicals engineered to be used with them. WHO's cancer agency (IARC) classified glyphosate as 'probably carcinogenic to humans' (Group 2A), citing limited human evidence for non-Hodgkin lymphoma, sufficient animal evidence, and strong genotoxicity evidence. US juries have repeatedly found Roundup caused plaintiffs' cancers, and a US appeals court ordered EPA to redo its 'not likely carcinogenic' finding for ignoring evidence, so the safety verdict the proponents lean on is itself legally vacated.",
       proponent_rebuttal:
-        "IARC assesses hazard (whether something could cause cancer at some dose), not real-world risk at actual exposures, and its glyphosate call is an outlier. EPA, EFSA, Health Canada, and other regulators that assess risk all concluded glyphosate is unlikely to be carcinogenic at label-rate exposures. Jury verdicts reflect litigation dynamics, not epidemiological consensus. Crucially, glyphosate is a herbicide, not a property of the modified plant's edible tissue — the safety of eating GE food is a separate question from herbicide toxicology.",
+        "IARC assesses hazard (whether something could cause cancer at some dose), not real-world risk at actual exposures, and its glyphosate call is an outlier. EPA, EFSA, Health Canada, and other regulators that assess risk all concluded glyphosate is unlikely to be carcinogenic at label-rate exposures. Jury verdicts reflect litigation dynamics, not epidemiological consensus. Crucially, glyphosate is a herbicide, not a property of the modified plant's edible tissue, the safety of eating GE food is a separate question from herbicide toxicology.",
       crux: {
         id: "hazard-vs-risk",
         title: "Hazard Classification vs Real-World Exposure Risk",
         question:
           "Are real-world glyphosate exposures high enough to raise cancer risk?",
         description:
-          "Whether dietary and occupational glyphosate exposures from GE-crop agriculture occur at doses high enough to raise cancer risk — the load-bearing disagreement between IARC's hazard call and regulators' risk-based 'safe at label rates' findings.",
+          "Whether dietary and occupational glyphosate exposures from GE-crop agriculture occur at doses high enough to raise cancer risk, the load-bearing disagreement between IARC's hazard call and regulators' risk-based 'safe at label rates' findings.",
         methodology:
           "Compare large prospective cohorts of applicators (e.g. the Agricultural Health Study) and pooled NHL case-control data against measured dietary/occupational glyphosate exposure levels; reconcile hazard-based (IARC) and risk-based (EPA/EFSA) frameworks on the same evidence.",
         verification_status: "verified" as const,
@@ -242,13 +242,13 @@ export const gmoCropsSafetyData = {
         cost_to_verify: "$0 (synthesis of existing cohort and regulatory data)",
         falsification: {
           supporter_flip:
-            "If large applicator cohorts and pooled case-control data showed a dose-dependent cancer increase at real-world glyphosate exposures, the risk-based 'safe at label rates' verdict — and the safety story built on it — would have to change.",
+            "If large applicator cohorts and pooled case-control data showed a dose-dependent cancer increase at real-world glyphosate exposures, the risk-based 'safe at label rates' verdict, and the safety story built on it, would have to change.",
           skeptic_flip:
             "If the best prospective cohorts (e.g., the Agricultural Health Study) keep showing no clear exposure-dependent cancer increase at actual application levels, IARC's 'probably carcinogenic' hazard call does not translate into real-world dietary risk.",
           common_ground:
-            "Both sides agree IARC classifies glyphosate as a hazard (Group 2A) while risk-based regulators judge it unlikely to cause cancer at label-rate exposures — and that glyphosate toxicology is distinct from whether the edible GE plant tissue is safe.",
+            "Both sides agree IARC classifies glyphosate as a hazard (Group 2A) while risk-based regulators judge it unlikely to cause cancer at label-rate exposures, and that glyphosate toxicology is distinct from whether the edible GE plant tissue is safe.",
           live_disagreement:
-            "Whether actual dietary and occupational glyphosate exposures are high enough to raise cancer risk — the hazard-vs-risk crux between IARC and EPA/EFSA.",
+            "Whether actual dietary and occupational glyphosate exposures are high enough to raise cancer risk, the hazard-vs-risk crux between IARC and EPA/EFSA.",
         },
       },
       evidence: [
@@ -292,7 +292,7 @@ export const gmoCropsSafetyData = {
           id: "epa-not-likely",
           title: "EPA, EFSA, Health Canada: Glyphosate Unlikely to Be Carcinogenic",
           description:
-            "EPA's 2020 assessment found no risks of concern to human health at label rates and that glyphosate is 'not likely to be carcinogenic to humans' — consistent with EFSA, USDA, and Health Canada's PMRA. A 2022 US appeals court later vacated the human-health portion and ordered EPA to redo the analysis, but did not overturn the scientific conclusion.",
+            "EPA's 2020 assessment found no risks of concern to human health at label rates and that glyphosate is 'not likely to be carcinogenic to humans', consistent with EFSA, USDA, and Health Canada's PMRA. A 2022 US appeals court later vacated the human-health portion and ordered EPA to redo the analysis, but did not overturn the scientific conclusion.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

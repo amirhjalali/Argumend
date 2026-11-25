@@ -4,7 +4,7 @@ export const usIranConflictData = {
   question:
     "Has US pressure on Iran, up to the 2026 war, made the Middle East safer and served the US?",
   meta_claim:
-    "US policy toward Iran — maximum-pressure sanctions, covert operations, the June 2025 strikes and the war the US and Israel began on 28 February 2026 — has made the Middle East safer and advanced American strategic interests.",
+    "US policy toward Iran (maximum-pressure sanctions, covert operations, the June 2025 strikes and the war the US and Israel began on 28 February 2026) has made the Middle East safer and advanced American strategic interests.",
   status: "contested" as const,
   category: "policy" as const,
   // As of 3 November 2026: the war that began on 28 February 2026 (Operation
@@ -29,7 +29,7 @@ export const usIranConflictData = {
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Nuclear Program — set back or out of sight? (the retired
+    // PILLAR 1: Nuclear Program, set back or out of sight? (the retired
     // iran-war-justification map's threat-assessment pillar was folded in on
     // 2026-10-06; merged into this one on 2026-11-03, and the JCPOA cards
     // moved to the diplomacy pillar)
@@ -38,19 +38,19 @@ export const usIranConflictData = {
       id: "nuclear-program",
       title: "Nuclear Program: Set Back or Out of Sight?",
       short_summary:
-        "The June 2025 strikes and the 2026 war wrecked Iran's known nuclear sites, and the IAEA has seen no rebuilding. But before the strikes Iran held an estimated 440.9 kg of 60% uranium, and inspectors have not verified it since. Whether the program was stopped, or the threat pushed out of sight — or was overstated as Iraq's was — is sharply disputed.",
+        "The June 2025 strikes and the 2026 war wrecked Iran's known nuclear sites, and the IAEA has seen no rebuilding. But before the strikes Iran held an estimated 440.9 kg of 60% uranium, and inspectors have not verified it since. Whether the program was stopped, or the threat pushed out of sight, or was overstated as Iraq's was, is sharply disputed.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Force has not removed the bomb risk; it has hidden it. Iran was verifiably compliant with the JCPOA when the US withdrew in 2018, and every escalation to 60% came afterwards. The June 2025 strikes and the war that began on 28 February 2026 wrecked facilities but not Iran's enrichment knowledge, and in June 2026 the IAEA reported that it 'cannot provide any information on the current size, composition or whereabouts of the stockpile' of enriched uranium. In March 2026 Iranian lawmakers tabled a bill to leave the Nuclear Non-Proliferation Treaty. And the case for war ran through the same institutional incentives that produced the Iraq WMD debacle: there is no public evidence Iran has diverted material to a weaponization track, the 2007 US NIE judged the structured weapons-design effort halted in 2003 with no public assessment reversing that, and in the June 2026 Islamabad memorandum Iran reaffirmed that it 'shall not procure or develop nuclear weapons.' The IAEA's first report after the war began, in June 2026, carried no major changes to its assessment of the program. Producing enough fissile material may have been weeks away, but turning it into a deliverable warhead is plausibly a year or more — the compressed-urgency framing the Senate Intelligence Committee later found 'overstated' in Iraq's case.",
+        "Force has not removed the bomb risk; it has hidden it. Iran was verifiably compliant with the JCPOA when the US withdrew in 2018, and every escalation to 60% came afterwards. The June 2025 strikes and the war that began on 28 February 2026 wrecked facilities but not Iran's enrichment knowledge, and in June 2026 the IAEA reported that it 'cannot provide any information on the current size, composition or whereabouts of the stockpile' of enriched uranium. In March 2026 Iranian lawmakers tabled a bill to leave the Nuclear Non-Proliferation Treaty. And the case for war ran through the same institutional incentives that produced the Iraq WMD debacle: there is no public evidence Iran has diverted material to a weaponization track, the 2007 US NIE judged the structured weapons-design effort halted in 2003 with no public assessment reversing that, and in the June 2026 Islamabad memorandum Iran reaffirmed that it 'shall not procure or develop nuclear weapons.' The IAEA's first report after the war began, in June 2026, carried no major changes to its assessment of the program. Producing enough fissile material may have been weeks away, but turning it into a deliverable warhead is plausibly a year or more; the compressed-urgency framing the Senate Intelligence Committee later found 'overstated' in Iraq's case.",
       proponent_rebuttal:
-        "The Iraq analogy is a false parallel. In Iraq, inspectors found nothing; in Iran, the IAEA documented about 408 kg of 60% enriched uranium as of May 2025, and estimated 440.9 kg before the June 2025 strikes — enough for about 10 weapons if further enriched — and a 2023 detection of particles at 83.7% at Fordow that has no routine civilian explanation. Iran de-designated experienced inspectors in 2023 and had the JCPOA cameras removed in 2022; since the strikes inspectors have not been let back to the bombed sites, and on 9 September 2026 the IAEA Board reported Iran to the UN Security Council for the first time in 20 years. Force did what the deal could not: the 2026 war hit what was left, including the Khondab heavy water complex near Arak and a yellowcake facility in Yazd in March 2026, and on 27 October 2026 the IAEA's director general told the UN Security Council the agency had identified no repair or rebuilding at the damaged facilities. Waiting for an unambiguous smoking gun could have meant waiting until Iran was already at the threshold.",
+        "The Iraq analogy is a false parallel. In Iraq, inspectors found nothing; in Iran, the IAEA documented about 408 kg of 60% enriched uranium as of May 2025, and estimated 440.9 kg before the June 2025 strikes, enough for about 10 weapons if further enriched, and a 2023 detection of particles at 83.7% at Fordow that has no routine civilian explanation. Iran de-designated experienced inspectors in 2023 and had the JCPOA cameras removed in 2022; since the strikes inspectors have not been let back to the bombed sites, and on 9 September 2026 the IAEA Board reported Iran to the UN Security Council for the first time in 20 years. Force did what the deal could not: the 2026 war hit what was left, including the Khondab heavy water complex near Arak and a yellowcake facility in Yazd in March 2026, and on 27 October 2026 the IAEA's director general told the UN Security Council the agency had identified no repair or rebuilding at the damaged facilities. Waiting for an unambiguous smoking gun could have meant waiting until Iran was already at the threshold.",
       crux: {
         id: "breakout-timeline-verification",
         title: "The Stockpile Verification Test",
         question:
           "Did the strikes set Iran's nuclear program back for good, or push its 60% uranium out of inspectors' sight?",
         description:
-          "Determine whether the June 2025 strikes and the 2026 war ended Iran's ability to build a bomb on any relevant timescale, or whether its surviving 60% uranium and know-how still amount to a near-term weapons capability now hidden from inspectors — and whether that capability was understated or inflated in the case for war.",
+          "Determine whether the June 2025 strikes and the 2026 war ended Iran's ability to build a bomb on any relevant timescale, or whether its surviving 60% uranium and know-how still amount to a near-term weapons capability now hidden from inspectors, and whether that capability was understated or inflated in the case for war.",
         methodology:
           "Once inspectors return, compare IAEA verification of Iran's UF6 stockpile (kg at each enrichment level, and where it is held) with the pre-strike estimate of 440.9 kg of 60% uranium, and check whether any enrichment has resumed. Set that against independent technical assessments of the steps required beyond enrichment: conversion to metal, pit fabrication, implosion lens design, warhead miniaturization, and delivery vehicle integration, using timelines from physicists at Princeton's Science & Global Security program and the Federation of American Scientists.",
         verification_status: "theoretical" as const,
@@ -59,7 +59,7 @@ export const usIranConflictData = {
             "IAEA inspectors back at Isfahan, Fordow, Natanz and the other bombed sites, verifying how much of the estimated 440.9 kg of 60% uranium survives and where, and whether enrichment has resumed, set against independent estimates of how long the steps from material to deliverable warhead take.",
         },
         cost_to_verify:
-          "$0 (IAEA reports are public; independent technical assessments available from FAS and Princeton SGS) — but it needs Iran to let inspectors back",
+          "$0 (IAEA reports are public; independent technical assessments available from FAS and Princeton SGS), but it needs Iran to let inspectors back",
         falsification: {
           supporter_flip:
             "If inspectors returning to the bombed sites found most of the 60% uranium intact and within Iran's reach, enrichment resumed somewhere undeclared, or Iran left the NPT, the case that force set the program back for good would fail.",
@@ -130,7 +130,7 @@ export const usIranConflictData = {
           title:
             "Iran Withdrew Designations of Experienced IAEA Inspectors (2023) and Removed JCPOA Cameras (2022)",
           description:
-            "In September 2023 Iran withdrew the designations of several of the IAEA's most experienced inspectors — about a third of the core group assigned to Iran — which Director General Grossi called an 'unprecedented and disproportionate' measure (though formally permitted under the NPT Safeguards Agreement). Separately, in June 2022 the IAEA removed its JCPOA surveillance and monitoring equipment at Iran's request. Together these created significant gaps in the agency's ability to verify the program's status.",
+            "In September 2023 Iran withdrew the designations of several of the IAEA's most experienced inspectors, about a third of the core group assigned to Iran, which Director General Grossi called an 'unprecedented and disproportionate' measure (though formally permitted under the NPT Safeguards Agreement). Separately, in June 2022 the IAEA removed its JCPOA surveillance and monitoring equipment at Iran's request. Together these created significant gaps in the agency's ability to verify the program's status.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -143,7 +143,7 @@ export const usIranConflictData = {
           sourceUrl:
             "https://www.iaea.org/newscenter/pressreleases/iaea-director-generals-statement-on-verification-in-iran-0",
           reasoning:
-            "Corrected: the inspectors were de-designated (a step permitted under the safeguards agreement), not declared 'persona non grata,' and the camera removal was 2022, not 2023. Obstructing monitoring is concerning but does not itself prove weaponization — it could reflect a weapons program or political retaliation over the JCPOA's collapse and sanctions. Directness lowered accordingly.",
+            "Corrected: the inspectors were de-designated (a step permitted under the safeguards agreement), not declared 'persona non grata,' and the camera removal was 2022, not 2023. Obstructing monitoring is concerning but does not itself prove weaponization; it could reflect a weapons program or political retaliation over the JCPOA's collapse and sanctions. Directness lowered accordingly.",
         },
         {
           id: "iraq-wmd-precedent",
@@ -163,7 +163,7 @@ export const usIranConflictData = {
           sourceUrl:
             "https://www.congress.gov/committee-report/108th-congress/senate-report/301/1",
           reasoning:
-            "The Iraq precedent is historically verified — the Senate report found prewar WMD estimates 'overstated' and 'not supported by the intelligence' — and is directly relevant as an institutional warning. However, directness is limited because the Iran case rests on different evidence sources (IAEA on-site measurement vs. national intelligence and defector reporting) and different factual circumstances.",
+            "The Iraq precedent is historically verified, the Senate report found prewar WMD estimates 'overstated' and 'not supported by the intelligence', and is directly relevant as an institutional warning. However, directness is limited because the Iran case rests on different evidence sources (IAEA on-site measurement vs. national intelligence and defector reporting) and different factual circumstances.",
         },
         {
           id: "nie-no-weapons-program",
@@ -183,7 +183,7 @@ export const usIranConflictData = {
           sourceUrl:
             "https://www.armscontrol.org/issue-briefs/2010-08/iran-nuclear-nie-2007-revise-reject-reiterate",
           reasoning:
-            "The NIE is from the same intelligence community that got Iraq wrong, which cuts both ways. Independence is low since it is a US government product, and the 'high confidence' headline rested on a narrow definition of 'weapons program' that excluded enrichment — so directness and reliability are de-inflated. Citation points to the Arms Control Association issue brief, which reproduces the declassified key judgments (the primary ODNI/CIA document is not reliably web-accessible).",
+            "The NIE is from the same intelligence community that got Iraq wrong, which cuts both ways. Independence is low since it is a US government product, and the 'high confidence' headline rested on a narrow definition of 'weapons program' that excluded enrichment, so directness and reliability are de-inflated. Citation points to the Arms Control Association issue brief, which reproduces the declassified key judgments (the primary ODNI/CIA document is not reliably web-accessible).",
         },
         {
           id: "iaea-stockpile-unknown-2026",
@@ -235,16 +235,16 @@ export const usIranConflictData = {
         "Iran funds Hezbollah, the Houthis, Hamas, and Iraqi militias. In the 2026 war its proxies held back at first, then Hezbollah drew Lebanon in on 2 March and the Houthis joined on 28 March and by October were striking Saudi airports. Whether the network has been degraded or only delayed is disputed.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Maximum pressure has failed to weaken Iran's proxy network and may have strengthened it. Despite decades of sanctions, Hezbollah grew into the most heavily armed non-state actor in the world. The Houthis disrupted global shipping through the Red Sea in 2023-2024, costing billions. Iraqi militias conducted 170+ attacks on US bases between October 2023 and January 2024. And in the 2026 war the proxies still came in: Hezbollah's fire from 2 March brought an Israeli invasion and a war in which Lebanon's health ministry counted 4,358 people killed by 5 September 2026, and Houthi missiles killed at least 13 people at Riyadh's King Khalid International Airport on 10 October 2026. Iran's 'Axis of Resistance' strategy was a direct response to US encirclement — 40,000+ troops and dozens of bases ringing Iran — making proxies a rational asymmetric deterrent rather than pure aggression.",
+        "Maximum pressure has failed to weaken Iran's proxy network and may have strengthened it. Despite decades of sanctions, Hezbollah grew into the most heavily armed non-state actor in the world. The Houthis disrupted global shipping through the Red Sea in 2023-2024, costing billions. Iraqi militias conducted 170+ attacks on US bases between October 2023 and January 2024. And in the 2026 war the proxies still came in: Hezbollah's fire from 2 March brought an Israeli invasion and a war in which Lebanon's health ministry counted 4,358 people killed by 5 September 2026, and Houthi missiles killed at least 13 people at Riyadh's King Khalid International Airport on 10 October 2026. Iran's 'Axis of Resistance' strategy was a direct response to US encirclement (40,000+ troops and dozens of bases ringing Iran), making proxies a rational asymmetric deterrent rather than pure aggression.",
       proponent_rebuttal:
-        "Iran spends an estimated $700 million to $1 billion annually funding Hezbollah alone and arms the Houthis, Hamas, and Iraqi militias to destabilize the region. These groups have killed hundreds of Americans, launched thousands of rockets at Israel, and disrupted international shipping. The June 2025 war and the 2026 war significantly degraded Iran's ability to coordinate with proxies — notably, Hezbollah's first salvo was small and the Houthis waited a month before joining, rather than the coordinated defense Tehran had threatened. After Israel's 2026 campaign in Lebanon, a US-brokered framework of 26 June 2026 made Hezbollah's disarmament the condition for peace in Lebanon, though Hezbollah rejected it. Without US pressure, Iran would project power unchecked across the Levant, Gulf, and Red Sea.",
+        "Iran spends an estimated $700 million to $1 billion annually funding Hezbollah alone and arms the Houthis, Hamas, and Iraqi militias to destabilize the region. These groups have killed hundreds of Americans, launched thousands of rockets at Israel, and disrupted international shipping. The June 2025 war and the 2026 war significantly degraded Iran's ability to coordinate with proxies, notably, Hezbollah's first salvo was small and the Houthis waited a month before joining, rather than the coordinated defense Tehran had threatened. After Israel's 2026 campaign in Lebanon, a US-brokered framework of 26 June 2026 made Hezbollah's disarmament the condition for peace in Lebanon, though Hezbollah rejected it. Without US pressure, Iran would project power unchecked across the Levant, Gulf, and Red Sea.",
       crux: {
         id: "proxy-network-degradation",
         title: "The Proxy Network Capacity Assessment",
         question:
           "Have pressure and the 2026 war weakened Iran's proxies, or can they still widen the war?",
         description:
-          "If US policy has genuinely degraded Iran's proxy capabilities, we should see measurable declines in proxy armament, operational tempo, and territorial control over the period of maximum pressure and the 2026 war. If the proxies can still open new fronts — as Hezbollah did in Lebanon on 2 March 2026 and the Houthis against Israel and Saudi Arabia — US policy has failed on its own terms.",
+          "If US policy has genuinely degraded Iran's proxy capabilities, we should see measurable declines in proxy armament, operational tempo, and territorial control over the period of maximum pressure and the 2026 war. If the proxies can still open new fronts, as Hezbollah did in Lebanon on 2 March 2026 and the Houthis against Israel and Saudi Arabia, US policy has failed on its own terms.",
         methodology:
           "Compare proxy group metrics across four periods: pre-maximum-pressure (2015-2018), during JCPOA withdrawal and sanctions (2018-2024), after the June 2025 strikes, and during and after the 2026 war. Metrics include: Hezbollah rocket inventory and fire, Houthi missile and drone launches at shipping, Israel and Saudi Arabia, Iraqi militia attacks on US bases, and Hamas operational capacity. Use ACLED conflict data, CSIS assessments, and UN Panel of Experts reports.",
         verification_status: "theoretical" as const,
@@ -256,7 +256,7 @@ export const usIranConflictData = {
           "$500K-1M (Comprehensive multi-country conflict analysis requiring classified and open-source intelligence fusion)",
         falsification: {
           supporter_flip:
-            "If proxy metrics across 2015-2018, 2018-2024 and 2025-2026 — Hezbollah's rocket inventory, Houthi launches, militia attacks on US bases — showed capacity growing under maximum pressure, and the Houthis kept striking Saudi airports and shipping after a US-Iran deal, the policy would have failed on its own terms.",
+            "If proxy metrics across 2015-2018, 2018-2024 and 2025-2026 (Hezbollah's rocket inventory, Houthi launches, militia attacks on US bases) showed capacity growing under maximum pressure, and the Houthis kept striking Saudi airports and shipping after a US-Iran deal, the policy would have failed on its own terms.",
           skeptic_flip:
             "If independent counts showed Hezbollah's and the Houthis' 2026 attacks falling well short of what they could do in 2023-2024, and Hezbollah accepting disarmament in Lebanon, the network would look broken by pressure rather than strengthened by it.",
           common_ground:
@@ -315,7 +315,7 @@ export const usIranConflictData = {
           source: "Foreign Policy, Anchal Vohra, 'Iran's Proxies Are Out for Themselves for Now' (2 March 2026); Al Jazeera (2 March 2026) on Hezbollah's fire; Bloomberg (28 March 2026) on the Houthis entering the war",
           sourceUrl: "https://foreignpolicy.com/2026/03/02/iran-war-hezbollah-lebabon-houthis-yemen-iraq-proxies/",
           reasoning:
-            "The proxies' slow, staggered entry, rather than the coordinated response Tehran had threatened, suggests that years of pressure — combined with the destruction of Hezbollah's leadership in 2024 and the Houthi deal — may have degraded the 'Axis of Resistance' as a cohesive force. However, Hezbollah and the Houthis did enter the fighting within a month, so the evidence shows weakened coordination, not a network that stayed out; the early delay may also reflect self-interested calculations by proxy groups rather than a loss of capability.",
+            "The proxies' slow, staggered entry, rather than the coordinated response Tehran had threatened, suggests that years of pressure, combined with the destruction of Hezbollah's leadership in 2024 and the Houthi deal, may have degraded the 'Axis of Resistance' as a cohesive force. However, Hezbollah and the Houthis did enter the fighting within a month, so the evidence shows weakened coordination, not a network that stayed out; the early delay may also reflect self-interested calculations by proxy groups rather than a loss of capability.",
         },
         {
           id: "hezbollah-donation-appeal-2019",
@@ -358,7 +358,7 @@ export const usIranConflictData = {
           id: "soleimani-assassination-proxy",
           title: "Soleimani Assassination Disrupted but Did Not Destroy Proxy Coordination (2020)",
           description:
-            "The January 2020 assassination of IRGC Quds Force commander Qasem Soleimani removed the architect of Iran's proxy strategy. Iran retaliated with ballistic missile strikes on Al-Asad airbase, injuring 100+ US troops. While the FBI confirmed in 2025 that Iran continues to plot revenge — including attempts to assassinate former US officials — proxy operations continued under Soleimani's successor Esmail Qaani. The killing created a lasting Iranian motivation for retaliation without permanently degrading proxy coordination.",
+            "The January 2020 assassination of IRGC Quds Force commander Qasem Soleimani removed the architect of Iran's proxy strategy. Iran retaliated with ballistic missile strikes on Al-Asad airbase, injuring 100+ US troops. While the FBI confirmed in 2025 that Iran continues to plot revenge, including attempts to assassinate former US officials, proxy operations continued under Soleimani's successor Esmail Qaani. The killing created a lasting Iranian motivation for retaliation without permanently degrading proxy coordination.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -376,7 +376,7 @@ export const usIranConflictData = {
           title:
             "Hezbollah's Arsenal Grew From ~15,000 Rockets (2006) to an Estimated 120,000-150,000 Despite Israeli Operations",
           description:
-            "After the 2006 Lebanon War, Israel declared it had significantly degraded Hezbollah's capabilities. In the years since, estimates of Hezbollah's rocket and missile arsenal rose roughly ten-fold — CSIS puts it around 130,000, with broader estimates spanning 120,000-200,000 — adding precision-guided munitions and longer-range systems supplied through Iranian logistics networks via Syria.",
+            "After the 2006 Lebanon War, Israel declared it had significantly degraded Hezbollah's capabilities. In the years since, estimates of Hezbollah's rocket and missile arsenal rose roughly ten-fold (CSIS puts it around 130,000, with broader estimates spanning 120,000-200,000), adding precision-guided munitions and longer-range systems supplied through Iranian logistics networks via Syria.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -388,7 +388,7 @@ export const usIranConflictData = {
             "CSIS Missile Threat, 'Missiles and Rockets of Hezbollah'",
           sourceUrl: "https://missilethreat.csis.org/country/hezbollahs-rocket-arsenal/",
           reasoning:
-            "Corrected: the 2006 baseline was roughly 15,000-20,000 rockets (not 10,000), and the upper figure is an estimate (CSIS ~130,000; Israeli officials say ~150,000; full range 120,000-200,000) rather than a verified count, so independence and replicability are de-inflated. Still solid historical evidence that force against proxies and supply lines did not prevent arsenal growth — directness remains high.",
+            "Corrected: the 2006 baseline was roughly 15,000-20,000 rockets (not 10,000), and the upper figure is an estimate (CSIS ~130,000; Israeli officials say ~150,000; full range 120,000-200,000) rather than a verified count, so independence and replicability are de-inflated. Still solid historical evidence that force against proxies and supply lines did not prevent arsenal growth, directness remains high.",
         },
       ],
     },
@@ -400,19 +400,19 @@ export const usIranConflictData = {
       id: "sanctions-effectiveness",
       title: "Sanctions & Economic Pressure",
       short_summary:
-        "US sanctions crashed Iran's currency, halved its GDP and caused severe civilian hardship, and since 13 April 2026 a US naval blockade of Iranian ports has cut its oil revenue further. Iran kept funding proxies and exporting oil covertly — so does economic pressure coerce the regime, or mainly punish its citizens?",
+        "US sanctions crashed Iran's currency, halved its GDP and caused severe civilian hardship, and since 13 April 2026 a US naval blockade of Iranian ports has cut its oil revenue further. Iran kept funding proxies and exporting oil covertly, so does economic pressure coerce the regime, or mainly punish its citizens?",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Sanctions have devastated the Iranian population without changing regime behavior. Iran's GDP fell from $600 billion to $356 billion. The rial collapsed from 42,000 to over 1.4 million per dollar. Food inflation exceeds 72%. Six million patients lack adequate medicine, including 40,000 hemophiliacs unable to obtain blood-clotting medication. Meanwhile, the regime kept enriching uranium until the 2025 strikes, funding proxies with an estimated $700 million to $1 billion annually for Hezbollah alone, and finding covert oil export routes through China. The 2026 war and blockade deepened the damage: by August 2026 the rial had effectively collapsed and food prices had surged, and on 25 October 2026 Iran's parliament speaker said natural gas consumption across the country had to be cut by 10%. Sanctions are collective punishment of 88 million civilians that strengthens regime narratives of victimhood.",
       proponent_rebuttal:
-        "Sanctions are a legitimate, non-violent tool of statecraft that targets the regime's ability to fund terrorism and nuclear proliferation. Humanitarian goods like food and medicine are explicitly exempt under OFAC guidelines. Maximum pressure brought Iran to the negotiating table in 2025, demonstrating that economic pain drives diplomatic engagement. Iran diverts resources to proxy militias and nuclear programs rather than civilian welfare — the regime, not sanctions, is responsible for civilian suffering. UN snapback sanctions in late 2025 demonstrated international consensus that Iran's nuclear violations warranted economic consequences. And in 2026 the blockade became the lever: Iran's offer of 2 November 2026 to reopen the Strait of Hormuz and resume nuclear talks was conditioned first on the US lifting its naval blockade and repealing sanctions.",
+        "Sanctions are a legitimate, non-violent tool of statecraft that targets the regime's ability to fund terrorism and nuclear proliferation. Humanitarian goods like food and medicine are explicitly exempt under OFAC guidelines. Maximum pressure brought Iran to the negotiating table in 2025, demonstrating that economic pain drives diplomatic engagement. Iran diverts resources to proxy militias and nuclear programs rather than civilian welfare; the regime, not sanctions, is responsible for civilian suffering. UN snapback sanctions in late 2025 demonstrated international consensus that Iran's nuclear violations warranted economic consequences. And in 2026 the blockade became the lever: Iran's offer of 2 November 2026 to reopen the Strait of Hormuz and resume nuclear talks was conditioned first on the US lifting its naval blockade and repealing sanctions.",
       crux: {
         id: "sanctions-civilian-impact",
         title: "The Civilian Impact Assessment",
         question:
           "Does economic pressure on Iran, from sanctions to the 2026 blockade, move its leaders or mainly punish civilians?",
         description:
-          "If sanctions and the blockade cause civilian suffering comparable to armed conflict — through denial of medicine, food insecurity, and economic collapse — without changing what Iran's leaders do, they are de facto economic warfare regardless of humanitarian exemptions on paper. Two tests decide it: whether humanitarian exemptions function in practice or are nullified by banking over-compliance, and whether Tehran's negotiating terms move as the pressure bites.",
+          "If sanctions and the blockade cause civilian suffering comparable to armed conflict (through denial of medicine, food insecurity, and economic collapse) without changing what Iran's leaders do, they are de facto economic warfare regardless of humanitarian exemptions on paper. Two tests decide it: whether humanitarian exemptions function in practice or are nullified by banking over-compliance, and whether Tehran's negotiating terms move as the pressure bites.",
         methodology:
           "Commission an independent epidemiological study comparing Iranian civilian mortality rates, disease outcomes, and nutritional status before and after each sanctions escalation (2012, 2018, 2025) and the April 2026 blockade. Cross-reference with WHO, UNICEF, and Iranian health ministry data. Measure the gap between humanitarian goods legally permitted and actually delivered by tracking OFAC license approvals versus actual import volumes, and set Iran's negotiating positions in 2025-2026 against its oil revenue over the same months.",
         verification_status: "theoretical" as const,
@@ -428,9 +428,9 @@ export const usIranConflictData = {
           skeptic_flip:
             "If import tracking showed exempt food and medicine reaching Iran under OFAC guidelines, shortages traced to regime diversion toward proxies and the nuclear program, and pressure yielding talks like the five Oman-brokered rounds of 2025 and Iran's November 2026 offer to reopen Hormuz in return for an end to the blockade, 'collective punishment' would describe the sanctions poorly.",
           common_ground:
-            "Both sides agree sanctions have badly damaged Iran's economy — GDP from about $600 billion to $356 billion, the rial from 42,000 to over 1.4 million per dollar — that the 2026 blockade cut its oil revenue further, and that Iranian civilians are suffering, whoever bears the blame.",
+            "Both sides agree sanctions have badly damaged Iran's economy (GDP from about $600 billion to $356 billion, the rial from 42,000 to over 1.4 million per dollar) that the 2026 blockade cut its oil revenue further, and that Iranian civilians are suffering, whoever bears the blame.",
           live_disagreement:
-            "Whether economic pressure coerces the regime, bringing it to talks and putting lifting the blockade at the top of its demands, or mainly punishes civilians while the regime holds on — which turns on whether humanitarian exemptions deliver and whether Tehran's terms actually move.",
+            "Whether economic pressure coerces the regime, bringing it to talks and putting lifting the blockade at the top of its demands, or mainly punishes civilians while the regime holds on, which turns on whether humanitarian exemptions deliver and whether Tehran's terms actually move.",
         },
       },
       evidence: [
@@ -500,7 +500,7 @@ export const usIranConflictData = {
           source: "Arms Control Association; Britannica; Al Jazeera",
           sourceUrl: "https://www.armscontrol.org/2025-05/united-states-and-iran-begin-nuclear-talks",
           reasoning:
-            "The resumption of negotiations is a verifiable fact. However, the claim that sanctions caused this is an inference — Iran may have had other motivations. More critically, the negotiations collapsed when Israel struck Iranian nuclear facilities in June 2025 with US support, undermining the argument that pressure-then-diplomacy was the actual strategy.",
+            "The resumption of negotiations is a verifiable fact. However, the claim that sanctions caused this is an inference; Iran may have had other motivations. More critically, the negotiations collapsed when Israel struck Iranian nuclear facilities in June 2025 with US support, undermining the argument that pressure-then-diplomacy was the actual strategy.",
         },
       ],
     },
@@ -516,16 +516,16 @@ export const usIranConflictData = {
         "Whether diplomacy failed before the war or was sabotaged is still argued. The live question now is what follows: a deal that reopens Hormuz for sanctions relief and settles the nuclear file later, or more force until Iran gives up its uranium. A June 2026 memorandum collapsed by 8 July; talks via Qatar and Pakistan resumed in the autumn.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Diplomacy has not been exhausted — it was deliberately abandoned. The JCPOA was working: Iran was compliant, enrichment was capped at 3.67%, the stockpile was reduced by 98%, and 24/7 IAEA monitoring was in place. The US unilaterally withdrew in 2018 despite verified compliance, reimposed maximum-pressure sanctions, and then assassinated Iran's top general in 2020. Every Iranian escalation followed a US provocation. Diplomatic offramps have repeatedly been floated: proposals for a cap-and-freeze interim understanding in exchange for partial sanctions relief, mediation offers from regional and outside powers, and indirect channels via Oman and Qatar that produced prisoner exchanges. Even the war ran through talks: after 21 hours in Islamabad on 11-12 April 2026 Trump said 'most points were agreed to,' and in June the two governments agreed a 14-point memorandum; each pause was broken by fresh attacks, not by an absence of terms. Declaring diplomacy 'exhausted' — while maximum-pressure sanctions remain in place and after the US walked away from a verified-compliant agreement — is at least as much a political choice as a strategic verdict.",
+        "Diplomacy has not been exhausted; it was deliberately abandoned. The JCPOA was working: Iran was compliant, enrichment was capped at 3.67%, the stockpile was reduced by 98%, and 24/7 IAEA monitoring was in place. The US unilaterally withdrew in 2018 despite verified compliance, reimposed maximum-pressure sanctions, and then assassinated Iran's top general in 2020. Every Iranian escalation followed a US provocation. Diplomatic offramps have repeatedly been floated: proposals for a cap-and-freeze interim understanding in exchange for partial sanctions relief, mediation offers from regional and outside powers, and indirect channels via Oman and Qatar that produced prisoner exchanges. Even the war ran through talks: after 21 hours in Islamabad on 11-12 April 2026 Trump said 'most points were agreed to,' and in June the two governments agreed a 14-point memorandum; each pause was broken by fresh attacks, not by an absence of terms. Declaring diplomacy 'exhausted', while maximum-pressure sanctions remain in place and after the US walked away from a verified-compliant agreement, is at least as much a political choice as a strategic verdict.",
       proponent_rebuttal:
-        "The JCPOA was a temporary pause, not a solution. Its sunset clauses would have allowed Iran unrestricted enrichment by 2030-2031, creating a patient pathway to a bomb with international legitimacy. It never addressed Iran's ballistic missile program, which has since tested missiles capable of reaching Europe. It never addressed Iran's regional aggression, which has intensified. And Iran's record is not clean: the IAEA found undeclared nuclear material at multiple sites that Iran has not credibly explained, and the Mossad's 2018 seizure of Iran's nuclear archive documented a pre-2003 structured weapons-design program (the 'Amad Plan') that Iran had long denied existed — undercutting trust even if it did not show an active post-2003 program. Since JCPOA collapsed, Iran has rejected every diplomatic initiative — the EU's 2022 deal was abandoned after Iran demanded the IRGC be delisted as a terrorist organization, an obvious non-starter. At some point, 'more diplomacy' becomes a euphemism for allowing Iran to reach nuclear weapons capability while talking. It took a war and a blockade to get Iran's written agreement, in the June 2026 Islamabad memorandum, to resolve the disposition of its stockpiled enriched material — at minimum by 'down blending on site under the supervision of the IAEA' — and Vice President Vance said on 2 November 2026 that any deal must include 'a firm commitment and a verifiable commitment' that Iran will not rebuild its program.",
+        "The JCPOA was a temporary pause, not a solution. Its sunset clauses would have allowed Iran unrestricted enrichment by 2030-2031, creating a patient pathway to a bomb with international legitimacy. It never addressed Iran's ballistic missile program, which has since tested missiles capable of reaching Europe. It never addressed Iran's regional aggression, which has intensified. And Iran's record is not clean: the IAEA found undeclared nuclear material at multiple sites that Iran has not credibly explained, and the Mossad's 2018 seizure of Iran's nuclear archive documented a pre-2003 structured weapons-design program (the 'Amad Plan') that Iran had long denied existed, undercutting trust even if it did not show an active post-2003 program. Since JCPOA collapsed, Iran has rejected every diplomatic initiative; the EU's 2022 deal was abandoned after Iran demanded the IRGC be delisted as a terrorist organization, an obvious non-starter. At some point, 'more diplomacy' becomes a euphemism for allowing Iran to reach nuclear weapons capability while talking. It took a war and a blockade to get Iran's written agreement, in the June 2026 Islamabad memorandum, to resolve the disposition of its stockpiled enriched material, at minimum by 'down blending on site under the supervision of the IAEA', and Vice President Vance said on 2 November 2026 that any deal must include 'a firm commitment and a verifiable commitment' that Iran will not rebuild its program.",
       crux: {
         id: "diplomatic-exhaustion-test",
         title: "The Deal-or-Force Test",
         question:
           "Can a negotiated deal now keep Iran from a bomb, or has only force ever moved Tehran?",
         description:
-          "Determine whether a negotiated settlement can secure what the war set out to secure — no Iranian bomb and verified control of its 60% uranium — or whether every diplomatic opening since 2018 has either failed on its merits or come only after force. This requires assessing whether the US negotiated in good faith after 2018, whether Iran's rejections were unreasonable, and why each 2026 pause, from the 7 April ceasefire to the June memorandum, broke down.",
+          "Determine whether a negotiated settlement can secure what the war set out to secure, no Iranian bomb and verified control of its 60% uranium, or whether every diplomatic opening since 2018 has either failed on its merits or come only after force. This requires assessing whether the US negotiated in good faith after 2018, whether Iran's rejections were unreasonable, and why each 2026 pause, from the 7 April ceasefire to the June memorandum, broke down.",
         methodology:
           "Map every formal diplomatic proposal from 2018 to the present, including the 2026 Islamabad talks, the June 2026 memorandum and the Qatari and Pakistani proposals of October-November 2026: who proposed it, the terms offered, each side's response, and the stated reason for rejection or collapse. Cross-reference with contemporaneous statements from US, Iranian, and European officials, and with the record of which side's attacks preceded each breakdown.",
         verification_status: "theoretical" as const,
@@ -543,7 +543,7 @@ export const usIranConflictData = {
           common_ground:
             "Both sides agree the JCPOA capped enrichment at 3.67% under IAEA monitoring while it was in force, that the June 2026 Islamabad memorandum had broken down by 8 July 2026, and that any deal has to account for Iran's 60% uranium.",
           live_disagreement:
-            "Whether the way out is a deal that trades Hormuz and sanctions relief now for nuclear terms later, or more pressure until Iran gives up its uranium first — and whether the war made such a deal more reachable or less.",
+            "Whether the way out is a deal that trades Hormuz and sanctions relief now for nuclear terms later, or more pressure until Iran gives up its uranium first, and whether the war made such a deal more reachable or less.",
         },
       },
       evidence: [
@@ -565,7 +565,7 @@ export const usIranConflictData = {
           sourceUrl:
             "https://www.armscontrol.org/factsheets/joint-comprehensive-plan-action-jcpoa-glance",
           reasoning:
-            "The staggered sunset clauses are a real, document-verifiable structural feature of the JCPOA (enrichment/stockpile limits to ~2030-2031). Directness is moderate because the clauses were designed to be revisited as confidence-building progressed — proponents read them as a floor to renegotiate, critics as an expiry date.",
+            "The staggered sunset clauses are a real, document-verifiable structural feature of the JCPOA (enrichment/stockpile limits to ~2030-2031). Directness is moderate because the clauses were designed to be revisited as confidence-building progressed, proponents read them as a floor to renegotiate, critics as an expiry date.",
         },
         {
           id: "failed-post-jcpoa-diplomacy",
@@ -585,13 +585,13 @@ export const usIranConflictData = {
           sourceUrl:
             "https://web.archive.org/web/20220513004745/https://iranprimer.usip.org/blog/2022/apr/07/iran-deal-irgc-final-hurdle",
           reasoning:
-            "Corrected: the 2022 effort was a JCPOA-revival negotiation that stalled over the IRGC delisting demand — not specifically an 'interim deal freezing enrichment at 60%' (that framing conflated later informal proposals). Failure must be contextualized: talks proceeded under maximum-pressure sanctions, which Iran argues prevents good-faith bargaining, so whether these were genuine or performative remains the contested question.",
+            "Corrected: the 2022 effort was a JCPOA-revival negotiation that stalled over the IRGC delisting demand, not specifically an 'interim deal freezing enrichment at 60%' (that framing conflated later informal proposals). Failure must be contextualized: talks proceeded under maximum-pressure sanctions, which Iran argues prevents good-faith bargaining, so whether these were genuine or performative remains the contested question.",
         },
         {
           id: "us-jcpoa-withdrawal",
           title: "US Unilateral Withdrawal from JCPOA Despite Verified Compliance (May 2018)",
           description:
-            "On May 8, 2018, the US withdrew from the JCPOA despite 11 consecutive IAEA reports confirming Iranian compliance. All other signatories — the UK, France, Germany, Russia, China, and the EU — opposed the withdrawal. The US reimposed maximum-pressure sanctions explicitly aiming to drive Iran's oil exports to zero. Iran continued complying for a full year before beginning its own stepbacks in May 2019.",
+            "On May 8, 2018, the US withdrew from the JCPOA despite 11 consecutive IAEA reports confirming Iranian compliance. All other signatories (the UK, France, Germany, Russia, China, and the EU) opposed the withdrawal. The US reimposed maximum-pressure sanctions explicitly aiming to drive Iran's oil exports to zero. Iran continued complying for a full year before beginning its own stepbacks in May 2019.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
@@ -608,7 +608,7 @@ export const usIranConflictData = {
           id: "iran-enrichment-escalation",
           title: "Iran Amasses 408 kg of 60% Enriched Uranium by 2025",
           description:
-            "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium — a roughly 50% increase since the February 2025 report. The IAEA had earlier detected particles enriched to 83.7% at Fordow in January 2023. By the IAEA's yardstick, about 42 kg of 60% uranium is theoretically enough for one bomb if further enriched to 90%, so the May 2025 stockpile was enough in principle for about nine; IAEA chief Rafael Grossi said it was enough for 'several' bombs if Iran chose to make them.",
+            "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium; a roughly 50% increase since the February 2025 report. The IAEA had earlier detected particles enriched to 83.7% at Fordow in January 2023. By the IAEA's yardstick, about 42 kg of 60% uranium is theoretically enough for one bomb if further enriched to 90%, so the May 2025 stockpile was enough in principle for about nine; IAEA chief Rafael Grossi said it was enough for 'several' bombs if Iran chose to make them.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -626,7 +626,7 @@ export const usIranConflictData = {
           title:
             "Historical Precedent: Diplomacy Resolved Comparable Nuclear Crises (Libya 2003, South Africa 1989)",
           description:
-            "Libya agreed in December 2003 to eliminate its WMD programs — including an early-stage nuclear weapons effort — through US/UK diplomatic engagement. South Africa built six nuclear weapons during apartheid, then voluntarily abandoned the program in 1989 and dismantled the devices by 1991. Both cases show nuclear proliferation can be reversed without military action when incentives and security/political conditions align.",
+            "Libya agreed in December 2003 to eliminate its WMD programs, including an early-stage nuclear weapons effort, through US/UK diplomatic engagement. South Africa built six nuclear weapons during apartheid, then voluntarily abandoned the program in 1989 and dismantled the devices by 1991. Both cases show nuclear proliferation can be reversed without military action when incentives and security/political conditions align.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -639,7 +639,7 @@ export const usIranConflictData = {
           sourceUrl:
             "https://www.nti.org/analysis/articles/south-africa-nuclear-disarmament/",
           reasoning:
-            "Historical precedents are real but replicability is low — Libya (a nascent program) and South Africa (an indigenous arsenal abandoned amid the end of apartheid) had very different strategic contexts from Iran's. Gaddafi's overthrow and death in 2011 after disarming is now cited by Iran as a reason not to disarm, which further complicates the analogy.",
+            "Historical precedents are real but replicability is low, Libya (a nascent program) and South Africa (an indigenous arsenal abandoned amid the end of apartheid) had very different strategic contexts from Iran's. Gaddafi's overthrow and death in 2011 after disarming is now cited by Iran as a reason not to disarm, which further complicates the analogy.",
         },
         {
           id: "islamabad-memorandum-2026",
@@ -692,14 +692,14 @@ export const usIranConflictData = {
       skeptic_premise:
         "Iran lost battles but has made the war expensive for everyone else. Shipping through Hormuz fell from more than 100 ships a day to an average of about five, UKMTO recorded a record 30 attacks on commercial vessels in October 2026 alone, and the US Energy Information Administration expects Brent crude to average $105 a barrel in the last quarter of 2026. The Pentagon puts the US cost at $47.1 billion through 16 October, with 18 service members killed and more than 860 injured. The regime survived its supreme leader's death: Mojtaba Khamenei succeeded his father and Iran's political leadership 'has, however, remained largely the same,' Al Jazeera reported in August 2026. In AP-NORC polling released on 1 October 2026, 69 percent of US adults said the war has not been worth fighting, and the Senate passed a war powers resolution 50 to 48 on 23 June 2026 before narrowly defeating another, 49 to 50, on 24 September.",
       proponent_rebuttal:
-        "The military record is lopsided. Within a week of the war's beginning, CSIS's Daniel Byman wrote, Iran's missile attacks 'fell by 90 percent'; the US military says it has sunk over 90 percent of Iran's navy, and Israel has killed over 250 Iranian leaders, including the supreme leader and almost all senior military commanders. The IAEA has identified no rebuilding at Iran's bombed nuclear sites. The blockade has made sanctions relief Iran's first demand, and Iran is offering to reopen Hormuz to get it. Oil markets react to the prospect of a deal — Brent fell 7.4% to $105.03 on 2 November 2026 as Trump said a deal was coming together — which proponents read as the price of finishing the job, not proof the job failed.",
+        "The military record is lopsided. Within a week of the war's beginning, CSIS's Daniel Byman wrote, Iran's missile attacks 'fell by 90 percent'; the US military says it has sunk over 90 percent of Iran's navy, and Israel has killed over 250 Iranian leaders, including the supreme leader and almost all senior military commanders. The IAEA has identified no rebuilding at Iran's bombed nuclear sites. The blockade has made sanctions relief Iran's first demand, and Iran is offering to reopen Hormuz to get it. Oil markets react to the prospect of a deal, Brent fell 7.4% to $105.03 on 2 November 2026 as Trump said a deal was coming together, which proponents read as the price of finishing the job, not proof the job failed.",
       crux: {
         id: "lasting-gain-test",
         title: "The Lasting-Gain Test",
         question:
           "Will the damage to Iran's military outlast the war's costs, or will Iran rebuild while the costs go on?",
         description:
-          "The war's supporters claim durable gains: a crippled navy, missile force and nuclear program and a regime that must bargain. Its critics count costs that are already paid — a choked strait, oil near or above $100, US and regional dead — against gains that may not last if Iran rebuilds. The test is what Iran can still do once the fighting stops.",
+          "The war's supporters claim durable gains: a crippled navy, missile force and nuclear program and a regime that must bargain. Its critics count costs that are already paid (a choked strait, oil near or above $100, US and regional dead) against gains that may not last if Iran rebuilds. The test is what Iran can still do once the fighting stops.",
         methodology:
           "Track, for at least a year after any settlement: Iran's missile and drone launches and launcher counts from open-source and official tallies; attacks on shipping in and near Hormuz from UKMTO; tanker transits through the strait; IAEA verification of Iran's nuclear sites and material; and Brent prices from the EIA series. Compare each against the pre-war baseline of 2025 and the wartime peak of 2026.",
         verification_status: "theoretical" as const,
@@ -717,7 +717,7 @@ export const usIranConflictData = {
           common_ground:
             "Both sides agree Iran's navy, missile fire and leadership took heavy losses, that Hormuz shipping and oil prices have been badly disrupted since 28 February 2026, and that the Pentagon put the US cost at $47.1 billion through 16 October 2026.",
           live_disagreement:
-            "Whether the military damage is durable enough to outweigh a choked strait, $100-plus oil and a regime that survived — and whether Congress or the president should decide when the war ends.",
+            "Whether the military damage is durable enough to outweigh a choked strait, $100-plus oil and a regime that survived, and whether Congress or the president should decide when the war ends.",
         },
       },
       evidence: [
@@ -756,7 +756,7 @@ export const usIranConflictData = {
           sourceUrl:
             "https://www.aljazeera.com/news/2026/11/2/iran-pushing-accelerated-plan-for-ceasefire-talks-with-us",
           reasoning:
-            "That Tehran leads with the blockade and sanctions suggests economic and naval pressure is what it most wants removed — leverage for the US. But Iran's foreign ministry spokesman gave no indication that Tehran had changed its demands, and Hormuz itself is Iran's counter-leverage, so the card shows a bargaining position, not a settled outcome.",
+            "That Tehran leads with the blockade and sanctions suggests economic and naval pressure is what it most wants removed, leverage for the US. But Iran's foreign ministry spokesman gave no indication that Tehran had changed its demands, and Hormuz itself is Iran's counter-leverage, so the card shows a bargaining position, not a settled outcome.",
         },
         {
           id: "hormuz-oil-shock-2026",
@@ -905,7 +905,7 @@ export const usIranConflictData = {
     },
     {
       title:
-        "IAEA Board of Governors Report GOV/2025/24 — Verification and Monitoring in Iran (31 May 2025)",
+        "IAEA Board of Governors Report GOV/2025/24, Verification and Monitoring in Iran (31 May 2025)",
       url: "https://www.iaea.org/sites/default/files/25/06/gov2025-24.pdf",
     },
     {
@@ -913,12 +913,12 @@ export const usIranConflictData = {
       url: "https://www.iaea.org/newscenter/focus/iran",
     },
     {
-      title: "Congressional Research Service: Iran's Nuclear Program — Status (RL34544)",
+      title: "Congressional Research Service: Iran's Nuclear Program, Status (RL34544)",
       url: "https://crsreports.congress.gov/product/pdf/RL/RL34544",
     },
     {
       title:
-        "International Crisis Group: The Iran-US Standoff — Risks and Offramps",
+        "International Crisis Group: The Iran-US Standoff, Risks and Offramps",
       url: "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
     },
   ],
@@ -939,13 +939,13 @@ export const usIranConflictData = {
       id: "q3",
       title: "Has the war made the Middle East safer or more dangerous?",
       content:
-        "The Soleimani assassination, the Twelve-Day War in June 2025, and the war the US and Israel began on 28 February 2026 brought the US into direct war with Iran. The 2026 war killed Ayatollah Ali Khamenei on its first day, drew Hezbollah into a Lebanon war on 2 March and the Houthis in on 28 March, and closed the Strait of Hormuz to most shipping. As of 3 November 2026 no settlement is in place. Proponents argue the damage to Iran's navy, missiles and nuclear sites prevents worse outcomes. Critics argue each escalation triggers retaliation — proxy attacks, missile strikes, attacks on shipping — and has made the region more volatile than before maximum pressure began.",
+        "The Soleimani assassination, the Twelve-Day War in June 2025, and the war the US and Israel began on 28 February 2026 brought the US into direct war with Iran. The 2026 war killed Ayatollah Ali Khamenei on its first day, drew Hezbollah into a Lebanon war on 2 March and the Houthis in on 28 March, and closed the Strait of Hormuz to most shipping. As of 3 November 2026 no settlement is in place. Proponents argue the damage to Iran's navy, missiles and nuclear sites prevents worse outcomes. Critics argue each escalation triggers retaliation (proxy attacks, missile strikes, attacks on shipping) and has made the region more volatile than before maximum pressure began.",
     },
     {
       id: "q4",
       title: "Did the strikes stop an Iranian bomb?",
       content:
-        "The June 2025 strikes and the 2026 war hit Fordow, Natanz, Isfahan and more, and the IAEA has seen no rebuilding at the bombed sites. But Iran's nuclear knowledge cannot be bombed away, and since the war began the IAEA has been unable to say where Iran's roughly 440 kg of 60% uranium is. Did the strikes end the program, or push it out of sight — and toward a political decision to weaponize, as some argue Iraq's Osirak strike did in 1981?",
+        "The June 2025 strikes and the 2026 war hit Fordow, Natanz, Isfahan and more, and the IAEA has seen no rebuilding at the bombed sites. But Iran's nuclear knowledge cannot be bombed away, and since the war began the IAEA has been unable to say where Iran's roughly 440 kg of 60% uranium is. Did the strikes end the program, or push it out of sight, and toward a political decision to weaponize, as some argue Iraq's Osirak strike did in 1981?",
     },
     {
       id: "q5",

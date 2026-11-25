@@ -77,7 +77,7 @@ export const moonLandingData = {
       skeptic_premise:
         "Even the Hubble telescope cannot see the flags or the Lunar Module. Without physical confirmation, we only have NASA's word.",
       proponent_rebuttal:
-        "While no Earth telescope can resolve the landers (a diffraction limit, not a cover-up), observatories on multiple continents — including non-NASA institutions such as the Observatoire de la Côte d'Azur — routinely bounce lasers off the Laser Ranging Retroreflectors (LRRR) the crews left behind, returning signals from precisely surveyed Apollo coordinates.",
+        "While no Earth telescope can resolve the landers (a diffraction limit, not a cover-up), observatories on multiple continents, including non-NASA institutions such as the Observatoire de la Côte d'Azur, routinely bounce lasers off the Laser Ranging Retroreflectors (LRRR) the crews left behind, returning signals from precisely surveyed Apollo coordinates.",
       crux: {
         id: "apache-point",
         title: "The Apache Point Operation",
@@ -97,13 +97,13 @@ export const moonLandingData = {
           "$0 (Amateur astronomers can verify with ~$5K equipment)",
         falsification: {
           supporter_flip:
-            "If the laser returns from the Apollo coordinates turned out to be explainable without manufactured corner-cube prisms — e.g., natural lunar regolith or a non-Apollo source produced the same precise, time-resolved retroreflection from those exact surveyed spots — the 'physical trace' proof would collapse.",
+            "If the laser returns from the Apollo coordinates turned out to be explainable without manufactured corner-cube prisms (e.g., natural lunar regolith or a non-Apollo source produced the same precise, time-resolved retroreflection from those exact surveyed spots) the 'physical trace' proof would collapse.",
           skeptic_flip:
             "If more independent observatories, like those at Grasse in France and Matera in Italy, kept getting sharp corner-cube returns only from the pre-surveyed Apollo coordinates, the claim that it all rests on NASA's word would be hard to hold.",
           common_ground:
-            "Both sides agree no Earth-based telescope, including Hubble, can directly resolve the landers — that limit is set by diffraction, not by what's actually on the surface.",
+            "Both sides agree no Earth-based telescope, including Hubble, can directly resolve the landers; that limit is set by diffraction, not by what's actually on the surface.",
           live_disagreement:
-            "Whether the laser returns require human-placed retroreflectors or could arise from some natural lunar feature — resolvable by ranging to off-target coordinates (which return nothing) versus the Apollo arrays (which return a sharp signal).",
+            "Whether the laser returns require human-placed retroreflectors or could arise from some natural lunar feature, resolvable by ranging to off-target coordinates (which return nothing) versus the Apollo arrays (which return a sharp signal).",
         },
       },
       evidence: [
@@ -137,7 +137,7 @@ export const moonLandingData = {
             replicability: 8,
             directness: 9,
           },
-          source: "NASA Science — Apollo 11 Landing Site (LRO/LROC imagery)",
+          source: "NASA Science, Apollo 11 Landing Site (LRO/LROC imagery)",
           sourceUrl: "https://science.nasa.gov/resource/apollo-11-landing-site/",
           reasoning:
             "Direct photographic evidence showing the descent stage and astronaut footprint trails, though from a NASA source.",
@@ -146,7 +146,7 @@ export const moonLandingData = {
           id: "moon-rocks",
           title: "842 Pounds of Lunar Samples",
           description:
-            "Six Apollo missions returned 382 kg (842 lbs) of lunar rocks and soil — about 2,200 separate samples from six sites. NASA distributes nearly 400 samples a year to scientists and educators, and the rocks record a lunar crust that formed 4.4 billion years ago.",
+            "Six Apollo missions returned 382 kg (842 lbs) of lunar rocks and soil, about 2,200 separate samples from six sites. NASA distributes nearly 400 samples a year to scientists and educators, and the rocks record a lunar crust that formed 4.4 billion years ago.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -154,7 +154,7 @@ export const moonLandingData = {
             replicability: 9,
             directness: 10,
           },
-          source: "NASA Astromaterials Curation — Lunar Rocks and Soils from Apollo Missions",
+          source: "NASA Astromaterials Curation, Lunar Rocks and Soils from Apollo Missions",
           sourceUrl: "https://curator.jsc.nasa.gov/lunar/",
           reasoning:
             "Physical samples distributed to labs globally; composition impossible to fake.",
@@ -230,7 +230,7 @@ export const moonLandingData = {
       skeptic_premise:
         "The Van Allen belts contain lethal doses of protons and electrons. No human could survive the transit without meters of lead shielding.",
       proponent_rebuttal:
-        "Dose is a function of Intensity × Time. The Apollo trajectories crossed the thinner regions of the belts at high speed, so the time spent in them was short. Measured whole-mission skin doses ranged from 0.16 rad (Apollo 8) to 1.14 rad (Apollo 14) — most of it accrued during that brief belt crossing — orders of magnitude below the hundreds of rads needed to cause acute harm.",
+        "Dose is a function of Intensity × Time. The Apollo trajectories crossed the thinner regions of the belts at high speed, so the time spent in them was short. Measured whole-mission skin doses ranged from 0.16 rad (Apollo 8) to 1.14 rad (Apollo 14), most of it accrued during that brief belt crossing, orders of magnitude below the hundreds of rads needed to cause acute harm.",
       crux: {
         id: "dosimeter-audit",
         title: "The Dosimeter Audit",
@@ -249,13 +249,13 @@ export const moonLandingData = {
         cost_to_verify: "$0 (Data analysis of public records)",
         falsification: {
           supporter_flip:
-            "If independent reconstruction of the Apollo trajectories and belt-intensity data showed the crews must have absorbed hundreds of rads — incompatible with the recorded ~0.16–1.14 rad mission doses — then either the dosimetry was falsified or the transits couldn't have been survived as described, and the radiation rebuttal would fail.",
+            "If independent reconstruction of the Apollo trajectories and belt-intensity data showed the crews must have absorbed hundreds of rads, incompatible with the recorded ~0.16–1.14 rad mission doses, then either the dosimetry was falsified or the transits couldn't have been survived as described, and the radiation rebuttal would fail.",
           skeptic_flip:
             "If independent reconstructions using the published Explorer and probe belt data found minutes-long transits through the thinner belt edge yielding doses near Apollo's recorded ~0.16–1.14 rad, the 'lethal belts' objection would lose its footing.",
           common_ground:
             "Both sides agree the Van Allen belts contain genuinely dangerous trapped radiation and that a slow or poorly routed transit would deliver a far higher, potentially harmful dose.",
           live_disagreement:
-            "Whether the actual Apollo flight paths and crossing speeds kept total exposure in the low-single-digit-rad range — resolvable by recomputing dose from published trajectories and independent belt-intensity data and comparing it to the recorded dosimeter readings.",
+            "Whether the actual Apollo flight paths and crossing speeds kept total exposure in the low-single-digit-rad range, resolvable by recomputing dose from published trajectories and independent belt-intensity data and comparing it to the recorded dosimeter readings.",
         },
       },
       evidence: [

@@ -537,16 +537,16 @@ export const aiTherapyChatbotsData = {
   references: [
     {
       title:
-        "Randomized Trial of a Generative AI Chatbot for Mental Health Treatment (Therabot) — Heinz et al., NEJM AI (2025)",
+        "Randomized Trial of a Generative AI Chatbot for Mental Health Treatment (Therabot): Heinz et al., NEJM AI (2025)",
       url: "https://ai.nejm.org/doi/full/10.1056/AIoa2400802",
     },
     {
       title:
-        "Use of Generative AI for Mental Health Advice Among US Adolescents and Young Adults — McBain et al., JAMA Network Open (2025)",
+        "Use of Generative AI for Mental Health Advice Among US Adolescents and Young Adults: McBain et al., JAMA Network Open (2025)",
       url: "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2841067",
     },
     {
-      title: "Strengthening ChatGPT's responses in sensitive conversations — OpenAI (October 2025)",
+      title: "Strengthening ChatGPT's responses in sensitive conversations, OpenAI (October 2025)",
       url: "https://openai.com/index/strengthening-chatgpt-responses-in-sensitive-conversations/",
     },
     {
@@ -556,22 +556,22 @@ export const aiTherapyChatbotsData = {
     },
     {
       title:
-        "Expressing Stigma and Inappropriate Responses Prevents LLMs from Safely Replacing Mental Health Providers — Moore et al., ACM FAccT (2025)",
+        "Expressing Stigma and Inappropriate Responses Prevents LLMs from Safely Replacing Mental Health Providers: Moore et al., ACM FAccT (2025)",
       url: "https://arxiv.org/abs/2504.18412",
     },
     {
       title:
-        "Systematic Review and Meta-Analysis of AI-Based Conversational Agents for Mental Health — Li et al., npj Digital Medicine (2023)",
+        "Systematic Review and Meta-Analysis of AI-Based Conversational Agents for Mental Health: Li et al., npj Digital Medicine (2023)",
       url: "https://www.nature.com/articles/s41746-023-00979-5",
     },
     {
       title:
-        "Woebot Health Shuts Down Pioneering Therapy Chatbot, Citing FDA Hurdles — STAT (2025)",
+        "Woebot Health Shuts Down Pioneering Therapy Chatbot, Citing FDA Hurdles: STAT (2025)",
       url: "https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/",
     },
     {
       title:
-        "The Alliance in Adult Psychotherapy: A Meta-Analytic Synthesis — Flückiger et al., Psychotherapy (2018)",
+        "The Alliance in Adult Psychotherapy: A Meta-Analytic Synthesis: Flückiger et al., Psychotherapy (2018)",
       url: "https://pubmed.ncbi.nlm.nih.gov/29792475/",
     },
   ],

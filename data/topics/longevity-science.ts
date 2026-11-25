@@ -4,7 +4,7 @@ export const longevityScienceData = {
   question:
     "Will longevity research significantly extend healthy lifespan in 20 years?",
   meta_claim:
-    "Recent breakthroughs in longevity research — including senolytics, epigenetic reprogramming, and caloric restriction mimetics — will significantly extend healthy human lifespan within the next 20 years.",
+    "Recent breakthroughs in longevity research (including senolytics, epigenetic reprogramming, and caloric restriction mimetics) will significantly extend healthy human lifespan within the next 20 years.",
   status: "contested" as const,
   category: "science" as const,
   // ── Stage 1: the wow fact shown above everything ──
@@ -32,16 +32,16 @@ export const longevityScienceData = {
         "Senolytic drugs that clear senescent 'zombie' cells have extended healthy lifespan by 25-35% in mice and entered human clinical trials. The translation from animal models to human therapies faces significant hurdles, and early human trials show mixed results.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The gap between extending mouse lifespan and extending human lifespan is enormous. Mice are poor models for human aging: they live 2-3 years, have different telomere biology, and are kept in controlled laboratory conditions. Over 90% of drugs that show promise in mice fail in human trials. The flagship senolytic combination — dasatinib plus quercetin (D+Q) — showed promising results in mice but early human trials revealed significant side effects including nausea, fatigue, and potential immune suppression. The UNITY Biotechnology senolytic drug UBX0101 failed its Phase 2 trial for knee osteoarthritis in 2020, with no significant improvement over placebo. No senolytic has yet demonstrated a lifespan extension effect in humans, and the field is only in Phase 1-2 trials after a decade of hype.",
+        "The gap between extending mouse lifespan and extending human lifespan is enormous. Mice are poor models for human aging: they live 2-3 years, have different telomere biology, and are kept in controlled laboratory conditions. Over 90% of drugs that show promise in mice fail in human trials. The flagship senolytic combination, dasatinib plus quercetin (D+Q), showed promising results in mice but early human trials revealed significant side effects including nausea, fatigue, and potential immune suppression. The UNITY Biotechnology senolytic drug UBX0101 failed its Phase 2 trial for knee osteoarthritis in 2020, with no significant improvement over placebo. No senolytic has yet demonstrated a lifespan extension effect in humans, and the field is only in Phase 1-2 trials after a decade of hype.",
       proponent_rebuttal:
-        "The science of cellular senescence has been validated by Nobel Prize-caliber work. Senescent cells — which stop dividing but resist death, secreting inflammatory factors that damage surrounding tissue — are now recognized as a fundamental driver of aging. The 2011 proof-of-concept study by Jan van Deursen's lab at Mayo Clinic demonstrated that clearing senescent cells in progeroid mice delayed age-related disorders and improved healthspan, and the lab's 2016 follow-up in naturally aged mice extended median lifespan by roughly 25% (17-35% depending on sex and diet). Dasatinib plus quercetin (D+Q) reduced senescent cell burden in humans in a 2019 Mayo Clinic trial. Unity Biotechnology's UBX0101 failed for a specific joint condition, but the senolytic class has over 20 compounds in development targeting different cell types. The field is where cancer immunotherapy was in 2005 — early failures preceded revolutionary breakthroughs.",
+        "The science of cellular senescence has been validated by Nobel Prize-caliber work. Senescent cells (which stop dividing but resist death, secreting inflammatory factors that damage surrounding tissue) are now recognized as a fundamental driver of aging. The 2011 proof-of-concept study by Jan van Deursen's lab at Mayo Clinic demonstrated that clearing senescent cells in progeroid mice delayed age-related disorders and improved healthspan, and the lab's 2016 follow-up in naturally aged mice extended median lifespan by roughly 25% (17-35% depending on sex and diet). Dasatinib plus quercetin (D+Q) reduced senescent cell burden in humans in a 2019 Mayo Clinic trial. Unity Biotechnology's UBX0101 failed for a specific joint condition, but the senolytic class has over 20 compounds in development targeting different cell types. The field is where cancer immunotherapy was in 2005, early failures preceded revolutionary breakthroughs.",
       crux: {
         id: "senolytic-human-healthspan",
         title: "The Human Senolytic Efficacy Test",
         question:
           "Do senolytic drugs improve human healthspan in large trials, or does the mouse-to-human gap defeat them?",
         description:
-          "The definitive test is whether senolytic drugs produce measurable improvements in human healthspan biomarkers — frailty index, inflammatory markers, organ function, and epigenetic age — in randomized controlled trials of sufficient size and duration. If Phase 2/3 trials demonstrate significant healthspan improvements by 2030, the approach validates. If multiple senolytics fail human trials despite animal success, the mouse-to-human translation gap for aging interventions may be insurmountable.",
+          "The definitive test is whether senolytic drugs produce measurable improvements in human healthspan biomarkers (frailty index, inflammatory markers, organ function, and epigenetic age) in randomized controlled trials of sufficient size and duration. If Phase 2/3 trials demonstrate significant healthspan improvements by 2030, the approach validates. If multiple senolytics fail human trials despite animal success, the mouse-to-human translation gap for aging interventions may be insurmountable.",
         methodology:
           "Track all registered senolytic clinical trials (currently 30+ on ClinicalTrials.gov) and their outcomes through 2030. The most informative will be the TAME-adjacent senolytic trials and the Mayo Clinic dasatinib+quercetin aging trials. Require primary endpoints of biological age reduction (measured by DNA methylation clocks) or functional improvement (measured by frailty index), not just biomarker changes. Minimum trial duration of 2 years with 500+ participants.",
         verification_status: "theoretical" as const,
@@ -53,13 +53,13 @@ export const longevityScienceData = {
           "$50-200M (Large-scale Phase 2/3 clinical trials with long follow-up periods)",
         falsification: {
           supporter_flip:
-            "If multiple senolytic Phase 2/3 trials failed to improve human healthspan biomarkers (frailty, inflammation, epigenetic age) despite striking mouse results, it would suggest the mouse-to-human translation gap for aging interventions may be insurmountable — deflating the '20 years to longer healthspan' timeline.",
+            "If multiple senolytic Phase 2/3 trials failed to improve human healthspan biomarkers (frailty, inflammation, epigenetic age) despite striking mouse results, it would suggest the mouse-to-human translation gap for aging interventions may be insurmountable, deflating the '20 years to longer healthspan' timeline.",
           skeptic_flip:
             "If the 30+ registered senolytic human trials began reporting healthspan gains from clearing senescent cells, such as lower inflammation and frailty, 'it only works in mice' would be hard to hold.",
           common_ground:
             "Both sides agree senolytics produce striking results in mice and that no senolytic has yet demonstrated extended healthy lifespan in humans.",
           live_disagreement:
-            "Whether senolytics deliver measurable human healthspan gains in large RCTs, or whether the mouse-to-human gap defeats them — which only Phase 2/3 trials with biological-age endpoints can resolve.",
+            "Whether senolytics deliver measurable human healthspan gains in large RCTs, or whether the mouse-to-human gap defeats them, which only Phase 2/3 trials with biological-age endpoints can resolve.",
         },
       },
       evidence: [
@@ -112,7 +112,7 @@ export const longevityScienceData = {
           source: "UNITY Biotechnology press release, '12-week data from UBX0101 Phase 2 Clinical Study in Patients with Painful Osteoarthritis of the Knee' (17 Aug 2020), SEC Form 8-K Exhibit 99.1",
           sourceUrl: "https://www.sec.gov/Archives/edgar/data/1463361/000119312520222493/d28349dex991.htm",
           reasoning:
-            "Phase 2 trial failure is clear and independently verifiable through SEC filings. This is the most advanced senolytic trial to report negative results. However, the failure was for a specific drug targeting a specific condition — it does not invalidate the broader senolytic thesis. Osteoarthritis may involve mechanisms beyond senescence, and the local injection approach may not have cleared enough cells.",
+            "Phase 2 trial failure is clear and independently verifiable through SEC filings. This is the most advanced senolytic trial to report negative results. However, the failure was for a specific drug targeting a specific condition; it does not invalidate the broader senolytic thesis. Osteoarthritis may involve mechanisms beyond senescence, and the local injection approach may not have cleared enough cells.",
         },
         {
           id: "mouse-to-human-translation",
@@ -135,7 +135,7 @@ export const longevityScienceData = {
           id: "senolytic-human-trial",
           title: "Senolytic Drugs Tested in Early Human Trials for Pulmonary Fibrosis (2019/2023)",
           description:
-            "An open-label, single-arm pilot study (2019, n=14) of the senolytic combination dasatinib + quercetin in patients with idiopathic pulmonary fibrosis (IPF) reported improvements in physical function (6-minute walk distance, gait speed) — but it had no placebo control, so the result cannot be attributed to the drug. A subsequent randomized, placebo-controlled Phase I pilot (2023, n=12), powered for feasibility and tolerability, found the intervention feasible and well tolerated and reported that frailty, pulmonary and physical function, though the trial was 'under-powered to evaluate change', did 'not appear to differ meaningfully between groups.' Senolytic clinical evidence in aging therefore remains preliminary and, in the only controlled IPF trial to date, did not demonstrate functional benefit.",
+            "An open-label, single-arm pilot study (2019, n=14) of the senolytic combination dasatinib + quercetin in patients with idiopathic pulmonary fibrosis (IPF) reported improvements in physical function (6-minute walk distance, gait speed), but it had no placebo control, so the result cannot be attributed to the drug. A subsequent randomized, placebo-controlled Phase I pilot (2023, n=12), powered for feasibility and tolerability, found the intervention feasible and well tolerated and reported that frailty, pulmonary and physical function, though the trial was 'under-powered to evaluate change', did 'not appear to differ meaningfully between groups.' Senolytic clinical evidence in aging therefore remains preliminary and, in the only controlled IPF trial to date, did not demonstrate functional benefit.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -161,16 +161,16 @@ export const longevityScienceData = {
         "Yamanaka factor-based reprogramming can reset the epigenetic clock of cells to a younger state, and partial reprogramming has rejuvenated tissues in mice. The approach carries serious cancer risks and is years from human application.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Epigenetic reprogramming is the most promising but also the most dangerous approach to life extension. The Yamanaka factors (Oct4, Sox2, Klf4, c-Myc) can reprogram adult cells back to a stem-like state — but c-Myc is one of the most potent oncogenes in biology. Continuous expression of Yamanaka factors in mice causes rapid teratoma formation (cancer). Even partial reprogramming, using pulsed expression, produced tumors in some mouse studies. Altos Labs received $3 billion in funding based largely on a single 2016 Salk Institute study showing lifespan extension in progeroid (prematurely aging) mice — but progeroid mice are poor models for normal aging. No study has yet shown that epigenetic reprogramming extends lifespan in naturally aging mice, let alone humans. The field is funded by billionaire hype, not clinical evidence.",
+        "Epigenetic reprogramming is the most promising but also the most dangerous approach to life extension. The Yamanaka factors (Oct4, Sox2, Klf4, c-Myc) can reprogram adult cells back to a stem-like state, but c-Myc is one of the most potent oncogenes in biology. Continuous expression of Yamanaka factors in mice causes rapid teratoma formation (cancer). Even partial reprogramming, using pulsed expression, produced tumors in some mouse studies. Altos Labs received $3 billion in funding based largely on a single 2016 Salk Institute study showing lifespan extension in progeroid (prematurely aging) mice, but progeroid mice are poor models for normal aging. No study has yet shown that epigenetic reprogramming extends lifespan in naturally aging mice, let alone humans. The field is funded by billionaire hype, not clinical evidence.",
       proponent_rebuttal:
-        "Epigenetic reprogramming represents a paradigm shift in aging biology. Shinya Yamanaka won the 2012 Nobel Prize for demonstrating that cellular aging is reversible — that old cells can be returned to a youthful state. The 2016 Salk Institute study by Ocampo et al. showed that cyclic (pulsed) Yamanaka factor expression reversed aging signs and extended lifespan by 30% in progeroid mice without causing cancer. In 2020, David Sinclair's lab at Harvard demonstrated that partial reprogramming restored vision in aged mice by resetting the epigenetic clock of retinal ganglion cells. A 2022 study showed that a single round of reprogramming rejuvenated skin, muscle, and kidney tissue in aged mice. The cancer risk is real but manageable — just as early gene therapy had safety concerns that were eventually solved. With $6+ billion in longevity startup funding and labs like Altos Labs, Calico, and NewLimit pursuing the approach, breakthroughs are likely within a decade.",
+        "Epigenetic reprogramming represents a paradigm shift in aging biology. Shinya Yamanaka won the 2012 Nobel Prize for demonstrating that cellular aging is reversible, that old cells can be returned to a youthful state. The 2016 Salk Institute study by Ocampo et al. showed that cyclic (pulsed) Yamanaka factor expression reversed aging signs and extended lifespan by 30% in progeroid mice without causing cancer. In 2020, David Sinclair's lab at Harvard demonstrated that partial reprogramming restored vision in aged mice by resetting the epigenetic clock of retinal ganglion cells. A 2022 study showed that a single round of reprogramming rejuvenated skin, muscle, and kidney tissue in aged mice. The cancer risk is real but manageable, just as early gene therapy had safety concerns that were eventually solved. With $6+ billion in longevity startup funding and labs like Altos Labs, Calico, and NewLimit pursuing the approach, breakthroughs are likely within a decade.",
       crux: {
         id: "safe-reprogramming-in-vivo",
         title: "The Safe In-Vivo Reprogramming Test",
         question:
           "Can cell reprogramming be delivered safely in living primates and humans without raising cancer risk?",
         description:
-          "The critical test is whether partial epigenetic reprogramming can be delivered safely in living organisms — reducing biological age without triggering cancer or teratoma formation — and whether the rejuvenation effect persists after treatment ends. If safe in-vivo reprogramming is demonstrated in non-human primates with durable age reversal and no increased cancer incidence, human trials become feasible. If cancer risks prove insurmountable in higher animals, the approach may be limited to ex-vivo cell therapy.",
+          "The critical test is whether partial epigenetic reprogramming can be delivered safely in living organisms, reducing biological age without triggering cancer or teratoma formation, and whether the rejuvenation effect persists after treatment ends. If safe in-vivo reprogramming is demonstrated in non-human primates with durable age reversal and no increased cancer incidence, human trials become feasible. If cancer risks prove insurmountable in higher animals, the approach may be limited to ex-vivo cell therapy.",
         methodology:
           "Conduct a 5-year study in non-human primates (e.g., marmosets, lifespan ~10 years) comparing partial reprogramming via pulsed AAV-delivered Yamanaka factors against controls. Primary endpoints: DNA methylation age (epigenetic clocks validated for primates), organ function biomarkers, cancer incidence, and all-cause mortality. Require at least 50 animals per group with blinded assessment. Monitor for teratoma formation via quarterly imaging.",
         verification_status: "theoretical" as const,
@@ -182,13 +182,13 @@ export const longevityScienceData = {
           "$30-100M (5-year primate study with AAV delivery, longitudinal epigenetic and functional assessment, oncological monitoring)",
         falsification: {
           supporter_flip:
-            "If partial epigenetic reprogramming kept causing cancer or teratomas in higher animals — or the rejuvenation effect vanished once treatment stopped — the dream of 'resetting' biological age in living humans would stall, confining the approach to lab-dish cell therapy.",
+            "If partial epigenetic reprogramming kept causing cancer or teratomas in higher animals, or the rejuvenation effect vanished once treatment stopped, the dream of 'resetting' biological age in living humans would stall, confining the approach to lab-dish cell therapy.",
           skeptic_flip:
             "If pulsed, partial reprogramming reversed cell-age markers in primates without full dedifferentiation or tumors, extending the animal studies, the cancer risk would look like an engineering problem rather than a dead end.",
           common_ground:
             "Both sides agree partial reprogramming can reduce biological-age markers in cells and animals, and that uncontrolled reprogramming risks cancer.",
           live_disagreement:
-            "Whether reprogramming can be delivered safely and durably in living primates (and then humans) without raising cancer risk — which only multi-year primate studies with oncological monitoring can establish.",
+            "Whether reprogramming can be delivered safely and durably in living primates (and then humans) without raising cancer risk, which only multi-year primate studies with oncological monitoring can establish.",
         },
       },
       evidence: [
@@ -207,13 +207,13 @@ export const longevityScienceData = {
           source: "Nobel Prize Committee; Takahashi & Yamanaka, Cell (2006)",
           sourceUrl: "https://www.nobelprize.org/prizes/medicine/2012/yamanaka/facts/",
           reasoning:
-            "The Nobel Prize represents the highest validation in science, and Yamanaka's discovery has been replicated thousands of times worldwide. However, the discovery proves that cellular reprogramming is possible in vitro — it does not prove that safe, targeted reprogramming can be achieved in living organisms for the purpose of life extension. The directness to the longevity claim is moderate.",
+            "The Nobel Prize represents the highest validation in science, and Yamanaka's discovery has been replicated thousands of times worldwide. However, the discovery proves that cellular reprogramming is possible in vitro; it does not prove that safe, targeted reprogramming can be achieved in living organisms for the purpose of life extension. The directness to the longevity claim is moderate.",
         },
         {
           id: "salk-progeroid-mice",
           title: "Salk Institute: Cyclic Reprogramming Extends Progeroid Mouse Lifespan by 30% (2016)",
           description:
-            "Researchers at the Salk Institute led by Juan Carlos Izpisua Belmonte demonstrated that cyclic (pulsed) expression of Yamanaka factors in progeroid mice — which carry a mutation causing premature aging — extended lifespan by approximately 30% and reversed multiple aging phenotypes including muscle loss, skin thinning, and organ deterioration. Critically, the pulsed approach did not cause teratoma formation, addressing the primary safety concern. The study was published in Cell and became the foundational paper for the longevity reprogramming field.",
+            "Researchers at the Salk Institute led by Juan Carlos Izpisua Belmonte demonstrated that cyclic (pulsed) expression of Yamanaka factors in progeroid mice, which carry a mutation causing premature aging, extended lifespan by approximately 30% and reversed multiple aging phenotypes including muscle loss, skin thinning, and organ deterioration. Critically, the pulsed approach did not cause teratoma formation, addressing the primary safety concern. The study was published in Cell and became the foundational paper for the longevity reprogramming field.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -224,13 +224,13 @@ export const longevityScienceData = {
           source: "Ocampo et al., Cell (2016)",
           sourceUrl: "https://www.cell.com/cell/fulltext/S0092-8674(16)31664-6",
           reasoning:
-            "Published in Cell and widely cited, this study is the foundational proof of concept for longevity reprogramming. The pulsed approach that avoids cancer is an important finding. However, progeroid mice are a model of accelerated aging, not normal aging — they have a specific genetic mutation (LMNA) that may respond uniquely to reprogramming. Results in normally aging animals are the critical next step.",
+            "Published in Cell and widely cited, this study is the foundational proof of concept for longevity reprogramming. The pulsed approach that avoids cancer is an important finding. However, progeroid mice are a model of accelerated aging, not normal aging; they have a specific genetic mutation (LMNA) that may respond uniquely to reprogramming. Results in normally aging animals are the critical next step.",
         },
         {
           id: "sinclair-vision-restoration",
           title: "Harvard Lab Restores Vision in Aged Mice via Epigenetic Reprogramming (2020)",
           description:
-            "David Sinclair's lab at Harvard Medical School demonstrated that delivering three Yamanaka factors (Oct4, Sox2, Klf4 — excluding the oncogene c-Myc) to retinal ganglion cells restored vision in aged mice and in mice with glaucoma-like optic nerve damage. The treatment reset the DNA methylation patterns of the cells to a younger state without causing cancer over a 12-month observation period. The study, published in Nature, provided evidence that epigenetic reprogramming could rejuvenate specific tissues in naturally aged animals.",
+            "David Sinclair's lab at Harvard Medical School demonstrated that delivering three Yamanaka factors (Oct4, Sox2, Klf4, excluding the oncogene c-Myc) to retinal ganglion cells restored vision in aged mice and in mice with glaucoma-like optic nerve damage. The treatment reset the DNA methylation patterns of the cells to a younger state without causing cancer over a 12-month observation period. The study, published in Nature, provided evidence that epigenetic reprogramming could rejuvenate specific tissues in naturally aged animals.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -241,7 +241,7 @@ export const longevityScienceData = {
           source: "Lu et al., Nature (2020)",
           sourceUrl: "https://www.nature.com/articles/s41586-020-2975-4",
           reasoning:
-            "Published in Nature and from a prominent lab. The exclusion of c-Myc addresses cancer concerns. However, the study treated a single tissue type (retinal cells) via direct injection — a far simpler challenge than systemic rejuvenation. Sinclair is also a longevity entrepreneur with financial interests in the field, which affects independence scoring.",
+            "Published in Nature and from a prominent lab. The exclusion of c-Myc addresses cancer concerns. However, the study treated a single tissue type (retinal cells) via direct injection, a far simpler challenge than systemic rejuvenation. Sinclair is also a longevity entrepreneur with financial interests in the field, which affects independence scoring.",
         },
         {
           id: "reprogramming-cancer-risk",
@@ -273,16 +273,16 @@ export const longevityScienceData = {
         "Caloric restriction extends lifespan in nearly every species tested, and drugs like rapamycin, metformin, and spermidine aim to mimic these effects. The TAME trial is testing metformin as the first FDA-approved aging drug, but results remain years away.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Caloric restriction is the most replicated finding in aging biology — and also the most disappointing for human application. A 25-year NIH study of caloric restriction in rhesus monkeys found that it improved healthspan but did not significantly extend maximum lifespan. Metformin, the leading candidate for human anti-aging treatment, is a 60-year-old diabetes drug with modest effect sizes: epidemiological data suggests diabetics on metformin live slightly longer than non-diabetics, but this may reflect confounding (healthier diabetics are prescribed metformin). Rapamycin extends mouse lifespan by 9-14% but is an immunosuppressant that increases infection risk. GLP-1 agonists like semaglutide show cardiovascular benefits but are prescribed for weight loss, not aging. The honest assessment is that no pharmacological intervention has been proven to extend human lifespan, and the most promising candidates have effect sizes measured in months, not decades.",
+        "Caloric restriction is the most replicated finding in aging biology, and also the most disappointing for human application. A 25-year NIH study of caloric restriction in rhesus monkeys found that it improved healthspan but did not significantly extend maximum lifespan. Metformin, the leading candidate for human anti-aging treatment, is a 60-year-old diabetes drug with modest effect sizes: epidemiological data suggests diabetics on metformin live slightly longer than non-diabetics, but this may reflect confounding (healthier diabetics are prescribed metformin). Rapamycin extends mouse lifespan by 9-14% but is an immunosuppressant that increases infection risk. GLP-1 agonists like semaglutide show cardiovascular benefits but are prescribed for weight loss, not aging. The honest assessment is that no pharmacological intervention has been proven to extend human lifespan, and the most promising candidates have effect sizes measured in months, not decades.",
       proponent_rebuttal:
-        "The pharmacological approach to aging has achieved critical milestones. Rapamycin extends lifespan in every species tested, from yeast to mice, through mTOR inhibition — the most conserved aging pathway in biology. The TAME trial (Targeting Aging with Metformin), designed for ~3,000 participants aged 65-79, would be the first FDA-sanctioned clinical trial to treat aging itself as an indication, which could open the regulatory pathway for all aging drugs — though as of 2026 it remains only partially funded and has not begun enrollment. Meanwhile, GLP-1 agonists have shown 20% reduction in major cardiovascular events and emerging evidence of reduced cancer risk and Alzheimer's progression. Spermidine, a natural polyamine, extended lifespan by 10% in mice and is in human trials. The field does not need a single miracle drug — a combination approach targeting multiple aging pathways could cumulatively add 10-20 healthy years.",
+        "The pharmacological approach to aging has achieved critical milestones. Rapamycin extends lifespan in every species tested, from yeast to mice, through mTOR inhibition, the most conserved aging pathway in biology. The TAME trial (Targeting Aging with Metformin), designed for ~3,000 participants aged 65-79, would be the first FDA-sanctioned clinical trial to treat aging itself as an indication, which could open the regulatory pathway for all aging drugs, though as of 2026 it remains only partially funded and has not begun enrollment. Meanwhile, GLP-1 agonists have shown 20% reduction in major cardiovascular events and emerging evidence of reduced cancer risk and Alzheimer's progression. Spermidine, a natural polyamine, extended lifespan by 10% in mice and is in human trials. The field does not need a single miracle drug, a combination approach targeting multiple aging pathways could cumulatively add 10-20 healthy years.",
       crux: {
         id: "tame-trial-outcome",
         title: "The TAME Trial Outcome Test",
         question:
           "Can metformin or any drug delay several age-related diseases at once?",
         description:
-          "The TAME trial is the single most important near-term test of pharmacological life extension — assuming it secures full funding and enrolls, which it has not yet done. If metformin significantly delays the composite endpoint of age-related diseases (cardiovascular events, cancer, dementia, mortality) compared to placebo, it will validate aging as a treatable condition and open the FDA regulatory pathway for anti-aging drugs. If it fails — or if it never launches for lack of funding — the pharmacological approach will face a major setback in both scientific credibility and funding.",
+          "The TAME trial is the single most important near-term test of pharmacological life extension, assuming it secures full funding and enrolls, which it has not yet done. If metformin significantly delays the composite endpoint of age-related diseases (cardiovascular events, cancer, dementia, mortality) compared to placebo, it will validate aging as a treatable condition and open the FDA regulatory pathway for anti-aging drugs. If it fails, or if it never launches for lack of funding, the pharmacological approach will face a major setback in both scientific credibility and funding.",
         methodology:
           "The TAME trial is designed as a double-blind, placebo-controlled, multi-site trial of ~1,500 mg/day metformin in roughly 3,000 participants aged 65-79 with 1-2 age-related chronic conditions, run over ~6 years. The primary endpoint is time to first occurrence of a composite of major age-related events (myocardial infarction, stroke, cancer, dementia, death). Secondary endpoints include biological age biomarkers. As of 2026 the trial remains only partially funded and has not enrolled; full funding and execution are prerequisites before any outcome can be read.",
         verification_status: "theoretical" as const,
@@ -294,19 +294,19 @@ export const longevityScienceData = {
           "$45-70M (Estimated TAME trial budget per AFAR; partially funded by the American Federation for Aging Research and NIA, with a substantial funding gap remaining as of 2026)",
         falsification: {
           supporter_flip:
-            "If the TAME trial launched and metformin failed to delay the composite of age-related diseases versus placebo, the strongest near-term case that a drug can slow aging — and the FDA pathway for anti-aging drugs — would suffer a major setback.",
+            "If the TAME trial launched and metformin failed to delay the composite of age-related diseases versus placebo, the strongest near-term case that a drug can slow aging, and the FDA pathway for anti-aging drugs, would suffer a major setback.",
           skeptic_flip:
             "If TAME, designed to test 'aging as a treatable condition' against a hard composite of heart attack, cancer, dementia and death, found metformin delaying that composite, the view that aging is not a treatable target would be hard to hold.",
           common_ground:
             "Both sides agree TAME is the most important near-term test of pharmacological life extension, and that as of 2026 it remains only partially funded and hasn't enrolled.",
           live_disagreement:
-            "Whether metformin (or any drug) measurably delays multiple age-related diseases at once — which the TAME trial is built to answer but can't until it secures funding and runs.",
+            "Whether metformin (or any drug) measurably delays multiple age-related diseases at once, which the TAME trial is built to answer but can't until it secures funding and runs.",
         },
       },
       evidence: [
         {
           id: "rapamycin-itp-results",
-          title: "Rapamycin Extends Mouse Lifespan by 9-14% — Most Replicated Longevity Result (2009-2023)",
+          title: "Rapamycin Extends Mouse Lifespan by 9-14%, Most Replicated Longevity Result (2009-2023)",
           description:
             "Rapamycin, an mTOR inhibitor, has consistently extended lifespan in mice across multiple studies in the NIH Interventions Testing Program (ITP). The original 2009 Harrison et al. study in Nature showed a 9% increase in male and 14% increase in female lifespan, even when treatment began at 20 months (equivalent to ~60 human years). The result has been replicated at three independent ITP sites and in multiple mouse strains. Rapamycin also improved cardiac function, reduced cancer incidence, and enhanced cognitive performance in aged mice.",
           side: "for" as const,
@@ -342,7 +342,7 @@ export const longevityScienceData = {
           id: "metformin-epidemiology",
           title: "Diabetics on Metformin Outlive Non-Diabetics in Large Epidemiological Study (2014)",
           description:
-            "A landmark study by Bannister et al. published in Diabetes, Obesity and Metabolism analyzed 78,241 diabetic patients on metformin and 90,463 matched non-diabetic controls from the UK Clinical Practice Research Datalink. They found that Type 2 diabetics taking metformin had 15% lower all-cause mortality than age-matched non-diabetics — a striking result given that diabetes typically shortens lifespan by 6-8 years. This finding, replicated in several subsequent observational studies, became the primary justification for the TAME trial.",
+            "A landmark study by Bannister et al. published in Diabetes, Obesity and Metabolism analyzed 78,241 diabetic patients on metformin and 90,463 matched non-diabetic controls from the UK Clinical Practice Research Datalink. They found that Type 2 diabetics taking metformin had 15% lower all-cause mortality than age-matched non-diabetics, a striking result given that diabetes typically shortens lifespan by 6-8 years. This finding, replicated in several subsequent observational studies, became the primary justification for the TAME trial.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -370,7 +370,7 @@ export const longevityScienceData = {
           source: "Lincoff et al., New England Journal of Medicine (2023); SELECT Trial",
           sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2307563",
           reasoning:
-            "Published in NEJM with a massive sample size and rigorous RCT design. The 20% cardiovascular reduction is clinically significant. However, GLP-1 agonists are not primarily aging drugs — they treat cardiometabolic disease, which is one component of aging. The directness to the overall longevity claim is moderate. Long-term safety data beyond 5 years is limited.",
+            "Published in NEJM with a massive sample size and rigorous RCT design. The 20% cardiovascular reduction is clinically significant. However, GLP-1 agonists are not primarily aging drugs; they treat cardiometabolic disease, which is one component of aging. The directness to the overall longevity claim is moderate. Long-term safety data beyond 5 years is limited.",
         },
       ],
     },
@@ -386,16 +386,16 @@ export const longevityScienceData = {
         "What works in mice rarely translates to humans with equivalent effect sizes. Caloric restriction extends mouse lifespan by 30-40% but shows modest effects in primates. The history of biomedical research is littered with therapies that worked spectacularly in animal models but failed in human trials. Longevity interventions face the additional challenge that human lifespan studies take decades to complete.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The translational gap between mice and humans is the graveyard of biomedical hype. Over 90% of drugs that pass animal testing fail in human trials. Longevity research faces a unique problem: you cannot run a randomized controlled trial of lifespan extension in humans — it would take 80+ years. Instead, researchers rely on surrogate biomarkers (epigenetic clocks, senescent cell counts, inflammatory markers) whose correlation with actual lifespan is unvalidated. The Bryan Johnson 'Don't Die' protocol, which costs $2M+/year, has shown epigenetic age reversal on DNA methylation clocks, but no one knows if a 'younger' epigenetic age actually translates to living longer. The entire field may be measuring artifacts rather than true aging.",
+        "The translational gap between mice and humans is the graveyard of biomedical hype. Over 90% of drugs that pass animal testing fail in human trials. Longevity research faces a unique problem: you cannot run a randomized controlled trial of lifespan extension in humans; it would take 80+ years. Instead, researchers rely on surrogate biomarkers (epigenetic clocks, senescent cell counts, inflammatory markers) whose correlation with actual lifespan is unvalidated. The Bryan Johnson 'Don't Die' protocol, which costs $2M+/year, has shown epigenetic age reversal on DNA methylation clocks, but no one knows if a 'younger' epigenetic age actually translates to living longer. The entire field may be measuring artifacts rather than true aging.",
       proponent_rebuttal:
-        "The translation gap is real but shrinking. Modern longevity research uses multiple complementary biomarkers rather than relying on any single proxy. The Horvath and GrimAge epigenetic clocks have been validated in longitudinal cohorts of tens of thousands of people — GrimAge predicts mortality, time to cancer, and time to coronary heart disease independently of traditional risk factors. The TAME trial (Targeting Aging with Metformin) is the first FDA-approved trial using aging itself as an indication, which will establish the regulatory pathway for future aging drugs. Importantly, the goal is not just lifespan but healthspan — and healthspan improvements can be measured in 5-10 year trials rather than requiring lifetime follow-up. The $5B+ flowing into longevity biotech is funding exactly these kinds of rigorous human trials.",
+        "The translation gap is real but shrinking. Modern longevity research uses multiple complementary biomarkers rather than relying on any single proxy. The Horvath and GrimAge epigenetic clocks have been validated in longitudinal cohorts of tens of thousands of people, GrimAge predicts mortality, time to cancer, and time to coronary heart disease independently of traditional risk factors. The TAME trial (Targeting Aging with Metformin) is the first FDA-approved trial using aging itself as an indication, which will establish the regulatory pathway for future aging drugs. Importantly, the goal is not just lifespan but healthspan, and healthspan improvements can be measured in 5-10 year trials rather than requiring lifetime follow-up. The $5B+ flowing into longevity biotech is funding exactly these kinds of rigorous human trials.",
       crux: {
         id: "biomarker-validation",
         title: "The Biomarker-to-Lifespan Validation",
         question:
           "Can aging biomarkers like epigenetic clocks stand in for lifespan when testing treatments in humans?",
         description:
-          "If epigenetic clocks and other aging biomarkers are shown to accurately predict remaining lifespan in large, diverse human cohorts — and if interventions that improve these biomarkers also reduce mortality — then surrogate endpoint trials become valid shortcuts for evaluating longevity interventions. If biomarkers prove unreliable predictors of actual lifespan outcomes, the field lacks a feasible way to evaluate interventions in humans.",
+          "If epigenetic clocks and other aging biomarkers are shown to accurately predict remaining lifespan in large, diverse human cohorts, and if interventions that improve these biomarkers also reduce mortality, then surrogate endpoint trials become valid shortcuts for evaluating longevity interventions. If biomarkers prove unreliable predictors of actual lifespan outcomes, the field lacks a feasible way to evaluate interventions in humans.",
         methodology:
           "Complete the TAME trial and analyze whether metformin's effects on epigenetic age correlate with its effects on composite aging outcomes (cancer, cardiovascular events, cognitive decline, mortality). Simultaneously, analyze 20+ year follow-up data from large biobank cohorts (UK Biobank, Framingham) to validate whether baseline epigenetic age acceleration predicts actual mortality with sufficient accuracy to serve as a trial endpoint.",
         verification_status: "theoretical" as const,
@@ -413,7 +413,7 @@ export const longevityScienceData = {
           common_ground:
             "Both sides agree a human lifespan trial would take 80+ years, so the field depends on biomarkers, and that the gap between animal results and human outcomes is real.",
           live_disagreement:
-            "Whether epigenetic clocks and other biomarkers are validated enough to serve as surrogate endpoints — so that a 'younger' measured age means a longer life — or whether the field may be measuring artifacts.",
+            "Whether epigenetic clocks and other biomarkers are validated enough to serve as surrogate endpoints, so that a 'younger' measured age means a longer life, or whether the field may be measuring artifacts.",
         },
       },
       evidence: [
@@ -449,7 +449,7 @@ export const longevityScienceData = {
           source: "Lu et al. (Horvath lab, UCLA), 'DNA methylation GrimAge strongly predicts lifespan and healthspan', Aging 11(2):303-327 (2019)",
           sourceUrl: "https://doi.org/10.18632/aging.101684",
           reasoning:
-            "Validated across multiple independent cohorts with strong statistical associations. However, prediction is not causation — knowing that accelerated epigenetic aging predicts death does not prove that reversing epigenetic age will extend life. The biomarker could be a downstream consequence rather than a causal driver of aging.",
+            "Validated across multiple independent cohorts with strong statistical associations. However, prediction is not causation, knowing that accelerated epigenetic aging predicts death does not prove that reversing epigenetic age will extend life. The biomarker could be a downstream consequence rather than a causal driver of aging.",
         },
       ],
     },
@@ -465,7 +465,7 @@ export const longevityScienceData = {
   ],
   references: [
     {
-      title: "The Hallmarks of Aging — Lopez-Otin et al., Cell (2013, updated 2023)",
+      title: "The Hallmarks of Aging, Lopez-Otin et al., Cell (2013, updated 2023)",
       url: "https://www.cell.com/cell/fulltext/S0092-8674(22)01377-0",
     },
     {
@@ -473,15 +473,15 @@ export const longevityScienceData = {
       url: "https://www.nia.nih.gov/research/dab/interventions-testing-program-itp",
     },
     {
-      title: "Targeting Aging with Metformin (TAME) Trial — American Federation for Aging Research",
+      title: "Targeting Aging with Metformin (TAME) Trial, American Federation for Aging Research",
       url: "https://web.archive.org/web/20260704152538/https://www.afar.org/tame-trial",
     },
     {
-      title: "In Vivo Amelioration of Age-Associated Hallmarks by Partial Reprogramming — Ocampo et al., Cell (2016)",
+      title: "In Vivo Amelioration of Age-Associated Hallmarks by Partial Reprogramming, Ocampo et al., Cell (2016)",
       url: "https://www.cell.com/cell/fulltext/S0092-8674(16)31664-6",
     },
     {
-      title: "Meet Altos Labs, Silicon Valley's latest wild bet on living forever — MIT Technology Review (2021)",
+      title: "Meet Altos Labs, Silicon Valley's latest wild bet on living forever, MIT Technology Review (2021)",
       url: "https://www.technologyreview.com/2021/09/04/1034364/altos-labs-silicon-valleys-jeff-bezos-milner-bet-living-forever/",
     },
   ],
@@ -496,7 +496,7 @@ export const longevityScienceData = {
       id: "q2",
       title: "Who will have access to life extension therapies?",
       content:
-        "If effective longevity treatments emerge, they will initially be expensive and available primarily to the wealthy. Senolytics and reprogramming therapies could cost $50,000-$500,000 per course. This raises the prospect of a 'longevity divide' where the rich live decades longer than the poor — exacerbating existing health inequities. Alternatively, drugs like metformin cost $4/month and could be universally accessible if proven effective.",
+        "If effective longevity treatments emerge, they will initially be expensive and available primarily to the wealthy. Senolytics and reprogramming therapies could cost $50,000-$500,000 per course. This raises the prospect of a 'longevity divide' where the rich live decades longer than the poor, exacerbating existing health inequities. Alternatively, drugs like metformin cost $4/month and could be universally accessible if proven effective.",
     },
     {
       id: "q3",

@@ -4,7 +4,7 @@ export const scottCostDiseaseData = {
   question:
     "Have US health, school and infrastructure costs soared without matching gains?",
   meta_claim:
-    "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
+    "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output, a genuine 'cost disease', and it is produced by a stack of reinforcing causes rather than any single villain.",
   status: "contested" as const,
   category: "economics" as const,
   references: [
@@ -27,7 +27,7 @@ export const scottCostDiseaseData = {
       id: "q1",
       title: "Is it one disease or five?",
       content:
-        "Scott's 2017 essay lined up candidate explanations — Baumol, regulation, administrative bloat, subsidized demand, risk-aversion — and declined to pick. This map assigns each a weight and, more importantly, the specific decomposition that would settle its share.",
+        "Scott's 2017 essay lined up candidate explanations (Baumol, regulation, administrative bloat, subsidized demand, risk-aversion) and declined to pick. This map assigns each a weight and, more importantly, the specific decomposition that would settle its share.",
     },
     {
       id: "q2",
@@ -39,7 +39,7 @@ export const scottCostDiseaseData = {
       id: "q3",
       title: "Why do only some sectors have it?",
       content:
-        "Haircuts and restaurants are just as labor-intensive as teaching, yet their real prices barely moved. The sectors that exploded — health, education, construction — share a second ingredient beyond low productivity growth.",
+        "Haircuts and restaurants are just as labor-intensive as teaching, yet their real prices barely moved. The sectors that exploded (health, education, construction) share a second ingredient beyond low productivity growth.",
     },
   ],
   // ── The opening: the fact under the title, then what rides on it ──
@@ -60,12 +60,12 @@ export const scottCostDiseaseData = {
       id: "baumol-effect",
       title: "The Baumol Effect (the null hypothesis)",
       short_summary:
-        "Labor-intensive services can't automate, so as wages rise economy-wide their relative prices must climb — no villain required.",
+        "Labor-intensive services can't automate, so as wages rise economy-wide their relative prices must climb, no villain required.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Baumol is the boring default and it fits: a teacher or nurse in 2020 does roughly what one did in 1960, but must be paid a 2020 wage set by economy-wide productivity. Rising relative prices are a mechanical accounting identity, not a pathology to be fixed.",
       proponent_rebuttal:
-        "Baumol predicts higher prices — it does NOT predict flat or falling output. Yet U.S. K–12 delivered flat NAEP scores while real per-pupil spending doubled, and some Baumol-exposed sectors (restaurants, haircuts) never exploded. Baumol is the floor of the stack, not the whole building.",
+        "Baumol predicts higher prices, it does NOT predict flat or falling output. Yet U.S. K–12 delivered flat NAEP scores while real per-pupil spending doubled, and some Baumol-exposed sectors (restaurants, haircuts) never exploded. Baumol is the floor of the stack, not the whole building.",
       crux: {
         id: "wage-decomposition",
         title: "The Wage-Decomposition Test",
@@ -91,7 +91,7 @@ export const scottCostDiseaseData = {
           common_ground:
             "Both sides accept Baumol's mechanism as real: labor-intensive services rise in relative price as the rest of the economy automates, so part of the cost rise needs no villain.",
           live_disagreement:
-            "How large the residual is once Baumol's wage effect is subtracted — small enough to call the rise a mechanical accounting identity, or large enough that other mechanisms dominate.",
+            "How large the residual is once Baumol's wage effect is subtracted, small enough to call the rise a mechanical accounting identity, or large enough that other mechanisms dominate.",
         },
       },
       evidence: [
@@ -99,7 +99,7 @@ export const scottCostDiseaseData = {
           id: "helland-tabarrok",
           title: "Helland & Tabarrok: Baumol carries the majority",
           description:
-            "Their 2019 Mercatus study concludes the Baumol mechanism accounts for the bulk of real price growth in education and a substantial share in health care — the sectors that exploded are the least automatable.",
+            "Their 2019 Mercatus study concludes the Baumol mechanism accounts for the bulk of real price growth in education and a substantial share in health care, the sectors that exploded are the least automatable.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -111,7 +111,7 @@ export const scottCostDiseaseData = {
           sourceUrl:
             "https://www.mercatus.org/research/books/why-are-prices-so-damn-high",
           reasoning:
-            "Careful, data-driven, and directly on the decomposition question — but authored by advocates of the Baumol reading.",
+            "Careful, data-driven, and directly on the decomposition question, but authored by advocates of the Baumol reading.",
         },
         {
           id: "baumol-book",
@@ -134,7 +134,7 @@ export const scottCostDiseaseData = {
           id: "haircut-counterexample",
           title: "The haircut counterexample",
           description:
-            "Personal services like haircuts and restaurant meals are just as labor-bound as teaching, yet their real prices grew only modestly — implying Baumol alone can't explain the outliers.",
+            "Personal services like haircuts and restaurant meals are just as labor-bound as teaching, yet their real prices grew only modestly, implying Baumol alone can't explain the outliers.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -142,7 +142,7 @@ export const scottCostDiseaseData = {
             replicability: 5,
             directness: 5,
           },
-          source: "Synthesis / inference — cross-sector price comparison, not a single study",
+          source: "Synthesis / inference: cross-sector price comparison, not a single study",
           reasoning:
             "A clean logical counterexample, though quantifying it precisely is harder than stating it.",
         },
@@ -150,7 +150,7 @@ export const scottCostDiseaseData = {
           id: "flat-output",
           title: "Flat output breaks the pure-Baumol story",
           description:
-            "NAEP long-term-trend scores for 17-year-olds are essentially flat since the 1970s while real per-pupil spending rose dramatically — Baumol predicts higher prices, not stagnant results.",
+            "NAEP long-term-trend scores for 17-year-olds are essentially flat since the 1970s while real per-pupil spending rose dramatically, Baumol predicts higher prices, not stagnant results.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -161,7 +161,7 @@ export const scottCostDiseaseData = {
           source: "NAEP Long-Term Trend Assessment",
           sourceUrl: "https://nces.ed.gov/pubs/web/96344han.asp",
           reasoning:
-            "Strong, well-measured — but speaks to quantity/quality, not directly to the price mechanism.",
+            "Strong, well-measured, but speaks to quantity/quality, not directly to the price mechanism.",
         },
         {
           id: "nordhaus-baumol-diseases",
@@ -187,7 +187,7 @@ export const scottCostDiseaseData = {
       id: "administrative-bloat",
       title: "Administrative Bloat & Third-Party Payment",
       short_summary:
-        "Layers of administrators, billers, and compliance staff — funded by insurers and government who write the checks — inflate cost without adding output.",
+        "Layers of administrators, billers, and compliance staff, funded by insurers and government who write the checks, inflate cost without adding output.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Some administrative growth is the genuine coordination cost of modern, complex care and regulation. And even a large admin share is arithmetically too small to explain a 5x rise in total cost on its own.",
@@ -214,7 +214,7 @@ export const scottCostDiseaseData = {
           skeptic_flip:
             "If matched comparisons confirmed U.S. health administration near four times Canada's per person ($2,497 versus $551 in 2017) at similar outcomes, and university administrators kept outgrowing faculty and students, the growth would look like bloat rather than coordination.",
           common_ground:
-            "Both sides agree administration is a large share of U.S. health spending — roughly a third by one estimate — and that no single administrative line explains a several-fold cost rise on its own.",
+            "Both sides agree administration is a large share of U.S. health spending, roughly a third by one estimate, and that no single administrative line explains a several-fold cost rise on its own.",
           live_disagreement:
             "How much of the administrative gap at equal outcomes is waste driven by third-party payment, and how much is the genuine coordination cost of modern care and regulation.",
         },
@@ -224,7 +224,7 @@ export const scottCostDiseaseData = {
           id: "himmelstein-2020",
           title: "U.S. health admin ≈ 4x Canada per capita",
           description:
-            "Himmelstein et al. (Annals of Internal Medicine, 2020) put U.S. health-care administrative costs at ~$2,497 per capita versus ~$551 in Canada (2017) — roughly a third of U.S. health spending.",
+            "Himmelstein et al. (Annals of Internal Medicine, 2020) put U.S. health-care administrative costs at ~$2,497 per capita versus ~$551 in Canada (2017), roughly a third of U.S. health spending.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -258,7 +258,7 @@ export const scottCostDiseaseData = {
           id: "admin-is-real-coordination",
           title: "Some admin is genuine coordination cost",
           description:
-            "Modern care coordinates specialists, imaging, pharmacology, and liability in ways 1960 medicine didn't — part of the administrative layer buys real (if unglamorous) output.",
+            "Modern care coordinates specialists, imaging, pharmacology, and liability in ways 1960 medicine didn't, part of the administrative layer buys real (if unglamorous) output.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -266,7 +266,7 @@ export const scottCostDiseaseData = {
             replicability: 4,
             directness: 6,
           },
-          source: "Synthesis / inference — qualitative steelman of administrative output",
+          source: "Synthesis / inference: qualitative steelman of administrative output",
           reasoning:
             "A fair steelman, but hard to size; much of the U.S.–Canada gap survives it.",
         },
@@ -279,7 +279,7 @@ export const scottCostDiseaseData = {
         "When government aid or insurance makes the buyer price-insensitive, providers can raise list prices and capture the subsidy.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "Subsidies exist to expand access, and empirical pass-through estimates are all over the map. Besides, K–12 has cost disease without the tuition-style demand subsidy that college has — so subsidy can't be the general mechanism.",
+        "Subsidies exist to expand access, and empirical pass-through estimates are all over the map. Besides, K–12 has cost disease without the tuition-style demand subsidy that college has, so subsidy can't be the general mechanism.",
       proponent_rebuttal:
         "Where the natural experiment is cleanest, the pass-through is large: the New York Fed found roughly 60 cents of each subsidized federal-loan dollar showed up as higher tuition. Insurance plays the analogous role in health care, blunting the price signal at the point of sale.",
       crux: {
@@ -301,13 +301,13 @@ export const scottCostDiseaseData = {
         cost_to_verify: "$0 (NY Fed Staff Report No. 733)",
         falsification: {
           supporter_flip:
-            "If difference-in-differences studies of loan-cap and reimbursement changes found low pass-through — subsidies mostly expanding access rather than raising list prices — subsidy capture would drop out of the cost-disease stack.",
+            "If difference-in-differences studies of loan-cap and reimbursement changes found low pass-through, subsidies mostly expanding access rather than raising list prices, subsidy capture would drop out of the cost-disease stack.",
           skeptic_flip:
             "If more natural experiments matched the New York Fed's estimate that about 60 cents of each subsidized federal-loan dollar showed up as higher sticker tuition, subsidy capture would be hard to dismiss as noise among widely varying estimates.",
           common_ground:
             "Both sides agree K–12 shows cost disease without a tuition-style demand subsidy, so subsidy capture can be at most one layer of the stack, not the general mechanism.",
           live_disagreement:
-            "How much of each aid or insurance dollar providers capture as higher prices rather than expanded access — large where the federal-loan natural experiment is cleanest, less certain in health care.",
+            "How much of each aid or insurance dollar providers capture as higher prices rather than expanded access, large where the federal-loan natural experiment is cleanest, less certain in health care.",
         },
       },
       evidence: [
@@ -326,7 +326,7 @@ export const scottCostDiseaseData = {
           source: "Lucca, Nadauld & Shen, Federal Reserve Bank of New York (2015)",
           sourceUrl: "https://www.newyorkfed.org/research/staff_reports/sr733",
           reasoning:
-            "Credibly identified natural experiment, directly on the mechanism — though specific to subsidized loans.",
+            "Credibly identified natural experiment, directly on the mechanism, though specific to subsidized loans.",
         },
         {
           id: "insurance-price-insensitivity",
@@ -349,7 +349,7 @@ export const scottCostDiseaseData = {
           id: "k12-counterexample",
           title: "K–12 has the disease without the subsidy",
           description:
-            "Public schooling is tax-funded, not demand-subsidized through a tuition market, yet still shows cost disease — so subsidy capture can't be the universal explanation.",
+            "Public schooling is tax-funded, not demand-subsidized through a tuition market, yet still shows cost disease, so subsidy capture can't be the universal explanation.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -387,12 +387,12 @@ export const scottCostDiseaseData = {
       id: "regulatory-procurement",
       title: "Regulatory & Procurement Dysfunction",
       short_summary:
-        "The U.S. builds physical things — subways, housing, highways — at multiples of peer-nation cost, driven by litigation, consultants, and weak state capacity.",
+        "The U.S. builds physical things (subways, housing, highways) at multiples of peer-nation cost, driven by litigation, consultants, and weak state capacity.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Cross-country comparisons are apples-to-oranges: geology, labor law, wages, density, and project scope all differ. Some of the apparent gap is measurement, not dysfunction.",
       proponent_rebuttal:
-        "Matched-project studies control for exactly that and the gap survives: U.S. subway tunneling runs several times French or Korean costs for comparable work, and per-mile Interstate costs tripled as litigation and 'citizen voice' grew. This is the one branch of cost disease with no productivity-growth excuse — a tunnel is a tunnel.",
+        "Matched-project studies control for exactly that and the gap survives: U.S. subway tunneling runs several times French or Korean costs for comparable work, and per-mile Interstate costs tripled as litigation and 'citizen voice' grew. This is the one branch of cost disease with no productivity-growth excuse, a tunnel is a tunnel.",
       crux: {
         id: "matched-project-ratio",
         title: "The Matched-Project Cost Ratio",
@@ -416,7 +416,7 @@ export const scottCostDiseaseData = {
           common_ground:
             "Both sides agree differences in station scope, utility relocation, wages and urban density explain part of the gap between U.S. and peer-nation construction costs.",
           live_disagreement:
-            "Whether a large U.S. cost multiple survives once wages, geology and scope are controlled for — the one branch of cost disease with no productivity-growth excuse — or whether much of it is measurement.",
+            "Whether a large U.S. cost multiple survives once wages, geology and scope are controlled for, the one branch of cost disease with no productivity-growth excuse, or whether much of it is measurement.",
         },
       },
       evidence: [
@@ -424,7 +424,7 @@ export const scottCostDiseaseData = {
           id: "transit-costs-project",
           title: "U.S. transit costs multiples of peers",
           description:
-            "The NYU Marron Transit Costs Project documents U.S. subway construction at several times comparable European and Asian costs — New York's Second Avenue Subway ran roughly $2.5 billion per mile.",
+            "The NYU Marron Transit Costs Project documents U.S. subway construction at several times comparable European and Asian costs, New York's Second Avenue Subway ran roughly $2.5 billion per mile.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -458,7 +458,7 @@ export const scottCostDiseaseData = {
           id: "scope-geography",
           title: "Scope and geography confound comparisons",
           description:
-            "Differences in station scope, utility relocation, wages, and urban density explain part — though studies suggest not most — of the international cost gap.",
+            "Differences in station scope, utility relocation, wages, and urban density explain part, though studies suggest not most, of the international cost gap.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -499,7 +499,7 @@ export const scottCostDiseaseData = {
         "The steelman for 'no disease at all': a 2020 hospital and a 1960 hospital are not the same product, and we fail to price the improvement.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "Modern medicine cures cancers and manages HIV that 1960 medicine could only watch. If we quality-adjusted properly, much of the apparent cost explosion would reveal itself as buying a genuinely better good — cost disease as a statistical illusion.",
+        "Modern medicine cures cancers and manages HIV that 1960 medicine could only watch. If we quality-adjusted properly, much of the apparent cost explosion would reveal itself as buying a genuinely better good, cost disease as a statistical illusion.",
       proponent_rebuttal:
         "Quality-adjustment rescues some of health care but breaks on the other sectors: K–12 outcomes (NAEP) are flat despite doubled real spending, and U.S. life-expectancy gains stalled and then reversed in the late 2010s even as spending rose. You cannot mismeasure your way out of flat outputs.",
       crux: {
@@ -508,7 +508,7 @@ export const scottCostDiseaseData = {
         question:
           "Do costs still rise when measured per outcome, like per healthy life-year or per point of test score?",
         description:
-          "Rebuild each sector's price series on a per-outcome basis — cost per QALY, cost per NAEP point, cost per passenger-mile. If outcome-adjusted prices are flat, the disease is measurement; if they still rise, it's real.",
+          "Rebuild each sector's price series on a per-outcome basis, cost per QALY, cost per NAEP point, cost per passenger-mile. If outcome-adjusted prices are flat, the disease is measurement; if they still rise, it's real.",
         methodology:
           "Construct hedonic/outcome-denominated indices for each sector and compare their trend to the raw price trend. Divergence quantifies how much of 'cost disease' is unpriced quality.",
         verification_status: "theoretical" as const,
@@ -519,13 +519,13 @@ export const scottCostDiseaseData = {
         cost_to_verify: "$50K (hedonic index construction across sectors)",
         falsification: {
           supporter_flip:
-            "If outcome-denominated price indices — cost per QALY, per NAEP point, per passenger-mile — came out roughly flat, the apparent explosion would be unpriced quality, and the cost-disease claim would reduce to a measurement problem.",
+            "If outcome-denominated price indices (cost per QALY, per NAEP point, per passenger-mile) came out roughly flat, the apparent explosion would be unpriced quality, and the cost-disease claim would reduce to a measurement problem.",
           skeptic_flip:
             "If outcome-adjusted series confirmed that NAEP scores for 17-year-olds barely moved as real school spending rose, and that U.S. life expectancy stalled in the 2010s as health spending climbed, the rise would be hard to explain as unpriced quality.",
           common_ground:
-            "Both sides agree modern medicine delivers real gains — statins, antiretrovirals, modern oncology — that raw price indices ignore, so quality adjustment accounts for at least part of health care's cost rise.",
+            "Both sides agree modern medicine delivers real gains (statins, antiretrovirals, modern oncology) that raw price indices ignore, so quality adjustment accounts for at least part of health care's cost rise.",
           live_disagreement:
-            "How much of the cost rise is unpriced quality once each sector is measured per outcome — plausible for medicine, harder to square with flat test scores and stalled life expectancy.",
+            "How much of the cost rise is unpriced quality once each sector is measured per outcome, plausible for medicine, harder to square with flat test scores and stalled life expectancy.",
         },
       },
       evidence: [
@@ -533,7 +533,7 @@ export const scottCostDiseaseData = {
           id: "medicine-improved",
           title: "Health care really did improve",
           description:
-            "Statins, antiretrovirals, minimally invasive surgery, and modern oncology deliver outcomes unavailable at any price in 1960 — real quality gains that raw price indices ignore.",
+            "Statins, antiretrovirals, minimally invasive surgery, and modern oncology deliver outcomes unavailable at any price in 1960, real quality gains that raw price indices ignore.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -541,7 +541,7 @@ export const scottCostDiseaseData = {
             replicability: 5,
             directness: 5,
           },
-          source: "Synthesis / inference — broad historical quality adjustment across treatments",
+          source: "Synthesis / inference: broad historical quality adjustment across treatments",
           reasoning:
             "Clearly true for health care; the question is how much of the cost it justifies.",
         },
@@ -567,7 +567,7 @@ export const scottCostDiseaseData = {
           id: "naep-flat",
           title: "Schooling outputs are flat",
           description:
-            "NAEP long-term-trend scores for 17-year-olds barely moved since the 1970s while real per-pupil spending rose dramatically — leaving no measured achievement gain to absorb the extra cost.",
+            "NAEP long-term-trend scores for 17-year-olds barely moved since the 1970s while real per-pupil spending rose dramatically, leaving no measured achievement gain to absorb the extra cost.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -584,7 +584,7 @@ export const scottCostDiseaseData = {
           id: "life-expectancy-stall",
           title: "Life-expectancy gains stalled",
           description:
-            "U.S. life expectancy plateaued in the 2010s and fell before the pandemic even as health spending kept climbing — hard to square with a pure quality-improvement story.",
+            "U.S. life expectancy plateaued in the 2010s and fell before the pandemic even as health spending kept climbing, hard to square with a pure quality-improvement story.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

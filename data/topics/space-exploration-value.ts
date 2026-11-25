@@ -24,12 +24,12 @@ export const spaceExplorationValueData = {
       id: "economic-returns-spinoffs",
       title: "Economic Returns & Spin-offs",
       short_summary:
-        "The popular \"$7-14 back per dollar\" spin-off figure turns out to be a 1970s-90s estimate built on an assumed rate of return, not measured revenue; better-grounded analyses land closer to 2-3:1. The honest case for funding rests on the genuine technologies and the large, fast-growing commercial space sector — not a magic multiplier.",
+        "The popular \"$7-14 back per dollar\" spin-off figure turns out to be a 1970s-90s estimate built on an assumed rate of return, not measured revenue; better-grounded analyses land closer to 2-3:1. The honest case for funding rests on the genuine technologies and the large, fast-growing commercial space sector, not a magic multiplier.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "NASA's ~$24.9B FY2024 budget could instead seed domestic priorities — childcare, water infrastructure, housing — with nearer-term, easier-to-measure impact. Space tourism in particular looks like a billionaire's playground riding on taxpayer-funded launch capability. And the spin-off story is oversold: Tang was a Kraft product NASA merely flew (not invented), and the famous \"$7-14 per dollar\" multiplier is a promotional estimate, not a measured return. Strip away the exaggeration and the question is whether the genuine benefits justify spending public money on space rather than on people who lack basics today.",
+        "NASA's ~$24.9B FY2024 budget could instead seed domestic priorities, childcare, water infrastructure, housing, with nearer-term, easier-to-measure impact. Space tourism in particular looks like a billionaire's playground riding on taxpayer-funded launch capability. And the spin-off story is oversold: Tang was a Kraft product NASA merely flew (not invented), and the famous \"$7-14 per dollar\" multiplier is a promotional estimate, not a measured return. Strip away the exaggeration and the question is whether the genuine benefits justify spending public money on space rather than on people who lack basics today.",
       proponent_rebuttal:
-        "Skip the inflated multiplier and the case still holds. Real, attributable spin-offs include advances embedded in GPS, water purification, medical imaging, and satellite communications, and NASA has documented over 2,000 such technology transfers since 1976. The commercial space economy reached roughly $570B in 2023 and a 2024 WEF/McKinsey forecast projects ~$1.8T by 2035. SpaceX's reusable rockets cut launch costs dramatically, seeding a private sector that now dwarfs government spending — even if the headline ROI ratio was never solid.",
+        "Skip the inflated multiplier and the case still holds. Real, attributable spin-offs include advances embedded in GPS, water purification, medical imaging, and satellite communications, and NASA has documented over 2,000 such technology transfers since 1976. The commercial space economy reached roughly $570B in 2023 and a 2024 WEF/McKinsey forecast projects ~$1.8T by 2035. SpaceX's reusable rockets cut launch costs dramatically, seeding a private sector that now dwarfs government spending, even if the headline ROI ratio was never solid.",
       crux: {
         id: "space-economy-roi",
         title: "Space Investment ROI Calculation",
@@ -97,7 +97,7 @@ export const spaceExplorationValueData = {
           id: "opportunity-cost-analysis",
           title: "Opportunity Cost: NASA's Budget vs. Social Programs",
           description:
-            "NASA's enacted FY2024 budget was $24.875B — money that could instead fund domestic priorities such as childcare, water infrastructure, or housing. But the zero-sum framing is weak: NASA is only about 0.4% of the ~$6.8T federal budget, so its appropriation is far smaller than the cost of most universal social programs (e.g. universal pre-K is generally estimated in the tens of billions per year).",
+            "NASA's enacted FY2024 budget was $24.875B, money that could instead fund domestic priorities such as childcare, water infrastructure, or housing. But the zero-sum framing is weak: NASA is only about 0.4% of the ~$6.8T federal budget, so its appropriation is far smaller than the cost of most universal social programs (e.g. universal pre-K is generally estimated in the tens of billions per year).",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -136,9 +136,9 @@ export const spaceExplorationValueData = {
         "The Mars Perseverance rover cost $2.7B. A crewed mission would cost $100B+. The rover does not inspire children to become engineers, but it also does not need life support.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Robotic missions deliver most of the achievable science at a small fraction of the cost and none of the risk to human life. The ISS cost well over $100B and, for that price, has produced incremental rather than game-changing science. Space debris is a mounting, possibly self-reinforcing risk — ESA tracked roughly 35,000 objects in 2024 (about 26,000 of them debris larger than 10cm), with over a million fragments above 1cm estimated in orbit, threatening the satellites that underpin GPS, weather, and communications. And militarizing orbit accelerates a dangerous arms race.",
+        "Robotic missions deliver most of the achievable science at a small fraction of the cost and none of the risk to human life. The ISS cost well over $100B and, for that price, has produced incremental rather than game-changing science. Space debris is a mounting, possibly self-reinforcing risk: ESA tracked roughly 35,000 objects in 2024 (about 26,000 of them debris larger than 10cm), with over a million fragments above 1cm estimated in orbit, threatening the satellites that underpin GPS, weather, and communications. And militarizing orbit accelerates a dangerous arms race.",
       proponent_rebuttal:
-        "Much of this value has no Earth-bound substitute. Earth-observing satellites supply continuous, planet-wide climate and disaster data that ground networks cannot replicate. NASA's DART mission (a ~$324.5M test) measurably shifted asteroid Dimorphos's orbit, proving a real, if low-probability, planetary-defense capability. Orbital assets — positioning, reconnaissance, communications — are now core strategic infrastructure. The human-vs-robotic tradeoff is genuinely contested: robots win on cost-per-result, but crewed missions drive public engagement and STEM pipelines in ways uncrewed probes have not matched. The strongest case leans on the robotic and dual-use wins, not on assuming human missions pay for themselves.",
+        "Much of this value has no Earth-bound substitute. Earth-observing satellites supply continuous, planet-wide climate and disaster data that ground networks cannot replicate. NASA's DART mission (a ~$324.5M test) measurably shifted asteroid Dimorphos's orbit, proving a real, if low-probability, planetary-defense capability. Orbital assets, positioning, reconnaissance, communications, are now core strategic infrastructure. The human-vs-robotic tradeoff is genuinely contested: robots win on cost-per-result, but crewed missions drive public engagement and STEM pipelines in ways uncrewed probes have not matched. The strongest case leans on the robotic and dual-use wins, not on assuming human missions pay for themselves.",
       crux: {
         id: "human-vs-robotic-value",
         title: "Human vs. Robotic Mission Value Comparison",
@@ -158,7 +158,7 @@ export const spaceExplorationValueData = {
         cost_to_verify: "$200K (Comparative meta-analysis)",
         falsification: {
           supporter_flip:
-            "If a systematic comparison showed robotic missions deliver essentially all the achievable science and strategic value per dollar — and the 'inspiration/STEM pipeline' benefit of crewed flight couldn't be measured or didn't materialize — the case for expensive human missions would collapse to robots-only.",
+            "If a systematic comparison showed robotic missions deliver essentially all the achievable science and strategic value per dollar, and the 'inspiration/STEM pipeline' benefit of crewed flight couldn't be measured or didn't materialize, the case for expensive human missions would collapse to robots-only.",
           skeptic_flip:
             "If uses with no Earth substitute, like continuous climate and disaster satellites and asteroid deflection on the DART model, kept growing, and crewed missions measurably raised STEM interest beyond what probes do, a robots-only program would look like it leaves value behind.",
           common_ground:
@@ -172,7 +172,7 @@ export const spaceExplorationValueData = {
           id: "dart-success",
           title: "DART Asteroid Deflection Mission Succeeded",
           description:
-            "NASA's DART mission (impact Sept 2022) shortened asteroid Dimorphos's orbit around Didymos by about 33 minutes — far exceeding the 73-second minimum success threshold. This demonstrated humanity can alter an asteroid's trajectory, addressing a real (if low-probability) existential risk. The DART project cost about $324.5M total, a fraction of the damage from even a small asteroid impact.",
+            "NASA's DART mission (impact Sept 2022) shortened asteroid Dimorphos's orbit around Didymos by about 33 minutes, far exceeding the 73-second minimum success threshold. This demonstrated humanity can alter an asteroid's trajectory, addressing a real (if low-probability) existential risk. The DART project cost about $324.5M total, a fraction of the damage from even a small asteroid impact.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -189,7 +189,7 @@ export const spaceExplorationValueData = {
           id: "robotic-vs-human-cost",
           title: "Robotic Missions Cost a Fraction of Crewed Missions",
           description:
-            "The Mars Perseverance rover cost about $2.7B (lifecycle) and has operated since 2021. By contrast, estimates for a crewed Mars mission run into the hundreds of billions of dollars. The James Webb Space Telescope cost roughly $10B and has delivered a stream of major findings. Per-dollar, robotic missions deliver substantial science without the cost and risk of human life support — though the comparison mixes mission types with different goals.",
+            "The Mars Perseverance rover cost about $2.7B (lifecycle) and has operated since 2021. By contrast, estimates for a crewed Mars mission run into the hundreds of billions of dollars. The James Webb Space Telescope cost roughly $10B and has delivered a stream of major findings. Per-dollar, robotic missions deliver substantial science without the cost and risk of human life support, though the comparison mixes mission types with different goals.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -206,7 +206,7 @@ export const spaceExplorationValueData = {
           id: "climate-satellite-data",
           title: "Climate Satellites Provide Irreplaceable Earth Data",
           description:
-            "NASA's Earth-observing satellites — including Landsat (land cover/deforestation since 1972), MODIS (vegetation, fires, surface change), and OCO-2 (atmospheric CO2 since 2014) — provide global-scale data used to track land change, sea level, ice, and carbon. This continuous, planet-wide coverage has no ground-based equivalent and feeds the climate models used worldwide.",
+            "NASA's Earth-observing satellites, including Landsat (land cover/deforestation since 1972), MODIS (vegetation, fires, surface change), and OCO-2 (atmospheric CO2 since 2014), provide global-scale data used to track land change, sea level, ice, and carbon. This continuous, planet-wide coverage has no ground-based equivalent and feeds the climate models used worldwide.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,

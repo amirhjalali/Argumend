@@ -30,7 +30,7 @@ export const bigTechAntitrustData = {
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: What the courts found — how the giants stayed on top
+    // PILLAR 1: What the courts found, how the giants stayed on top
     // =========================================================================
     {
       id: "market-power-competition",
@@ -148,7 +148,7 @@ export const bigTechAntitrustData = {
     },
 
     // =========================================================================
-    // PILLAR 2: Consumer harm — what does dominance cost users of free products?
+    // PILLAR 2: Consumer harm, what does dominance cost users of free products?
     // =========================================================================
     {
       id: "consumer-harm",
@@ -424,7 +424,7 @@ export const bigTechAntitrustData = {
     },
 
     // =========================================================================
-    // PILLAR 4: What to do — breakups or rules?
+    // PILLAR 4: What to do, breakups or rules?
     // =========================================================================
     {
       id: "remedy-choice",

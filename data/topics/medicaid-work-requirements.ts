@@ -113,7 +113,7 @@ export const medicaidWorkRequirementsData = {
             directness: 9,
           },
           source:
-            "Sommers, Goldman, Blendon, Orav & Epstein, 'Medicaid Work Requirements — Results from the First Year in Arkansas', New England Journal of Medicine 381(11), 1073-1082 (2019)",
+            "Sommers, Goldman, Blendon, Orav & Epstein, 'Medicaid Work Requirements: Results from the First Year in Arkansas', New England Journal of Medicine 381(11), 1073-1082 (2019)",
           sourceUrl: "https://doi.org/10.1056/NEJMsr1901772",
           reasoning:
             "Peer-reviewed difference-in-differences study of the only Medicaid work requirement enforced before 2026, so directness is high. A telephone survey over the first six months of a program halted by a court in 2019 limits replicability, and the program relied on monthly online reports, so its losses may not carry over to designs that verify work with existing records.",

@@ -29,9 +29,9 @@ export const aiContentLabelingData = {
         "Proponents argue labeling AI content helps the public distinguish real from synthetic media; skeptics counter that removable labels may do little to slow misinformation.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The labels that matter least are the ones adversaries control. Invisible watermarks are removable by diffusion-purification and adversarial attacks (Saberi/Feizi et al. broke every scheme they tested), and metadata-based provenance like C2PA is stripped by any screenshot, re-encode, or upload that drops the signature. Worse, the same techniques let attackers forge labels — flagging genuine images as synthetic. Mandatory labeling can thus create a false sense of security: unlabeled content gets trusted more by default, exactly the inference a motivated bad actor wants, while honest creators bear the compliance cost.",
+        "The labels that matter least are the ones adversaries control. Invisible watermarks are removable by diffusion-purification and adversarial attacks (Saberi/Feizi et al. broke every scheme they tested), and metadata-based provenance like C2PA is stripped by any screenshot, re-encode, or upload that drops the signature. Worse, the same techniques let attackers forge labels, flagging genuine images as synthetic. Mandatory labeling can thus create a false sense of security: unlabeled content gets trusted more by default, exactly the inference a motivated bad actor wants, while honest creators bear the compliance cost.",
       proponent_rebuttal:
-        "No serious proponent claims watermarks are unbreakable — the point is to raise the cost and default expectation of disclosure, not to make evasion impossible. Cryptographic provenance (C2PA Content Credentials) is signed, not a removable watermark: stripping it removes the proof of authenticity rather than forging it, so absent or broken credentials become a signal in themselves. Paired with platform-side detection and legal accountability under the EU AI Act, even imperfect labeling shifts norms the way nutrition and paid-partnership disclosures did — reducing casual deception without pretending to stop a determined attacker.",
+        "No serious proponent claims watermarks are unbreakable, the point is to raise the cost and default expectation of disclosure, not to make evasion impossible. Cryptographic provenance (C2PA Content Credentials) is signed, not a removable watermark: stripping it removes the proof of authenticity rather than forging it, so absent or broken credentials become a signal in themselves. Paired with platform-side detection and legal accountability under the EU AI Act, even imperfect labeling shifts norms the way nutrition and paid-partnership disclosures did, reducing casual deception without pretending to stop a determined attacker.",
       crux: {
         id: "watermark-robustness",
         title: "Watermark Robustness Under Adversarial Conditions",
@@ -57,7 +57,7 @@ export const aiContentLabelingData = {
           common_ground:
             "Both sides agree no current watermark is unbreakable by a determined adversary, and that labeling raises the cost and default expectation of disclosure for casual, non-adversarial uses.",
           live_disagreement:
-            "Whether robustness is improving fast enough that watermarks survive real-world transformations and adversarial removal at usable rates — which only a standardized, large-scale adversarial benchmark (in the spirit of WAVES) tracking survival over time can resolve.",
+            "Whether robustness is improving fast enough that watermarks survive real-world transformations and adversarial removal at usable rates, which only a standardized, large-scale adversarial benchmark (in the spirit of WAVES) tracking survival over time can resolve.",
         },
       },
       evidence: [
@@ -73,7 +73,7 @@ export const aiContentLabelingData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Regulation (EU) 2024/1689 (EU AI Act), Articles 50 and 99 — Official Journal of the EU; Gibson Dunn, 'EU AI Act Omnibus Agreement' (27 May 2026) for the marking grace period",
+          source: "Regulation (EU) 2024/1689 (EU AI Act), Articles 50 and 99: Official Journal of the EU; Gibson Dunn, 'EU AI Act Omnibus Agreement' (27 May 2026) for the marking grace period",
           sourceUrl: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689",
           reasoning:
             "This is the binding primary-source legal text in the Official Journal of the EU, not a third-party explainer; the labeling mandate (Art. 50) and the 3%/€15M penalty tier (Art. 99) are quoted directly from the regulation. An earlier draft attributed this to 'European Parliament' with a third-party explainer URL (artificialintelligenceact.eu); the underlying figures were correct but the attribution was not, so the source has been corrected to the primary text while keeping the high reliability score.",
@@ -82,7 +82,7 @@ export const aiContentLabelingData = {
           id: "deepfake-detection-rates",
           title: "Human Deepfake Detection Rates Near Chance",
           description:
-            "In Nightingale & Farid's PNAS study, participants distinguished StyleGAN2-synthesized faces from real ones with an average accuracy of 48.2% — statistically indistinguishable from chance (50%). The study further found AI-synthesized faces were rated, on average, ~7.7% more trustworthy than real faces. This indicates humans cannot reliably perceive AI-generated faces unaided, so labels would supply information perception cannot.",
+            "In Nightingale & Farid's PNAS study, participants distinguished StyleGAN2-synthesized faces from real ones with an average accuracy of 48.2%, statistically indistinguishable from chance (50%). The study further found AI-synthesized faces were rated, on average, ~7.7% more trustworthy than real faces. This indicates humans cannot reliably perceive AI-generated faces unaided, so labels would supply information perception cannot.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -90,10 +90,10 @@ export const aiContentLabelingData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Nightingale, S. J. & Farid, H. (2022), \"AI-synthesized faces are indistinguishable from real faces and more trustworthy,\" PNAS 119(8) — Lancaster University & UC Berkeley",
+          source: "Nightingale, S. J. & Farid, H. (2022), \"AI-synthesized faces are indistinguishable from real faces and more trustworthy,\" PNAS 119(8): Lancaster University & UC Berkeley",
           sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.2120481119",
           reasoning:
-            "Peer-reviewed PNAS study. Demonstrates clear need since human perception alone is at chance. The prior draft mis-attributed this finding to 'University of Washington (2023)'; the actual peer-reviewed source is Nightingale & Farid (2022, PNAS), whose Experiment 1 reported 48.2% accuracy — so the attribution, year, and number have been corrected to the primary source.",
+            "Peer-reviewed PNAS study. Demonstrates clear need since human perception alone is at chance. The prior draft mis-attributed this finding to 'University of Washington (2023)'; the actual peer-reviewed source is Nightingale & Farid (2022, PNAS), whose Experiment 1 reported 48.2% accuracy, so the attribution, year, and number have been corrected to the primary source.",
         },
         {
           id: "synthid-text-nature-20m",
@@ -128,7 +128,7 @@ export const aiContentLabelingData = {
           source: "Meta Newsroom, \"Our Approach to Labeling AI-Generated Content and Manipulated Media\" (April 5, 2024)",
           sourceUrl: "https://about.fb.com/news/2024/04/metas-approach-to-labeling-ai-generated-content-and-manipulated-media/",
           reasoning:
-            "Platform self-reported announcement; independence is low. The prior draft asserted 'labeled content receives 10-15% less sharing' attributed to the Meta Transparency Center — that specific behavioral statistic could not be verified in any Meta or third-party source, so it has been removed. The claim is now narrowed to the verifiable fact that Meta and YouTube deployed AI-content labels, and weights were de-inflated accordingly.",
+            "Platform self-reported announcement; independence is low. The prior draft asserted 'labeled content receives 10-15% less sharing' attributed to the Meta Transparency Center; that specific behavioral statistic could not be verified in any Meta or third-party source, so it has been removed. The claim is now narrowed to the verifiable fact that Meta and YouTube deployed AI-content labels, and weights were de-inflated accordingly.",
         },
         {
           id: "watermark-removal-ease",
@@ -174,9 +174,9 @@ export const aiContentLabelingData = {
         "Mandatory labeling may burden legitimate creative, educational, and journalistic uses of AI tools.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The hard problem is line-drawing, not disclosure in principle. Where does 'AI-generated' begin — spell-check, autocomplete, AI transcription, a grammar pass, a generated background? Broad mandates sweep in ordinary creative and educational tooling, and compelling expressive (non-commercial) speakers to attach a state-prescribed label invites heightened First Amendment scrutiny, not the deferential review that covers commercial disclosures. The likely result is over-labeling that trains audiences to ignore the tag, plus a chilling effect on creators who fear stigma — a burden that falls hardest on small and independent voices.",
+        "The hard problem is line-drawing, not disclosure in principle. Where does 'AI-generated' begin, spell-check, autocomplete, AI transcription, a grammar pass, a generated background? Broad mandates sweep in ordinary creative and educational tooling, and compelling expressive (non-commercial) speakers to attach a state-prescribed label invites heightened First Amendment scrutiny, not the deferential review that covers commercial disclosures. The likely result is over-labeling that trains audiences to ignore the tag, plus a chilling effect on creators who fear stigma, a burden that falls hardest on small and independent voices.",
       proponent_rebuttal:
-        "A workable mandate targets deception, not assistance: disclosure can be scoped to realistic synthetic media that could mislead about real people or events, leaving spell-check and routine editing untouched. Within that scope, transparency about provenance is a thin, factual requirement — closer to the paid-partnership and material-connection disclosures that have long coexisted with robust expression than to compelled ideological speech. The right to free expression protects the message; it does not include a right to misrepresent whether a depicted event actually happened.",
+        "A workable mandate targets deception, not assistance: disclosure can be scoped to realistic synthetic media that could mislead about real people or events, leaving spell-check and routine editing untouched. Within that scope, transparency about provenance is a thin, factual requirement, closer to the paid-partnership and material-connection disclosures that have long coexisted with robust expression than to compelled ideological speech. The right to free expression protects the message; it does not include a right to misrepresent whether a depicted event actually happened.",
       crux: {
         id: "chilling-effect-measurement",
         title: "Measuring Chilling Effects on Creative AI Use",
@@ -202,7 +202,7 @@ export const aiContentLabelingData = {
           common_ground:
             "Both sides agree narrowly targeted disclosure of deceptive synthetic media is defensible, and that an over-broad mandate sweeping in ordinary editing tools would be both legally riskier and prone to over-labeling that audiences learn to ignore.",
           live_disagreement:
-            "Whether real-world labeling mandates measurably reduce beneficial AI adoption and creative output — and where the line between 'AI-generated' and 'AI-assisted' falls in practice — which only a controlled cross-jurisdictional comparison plus creator-burden surveys can settle.",
+            "Whether real-world labeling mandates measurably reduce beneficial AI adoption and creative output, and where the line between 'AI-generated' and 'AI-assisted' falls in practice, which only a controlled cross-jurisdictional comparison plus creator-burden surveys can settle.",
         },
       },
       evidence: [
@@ -210,7 +210,7 @@ export const aiContentLabelingData = {
           id: "first-amendment-analyses",
           title: "Compelled-Disclosure Doctrine Is Contested for AI Labeling",
           description:
-            "Whether mandatory AI labeling survives the First Amendment turns on the compelled-speech doctrine. Under Zauderer v. Office of Disciplinary Counsel (1985), the government may compel 'purely factual and uncontroversial' commercial disclosures reasonably related to preventing consumer deception — the basis for arguing AI labels are permissible (like nutrition or paid-partnership labels). Critics counter that broad mandates on non-commercial expressive content trigger heightened scrutiny and may be unconstitutional compelled speech. Legal commentators disagree on which framework governs.",
+            "Whether mandatory AI labeling survives the First Amendment turns on the compelled-speech doctrine. Under Zauderer v. Office of Disciplinary Counsel (1985), the government may compel 'purely factual and uncontroversial' commercial disclosures reasonably related to preventing consumer deception, the basis for arguing AI labels are permissible (like nutrition or paid-partnership labels). Critics counter that broad mandates on non-commercial expressive content trigger heightened scrutiny and may be unconstitutional compelled speech. Legal commentators disagree on which framework governs.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -245,7 +245,7 @@ export const aiContentLabelingData = {
           id: "china-labeling-law",
           title: "China Mandated AI Content Labeling From 2023",
           description:
-            "China's Provisions on the Administration of Deep Synthesis of Internet Information Services (issued by the CAC, MIIT and MPS on Nov 25, 2022; effective Jan 10, 2023) require providers to add conspicuous labels to deep-synthesis (AI-generated/manipulated) content — text, images, audio, video — that could confuse the public. This establishes that a major jurisdiction has imposed mandatory labeling, offering a real-world precedent, though its enforcement record and effects on creators are not well documented in independent sources.",
+            "China's Provisions on the Administration of Deep Synthesis of Internet Information Services (issued by the CAC, MIIT and MPS on Nov 25, 2022; effective Jan 10, 2023) require providers to add conspicuous labels to deep-synthesis (AI-generated/manipulated) content, text, images, audio, video, that could confuse the public. This establishes that a major jurisdiction has imposed mandatory labeling, offering a real-world precedent, though its enforcement record and effects on creators are not well documented in independent sources.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -253,7 +253,7 @@ export const aiContentLabelingData = {
             replicability: 4,
             directness: 6,
           },
-          source: "Provisions on the Administration of Deep Synthesis of Internet Information Services (China, effective Jan 10, 2023) — English translation via China Law Translate",
+          source: "Provisions on the Administration of Deep Synthesis of Internet Information Services (China, effective Jan 10, 2023): English translation via China Law Translate",
           sourceUrl: "https://www.chinalawtranslate.com/en/deep-synthesis/",
           reasoning:
             "Primary regulatory text (translated). The prior draft asserted the law has been 'inconsistently enforced' and that 'creative users report self-censoring' attributed vaguely to 'DigiChina, Stanford' with no URL; those enforcement-outcome and self-censorship claims could not be verified, so the description was narrowed to the verifiable existence and content of the mandate, the speculative outcomes were flagged as undocumented, and weights were de-inflated. China's regulatory context differs significantly from democracies.",
@@ -270,7 +270,7 @@ export const aiContentLabelingData = {
             replicability: 4,
             directness: 5,
           },
-          source: "\"Artists and writers are often hesitant to disclose they've collaborated with AI — and those fears may be justified,\" The Conversation / FIU (2026)",
+          source: "\"Artists and writers are often hesitant to disclose they've collaborated with AI, and those fears may be justified,\" The Conversation / FIU (2026)",
           sourceUrl: "https://theconversation.com/artists-and-writers-are-often-hesitant-to-disclose-theyve-collaborated-with-ai-and-those-fears-may-be-justified-275888",
           reasoning:
             "The prior draft cited '62-68% support' attributed to 'Creative Commons, Authors Guild' with no URL; no Creative Commons or Authors Guild survey reporting those figures could be located, so the specific statistic was removed as unverifiable. The claim is now limited to the directional, verifiable finding (support for disclosure norms alongside reluctance to self-disclose) and weights were substantially de-inflated. Reliability remains low: this is journalistic/secondary reporting, not a citable primary survey instrument.",
@@ -279,7 +279,7 @@ export const aiContentLabelingData = {
           id: "informed-consent-precedent",
           title: "Disclosure Precedents in Other Domains",
           description:
-            "Mandatory disclosure of material connections is an established, durable norm: the FTC's Endorsement Guides (16 CFR Part 255, revised June 2023) require endorsers to disclose 'material connections' such as paid sponsorships in advertising. Such disclosure regimes have coexisted with robust commercial and editorial expression, suggesting baseline transparency requirements need not chill speech — an analogy proponents extend to AI-content labeling.",
+            "Mandatory disclosure of material connections is an established, durable norm: the FTC's Endorsement Guides (16 CFR Part 255, revised June 2023) require endorsers to disclose 'material connections' such as paid sponsorships in advertising. Such disclosure regimes have coexisted with robust commercial and editorial expression, suggesting baseline transparency requirements need not chill speech, an analogy proponents extend to AI-content labeling.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -287,7 +287,7 @@ export const aiContentLabelingData = {
             replicability: 6,
             directness: 4,
           },
-          source: "FTC Endorsement Guides, 16 CFR Part 255 (revised 2023) — eCFR",
+          source: "FTC Endorsement Guides, 16 CFR Part 255 (revised 2023), eCFR",
           sourceUrl: "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-255",
           reasoning:
             "Source upgraded to the binding primary text (eCFR, 16 CFR Part 255) rather than a bare 'FTC Endorsement Guidelines' label. The Part 255 disclosure regime is verified; the inference that it 'has not chilled expression' is an analogy, not a measured finding, so directness is kept low. The earlier mention of ghostwriter/stock-photography disclosure was trimmed because Part 255 governs endorsements specifically; the precedent now rests on the verifiable material-connection disclosure rule.",

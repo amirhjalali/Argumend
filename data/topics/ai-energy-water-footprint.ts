@@ -270,7 +270,7 @@ export const aiEnergyWaterFootprintData = {
           id: "google-clean-contracts",
           title: "Google Signed 12 GW of New Clean Energy in 2025 and Cut Operational Emissions 2% as Power Use Rose 37%",
           description:
-            "Google says it signed agreements for 'over 12 GW of net-new clean energy in 2025—the largest annual total in our history and more than our total procurement from the previous two years combined', and that more than 25 contracted projects came online in 2025, adding nearly 2 GW. It reports cutting operational emissions by 2% year over year while electricity use grew 37%, and a 47% fall in emissions per gigawatt-hour since 2019.",
+            "Google says it signed agreements for 'over 12 GW of net-new clean energy in 2025, the largest annual total in our history and more than our total procurement from the previous two years combined', and that more than 25 contracted projects came online in 2025, adding nearly 2 GW. It reports cutting operational emissions by 2% year over year while electricity use grew 37%, and a 47% fall in emissions per gigawatt-hour since 2019.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,

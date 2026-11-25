@@ -53,13 +53,13 @@ export const rightToRepairData = {
         cost_to_verify: "$300K (multi-state panel data analysis)",
         falsification: {
           supporter_flip:
-            "If difference-in-differences on states that enacted right-to-repair (New York 2023, Minnesota, California 2024) showed device prices rising and total cost of ownership flat or higher relative to control states once firms adjusted — the predicted 'lose-lose-lose' equilibrium — the household-savings case would collapse from 'hundreds of dollars saved' to 'no measurable consumer benefit.'",
+            "If difference-in-differences on states that enacted right-to-repair (New York 2023, Minnesota, California 2024) showed device prices rising and total cost of ownership flat or higher relative to control states once firms adjusted, the predicted 'lose-lose-lose' equilibrium, the household-savings case would collapse from 'hundreds of dollars saved' to 'no measurable consumer benefit.'",
           skeptic_flip:
             "If measured cost data from states with repair laws matched the FTC's finding that repair restrictions raise costs with 'scant evidence' of offsetting benefit, the strategic-pricing harm in the Management Science model would remain a theory rather than a measured effect.",
           common_ground:
             "Both sides agree repair monopolies impose a real cost on consumers and that manufacturers will respond strategically to a mandate; the dispute is the sign and size of the net effect.",
           live_disagreement:
-            "Whether the average consumer's total cost of ownership falls or rises after firms re-optimize prices, parts pricing, and durability — resolvable only by post-enactment retail/repair panel data against control states, which does not yet span enough years.",
+            "Whether the average consumer's total cost of ownership falls or rises after firms re-optimize prices, parts pricing, and durability, resolvable only by post-enactment retail/repair panel data against control states, which does not yet span enough years.",
         },
       },
       evidence: [
@@ -130,7 +130,7 @@ export const rightToRepairData = {
       skeptic_premise:
         "Repair mandates can force disclosure of proprietary diagnostics, firmware, and parts, weakening the intellectual-property and after-sales-service advantages that fund R&D. Industry analyses (e.g., the National Association of Manufacturers) argue compelled access raises rivals' costs of doing business, invites counterfeit and substandard parts, and reduces the return on investing in tightly integrated, hard-to-copy designs.",
       proponent_rebuttal:
-        "The natural experiment has already run: Apple, a long-time opponent, formally backed California's SB 244 in 2023 and now runs a Self Service Repair program while continuing to ship new products and features — evidence that repair access and innovation coexist. A formal microeconomic model in the Journal of Regulatory Economics finds right-to-repair primarily 'raises rivals' costs' for incumbents seeking to monopolize service, and that under plausible conditions it raises social welfare rather than suppressing innovation.",
+        "The natural experiment has already run: Apple, a long-time opponent, formally backed California's SB 244 in 2023 and now runs a Self Service Repair program while continuing to ship new products and features, evidence that repair access and innovation coexist. A formal microeconomic model in the Journal of Regulatory Economics finds right-to-repair primarily 'raises rivals' costs' for incumbents seeking to monopolize service, and that under plausible conditions it raises social welfare rather than suppressing innovation.",
       crux: {
         id: "innovation-after-mandate",
         title: "Do R&D and Product Quality Fall After a Mandate?",
@@ -154,7 +154,7 @@ export const rightToRepairData = {
           common_ground:
             "Both sides agree that compelled access to parts, tools, and proprietary information changes manufacturers' incentives at the margin; the dispute is whether that change is large enough to depress actual innovation output.",
           live_disagreement:
-            "Whether binding right-to-repair laws produce a detectable drop in firm-level R&D, patenting, or product introduction versus controls — answerable by a firm-level R&D/patent panel around the EU and US state enactments, which has not yet been run.",
+            "Whether binding right-to-repair laws produce a detectable drop in firm-level R&D, patenting, or product introduction versus controls, answerable by a firm-level R&D/patent panel around the EU and US state enactments, which has not yet been run.",
         },
       },
       evidence: [
@@ -162,7 +162,7 @@ export const rightToRepairData = {
           id: "apple-sb244",
           title: "Apple Backed CA Right-to-Repair After Opposing It",
           description:
-            "In August 2023 Apple sent a letter supporting California SB 244, saying the bill 'strikes the right balance' between consumer choice and protecting privacy, data security, and manufacturers' IP — a reversal after years of opposition, and consistent with continuing to innovate while providing repair access via its Self Service Repair program.",
+            "In August 2023 Apple sent a letter supporting California SB 244, saying the bill 'strikes the right balance' between consumer choice and protecting privacy, data security, and manufacturers' IP, a reversal after years of opposition, and consistent with continuing to innovate while providing repair access via its Self Service Repair program.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -175,7 +175,7 @@ export const rightToRepairData = {
           sourceUrl:
             "https://www.eff.org/deeplinks/2023/08/apple-long-critic-right-repair-comes-out-support-california-bill",
           reasoning:
-            "A leading innovator concluding it can live with a repair mandate is meaningful real-world evidence that the law need not kill innovation. But it is one firm's revealed preference under public pressure (not independent measurement of R&D effects), and Apple supported a specific bill with IP/security carve-outs — so directness and replicability are moderate.",
+            "A leading innovator concluding it can live with a repair mandate is meaningful real-world evidence that the law need not kill innovation. But it is one firm's revealed preference under public pressure (not independent measurement of R&D effects), and Apple supported a specific bill with IP/security carve-outs, so directness and replicability are moderate.",
         },
         {
           id: "regulatory-econ-raising-rivals-costs",
@@ -212,7 +212,7 @@ export const rightToRepairData = {
           sourceUrl:
             "https://documents.nam.org/COMM/NAM-3740-Right%20to%20Repair%20Paper%20R4%20V1%20FIN.pdf",
           reasoning:
-            "Articulates the strongest version of the innovation-harm argument, but the author is the manufacturers' trade association — a directly conflicted party (very low independence) presenting argument rather than independent measurement. Included to steelman the 'against' side, weighted low accordingly.",
+            "Articulates the strongest version of the innovation-harm argument, but the author is the manufacturers' trade association, a directly conflicted party (very low independence) presenting argument rather than independent measurement. Included to steelman the 'against' side, weighted low accordingly.",
         },
       ],
     },
@@ -225,7 +225,7 @@ export const rightToRepairData = {
       skeptic_premise:
         "For safety-critical, networked products the risk is concrete. On Massachusetts' 2020 auto telematics law, NHTSA warned that requiring 'remote, real-time, bi-directional' access to vehicle systems and a standardized open interface would force removal of access controls and increase the attack surface for remote tampering with safety-critical functions. Medical-device makers raise parallel patient-safety and FDA-compliance concerns. A poorly bounded mandate could trade consumer savings for new physical and cyber risk.",
       proponent_rebuttal:
-        "For the vast majority of consumer electronics, the safety/security objection is unsupported: the FTC found 'no empirical evidence' that independent repair shops are more likely than authorized ones to compromise or misuse customer data, and that with proper parts and information they are equally capable of minimizing cybersecurity risks. The car and medical-device concerns are real but are arguments for carefully scoped rules and security standards on safety-critical systems — not against right-to-repair as a category.",
+        "For the vast majority of consumer electronics, the safety/security objection is unsupported: the FTC found 'no empirical evidence' that independent repair shops are more likely than authorized ones to compromise or misuse customer data, and that with proper parts and information they are equally capable of minimizing cybersecurity risks. The car and medical-device concerns are real but are arguments for carefully scoped rules and security standards on safety-critical systems, not against right-to-repair as a category.",
       crux: {
         id: "scope-vs-blanket",
         title: "Scoped Safety Carve-Outs vs. Blanket Mandate",
@@ -243,13 +243,13 @@ export const rightToRepairData = {
         cost_to_verify: "$200K (incident-data and statutory comparison)",
         falsification: {
           supporter_flip:
-            "If incident data showed jurisdictions or product categories with repair access suffering materially more data breaches or safety failures than those without — even for ordinary, non-networked electronics — the FTC's 'no empirical evidence' finding would be overturned and the blanket-risk objection would gain real support.",
+            "If incident data showed jurisdictions or product categories with repair access suffering materially more data breaches or safety failures than those without (even for ordinary, non-networked electronics) the FTC's 'no empirical evidence' finding would be overturned and the blanket-risk objection would gain real support.",
           skeptic_flip:
             "If incident data matched the FTC's finding of 'no empirical evidence' that independent shops are less secure for general consumer devices, and NHTSA's concern stayed confined to one auto-telematics provision, the broad cyber-risk objection would lose its footing.",
           common_ground:
             "Both sides agree the sharpest, concrete risk is concentrated in networked, safety-critical systems (vehicles, medical devices), and that general consumer-electronics repair is comparatively low-risk.",
           live_disagreement:
-            "Whether scoped safety carve-outs and security standards fully neutralize the risk while leaving general repair open — or whether the risk is inherent to broad mandates — resolvable by comparing incident profiles of laws with carve-outs against blanket laws.",
+            "Whether scoped safety carve-outs and security standards fully neutralize the risk while leaving general repair open, or whether the risk is inherent to broad mandates, resolvable by comparing incident profiles of laws with carve-outs against blanket laws.",
         },
       },
       evidence: [
@@ -276,7 +276,7 @@ export const rightToRepairData = {
           id: "nhtsa-telematics-cyber",
           title: "NHTSA: Auto Telematics Mandate Raises Cyber/Safety Risk",
           description:
-            "In a July 2020 letter on Massachusetts Question 1, NHTSA warned the measure would force manufacturers to provide standardized 'remote, real-time, bi-directional' access to safety-critical vehicle systems, that this 'increases the scale of risks' of a successful cyberattack, and could require removing access controls — raising the risk of remote tampering with vehicles.",
+            "In a July 2020 letter on Massachusetts Question 1, NHTSA warned the measure would force manufacturers to provide standardized 'remote, real-time, bi-directional' access to safety-critical vehicle systems, that this 'increases the scale of risks' of a successful cyberattack, and could require removing access controls, raising the risk of remote tampering with vehicles.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,

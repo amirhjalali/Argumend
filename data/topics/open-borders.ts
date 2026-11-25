@@ -163,7 +163,7 @@ export const openBordersData = {
     },
 
     // =========================================================================
-    // PILLAR 2: The golden goose — does the premium survive scale?
+    // PILLAR 2: The golden goose, does the premium survive scale?
     // =========================================================================
     {
       id: "institutions-and-scale",
@@ -536,43 +536,43 @@ export const openBordersData = {
   ],
   references: [
     {
-      title: "Desire to Move Permanently to U.S. at New Low — Gallup (23 April 2026)",
+      title: "Desire to Move Permanently to U.S. at New Low, Gallup (23 April 2026)",
       url: "https://news.gallup.com/poll/708614/desire-migrate-drops-new-low.aspx",
     },
     {
-      title: "Macroeconomic implications of immigration flows in 2025 and 2026: January 2026 update — Edelberg, Veuger & Watson, Brookings",
+      title: "Macroeconomic implications of immigration flows in 2025 and 2026: January 2026 update, Edelberg, Veuger & Watson, Brookings",
       url: "https://www.brookings.edu/articles/macroeconomic-implications-of-immigration-flows-in-2025-and-2026/",
     },
     {
-      title: "Migrant encounters at the U.S.-Mexico border are at their lowest level in more than 50 years — Pew Research Center (2 February 2026)",
+      title: "Migrant encounters at the U.S.-Mexico border are at their lowest level in more than 50 years, Pew Research Center (2 February 2026)",
       url: "https://www.pewresearch.org/short-reads/2026/02/02/migrant-encounters-at-the-us-mexico-border-are-at-their-lowest-level-in-more-than-50-years/",
     },
     {
-      title: "Americans' Support for Immigration Down, Still Strong — Gallup (9 July 2026)",
+      title: "Americans' Support for Immigration Down, Still Strong, Gallup (9 July 2026)",
       url: "https://news.gallup.com/poll/712289/americans-support-immigration-down-strong.aspx",
     },
     {
-      title: "The Place Premium: Wage Differences for Identical Workers across the U.S. Border — Clemens, Montenegro & Pritchett (2008)",
+      title: "The Place Premium: Wage Differences for Identical Workers across the U.S. Border, Clemens, Montenegro & Pritchett (2008)",
       url: "https://www.cgdev.org/publication/place-premium-wage-differences-identical-workers-across-us-border-working-paper-148",
     },
     {
-      title: "Economics and Emigration: Trillion-Dollar Bills on the Sidewalk? — Clemens, Journal of Economic Perspectives (2011)",
+      title: "Economics and Emigration: Trillion-Dollar Bills on the Sidewalk?, Clemens, Journal of Economic Perspectives (2011)",
       url: "https://www.aeaweb.org/articles?id=10.1257/jep.25.3.83",
     },
     {
-      title: "The New Economic Case for Migration Restrictions: An Assessment — Clemens & Pritchett (2019)",
+      title: "The New Economic Case for Migration Restrictions: An Assessment, Clemens & Pritchett (2019)",
       url: "https://www.iza.org/publications/dp/9730",
     },
     {
-      title: "Immigration and Globalization: A Review Essay — Borjas, Journal of Economic Literature (2015)",
+      title: "Immigration and Globalization: A Review Essay, Borjas, Journal of Economic Literature (2015)",
       url: "https://www.aeaweb.org/articles?id=10.1257/jel.53.4.961",
     },
     {
-      title: "Immigration — Stanford Encyclopedia of Philosophy (rev. 2024)",
+      title: "Immigration, Stanford Encyclopedia of Philosophy (rev. 2024)",
       url: "https://plato.stanford.edu/entries/immigration/",
     },
     {
-      title: "The Economic and Fiscal Consequences of Immigration — National Academies (2016)",
+      title: "The Economic and Fiscal Consequences of Immigration, National Academies (2016)",
       url: "https://www.nationalacademies.org/publications/23550",
     },
   ],

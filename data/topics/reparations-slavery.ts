@@ -28,9 +28,9 @@ export const reparationsSlaveryData = {
         "The median white family holds about 6x the wealth of the median Black family ($285K vs. ~$45K in the 2022 SCF). Historians trace the gap to slavery, Jim Crow, and redlining.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Current Americans bear no personal responsibility for their ancestors' actions. Where do you draw the line — Indigenous displacement, Japanese internment, Irish discrimination? Many Black Americans are recent immigrants with no connection to American slavery. Individual responsibility, not group identity, should guide public policy. Reparations would be divisive and deepen racial resentment rather than heal it.",
+        "Current Americans bear no personal responsibility for their ancestors' actions. Where do you draw the line, Indigenous displacement, Japanese internment, Irish discrimination? Many Black Americans are recent immigrants with no connection to American slavery. Individual responsibility, not group identity, should guide public policy. Reparations would be divisive and deepen racial resentment rather than heal it.",
       proponent_rebuttal:
-        "The US government itself directly sanctioned and enforced slavery for 246 years and Jim Crow for roughly a century more — this is not about individual guilt but institutional debt owed by an enduring legal entity, the federal government, that outlives any generation. The racial wealth gap is large and measurable: in the Federal Reserve's 2022 Survey of Consumer Finances, median white wealth was about $285,000 versus roughly $45,000 for Black families — about six times as much. The GI Bill, FHA mortgage insurance, and the original Social Security Act excluded most Black Americans by design, compounding disadvantage well into the 20th century — harms whose direct victims and beneficiaries are often still alive. The recent-immigrant objection is real but answerable: serious proposals (Darity and Mullen) restrict eligibility to documented descendants of people enslaved in the US, not to skin color. And the US already pays targeted reparations — to interned Japanese Americans (1988 Civil Liberties Act) — while Germany paid Holocaust survivors, so the principle is established even if the scale here is far larger.",
+        "The US government itself directly sanctioned and enforced slavery for 246 years and Jim Crow for roughly a century more; this is not about individual guilt but institutional debt owed by an enduring legal entity, the federal government, that outlives any generation. The racial wealth gap is large and measurable: in the Federal Reserve's 2022 Survey of Consumer Finances, median white wealth was about $285,000 versus roughly $45,000 for Black families, about six times as much. The GI Bill, FHA mortgage insurance, and the original Social Security Act excluded most Black Americans by design, compounding disadvantage well into the 20th century, harms whose direct victims and beneficiaries are often still alive. The recent-immigrant objection is real but answerable: serious proposals (Darity and Mullen) restrict eligibility to documented descendants of people enslaved in the US, not to skin color. And the US already pays targeted reparations, to interned Japanese Americans (1988 Civil Liberties Act), while Germany paid Holocaust survivors, so the principle is established even if the scale here is far larger.",
       crux: {
         id: "causal-chain-measurement",
         title: "Measuring the Causal Chain from Slavery to Present Disparities",
@@ -50,13 +50,13 @@ export const reparationsSlaveryData = {
         cost_to_verify: "$2M (Historical economic modeling with multiple methodologies)",
         falsification: {
           supporter_flip:
-            "If decomposition modeling of wealth pathways — land denied, GI Bill and Social Security exclusion, FHA redlining — found that only a small share of today's gap traces to slavery, Jim Crow and federal policy, the case for reparations as an institutional debt would weaken toward general anti-poverty policy.",
+            "If decomposition modeling of wealth pathways (land denied, GI Bill and Social Security exclusion, FHA redlining) found that only a small share of today's gap traces to slavery, Jim Crow and federal policy, the case for reparations as an institutional debt would weaken toward general anti-poverty policy.",
           skeptic_flip:
             "If records tied a large share of losses to federal programs that excluded Black Americans by design, such as the GI Bill, FHA insurance and the original Social Security Act, with victims still alive, the claim would read as a government debt, like the 1988 payments to interned Japanese Americans, not inherited guilt.",
           common_ground:
-            "Both sides accept the size of the gap — median white wealth about $285,000 versus roughly $45,000 for Black families in the Federal Reserve's 2022 survey — and that some Black Americans are recent immigrants with no lineage to US slavery.",
+            "Both sides accept the size of the gap (median white wealth about $285,000 versus roughly $45,000 for Black families in the Federal Reserve's 2022 survey) and that some Black Americans are recent immigrants with no lineage to US slavery.",
           live_disagreement:
-            "How much of today's gap is caused by slavery, Jim Crow and federal policy rather than other factors — and whether a debt owed by the federal government as an institution justifies payments that today's taxpayers fund.",
+            "How much of today's gap is caused by slavery, Jim Crow and federal policy rather than other factors, and whether a debt owed by the federal government as an institution justifies payments that today's taxpayers fund.",
         },
       },
       evidence: [
@@ -64,7 +64,7 @@ export const reparationsSlaveryData = {
           id: "fed-racial-wealth-gap",
           title: "Federal Reserve: $285K White vs. $45K Black Median Wealth",
           description:
-            "The Federal Reserve's 2022 Survey of Consumer Finances shows white families have a median net worth of about $285,000 compared to roughly $45,000 for Black families — a gap of about 6.3:1 (the typical Black family holds about 15% of the typical white family's wealth). The dollar gap has widened over recent decades even as the ratio narrowed somewhat; in the 2019 SCF the gap was about 8:1 ($188,200 white vs. $24,100 Black).",
+            "The Federal Reserve's 2022 Survey of Consumer Finances shows white families have a median net worth of about $285,000 compared to roughly $45,000 for Black families, a gap of about 6.3:1 (the typical Black family holds about 15% of the typical white family's wealth). The dollar gap has widened over recent decades even as the ratio narrowed somewhat; in the 2019 SCF the gap was about 8:1 ($188,200 white vs. $24,100 Black).",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -132,7 +132,7 @@ export const reparationsSlaveryData = {
           sourceUrl:
             "https://www.irp.wisc.edu/resource/william-darity-jr-and-kirsten-mullen-on-why-its-time-to-pay-reparations-to-black-americans/",
           reasoning:
-            "Legitimate practical concern, but framed here as general commentary rather than a specific cited study, so source-reliability and independence are scored conservatively. The difficulty of implementation does not negate the moral case — many complex government programs (Social Security, Medicare) require identity verification.",
+            "Legitimate practical concern, but framed here as general commentary rather than a specific cited study, so source-reliability and independence are scored conservatively. The difficulty of implementation does not negate the moral case; many complex government programs (Social Security, Medicare) require identity verification.",
         },
         {
           id: "sacerdote-two-generation-catch-up",
@@ -161,9 +161,9 @@ export const reparationsSlaveryData = {
         "Estimates range from $10 trillion to $14 trillion in total. Nobody agrees on who qualifies, what form payment takes, or where the money comes from.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The cost — $10-14 trillion by leading estimates — rivals or exceeds the entire annual federal budget and would require unprecedented taxation or borrowing for a single program. Beyond cost, eligibility is genuinely hard and arguably unfair: documenting lineage to a specific enslaved ancestor is impossible for many descendants (records were sparse and deliberately incomplete), would exclude some of the intended beneficiaries while admitting others on thin documentation, and asks today's taxpayers — including descendants of post-1865 immigrants and of the enslaved themselves — to fund transfers keyed to ancestry rather than present need. A one-time cash transfer also does not by itself fix the structural drivers of disadvantage (school funding, mass incarceration, ongoing discrimination). Race-conscious payments may also face serious constitutional challenge after the Supreme Court's 2023 ruling against race-based affirmative action. Universal, means-tested anti-poverty programs help every disadvantaged American, sidestep the lineage problem, and command broader and more durable political support.",
+        "The cost, $10-14 trillion by leading estimates, rivals or exceeds the entire annual federal budget and would require unprecedented taxation or borrowing for a single program. Beyond cost, eligibility is genuinely hard and arguably unfair: documenting lineage to a specific enslaved ancestor is impossible for many descendants (records were sparse and deliberately incomplete), would exclude some of the intended beneficiaries while admitting others on thin documentation, and asks today's taxpayers, including descendants of post-1865 immigrants and of the enslaved themselves, to fund transfers keyed to ancestry rather than present need. A one-time cash transfer also does not by itself fix the structural drivers of disadvantage (school funding, mass incarceration, ongoing discrimination). Race-conscious payments may also face serious constitutional challenge after the Supreme Court's 2023 ruling against race-based affirmative action. Universal, means-tested anti-poverty programs help every disadvantaged American, sidestep the lineage problem, and command broader and more durable political support.",
       proponent_rebuttal:
-        "Darity and Mullen put the target sum at roughly $10-12 trillion — the amount they estimate is needed to close the Black-white wealth gap — delivered mainly as direct payments to eligible descendants (on the order of $200,000-$250,000 each), not as a grab-bag of in-kind programs. Spread over a 10-year program that is roughly $1 trillion a year, on the scale of recent pandemic relief and well within the federal government's demonstrated borrowing capacity for emergencies it deems urgent. HR 40, the bill on the table, merely proposes a commission to study the question and recommend remedies, not a commitment to any specific form or sum. And separate wealth-building tools such as baby bonds suggest large transfers can be administered through existing fiscal machinery; closing the gap would also generate offsetting returns through higher homeownership, spending, and entrepreneurship.",
+        "Darity and Mullen put the target sum at roughly $10-12 trillion, the amount they estimate is needed to close the Black-white wealth gap, delivered mainly as direct payments to eligible descendants (on the order of $200,000-$250,000 each), not as a grab-bag of in-kind programs. Spread over a 10-year program that is roughly $1 trillion a year, on the scale of recent pandemic relief and well within the federal government's demonstrated borrowing capacity for emergencies it deems urgent. HR 40, the bill on the table, merely proposes a commission to study the question and recommend remedies, not a commitment to any specific form or sum. And separate wealth-building tools such as baby bonds suggest large transfers can be administered through existing fiscal machinery; closing the gap would also generate offsetting returns through higher homeownership, spending, and entrepreneurship.",
       crux: {
         id: "reparations-program-design",
         title: "Optimal Reparations Program Design and Cost-Benefit",
@@ -180,14 +180,14 @@ export const reparationsSlaveryData = {
           condition:
             "Microsimulations on PSID and SCF data projecting how far direct payments, baby bonds and housing or education grants each narrow the gap at 10, 25 and 50 years, and at what fiscal cost.",
         },
-        cost_to_verify: "$5M (Comprehensive economic modeling study — essentially what HR 40 proposes)",
+        cost_to_verify: "$5M (Comprehensive economic modeling study, essentially what HR 40 proposes)",
         falsification: {
           supporter_flip:
             "If microsimulations of direct payments, baby bonds and housing or education grants showed that none would close much of the wealth gap over 10, 25 or 50 years at a sustainable cost, or that lineage-based eligibility could not be administered fairly, the case for a federal program would weaken.",
           skeptic_flip:
             "If an H.R. 40 commission found Darity and Mullen's $10-12 trillion could run as about $1 trillion a year for 10 years, on the scale of pandemic relief, through existing machinery such as baby-bond programs, the cost objection would lose much of its force.",
           common_ground:
-            "Both sides work from the same order of magnitude — roughly $10-14 trillion in leading estimates — and agree that who qualifies and what form payment takes are still undecided.",
+            "Both sides work from the same order of magnitude, roughly $10-14 trillion in leading estimates, and agree that who qualifies and what form payment takes are still undecided.",
           live_disagreement:
             "Whether a payment program keyed to documented lineage can be designed fairly and afforded at that scale, or whether universal, means-tested programs would help more people with broader and more durable political support.",
         },
@@ -197,7 +197,7 @@ export const reparationsSlaveryData = {
           id: "darity-mullen-proposal",
           title: "Darity & Mullen: Comprehensive Reparations Framework",
           description:
-            "Economists William Darity Jr. (Duke) and A. Kirsten Mullen, in 'From Here to Equality' (2020), argue the total reparations sum should be whatever is needed to eliminate the Black-white wealth gap — an expenditure they put at roughly $10-12 trillion, on the order of $200,000-$250,000 per eligible recipient. They emphasize that the bulk should be direct payments to individuals rather than in-kind programs. Eligibility rests on two criteria: documented lineage to a person enslaved in the United States, and self-identification as Black/African American for a sustained period. (Means-tested 'baby bonds' of roughly $20K on average, up to ~$50K-$60K for the lowest-wealth families, are a separate Hamilton-Darity wealth-building proposal, not the core of this reparations plan.)",
+            "Economists William Darity Jr. (Duke) and A. Kirsten Mullen, in 'From Here to Equality' (2020), argue the total reparations sum should be whatever is needed to eliminate the Black-white wealth gap, an expenditure they put at roughly $10-12 trillion, on the order of $200,000-$250,000 per eligible recipient. They emphasize that the bulk should be direct payments to individuals rather than in-kind programs. Eligibility rests on two criteria: documented lineage to a person enslaved in the United States, and self-identification as Black/African American for a sustained period. (Means-tested 'baby bonds' of roughly $20K on average, up to ~$50K-$60K for the lowest-wealth families, are a separate Hamilton-Darity wealth-building proposal, not the core of this reparations plan.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -215,7 +215,7 @@ export const reparationsSlaveryData = {
           id: "hr-40-commission",
           title: "HR 40: A Commission to Study Reparations",
           description:
-            "H.R. 40 (Commission to Study and Develop Reparation Proposals for African Americans Act) was first introduced by Rep. John Conyers in 1989 and has been reintroduced in every Congress since (later led by Rep. Sheila Jackson Lee from 2019 until her death in 2024, and subsequently by Rep. Ayanna Pressley). It proposes a commission to study the impact of slavery and recommend remedies — it does not commit to any specific reparations form. In April 2021 it was advanced out of the House Judiciary Committee for the first time, but it has never received a full floor vote.",
+            "H.R. 40 (Commission to Study and Develop Reparation Proposals for African Americans Act) was first introduced by Rep. John Conyers in 1989 and has been reintroduced in every Congress since (later led by Rep. Sheila Jackson Lee from 2019 until her death in 2024, and subsequently by Rep. Ayanna Pressley). It proposes a commission to study the impact of slavery and recommend remedies; it does not commit to any specific reparations form. In April 2021 it was advanced out of the House Judiciary Committee for the first time, but it has never received a full floor vote.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -251,7 +251,7 @@ export const reparationsSlaveryData = {
           id: "baby-bonds-pilot-data",
           title: "Baby Bonds Programs Show Promise in Pilot Studies",
           description:
-            "Baby bonds — government-funded trust accounts for children that grow over time — were proposed by economists Darrick Hamilton and William Darity as a race-neutral wealth-building tool that would disproportionately benefit Black families. Connecticut enacted the first state program in 2021 (funding/launch finalized, came online July 2023): the state seeds a trust with $3,200 for each baby born into families covered by HUSKY, its Medicaid program (i.e., born into poverty), projected to grow to roughly $11,000-$24,000 by adulthood. A widely cited simulation by Naomi Zewde estimates that means-tested baby bonds (averaging ~$20K, up to ~$50K-$60K for the lowest-wealth families) could shrink the median young-adult Black-white wealth ratio from about 16:1 to roughly 1.4:1.",
+            "Baby bonds, government-funded trust accounts for children that grow over time, were proposed by economists Darrick Hamilton and William Darity as a race-neutral wealth-building tool that would disproportionately benefit Black families. Connecticut enacted the first state program in 2021 (funding/launch finalized, came online July 2023): the state seeds a trust with $3,200 for each baby born into families covered by HUSKY, its Medicaid program (i.e., born into poverty), projected to grow to roughly $11,000-$24,000 by adulthood. A widely cited simulation by Naomi Zewde estimates that means-tested baby bonds (averaging ~$20K, up to ~$50K-$60K for the lowest-wealth families) could shrink the median young-adult Black-white wealth ratio from about 16:1 to roughly 1.4:1.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,

@@ -9,7 +9,7 @@ export const simulationHypothesisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Bostrom's simulation argument does not conclude that we live in a simulation. It is a trilemma: at least one of three things must be true — almost all civilizations go extinct before reaching a posthuman stage, almost none of those that survive run ancestor-simulations, or we are almost certainly simulated. The famous headline is only one of the three branches, and the argument by itself gives you no way to know which.",
+      "Bostrom's simulation argument does not conclude that we live in a simulation. It is a trilemma: at least one of three things must be true, almost all civilizations go extinct before reaching a posthuman stage, almost none of those that survive run ancestor-simulations, or we are almost certainly simulated. The famous headline is only one of the three branches, and the argument by itself gives you no way to know which.",
     confidence: 88,
     source:
       "Nick Bostrom, 'Are You Living in a Computer Simulation?', Philosophical Quarterly 53(211):243-255 (2003)",
@@ -95,13 +95,13 @@ export const simulationHypothesisData = {
         cost_to_verify: "$5M (OpenWorm project ongoing at openworm.org)",
         falsification: {
           supporter_flip:
-            "If a connectome-derived digital C. elegans (its 302 neurons plus body physics) reproduced the worm's full behavioral repertoire — chemotaxis, noxious-stimulus avoidance, mating, and learning — across dozens of assays, yet a biological-physics theory of consciousness (e.g. Penrose-Hameroff Orch-OR) made a confirmed prediction that no digital model could match, a supporter of substrate independence would have to concede that capturing input-output structure is not sufficient.",
+            "If a connectome-derived digital C. elegans (its 302 neurons plus body physics) reproduced the worm's full behavioral repertoire (chemotaxis, noxious-stimulus avoidance, mating, and learning) across dozens of assays, yet a biological-physics theory of consciousness (e.g. Penrose-Hameroff Orch-OR) made a confirmed prediction that no digital model could match, a supporter of substrate independence would have to concede that capturing input-output structure is not sufficient.",
           skeptic_flip:
             "If connectome-based models of the worm, extending OpenWorm's forward and backward locomotion, reproduced its full behavior, and no non-computable step turned up in how neurons process information, 'neurons can't be simulated in principle' would lose its footing.",
           common_ground:
             "Both sides agree the 302-neuron connectome is fully mapped, that basic locomotion has been simulated, and that full behavioral replication (chemotaxis, learning) has not yet been demonstrated.",
           live_disagreement:
-            "Whether full behavioral equivalence can be achieved from the connectome alone — and, even if it can, whether behavioral equivalence settles anything about subjective experience (the hard problem). A completed OpenWorm behavioral match would resolve the first question but not automatically the second.",
+            "Whether full behavioral equivalence can be achieved from the connectome alone, and, even if it can, whether behavioral equivalence settles anything about subjective experience (the hard problem). A completed OpenWorm behavioral match would resolve the first question but not automatically the second.",
         },
       },
       evidence: [
@@ -216,7 +216,7 @@ export const simulationHypothesisData = {
           common_ground:
             "Both sides accept that the trilemma's disjunction is logically valid and that at least one of the three propositions must hold; the dispute is over which one, not over the validity of the argument.",
           live_disagreement:
-            "Whether Bostrom's indifference principle legitimately licenses self-locating ('you are probably a sim') belief from the population fact — a question of formal epistemology and anthropic reasoning that a decisive critique or defense, rather than any empirical measurement, would resolve.",
+            "Whether Bostrom's indifference principle legitimately licenses self-locating ('you are probably a sim') belief from the population fact; a question of formal epistemology and anthropic reasoning that a decisive critique or defense, rather than any empirical measurement, would resolve.",
         },
       },
       evidence: [
@@ -331,7 +331,7 @@ export const simulationHypothesisData = {
           common_ground:
             "Both sides agree the relevant physics (quantization, the holographic bound, the GZK cutoff) is well-established and that no lattice-orientation signature in cosmic rays has actually been observed.",
           live_disagreement:
-            "Whether a cubic-lattice simulation of the specific Beane-Davoudi-Savage form is ruled out at finer lattice spacings — which higher-statistics, higher-angular-resolution cosmic-ray data near the GZK cutoff could push further, while leaving non-cubic or adaptive 'simulation' architectures untouched.",
+            "Whether a cubic-lattice simulation of the specific Beane-Davoudi-Savage form is ruled out at finer lattice spacings, which higher-statistics, higher-angular-resolution cosmic-ray data near the GZK cutoff could push further, while leaving non-cubic or adaptive 'simulation' architectures untouched.",
         },
       },
       evidence: [

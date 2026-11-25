@@ -36,16 +36,16 @@ export const dogeFederalCutsData = {
         "DOGE's 'Wall of Receipts' claimed $215 billion when the organization ended in July 2026. Reporters who checked it found the same contracts counted twice and an $8 million contract listed as $8 billion, and in August 2026 the GAO found some of its $110 billion in contract, grant and lease savings incorrect or unsupported. Supporters answer that federal fraud alone costs $233-521 billion a year, and that an imperfect public ledger beats none. Whether savings outrun the revenue lost by cutting IRS auditors is the open question.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "DOGE's savings claims are largely fictional. Its public ledger has been repeatedly caught in basic arithmetic errors: an ICE contract listed at $8 billion was actually $8 million, an SSA contract listed at $232 million was actually about $560,000, and a single USAID contract was triple-counted for up to $655 million. When NPR reviewed the receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at the time; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025 and $215 billion by the time DOGE sunset in July 2026. An August 2026 GAO review of the $110 billion DOGE claimed from contracts, grants and leases found some estimates incorrect or unsupported, could not verify the method behind 96 percent of the grant savings, found a $1.7 billion Defense Health Agency contract counted as savings although no action was taken to terminate it, and found 108 of 264 'terminated' leases had been in the process of ending before DOGE existed. Meanwhile, the Yale Budget Lab projects that DOGE-era IRS staffing cuts and the funding clawback together forgo roughly $861 billion in tax revenue over 2026-2035 — meaning DOGE may be losing far more money than it saves.",
+        "DOGE's savings claims are largely fictional. Its public ledger has been repeatedly caught in basic arithmetic errors: an ICE contract listed at $8 billion was actually $8 million, an SSA contract listed at $232 million was actually about $560,000, and a single USAID contract was triple-counted for up to $655 million. When NPR reviewed the receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at the time; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025 and $215 billion by the time DOGE sunset in July 2026. An August 2026 GAO review of the $110 billion DOGE claimed from contracts, grants and leases found some estimates incorrect or unsupported, could not verify the method behind 96 percent of the grant savings, found a $1.7 billion Defense Health Agency contract counted as savings although no action was taken to terminate it, and found 108 of 264 'terminated' leases had been in the process of ending before DOGE existed. Meanwhile, the Yale Budget Lab projects that DOGE-era IRS staffing cuts and the funding clawback together forgo roughly $861 billion in tax revenue over 2026-2035, meaning DOGE may be losing far more money than it saves.",
       proponent_rebuttal:
-        "Early ledger errors are real but reflect the speed of a startup-style operation, not the absence of waste. GAO's own 2024 estimate puts direct annual federal losses to fraud at $233-521 billion (FY2018-2022 data), an enormous pool of genuine inefficiency that prior administrations never seriously attacked. DOGE forced a culture of scrutiny on contracts that had renewed automatically for decades, and even conservative verified figures represent billions returned to taxpayers. The ledger was corrected as discrepancies surfaced, and even GAO's critical 2026 review said a public ledger like the Wall of Receipts \"can have significant value\" — transparency about errors is a feature, not proof the savings are imaginary.",
+        "Early ledger errors are real but reflect the speed of a startup-style operation, not the absence of waste. GAO's own 2024 estimate puts direct annual federal losses to fraud at $233-521 billion (FY2018-2022 data), an enormous pool of genuine inefficiency that prior administrations never seriously attacked. DOGE forced a culture of scrutiny on contracts that had renewed automatically for decades, and even conservative verified figures represent billions returned to taxpayers. The ledger was corrected as discrepancies surfaced, and even GAO's critical 2026 review said a public ledger like the Wall of Receipts \"can have significant value\", transparency about errors is a feature, not proof the savings are imaginary.",
       crux: {
         id: "savings-reconciliation-audit",
         title: "The Savings Reconciliation Audit",
         question:
           "How much of DOGE's claimed savings survives a line-by-line reconciliation?",
         description:
-          "The central empirical question is whether DOGE's claimed savings survive line-by-line reconciliation against actual contract values, obligations, and outlays. If the verified total is a small fraction of the claimed total — and if revenue losses from IRS and other cuts exceed verified savings — then the 'efficiency' claim fails on its own accounting terms.",
+          "The central empirical question is whether DOGE's claimed savings survive line-by-line reconciliation against actual contract values, obligations, and outlays. If the verified total is a small fraction of the claimed total, and if revenue losses from IRS and other cuts exceed verified savings, then the 'efficiency' claim fails on its own accounting terms.",
         methodology:
           "Take DOGE's published 'Wall of Receipts' and match each line item against the authoritative contract record in USASpending.gov and FPDS, distinguishing ceiling value from obligated funds from money actually saved. Net the verified savings against documented revenue losses (e.g., the Yale Budget Lab IRS projection) and the cost of rehiring essential staff. A net-savings figure can be produced from entirely public federal procurement data.",
         verification_status: "verified" as const,
@@ -61,7 +61,7 @@ export const dogeFederalCutsData = {
           skeptic_flip:
             "If a line-by-line reconciliation netted real savings above revenue losses, drawing on the large pool GAO describes at $233-521 billion a year in federal fraud losses, calling the savings fictional would be hard to hold.",
           common_ground:
-            "Both sides agree DOGE's ledger contained real errors — an ICE contract listed at $8 billion was actually $8 million — and that only part of the claimed total has been independently verified.",
+            "Both sides agree DOGE's ledger contained real errors, an ICE contract listed at $8 billion was actually $8 million, and that only part of the claimed total has been independently verified.",
           live_disagreement:
             "How much of the $215 billion DOGE last claimed survives reconciliation against contract records, and whether that net figure stays positive once revenue lost through weakened IRS enforcement is subtracted.",
         },
@@ -99,7 +99,7 @@ export const dogeFederalCutsData = {
           source: "NPR (analysis of FPDS/USASpending procurement data); CNN (savings scorecard)",
           sourceUrl: "https://www.npr.org/2025/02/19/nx-s1-5302705/doge-overstates-savings-federal-contracts",
           reasoning:
-            "Independent newsroom reconciliation against the federal procurement record is the closest available proxy for an audit. The persistent gap between documented savings and the headline claim — CNN found less than half of the $175B backed by even basic documentation — is the core of the savings dispute.",
+            "Independent newsroom reconciliation against the federal procurement record is the closest available proxy for an audit. The persistent gap between documented savings and the headline claim, CNN found less than half of the $175B backed by even basic documentation, is the core of the savings dispute.",
         },
         {
           id: "gao-wall-of-receipts-2026",
@@ -122,7 +122,7 @@ export const dogeFederalCutsData = {
           id: "gao-improper-payments",
           title: "GAO estimates the federal government loses $233-521 billion a year to fraud (2024)",
           description:
-            "The Government Accountability Office's April 2024 report (GAO-24-105833) estimated direct annual federal losses to fraud at $233-521 billion based on FY2018-2022 data — about 3-7% of average federal obligations and a genuinely large pool of waste. GAO is explicit, however, that this is a modeled estimate spanning different risk environments, and that confirmed fraud is only part of broader 'improper payments'; the figure cannot be read as money DOGE actually identified or recovered.",
+            "The Government Accountability Office's April 2024 report (GAO-24-105833) estimated direct annual federal losses to fraud at $233-521 billion based on FY2018-2022 data, about 3-7% of average federal obligations and a genuinely large pool of waste. GAO is explicit, however, that this is a modeled estimate spanning different risk environments, and that confirmed fraud is only part of broader 'improper payments'; the figure cannot be read as money DOGE actually identified or recovered.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -139,7 +139,7 @@ export const dogeFederalCutsData = {
           id: "irs-foregone-revenue",
           title: "Yale Budget Lab: a weakened IRS forgoes about $861 billion in revenue over 2026-2035",
           description:
-            "By March 2025 the IRS had lost 31% of its revenue agents — about 3,600 auditors — through firings and the deferred resignation offer, per a May 2025 TIGTA report. In April 2026 the Yale Budget Lab estimated that the weakened enforcement capacity would forgo about $861 billion in federal revenue over 2026-2035: about $598 billion from the 2025 staffing reductions plus about $263 billion from the $20 billion IRS funding clawback. If accurate, the revenue lost dwarfs DOGE's verified savings, inverting the efficiency claim.",
+            "By March 2025 the IRS had lost 31% of its revenue agents (about 3,600 auditors) through firings and the deferred resignation offer, per a May 2025 TIGTA report. In April 2026 the Yale Budget Lab estimated that the weakened enforcement capacity would forgo about $861 billion in federal revenue over 2026-2035: about $598 billion from the 2025 staffing reductions plus about $263 billion from the $20 billion IRS funding clawback. If accurate, the revenue lost dwarfs DOGE's verified savings, inverting the efficiency claim.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -165,9 +165,9 @@ export const dogeFederalCutsData = {
         "The cuts took staff from Social Security, the VA, the IRS, the FAA, the Weather Service and the CDC. Phone waits and backlogs grew, and agencies rehired some of the nuclear-stockpile, bird-flu and weather staff they had fired. Critics say the cuts ran ahead of any map of what mattered; supporters say the system corrected itself, and that Social Security's phone waits recovered within the year.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "DOGE cut faster than anyone could know what was essential, and the public paid for it. Social Security lost about 7,500 staff in a year, callers waited up to two or three hours in spring 2025, and by December 2025 more than 12 million field-office transactions and 6 million processing-center transactions were pending; Senate Democrats report new-patient VA mental-health waits averaging 35 days (54 in Maryland) after the VA lost more than 40,000 employees; the FAA cut 130+ roles supporting air traffic controllers amid rising safety incidents. The 'fire fast, rehire what's load-bearing' approach assumes a legibility the government doesn't have — proven by the reversals once agencies discovered what was essential: most of the 300-plus nuclear-stockpile staff fired at NNSA were being rehired within five days, USDA's bird-flu responders were quickly brought back, and the National Weather Service, after losing more than 550 staff, was cleared to hire 450 in August 2025 as the deadly Texas floods put its vacancies under scrutiny.",
+        "DOGE cut faster than anyone could know what was essential, and the public paid for it. Social Security lost about 7,500 staff in a year, callers waited up to two or three hours in spring 2025, and by December 2025 more than 12 million field-office transactions and 6 million processing-center transactions were pending; Senate Democrats report new-patient VA mental-health waits averaging 35 days (54 in Maryland) after the VA lost more than 40,000 employees; the FAA cut 130+ roles supporting air traffic controllers amid rising safety incidents. The 'fire fast, rehire what's load-bearing' approach assumes a legibility the government doesn't have, proven by the reversals once agencies discovered what was essential: most of the 300-plus nuclear-stockpile staff fired at NNSA were being rehired within five days, USDA's bird-flu responders were quickly brought back, and the National Weather Service, after losing more than 550 staff, was cleared to hire 450 in August 2025 as the deadly Texas floods put its vacancies under scrutiny.",
       proponent_rebuttal:
-        "The reversals are evidence the system self-corrects, not that it is broken. Of the roughly 317,000 employees who left in 2025, OPM counts only about 24,000 involuntary separations, and the best-known mistakes, such as the NNSA firings, were reversed within days — far better than the status quo of never testing whether a position is necessary at all. Many disruptions are transitional growing pains of any large restructuring, and several headline cuts (NPS, NIH indirect-cost caps) were checked by Congress and the courts before causing lasting harm. The alternative — leaving an admittedly bloated workforce untouched because some unknown fraction is essential — is exactly the inertia DOGE was created to break.",
+        "The reversals are evidence the system self-corrects, not that it is broken. Of the roughly 317,000 employees who left in 2025, OPM counts only about 24,000 involuntary separations, and the best-known mistakes, such as the NNSA firings, were reversed within days, far better than the status quo of never testing whether a position is necessary at all. Many disruptions are transitional growing pains of any large restructuring, and several headline cuts (NPS, NIH indirect-cost caps) were checked by Congress and the courts before causing lasting harm. The alternative, leaving an admittedly bloated workforce untouched because some unknown fraction is essential, is exactly the inertia DOGE was created to break.",
       crux: {
         id: "transitional-vs-permanent-degradation",
         title: "Transitional Disruption vs. Permanent Capacity Loss",
@@ -176,7 +176,7 @@ export const dogeFederalCutsData = {
         description:
           "Both sides agree service metrics worsened after the cuts. The crux is whether the degradation is transitional (a temporary cost of restructuring that normalizes) or structural (a permanent loss of capacity that a future administration will struggle to rebuild). The rehiring pattern is the key test: it can be read as healthy self-correction or as proof the cutter could not identify what was load-bearing.",
         methodology:
-          "Track agency service-delivery metrics — SSA phone wait times and backlog counts, VA mental-health wait times, IRS processing times, FAA safety-incident rates — month over month from the pre-cut baseline through 24+ months post-cut. Compare the trajectory against the count and timing of essential-worker rehires. Persistent or worsening metrics indicate structural loss; recovery to baseline indicates transitional disruption.",
+          "Track agency service-delivery metrics (SSA phone wait times and backlog counts, VA mental-health wait times, IRS processing times, FAA safety-incident rates) month over month from the pre-cut baseline through 24+ months post-cut. Compare the trajectory against the count and timing of essential-worker rehires. Persistent or worsening metrics indicate structural loss; recovery to baseline indicates transitional disruption.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
@@ -192,7 +192,7 @@ export const dogeFederalCutsData = {
           common_ground:
             "Both sides agree service metrics worsened after the cuts, and that some fired workers, from nuclear-weapons to weather staff, had to be brought back once agencies found them essential.",
           live_disagreement:
-            "Whether the rehiring shows a system correcting itself or cuts made before anyone knew what was load-bearing — and so whether the damage is a transitional cost or a permanent loss of capacity.",
+            "Whether the rehiring shows a system correcting itself or cuts made before anyone knew what was load-bearing, and so whether the damage is a transitional cost or a permanent loss of capacity.",
         },
       },
       evidence: [
@@ -295,16 +295,16 @@ export const dogeFederalCutsData = {
         "A federal court found OPM's mass firings of probationary staff unlawful, and in March 2026 an appeals court largely upheld a block on the administration's freeze of funds to states. In June 2026 the Supreme Court, in Trump v. Slaughter, overruled Humphrey's Executor and widened the President's power to remove agency officials. Whether a president may also refuse to spend money Congress appropriated, which the Impoundment Control Act of 1974 and Train v. City of New York forbid, is still being fought in court.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "DOGE's methods collided with the Constitution's separation of powers. In September 2025, Judge Alsup granted summary judgment finding OPM's mass-termination orders unlawful and ordering personnel files corrected. The Impoundment Control Act of 1974 and the unanimous Supreme Court ruling in Train v. City of New York (1975) hold that the executive cannot unilaterally refuse to spend funds Congress appropriated — and in March 2026 the First Circuit largely affirmed a block on the administration's funds freeze. Reviving Schedule F as 'Schedule Policy/Career' to reclassify up to 50,000 positions as at-will treats Article I's power of the purse as optional, and the removal ruling in Trump v. Slaughter does not touch the appropriations question, which is where the impoundment cases are still being lost.",
+        "DOGE's methods collided with the Constitution's separation of powers. In September 2025, Judge Alsup granted summary judgment finding OPM's mass-termination orders unlawful and ordering personnel files corrected. The Impoundment Control Act of 1974 and the unanimous Supreme Court ruling in Train v. City of New York (1975) hold that the executive cannot unilaterally refuse to spend funds Congress appropriated, and in March 2026 the First Circuit largely affirmed a block on the administration's funds freeze. Reviving Schedule F as 'Schedule Policy/Career' to reclassify up to 50,000 positions as at-will treats Article I's power of the purse as optional, and the removal ruling in Trump v. Slaughter does not touch the appropriations question, which is where the impoundment cases are still being lost.",
       proponent_rebuttal:
-        "The President has broad constitutional authority over the executive branch, and the courts are split, not settled. In July 2025 the Supreme Court, on its emergency docket, granted the administration broad authority to reshape and shrink the federal workforce, partially reversing lower-court relief. The unitary-executive theory holds that Article II vests all executive power in the President, including the power to remove subordinates and manage spending priorities — and on 29 June 2026 the Supreme Court adopted the removal half of that argument in Trump v. Slaughter, overruling Humphrey's Executor. Where DOGE overstepped, courts corrected it; that is the system working, not a constitutional crisis.",
+        "The President has broad constitutional authority over the executive branch, and the courts are split, not settled. In July 2025 the Supreme Court, on its emergency docket, granted the administration broad authority to reshape and shrink the federal workforce, partially reversing lower-court relief. The unitary-executive theory holds that Article II vests all executive power in the President, including the power to remove subordinates and manage spending priorities, and on 29 June 2026 the Supreme Court adopted the removal half of that argument in Trump v. Slaughter, overruling Humphrey's Executor. Where DOGE overstepped, courts corrected it; that is the system working, not a constitutional crisis.",
       crux: {
         id: "impoundment-removal-authority",
         title: "The Impoundment & Removal Authority Test",
         question:
           "Can a president refuse to spend appropriated funds and fire officials Congress protected?",
         description:
-          "The decisive legal question is whether the unitary-executive theory reaches Article I's appropriations power — i.e., whether a President may decline to spend appropriated funds and fire officials Congress insulated from removal. Unlike the empirical cruxes, this is partly a normative legal commitment, but it has concrete arbiters: the binding force of Train v. City of New York and the Impoundment Control Act on the spending side, and, on the removal side, Trump v. Slaughter, decided in June 2026.",
+          "The decisive legal question is whether the unitary-executive theory reaches Article I's appropriations power, i.e., whether a President may decline to spend appropriated funds and fire officials Congress insulated from removal. Unlike the empirical cruxes, this is partly a normative legal commitment, but it has concrete arbiters: the binding force of Train v. City of New York and the Impoundment Control Act on the spending side, and, on the removal side, Trump v. Slaughter, decided in June 2026.",
         methodology:
           "Track the controlling precedents to resolution: (1) on spending, whether appellate courts continue to enforce Train and the Impoundment Control Act against the funds freeze; (2) on removal, the Supreme Court's June 2026 decision in Trump v. Slaughter, which overruled Humphrey's Executor, and how far lower courts read it to reach officials and functions beyond the FTC. The outcome of these cases, not opinion, settles the boundary of executive authority.",
         verification_status: "theoretical" as const,
@@ -313,7 +313,7 @@ export const dogeFederalCutsData = {
             "Appellate rulings on the funds freeze under Train v. City of New York and the Impoundment Control Act; the removal half was settled in June 2026 when Trump v. Slaughter overruled Humphrey's Executor.",
         },
         cost_to_verify:
-          "$0 to observe (court records are public), but resolution depends on pending Supreme Court rulings, not analysis — the core question is a contested legal commitment awaiting adjudication",
+          "$0 to observe (court records are public), but resolution depends on pending Supreme Court rulings, not analysis: the core question is a contested legal commitment awaiting adjudication",
         falsification: {
           supporter_flip:
             "If appellate courts keep enforcing Train v. City of New York and the Impoundment Control Act against the funds freeze, and courts read Trump v. Slaughter narrowly as an FTC-specific removal holding, the legal footing for DOGE's spending methods would largely give way.",
@@ -322,7 +322,7 @@ export const dogeFederalCutsData = {
           common_ground:
             "Both sides agree the courts are the arbiter and have ruled both ways: lower courts found OPM's mass firings unlawful and blocked the funds freeze, while the Supreme Court granted broad authority to shrink the workforce.",
           live_disagreement:
-            "Whether the President's Article II power reaches Congress's power of the purse — which turns on Train and the Impoundment Control Act, now that Trump v. Slaughter has resolved the removal side.",
+            "Whether the President's Article II power reaches Congress's power of the purse, which turns on Train and the Impoundment Control Act, now that Trump v. Slaughter has resolved the removal side.",
         },
       },
       evidence: [
@@ -398,25 +398,25 @@ export const dogeFederalCutsData = {
     },
 
     // =========================================================================
-    // PILLAR 4: Reform vs. Demolition — Long-Run State Capacity
+    // PILLAR 4: Reform vs. Demolition, Long-Run State Capacity
     // =========================================================================
     {
       id: "reform-vs-capacity",
       title: "Reform vs. Long-Run State Capacity",
       short_summary:
-        "Even critics agree the federal hiring-and-firing process is broken and that 99.8% positive performance reviews are not credible. The dispute is whether DOGE actually reformed the process or merely cut the workforce while leaving the broken procedures in place — and whether the government will need more capacity, not less, for the AI, biosecurity, and climate challenges ahead.",
+        "Even critics agree the federal hiring-and-firing process is broken and that 99.8% positive performance reviews are not credible. The dispute is whether DOGE actually reformed the process or merely cut the workforce while leaving the broken procedures in place, and whether the government will need more capacity, not less, for the AI, biosecurity, and climate challenges ahead.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "DOGE cut people, not process — destroying capacity the 2030s will require. As Jen Pahlka put it, DOGE 'cut the workforce without cutting the work.' Public-administration scholar Donald Kettl warns of an unprecedented disinvestment in federal capacity that a future president will find extremely difficult to reverse. The bellwethers are stark: the CDC's Epidemic Intelligence Service disease detectives were swept into layoffs twice in 2025 before being spared, and the National Weather Service lost more than 550 staff before being cleared to hire 450 — exactly the surveillance and forecasting capacity needed for pandemics, climate adaptation, and AI-era governance.",
+        "DOGE cut people, not process, destroying capacity the 2030s will require. As Jen Pahlka put it, DOGE 'cut the workforce without cutting the work.' Public-administration scholar Donald Kettl warns of an unprecedented disinvestment in federal capacity that a future president will find extremely difficult to reverse. The bellwethers are stark: the CDC's Epidemic Intelligence Service disease detectives were swept into layoffs twice in 2025 before being spared, and the National Weather Service lost more than 550 staff before being cleared to hire 450, exactly the surveillance and forecasting capacity needed for pandemics, climate adaptation, and AI-era governance.",
       proponent_rebuttal:
-        "The diagnosis that the civil service is structurally broken is shared even by reform-minded critics, and that justifies aggressive action. The federal government fires employees at roughly one-quarter the rate of the private sector for procedural reasons, and 99.8% of federal employees receive positive performance reviews — a figure no serious observer believes reflects reality. Past 'reinventing government' efforts failed precisely because they respected every procedure. DOGE's bet is that breaking the inertia is worth the disruption, and that emerging tools — including AI-driven enforcement at the IRS — can substitute for some of the lost headcount rather than requiring it to be rebuilt one-for-one.",
+        "The diagnosis that the civil service is structurally broken is shared even by reform-minded critics, and that justifies aggressive action. The federal government fires employees at roughly one-quarter the rate of the private sector for procedural reasons, and 99.8% of federal employees receive positive performance reviews, a figure no serious observer believes reflects reality. Past 'reinventing government' efforts failed precisely because they respected every procedure. DOGE's bet is that breaking the inertia is worth the disruption, and that emerging tools, including AI-driven enforcement at the IRS, can substitute for some of the lost headcount rather than requiring it to be rebuilt one-for-one.",
       crux: {
         id: "process-reform-vs-headcount-cut",
         title: "Process Reform vs. Headcount Cut",
         question:
           "Did DOGE change the dysfunctional personnel process, or only reduce headcount?",
         description:
-          "Both reformers and DOGE agree the underlying personnel process is dysfunctional. The crux is whether DOGE changed the dysfunctional process or merely removed the people while leaving the process intact. If the broken procedures remain and only headcount fell, the result is reduced capacity to perform the same unproductive work — the opposite of efficiency. If procedures were genuinely streamlined, the smaller workforce can do more.",
+          "Both reformers and DOGE agree the underlying personnel process is dysfunctional. The crux is whether DOGE changed the dysfunctional process or merely removed the people while leaving the process intact. If the broken procedures remain and only headcount fell, the result is reduced capacity to perform the same unproductive work, the opposite of efficiency. If procedures were genuinely streamlined, the smaller workforce can do more.",
         methodology:
           "Audit the actual procedural changes versus headcount changes: catalog which civil-service rules, approval chains, and procurement procedures were eliminated or simplified (regulatory text, OPM rules), and measure output-per-employee and cycle times before and after. Compare against the workforce-reduction figures. If procedures are unchanged while headcount fell, the 'reform' claim fails; if cycle times improved alongside cuts, it holds.",
         verification_status: "theoretical" as const,
@@ -434,7 +434,7 @@ export const dogeFederalCutsData = {
           common_ground:
             "Both sides agree the federal personnel process is broken: about 99.8% of employees get positive reviews, and the government fires at roughly one-quarter the private-sector rate for procedural reasons.",
           live_disagreement:
-            "Whether DOGE streamlined the procedures that make government slow or removed people while leaving those procedures in place — and whether the capacity it cut, from disease detectives to storm forecasters, will be needed for the challenges ahead.",
+            "Whether DOGE streamlined the procedures that make government slow or removed people while leaving those procedures in place, and whether the capacity it cut, from disease detectives to storm forecasters, will be needed for the challenges ahead.",
         },
       },
       evidence: [
@@ -442,7 +442,7 @@ export const dogeFederalCutsData = {
           id: "performance-review-anomaly",
           title: "99.8% of Federal Employees Receive Positive Performance Reviews",
           description:
-            "Reporting compiled by Statecraft found that about 99.8% of federal employees receive positive performance reviews, and that the federal government fires employees at roughly one-quarter the rate of the private sector — driven by procedural barriers rather than universal excellence. These figures are cited across the reform spectrum as evidence the civil-service accountability process is genuinely broken.",
+            "Reporting compiled by Statecraft found that about 99.8% of federal employees receive positive performance reviews, and that the federal government fires employees at roughly one-quarter the rate of the private sector, driven by procedural barriers rather than universal excellence. These figures are cited across the reform spectrum as evidence the civil-service accountability process is genuinely broken.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -583,25 +583,25 @@ export const dogeFederalCutsData = {
       id: "q1",
       title: "Did DOGE actually save money, or just claim it?",
       content:
-        "DOGE's ledger grew to a claimed $215 billion in savings by the time it sunset in July 2026, but independent review documented only a fraction (about $2 billion verifiable in February 2025; less than half of the headline backed by basic documentation), after the receipts were caught inflating figures by up to 1,000x, and a 2026 GAO review found some of the $110 billion claimed from contracts, grants and leases incorrect or unsupported. Meanwhile, the Yale Budget Lab projects DOGE-era IRS staffing cuts plus the funding clawback together forgo roughly $861 billion in revenue over a decade. When verified savings are netted against revenue losses and the cost of rehiring essential staff, did DOGE leave the government better off financially — or worse?",
+        "DOGE's ledger grew to a claimed $215 billion in savings by the time it sunset in July 2026, but independent review documented only a fraction (about $2 billion verifiable in February 2025; less than half of the headline backed by basic documentation), after the receipts were caught inflating figures by up to 1,000x, and a 2026 GAO review found some of the $110 billion claimed from contracts, grants and leases incorrect or unsupported. Meanwhile, the Yale Budget Lab projects DOGE-era IRS staffing cuts plus the funding clawback together forgo roughly $861 billion in revenue over a decade. When verified savings are netted against revenue losses and the cost of rehiring essential staff, did DOGE leave the government better off financially, or worse?",
     },
     {
       id: "q2",
       title: "Was the disruption transitional, or a permanent loss of capacity?",
       content:
-        "Service metrics worsened sharply after the cuts — SSA phone waits of up to two or three hours, a reported 35-day average wait for new VA mental-health patients, and fired nuclear-stockpile, bird-flu and weather staff brought back once agencies found them essential. Proponents call this transitional growing pain that the system self-corrects. Critics call it a durable disinvestment a future president cannot easily reverse. Which reading does the multi-year data support?",
+        "Service metrics worsened sharply after the cuts, SSA phone waits of up to two or three hours, a reported 35-day average wait for new VA mental-health patients, and fired nuclear-stockpile, bird-flu and weather staff brought back once agencies found them essential. Proponents call this transitional growing pain that the system self-corrects. Critics call it a durable disinvestment a future president cannot easily reverse. Which reading does the multi-year data support?",
     },
     {
       id: "q3",
       title: "Can the executive impound funds and fire at will?",
       content:
-        "Train v. City of New York and the Impoundment Control Act say the President cannot refuse to spend appropriated funds, and a court found OPM's mass firings unlawful. The unitary-executive theory — and the Supreme Court's June 2026 ruling in Trump v. Slaughter, which overruled Humphrey's Executor — say presidential power over the executive branch is far broader. Is DOGE a lawful exercise of executive authority or a rebellion against Article I's power of the purse?",
+        "Train v. City of New York and the Impoundment Control Act say the President cannot refuse to spend appropriated funds, and a court found OPM's mass firings unlawful. The unitary-executive theory, and the Supreme Court's June 2026 ruling in Trump v. Slaughter, which overruled Humphrey's Executor, say presidential power over the executive branch is far broader. Is DOGE a lawful exercise of executive authority or a rebellion against Article I's power of the purse?",
     },
     {
       id: "q4",
       title: "Did DOGE reform the broken process, or just cut the people?",
       content:
-        "Almost everyone agrees the civil service is dysfunctional: 99.8% positive performance reviews and firing rates a quarter of the private sector's. But reform advocate Jen Pahlka argues DOGE 'cut the workforce without cutting the work.' Did DOGE fix the broken procedures, or just remove the staff who carried them out — leaving a smaller government doing the same unproductive work?",
+        "Almost everyone agrees the civil service is dysfunctional: 99.8% positive performance reviews and firing rates a quarter of the private sector's. But reform advocate Jen Pahlka argues DOGE 'cut the workforce without cutting the work.' Did DOGE fix the broken procedures, or just remove the staff who carried them out, leaving a smaller government doing the same unproductive work?",
     },
   ],
 };

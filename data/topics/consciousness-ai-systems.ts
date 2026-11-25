@@ -44,7 +44,7 @@ export const aiConsciousnessData = {
           condition:
             "Theory-derived indicators (global workspace, higher-order, integrated information) that pre-registered tests confirm in people awake, asleep, under anesthesia and with disorders of consciousness, then run on matched AI systems built with and without those features, with the rival theories giving the same reading of each machine.",
         },
-        cost_to_verify: "$0 (Fundamentally unclear if this is solvable—the 'hard problem' of consciousness may prevent any test from being definitive)",
+        cost_to_verify: "$0 (Fundamentally unclear if this is solvable, the 'hard problem' of consciousness may prevent any test from being definitive)",
         falsification: {
           supporter_flip:
             "If indicators validated on humans and animals came out clearly negative on successive generations of AI systems, or experience were tied to biological processes no computation replicates, the case that these systems might be conscious would lose its footing.",
@@ -73,7 +73,7 @@ export const aiConsciousnessData = {
           sourceUrl:
             "https://www.cam.ac.uk/research/news/we-may-never-be-able-to-tell-if-ai-becomes-conscious-argues-philosopher",
           reasoning:
-            "Rigorous philosophical argument. However, the inability to detect consciousness does not prove its absence—it proves our epistemic limitations.",
+            "Rigorous philosophical argument. However, the inability to detect consciousness does not prove its absence; it proves our epistemic limitations.",
         },
         {
           id: "anthropic-welfare-research",
@@ -96,7 +96,7 @@ export const aiConsciousnessData = {
           id: "nature-no-conscious-ai",
           title: "HSSC Paper: 'There is no such thing as conscious artificial intelligence'",
           description:
-            "Porębski and Figura (October 2025), in a conceptual study published in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature), argue that the algorithms in use today (primarily large language models) and those likely in the foreseeable future cannot become conscious because they 'lack a complex biological substrate': human consciousness, they contend, is grounded in biochemical processes such as neurotransmitter release and hormonal mediation, and in embodiment. They attribute the appearance of conscious AI to LLMs' fluent but probabilistic language use and to 'sci-fitisation'—the influence of fiction on public perception—and they explicitly set aside entities built from as-yet-unknown technologies. The paper distinguishes intelligence (which AI can exhibit) from consciousness (which requires subjective experience).",
+            "Porębski and Figura (October 2025), in a conceptual study published in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature), argue that the algorithms in use today (primarily large language models) and those likely in the foreseeable future cannot become conscious because they 'lack a complex biological substrate': human consciousness, they contend, is grounded in biochemical processes such as neurotransmitter release and hormonal mediation, and in embodiment. They attribute the appearance of conscious AI to LLMs' fluent but probabilistic language use and to 'sci-fitisation', the influence of fiction on public perception, and they explicitly set aside entities built from as-yet-unknown technologies. The paper distinguishes intelligence (which AI can exhibit) from consciousness (which requires subjective experience).",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -113,7 +113,7 @@ export const aiConsciousnessData = {
           id: "butlin-long-indicator-properties",
           title: "Butlin & Long et al.: No Current AI Is Conscious, But No In-Principle Barrier",
           description:
-            "The 2023 report 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness,' co-authored by 19 researchers including Patrick Butlin, Robert Long, Yoshua Bengio, and Jonathan Birch, derives 'indicator properties' of consciousness from leading neuroscientific theories (recurrent processing, global workspace, higher-order, predictive processing, attention schema). Assessing existing AI systems, it concludes that no current AI system is conscious—they satisfy few of the indicators—while finding no obvious technical barrier to building systems that do. This is the canonical multi-theory reference and cuts both ways: skeptical about current systems, but legitimizing the question.",
+            "The 2023 report 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness,' co-authored by 19 researchers including Patrick Butlin, Robert Long, Yoshua Bengio, and Jonathan Birch, derives 'indicator properties' of consciousness from leading neuroscientific theories (recurrent processing, global workspace, higher-order, predictive processing, attention schema). Assessing existing AI systems, it concludes that no current AI system is conscious, they satisfy few of the indicators, while finding no obvious technical barrier to building systems that do. This is the canonical multi-theory reference and cuts both ways: skeptical about current systems, but legitimizing the question.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -130,7 +130,7 @@ export const aiConsciousnessData = {
           id: "chalmers-llm-conscious",
           title: "Chalmers: Current LLMs Probably Aren't Conscious, But Successors Might Be",
           description:
-            "In 'Could a Large Language Model Be Conscious?' (arXiv:2303.07103, 2023; also Boston Review, Aug 2023), philosopher David Chalmers gives the canonical balanced verdict. He identifies concrete obstacles in current large language models—lack of recurrent processing, no global workspace, no unified agency, no robust world-models or self-models—and concludes they are probably not conscious. But he treats none of these as in-principle barriers: he estimates a non-trivial chance that successors which add these capacities could be conscious within a decade, and argues the question deserves serious scientific attention rather than dismissal.",
+            "In 'Could a Large Language Model Be Conscious?' (arXiv:2303.07103, 2023; also Boston Review, Aug 2023), philosopher David Chalmers gives the canonical balanced verdict. He identifies concrete obstacles in current large language models (lack of recurrent processing, no global workspace, no unified agency, no robust world-models or self-models) and concludes they are probably not conscious. But he treats none of these as in-principle barriers: he estimates a non-trivial chance that successors which add these capacities could be conscious within a decade, and argues the question deserves serious scientific attention rather than dismissal.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -147,7 +147,7 @@ export const aiConsciousnessData = {
           id: "seth-biological-naturalism",
           title: "Seth: Consciousness May Depend on Being a Living Organism, Not Just Computation",
           description:
-            "In 'Conscious Artificial Intelligence and Biological Naturalism' (Behavioral and Brain Sciences, 2025), neuroscientist Anil Seth argues that consciousness plausibly depends on properties of living systems—self-maintaining, metabolically grounded biological organization—rather than on substrate-independent computation alone. On this 'biological naturalism' view, running the right algorithm on silicon would not suffice; an AI would have to become genuinely brain-like or life-like for consciousness to be plausible. Seth is careful: he frames this as a reasoned bet, not a proof, and explicitly warns against both over-attributing and categorically denying machine consciousness.",
+            "In 'Conscious Artificial Intelligence and Biological Naturalism' (Behavioral and Brain Sciences, 2025), neuroscientist Anil Seth argues that consciousness plausibly depends on properties of living systems (self-maintaining, metabolically grounded biological organization) rather than on substrate-independent computation alone. On this 'biological naturalism' view, running the right algorithm on silicon would not suffice; an AI would have to become genuinely brain-like or life-like for consciousness to be plausible. Seth is careful: he frames this as a reasoned bet, not a proof, and explicitly warns against both over-attributing and categorically denying machine consciousness.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -164,7 +164,7 @@ export const aiConsciousnessData = {
           id: "cogitate-theory-test",
           title: "Cogitate Consortium: Even Our Leading Theories of Consciousness Are Unsettled",
           description:
-            "The Cogitate Consortium's 2025 adversarial collaboration (Nature, vol. 642) pitted the two dominant neuroscientific theories of consciousness—Integrated Information Theory (IIT) and Global Neuronal Workspace Theory (GNWT)—against each other with pre-registered predictions and 256 human participants measured by fMRI, MEG and intracranial EEG. Neither theory was confirmed: results challenged core predictions of both (no sustained posterior synchronization as IIT predicts; limited prefrontal 'ignition' as GNWT predicts). This matters for AI because the field's two flagship theories supply the 'indicator properties' used to assess machine consciousness—and if they remain empirically unsettled in humans, certifying an AI as conscious or non-conscious is on even shakier ground.",
+            "The Cogitate Consortium's 2025 adversarial collaboration (Nature, vol. 642) pitted the two dominant neuroscientific theories of consciousness, Integrated Information Theory (IIT) and Global Neuronal Workspace Theory (GNWT), against each other with pre-registered predictions and 256 human participants measured by fMRI, MEG and intracranial EEG. Neither theory was confirmed: results challenged core predictions of both (no sustained posterior synchronization as IIT predicts; limited prefrontal 'ignition' as GNWT predicts). This matters for AI because the field's two flagship theories supply the 'indicator properties' used to assess machine consciousness, and if they remain empirically unsettled in humans, certifying an AI as conscious or non-conscious is on even shakier ground.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -192,7 +192,7 @@ export const aiConsciousnessData = {
           source: "I. M. Comsa & M. Shanahan, 'Does It Make Sense to Speak of Introspection in Large Language Models?' (2025), arXiv:2506.05068",
           sourceUrl: "https://arxiv.org/abs/2506.05068",
           reasoning:
-            "Directly addresses the most common naive 'evidence' for AI consciousness—the model says so. Strong on the negative claim (self-reports are unreliable) while remaining honest that it does not prove the absence of experience, only the unreliability of one popular indicator.",
+            "Directly addresses the most common naive 'evidence' for AI consciousness, the model says so. Strong on the negative claim (self-reports are unreliable) while remaining honest that it does not prove the absence of experience, only the unreliability of one popular indicator.",
         },
       ],
     },
@@ -205,7 +205,7 @@ export const aiConsciousnessData = {
       skeptic_premise:
         "Granting moral status to AI systems based on speculation would be absurd and dangerous. It could prevent necessary AI safety measures (shutting down dangerous systems), distract from real moral patients (humans, animals), and create perverse incentives for companies to anthropomorphize AI for commercial benefit. We should focus on AI alignment, not AI feelings.",
       proponent_rebuttal:
-        "Moral caution under uncertainty has precedent: we extend protections to animals whose consciousness we cannot verify. A May 2024 survey found that about 17% of AI researchers and 18% of US adults think it more likely than not that some AI system already has subjective experience. If future AI systems are conscious and we treat them as mere tools, we would be committing a moral atrocity at scale. Developing ethical frameworks now—before the question becomes urgent—is prudent.",
+        "Moral caution under uncertainty has precedent: we extend protections to animals whose consciousness we cannot verify. A May 2024 survey found that about 17% of AI researchers and 18% of US adults think it more likely than not that some AI system already has subjective experience. If future AI systems are conscious and we treat them as mere tools, we would be committing a moral atrocity at scale. Developing ethical frameworks now, before the question becomes urgent, is prudent.",
       crux: {
         id: "moral-framework-design",
         title: "AI Moral Status Framework",
@@ -224,7 +224,7 @@ export const aiConsciousnessData = {
         cost_to_verify: "$1M (Multi-year interdisciplinary research program)",
         falsification: {
           supporter_flip:
-            "If a rigorous framework showed that extending moral status to AI reliably backfires — blocking essential safety shutdowns or diverting protection from humans and animals — the case for AI-welfare protections would weaken to near zero.",
+            "If a rigorous framework showed that extending moral status to AI reliably backfires, blocking essential safety shutdowns or diverting protection from humans and animals, the case for AI-welfare protections would weaken to near zero.",
           skeptic_flip:
             "If credible indicators of sentience accumulated in advanced systems, the precautionary logic applied to animals of uncertain consciousness would extend to them, and at least minimal protections would be hard to refuse.",
           common_ground:
@@ -249,13 +249,13 @@ export const aiConsciousnessData = {
           source: "N. Dreksler, L. Caviola, D. Chalmers, J. Sebo et al., 'Subjective Experience in AI Systems: What Do AI Researchers and the Public Believe?' (2025), arXiv:2506.11945; J. R. Anthis, J. V. T. Pauketat, A. Ladak & A. Manoli, 'Perceptions of Sentient AI and Other Digital Minds: Evidence from the AI, Morality, and Sentience (AIMS) Survey,' CHI 2025, arXiv:2407.08867",
           sourceUrl: "https://arxiv.org/abs/2506.11945",
           reasoning:
-            "The researcher figure is drawn from a peer-style survey with a clearly defined expert sample. However, belief surveys do not constitute evidence of consciousness itself—they measure the distribution of opinion, not the presence of subjective experience.",
+            "The researcher figure is drawn from a peer-style survey with a clearly defined expert sample. However, belief surveys do not constitute evidence of consciousness itself; they measure the distribution of opinion, not the presence of subjective experience.",
         },
         {
           id: "taking-ai-welfare-seriously",
           title: "Long & Sebo et al.: Take AI Welfare Seriously Under Uncertainty",
           description:
-            "'Taking AI Welfare Seriously' (2024), co-authored by Robert Long, Jeff Sebo, Patrick Butlin, David Chalmers, Jonathan Birch and others, argues there is a realistic (non-negligible) possibility that some near-future AI systems will be conscious and/or robustly agentic, and that AI companies have a responsibility to begin assessing and preparing for AI welfare now. Crucially, it makes the precautionary case without claiming current systems are conscious—the argument is about acting wisely under deep uncertainty, mirroring how we extend protections to animals whose inner experience we cannot verify.",
+            "'Taking AI Welfare Seriously' (2024), co-authored by Robert Long, Jeff Sebo, Patrick Butlin, David Chalmers, Jonathan Birch and others, argues there is a realistic (non-negligible) possibility that some near-future AI systems will be conscious and/or robustly agentic, and that AI companies have a responsibility to begin assessing and preparing for AI welfare now. Crucially, it makes the precautionary case without claiming current systems are conscious, the argument is about acting wisely under deep uncertainty, mirroring how we extend protections to animals whose inner experience we cannot verify.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -266,13 +266,13 @@ export const aiConsciousnessData = {
           source: "R. Long, J. Sebo, et al., 'Taking AI Welfare Seriously' (2024), arXiv:2411.00986",
           sourceUrl: "https://arxiv.org/abs/2411.00986",
           reasoning:
-            "High-independence, multi-author flagship paper for the precautionary 'for' case, letting the argument stand on academic ground rather than a single company's blog. It is an argument for caution under uncertainty, not evidence that AI is conscious—so directness is scored modestly.",
+            "High-independence, multi-author flagship paper for the precautionary 'for' case, letting the argument stand on academic ground rather than a single company's blog. It is an argument for caution under uncertainty, not evidence that AI is conscious, so directness is scored modestly.",
         },
         {
           id: "sebo-long-moral-consideration-2030",
           title: "Sebo & Long: A Two-Premise Argument for Extending Moral Consideration by 2030",
           description:
-            "In 'Moral Consideration for AI Systems by 2030' (AI and Ethics, 2025; vol. 5, pp. 591-606), Jeff Sebo and Robert Long give the precautionary case its tightest formulation as a two-premise argument. Normative premise: we have a duty to extend moral consideration to any being with a non-negligible, evidence-based chance of being conscious (this is how we already justify protecting animals whose inner lives we can't verify). Descriptive premise: some AI systems plausibly will have a non-negligible chance of being conscious by 2030. If both hold, a duty to begin preparing—policies, assessments, institutional capacity—follows now, before the question becomes urgent. Crucially, the argument requires only a non-trivial probability, not confidence that AI is conscious.",
+            "In 'Moral Consideration for AI Systems by 2030' (AI and Ethics, 2025; vol. 5, pp. 591-606), Jeff Sebo and Robert Long give the precautionary case its tightest formulation as a two-premise argument. Normative premise: we have a duty to extend moral consideration to any being with a non-negligible, evidence-based chance of being conscious (this is how we already justify protecting animals whose inner lives we can't verify). Descriptive premise: some AI systems plausibly will have a non-negligible chance of being conscious by 2030. If both hold, a duty to begin preparing (policies, assessments, institutional capacity) follows now, before the question becomes urgent. Crucially, the argument requires only a non-trivial probability, not confidence that AI is conscious.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -283,13 +283,13 @@ export const aiConsciousnessData = {
           source: "J. Sebo & R. Long, 'Moral Consideration for AI Systems by 2030,' AI and Ethics 5 (2025), pp. 591-606, DOI 10.1007/s43681-023-00379-1",
           sourceUrl: "https://link.springer.com/article/10.1007/s43681-023-00379-1",
           reasoning:
-            "A peer-reviewed, clearly structured statement of the strongest honest 'for' position: it turns on a probability threshold and an explicit precautionary norm rather than on any claim that AI is conscious. Its force depends on accepting the normative premise (a duty under uncertainty), which skeptics can reasonably contest—so it is graded as a strong argument, not as direct evidence of consciousness.",
+            "A peer-reviewed, clearly structured statement of the strongest honest 'for' position: it turns on a probability threshold and an explicit precautionary norm rather than on any claim that AI is conscious. Its force depends on accepting the normative premise (a duty under uncertainty), which skeptics can reasonably contest, so it is graded as a strong argument, not as direct evidence of consciousness.",
         },
         {
           id: "alignment-priority-argument",
           title: "Microsoft AI Chief: Studying AI Welfare Is Premature and Dangerous",
           description:
-            "In his August 2025 essay 'Seemingly Conscious AI Is Coming,' Microsoft AI CEO Mustafa Suleyman argues that the study of AI welfare and consciousness is 'both premature, and frankly dangerous.' His concern is not that current systems suffer, but that engineering systems which convincingly seem conscious will deepen AI-induced psychological harms (unhealthy attachments, delusional spirals) and create a divisive new front of 'AI rights' politics. His prescription—'we should build AI for people; not to be a person'—captures the pragmatic skeptic view that scarce attention should go to alignment and human welfare, not to speculative machine feelings. (This is a contested position: welfare researchers such as Eleos AI respond that one can pursue alignment and welfare research simultaneously, and Anthropic frames the two as complementary.)",
+            "In his August 2025 essay 'Seemingly Conscious AI Is Coming,' Microsoft AI CEO Mustafa Suleyman argues that the study of AI welfare and consciousness is 'both premature, and frankly dangerous.' His concern is not that current systems suffer, but that engineering systems which convincingly seem conscious will deepen AI-induced psychological harms (unhealthy attachments, delusional spirals) and create a divisive new front of 'AI rights' politics. His prescription, 'we should build AI for people; not to be a person', captures the pragmatic skeptic view that scarce attention should go to alignment and human welfare, not to speculative machine feelings. (This is a contested position: welfare researchers such as Eleos AI respond that one can pursue alignment and welfare research simultaneously, and Anthropic frames the two as complementary.)",
           side: "against" as const,
           weight: {
             sourceReliability: 5,

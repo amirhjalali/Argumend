@@ -82,7 +82,7 @@ export const globalHousingBubbleData = {
       skeptic_premise:
         "High price-to-income ratios do not necessarily indicate a bubble. Structural factors have permanently shifted housing valuations upward: constrained land supply in desirable cities, stricter building regulations, dual-income households becoming the norm, and the financialization of housing as a wealth-storage vehicle. Japan's experience in the 1990s is often cited, but most Western markets have fundamentally different demographics and supply constraints. Ratios can stay elevated indefinitely if supply remains restricted.",
       proponent_rebuttal:
-        "In Canada, Australia, New Zealand, and parts of Europe, price-to-income ratios in major cities sit far above the 3-5x range historically considered sustainable. On the OECD's standardized measure, house prices outpaced household incomes by roughly 17% across member countries between 2015 and 2023, with the steepest divergences in Portugal, Canada, and the US—and the ratio hit record highs in the most stretched markets. Every previous episode of such extreme divergence has eventually ended in a correction. Structural arguments were made before the 2008 US crash ('land is limited in coastal cities'), before Japan's 1991 crash ('Japanese culture values property'), and before Ireland's 2007 crash ('the Celtic Tiger is different'). The math of affordability reasserts itself: once mortgage payments consume an outsized share of income—in Toronto, over half of median after-tax family income on the Fraser Institute's measure—the buyer pool contracts until prices must adjust.",
+        "In Canada, Australia, New Zealand, and parts of Europe, price-to-income ratios in major cities sit far above the 3-5x range historically considered sustainable. On the OECD's standardized measure, house prices outpaced household incomes by roughly 17% across member countries between 2015 and 2023, with the steepest divergences in Portugal, Canada, and the US, and the ratio hit record highs in the most stretched markets. Every previous episode of such extreme divergence has eventually ended in a correction. Structural arguments were made before the 2008 US crash ('land is limited in coastal cities'), before Japan's 1991 crash ('Japanese culture values property'), and before Ireland's 2007 crash ('the Celtic Tiger is different'). The math of affordability reasserts itself: once mortgage payments consume an outsized share of income (in Toronto, over half of median after-tax family income on the Fraser Institute's measure) the buyer pool contracts until prices must adjust.",
       crux: {
         id: "affordability-threshold",
         title: "The Affordability Threshold Test",
@@ -102,13 +102,13 @@ export const globalHousingBubbleData = {
         cost_to_verify: "$0 (publicly available OECD and national statistics data)",
         falsification: {
           supporter_flip:
-            "If a market sustained price-to-income ratios far above the historical 3-5x band for a full economic cycle — with first-time-buyer participation recovering rather than collapsing — without any correction, that would show elevated ratios reflect a durable structural shift (supply constraints, dual-income norms) rather than a bubble destined to pop.",
+            "If a market sustained price-to-income ratios far above the historical 3-5x band for a full economic cycle, with first-time-buyer participation recovering rather than collapsing, without any correction, that would show elevated ratios reflect a durable structural shift (supply constraints, dual-income norms) rather than a bubble destined to pop.",
           skeptic_flip:
             "If today's markets followed the pattern of the US in 2006, Japan in 1990 and Ireland in 2007, extreme ratios defended as 'structural', and mortgage burdens above ~50% of income shrank the buyer pool, the 'new normal' view would be hard to hold.",
           common_ground:
             "Both sides agree price-to-income ratios in many major cities are at or near record highs and that affordability for first-time buyers has deteriorated sharply.",
           live_disagreement:
-            "Whether there is a hard affordability ceiling beyond which the buyer pool must contract and prices must fall, or whether constrained supply lets ratios stay permanently elevated — resolvable by tracking, across many markets, whether record ratios actually trigger corrections or persist through a full cycle.",
+            "Whether there is a hard affordability ceiling beyond which the buyer pool must contract and prices must fall, or whether constrained supply lets ratios stay permanently elevated, resolvable by tracking, across many markets, whether record ratios actually trigger corrections or persist through a full cycle.",
         },
       },
       evidence: [
@@ -200,7 +200,7 @@ export const globalHousingBubbleData = {
       skeptic_premise:
         "Large institutional investors are a small share of the market: the Urban Institute finds firms owning 1,000+ homes hold only about 3% of single-family rentals and under 0.5% of the total single-family stock, and made under 1% of single-family purchases in 2021. Their presence adds liquidity, professionalizes property management, and reflects rational investment in a real asset rather than froth. Foreign investment is heavily regulated in most countries and US foreign-buyer volume has fallen sharply from its 2017 peak. Short-term rentals are typically a single-digit share of housing stock and their measured price effects are modest outside a few tourist cores. Blaming institutions and foreigners for what is fundamentally a supply-and-rate problem is politically convenient but empirically thin.",
       proponent_rebuttal:
-        "Even if institutional ownership is small nationally, investor activity is concentrated in specific markets and price tiers where its effect is outsized. In Sun Belt metros like Atlanta and Phoenix, all investors combined bought roughly a quarter to a third of homes sold at the 2021-2022 peak (Redfin: ~28% in Atlanta and ~26% in Phoenix in Q3 2022), skewed toward lower-priced homes that compete directly with first-time buyers. Foreign capital can distort premium segments even at low volumes by targeting trophy properties and repricing surrounding blocks. And short-term rentals, while only a single-digit share of stock in most cities, measurably tighten supply where they cluster—García-López et al. find Airbnb raised Barcelona rents ~1.9% on average and ~7% in the highest-activity neighborhoods. When investors retreat in a downturn—as Redfin shows they did, with purchases falling roughly 45-65% year-over-year across these metros in late 2022—the same concentration that lifted prices can amplify declines on the way down.",
+        "Even if institutional ownership is small nationally, investor activity is concentrated in specific markets and price tiers where its effect is outsized. In Sun Belt metros like Atlanta and Phoenix, all investors combined bought roughly a quarter to a third of homes sold at the 2021-2022 peak (Redfin: ~28% in Atlanta and ~26% in Phoenix in Q3 2022), skewed toward lower-priced homes that compete directly with first-time buyers. Foreign capital can distort premium segments even at low volumes by targeting trophy properties and repricing surrounding blocks. And short-term rentals, while only a single-digit share of stock in most cities, measurably tighten supply where they cluster, García-López et al. find Airbnb raised Barcelona rents ~1.9% on average and ~7% in the highest-activity neighborhoods. When investors retreat in a downturn (as Redfin shows they did, with purchases falling roughly 45-65% year-over-year across these metros in late 2022) the same concentration that lifted prices can amplify declines on the way down.",
       crux: {
         id: "institutional-exit-risk",
         title: "The Institutional Exit Risk Assessment",
@@ -218,13 +218,13 @@ export const globalHousingBubbleData = {
         cost_to_verify: "$200K (proprietary transaction data + economic modeling)",
         falsification: {
           supporter_flip:
-            "If a downturn arrived and institutional and investor holdings were sold off gradually (or held through the trough as long-term rental assets) rather than dumped — with no measurable amplification of price declines in the metros and price tiers where investors had concentrated — that would refute the claim that concentrated ownership creates systemic sell-off risk.",
+            "If a downturn arrived and institutional and investor holdings were sold off gradually (or held through the trough as long-term rental assets) rather than dumped, with no measurable amplification of price declines in the metros and price tiers where investors had concentrated, that would refute the claim that concentrated ownership creates systemic sell-off risk.",
           skeptic_flip:
             "If local data confirmed that investors bought roughly a quarter to a third of homes in Sun Belt metros like Atlanta and Phoenix at the 2021-2022 peak, and they began exiting together, the ~3% national institutional share would understate the risk to those markets.",
           common_ground:
             "Both sides agree large institutions own a small share of total housing nationally but a much larger share in specific Sun Belt metros and the entry-level price tier.",
           live_disagreement:
-            "Whether concentrated investor holdings would liquidate fast enough in a downturn to amplify price declines, or unwind slowly without systemic effect — resolvable only by mapping ownership concentration and modeling exit behavior against historical episodes of investor liquidation.",
+            "Whether concentrated investor holdings would liquidate fast enough in a downturn to amplify price declines, or unwind slowly without systemic effect, resolvable only by mapping ownership concentration and modeling exit behavior against historical episodes of investor liquidation.",
         },
       },
       evidence: [
@@ -232,7 +232,7 @@ export const globalHousingBubbleData = {
           id: "institutional-starter-home-share",
           title: "Investor Buyers Concentrated in Sun Belt Starter Segments",
           description:
-            "Per Redfin, investors (all sizes, not only large institutions) bought roughly a quarter to a third of homes sold in several Sun Belt metros in Q4 2022 — about 31% in Miami, 27% in Jacksonville and 25% in Atlanta — with purchases skewed toward lower-priced, entry-level homes that compete with first-time buyers.",
+            "Per Redfin, investors (all sizes, not only large institutions) bought roughly a quarter to a third of homes sold in several Sun Belt metros in Q4 2022 (about 31% in Miami, 27% in Jacksonville and 25% in Atlanta) with purchases skewed toward lower-priced, entry-level homes that compete with first-time buyers.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -316,7 +316,7 @@ export const globalHousingBubbleData = {
       skeptic_premise:
         "Housing markets have already absorbed the sharp rate shock of 2022-2023 without a crash. US home prices reached fresh records even as mortgage rates topped 7%, Canada avoided the widely predicted collapse, and most European markets saw only modest corrections. The lock-in effect is a powerful structural support: with roughly 76% of US mortgages below 5% and 57% below 4%, owners have little reason to sell into a higher-rate market, which throttles for-sale supply and underpins prices. Tight supply, resilient labor markets, and the eventual return of rate cuts all argue for a gradual adjustment rather than a bust. The market has proven far more resilient to tightening than the crash narrative predicted.",
       proponent_rebuttal:
-        "The full impact of higher rates has not yet materialized because of the lag effect. In the US, the lock-in effect is real but finite: roughly 76% of mortgages carry rates below 5% and about 57% below 4%, creating 'golden handcuffs' that suppress supply and transaction volume—yet life events (divorce, job loss, relocation, death) still force a steady stream of owners to sell regardless of rates. The greater exposure is in shorter-term-fixed and variable-rate markets. In Canada, the Bank of Canada estimates about 60% of outstanding mortgages renew across 2025-2026, with five-year fixed holders facing average payment increases of roughly 15-20% (about $5,100 a year) versus December 2024. Australia and the UK, with similar rollover structures, face comparable squeezes. The Bank for International Settlements notes that household debt-service sensitivity to rate increases remains historically elevated in several advanced economies, so the adjustment may still be unfolding rather than over.",
+        "The full impact of higher rates has not yet materialized because of the lag effect. In the US, the lock-in effect is real but finite: roughly 76% of mortgages carry rates below 5% and about 57% below 4%, creating 'golden handcuffs' that suppress supply and transaction volume, yet life events (divorce, job loss, relocation, death) still force a steady stream of owners to sell regardless of rates. The greater exposure is in shorter-term-fixed and variable-rate markets. In Canada, the Bank of Canada estimates about 60% of outstanding mortgages renew across 2025-2026, with five-year fixed holders facing average payment increases of roughly 15-20% (about $5,100 a year) versus December 2024. Australia and the UK, with similar rollover structures, face comparable squeezes. The Bank for International Settlements notes that household debt-service sensitivity to rate increases remains historically elevated in several advanced economies, so the adjustment may still be unfolding rather than over.",
       crux: {
         id: "mortgage-renewal-stress",
         title: "The Mortgage Renewal Stress Test",
@@ -336,13 +336,13 @@ export const globalHousingBubbleData = {
         cost_to_verify: "$100K (central bank data + household financial modeling)",
         falsification: {
           supporter_flip:
-            "If the 2025-2026 renewal wave in short-fixed and variable-rate markets (Canada, Australia, UK) passed with households absorbing the payment increases — rising incomes, term extensions, and savings buffers preventing a spike in forced selling or arrears — that would show the 'lag effect' was a deferral that markets digested, not a delayed crash.",
+            "If the 2025-2026 renewal wave in short-fixed and variable-rate markets (Canada, Australia, UK) passed with households absorbing the payment increases (rising incomes, term extensions, and savings buffers preventing a spike in forced selling or arrears) that would show the 'lag effect' was a deferral that markets digested, not a delayed crash.",
           skeptic_flip:
             "If arrears and forced sales rose as Canada's 2025-2026 renewals, about 60% of mortgages, hit five-year fixed holders with ~15-20% payment increases, the US lock-in effect would look like a local exception and the shock like one that had not yet arrived.",
           common_ground:
             "Both sides agree the US lock-in effect genuinely suppresses for-sale supply and that variable- and short-fixed-rate markets are far more exposed to rate increases than the 30-year-fixed US market.",
           live_disagreement:
-            "Whether the delayed payment shock in renewal-driven markets produces enough forced selling to push prices down, or is absorbed by income growth and refinancing — resolvable by tracking arrears, forced-sale volumes, and prices through the 2025-2026 renewal wave.",
+            "Whether the delayed payment shock in renewal-driven markets produces enough forced selling to push prices down, or is absorbed by income growth and refinancing, resolvable by tracking arrears, forced-sale volumes, and prices through the 2025-2026 renewal wave.",
         },
       },
       evidence: [

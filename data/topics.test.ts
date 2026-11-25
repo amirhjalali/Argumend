@@ -160,7 +160,8 @@ describe("topics data integrity", () => {
     for (const { topicId, item } of unlinkedEvidence) {
       const label = `${topicId} :: ${item.id}`;
       expect(item.source, `${label} must disclose that it is synthesis`).toMatch(
-        /^Synthesis \/ inference —/,
+        // A colon since the em dashes came out; the three study maps keep theirs.
+        /^Synthesis \/ inference(?::| \u2014)/,
       );
       expect(item.weight.sourceReliability, `${label} source reliability`).toBeLessThanOrEqual(5);
       expect(item.weight.replicability, `${label} replicability`).toBeLessThanOrEqual(5);

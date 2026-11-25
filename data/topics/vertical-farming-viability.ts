@@ -31,12 +31,12 @@ export const verticalFarmingViabilityData = {
       id: "resource-efficiency-energy-cost",
       title: "Resource Efficiency vs Energy Cost",
       short_summary:
-        "Vertical farms slash water and land use and eliminate pesticides — but they replace free sunlight with electricity-hungry LEDs, making energy the dominant cost and, on a grid powered by fossil fuels, often a larger carbon footprint than field farming. Proponents argue cheaper renewables and more efficient LEDs close the gap; skeptics argue the thermodynamics of converting electricity to plant matter at ~1-2% efficiency are a hard ceiling.",
+        "Vertical farms slash water and land use and eliminate pesticides, but they replace free sunlight with electricity-hungry LEDs, making energy the dominant cost and, on a grid powered by fossil fuels, often a larger carbon footprint than field farming. Proponents argue cheaper renewables and more efficient LEDs close the gap; skeptics argue the thermodynamics of converting electricity to plant matter at ~1-2% efficiency are a hard ceiling.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "Vertical farming's core problem is physics, not engineering polish. A field gets its energy from the sun for free; an indoor farm must buy that energy as electricity to run LED lighting (typically 60-80% of the energy budget) plus HVAC and dehumidification. A 2025 analysis from Ron Milo's lab in Plant Physiology calculated that vertical farms convert electricity into edible dry plant matter at only about 1-2% efficiency — roughly 250 kWh per kg of dry biomass, implying a floor around $10/kg of dry matter just for electricity. Even for water-heavy leafy greens that drops to about $0.50/kg of electricity, which is barely in line with producer prices before you add buildings, labor, and capital. Worse, on a typical grid the carbon footprint can exceed field farming: the University of Surrey LCA found grid-powered vertical lettuce emitted ~4.7 kg CO2 per kg versus ~0.6 kg for field lettuce, with electricity responsible for ~85% of that footprint. You cannot LED your way past the sun's free joules.",
+        "Vertical farming's core problem is physics, not engineering polish. A field gets its energy from the sun for free; an indoor farm must buy that energy as electricity to run LED lighting (typically 60-80% of the energy budget) plus HVAC and dehumidification. A 2025 analysis from Ron Milo's lab in Plant Physiology calculated that vertical farms convert electricity into edible dry plant matter at only about 1-2% efficiency, roughly 250 kWh per kg of dry biomass, implying a floor around $10/kg of dry matter just for electricity. Even for water-heavy leafy greens that drops to about $0.50/kg of electricity, which is barely in line with producer prices before you add buildings, labor, and capital. Worse, on a typical grid the carbon footprint can exceed field farming: the University of Surrey LCA found grid-powered vertical lettuce emitted ~4.7 kg CO2 per kg versus ~0.6 kg for field lettuce, with electricity responsible for ~85% of that footprint. You cannot LED your way past the sun's free joules.",
       proponent_rebuttal:
-        "The resource case is real and large where it counts. Vertical farms produce roughly 20-30x more food per square meter of ground than open fields (97 kg/m² vs 3.3 kg/m² for lettuce in the Surrey study), use up to ~90-98% less water via closed-loop recirculation, require essentially no pesticides, and are immune to drought, frost, and crop failure — all while growing next to the consumer, cutting transport spoilage and food miles. The energy objection is a snapshot, not a destiny: LED efficacy has improved dramatically and continues to, and the Milo paper itself notes that with renewable electricity the environmental math flips — the Surrey study found that switching the same vertical farm to renewable power cut emissions to ~0.93 kg CO2/kg, far closer to field levels. As solar and wind drive marginal electricity prices toward zero in sunny and windy regions, the one input vertical farming over-consumes is precisely the one getting cheaper and cleaner fastest.",
+        "The resource case is real and large where it counts. Vertical farms produce roughly 20-30x more food per square meter of ground than open fields (97 kg/m² vs 3.3 kg/m² for lettuce in the Surrey study), use up to ~90-98% less water via closed-loop recirculation, require essentially no pesticides, and are immune to drought, frost, and crop failure, all while growing next to the consumer, cutting transport spoilage and food miles. The energy objection is a snapshot, not a destiny: LED efficacy has improved dramatically and continues to, and the Milo paper itself notes that with renewable electricity the environmental math flips; the Surrey study found that switching the same vertical farm to renewable power cut emissions to ~0.93 kg CO2/kg, far closer to field levels. As solar and wind drive marginal electricity prices toward zero in sunny and windy regions, the one input vertical farming over-consumes is precisely the one getting cheaper and cleaner fastest.",
       crux: {
         id: "renewable-energy-breakeven",
         title: "The Renewable-Powered Cost-and-Carbon Test",
@@ -57,13 +57,13 @@ export const verticalFarmingViabilityData = {
           "$300K-1M (Techno-economic modeling plus metered data from operating commercial farms across electricity markets)",
         falsification: {
           supporter_flip:
-            "If rigorous modeling showed the ~1-2% electricity-to-biomass conversion efficiency is a near-hard physical ceiling — so even near-free renewable electricity plus best-case LEDs cannot bring all-in cost and carbon below field/greenhouse levels for crops beyond a premium niche — the 'cheaper renewables will close the gap' case would collapse.",
+            "If rigorous modeling showed the ~1-2% electricity-to-biomass conversion efficiency is a near-hard physical ceiling, so even near-free renewable electricity plus best-case LEDs cannot bring all-in cost and carbon below field/greenhouse levels for crops beyond a premium niche, the 'cheaper renewables will close the gap' case would collapse.",
           skeptic_flip:
             "If new life-cycle studies on renewable power repeated the Surrey LCA's drop in vertical lettuce emissions from ~4.7 to ~0.93 kg CO2/kg, while LED efficacy rose and renewable prices fell, the energy bill would look like a shrinking cost rather than a fatal one.",
           common_ground:
             "Both sides agree vertical farms dramatically cut water and land use, that energy is the dominant cost, and that on a fossil-heavy grid the carbon footprint can exceed field farming.",
           live_disagreement:
-            "Whether the low electricity-to-biomass conversion efficiency is a soft engineering limit that cheap renewables and better LEDs can overcome, or a near-hard physical ceiling — which only a transparent techno-economic model across electricity prices and LED efficacy can resolve.",
+            "Whether the low electricity-to-biomass conversion efficiency is a soft engineering limit that cheap renewables and better LEDs can overcome, or a near-hard physical ceiling, which only a transparent techno-economic model across electricity prices and LED efficacy can resolve.",
         },
       },
       evidence: [
@@ -72,7 +72,7 @@ export const verticalFarmingViabilityData = {
           title:
             "Vertical Lettuce Yielded ~30x More Per m² and Used ~8x Less Water (Surrey LCA, 2025)",
           description:
-            "A life-cycle assessment by Gargaro and colleagues at the University of Surrey, published in Food and Energy Security (2025), compared a commercial UK vertical farm against field lettuce in the UK and Spain. The vertical farm produced about 97.3 kg of lettuce per square meter versus 3.3 kg per square meter in the field — roughly a 30x advantage in ground productivity — while using about eight times less water than the most water-intensive Spanish field farm. The study is notable for being among the first to fully account for field soil emissions in the comparison.",
+            "A life-cycle assessment by Gargaro and colleagues at the University of Surrey, published in Food and Energy Security (2025), compared a commercial UK vertical farm against field lettuce in the UK and Spain. The vertical farm produced about 97.3 kg of lettuce per square meter versus 3.3 kg per square meter in the field, roughly a 30x advantage in ground productivity, while using about eight times less water than the most water-intensive Spanish field farm. The study is notable for being among the first to fully account for field soil emissions in the comparison.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -91,7 +91,7 @@ export const verticalFarmingViabilityData = {
           title:
             "Grid-Powered Vertical Lettuce Emitted ~8x More CO2 Than Field, Mostly From Electricity (Surrey LCA, 2025)",
           description:
-            "The same University of Surrey LCA found that vertically farmed lettuce on conventional grid electricity emitted about 4.7 kg of CO2-equivalent per kg of lettuce, compared with about 0.59 kg for field-grown lettuce — roughly eight times higher. Electricity for lighting and climate control accounted for approximately 85% of the vertical farm's carbon footprint in the baseline scenario. Critically, switching the same farm to renewable electricity cut emissions to about 0.93 kg CO2/kg — still higher than the field, but far closer.",
+            "The same University of Surrey LCA found that vertically farmed lettuce on conventional grid electricity emitted about 4.7 kg of CO2-equivalent per kg of lettuce, compared with about 0.59 kg for field-grown lettuce, roughly eight times higher. Electricity for lighting and climate control accounted for approximately 85% of the vertical farm's carbon footprint in the baseline scenario. Critically, switching the same farm to renewable electricity cut emissions to about 0.93 kg CO2/kg, still higher than the field, but far closer.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -110,7 +110,7 @@ export const verticalFarmingViabilityData = {
           title:
             "Vertical Farms Convert Electricity to Biomass at Only ~1-2% Efficiency (Milo Lab, Plant Physiology 2025)",
           description:
-            "A back-of-the-envelope analysis by Lovat, Noor, and Milo in Plant Physiology (2025) calculated that vertical farms convert electricity into edible dry plant matter at roughly 1-2% efficiency, requiring on the order of 250 kWh per kg of dry biomass and implying a minimum electricity cost near $10/kg of dry matter. For water-heavy crops like leafy greens and tomatoes the electricity cost drops to about $0.50/kg fresh weight — in line with current producer prices but still uncompetitive once buildings, labor, and capital are added. The authors conclude vertical farming is 'generally economically problematic' today and environmentally beneficial 'only under limited circumstances.'",
+            "A back-of-the-envelope analysis by Lovat, Noor, and Milo in Plant Physiology (2025) calculated that vertical farms convert electricity into edible dry plant matter at roughly 1-2% efficiency, requiring on the order of 250 kWh per kg of dry biomass and implying a minimum electricity cost near $10/kg of dry matter. For water-heavy crops like leafy greens and tomatoes the electricity cost drops to about $0.50/kg fresh weight, in line with current producer prices but still uncompetitive once buildings, labor, and capital are added. The authors conclude vertical farming is 'generally economically problematic' today and environmentally beneficial 'only under limited circumstances.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -154,19 +154,19 @@ export const verticalFarmingViabilityData = {
       id: "economic-viability-bankruptcies",
       title: "Economic Viability vs the Bankruptcy Wave",
       short_summary:
-        "The best-funded names in vertical farming — AppHarvest, AeroFarms, Bowery, Plenty — collapsed or filed for bankruptcy between 2023 and 2025 despite raising hundreds of millions to nearly a billion dollars each. Skeptics read this as the market delivering its verdict; proponents read it as a financing-and-overbuild shakeout that is normal for an early capital-intensive industry, leaving leaner survivors and a clearer focus on crops that actually pay.",
+        "The best-funded names in vertical farming (AppHarvest, AeroFarms, Bowery, Plenty) collapsed or filed for bankruptcy between 2023 and 2025 despite raising hundreds of millions to nearly a billion dollars each. Skeptics read this as the market delivering its verdict; proponents read it as a financing-and-overbuild shakeout that is normal for an early capital-intensive industry, leaving leaner survivors and a clearer focus on crops that actually pay.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "When the most lavishly funded companies in a sector all fail at once, that is the market speaking. AppHarvest filed Chapter 11 in July 2023 and liquidated after a cash crunch driven by lower-than-expected yields and higher-than-expected costs. AeroFarms — the industry's flagship — filed Chapter 11 in June 2023. Bowery Farming, once valued at $2.3 billion and backed by celebrity investors, ceased all operations in late 2024 after raising more than $700 million in venture capital plus $150 million in KKR debt, laying off its workforce and entering an assignment for the benefit of creditors. Plenty filed Chapter 11 in March 2025 after raising nearly $1 billion. Industry trackers counted roughly fourteen indoor-farming bankruptcies in 2025 alone, with combined historical funding exceeding $1.37 billion. This is not a temporary capital-market wobble — it is a structural failure: the unit economics never closed, and selling lettuce and herbs at a premium cannot service the enormous capital and energy costs of building climate-controlled towers.",
+        "When the most lavishly funded companies in a sector all fail at once, that is the market speaking. AppHarvest filed Chapter 11 in July 2023 and liquidated after a cash crunch driven by lower-than-expected yields and higher-than-expected costs. AeroFarms, the industry's flagship, filed Chapter 11 in June 2023. Bowery Farming, once valued at $2.3 billion and backed by celebrity investors, ceased all operations in late 2024 after raising more than $700 million in venture capital plus $150 million in KKR debt, laying off its workforce and entering an assignment for the benefit of creditors. Plenty filed Chapter 11 in March 2025 after raising nearly $1 billion. Industry trackers counted roughly fourteen indoor-farming bankruptcies in 2025 alone, with combined historical funding exceeding $1.37 billion. This is not a temporary capital-market wobble; it is a structural failure: the unit economics never closed, and selling lettuce and herbs at a premium cannot service the enormous capital and energy costs of building climate-controlled towers.",
       proponent_rebuttal:
-        "Bankruptcy is not the same as the technology failing, and the survivors tell a more instructive story. Most of these failures were financing failures: companies that raised cheap money in the 2020-2021 zero-interest-rate boom, over-promised on scaling to staple crops and dozens of SKUs, built too much capacity too fast, and then could not refinance when rates rose and energy prices spiked in 2022-2023. Crucially, Chapter 11 is a restructuring tool, not a death certificate: AeroFarms emerged from bankruptcy fully funded with new ownership and continues producing microgreens, and Plenty moved through its 2025 Chapter 11 in roughly two months on a prepackaged plan, refocused on a premium strawberry farm in Virginia rather than commodity greens. Plenty of indoor operators — including European and Japanese plant factories and packaged-salad players like those supplying major grocers — operate profitably by disciplining themselves to high-value, fast-turnover crops near dense markets. The shakeout is exactly what a young, capital-intensive industry looks like as it sheds the hype and converges on the business model that actually works.",
+        "Bankruptcy is not the same as the technology failing, and the survivors tell a more instructive story. Most of these failures were financing failures: companies that raised cheap money in the 2020-2021 zero-interest-rate boom, over-promised on scaling to staple crops and dozens of SKUs, built too much capacity too fast, and then could not refinance when rates rose and energy prices spiked in 2022-2023. Crucially, Chapter 11 is a restructuring tool, not a death certificate: AeroFarms emerged from bankruptcy fully funded with new ownership and continues producing microgreens, and Plenty moved through its 2025 Chapter 11 in roughly two months on a prepackaged plan, refocused on a premium strawberry farm in Virginia rather than commodity greens. Plenty of indoor operators, including European and Japanese plant factories and packaged-salad players like those supplying major grocers, operate profitably by disciplining themselves to high-value, fast-turnover crops near dense markets. The shakeout is exactly what a young, capital-intensive industry looks like as it sheds the hype and converges on the business model that actually works.",
       crux: {
         id: "unit-economics-at-scale",
         title: "The Sustained Profitability Test",
         question:
           "Are vertical-farm bankruptcies a temporary shakeout, or a sign the business can't turn a real profit?",
         description:
-          "Whether vertical-farming operators can achieve durable, positive unit economics at commercial scale — covering energy, labor, capital, and overhead from produce revenue — for a meaningful crop range, or whether the model is permanently confined to a money-losing or razor-thin premium niche. If a cohort of post-shakeout operators sustains profitability across multiple years and crops, the bankruptcies were a financing shakeout. If even the disciplined survivors cannot consistently turn an operating profit without subsidy, the model is structurally unviable beyond luxury produce.",
+          "Whether vertical-farming operators can achieve durable, positive unit economics at commercial scale (covering energy, labor, capital, and overhead from produce revenue) for a meaningful crop range, or whether the model is permanently confined to a money-losing or razor-thin premium niche. If a cohort of post-shakeout operators sustains profitability across multiple years and crops, the bankruptcies were a financing shakeout. If even the disciplined survivors cannot consistently turn an operating profit without subsidy, the model is structurally unviable beyond luxury produce.",
         methodology:
           "Assemble audited financials and operating data from surviving and newly-formed vertical-farm operators over multiple years. Track gross margin and operating margin by crop, the share of revenue consumed by energy and labor, capital cost per kg of capacity, and the fraction of operators that are EBITDA-positive without one-time financing. Compare against high-tech greenhouse benchmarks. Distinguish firms that failed on financing/scaling (refinancing gaps, overbuild) from those that failed on irreducible operating losses, to separate a capital-cycle shakeout from a structural-economics verdict.",
         verification_status: "theoretical" as const,
@@ -178,13 +178,13 @@ export const verticalFarmingViabilityData = {
           "$200K-600K (Financial and operations analysis requiring private company data and industry surveys over several years)",
         falsification: {
           supporter_flip:
-            "If a multi-year study of post-shakeout operators showed that even the disciplined survivors cannot reach sustained operating profitability without subsidy — that the failures were driven by irreducible operating losses rather than refinancing gaps — the 'normal shakeout' narrative would collapse into 'structurally unviable.'",
+            "If a multi-year study of post-shakeout operators showed that even the disciplined survivors cannot reach sustained operating profitability without subsidy, that the failures were driven by irreducible operating losses rather than refinancing gaps, the 'normal shakeout' narrative would collapse into 'structurally unviable.'",
           skeptic_flip:
             "If operators that emerged from Chapter 11, such as AeroFarms and Plenty, and disciplined growers of premium greens and berries near cities posted sustained profits, the bankruptcies would look like a ZIRP-era overbuild shakeout rather than a sign the business can't turn a profit.",
           common_ground:
             "Both sides agree the 2023-2025 wave of failures was severe and real, that the model only works for high-value fast-turnover crops, and that energy and capital are the binding cost constraints.",
           live_disagreement:
-            "Whether the failures reflect a temporary capital-cycle shakeout that leaner survivors will outlast, or an irreducible unit-economics problem that confines vertical farming to an unprofitable or razor-thin niche — answerable only by multi-year audited operating data from the survivors.",
+            "Whether the failures reflect a temporary capital-cycle shakeout that leaner survivors will outlast, or an irreducible unit-economics problem that confines vertical farming to an unprofitable or razor-thin niche, answerable only by multi-year audited operating data from the survivors.",
         },
       },
       evidence: [
@@ -206,7 +206,7 @@ export const verticalFarmingViabilityData = {
           sourceUrl:
             "https://www.davispolk.com/experience/appharvest-chapter-11-filing-and-restructuring-support-agreement",
           reasoning:
-            "Court filings and a major restructuring law firm's own record make the facts undisputed. The stated reasons — yields and operating costs — go directly to the unit-economics question. Slightly less directly about pure vertical farming because AppHarvest used large greenhouses rather than stacked indoor towers, but it is a central case in the CEA failure wave.",
+            "Court filings and a major restructuring law firm's own record make the facts undisputed. The stated reasons, yields and operating costs, go directly to the unit-economics question. Slightly less directly about pure vertical farming because AppHarvest used large greenhouses rather than stacked indoor towers, but it is a central case in the CEA failure wave.",
         },
         {
           id: "bowery-shutdown",
@@ -232,7 +232,7 @@ export const verticalFarmingViabilityData = {
           title:
             "Plenty Filed Chapter 11 in 2025 After ~$1B Raised, Then Emerged Refocused on Strawberries",
           description:
-            "Plenty Unlimited, one of the best-capitalized vertical-farming companies ever (backed by roughly $940 million including SoftBank), filed Chapter 11 in the Southern District of Texas in March 2025 with a prepackaged plan and $20.7 million in debtor-in-possession financing. Its prepackaged plan was confirmed about 53 days after filing, and it emerged from bankruptcy on May 29, 2025 — roughly two months later — with exit financing, deliberately narrowing its focus to a premium strawberry farm in Richmond, Virginia rather than commodity leafy greens. This pivot exemplifies the industry's retreat from feeding-the-world ambitions toward defensible high-value niches.",
+            "Plenty Unlimited, one of the best-capitalized vertical-farming companies ever (backed by roughly $940 million including SoftBank), filed Chapter 11 in the Southern District of Texas in March 2025 with a prepackaged plan and $20.7 million in debtor-in-possession financing. Its prepackaged plan was confirmed about 53 days after filing, and it emerged from bankruptcy on May 29, 2025, roughly two months later, with exit financing, deliberately narrowing its focus to a premium strawberry farm in Richmond, Virginia rather than commodity leafy greens. This pivot exemplifies the industry's retreat from feeding-the-world ambitions toward defensible high-value niches.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -245,7 +245,7 @@ export const verticalFarmingViabilityData = {
           sourceUrl:
             "https://techcrunch.com/2025/03/24/vertical-farming-company-plenty-files-for-bankruptcy-after-raising-nearly-1b/",
           reasoning:
-            "Court records and reporting are consistent on funding, dates, and the strawberry pivot. This evidence is double-edged: the bankruptcy supports the skeptic, but the rapid emergence and strategic refocus support the proponent's 'shakeout, not death' reading — which is why it sits as a nuanced 'against' that the rebuttal can partly reclaim.",
+            "Court records and reporting are consistent on funding, dates, and the strawberry pivot. This evidence is double-edged: the bankruptcy supports the skeptic, but the rapid emergence and strategic refocus support the proponent's 'shakeout, not death' reading, which is why it sits as a nuanced 'against' that the rebuttal can partly reclaim.",
         },
         {
           id: "aerofarms-restructuring-survival",
@@ -276,19 +276,19 @@ export const verticalFarmingViabilityData = {
       id: "feeding-world-vs-niche",
       title: "Feeding the World vs a Premium Niche",
       short_summary:
-        "Vertical farming is sometimes pitched as a solution to global food security and climate-resilient agriculture. But the crops it can grow economically — leafy greens, herbs, microgreens, some berries — supply almost no calories, while the cereals and staples that feed humanity are physically and economically a poor fit for stacked indoor production. The debate is whether vertical farming is a transformative food-system technology or a valuable but bounded specialty within fresh produce.",
+        "Vertical farming is sometimes pitched as a solution to global food security and climate-resilient agriculture. But the crops it can grow economically (leafy greens, herbs, microgreens, some berries) supply almost no calories, while the cereals and staples that feed humanity are physically and economically a poor fit for stacked indoor production. The debate is whether vertical farming is a transformative food-system technology or a valuable but bounded specialty within fresh produce.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Vertical farming cannot feed the world, and the math is not close. The crops that are profitable indoors — leafy greens, herbs, microgreens — are, as Hannah Ritchie of Our World in Data puts it, essentially 'mildly-flavoured water': minimal calories and modest micronutrients. The staples that actually feed humanity (wheat, rice, maize, potatoes) are the worst possible fit: cereal plants are tall, so you cannot stack many layers, and the energy cost is absurd. Ritchie notes lighting alone would cost roughly 100 times the market price of wheat, and the Milo lab found vertical farming runs one to two orders of magnitude more expensive than the ~$0.1-1/kg farm-gate price of cereals. So even in a best case, vertical farming addresses a sliver of the fresh-produce aisle, not food security. Framing it as the 'future of food' confuses a premium garnish business with feeding eight billion people.",
+        "Vertical farming cannot feed the world, and the math is not close. The crops that are profitable indoors (leafy greens, herbs, microgreens) are, as Hannah Ritchie of Our World in Data puts it, essentially 'mildly-flavoured water': minimal calories and modest micronutrients. The staples that actually feed humanity (wheat, rice, maize, potatoes) are the worst possible fit: cereal plants are tall, so you cannot stack many layers, and the energy cost is absurd. Ritchie notes lighting alone would cost roughly 100 times the market price of wheat, and the Milo lab found vertical farming runs one to two orders of magnitude more expensive than the ~$0.1-1/kg farm-gate price of cereals. So even in a best case, vertical farming addresses a sliver of the fresh-produce aisle, not food security. Framing it as the 'future of food' confuses a premium garnish business with feeding eight billion people.",
       proponent_rebuttal:
-        "Demanding that vertical farming grow wheat is a strawman — no serious proponent claims it will. The honest claim is narrower and still significant: vertical farming can take over a meaningful share of fresh, perishable, high-value, water-intensive produce (salads, herbs, leafy greens, berries, seedlings and transplants) and grow it locally, pesticide-free, year-round, and weather-proof. That matters because field production of those exact crops is fragile and resource-hungry: lettuce and berries are water-intensive, vulnerable to drought and heat, dependent on long cold chains, and increasingly disrupted by climate volatility. Relocating that slice of agriculture indoors frees scarce water and arable land for the staple crops that genuinely need open fields, and shortens supply chains for the most perishable foods. It also serves places where field farming barely works — deserts, dense cities, and harsh climates. 'Not feeding the world with grain' is fully compatible with 'transforming how a valuable and growing category of produce is grown.'",
+        "Demanding that vertical farming grow wheat is a strawman, no serious proponent claims it will. The honest claim is narrower and still significant: vertical farming can take over a meaningful share of fresh, perishable, high-value, water-intensive produce (salads, herbs, leafy greens, berries, seedlings and transplants) and grow it locally, pesticide-free, year-round, and weather-proof. That matters because field production of those exact crops is fragile and resource-hungry: lettuce and berries are water-intensive, vulnerable to drought and heat, dependent on long cold chains, and increasingly disrupted by climate volatility. Relocating that slice of agriculture indoors frees scarce water and arable land for the staple crops that genuinely need open fields, and shortens supply chains for the most perishable foods. It also serves places where field farming barely works, deserts, dense cities, and harsh climates. 'Not feeding the world with grain' is fully compatible with 'transforming how a valuable and growing category of produce is grown.'",
       crux: {
         id: "addressable-share-of-food-system",
         title: "The Addressable-Share Test",
         question:
           "Can vertical farming supply a meaningful share of fresh produce, or will it stay a premium niche?",
         description:
-          "Whether vertical farming's economically viable crop range can grow to a meaningful share of any major food category — and whether displacing field production of water-intensive perishables yields a net resource and resilience benefit — or whether it remains a premium garnish business with negligible food-system impact. If indoor production can profitably capture a large fraction of, say, fresh leafy greens and soft fruit in water-stressed or import-dependent regions, the 'transformative for a category' claim holds. If it stays confined to luxury SKUs, the 'future of food' framing is marketing.",
+          "Whether vertical farming's economically viable crop range can grow to a meaningful share of any major food category, and whether displacing field production of water-intensive perishables yields a net resource and resilience benefit, or whether it remains a premium garnish business with negligible food-system impact. If indoor production can profitably capture a large fraction of, say, fresh leafy greens and soft fruit in water-stressed or import-dependent regions, the 'transformative for a category' claim holds. If it stays confined to luxury SKUs, the 'future of food' framing is marketing.",
         methodology:
           "Define the realistic economically-viable crop set for vertical farming (constrained by plant height, growth rate, value density, and energy intensity). For each crop, model the addressable market share under plausible energy prices, comparing all-in indoor cost to field and greenhouse alternatives in target regions (e.g., desert, high-import, water-stressed). Run a regional resource-balance analysis: water and arable land freed by moving perishables indoors, net of the electricity (and its land/carbon footprint) consumed. Determine whether net resource and resilience gains are positive and the captured market share is non-trivial.",
         verification_status: "theoretical" as const,
@@ -306,7 +306,7 @@ export const verticalFarmingViabilityData = {
           common_ground:
             "Both sides agree vertical farming cannot economically produce the cereals and staples that supply most human calories, and that its viable range is high-value, fast-growing, value-dense crops.",
           live_disagreement:
-            "Whether that viable range can scale to a meaningful, resource-positive share of fresh-produce categories in target regions, or remains a negligible premium niche — answerable only by crop-by-crop market and regional resource-balance modeling.",
+            "Whether that viable range can scale to a meaningful, resource-positive share of fresh-produce categories in target regions, or remains a negligible premium niche, answerable only by crop-by-crop market and regional resource-balance modeling.",
         },
       },
       evidence: [
@@ -315,7 +315,7 @@ export const verticalFarmingViabilityData = {
           title:
             "Vertical Farming Is 1-2 Orders of Magnitude Too Expensive for Cereals",
           description:
-            "The Milo lab analysis in Plant Physiology (2025) calculated that the electricity cost alone for vertical farming runs about $10/kg of dry plant matter, against farm-gate cereal prices generally under $1/kg and sometimes as low as $0.1/kg worldwide — making indoor production one to two orders of magnitude too expensive for staple grains. Hannah Ritchie similarly notes that lighting alone would cost roughly 100 times the market price of wheat. Cereal crops are also tall, which limits how many growing layers can be stacked, compounding the economic disadvantage.",
+            "The Milo lab analysis in Plant Physiology (2025) calculated that the electricity cost alone for vertical farming runs about $10/kg of dry plant matter, against farm-gate cereal prices generally under $1/kg and sometimes as low as $0.1/kg worldwide, making indoor production one to two orders of magnitude too expensive for staple grains. Hannah Ritchie similarly notes that lighting alone would cost roughly 100 times the market price of wheat. Cereal crops are also tall, which limits how many growing layers can be stacked, compounding the economic disadvantage.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -334,7 +334,7 @@ export const verticalFarmingViabilityData = {
           title:
             "Profitable Vertical Crops Supply Almost No Calories",
           description:
-            "The crops that are economically viable indoors — leafy greens, herbs, and microgreens — are nutrient-light and calorie-poor. Hannah Ritchie characterizes lettuce as essentially 'mildly-flavoured water,' with minimal calories and few micronutrients, and estimates that growing all US lettuce vertically would consume around 42 TWh of electricity (about 1% of US generation) for a crop that contributes negligibly to caloric intake. This underscores that even full vertical-farming penetration of its best crops would not move the needle on global food security in calorie terms.",
+            "The crops that are economically viable indoors (leafy greens, herbs, and microgreens) are nutrient-light and calorie-poor. Hannah Ritchie characterizes lettuce as essentially 'mildly-flavoured water,' with minimal calories and few micronutrients, and estimates that growing all US lettuce vertically would consume around 42 TWh of electricity (about 1% of US generation) for a crop that contributes negligibly to caloric intake. This underscores that even full vertical-farming penetration of its best crops would not move the needle on global food security in calorie terms.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -352,7 +352,7 @@ export const verticalFarmingViabilityData = {
           title:
             "Indoor Farms Are Profitable Precisely on High-Value, Fast-Turnover Crops",
           description:
-            "Industry and academic analyses consistently find that vertical farming can be profitable, but only for high-value, quick-cycling, value-dense crops — herbs, microgreens, premium salads, and increasingly strawberries — sold to restaurants, specialty grocers, and institutional buyers that prize consistent, year-round, local, pesticide-free supply. A comparative Quebec simulation (Eaves & Eaves, Canadian Journal of Agricultural Economics, 2018) found a vertical farm achieving gross profits comparable to or slightly above a greenhouse for lettuce, with profitability conditional on cheap electricity and high energy efficiency; a 2025 review in the Journal of Horticultural Science & Biotechnology reaches the same conclusion that economic viability hinges on crop value-density and energy cost. This is the proponent's actual, defensible business model.",
+            "Industry and academic analyses consistently find that vertical farming can be profitable, but only for high-value, quick-cycling, value-dense crops (herbs, microgreens, premium salads, and increasingly strawberries) sold to restaurants, specialty grocers, and institutional buyers that prize consistent, year-round, local, pesticide-free supply. A comparative Quebec simulation (Eaves & Eaves, Canadian Journal of Agricultural Economics, 2018) found a vertical farm achieving gross profits comparable to or slightly above a greenhouse for lettuce, with profitability conditional on cheap electricity and high energy efficiency; a 2025 review in the Journal of Horticultural Science & Biotechnology reaches the same conclusion that economic viability hinges on crop value-density and energy cost. This is the proponent's actual, defensible business model.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -385,7 +385,7 @@ export const verticalFarmingViabilityData = {
           sourceUrl:
             "https://www.weforum.org/stories/2023/06/how-vertical-farming-can-save-water-and-support-food-security/",
           reasoning:
-            "The water and land savings are well documented (the Surrey 8x water figure is peer-reviewed; the WEF 98% figure is a crop-dependent upper bound). Directness to the 'transformative for a category' claim is moderate, because the resource benefit must be netted against the electricity footprint — which is precisely the live disagreement.",
+            "The water and land savings are well documented (the Surrey 8x water figure is peer-reviewed; the WEF 98% figure is a crop-dependent upper bound). Directness to the 'transformative for a category' claim is moderate, because the resource benefit must be netted against the electricity footprint, which is precisely the live disagreement.",
         },
       ],
     },
@@ -393,27 +393,27 @@ export const verticalFarmingViabilityData = {
   references: [
     {
       title:
-        "A Comparative LCA of Field Grown Lettuce Versus Vertically Farmed Lettuce — Gargaro et al., Food and Energy Security (2025), University of Surrey",
+        "A Comparative LCA of Field Grown Lettuce Versus Vertically Farmed Lettuce, Gargaro et al., Food and Energy Security (2025), University of Surrey",
       url: "https://onlinelibrary.wiley.com/doi/full/10.1002/fes3.70117",
     },
     {
       title:
-        "Vertical Farming Limitations and Potential Demonstrated by Back-of-the-Envelope Calculations — Lovat, Noor & Milo, Plant Physiology (2025)",
+        "Vertical Farming Limitations and Potential Demonstrated by Back-of-the-Envelope Calculations, Lovat, Noor & Milo, Plant Physiology (2025)",
       url: "https://academic.oup.com/plphys/article/198/3/kiaf056/8104144",
     },
     {
       title:
-        "Vertical Farming: A Local Solution for Greens, But Not Feeding the World Any Time Soon — Hannah Ritchie, Our World in Data",
+        "Vertical Farming: A Local Solution for Greens, But Not Feeding the World Any Time Soon, Hannah Ritchie, Our World in Data",
       url: "https://hannahritchie.substack.com/p/vertical-farming",
     },
     {
       title:
-        "Vertical Farming Can Save Water and Support Food Security — World Economic Forum (2023)",
+        "Vertical Farming Can Save Water and Support Food Security, World Economic Forum (2023)",
       url: "https://www.weforum.org/stories/2023/06/how-vertical-farming-can-save-water-and-support-food-security/",
     },
     {
       title:
-        "Vertical Farming Company Plenty Files for Bankruptcy After Raising Nearly $1B — TechCrunch (2025)",
+        "Vertical Farming Company Plenty Files for Bankruptcy After Raising Nearly $1B, TechCrunch (2025)",
       url: "https://techcrunch.com/2025/03/24/vertical-farming-company-plenty-files-for-bankruptcy-after-raising-nearly-1b/",
     },
   ],
@@ -423,21 +423,21 @@ export const verticalFarmingViabilityData = {
       title:
         "Can cheaper renewables and better LEDs ever beat the free energy of sunlight?",
       content:
-        "Vertical farms slash water use by up to ~90-98% and grow 20-30x more per square meter than fields, but they replace free sunlight with electricity-hungry LEDs — making energy the dominant cost and, on a fossil-heavy grid, often a larger carbon footprint than field farming (about 4.7 kg CO2/kg for grid-powered vertical lettuce versus 0.6 kg for field, per the University of Surrey). Switching to renewable power cut that to ~0.93 kg/kg in the same study, and LED efficiency keeps improving. So is the ~1-2% electricity-to-biomass conversion efficiency a soft engineering limit that cheap clean power can overcome, or a near-hard physical ceiling?",
+        "Vertical farms slash water use by up to ~90-98% and grow 20-30x more per square meter than fields, but they replace free sunlight with electricity-hungry LEDs, making energy the dominant cost and, on a fossil-heavy grid, often a larger carbon footprint than field farming (about 4.7 kg CO2/kg for grid-powered vertical lettuce versus 0.6 kg for field, per the University of Surrey). Switching to renewable power cut that to ~0.93 kg/kg in the same study, and LED efficiency keeps improving. So is the ~1-2% electricity-to-biomass conversion efficiency a soft engineering limit that cheap clean power can overcome, or a near-hard physical ceiling?",
     },
     {
       id: "q2",
       title:
         "Was the 2023-2025 bankruptcy wave a verdict or a shakeout?",
       content:
-        "The best-funded names — AppHarvest, AeroFarms, Bowery, Plenty — all collapsed or filed for bankruptcy between 2023 and 2025 despite raising hundreds of millions to nearly a billion dollars each, with roughly fourteen indoor-farming bankruptcies in 2025 alone. Skeptics see the market delivering its verdict on broken unit economics. Proponents note these were largely zero-interest-rate-era overbuild and refinancing failures, that AeroFarms and Plenty emerged from Chapter 11 still operating, and that disciplined operators run profitably on premium crops. Is this a structural failure or the normal shakeout of a young, capital-intensive industry?",
+        "The best-funded names (AppHarvest, AeroFarms, Bowery, Plenty) all collapsed or filed for bankruptcy between 2023 and 2025 despite raising hundreds of millions to nearly a billion dollars each, with roughly fourteen indoor-farming bankruptcies in 2025 alone. Skeptics see the market delivering its verdict on broken unit economics. Proponents note these were largely zero-interest-rate-era overbuild and refinancing failures, that AeroFarms and Plenty emerged from Chapter 11 still operating, and that disciplined operators run profitably on premium crops. Is this a structural failure or the normal shakeout of a young, capital-intensive industry?",
     },
     {
       id: "q3",
       title:
         "Is vertical farming the future of food, or a premium produce niche?",
       content:
-        "Vertical farming is sometimes sold as a fix for global food security, but the crops it can grow economically — leafy greens, herbs, microgreens, some berries — supply almost no calories, while staples like wheat and rice are physically and economically a poor fit (lighting alone would cost roughly 100x the price of wheat). Proponents counter that no serious advocate claims it will grow grain; the real claim is that it can take over a meaningful share of water-intensive, climate-fragile fresh produce locally and year-round, freeing water and land for staples. Is it transformative for a valuable produce category, or a bounded luxury niche?",
+        "Vertical farming is sometimes sold as a fix for global food security, but the crops it can grow economically (leafy greens, herbs, microgreens, some berries) supply almost no calories, while staples like wheat and rice are physically and economically a poor fit (lighting alone would cost roughly 100x the price of wheat). Proponents counter that no serious advocate claims it will grow grain; the real claim is that it can take over a meaningful share of water-intensive, climate-fragile fresh produce locally and year-round, freeing water and land for staples. Is it transformative for a valuable produce category, or a bounded luxury niche?",
     },
   ],
 } satisfies TopicInput;

@@ -38,22 +38,22 @@ export const seedOilsHealthData = {
   references: [
     {
       title:
-        "Marklund et al., Biomarkers of Dietary Omega-6 Fatty Acids and Incident Cardiovascular Disease and Mortality — Circulation 2019;139:2422-2436 (30 cohorts, 68,659 participants)",
+        "Marklund et al., Biomarkers of Dietary Omega-6 Fatty Acids and Incident Cardiovascular Disease and Mortality, Circulation 2019;139:2422-2436 (30 cohorts, 68,659 participants)",
       url: "https://pubmed.ncbi.nlm.nih.gov/30971107/",
     },
     {
       title:
-        "Farvid et al., Dietary Linoleic Acid and Risk of Coronary Heart Disease: A Systematic Review and Meta-Analysis of Prospective Cohort Studies — Circulation 2014;130:1568-1578",
+        "Farvid et al., Dietary Linoleic Acid and Risk of Coronary Heart Disease: A Systematic Review and Meta-Analysis of Prospective Cohort Studies, Circulation 2014;130:1568-1578",
       url: "https://www.ahajournals.org/doi/abs/10.1161/circulationaha.114.010236",
     },
     {
       title:
-        "The Sydney Diet Heart Study: A Randomised Controlled Trial of Linoleic Acid for Secondary Prevention — BMJ 2013;346:e8707",
+        "The Sydney Diet Heart Study: A Randomised Controlled Trial of Linoleic Acid for Secondary Prevention, BMJ 2013;346:e8707",
       url: "https://www.bmj.com/content/346/bmj.e8707",
     },
     {
       title:
-        "Hooper et al., Reduction in Saturated Fat Intake for Cardiovascular Disease — Cochrane Database of Systematic Reviews 2020, CD011737",
+        "Hooper et al., Reduction in Saturated Fat Intake for Cardiovascular Disease, Cochrane Database of Systematic Reviews 2020, CD011737",
       url: "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011737.pub3/full",
     },
     {
@@ -312,7 +312,7 @@ export const seedOilsHealthData = {
             directness: 5,
           },
           source:
-            "Synthesis / inference — contested dose-response literature with no verified margin estimate",
+            "Synthesis / inference: contested dose-response literature with no verified margin estimate",
           reasoning:
             "Honest uncertainty rather than reassurance: the earlier claim of a 10-100x margin below safety thresholds could not be verified, and recent work disputes it. It sits on the skeptic side only because it rebuts the claim that harm from home cooking has been shown.",
         },

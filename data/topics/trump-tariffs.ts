@@ -4,7 +4,7 @@ export const trumpTariffsData = {
   question:
     "Have Trump's tariffs revived US manufacturing and helped American workers?",
   meta_claim:
-    "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
+    "Trump's protectionist trade policy (broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China) has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
   status: "contested" as const,
   category: "economics" as const,
   // Words readers use for this question that the map's own text does not.
@@ -47,7 +47,7 @@ export const trumpTariffsData = {
       skeptic_premise:
         "Tariffs are a tax paid by Americans, not by foreign exporters. The 'China pays the tariff' claim is empirically false: the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. Federal Reserve Board economists found that tariffs explain the entirety of excess core goods inflation since January 2025 relative to pre-pandemic rates, adding about 0.8% to core PCE prices; the CBO projected in June 2025 that tariffs would add roughly 0.4 percentage points a year to inflation in 2025 and 2026, leaving the price level about 0.9% higher by 2026. The Yale Budget Lab puts the cost of current-law tariffs at about $1,100 per household a year, and its spring 2026 analysis found the bottom income decile bearing roughly three times the burden of the top decile as a share of income. This is a regressive consumption tax dressed up as trade policy.",
       proponent_rebuttal:
-        "Pass-through is partial, not total — and that is the point. The HBS Pricing Lab found consumers bore up to 43% of the burden, with US companies absorbing the rest in their margins, and the New York Fed found the share absorbed by foreign exporters rising from about 6% to about 14% over the course of 2025, so part of the cost does land on trading partners. An average statutory tariff rate of about 11% is far below the deadweight catastrophe critics predicted, and Fed economists themselves found pass-through largely complete, which makes the core goods effect a one-time price-level adjustment rather than a sustained inflationary spiral. Tariff revenue — about $173 billion in net customs duties in FY2026, after refunds of the struck-down IEEPA duties — can fund offsetting tax cuts that change the net distributional picture, especially if structured progressively.",
+        "Pass-through is partial, not total, and that is the point. The HBS Pricing Lab found consumers bore up to 43% of the burden, with US companies absorbing the rest in their margins, and the New York Fed found the share absorbed by foreign exporters rising from about 6% to about 14% over the course of 2025, so part of the cost does land on trading partners. An average statutory tariff rate of about 11% is far below the deadweight catastrophe critics predicted, and Fed economists themselves found pass-through largely complete, which makes the core goods effect a one-time price-level adjustment rather than a sustained inflationary spiral. Tariff revenue (about $173 billion in net customs duties in FY2026, after refunds of the struck-down IEEPA duties) can fund offsetting tax cuts that change the net distributional picture, especially if structured progressively.",
       crux: {
         id: "tariff-incidence-split",
         title: "The Tariff Incidence Split Test",
@@ -72,7 +72,7 @@ export const trumpTariffsData = {
           common_ground:
             "Both sides' own figures put most of the tariff cost on US consumers and importing firms, with the New York Fed putting the foreign-exporter share at about 6% to 14% during 2025.",
           live_disagreement:
-            "How large the foreign-exporter share really is and whether it holds over time — and whether a one-time price-level bump, partly offset by tariff revenue, is a cost worth paying or a regressive consumption tax.",
+            "How large the foreign-exporter share really is and whether it holds over time, and whether a one-time price-level bump, partly offset by tariff revenue, is a cost worth paying or a regressive consumption tax.",
         },
       },
       evidence: [
@@ -178,7 +178,7 @@ export const trumpTariffsData = {
       skeptic_premise:
         "The promised reshoring boom has not arrived in the data. The 2023 USITC Section 232/301 study found that steel and aluminum tariffs created modest jobs in protected sectors but destroyed roughly equivalent or greater jobs in steel- and aluminum-using industries downstream. CRS reports consistently find Section 232 effects net-negative for total manufacturing employment. The Yale Budget Lab's April 2026 modeling has long-run manufacturing output up only 0.7%, gains it says are more than crowded out by losses elsewhere (construction down 2.0%, mining down 0.8%), with GDP persistently smaller and unemployment about 0.1 percentage point higher by the end of 2026. 'Liberation Day' tariffs were supposed to revive manufacturing; so far they have not.",
       proponent_rebuttal:
-        "Headcount in BLS payrolls is the wrong metric and the wrong timeframe. The reshoring response shows up first in capital expenditure commitments and greenfield-plant announcements — capital-intensive semiconductor fabs, aerospace, and metals capacity — that take years to convert into payroll. American Compass's 'Tariff Tally' documents a stealth manufacturing buildout in capex and investment announcements that lagging payroll data cannot yet capture. The relevant question is not aggregate headcount but the rebuilding of strategic industrial capacity and the reversal of three decades of working-class wage stagnation, which requires patient measurement over a decade, not seven months.",
+        "Headcount in BLS payrolls is the wrong metric and the wrong timeframe. The reshoring response shows up first in capital expenditure commitments and greenfield-plant announcements (capital-intensive semiconductor fabs, aerospace, and metals capacity) that take years to convert into payroll. American Compass's 'Tariff Tally' documents a stealth manufacturing buildout in capex and investment announcements that lagging payroll data cannot yet capture. The relevant question is not aggregate headcount but the rebuilding of strategic industrial capacity and the reversal of three decades of working-class wage stagnation, which requires patient measurement over a decade, not seven months.",
       crux: {
         id: "manufacturing-net-employment",
         title: "The Net Manufacturing Employment Test",
@@ -201,7 +201,7 @@ export const trumpTariffsData = {
           skeptic_flip:
             "If capital-expenditure commitments and greenfield plants, from semiconductor fabs to aerospace and metals capacity, turned into payroll over the coming years without offsetting downstream losses, flat payrolls would look like a lag rather than a sign reshoring is not happening.",
           common_ground:
-            "Both sides agree BLS payroll data do not yet show a manufacturing jobs boom, and that the capacity tariffs may attract — semiconductor fabs, aerospace, metals — is capital-intensive.",
+            "Both sides agree BLS payroll data do not yet show a manufacturing jobs boom, and that the capacity tariffs may attract (semiconductor fabs, aerospace, metals) is capital-intensive.",
           live_disagreement:
             "Whether net manufacturing employment rises once downstream input costs and retaliation are counted, and whether headcount over months or strategic capacity over a decade is the right measure.",
         },
@@ -262,7 +262,7 @@ export const trumpTariffsData = {
           id: "american-compass-stealth-boom",
           title: "American Compass: 'Stealth Manufacturing Boom' in Capex and Announcements",
           description:
-            "American Compass's 'Tariff Tally' series argues that the reshoring response is visible in capital expenditure and greenfield-investment announcements — capital-intensive semiconductor, aerospace, and metals capacity — rather than in BLS payroll headcount, which lags plant construction by years. Oren Cass advocates a 10% across-the-board tariff escalating 5% per year until trade deficits zero out, paired with a national development bank, framing short-term consumer pain against the externalities of deindustrialization.",
+            "American Compass's 'Tariff Tally' series argues that the reshoring response is visible in capital expenditure and greenfield-investment announcements (capital-intensive semiconductor, aerospace, and metals capacity) rather than in BLS payroll headcount, which lags plant construction by years. Oren Cass advocates a 10% across-the-board tariff escalating 5% per year until trade deficits zero out, paired with a national development bank, framing short-term consumer pain against the externalities of deindustrialization.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -305,9 +305,9 @@ export const trumpTariffsData = {
         "A national-security rationale for tariffs is reducing dependence on China and slowing its technology acquisition. The conditionalist 'small yard, high fence' school argues targeted export controls work while broad tariffs backfire by fracturing the allied coalition and accelerating China's import-substitution drive.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Broad tariffs are the wrong tool for the real national-security problem. Chris Miller and the 'Chip War' school argue that targeted export controls on dual-use technology — advanced semiconductors, EUV lithography, AI accelerators — are specific, effective, and multilateralizable, whereas sweeping reciprocal tariffs are a 'scattered fence, no yard' that hits allies and gives Beijing license to retaliate symmetrically. Tariffs accelerate China's 'Made in China 2025' import-substitution and indigenous-innovation drive; Beijing now mirrors the US with its own 'small yard, high fence,' a sign the broad tariff regime accelerated the very decoupling-against-the-US it meant to manage.",
+        "Broad tariffs are the wrong tool for the real national-security problem. Chris Miller and the 'Chip War' school argue that targeted export controls on dual-use technology (advanced semiconductors, EUV lithography, AI accelerators) are specific, effective, and multilateralizable, whereas sweeping reciprocal tariffs are a 'scattered fence, no yard' that hits allies and gives Beijing license to retaliate symmetrically. Tariffs accelerate China's 'Made in China 2025' import-substitution and indigenous-innovation drive; Beijing now mirrors the US with its own 'small yard, high fence,' a sign the broad tariff regime accelerated the very decoupling-against-the-US it meant to manage.",
       proponent_rebuttal:
-        "Export controls alone are insufficient; tariffs add economic friction that compounds the cost of strategic dependence. Even if China indigenizes faster under pressure, it still indigenizes more slowly than it would in the absence of pressure — and the years of delay bought matter enormously for the Taiwan, AI, and military balance. Layered tariffs on China (25% on most goods on the 2018-19 Section 301 lists, 50% on semiconductors, 100% on EVs), which survived the Supreme Court's IEEPA ruling, raise the cost of Chinese market access and incentivize 'friend-shoring' to allied and domestic suppliers. The November 2025 truce holding rates at 10%-on-10% shows tariffs created leverage that produced a negotiated, monitored equilibrium rather than uncontrolled escalation.",
+        "Export controls alone are insufficient; tariffs add economic friction that compounds the cost of strategic dependence. Even if China indigenizes faster under pressure, it still indigenizes more slowly than it would in the absence of pressure, and the years of delay bought matter enormously for the Taiwan, AI, and military balance. Layered tariffs on China (25% on most goods on the 2018-19 Section 301 lists, 50% on semiconductors, 100% on EVs), which survived the Supreme Court's IEEPA ruling, raise the cost of Chinese market access and incentivize 'friend-shoring' to allied and domestic suppliers. The November 2025 truce holding rates at 10%-on-10% shows tariffs created leverage that produced a negotiated, monitored equilibrium rather than uncontrolled escalation.",
       crux: {
         id: "decoupling-tool-effectiveness",
         title: "The Decoupling Instrument Test",
@@ -357,7 +357,7 @@ export const trumpTariffsData = {
           id: "miller-scattered-fence",
           title: "Chris Miller: Broad Tariffs Are 'Scattered Fence, No Yard'",
           description:
-            "Chris Miller, author of 'Chip War,' and the national-security conditionalist school argue that targeted export controls on dual-use technology work, while broad reciprocal tariffs that hit allies are strategically self-defeating because they fracture the coalition needed to actually contain China. Miller critiqued the 2025 tariff sprawl as a 'scattered fence, no yard' — the inverse of the disciplined 'small yard, high fence' strategy export controls were designed around.",
+            "Chris Miller, author of 'Chip War,' and the national-security conditionalist school argue that targeted export controls on dual-use technology work, while broad reciprocal tariffs that hit allies are strategically self-defeating because they fracture the coalition needed to actually contain China. Miller critiqued the 2025 tariff sprawl as a 'scattered fence, no yard', the inverse of the disciplined 'small yard, high fence' strategy export controls were designed around.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -368,7 +368,7 @@ export const trumpTariffsData = {
           source: "Chris Miller (Chip War); Carnegie Mellon CMIST; Asia Society",
           sourceUrl: "https://www.cmu.edu/cmist/news-archive/news/2026/march/chips-and-chokepoints-chris-miller-on-the-geopolitics-of-the-ai-supply-chain.html",
           reasoning:
-            "Miller is a leading authority on semiconductor geopolitics, and the targeted-vs-broad distinction is the crux of the decoupling debate. The critique directly challenges the instrument choice — arguing that broad tariffs undermine the allied coalition export controls depend on — though it is an expert analytical judgment rather than a quantified outcome.",
+            "Miller is a leading authority on semiconductor geopolitics, and the targeted-vs-broad distinction is the crux of the decoupling debate. The critique directly challenges the instrument choice, arguing that broad tariffs undermine the allied coalition export controls depend on, though it is an expert analytical judgment rather than a quantified outcome.",
         },
         {
           id: "beijing-mirror-strategy",
@@ -402,7 +402,7 @@ export const trumpTariffsData = {
           source: "Council on Foreign Relations",
           sourceUrl: "https://www.cfr.org/articles/how-the-supreme-court-tariff-decision-could-affect-trumps-china-negotiations",
           reasoning:
-            "The truce is a verifiable diplomatic fact that proponents cite as evidence tariffs created negotiating leverage. However, that the bilateral rate settled at a symmetric 10%-on-10% — far below peak — can also be read as a retreat from the maximalist tariff position, making the 'leverage worked' inference contestable.",
+            "The truce is a verifiable diplomatic fact that proponents cite as evidence tariffs created negotiating leverage. However, that the bilateral rate settled at a symmetric 10%-on-10%, far below peak, can also be read as a retreat from the maximalist tariff position, making the 'leverage worked' inference contestable.",
         },
       ],
     },
@@ -414,19 +414,19 @@ export const trumpTariffsData = {
       id: "trade-deficit-alliances",
       title: "Can Tariffs Fix the Trade Deficit, and at What Cost to Allies?",
       short_summary:
-        "Trump frames the trade deficit as proof America is 'being ripped off' and tariffs as the remedy. Economists counter that bilateral deficits reflect savings-investment imbalances, not unfair trade, and that tariff friction with allies imposes geopolitical costs — lost cooperation on China, defense burden-sharing, and dollar centrality.",
+        "Trump frames the trade deficit as proof America is 'being ripped off' and tariffs as the remedy. Economists counter that bilateral deficits reflect savings-investment imbalances, not unfair trade, and that tariff friction with allies imposes geopolitical costs, lost cooperation on China, defense burden-sharing, and dollar centrality.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The trade-deficit rationale rests on an accounting error. Bilateral trade deficits reflect macroeconomic savings-investment imbalances and the dollar's reserve-currency status, not unfair foreign practices, so tariffs cannot durably close them — they merely reshuffle which countries run the surplus. 'We're being ripped off' is never operationally defined (deficit? IP theft? subsidies? non-tariff barriers?), letting the same rhetoric justify whichever instrument the speaker prefers. Meanwhile, tariff friction with allies — the EU's €26 billion countermeasures, Canada's retained auto and metals retaliation and its 2026 counter-tariffs, a high-stakes USMCA renegotiation — imposes real costs on the coalition the US needs to contain China.",
+        "The trade-deficit rationale rests on an accounting error. Bilateral trade deficits reflect macroeconomic savings-investment imbalances and the dollar's reserve-currency status, not unfair foreign practices, so tariffs cannot durably close them; they merely reshuffle which countries run the surplus. 'We're being ripped off' is never operationally defined (deficit? IP theft? subsidies? non-tariff barriers?), letting the same rhetoric justify whichever instrument the speaker prefers. Meanwhile, tariff friction with allies (the EU's €26 billion countermeasures, Canada's retained auto and metals retaliation and its 2026 counter-tariffs, a high-stakes USMCA renegotiation) imposes real costs on the coalition the US needs to contain China.",
       proponent_rebuttal:
-        "Persistent deficits are not benign accounting; they reflect structural offshoring of productive capacity and the hollowing-out of communities, externalities that orthodox trade models systematically under-price. Tariffs are a credible threat that extracted real concessions — about 20 partners, from the EU, Japan and South Korea to Indonesia, Argentina and Taiwan, announced reciprocal trade agreements or frameworks, and allies made commitments on LNG offtake and defense spending. Europe was free-riding on US security anyway, and 'alliance damage' is a vapor metric that has not produced the predicted collapse: the EU suspended its countermeasures after a framework agreement, and most allies negotiated rather than retaliated. Even after refunds of the struck-down IEEPA duties, customs receipts netted about $173 billion in FY2026, revenue that funds domestic priorities.",
+        "Persistent deficits are not benign accounting; they reflect structural offshoring of productive capacity and the hollowing-out of communities, externalities that orthodox trade models systematically under-price. Tariffs are a credible threat that extracted real concessions, about 20 partners, from the EU, Japan and South Korea to Indonesia, Argentina and Taiwan, announced reciprocal trade agreements or frameworks, and allies made commitments on LNG offtake and defense spending. Europe was free-riding on US security anyway, and 'alliance damage' is a vapor metric that has not produced the predicted collapse: the EU suspended its countermeasures after a framework agreement, and most allies negotiated rather than retaliated. Even after refunds of the struck-down IEEPA duties, customs receipts netted about $173 billion in FY2026, revenue that funds domestic priorities.",
       crux: {
         id: "deficit-causation-and-alliance-cost",
         title: "The Deficit-Causation and Alliance-Cost Test",
         question:
           "Can tariffs fix trade deficits, and are their gains worth the friction with allies?",
         description:
-          "Two linked questions decide this section. First, are bilateral trade deficits caused by unfair foreign practices (addressable by tariffs) or by macroeconomic savings-investment imbalances (not addressable by tariffs)? Second, does the geopolitical cost of tariff friction with allies — lost China-policy cooperation, weakened burden-sharing, eroded dollar trust — exceed the concessions tariffs extract?",
+          "Two linked questions decide this section. First, are bilateral trade deficits caused by unfair foreign practices (addressable by tariffs) or by macroeconomic savings-investment imbalances (not addressable by tariffs)? Second, does the geopolitical cost of tariff friction with allies (lost China-policy cooperation, weakened burden-sharing, eroded dollar trust) exceed the concessions tariffs extract?",
         methodology:
           "Test deficit causation by examining whether the aggregate US trade deficit narrows under tariffs or merely shifts bilaterally to other surplus countries, controlling for the national savings rate and fiscal deficit. Assess alliance cost by auditing documented concessions (trade deals signed, LNG and defense commitments) against documented retaliation and cooperation losses (EU/Canada countermeasures, USMCA renegotiation stakes, allied alignment on China export controls).",
         verification_status: "theoretical" as const,
@@ -452,7 +452,7 @@ export const trumpTariffsData = {
           id: "savings-investment-identity",
           title: "Bilateral Deficits Reflect Savings-Investment Imbalances, Not Unfair Trade",
           description:
-            "Orthodox trade economists (PIIE, Krugman, Mankiw) argue the trade deficit is determined by the national savings-investment gap and the dollar's reserve-currency role, meaning tariffs cannot durably close it — they reshuffle which countries run surpluses. The 2018 round of Trump tariffs is the natural test case: the aggregate US trade deficit did not shrink and in fact widened alongside the savings-investment gap, with the China bilateral deficit largely reallocating to Vietnam, Mexico, and other partners rather than disappearing. Krugman has called the 2025 tariff structure 'the second coming of Smoot-Hawley,' while critics note the analogy is overdrawn given an average statutory US tariff rate of about 11% in August 2026 (Yale Budget Lab), or 6.7% in duties collected as a share of imports in July 2026 (Penn Wharton), versus Smoot-Hawley's ~59% on dutiable imports.",
+            "Orthodox trade economists (PIIE, Krugman, Mankiw) argue the trade deficit is determined by the national savings-investment gap and the dollar's reserve-currency role, meaning tariffs cannot durably close it; they reshuffle which countries run surpluses. The 2018 round of Trump tariffs is the natural test case: the aggregate US trade deficit did not shrink and in fact widened alongside the savings-investment gap, with the China bilateral deficit largely reallocating to Vietnam, Mexico, and other partners rather than disappearing. Krugman has called the 2025 tariff structure 'the second coming of Smoot-Hawley,' while critics note the analogy is overdrawn given an average statutory US tariff rate of about 11% in August 2026 (Yale Budget Lab), or 6.7% in duties collected as a share of imports in July 2026 (Penn Wharton), versus Smoot-Hawley's ~59% on dutiable imports.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -576,7 +576,7 @@ export const trumpTariffsData = {
       id: "q1",
       title: "Who actually pays Trump's tariffs?",
       content:
-        "Trump claimed foreign exporters would pay, but the New York Fed estimates ~90% of the 2025 burden fell on US firms and consumers (only ~6-14% on foreign exporters); Cavallo finds short-run retail pass-through rising from 20% to 24% through fall 2025, HBS puts the consumer share at up to 43%, and Federal Reserve Board economists estimate tariffs raised core goods prices by about 3.1%. The strongest version of 'China pays' — that some burden falls on exporters — is true but small; the campaign-rally version is a category error. Does the partial pass-through vindicate the policy as cost-shifting, or refute it as a domestic consumption tax?",
+        "Trump claimed foreign exporters would pay, but the New York Fed estimates ~90% of the 2025 burden fell on US firms and consumers (only ~6-14% on foreign exporters); Cavallo finds short-run retail pass-through rising from 20% to 24% through fall 2025, HBS puts the consumer share at up to 43%, and Federal Reserve Board economists estimate tariffs raised core goods prices by about 3.1%. The strongest version of 'China pays', that some burden falls on exporters, is true but small; the campaign-rally version is a category error. Does the partial pass-through vindicate the policy as cost-shifting, or refute it as a domestic consumption tax?",
     },
     {
       id: "q2",

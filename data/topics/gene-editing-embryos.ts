@@ -31,9 +31,9 @@ export const geneEditingEmbryosData = {
         "CRISPR can already treat sickle cell disease in adults (FDA-approved in 2023). It can also make off-target edits we cannot fully predict. The first gene-edited babies were born in 2018; the scientist was jailed for three years.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "He Jiankui's 2018 experiment showed the technology was used before it was ready — the intended CCR5-Δ32 edit was not faithfully reproduced (mosaicism, atypical and partial edits) and off-target risks were never independently verified. Germline changes are heritable and effectively irreversible, so any error propagates to people who could never consent — a profound problem of the rights of future generations. We do not understand gene interactions (pleiotropy, epistasis) well enough to predict downstream effects; CCR5 loss itself carries trade-offs. And for most carrier couples, preimplantation genetic testing (PGT-M) already lets unaffected embryos be selected without editing the genome at all, so the marginal benefit of editing is small relative to the risk.",
+        "He Jiankui's 2018 experiment showed the technology was used before it was ready; the intended CCR5-Δ32 edit was not faithfully reproduced (mosaicism, atypical and partial edits) and off-target risks were never independently verified. Germline changes are heritable and effectively irreversible, so any error propagates to people who could never consent; a profound problem of the rights of future generations. We do not understand gene interactions (pleiotropy, epistasis) well enough to predict downstream effects; CCR5 loss itself carries trade-offs. And for most carrier couples, preimplantation genetic testing (PGT-M) already lets unaffected embryos be selected without editing the genome at all, so the marginal benefit of editing is small relative to the risk.",
       proponent_rebuttal:
-        "Heritable editing could in principle prevent Huntington's disease, sickle cell anemia, cystic fibrosis, and other serious single-gene disorders that cause immense suffering. The underlying technology is advancing fast: newer base and prime editors avoid the double-strand breaks behind much of Cas9's collateral damage, and FDA's 2023 approval of a CRISPR therapy (Casgevy) shows the chemistry can be made clinically reliable in humans. He Jiankui is best read as a warning about rogue, premature practice rather than proof the field can never be safe. The strongest case is narrow — couples for whom embryo screening cannot work (both parents affected, or a dominant de novo mutation) — where editing may be the only path to a genetically related, unaffected child.",
+        "Heritable editing could in principle prevent Huntington's disease, sickle cell anemia, cystic fibrosis, and other serious single-gene disorders that cause immense suffering. The underlying technology is advancing fast: newer base and prime editors avoid the double-strand breaks behind much of Cas9's collateral damage, and FDA's 2023 approval of a CRISPR therapy (Casgevy) shows the chemistry can be made clinically reliable in humans. He Jiankui is best read as a warning about rogue, premature practice rather than proof the field can never be safe. The strongest case is narrow: couples for whom embryo screening cannot work (both parents affected, or a dominant de novo mutation), where editing may be the only path to a genetically related, unaffected child.",
       crux: {
         id: "crispr-precision-threshold",
         title: "CRISPR Precision Sufficient for Germline Application",
@@ -53,13 +53,13 @@ export const geneEditingEmbryosData = {
         cost_to_verify: "$10M (Multi-center embryo editing research program)",
         falsification: {
           supporter_flip:
-            "If whole-genome sequencing of edited embryos kept showing off-target edits and mosaicism above the natural mutation rate even with newer base/prime editors — i.e. the precision needed for heritable use stayed out of reach — the 'the technology is almost ready' case would fail.",
+            "If whole-genome sequencing of edited embryos kept showing off-target edits and mosaicism above the natural mutation rate even with newer base/prime editors, i.e. the precision needed for heritable use stayed out of reach, the 'the technology is almost ready' case would fail.",
           skeptic_flip:
             "If whole-genome sequencing of embryos edited with base and prime editors, which avoid the double-strand breaks behind much of CRISPR's collateral damage, found off-target rates near the natural mutation rate, 'inherently uncontrollable' would be hard to hold.",
           common_ground:
             "Both sides agree the 2018 embryo edits were botched and unverified, and that germline changes are heritable and effectively irreversible.",
           live_disagreement:
-            "Whether editing precision can reach a level (off-target rate below the natural per-generation mutation rate) that would make heritable use defensibly safe — which only systematic whole-genome sequencing of research embryos can establish.",
+            "Whether editing precision can reach a level (off-target rate below the natural per-generation mutation rate) that would make heritable use defensibly safe, which only systematic whole-genome sequencing of research embryos can establish.",
         },
       },
       evidence: [
@@ -78,7 +78,7 @@ export const geneEditingEmbryosData = {
           source: "MIT Technology Review (Regalado, 2018); Cyranoski & Ledford, Nature (2018); Shenzhen court verdict (Dec 2019)",
           sourceUrl: "https://en.wikipedia.org/wiki/He_Jiankui_affair",
           reasoning:
-            "The most direct evidence of premature human germline editing. Highly informative about risks, though this was a rogue experiment with poor technique — not representative of the field's best practices. Replicability lowered: the embryos were never independently sequenced and the full data was never published, so off-target claims rest on leaked/partial reports rather than verified analysis.",
+            "The most direct evidence of premature human germline editing. Highly informative about risks, though this was a rogue experiment with poor technique, not representative of the field's best practices. Replicability lowered: the embryos were never independently sequenced and the full data was never published, so off-target claims rest on leaked/partial reports rather than verified analysis.",
         },
         {
           id: "crispr-precision-improvement-2023",
@@ -112,7 +112,7 @@ export const geneEditingEmbryosData = {
           source: "U.S. FDA press announcement (Dec 8, 2023); manufacturer Vertex/CRISPR Therapeutics",
           sourceUrl: "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
           reasoning:
-            "Landmark FDA approval demonstrates clinical viability; the 97% figure was overstated and corrected to the trial's 93.5% (29/31 evaluable patients). Directness lowered to 4 because somatic editing of an adult patient's own cells has a fundamentally different — and far lower — risk profile than heritable germline editing of an embryo.",
+            "Landmark FDA approval demonstrates clinical viability; the 97% figure was overstated and corrected to the trial's 93.5% (29/31 evaluable patients). Directness lowered to 4 because somatic editing of an adult patient's own cells has a fundamentally different, and far lower, risk profile than heritable germline editing of an embryo.",
         },
         {
           id: "pgt-m-alternative",
@@ -129,7 +129,7 @@ export const geneEditingEmbryosData = {
           source: "ASRM Practice Committee, \"Indications and management of PGT for monogenic conditions,\" Fertil Steril 2023;120:61–71",
           sourceUrl: "https://www.fertstert.org/article/S0015-0282(23)00210-8/fulltext",
           reasoning:
-            "Strong evidence that a safer alternative exists for most use cases. The unsourced '95%+ accuracy' figure was removed (PGT-M reliability is condition- and lab-dependent, and misdiagnosis risk is non-zero). Directness lowered to 7: PGT-M selects among existing embryos and cannot help when all embryos are affected (both parents homozygous) or for de novo mutations — exactly the cases proponents cite for editing.",
+            "Strong evidence that a safer alternative exists for most use cases. The unsourced '95%+ accuracy' figure was removed (PGT-M reliability is condition- and lab-dependent, and misdiagnosis risk is non-zero). Directness lowered to 7: PGT-M selects among existing embryos and cannot help when all embryos are affected (both parents homozygous) or for de novo mutations, exactly the cases proponents cite for editing.",
         },
       ],
     },
@@ -140,9 +140,9 @@ export const geneEditingEmbryosData = {
         "Fixing Huntington's disease is therapy. Selecting for height is enhancement. The line between them is clear in theory and blurry in practice.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The slippery slope to designer babies is real — once you allow editing for disease, the line to enhancement (intelligence, height, appearance) is impossible to hold. Wealthy access to genetic enhancement would create a literal genetic class system. Disability rights advocates argue that editing out genetic conditions signals that disabled lives aren't worth living. The history of eugenics in the 20th century makes this territory uniquely dangerous.",
+        "The slippery slope to designer babies is real, once you allow editing for disease, the line to enhancement (intelligence, height, appearance) is impossible to hold. Wealthy access to genetic enhancement would create a literal genetic class system. Disability rights advocates argue that editing out genetic conditions signals that disabled lives aren't worth living. The history of eugenics in the 20th century makes this territory uniquely dangerous.",
       proponent_rebuttal:
-        "Independent ethics bodies have concluded heritable editing could be acceptable in principle if it secures the welfare of the future person and does not worsen social inequality (Nuffield Council, 2018), and the WHO has published a governance framework (2021) — so the question is how to regulate, not whether regulation is conceivable. A defensible line can be drawn at preventing serious, well-characterized monogenic disease, the same category society already treats as legitimate to screen for. And a ban is not neutral: prohibition pushes work into unregulated settings, which is precisely the gap He Jiankui exploited. Better to permit tightly licensed research than to cede the field to rogue actors.",
+        "Independent ethics bodies have concluded heritable editing could be acceptable in principle if it secures the welfare of the future person and does not worsen social inequality (Nuffield Council, 2018), and the WHO has published a governance framework (2021), so the question is how to regulate, not whether regulation is conceivable. A defensible line can be drawn at preventing serious, well-characterized monogenic disease, the same category society already treats as legitimate to screen for. And a ban is not neutral: prohibition pushes work into unregulated settings, which is precisely the gap He Jiankui exploited. Better to permit tightly licensed research than to cede the field to rogue actors.",
       crux: {
         id: "therapy-enhancement-boundary",
         title: "Enforceability of Therapy vs. Enhancement Boundary",
@@ -162,7 +162,7 @@ export const geneEditingEmbryosData = {
         cost_to_verify: "$300K (International regulatory and ethics comparative study)",
         falsification: {
           supporter_flip:
-            "If comparative analysis showed no regulatory regime has ever held a therapy-vs-enhancement line under commercial and competitive pressure — that permitting disease-editing inevitably slides to enhancement — the 'we can permit it narrowly and safely' position would collapse toward a ban.",
+            "If comparative analysis showed no regulatory regime has ever held a therapy-vs-enhancement line under commercial and competitive pressure, that permitting disease-editing inevitably slides to enhancement, the 'we can permit it narrowly and safely' position would collapse toward a ban.",
           skeptic_flip:
             "If embryo screening kept holding its line, testing for serious monogenic disease but not for traits, and a flat ban pushed editing into unregulated settings like the one He Jiankui used, the fear of designer babies would weigh less against a narrow allowance.",
           common_ground:
@@ -187,7 +187,7 @@ export const geneEditingEmbryosData = {
           source: "Nuffield Council on Bioethics (UK), \"Genome editing and human reproduction\" (July 2018)",
           sourceUrl: "https://www.nuffieldbioethics.org/publications/genome-editing-and-human-reproduction",
           reasoning:
-            "Highly respected, independent ethics body. The conditional endorsement is nuanced — it supports the possibility, not current practice. Directness limited because ethical conclusions don't resolve empirical safety questions.",
+            "Highly respected, independent ethics body. The conditional endorsement is nuanced; it supports the possibility, not current practice. Directness limited because ethical conclusions don't resolve empirical safety questions.",
         },
         {
           id: "disability-rights-critique",
@@ -238,7 +238,7 @@ export const geneEditingEmbryosData = {
           source: "Michael Sandel, \"The Case Against Perfection\" (Atlantic 2004 / Harvard Univ. Press 2007); broader bioethics debate incl. Savulescu, Buchanan",
           sourceUrl: "https://www.theatlantic.com/magazine/archive/2004/04/the-case-against-perfection/302927/",
           reasoning:
-            "Well-established philosophical argument anchored to a named, citable source rather than a list of surnames. SourceReliability and replicability lowered because this is normative philosophy, not an empirical finding — it cannot be 'replicated' and reasonable bioethicists (e.g. Savulescu) reach the opposite conclusion. The cosmetic-surgery analogy is historically grounded and directionally concerning.",
+            "Well-established philosophical argument anchored to a named, citable source rather than a list of surnames. SourceReliability and replicability lowered because this is normative philosophy, not an empirical finding; it cannot be 'replicated' and reasonable bioethicists (e.g. Savulescu) reach the opposite conclusion. The cosmetic-surgery analogy is historically grounded and directionally concerning.",
         },
       ],
     },

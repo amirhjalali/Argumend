@@ -37,23 +37,23 @@ export const nuclearRenaissanceSmrData = {
     "https://images.unsplash.com/photo-1591803897498-ef4a8db8e73a?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "Canada's first SMR project: How is CAD20.9 billion cost calculated? — World Nuclear News (23 May 2025)",
+      title: "Canada's first SMR project: How is CAD20.9 billion cost calculated?, World Nuclear News (23 May 2025)",
       url: "https://wnn.world-nuclear.org/articles/what-is-the-budget-for-canadas-first-smr-project",
     },
     {
-      title: "North American construction is back, smaller and faster, at OPG's Darlington — Nuclear News (5 June 2026)",
+      title: "North American construction is back, smaller and faster, at OPG's Darlington, Nuclear News (5 June 2026)",
       url: "https://ans.org/news/2026-06-05/article-8047/north-american-construction-is-back-smaller-and-faster-at-opgs-darlington/",
     },
     {
-      title: "First construction permit issued for BWRX-300 SMR in US — World Nuclear News (30 September 2026)",
+      title: "First construction permit issued for BWRX-300 SMR in US, World Nuclear News (30 September 2026)",
       url: "https://world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us",
     },
     {
-      title: "NRC issues construction permit for first Natrium plant — World Nuclear News (March 2026)",
+      title: "NRC issues construction permit for first Natrium plant, World Nuclear News (March 2026)",
       url: "https://world-nuclear-news.org/articles/nrc-issues-construction-permit-for-first-natrium-plant",
     },
     {
-      title: "NuScale US460 Standard Design Approval — US Nuclear Regulatory Commission",
+      title: "NuScale US460 Standard Design Approval, US Nuclear Regulatory Commission",
       url: "https://www.nrc.gov/reactors/new-reactors/smr/licensing-activities/current-licensing-reviews/nuscale-us460.html",
     },
     {
@@ -61,7 +61,7 @@ export const nuclearRenaissanceSmrData = {
       url: "https://www.nuscalepower.com/press-releases/2026/nuscale-power-reports-second-quarter-2026-results",
     },
     {
-      title: "Criticality for fourth US microreactor meets 4 July deadline — World Nuclear News (7 July 2026)",
+      title: "Criticality for fourth US microreactor meets 4 July deadline, World Nuclear News (7 July 2026)",
       url: "https://world-nuclear-news.org/articles/criticality-for-fourth-us-microreactor-meets-deadline",
     },
     {
@@ -69,7 +69,7 @@ export const nuclearRenaissanceSmrData = {
       url: "https://www.iaea.org/topics/small-modular-reactors",
     },
     {
-      title: "NuScale UAMPS Project Cancellation — Reuters (8 November 2023)",
+      title: "NuScale UAMPS Project Cancellation, Reuters (8 November 2023)",
       url: "https://www.reuters.com/business/energy/nuscale-power-terminate-utah-small-nuclear-reactor-project-2023-11-08/",
     },
   ],
@@ -107,7 +107,7 @@ export const nuclearRenaissanceSmrData = {
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Cost — the learning-curve bet
+    // PILLAR 1: Cost; the learning-curve bet
     // =========================================================================
     {
       id: "smr-economics",
@@ -320,7 +320,7 @@ export const nuclearRenaissanceSmrData = {
             directness: 6,
           },
           source:
-            "Union of Concerned Scientists — 'Nuclear Power Reactors: Is Smaller Better?' (Edwin Lyman)",
+            "Union of Concerned Scientists, 'Nuclear Power Reactors: Is Smaller Better?' (Edwin Lyman)",
           sourceUrl: "https://www.ucs.org/resources/nuclear-power-reactors-smaller-better",
           reasoning:
             "A specific analysis by a named nuclear-safety expert, but UCS takes a critical stance on nuclear power, so independence is moderate. Proponents answer that smaller cores carry proportionally smaller worst-case releases.",
@@ -347,7 +347,7 @@ export const nuclearRenaissanceSmrData = {
       ],
     },
     // =========================================================================
-    // PILLAR 3: Schedule — Darlington and the US permits
+    // PILLAR 3: Schedule, Darlington and the US permits
     // =========================================================================
     {
       id: "smr-deployment-timeline",
@@ -514,7 +514,7 @@ export const nuclearRenaissanceSmrData = {
             replicability: 4,
             directness: 5,
           },
-          source: "World Nuclear Association — Nuclear Power in Russia / SMR profile",
+          source: "World Nuclear Association, Nuclear Power in Russia / SMR profile",
           sourceUrl:
             "https://www.world-nuclear.org/information-library/country-profiles/countries-o-s/russia-nuclear-power",
           reasoning:

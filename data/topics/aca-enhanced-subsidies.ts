@@ -306,7 +306,7 @@ export const acaEnhancedSubsidiesData = {
           id: "premiums-2027",
           title: "2027: Insurers Propose a Median 15% Increase, Citing the Lost Credits and a Sicker Risk Pool",
           description:
-            "KFF's review of 276 insurers' filings across all 50 states and DC found a median proposed premium increase of 15% for 2027, after a finalized 20% for 2026. Detailed filings in 16 states and DC cite \"the expiration of enhanced premium tax credits at the end of 2025\" and \"a related increase in the risk pool's morbidity\" among the causes, though \"rising healthcare prices—as in prior years—remain the primary driver of 2027 premium increases.\"",
+            "KFF's review of 276 insurers' filings across all 50 states and DC found a median proposed premium increase of 15% for 2027, after a finalized 20% for 2026. Detailed filings in 16 states and DC cite \"the expiration of enhanced premium tax credits at the end of 2025\" and \"a related increase in the risk pool's morbidity\" among the causes, though \"rising healthcare prices, as in prior years, remain the primary driver of 2027 premium increases.\"",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

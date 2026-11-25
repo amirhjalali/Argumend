@@ -31,12 +31,12 @@ export const sugarTaxEffectivenessData = {
     },
     {
       title:
-        "Colchero et al. — Sustained Consumer Response Two Years After Mexico's Sugar Tax (Health Affairs, 2017)",
+        "Colchero et al., Sustained Consumer Response Two Years After Mexico's Sugar Tax (Health Affairs, 2017)",
       url: "https://www.healthaffairs.org/doi/10.1377/hlthaff.2016.1231",
     },
     {
       title:
-        "Scarborough et al. — Impact of the UK Soft Drinks Industry Levy on Sugar Content of Soft Drinks (PLoS Medicine, 2020)",
+        "Scarborough et al., Impact of the UK Soft Drinks Industry Levy on Sugar Content of Soft Drinks (PLoS Medicine, 2020)",
       url: "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003025",
     },
   ],
@@ -61,7 +61,7 @@ export const sugarTaxEffectivenessData = {
       id: "q3",
       title: "Could industry reformulation matter more than consumer behavior change?",
       content:
-        "The UK's Soft Drinks Industry Levy incentivized manufacturers to reduce sugar content below tax thresholds. Is the reformulation effect — where companies change recipes — more impactful than reduced purchasing by consumers?",
+        "The UK's Soft Drinks Industry Levy incentivized manufacturers to reduce sugar content below tax thresholds. Is the reformulation effect, where companies change recipes, more impactful than reduced purchasing by consumers?",
       imageUrl:
         "https://images.unsplash.com/photo-1581098365948-6a5a912b7a49?auto=format&fit=crop&w=800&q=60",
     },
@@ -76,9 +76,9 @@ export const sugarTaxEffectivenessData = {
         "https://images.unsplash.com/photo-1527960471264-932f39eb5846?auto=format&fit=crop&w=800&q=60",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Sugar taxes shift purchasing more than they shrink total sugar intake. In small jurisdictions, consumers cross-border shop, switch to untaxed sugary alternatives, or face taxes that retailers pass through only partially. Philadelphia is the strongest case: cross-shopping at stores outside the city offset more than half of the in-city sales drop, leaving a net reduction near 22%. Even where demand for soda is genuinely price-responsive, a tax that raises shelf prices only modestly produces a correspondingly modest consumption change — and substitution toward other calorie-dense foods can erode even that. None of this guarantees a population-level health effect.",
+        "Sugar taxes shift purchasing more than they shrink total sugar intake. In small jurisdictions, consumers cross-border shop, switch to untaxed sugary alternatives, or face taxes that retailers pass through only partially. Philadelphia is the strongest case: cross-shopping at stores outside the city offset more than half of the in-city sales drop, leaving a net reduction near 22%. Even where demand for soda is genuinely price-responsive, a tax that raises shelf prices only modestly produces a correspondingly modest consumption change, and substitution toward other calorie-dense foods can erode even that. None of this guarantees a population-level health effect.",
       proponent_rebuttal:
-        "Mexico's peso-per-liter tax produced a sustained 7.6% average reduction in taxed beverage purchases over two years (rising to 9.7% in year two), with the largest declines among the lowest-income households (about 9% in 2014 and 14.3% in 2015) — the population most vulnerable to obesity-related disease. Soft drinks are in fact among the most price-responsive food categories (elasticity ~0.7-0.8 in Andreyeva et al.'s 160-study review), so price tools bite. The UK's tiered levy also triggered industry-wide reformulation: a peer-reviewed analysis found the sales-weighted sugar content of soft drinks fell roughly 30-34% over 2015-2018 (a later government review cited ~46% over a longer window), affecting every consumer regardless of purchasing behavior. Even Philadelphia, the leakiest case — a 46% in-city sales drop more than half offset by cross-shopping — still shows a net reduction near 22%. These are not trivial effects when applied to entire populations over years.",
+        "Mexico's peso-per-liter tax produced a sustained 7.6% average reduction in taxed beverage purchases over two years (rising to 9.7% in year two), with the largest declines among the lowest-income households (about 9% in 2014 and 14.3% in 2015), the population most vulnerable to obesity-related disease. Soft drinks are in fact among the most price-responsive food categories (elasticity ~0.7-0.8 in Andreyeva et al.'s 160-study review), so price tools bite. The UK's tiered levy also triggered industry-wide reformulation: a peer-reviewed analysis found the sales-weighted sugar content of soft drinks fell roughly 30-34% over 2015-2018 (a later government review cited ~46% over a longer window), affecting every consumer regardless of purchasing behavior. Even Philadelphia, the leakiest case, a 46% in-city sales drop more than half offset by cross-shopping, still shows a net reduction near 22%. These are not trivial effects when applied to entire populations over years.",
       crux: {
         id: "net-consumption-reduction",
         title: "Net Consumption Reduction Test",
@@ -99,13 +99,13 @@ export const sugarTaxEffectivenessData = {
           "$200K (retail scanner data licensing + econometric analysis)",
         falsification: {
           supporter_flip:
-            "If careful accounting showed the cut in taxed-beverage purchases is fully offset by substitution to other sugary/calorie-dense products or cross-border shopping — so total sugar intake barely moves — the consumption case for the tax would collapse.",
+            "If careful accounting showed the cut in taxed-beverage purchases is fully offset by substitution to other sugary/calorie-dense products or cross-border shopping, so total sugar intake barely moves, the consumption case for the tax would collapse.",
           skeptic_flip:
             "If longer follow-up kept Mexico's purchase drop sustained and largest among the poorest, and UK reformulation kept cutting sugar at the source, where switching products cannot undo it, the 'people just substitute' objection would lose its footing.",
           common_ground:
             "Both sides agree sugar taxes measurably reduce purchases of the taxed beverages; the dispute is net sugar intake after substitution and leakage.",
           live_disagreement:
-            "How much of the purchase reduction is genuine net sugar reduction versus substitution to untaxed sugary products and cross-border shopping — especially in small jurisdictions like Philadelphia.",
+            "How much of the purchase reduction is genuine net sugar reduction versus substitution to untaxed sugary products and cross-border shopping, especially in small jurisdictions like Philadelphia.",
         },
       },
       evidence: [
@@ -192,9 +192,9 @@ export const sugarTaxEffectivenessData = {
         "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=60",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Sugary beverages account for only a fraction of total caloric intake. Even a meaningful reduction in soda consumption may be compensated by increased consumption of other calorie-dense foods. Obesity is driven by complex interactions between diet, exercise, genetics, and environment — no single-product tax can meaningfully dent it. After a decade of sugar taxes worldwide, no jurisdiction has demonstrated a causally attributable, population-wide reduction in obesity from a tax alone. The strongest health finding to date — an associational ~8% relative drop in obesity among UK year-6 girls — did not extend to boys or younger children and cannot, by its observational design, isolate the levy from everything else changing at once.",
+        "Sugary beverages account for only a fraction of total caloric intake. Even a meaningful reduction in soda consumption may be compensated by increased consumption of other calorie-dense foods. Obesity is driven by complex interactions between diet, exercise, genetics, and environment, no single-product tax can meaningfully dent it. After a decade of sugar taxes worldwide, no jurisdiction has demonstrated a causally attributable, population-wide reduction in obesity from a tax alone. The strongest health finding to date, an associational ~8% relative drop in obesity among UK year-6 girls, did not extend to boys or younger children and cannot, by its observational design, isolate the levy from everything else changing at once.",
       proponent_rebuttal:
-        "Sugar-sweetened beverages are the single largest source of added sugars in Western diets — roughly a quarter of added-sugar intake among US adults, and even more among children. Unlike solid foods, liquid calories bypass satiety signals, making them uniquely obesogenic — people don't compensate by eating less. A Health Affairs cohort-simulation model projects Mexico's tax could prevent about 239,900 cases of obesity over a decade (39% of them in children). The UK has already seen an associational ~8% relative decline in obesity prevalence among year-6 girls after the levy (Rogers et al. 2023, PLoS Medicine). The lag between consumption reduction and measurable population health outcomes is 5-10 years, so expecting immediate obesity data is unreasonable. And an early signal from dental data — a ~12% relative fall in children's carious tooth-extraction admissions after the levy (Rogers et al. 2023, BMJ Nutr Prev Health) — is consistent with the sugar-reduction pathway working.",
+        "Sugar-sweetened beverages are the single largest source of added sugars in Western diets, roughly a quarter of added-sugar intake among US adults, and even more among children. Unlike solid foods, liquid calories bypass satiety signals, making them uniquely obesogenic, people don't compensate by eating less. A Health Affairs cohort-simulation model projects Mexico's tax could prevent about 239,900 cases of obesity over a decade (39% of them in children). The UK has already seen an associational ~8% relative decline in obesity prevalence among year-6 girls after the levy (Rogers et al. 2023, PLoS Medicine). The lag between consumption reduction and measurable population health outcomes is 5-10 years, so expecting immediate obesity data is unreasonable. And an early signal from dental data, a ~12% relative fall in children's carious tooth-extraction admissions after the levy (Rogers et al. 2023, BMJ Nutr Prev Health), is consistent with the sugar-reduction pathway working.",
       crux: {
         id: "obesity-rate-attribution",
         title: "Obesity Rate Attribution Study",
@@ -215,7 +215,7 @@ export const sugarTaxEffectivenessData = {
           "$500K (longitudinal health survey data + epidemiological modeling)",
         falsification: {
           supporter_flip:
-            "If, after the 5–10 year lag, sugar-tax jurisdictions still showed no obesity or diabetes improvement versus matched controls — i.e. the UK year-6-girls signal didn't generalize or replicate — the rationale would weaken from 'works' to 'changes behavior without measurable health payoff.'",
+            "If, after the 5–10 year lag, sugar-tax jurisdictions still showed no obesity or diabetes improvement versus matched controls, i.e. the UK year-6-girls signal didn't generalize or replicate, the rationale would weaken from 'works' to 'changes behavior without measurable health payoff.'",
           skeptic_flip:
             "If health data arriving after the expected lag extended early signals like lower obesity in UK girls and fewer children's tooth extractions, and liquid calories proved poorly compensated by the body, the view that the tax won't dent obesity would be hard to hold.",
           common_ground:
@@ -229,7 +229,7 @@ export const sugarTaxEffectivenessData = {
           id: "liquid-calorie-mechanism",
           title: "Liquid Calories Bypass Satiety Mechanisms",
           description:
-            "Randomized controlled trials show that calories consumed as beverages do not reduce subsequent food intake — people fail to compensate, leading to net caloric surplus.",
+            "Randomized controlled trials show that calories consumed as beverages do not reduce subsequent food intake, people fail to compensate, leading to net caloric surplus.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -247,7 +247,7 @@ export const sugarTaxEffectivenessData = {
           title:
             "UK Childhood Obesity in Year-6 Girls Declined After Levy Implementation",
           description:
-            "Using National Child Measurement Programme data (>1 million children/year), an interrupted time series analysis found the Soft Drinks Industry Levy was associated with an 8% relative reduction in obesity prevalence among girls aged 10-11 (year 6) — an estimated ~5,000 cases prevented per year — with the largest reductions in the most deprived areas. No association was found for boys or for 4-5-year-olds, and the design is associational rather than causal.",
+            "Using National Child Measurement Programme data (>1 million children/year), an interrupted time series analysis found the Soft Drinks Industry Levy was associated with an 8% relative reduction in obesity prevalence among girls aged 10-11 (year 6), an estimated ~5,000 cases prevented per year, with the largest reductions in the most deprived areas. No association was found for boys or for 4-5-year-olds, and the design is associational rather than causal.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -310,9 +310,9 @@ export const sugarTaxEffectivenessData = {
         "https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?auto=format&fit=crop&w=800&q=60",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Sugar taxes are textbook regressive taxation. Low-income households spend a higher proportion of their income on food and beverages, so the tax burden falls hardest on those least able to afford it. This is paternalism dressed as public health — governments telling poor people what they can and cannot consume. Revenue is rarely earmarked for health programs in affected communities. The tax penalizes individual choice while ignoring the structural causes of obesity: food deserts, lack of healthcare access, and economic stress.",
+        "Sugar taxes are textbook regressive taxation. Low-income households spend a higher proportion of their income on food and beverages, so the tax burden falls hardest on those least able to afford it. This is paternalism dressed as public health, governments telling poor people what they can and cannot consume. Revenue is rarely earmarked for health programs in affected communities. The tax penalizes individual choice while ignoring the structural causes of obesity: food deserts, lack of healthcare access, and economic stress.",
       proponent_rebuttal:
-        "The regressivity argument treats only the financial cost while ignoring the health benefit distribution. Low-income communities bear the highest burden of obesity, type 2 diabetes, and cardiovascular disease — conditions driven partly by sugary beverage consumption. Mexico's data showed the largest consumption reductions among the lowest-income households (about 9% in 2014 and 14.3% in 2015, versus a 7.6% average), meaning any behavioral health benefit flows disproportionately to the most vulnerable. When tax revenue is earmarked — as in Berkeley (funding nutrition programs) and Philadelphia (funding pre-K) — the policy can become net progressive, though whether earmarking actually flips the net incidence is contested and many jurisdictions absorb revenue into general funds. The WHO recommends sugar taxes as a pro-equity intervention because the disease burden they address is concentrated in disadvantaged populations.",
+        "The regressivity argument treats only the financial cost while ignoring the health benefit distribution. Low-income communities bear the highest burden of obesity, type 2 diabetes, and cardiovascular disease, conditions driven partly by sugary beverage consumption. Mexico's data showed the largest consumption reductions among the lowest-income households (about 9% in 2014 and 14.3% in 2015, versus a 7.6% average), meaning any behavioral health benefit flows disproportionately to the most vulnerable. When tax revenue is earmarked, as in Berkeley (funding nutrition programs) and Philadelphia (funding pre-K), the policy can become net progressive, though whether earmarking actually flips the net incidence is contested and many jurisdictions absorb revenue into general funds. The WHO recommends sugar taxes as a pro-equity intervention because the disease burden they address is concentrated in disadvantaged populations.",
       crux: {
         id: "net-welfare-distribution",
         title: "Net Welfare Distribution Analysis",
@@ -333,13 +333,13 @@ export const sugarTaxEffectivenessData = {
           "$300K (health economics modeling + household expenditure surveys)",
         falsification: {
           supporter_flip:
-            "If net-incidence analysis showed the financial burden on low-income households outweighs their health gains — and revenue isn't actually redirected to them — the 'pro-equity' framing would fail, leaving a regressive tax.",
+            "If net-incidence analysis showed the financial burden on low-income households outweighs their health gains, and revenue isn't actually redirected to them, the 'pro-equity' framing would fail, leaving a regressive tax.",
           skeptic_flip:
             "If net-incidence studies found the poorest, who carry the most obesity-related disease, making the largest consumption cuts, and earmarked revenue (Berkeley nutrition, Philadelphia pre-K) offsetting what they pay, the regressive-tax objection would weaken.",
           common_ground:
-            "Both sides agree the tax is financially regressive on the spending side — it takes a larger share of income from the poor.",
+            "Both sides agree the tax is financially regressive on the spending side, it takes a larger share of income from the poor.",
           live_disagreement:
-            "Whether the larger health benefits to low-income groups (and earmarked revenue) outweigh that regressive financial burden, making the policy net-progressive — which depends on contested QALY valuations and whether revenue is actually targeted.",
+            "Whether the larger health benefits to low-income groups (and earmarked revenue) outweigh that regressive financial burden, making the policy net-progressive, which depends on contested QALY valuations and whether revenue is actually targeted.",
         },
       },
       evidence: [
@@ -348,7 +348,7 @@ export const sugarTaxEffectivenessData = {
           title:
             "Low-Income Households Show Largest Consumption Reductions",
           description:
-            "In Mexico, the lowest-socioeconomic households cut taxed beverage purchases the most in both years (about 9% in 2014 and 14.3% in 2015) versus the 7.6% two-year average across all households, suggesting the largest behavioral change — and thus potential health benefit — flows to the most vulnerable population.",
+            "In Mexico, the lowest-socioeconomic households cut taxed beverage purchases the most in both years (about 9% in 2014 and 14.3% in 2015) versus the 7.6% two-year average across all households, suggesting the largest behavioral change, and thus potential health benefit, flows to the most vulnerable population.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -414,7 +414,7 @@ export const sugarTaxEffectivenessData = {
             directness: 5,
           },
           source:
-            "Synthesis / inference — normative autonomy and policy-scope critique",
+            "Synthesis / inference: normative autonomy and policy-scope critique",
           reasoning:
             "This is a normative/values critique of policy scope rather than an empirical finding, so it carries no sourceUrl; weights de-inflated to reflect that it is an argument about policy design and autonomy, not evidence about effectiveness.",
         },

@@ -43,31 +43,31 @@ export const centralBankDigitalCurrencyData = {
     "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "ECB moves to next phase of digital euro project — European Central Bank (30 Oct 2025)",
+      title: "ECB moves to next phase of digital euro project: European Central Bank (30 Oct 2025)",
       url: "https://www.ecb.europa.eu/press/pr/date/2025/html/ecb.pr251030~8c5b5beef0.en.html",
     },
     {
-      title: "Digital euro — European Parliament Legislative Train (updated 20 Sept 2026)",
+      title: "Digital euro: European Parliament Legislative Train (updated 20 Sept 2026)",
       url: "https://www.europarl.europa.eu/legislative-train/theme-an-economy-that-works-for-people/file-digital-euro",
     },
     {
-      title: "Strengthening American Leadership in Digital Financial Technology — Executive Order 14178 (23 Jan 2025)",
+      title: "Strengthening American Leadership in Digital Financial Technology: Executive Order 14178 (23 Jan 2025)",
       url: "https://www.whitehouse.gov/presidential-actions/2025/01/strengthening-american-leadership-in-digital-financial-technology/",
     },
     {
-      title: "Central Bank Digital Currency Tracker — Atlantic Council (May 2026)",
+      title: "Central Bank Digital Currency Tracker: Atlantic Council (May 2026)",
       url: "https://www.atlanticcouncil.org/cbdctracker/",
     },
     {
-      title: "The next-generation monetary and financial system — BIS Annual Economic Report 2025, Chapter III",
+      title: "The next-generation monetary and financial system: BIS Annual Economic Report 2025, Chapter III",
       url: "https://www.bis.org/publ/arpdf/ar2025e3.htm",
     },
     {
-      title: "Central Bank Digital Currencies: Foundational Principles — Bank for International Settlements",
+      title: "Central Bank Digital Currencies: Foundational Principles: Bank for International Settlements",
       url: "https://www.bis.org/publ/othp33.htm",
     },
     {
-      title: "Nigeria's eNaira, One Year After — IMF Working Paper WP/23/104",
+      title: "Nigeria's eNaira, One Year After: IMF Working Paper WP/23/104",
       url: "https://www.elibrary.imf.org/view/journals/001/2023/104/article-A001-en.xml",
     },
   ],

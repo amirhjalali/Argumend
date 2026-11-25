@@ -32,9 +32,9 @@ export const generativeAiArtCopyrightData = {
         "Was ingesting copyrighted works without asking permission an unfair taking, or the same kind of unlicensed 'reading' the law has long tolerated?",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Copyright never granted a right to control all learning from a work — humans read, study, and are influenced by copyrighted material without a license, and intermediate copying for a new purpose has repeatedly been held lawful (e.g., Google's full-text book scanning). The harm the law recognizes is unauthorized acquisition (piracy) and substitution, not learning itself: the same Anthropic judge who approved the $1.5B piracy settlement separately held that training on lawfully obtained books was 'exceedingly transformative' fair use. A fast-growing licensing market shows consent can be obtained without an outright ban.",
+        "Copyright never granted a right to control all learning from a work, humans read, study, and are influenced by copyrighted material without a license, and intermediate copying for a new purpose has repeatedly been held lawful (e.g., Google's full-text book scanning). The harm the law recognizes is unauthorized acquisition (piracy) and substitution, not learning itself: the same Anthropic judge who approved the $1.5B piracy settlement separately held that training on lawfully obtained books was 'exceedingly transformative' fair use. A fast-growing licensing market shows consent can be obtained without an outright ban.",
       proponent_rebuttal:
-        "Models are built by copying hundreds of thousands of authors' and artists' works without consent, credit, or payment, then sold commercially. When the underlying copies are pirated, even courts that bless training call it infringement: Anthropic agreed to pay roughly $1.5B over books it downloaded from LibGen/PiLiMi — one of the largest publicly reported copyright recoveries in US history. Creators argue that taking the fruit of someone's labor to build a competing commercial product, without offering them the chance to say no or be paid, is the textbook definition of unfair.",
+        "Models are built by copying hundreds of thousands of authors' and artists' works without consent, credit, or payment, then sold commercially. When the underlying copies are pirated, even courts that bless training call it infringement: Anthropic agreed to pay roughly $1.5B over books it downloaded from LibGen/PiLiMi, one of the largest publicly reported copyright recoveries in US history. Creators argue that taking the fruit of someone's labor to build a competing commercial product, without offering them the chance to say no or be paid, is the textbook definition of unfair.",
       crux: {
         id: "acquisition-vs-learning",
         title: "Acquisition vs. Learning",
@@ -58,7 +58,7 @@ export const generativeAiArtCopyrightData = {
           common_ground:
             "Both sides agree that pirating works to build a training corpus is wrongful, and that consent obtained through licensing is preferable to unauthorized scraping where it is feasible.",
           live_disagreement:
-            "Whether the objectionable act is acquisition (curable by purchase/license) or statistical training itself — resolvable by tracking whether courts ever penalize training on lawfully obtained works, and whether voluntary licensing markets scale to cover the bulk of training data.",
+            "Whether the objectionable act is acquisition (curable by purchase/license) or statistical training itself, resolvable by tracking whether courts ever penalize training on lawfully obtained works, and whether voluntary licensing markets scale to cover the bulk of training data.",
         },
       },
       evidence: [
@@ -66,7 +66,7 @@ export const generativeAiArtCopyrightData = {
           id: "anthropic-settlement",
           title: "Anthropic Pays ~$1.5B Over Pirated Training Books",
           description:
-            "In Bartz v. Anthropic, Anthropic agreed to pay about $1.5 billion (roughly $3,000 per work across ~500,000 works) to settle claims it downloaded pirated books from LibGen/PiLiMi to build a training library — reportedly one of the largest copyright recoveries in US history.",
+            "In Bartz v. Anthropic, Anthropic agreed to pay about $1.5 billion (roughly $3,000 per work across ~500,000 works) to settle claims it downloaded pirated books from LibGen/PiLiMi to build a training library, reportedly one of the largest copyright recoveries in US history.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -79,13 +79,13 @@ export const generativeAiArtCopyrightData = {
           sourceUrl:
             "https://copyrightalliance.org/participating-bartz-v-anthropic-settlement/",
           reasoning:
-            "Real, documented settlement showing that unauthorized acquisition of works for training carries massive liability. It is strong on the 'unfair taking' point, but note it punishes piracy specifically, not training per se — so it is directly relevant yet not dispositive of whether all unlicensed training is unlawful.",
+            "Real, documented settlement showing that unauthorized acquisition of works for training carries massive liability. It is strong on the 'unfair taking' point, but note it punishes piracy specifically, not training per se, so it is directly relevant yet not dispositive of whether all unlicensed training is unlawful.",
         },
         {
           id: "google-books-precedent",
           title: "Full-Text Scanning Held Transformative Fair Use",
           description:
-            "In Authors Guild v. Google (2d Cir. 2015), the court held that Google copying entire books to build a searchable index was 'highly transformative' fair use because it served a new purpose and did not substitute for the originals — a precedent for unlicensed intermediate copying.",
+            "In Authors Guild v. Google (2d Cir. 2015), the court held that Google copying entire books to build a searchable index was 'highly transformative' fair use because it served a new purpose and did not substitute for the originals, a precedent for unlicensed intermediate copying.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -104,7 +104,7 @@ export const generativeAiArtCopyrightData = {
           id: "licensing-market",
           title: "A Licensing Market Is Forming Without a Ban",
           description:
-            "Rights holders are licensing training data voluntarily: News Corp's deal with OpenAI is reportedly valued at over $250M, and Shutterstock's data-licensing/AI business (with a Contributor Fund paying artists) projected ~$138M revenue for 2024 — evidence consent is achievable through markets, not prohibition.",
+            "Rights holders are licensing training data voluntarily: News Corp's deal with OpenAI is reportedly valued at over $250M, and Shutterstock's data-licensing/AI business (with a Contributor Fund paying artists) projected ~$138M revenue for 2024, evidence consent is achievable through markets, not prohibition.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -125,10 +125,10 @@ export const generativeAiArtCopyrightData = {
       id: "market-harm",
       title: "Market Harm to Creators",
       short_summary:
-        "Does training-fueled AI demonstrably displace creators' income and markets — the decisive 'fourth factor' in fair-use law?",
+        "Does training-fueled AI demonstrably displace creators' income and markets, the decisive 'fourth factor' in fair-use law?",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Copyright protects against substitution of specific works, not against new competition or stylistic influence — styles and ideas are not copyrightable. Self-reported survey losses conflate AI training with broader market shifts and AI tools generally, and cannot isolate the effect of unlicensed training. The remedy for market harm the law actually recognizes is licensing (now emerging) and output controls, not a blanket prohibition on learning from works.",
+        "Copyright protects against substitution of specific works, not against new competition or stylistic influence, styles and ideas are not copyrightable. Self-reported survey losses conflate AI training with broader market shifts and AI tools generally, and cannot isolate the effect of unlicensed training. The remedy for market harm the law actually recognizes is licensing (now emerging) and output controls, not a blanket prohibition on learning from works.",
       proponent_rebuttal:
         "Generative models trained on creators' work now flood the same markets those creators sell into, depressing demand for human work. Surveys of professional creators already report lost commissions and falling rates, and the US Copyright Office concluded that AI training 'threatens significant potential harm to the market for or value of copyrighted works,' including lost sales, lost licensing revenue, and 'market dilution' by AI outputs in the style of the training data.",
       crux: {
@@ -152,9 +152,9 @@ export const generativeAiArtCopyrightData = {
           skeptic_flip:
             "If more studies replicated the Upwork finding of ~3.7% fewer jobs and ~9.4% lower earnings for image freelancers after image models launched, and tied it to the lost sales and 'market dilution' the Copyright Office describes, 'general market churn' would no longer explain the losses.",
           common_ground:
-            "Both sides agree fair use turns on the fourth factor — whether the use usurps demand for the original or its licensing market — and that styles and ideas themselves are not copyrightable.",
+            "Both sides agree fair use turns on the fourth factor, whether the use usurps demand for the original or its licensing market, and that styles and ideas themselves are not copyrightable.",
           live_disagreement:
-            "Whether observed creator income losses are caused by unlicensed training specifically versus generative-AI tools and market dynamics broadly — resolvable only by quasi-experimental studies isolating exposure and distinguishing substitution from non-actionable style competition.",
+            "Whether observed creator income losses are caused by unlicensed training specifically versus generative-AI tools and market dynamics broadly, resolvable only by quasi-experimental studies isolating exposure and distinguishing substitution from non-actionable style competition.",
         },
       },
       evidence: [
@@ -174,7 +174,7 @@ export const generativeAiArtCopyrightData = {
             "US Copyright Office, 'Copyright and Artificial Intelligence, Part 3: Generative AI Training' (pre-publication, May 9, 2025)",
           sourceUrl: "https://www.copyright.gov/ai/",
           reasoning:
-            "Authoritative federal agency analysis of the fourth fair-use factor. It is a legal/policy assessment, not an empirical study, and the Office stops short of recommending new law — so it supports the 'harm' premise without proving unlawfulness.",
+            "Authoritative federal agency analysis of the fourth fair-use factor. It is a legal/policy assessment, not an empirical study, and the Office stops short of recommending new law, so it supports the 'harm' premise without proving unlawfulness.",
         },
         {
           id: "soa-illustrator-survey",
@@ -198,7 +198,7 @@ export const generativeAiArtCopyrightData = {
           id: "freelancer-earnings-study",
           title: "Image AI Reduced Freelancer Jobs & Earnings",
           description:
-            "A peer-reviewed study of Upwork (Hui, Reshef & Zhou) found that after the release of image-generation models (DALL·E 2, Midjourney), affected image-related freelancers saw about a 3.7% drop in monthly jobs and a 9.4% drop in earnings — with no protection for top performers.",
+            "A peer-reviewed study of Upwork (Hui, Reshef & Zhou) found that after the release of image-generation models (DALL·E 2, Midjourney), affected image-related freelancers saw about a 3.7% drop in monthly jobs and a 9.4% drop in earnings, with no protection for top performers.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -240,9 +240,9 @@ export const generativeAiArtCopyrightData = {
         "Under existing copyright law, is unlicensed training infringement that should be banned, or transformative fair use courts are increasingly affirming?",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The leading generative-AI rulings cut the other way: Bartz v. Anthropic and Kadrey v. Meta both held that training large language models on copyrighted text was transformative fair use, and the Copyright Office itself says highly transformative, general-purpose training often favors fair use. Thomson Reuters involved a direct market competitor copying a curated database — not general-purpose generative training — and memorization/regurgitation is an output problem the law already addresses as infringement, without banning training itself.",
+        "The leading generative-AI rulings cut the other way: Bartz v. Anthropic and Kadrey v. Meta both held that training large language models on copyrighted text was transformative fair use, and the Copyright Office itself says highly transformative, general-purpose training often favors fair use. Thomson Reuters involved a direct market competitor copying a curated database, not general-purpose generative training, and memorization/regurgitation is an output problem the law already addresses as infringement, without banning training itself.",
       proponent_rebuttal:
-        "At least one federal court has already rejected the fair-use defense for AI training: in Thomson Reuters v. Ross (2025), the court held that copying Westlaw headnotes to train an AI competitor was not transformative and not fair use. Where models memorize and regurgitate inputs verbatim — as the New York Times demonstrated with GPT-4 outputs — the 'learning, not copying' framing collapses, supporting a clear rule that unlicensed training is unlawful.",
+        "At least one federal court has already rejected the fair-use defense for AI training: in Thomson Reuters v. Ross (2025), the court held that copying Westlaw headnotes to train an AI competitor was not transformative and not fair use. Where models memorize and regurgitate inputs verbatim, as the New York Times demonstrated with GPT-4 outputs, the 'learning, not copying' framing collapses, supporting a clear rule that unlicensed training is unlawful.",
       crux: {
         id: "transformative-use-test",
         title: "The Transformativeness Test",
@@ -266,7 +266,7 @@ export const generativeAiArtCopyrightData = {
           common_ground:
             "Both sides agree the case turns on transformativeness and market effect, that verbatim regurgitation of inputs is infringement the law already addresses, and that the current district-court split is not yet settled.",
           live_disagreement:
-            "Whether general-purpose generative training is transformative fair use or unlawful copying — resolvable as appellate courts (and ultimately the Supreme Court) decide the transformativeness and market-effect factors and distinguish competitor-database copying from open-domain training.",
+            "Whether general-purpose generative training is transformative fair use or unlawful copying, resolvable as appellate courts (and ultimately the Supreme Court) decide the transformativeness and market-effect factors and distinguish competitor-database copying from open-domain training.",
         },
       },
       evidence: [
@@ -274,7 +274,7 @@ export const generativeAiArtCopyrightData = {
           id: "thomson-reuters-ruling",
           title: "Court Rejected Fair Use for AI Training (Ross)",
           description:
-            "In Thomson Reuters v. Ross Intelligence (D. Del., Feb. 2025), Judge Bibas granted partial summary judgment for Thomson Reuters, holding that using Westlaw headnotes to train a competing legal-research AI was not transformative and not fair use — the first US ruling rejecting fair use for AI training.",
+            "In Thomson Reuters v. Ross Intelligence (D. Del., Feb. 2025), Judge Bibas granted partial summary judgment for Thomson Reuters, holding that using Westlaw headnotes to train a competing legal-research AI was not transformative and not fair use, the first US ruling rejecting fair use for AI training.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

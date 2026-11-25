@@ -26,10 +26,10 @@ export const effectiveAltruismData = {
       id: "evidence-and-impact",
       title: "Evidence and Impact",
       short_summary:
-        "EA channels money to interventions with strong randomized-trial evidence — bednets, cash transfers, deworming — claiming far more good per dollar than typical giving.",
+        "EA channels money to interventions with strong randomized-trial evidence (bednets, cash transfers, deworming) claiming far more good per dollar than typical giving.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Even the flagship 'evidence-based' charities rest on contested science. The most rigorous Cochrane systematic review of mass deworming — one of EA's earliest 'best buys' — found that treating all children in endemic areas has little or no effect on average weight, haemoglobin, cognition, school attendance, or survival. RCT evidence is also narrow: it measures what is cheap and quick to quantify, and may not generalize across contexts, time, or scale. A framework that ranks 'good' by measurable effect size systematically under-weights interventions whose benefits are real but hard to randomize.",
+        "Even the flagship 'evidence-based' charities rest on contested science. The most rigorous Cochrane systematic review of mass deworming, one of EA's earliest 'best buys', found that treating all children in endemic areas has little or no effect on average weight, haemoglobin, cognition, school attendance, or survival. RCT evidence is also narrow: it measures what is cheap and quick to quantify, and may not generalize across contexts, time, or scale. A framework that ranks 'good' by measurable effect size systematically under-weights interventions whose benefits are real but hard to randomize.",
       proponent_rebuttal:
         "The core empirical claims are about as robust as social science gets. The 2018 Cochrane review of insecticide-treated nets rates the evidence 'high certainty': nets cut all-cause child mortality ~17% and save ~5.6 lives per 1,000 children protected per year. Large unconditional cash-transfer RCTs (Haushofer & Shapiro 2016) show lasting consumption and asset gains with minimal negative spillovers. And the deworming dispute was partly a statistical-power artifact: a 2024 PNAS meta-analysis (Croke, Kremer, Miguel et al.) re-pooling the trials found significant nutritional gains, several times more cost-effective per dollar than school feeding. EA's whole method is to update charity recommendations as this evidence moves.",
       crux: {
@@ -38,7 +38,7 @@ export const effectiveAltruismData = {
         question:
           "Do effects measured in small trials hold at national scale and over years?",
         description:
-          "EA's claim of doing exceptional good per dollar depends on whether effect sizes measured in randomized trials persist when an intervention is scaled to millions and run for years — and whether the things easiest to measure are actually the highest-impact things to fund.",
+          "EA's claim of doing exceptional good per dollar depends on whether effect sizes measured in randomized trials persist when an intervention is scaled to millions and run for years, and whether the things easiest to measure are actually the highest-impact things to fund.",
         methodology:
           "Compare RCT effect estimates against (1) large-N replications and multi-site trials, (2) general-equilibrium / at-scale studies that capture spillovers and market effects, and (3) long-run follow-ups. Track whether updated meta-analyses converge or diverge from original headline figures.",
         verification_status: "verified" as const,
@@ -49,13 +49,13 @@ export const effectiveAltruismData = {
         cost_to_verify: "$0 (analysis of published trials and meta-analyses)",
         falsification: {
           supporter_flip:
-            "If large at-scale or general-equilibrium studies and long-run follow-ups showed the headline RCT effects shrink sharply when interventions are rolled out to millions over years — bednet mortality gains eroding through resistance and misuse, cash-transfer benefits washed out by inflation or spillovers — then 'exceptional good per dollar' would collapse toward 'ordinary,' and the cost-effectiveness rankings EA leans on would lose their edge.",
+            "If large at-scale or general-equilibrium studies and long-run follow-ups showed the headline RCT effects shrink sharply when interventions are rolled out to millions over years (bednet mortality gains eroding through resistance and misuse, cash-transfer benefits washed out by inflation or spillovers) then 'exceptional good per dollar' would collapse toward 'ordinary,' and the cost-effectiveness rankings EA leans on would lose their edge.",
           skeptic_flip:
             "If at-scale studies upheld the Cochrane review's high-certainty ~17% lower child mortality for bednets, and re-pooled analyses like the 2024 PNAS deworming work kept finding gains the null missed, dismissing evidence-driven giving would be hard to hold.",
           common_ground:
             "Both sides agree bednets and unconditional cash transfers have real, RCT-measured benefits, and that what is easiest to randomize is not automatically what matters most.",
           live_disagreement:
-            "Whether trial-measured effect sizes persist at national scale and over years, and whether the most measurable interventions are also the highest-impact ones — resolvable only by at-scale/general-equilibrium evaluations and long-run follow-ups, not by the original small-N RCTs.",
+            "Whether trial-measured effect sizes persist at national scale and over years, and whether the most measurable interventions are also the highest-impact ones, resolvable only by at-scale/general-equilibrium evaluations and long-run follow-ups, not by the original small-N RCTs.",
         },
       },
       evidence: [
@@ -101,7 +101,7 @@ export const effectiveAltruismData = {
           id: "deworming-cochrane",
           title: "Cochrane: Mass Deworming Shows Little/No Effect",
           description:
-            "The Cochrane review of deworming (Taylor-Robinson et al., updated 2019) concludes that treating ALL children in endemic areas — the mass-treatment model EA promoted — probably has little or no effect on average weight, haemoglobin, cognition, school attendance, or survival. This undercut one of EA's earliest, most-publicized 'best buys.'",
+            "The Cochrane review of deworming (Taylor-Robinson et al., updated 2019) concludes that treating ALL children in endemic areas, the mass-treatment model EA promoted, probably has little or no effect on average weight, haemoglobin, cognition, school attendance, or survival. This undercut one of EA's earliest, most-publicized 'best buys.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -139,19 +139,19 @@ export const effectiveAltruismData = {
       id: "the-framework-itself",
       title: "The Framework Itself",
       short_summary:
-        "Beyond any single charity, is EA's underlying method — maximize measurable, impartial good per dollar — a sound guide, or does it distort priorities and enable harm?",
+        "Beyond any single charity, is EA's underlying method (maximize measurable, impartial good per dollar) a sound guide, or does it distort priorities and enable harm?",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The framework has structural failure modes. By prizing impartial, quantified impact-maximization, it biases toward what is measurable and may neglect institutional and political reform that treats the root causes of poverty — Daron Acemoglu argues EA-style giving can crowd out the systemic change and even the civic engagement that actually drives development. The same maximizing logic underwrote 'earning to give,' which EA leaders applied to Sam Bankman-Fried: he was convicted in 2023 and sentenced to 25 years for orchestrating a fraud that cost FTX customers ~$8 billion, after EA leaders reportedly ignored early warnings. A sound framework should not so readily rationalize ends-justify-means behavior or measurement tunnel vision.",
+        "The framework has structural failure modes. By prizing impartial, quantified impact-maximization, it biases toward what is measurable and may neglect institutional and political reform that treats the root causes of poverty, Daron Acemoglu argues EA-style giving can crowd out the systemic change and even the civic engagement that actually drives development. The same maximizing logic underwrote 'earning to give,' which EA leaders applied to Sam Bankman-Fried: he was convicted in 2023 and sentenced to 25 years for orchestrating a fraud that cost FTX customers ~$8 billion, after EA leaders reportedly ignored early warnings. A sound framework should not so readily rationalize ends-justify-means behavior or measurement tunnel vision.",
       proponent_rebuttal:
-        "These are critiques of bad execution, not of the core principle that we should use evidence and reason to help others as much as possible. The institutional critique, examined carefully (Berkey, Utilitas 2018), is not actually inconsistent with EA: if systemic reform does the most good, the framework says fund it — it's an empirical question, and EA does fund policy and advocacy. The FTX fraud was a catastrophic governance and character failure that EA leaders publicly condemned; fraud is not entailed by 'do the most good,' and movements are not refuted by their worst members. The framework's self-correcting, evidence-updating character is precisely what surfaced and repudiated those errors.",
+        "These are critiques of bad execution, not of the core principle that we should use evidence and reason to help others as much as possible. The institutional critique, examined carefully (Berkey, Utilitas 2018), is not actually inconsistent with EA: if systemic reform does the most good, the framework says fund it; it's an empirical question, and EA does fund policy and advocacy. The FTX fraud was a catastrophic governance and character failure that EA leaders publicly condemned; fraud is not entailed by 'do the most good,' and movements are not refuted by their worst members. The framework's self-correcting, evidence-updating character is precisely what surfaced and repudiated those errors.",
       crux: {
         id: "method-vs-execution",
         title: "Are the Failures the Method or the Execution?",
         question:
           "Do EA's failures follow from its core principles, or from contingent choices of people and metrics?",
         description:
-          "The load-bearing disagreement: do EA's harms (measurement bias, neglect of systemic change, the SBF debacle) flow necessarily from its maximizing, impartial-good principle — or are they contingent execution failures the principle itself can diagnose and correct?",
+          "The load-bearing disagreement: do EA's harms (measurement bias, neglect of systemic change, the SBF debacle) flow necessarily from its maximizing, impartial-good principle, or are they contingent execution failures the principle itself can diagnose and correct?",
         methodology:
           "Trace each documented harm to a premise: does it follow deductively from 'use evidence/reason to maximize impartial good,' or only from contingent choices (which metrics, which people, which time horizon)? Test whether competing do-gooding frameworks avoid the same failure mode in practice.",
         verification_status: "theoretical" as const,
@@ -162,13 +162,13 @@ export const effectiveAltruismData = {
         cost_to_verify: "$0 (philosophical and case analysis)",
         falsification: {
           supporter_flip:
-            "If each documented harm could be traced deductively to the core principle itself — if 'use evidence and reason to maximize impartial good' genuinely entailed measurement tunnel vision or ends-justify-means fraud, and no plausible internal correction blocked it — then the failures would be the method, not the execution, and defending EA as 'good principle, bad people' would no longer hold.",
+            "If each documented harm could be traced deductively to the core principle itself (if 'use evidence and reason to maximize impartial good' genuinely entailed measurement tunnel vision or ends-justify-means fraud, and no plausible internal correction blocked it) then the failures would be the method, not the execution, and defending EA as 'good principle, bad people' would no longer hold.",
           skeptic_flip:
             "If the maximizing principle were shown to accommodate institutional reform where that does the most good, as Berkey 2018 argues, and the movement's own self-criticism were what surfaced and repudiated cases like SBF, the failures would look like execution rather than the method.",
           common_ground:
-            "Both sides agree real harms occurred — the FTX fraud and a measurable bias toward quantifiable interventions — and that movements should be judged partly by whether their core method can diagnose and correct such failures.",
+            "Both sides agree real harms occurred, the FTX fraud and a measurable bias toward quantifiable interventions, and that movements should be judged partly by whether their core method can diagnose and correct such failures.",
           live_disagreement:
-            "Whether EA's harms follow necessarily from its maximizing, impartial-good principle or only from contingent choices of metrics, people, and time horizons — testable by tracing each harm to its premises and checking whether rival do-gooding frameworks avoid the same failure mode in practice.",
+            "Whether EA's harms follow necessarily from its maximizing, impartial-good principle or only from contingent choices of metrics, people, and time horizons, testable by tracing each harm to its premises and checking whether rival do-gooding frameworks avoid the same failure mode in practice.",
         },
       },
       evidence: [
@@ -189,7 +189,7 @@ export const effectiveAltruismData = {
           sourceUrl:
             "https://www.justice.gov/archives/opa/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes",
           reasoning:
-            "A court-verified fact about EA's most prominent funder, showing the framework's maximizing logic ('earning to give') can be invoked to rationalize catastrophic harm. Directness is moderate: the conviction proves the harm but not that EA's principle entails fraud — that inference is the contested crux.",
+            "A court-verified fact about EA's most prominent funder, showing the framework's maximizing logic ('earning to give') can be invoked to rationalize catastrophic harm. Directness is moderate: the conviction proves the harm but not that EA's principle entails fraud; that inference is the contested crux.",
         },
         {
           id: "institutional-critique",

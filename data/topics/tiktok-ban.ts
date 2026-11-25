@@ -31,7 +31,7 @@ export const tiktokBanData = {
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: The threat — what Beijing could reach through TikTok
+    // PILLAR 1: The threat, what Beijing could reach through TikTok
     // =========================================================================
     {
       id: "data-privacy-national-security",
@@ -226,7 +226,7 @@ export const tiktokBanData = {
     },
 
     // =========================================================================
-    // PILLAR 2: Speech — what a ban would have cost users
+    // PILLAR 2: Speech, what a ban would have cost users
     // =========================================================================
     {
       id: "free-speech-rights",
@@ -398,7 +398,7 @@ export const tiktokBanData = {
     },
 
     // =========================================================================
-    // PILLAR 3: The sale — did the 2026 deal cut ByteDance out?
+    // PILLAR 3: The sale, did the 2026 deal cut ByteDance out?
     // =========================================================================
     {
       id: "divestiture-deal",
@@ -687,15 +687,15 @@ export const tiktokBanData = {
   ],
   references: [
     {
-      title: "TikTok Inc. v. Garland — Supreme Court opinion (17 January 2025)",
+      title: "TikTok Inc. v. Garland, Supreme Court opinion (17 January 2025)",
       url: "https://www.supremecourt.gov/opinions/24pdf/24-656_ca7d.pdf",
     },
     {
-      title: "TikTok Inc. v. Garland — D.C. Circuit opinion (6 December 2024)",
+      title: "TikTok Inc. v. Garland, D.C. Circuit opinion (6 December 2024)",
       url: "https://media.cadc.uscourts.gov/opinions/docs/2024/12/24-1113-2088317.pdf",
     },
     {
-      title: "Protecting Americans from Foreign Adversary Controlled Applications Act — Congress.gov",
+      title: "Protecting Americans from Foreign Adversary Controlled Applications Act, Congress.gov",
       url: "https://www.congress.gov/bill/118th-congress/house-bill/7521",
     },
     {

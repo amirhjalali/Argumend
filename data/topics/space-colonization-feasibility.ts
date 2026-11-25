@@ -18,7 +18,7 @@ export const spaceColonizationFeasibilityData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that as of October 2026 Starship had reached orbit only once, ship-to-ship refueling had not been demonstrated and nothing larger than a robotic rover had landed on Mars, that launch costs have fallen sharply, that no closed life-support system has yet run without resupply — Biosphere 2 needed outside oxygen — and that MOXIE proved the oxygen-from-CO₂ chemistry at tiny scale.",
+    "Both sides accept that as of October 2026 Starship had reached orbit only once, ship-to-ship refueling had not been demonstrated and nothing larger than a robotic rover had landed on Mars, that launch costs have fallen sharply, that no closed life-support system has yet run without resupply, Biosphere 2 needed outside oxygen, and that MOXIE proved the oxygen-from-CO₂ chemistry at tiny scale.",
     "They split over whether SpaceX's Starship will demonstrate orbital refueling and Mars cargo landings this decade, and whether in-situ resource use and closed-loop life support can scale into a Mars or Moon settlement that survives being cut off from Earth, or leave a resupply-dependent outpost.",
   ],
   pillars: [
@@ -29,9 +29,9 @@ export const spaceColonizationFeasibilityData = {
         "SpaceX projects Starship will carry 100+ tonnes to Mars. It first reached orbit and deployed a payload in September 2026, but as of October 2026 it had not demonstrated the orbital refueling a Mars trip needs, and SpaceX has put its Mars mission behind a lunar landing. Getting humans there and back alive is a harder problem still.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Even SpaceX's Starship—the most advanced heavy-lift vehicle in development—reached orbit for the first time only on Flight 14 (September 2026), after 13 suborbital test flights; as of October 2026 ship-to-ship propellant transfer, which a Mars trip depends on, had not been demonstrated, and in February 2026 SpaceX put off its planned 2026 Mars mission to prioritize a lunar landing. A conventional Mars transit takes 6-9 months, and the RAD instrument aboard the Mars Science Laboratory implies on the order of 0.66 Sv of dose-equivalent for a round trip with comparable shielding—a meaningful fraction of a career limit before any surface stay is counted. The cost of standing up a colony is plausibly in the hundreds of billions, with no demonstrated economic return to amortize it.",
+        "Even SpaceX's Starship, the most advanced heavy-lift vehicle in development, reached orbit for the first time only on Flight 14 (September 2026), after 13 suborbital test flights; as of October 2026 ship-to-ship propellant transfer, which a Mars trip depends on, had not been demonstrated, and in February 2026 SpaceX put off its planned 2026 Mars mission to prioritize a lunar landing. A conventional Mars transit takes 6-9 months, and the RAD instrument aboard the Mars Science Laboratory implies on the order of 0.66 Sv of dose-equivalent for a round trip with comparable shielding, a meaningful fraction of a career limit before any surface stay is counted. The cost of standing up a colony is plausibly in the hundreds of billions, with no demonstrated economic return to amortize it.",
       proponent_rebuttal:
-        "Reusable rockets have already driven launch costs down by roughly an order of magnitude over the past 15 years, and Falcon 9 turned booster reuse from a stunt into routine—so the trajectory of the technology, not just one vehicle, is encouraging. Starship is designed for 100-150 tonnes to orbit (a SpaceX target; its first orbital flight, in September 2026, deployed 26 Starlink V3 satellites), and a peer-reviewed Scientific Reports (2025) trajectory study finds 90-104 day Earth-Mars transfers that stay within NASA's ~600 mSv career radiation limit—contingent on Starship-class performance and in-space refueling that have not yet been demonstrated. SpaceX says it will attempt Mars after an uncrewed lunar landing it targets for March 2027; those dates are company projections, but the engineering path to them is concrete rather than speculative.",
+        "Reusable rockets have already driven launch costs down by roughly an order of magnitude over the past 15 years, and Falcon 9 turned booster reuse from a stunt into routine, so the trajectory of the technology, not just one vehicle, is encouraging. Starship is designed for 100-150 tonnes to orbit (a SpaceX target; its first orbital flight, in September 2026, deployed 26 Starlink V3 satellites), and a peer-reviewed Scientific Reports (2025) trajectory study finds 90-104 day Earth-Mars transfers that stay within NASA's ~600 mSv career radiation limit, contingent on Starship-class performance and in-space refueling that have not yet been demonstrated. SpaceX says it will attempt Mars after an uncrewed lunar landing it targets for March 2027; those dates are company projections, but the engineering path to them is concrete rather than speculative.",
       crux: {
         id: "starship-mars-landing",
         title: "Successful Uncrewed Mars Landing",
@@ -57,7 +57,7 @@ export const spaceColonizationFeasibilityData = {
           common_ground:
             "Both sides agree that as of October 2026 nothing larger than a robotic rover had landed on Mars and ship-to-ship propellant transfer hadn't been demonstrated, while launch costs have fallen sharply.",
           live_disagreement:
-            "Whether Starship-class transport (orbital refueling + Mars cargo landing) will actually be demonstrated this decade, or stall — which only SpaceX's mission record will settle.",
+            "Whether Starship-class transport (orbital refueling + Mars cargo landing) will actually be demonstrated this decade, or stall, which only SpaceX's mission record will settle.",
         },
       },
       evidence: [
@@ -142,9 +142,9 @@ export const spaceColonizationFeasibilityData = {
         "Mars has water ice, CO2, and regolith for building. It lacks a magnetic field, breathable air, and the ability to grow food at scale. Self-sufficiency is decades away at best.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Every life support system tested (Biosphere 2, ISS) has required constant resupply or failed to maintain atmospheric balance. Mars soil contains toxic perchlorates. Growing food in Martian conditions has never been demonstrated at scale. A colony dependent on Earth resupply every 26 months is not self-sustaining—it is an outpost.",
+        "Every life support system tested (Biosphere 2, ISS) has required constant resupply or failed to maintain atmospheric balance. Mars soil contains toxic perchlorates. Growing food in Martian conditions has never been demonstrated at scale. A colony dependent on Earth resupply every 26 months is not self-sustaining, it is an outpost.",
       proponent_rebuttal:
-        "Self-sufficiency need not be all-or-nothing: in-situ resource utilization (ISRU) reduces the mass that must be shipped from Earth by orders of magnitude, which is what makes a Mars outpost economically conceivable at all. NASA's MOXIE experiment on Perseverance proved the core chemistry end-to-end on Mars, electrolyzing oxygen from atmospheric CO₂ across 16 runs—at a peak of ~12 g/hour and ~122 g total, a deliberately small demonstrator whose process scales with power and reactor size rather than new physics. Published engineering studies sketch plausible (not yet demonstrated) approaches to the remaining pieces—sulfur-based or regolith-based construction, high-efficiency food production, and biological oxygen generation—so the open questions are scale-up and integration, not feasibility in principle.",
+        "Self-sufficiency need not be all-or-nothing: in-situ resource utilization (ISRU) reduces the mass that must be shipped from Earth by orders of magnitude, which is what makes a Mars outpost economically conceivable at all. NASA's MOXIE experiment on Perseverance proved the core chemistry end-to-end on Mars, electrolyzing oxygen from atmospheric CO₂ across 16 runs, at a peak of ~12 g/hour and ~122 g total, a deliberately small demonstrator whose process scales with power and reactor size rather than new physics. Published engineering studies sketch plausible (not yet demonstrated) approaches to the remaining pieces, sulfur-based or regolith-based construction, high-efficiency food production, and biological oxygen generation, so the open questions are scale-up and integration, not feasibility in principle.",
       crux: {
         id: "isru-demonstration",
         title: "Mars In-Situ Resource Utilization at Scale",
@@ -162,13 +162,13 @@ export const spaceColonizationFeasibilityData = {
         cost_to_verify: "$500M (Robotic ISRU demonstration mission)",
         falsification: {
           supporter_flip:
-            "If ISRU and closed-loop life support repeatedly failed to scale on Mars — oxygen, water, food, and construction never reaching the volumes a crew needs without constant Earth resupply — then 'self-sustaining colony' would prove infeasible, leaving only a permanently dependent outpost.",
+            "If ISRU and closed-loop life support repeatedly failed to scale on Mars, oxygen, water, food, and construction never reaching the volumes a crew needs without constant Earth resupply, then 'self-sustaining colony' would prove infeasible, leaving only a permanently dependent outpost.",
           skeptic_flip:
             "If ISRU plants scaled MOXIE's end-to-end oxygen production from Martian CO₂ with more power and bigger reactors, without new physics, the Biosphere 2 objection would shrink to an engineering scale-up problem rather than an impossibility.",
           common_ground:
             "Both sides agree no closed life-support system has yet been sustained without resupply, and that MOXIE proved the core oxygen-from-CO₂ chemistry at tiny scale on Mars.",
           live_disagreement:
-            "Whether ISRU and life support can be scaled and integrated to true self-sufficiency (surviving a cut-off from Earth), or whether a Mars settlement remains a resupply-dependent outpost — which only large-scale ISRU and closed-loop demonstrations can resolve.",
+            "Whether ISRU and life support can be scaled and integrated to true self-sufficiency (surviving a cut-off from Earth), or whether a Mars settlement remains a resupply-dependent outpost, which only large-scale ISRU and closed-loop demonstrations can resolve.",
         },
       },
       evidence: [
@@ -213,7 +213,7 @@ export const spaceColonizationFeasibilityData = {
           id: "biosphere-2-failure",
           title: "Biosphere 2 Failed to Maintain Closed Ecosystem",
           description:
-            "The ~$150M Biosphere 2 experiment (first closure 1991-1993) could not maintain a self-sustaining closed ecosystem for its 8 crew. Atmospheric oxygen fell from 20.9% to about 14% over roughly 16 months—driven largely by soil-microbe respiration and CO₂ uptake by exposed concrete—requiring external oxygen injection, and food production was insufficient. A sealed habitat that struggled on Earth with full access to repair underscores how much harder closed-loop life support would be on Mars.",
+            "The ~$150M Biosphere 2 experiment (first closure 1991-1993) could not maintain a self-sustaining closed ecosystem for its 8 crew. Atmospheric oxygen fell from 20.9% to about 14% over roughly 16 months, driven largely by soil-microbe respiration and CO₂ uptake by exposed concrete, requiring external oxygen injection, and food production was insufficient. A sealed habitat that struggled on Earth with full access to repair underscores how much harder closed-loop life support would be on Mars.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,

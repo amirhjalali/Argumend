@@ -33,9 +33,9 @@ export const pandemicPreparednessData = {
         "COVID-19 imposed an estimated $16+ trillion cost on the US alone, dwarfing any proposed preparedness investment. Proponents argue that preparedness costs a fraction of what a pandemic does: the Independent Panel proposed raising $5-10 billion a year globally for it. Skeptics counter that the probability of pandemic-scale events is too uncertain to justify massive standing expenditures, and that preparedness budgets are routinely raided for other priorities between crises.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Pandemic preparedness sounds compelling after a crisis, but governments are terrible at maintaining expensive standing capacity for rare events. Proposals such as the $4.5 billion a year a 2016 global health risk commission called for, or the $5-10 billion a year the Independent Panel for Pandemic Preparedness and Response proposed in 2021, rest on probability estimates that are inherently speculative. The 'once in a century' framing ignores that most novel pathogen outbreaks (SARS 2003, MERS 2012, Ebola 2014) were successfully contained without trillion-dollar preparedness infrastructure. Political incentives ensure that preparedness budgets get cannibalized during non-pandemic years — the Strategic National Stockpile was depleted and not replenished despite multiple warnings. Building expensive infrastructure for low-probability events means diverting resources from high-certainty health needs like chronic disease, mental health, and primary care access.",
+        "Pandemic preparedness sounds compelling after a crisis, but governments are terrible at maintaining expensive standing capacity for rare events. Proposals such as the $4.5 billion a year a 2016 global health risk commission called for, or the $5-10 billion a year the Independent Panel for Pandemic Preparedness and Response proposed in 2021, rest on probability estimates that are inherently speculative. The 'once in a century' framing ignores that most novel pathogen outbreaks (SARS 2003, MERS 2012, Ebola 2014) were successfully contained without trillion-dollar preparedness infrastructure. Political incentives ensure that preparedness budgets get cannibalized during non-pandemic years, the Strategic National Stockpile was depleted and not replenished despite multiple warnings. Building expensive infrastructure for low-probability events means diverting resources from high-certainty health needs like chronic disease, mental health, and primary care access.",
       proponent_rebuttal:
-        "The cost-benefit math is overwhelming and not close. Cutler and Summers (2020) estimated COVID-19's total US cost at $16 trillion — including $7.6 trillion in lost GDP, $4.4 trillion in premature deaths, and about $4.2 trillion in long-term health and mental health impairment. Against figures like these, the Independent Panel's proposed facility would raise $5-10 billion a year globally for preparedness, and the Panel judged national preparedness 'vastly underfunded, despite the clear evidence that its cost is a fraction of the cost of responses and losses incurred when an epidemic occurs.' The argument that preparedness budgets get raided is an argument for institutional reform, not against the investment itself.",
+        "The cost-benefit math is overwhelming and not close. Cutler and Summers (2020) estimated COVID-19's total US cost at $16 trillion, including $7.6 trillion in lost GDP, $4.4 trillion in premature deaths, and about $4.2 trillion in long-term health and mental health impairment. Against figures like these, the Independent Panel's proposed facility would raise $5-10 billion a year globally for preparedness, and the Panel judged national preparedness 'vastly underfunded, despite the clear evidence that its cost is a fraction of the cost of responses and losses incurred when an epidemic occurs.' The argument that preparedness budgets get raided is an argument for institutional reform, not against the investment itself.",
       crux: {
         id: "probability-weighted-cost",
         title: "The Probability-Weighted Expected Cost Test",
@@ -54,13 +54,13 @@ export const pandemicPreparednessData = {
           "$500K-1M (Epidemiological modeling requiring historical outbreak databases and economic impact analysis)",
         falsification: {
           supporter_flip:
-            "If a rigorous historical-frequency analysis showed pandemic-scale events are genuinely rare and most outbreaks are containable with existing capacity — so the probability-weighted expected cost doesn't justify large upfront spending — the 'highest-return investment' case would weaken to 'nice but not cost-effective.'",
+            "If a rigorous historical-frequency analysis showed pandemic-scale events are genuinely rare and most outbreaks are containable with existing capacity, so the probability-weighted expected cost doesn't justify large upfront spending, the 'highest-return investment' case would weaken to 'nice but not cost-effective.'",
           skeptic_flip:
             "If updated spillover estimates showed pandemic risk rising with deforestation, factory farming and travel, a low yearly probability times a COVID-scale ~$16T loss would outweigh a few-billion-dollar budget, and 'too speculative' would lose its footing.",
           common_ground:
             "Both sides agree a severe pandemic is enormously costly and that most routine outbreaks are contained with existing capacity.",
           live_disagreement:
-            "How frequent truly catastrophic pandemics are under modern conditions — which sets the break-even probability, and which only a rigorous historical-frequency-plus-trend analysis can pin down.",
+            "How frequent truly catastrophic pandemics are under modern conditions, which sets the break-even probability, and which only a rigorous historical-frequency-plus-trend analysis can pin down.",
         },
       },
       evidence: [
@@ -69,7 +69,7 @@ export const pandemicPreparednessData = {
           title:
             "COVID-19 Cost the US an Estimated $16+ Trillion (Cutler & Summers 2020)",
           description:
-            "Harvard economists David Cutler and Lawrence Summers published a landmark analysis in JAMA estimating the total cost of COVID-19 to the United States at approximately $16 trillion — roughly 90% of annual GDP. This included $7.6 trillion in lost output over the next decade (a Congressional Budget Office projection), $4.4 trillion for premature deaths (valued at $7 million per life, below the $10 million usually assumed in health and environmental policy), $2.6 trillion for long-term complications among survivors, and $1.6 trillion for mental health impairment. The authors called it an estimate made on the 'optimistic assumption' that the pandemic would be substantially contained by fall 2021.",
+            "Harvard economists David Cutler and Lawrence Summers published a landmark analysis in JAMA estimating the total cost of COVID-19 to the United States at approximately $16 trillion, roughly 90% of annual GDP. This included $7.6 trillion in lost output over the next decade (a Congressional Budget Office projection), $4.4 trillion for premature deaths (valued at $7 million per life, below the $10 million usually assumed in health and environmental policy), $2.6 trillion for long-term complications among survivors, and $1.6 trillion for mental health impairment. The authors called it an estimate made on the 'optimistic assumption' that the pandemic would be substantially contained by fall 2021.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -146,7 +146,7 @@ export const pandemicPreparednessData = {
           title:
             "No country scores as fully prepared on the comparative assessments",
           description:
-            "The WHO Joint External Evaluation (JEE) assesses country capacity under the International Health Regulations; WHO reports that more than 100 countries have gone through one. The JEE does not produce a single score out of 100 — each indicator is rated on a five-level capacity scale, from no capacity to sustainable capacity, and results are reported technical area by technical area. The 2021 Global Health Security Index, which does score countries out of 100, found no country fully prepared, with an average of 38.9. Its highest scorers — the United States (75.9), Australia (71.1) and Finland (70.9) — all had gaps exposed by COVID-19 in surge capacity, supply-chain resilience and public health communication.",
+            "The WHO Joint External Evaluation (JEE) assesses country capacity under the International Health Regulations; WHO reports that more than 100 countries have gone through one. The JEE does not produce a single score out of 100; each indicator is rated on a five-level capacity scale, from no capacity to sustainable capacity, and results are reported technical area by technical area. The 2021 Global Health Security Index, which does score countries out of 100, found no country fully prepared, with an average of 38.9. Its highest scorers (the United States (75.9), Australia (71.1) and Finland (70.9)) all had gaps exposed by COVID-19 in surge capacity, supply-chain resilience and public health communication.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -171,19 +171,19 @@ export const pandemicPreparednessData = {
       id: "institutional-readiness",
       title: "Institutional Readiness vs Institutional Failure",
       short_summary:
-        "COVID-19 exposed catastrophic institutional failures at the CDC, FDA, and WHO — from botched testing rollouts to depleted stockpiles. Yet Operation Warp Speed delivered vaccines in record time, and countries like Taiwan and South Korea demonstrated that competent institutions can control pandemics effectively. The debate centers on whether institutional reform can overcome the bureaucratic incentives that make preparedness inherently difficult to sustain.",
+        "COVID-19 exposed catastrophic institutional failures at the CDC, FDA, and WHO, from botched testing rollouts to depleted stockpiles. Yet Operation Warp Speed delivered vaccines in record time, and countries like Taiwan and South Korea demonstrated that competent institutions can control pandemics effectively. The debate centers on whether institutional reform can overcome the bureaucratic incentives that make preparedness inherently difficult to sustain.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The fundamental problem with pandemic preparedness is not funding — it is institutional incentives. The US had the highest-rated pandemic preparedness score in the world on the 2019 GHS Index and still failed spectacularly during COVID-19. The CDC botched its initial diagnostic test, costing weeks of surveillance capacity. The FDA's regulatory process delayed both testing and vaccine authorization. The Strategic National Stockpile had been allowed to deplete after the 2009 H1N1 scare because there was no political reward for maintaining invisible stockpiles. Bureaucratic institutions optimize for process compliance and blame avoidance, not rapid response. More funding does not fix perverse incentives — it just creates larger bureaucracies that fail in the same ways. The history of FEMA, DHS, and other preparedness agencies shows that institutional capacity degrades between crises regardless of budgets.",
+        "The fundamental problem with pandemic preparedness is not funding; it is institutional incentives. The US had the highest-rated pandemic preparedness score in the world on the 2019 GHS Index and still failed spectacularly during COVID-19. The CDC botched its initial diagnostic test, costing weeks of surveillance capacity. The FDA's regulatory process delayed both testing and vaccine authorization. The Strategic National Stockpile had been allowed to deplete after the 2009 H1N1 scare because there was no political reward for maintaining invisible stockpiles. Bureaucratic institutions optimize for process compliance and blame avoidance, not rapid response. More funding does not fix perverse incentives; it just creates larger bureaucracies that fail in the same ways. The history of FEMA, DHS, and other preparedness agencies shows that institutional capacity degrades between crises regardless of budgets.",
       proponent_rebuttal:
-        "The institutional failure argument confuses 'institutions failed' with 'institutions cannot succeed.' Taiwan's CDC, South Korea's KCDC, and Singapore's public health system all performed exceptionally during COVID-19 — keeping per-capita death rates roughly 20-65x below the US through 2021. These successes were built on specific investments made after SARS (2003) and MERS (2015): pre-positioned testing capacity, trained contact tracing workforces, legal frameworks for rapid response, and integrated health data systems. Operation Warp Speed, despite its flaws, demonstrated that massive government investment in vaccine development could compress a 10-year timeline to 11 months — saving an estimated 3 million US lives according to the Commonwealth Fund. The lesson is not that institutions always fail, but that specific institutional reforms — pre-authorized emergency protocols, standing surge capacity, advance purchase agreements, and independent rapid response units — can overcome bureaucratic inertia when designed correctly.",
+        "The institutional failure argument confuses 'institutions failed' with 'institutions cannot succeed.' Taiwan's CDC, South Korea's KCDC, and Singapore's public health system all performed exceptionally during COVID-19, keeping per-capita death rates roughly 20-65x below the US through 2021. These successes were built on specific investments made after SARS (2003) and MERS (2015): pre-positioned testing capacity, trained contact tracing workforces, legal frameworks for rapid response, and integrated health data systems. Operation Warp Speed, despite its flaws, demonstrated that massive government investment in vaccine development could compress a 10-year timeline to 11 months, saving an estimated 3 million US lives according to the Commonwealth Fund. The lesson is not that institutions always fail, but that specific institutional reforms (pre-authorized emergency protocols, standing surge capacity, advance purchase agreements, and independent rapid response units) can overcome bureaucratic inertia when designed correctly.",
       crux: {
         id: "institutional-reform-effectiveness",
         title: "The Institutional Reform Durability Test",
         question:
           "Can preparedness reforms be made to last, or do bureaucratic incentives always let them lapse?",
         description:
-          "Whether institutional reforms can prevent the same failures that characterized COVID-19 responses, or whether bureaucratic incentives make preparedness inherently difficult to sustain. If post-COVID reforms in surveillance, stockpiling, and rapid response authority prove durable and effective in future outbreaks, the investment case is validated. If institutions revert to pre-pandemic complacency within 5-10 years — as occurred after H1N1 in 2009 — the investment is wasted.",
+          "Whether institutional reforms can prevent the same failures that characterized COVID-19 responses, or whether bureaucratic incentives make preparedness inherently difficult to sustain. If post-COVID reforms in surveillance, stockpiling, and rapid response authority prove durable and effective in future outbreaks, the investment case is validated. If institutions revert to pre-pandemic complacency within 5-10 years, as occurred after H1N1 in 2009, the investment is wasted.",
         methodology:
           "Conduct a comparative institutional analysis of countries that reformed public health systems after SARS (2003), MERS (2015), and COVID-19. Track specific reform indicators over 10-year periods: (1) sustained funding levels for stockpiles and surveillance, (2) staffing levels in emergency response units, (3) time-to-detection and time-to-response in subsequent outbreaks, (4) political accountability mechanisms for preparedness lapses. Compare reform durability in systems with independent agencies (like South Korea's KDCA) versus those embedded in larger bureaucracies (like the US CDC within HHS).",
         verification_status: "theoretical" as const,
@@ -195,13 +195,13 @@ export const pandemicPreparednessData = {
           "$300K-800K (Comparative institutional analysis requiring government data across multiple countries)",
         falsification: {
           supporter_flip:
-            "If comparative analysis showed post-COVID reforms predictably erode within 5-10 years — surveillance defunded, stockpiles depleted, response units cut, as happened after H1N1 — then heavy upfront investment would mostly be wasted on institutions that revert to complacency.",
+            "If comparative analysis showed post-COVID reforms predictably erode within 5-10 years (surveillance defunded, stockpiles depleted, response units cut, as happened after H1N1) then heavy upfront investment would mostly be wasted on institutions that revert to complacency.",
           skeptic_flip:
             "If more agencies built like South Korea's KDCA after MERS stayed funded and independent and then responded faster in the next outbreak, 'preparedness always decays' would give way to a question of institutional design.",
           common_ground:
             "Both sides agree preparedness funding and attention have historically faded after each scare, and that institutional design affects whether reforms stick.",
           live_disagreement:
-            "Whether reforms can be made durable (independent agencies, protected funding) or whether bureaucratic incentives inevitably let preparedness lapse — which only tracking reform durability across countries over a decade can show.",
+            "Whether reforms can be made durable (independent agencies, protected funding) or whether bureaucratic incentives inevitably let preparedness lapse, which only tracking reform durability across countries over a decade can show.",
         },
       },
       evidence: [
@@ -250,7 +250,7 @@ export const pandemicPreparednessData = {
           title:
             "Operation Warp Speed Delivered Vaccines in 11 Months, Saving ~3 Million US Lives",
           description:
-            "Operation Warp Speed (OWS), launched in May 2020 with $18 billion in federal funding, coordinated the development, manufacturing, and distribution of COVID-19 vaccines. The Pfizer-BioNTech vaccine received Emergency Use Authorization in December 2020 — 11 months after the virus was sequenced, compared to the typical 10-15 year vaccine development timeline. The Commonwealth Fund estimated that COVID-19 vaccines prevented approximately 3.2 million deaths and 18.5 million hospitalizations in the US through November 2022. OWS used advance purchase agreements to de-risk manufacturer investment and parallel clinical trial and manufacturing processes.",
+            "Operation Warp Speed (OWS), launched in May 2020 with $18 billion in federal funding, coordinated the development, manufacturing, and distribution of COVID-19 vaccines. The Pfizer-BioNTech vaccine received Emergency Use Authorization in December 2020, 11 months after the virus was sequenced, compared to the typical 10-15 year vaccine development timeline. The Commonwealth Fund estimated that COVID-19 vaccines prevented approximately 3.2 million deaths and 18.5 million hospitalizations in the US through November 2022. OWS used advance purchase agreements to de-risk manufacturer investment and parallel clinical trial and manufacturing processes.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -263,7 +263,7 @@ export const pandemicPreparednessData = {
           sourceUrl:
             "https://www.commonwealthfund.org/blog/2022/two-years-covid-vaccines-prevented-millions-deaths-hospitalizations",
           reasoning:
-            "The Commonwealth Fund is a respected independent health policy foundation, and the mortality prevention estimate is consistent with multiple independent analyses. OWS demonstrates that massive government preparedness investment can work spectacularly. Replicability is somewhat lower because OWS benefited from prior mRNA research investments (decades of NIH-funded basic science) and the unique urgency of a global pandemic — it is unclear whether pre-positioned investment would yield the same speed without an active crisis.",
+            "The Commonwealth Fund is a respected independent health policy foundation, and the mortality prevention estimate is consistent with multiple independent analyses. OWS demonstrates that massive government preparedness investment can work spectacularly. Replicability is somewhat lower because OWS benefited from prior mRNA research investments (decades of NIH-funded basic science) and the unique urgency of a global pandemic; it is unclear whether pre-positioned investment would yield the same speed without an active crisis.",
         },
         {
           id: "taiwan-south-korea-success",
@@ -283,7 +283,7 @@ export const pandemicPreparednessData = {
           sourceUrl:
             "https://jamanetwork.com/journals/jama/fullarticle/2762689",
           reasoning:
-            "Comparative mortality data from Our World in Data is transparent and independently verifiable. The Taiwan and South Korea cases are the strongest direct evidence that institutional preparedness investment works, as their success was directly attributable to post-SARS/MERS reforms. Replicability is somewhat lower because both countries are island/peninsula geographies with strong state capacity and high social cohesion — factors not easily replicated elsewhere.",
+            "Comparative mortality data from Our World in Data is transparent and independently verifiable. The Taiwan and South Korea cases are the strongest direct evidence that institutional preparedness investment works, as their success was directly attributable to post-SARS/MERS reforms. Replicability is somewhat lower because both countries are island/peninsula geographies with strong state capacity and high social cohesion, factors not easily replicated elsewhere.",
         },
       ],
     },
@@ -298,9 +298,9 @@ export const pandemicPreparednessData = {
         "A preparedness budget has to be split. One school would put it into surveillance, platform vaccines and standing manufacturing capacity; the other into characterizing the pathogens themselves, on the view that you cannot defend against what you have not studied. Whether enhanced-pathogen research should be banned outright is a separate question, argued on the map asking whether research that enhances pandemic pathogens should be banned worldwide; here the question is only where readiness dollars go.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "'Invest heavily' is a bucket, not a plan. A readiness budget has to be split between surveillance networks, vaccine platforms, standing manufacturing capacity and characterizing pathogens themselves, and each spending lane has its own constituency competing for the same appropriation. The mRNA platform that mattered most in 2020 came out of thirty years of curiosity-driven basic research that no preparedness program had commissioned — which suggests the route that pays off cannot be picked in advance. Large standing budgets get divided by whichever constituency is best organized rather than by expected lives saved: the Strategic National Stockpile has been funded since 1999 and still held about 12 million N95 respirators in early 2020. Surveillance, the lane with the broadest political support, also carries costs that are rarely counted — wastewater and genomic monitoring collect data about populations that never consented to it. Until someone can say which lane returns the most readiness per dollar, spending heavily means handing a bigger budget to the committees that produced the last gap.",
+        "'Invest heavily' is a bucket, not a plan. A readiness budget has to be split between surveillance networks, vaccine platforms, standing manufacturing capacity and characterizing pathogens themselves, and each spending lane has its own constituency competing for the same appropriation. The mRNA platform that mattered most in 2020 came out of thirty years of curiosity-driven basic research that no preparedness program had commissioned, which suggests the route that pays off cannot be picked in advance. Large standing budgets get divided by whichever constituency is best organized rather than by expected lives saved: the Strategic National Stockpile has been funded since 1999 and still held about 12 million N95 respirators in early 2020. Surveillance, the lane with the broadest political support, also carries costs that are rarely counted, wastewater and genomic monitoring collect data about populations that never consented to it. Until someone can say which lane returns the most readiness per dollar, spending heavily means handing a bigger budget to the committees that produced the last gap.",
       proponent_rebuttal:
-        "Allocation is the part of preparedness with the clearest track record. Operation Warp Speed's advance purchase agreements and parallel manufacturing compressed a vaccine timeline to 11 months. CEPI's 100 Days Mission names what it needs: platform technologies ready to speed development, stronger surveillance and early warning, and response networks ready to act. Each of those is a capacity line item whose output can be measured before the next outbreak rather than after it — days from spillover to detection, days from identifying a new pathogen to an authorized vaccine, doses per month of standing bottling-and-packaging capacity. The privacy and equity objections to biosurveillance are real and are a reason to design the programs with consent and data limits, and to build sequencing capacity inside the countries being monitored, not a reason to keep the budget small.",
+        "Allocation is the part of preparedness with the clearest track record. Operation Warp Speed's advance purchase agreements and parallel manufacturing compressed a vaccine timeline to 11 months. CEPI's 100 Days Mission names what it needs: platform technologies ready to speed development, stronger surveillance and early warning, and response networks ready to act. Each of those is a capacity line item whose output can be measured before the next outbreak rather than after it, days from spillover to detection, days from identifying a new pathogen to an authorized vaccine, doses per month of standing bottling-and-packaging capacity. The privacy and equity objections to biosurveillance are real and are a reason to design the programs with consent and data limits, and to build sequencing capacity inside the countries being monitored, not a reason to keep the budget small.",
       crux: {
         id: "preparedness-spending-allocation",
         title: "The Readiness-per-Dollar Comparison",
@@ -319,13 +319,13 @@ export const pandemicPreparednessData = {
           "$400K-1M (Program-level cost accounting across national preparedness budgets and outbreak-response records)",
         falsification: {
           supporter_flip:
-            "If costing the lanes side by side found none of them buying measurably more readiness per dollar than another — detection delay, time to candidate and surge capacity all moving about the same per dollar spent — then heavy investment would be a budget without a destination, and the case for it would rest on the hope that the money lands somewhere useful.",
+            "If costing the lanes side by side found none of them buying measurably more readiness per dollar than another (detection delay, time to candidate and surge capacity all moving about the same per dollar spent) then heavy investment would be a budget without a destination, and the case for it would rest on the hope that the money lands somewhere useful.",
           skeptic_flip:
             "If one lane came out far ahead on its own output measure, such as a surveillance network cutting days-to-detection for a fraction of what the same gain costs elsewhere, the objection that a large readiness budget has no agreed destination would have an answer in the numbers.",
           common_ground:
             "Both sides agree a readiness budget has to be split between surveillance, vaccine platforms, manufacturing capacity and pathogen characterization, and that the mRNA platform's payoff came out of research no preparedness program had commissioned.",
           live_disagreement:
-            "Whether the lanes differ enough in measurable output per dollar for a large budget to be aimed at the strongest of them, or whether the split is settled by whichever constituency is best organized — which a side-by-side costing of each lane against its own pre-pandemic output measure could show.",
+            "Whether the lanes differ enough in measurable output per dollar for a large budget to be aimed at the strongest of them, or whether the split is settled by whichever constituency is best organized, which a side-by-side costing of each lane against its own pre-pandemic output measure could show.",
         },
       },
       evidence: [
@@ -334,7 +334,7 @@ export const pandemicPreparednessData = {
           title:
             "mRNA Vaccine Platform Emerged from 30+ Years of Unrestricted Basic Research",
           description:
-            "The mRNA vaccine technology that enabled the Pfizer-BioNTech and Moderna COVID-19 vaccines was the product of over 30 years of basic research. In the early 1990s Katalin Kariko kept working on mRNA therapeutics, the Nobel Assembly notes, 'despite encountering difficulties in convincing research funders of the significance of her project'; her foundational work with Drew Weissman on modified nucleosides was published in 2005. The key insight — using pseudouridine to prevent immune rejection of synthetic mRNA — was a basic science discovery that emerged from curiosity-driven research, not directed pandemic preparedness programs. Kariko and Weissman received the Nobel Prize in Physiology or Medicine in 2023 for this work. The lesson for preparedness advocates is that platform technologies require long-term, unrestricted research investment — the exact opposite of narrowly targeted preparedness programs.",
+            "The mRNA vaccine technology that enabled the Pfizer-BioNTech and Moderna COVID-19 vaccines was the product of over 30 years of basic research. In the early 1990s Katalin Kariko kept working on mRNA therapeutics, the Nobel Assembly notes, 'despite encountering difficulties in convincing research funders of the significance of her project'; her foundational work with Drew Weissman on modified nucleosides was published in 2005. The key insight, using pseudouridine to prevent immune rejection of synthetic mRNA, was a basic science discovery that emerged from curiosity-driven research, not directed pandemic preparedness programs. Kariko and Weissman received the Nobel Prize in Physiology or Medicine in 2023 for this work. The lesson for preparedness advocates is that platform technologies require long-term, unrestricted research investment, the exact opposite of narrowly targeted preparedness programs.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -347,14 +347,14 @@ export const pandemicPreparednessData = {
           sourceUrl:
             "https://www.nobelprize.org/prizes/medicine/2023/press-release/",
           reasoning:
-            "The Nobel Prize citation and the published research record are authoritative. The mRNA story genuinely demonstrates that breakthrough preparedness capabilities can emerge from unrestricted basic science. However, directness is moderate because the mRNA platform's COVID application was ultimately accelerated by exactly the kind of massive government investment (OWS) that preparedness advocates call for — suggesting the real lesson is that both basic research funding and preparedness investment are needed.",
+            "The Nobel Prize citation and the published research record are authoritative. The mRNA story genuinely demonstrates that breakthrough preparedness capabilities can emerge from unrestricted basic science. However, directness is moderate because the mRNA platform's COVID application was ultimately accelerated by exactly the kind of massive government investment (OWS) that preparedness advocates call for, suggesting the real lesson is that both basic research funding and preparedness investment are needed.",
         },
         {
           id: "100-days-mission",
           title:
             "100 Days Mission: Vaccines Within 100 Days of Pathogen Identification",
           description:
-            "The Coalition for Epidemic Preparedness Innovations (CEPI), backed by the G7 and G20, launched the '100 Days Mission' aiming to develop vaccines within 100 days of identifying a new pandemic pathogen — compared with the 326 days before the first COVID-19 vaccines were being rolled out. CEPI names platform technologies ready to speed development, stronger disease surveillance and early warning, faster identification of immune-response markers, and response networks among what the mission needs. CEPI-commissioned modelling by Imperial College London estimated that vaccines available within 100 days of the SARS-CoV-2 genome's release could have averted 8.3 million excess deaths by the end of 2021. Critics note that the 100-day timeline also depends on characterizing novel pathogens as they appear, so a readiness budget cannot go entirely to platforms, manufacturing and surveillance.",
+            "The Coalition for Epidemic Preparedness Innovations (CEPI), backed by the G7 and G20, launched the '100 Days Mission' aiming to develop vaccines within 100 days of identifying a new pandemic pathogen, compared with the 326 days before the first COVID-19 vaccines were being rolled out. CEPI names platform technologies ready to speed development, stronger disease surveillance and early warning, faster identification of immune-response markers, and response networks among what the mission needs. CEPI-commissioned modelling by Imperial College London estimated that vaccines available within 100 days of the SARS-CoV-2 genome's release could have averted 8.3 million excess deaths by the end of 2021. Critics note that the 100-day timeline also depends on characterizing novel pathogens as they appear, so a readiness budget cannot go entirely to platforms, manufacturing and surveillance.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -374,7 +374,7 @@ export const pandemicPreparednessData = {
           title:
             "Genomic Biosurveillance Raises Privacy and Equity Concerns",
           description:
-            "Pandemic preparedness increasingly relies on genomic biosurveillance — sequencing pathogens from wastewater, clinical samples, and animal populations to detect emerging threats. Programs like CDC's National Wastewater Surveillance System and the WHO's global genomic surveillance network have proven valuable for tracking COVID-19 variants. However, sampling whole communities raises legal and ethical questions: a 2020 Journal of Law and the Biosciences analysis (Gable, Ram & Ram) concluded that even once reliability is established, 'limits on sample and data collection, use, and sharing must also be considered to prevent undermining privacy and autonomy.' Critics add that sequencing capacity is concentrated in wealthy nations, leaving many lower-income countries dependent on outside monitoring of their own populations.",
+            "Pandemic preparedness increasingly relies on genomic biosurveillance, sequencing pathogens from wastewater, clinical samples, and animal populations to detect emerging threats. Programs like CDC's National Wastewater Surveillance System and the WHO's global genomic surveillance network have proven valuable for tracking COVID-19 variants. However, sampling whole communities raises legal and ethical questions: a 2020 Journal of Law and the Biosciences analysis (Gable, Ram & Ram) concluded that even once reliability is established, 'limits on sample and data collection, use, and sharing must also be considered to prevent undermining privacy and autonomy.' Critics add that sequencing capacity is concentrated in wealthy nations, leaving many lower-income countries dependent on outside monitoring of their own populations.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -395,32 +395,32 @@ export const pandemicPreparednessData = {
   references: [
     {
       title:
-        "The COVID-19 Pandemic and the $16 Trillion Virus — Cutler & Summers, JAMA (2020)",
+        "The COVID-19 Pandemic and the $16 Trillion Virus: Cutler & Summers, JAMA (2020)",
       url: "https://jamanetwork.com/journals/jama/fullarticle/2771764",
     },
     {
       title:
-        "COVID-19: Make It the Last Pandemic — Independent Panel for Pandemic Preparedness and Response (2021)",
+        "COVID-19: Make It the Last Pandemic: Independent Panel for Pandemic Preparedness and Response (2021)",
       url: "https://theindependentpanel.org/mainreport/",
     },
     {
       title:
-        "Intensity and Frequency of Extreme Novel Epidemics — Marani et al., PNAS (2021)",
+        "Intensity and Frequency of Extreme Novel Epidemics: Marani et al., PNAS (2021)",
       url: "https://www.pnas.org/doi/10.1073/pnas.2105482118",
     },
     {
       title:
-        "2021 Global Health Security Index — Nuclear Threat Initiative & Johns Hopkins",
+        "2021 Global Health Security Index: Nuclear Threat Initiative & Johns Hopkins",
       url: "https://www.ghsindex.org/",
     },
     {
       title:
-        "GAO Report: COVID-19 — Urgent Actions Needed to Better Ensure an Effective Federal Response — GAO-21-191",
+        "GAO Report: COVID-19: Urgent Actions Needed to Better Ensure an Effective Federal Response: GAO-21-191",
       url: "https://www.gao.gov/products/gao-21-191",
     },
     {
       title:
-        "Two Years of COVID-19 Vaccines Have Prevented Millions of Deaths — Commonwealth Fund (2022)",
+        "Two Years of COVID-19 Vaccines Have Prevented Millions of Deaths: Commonwealth Fund (2022)",
       url: "https://www.commonwealthfund.org/blog/2022/two-years-covid-vaccines-prevented-millions-deaths-hospitalizations",
     },
     {
@@ -447,14 +447,14 @@ export const pandemicPreparednessData = {
       title:
         "Can institutions be reformed to sustain preparedness between crises?",
       content:
-        "The US had the world's highest pandemic preparedness score in 2019 and still suffered one of the worst per-capita COVID death rates among wealthy nations. The CDC botched testing, the Strategic National Stockpile was depleted, and regulatory frameworks delayed response at every turn. Meanwhile, Taiwan and South Korea — which invested after SARS and MERS — kept per-capita death rates roughly 20-65x lower through 2021. Is the problem insufficient investment, or do bureaucratic incentives inevitably erode preparedness when the political spotlight moves on?",
+        "The US had the world's highest pandemic preparedness score in 2019 and still suffered one of the worst per-capita COVID death rates among wealthy nations. The CDC botched testing, the Strategic National Stockpile was depleted, and regulatory frameworks delayed response at every turn. Meanwhile, Taiwan and South Korea, which invested after SARS and MERS, kept per-capita death rates roughly 20-65x lower through 2021. Is the problem insufficient investment, or do bureaucratic incentives inevitably erode preparedness when the political spotlight moves on?",
     },
     {
       id: "q3",
       title:
         "Where should preparedness money go to buy the most readiness?",
       content:
-        "A readiness budget splits between surveillance, vaccine platforms, standing manufacturing capacity and characterizing pathogens as they appear. CEPI's 100 Days Mission names what the platform-and-surveillance route needs; the mRNA platform that mattered most in 2020, by contrast, came out of decades of basic research no preparedness program had commissioned. Can the lanes be ranked on output measured before a pandemic — days to detection, days from identifying a pathogen to an authorized vaccine, standing doses per month — or does a bigger budget just enlarge the fight over how to divide it?",
+        "A readiness budget splits between surveillance, vaccine platforms, standing manufacturing capacity and characterizing pathogens as they appear. CEPI's 100 Days Mission names what the platform-and-surveillance route needs; the mRNA platform that mattered most in 2020, by contrast, came out of decades of basic research no preparedness program had commissioned. Can the lanes be ranked on output measured before a pandemic (days to detection, days from identifying a pathogen to an authorized vaccine, standing doses per month) or does a bigger budget just enlarge the fight over how to divide it?",
     },
   ],
 } satisfies TopicInput;

@@ -29,12 +29,12 @@ export const modernMonetaryTheoryData = {
       id: "monetary-sovereignty",
       title: "Monetary Sovereignty",
       short_summary:
-        "A government that issues its own floating fiat currency can always make payments in that currency and cannot be forced into involuntary default — the question is whether that descriptive fact justifies MMT's spending prescriptions.",
+        "A government that issues its own floating fiat currency can always make payments in that currency and cannot be forced into involuntary default, the question is whether that descriptive fact justifies MMT's spending prescriptions.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "MMT smuggles a radical policy conclusion out of a banal accounting truth. Yes, a currency-issuer can always print to pay nominal debts — but 'no involuntary default' is not the same as 'no constraint.' The real limit is what the economy can produce; printing past that erodes purchasing power, which is just default by inflation. Markets can also force a currency-issuer's hand long before it 'runs out of money': bond vintages, exchange rates, and interest costs can spiral, as the UK's September 2022 gilt crisis showed. Treating the absence of nominal default as a green light for open-ended deficits confuses solvency with sustainability.",
+        "MMT smuggles a radical policy conclusion out of a banal accounting truth. Yes, a currency-issuer can always print to pay nominal debts, but 'no involuntary default' is not the same as 'no constraint.' The real limit is what the economy can produce; printing past that erodes purchasing power, which is just default by inflation. Markets can also force a currency-issuer's hand long before it 'runs out of money': bond vintages, exchange rates, and interest costs can spiral, as the UK's September 2022 gilt crisis showed. Treating the absence of nominal default as a green light for open-ended deficits confuses solvency with sustainability.",
       proponent_rebuttal:
-        "The descriptive claim is genuinely load-bearing and routinely denied by deficit hawks who warn of national 'bankruptcy.' Japan has run gross general-government debt near 230-240% of GDP for years — far above levels that supposedly trigger crisis — while borrowing in yen, keeping interest costs low, and never defaulting. The post-2008 era of large central-bank balance-sheet expansion did not produce the runaway inflation monetarists predicted. MMT's contribution is to reframe the binding constraint correctly: not an arbitrary debt-to-GDP ratio or a 'bond vigilante' bogeyman, but real resources and inflation. That reframing changes which policies are even on the table.",
+        "The descriptive claim is genuinely load-bearing and routinely denied by deficit hawks who warn of national 'bankruptcy.' Japan has run gross general-government debt near 230-240% of GDP for years, far above levels that supposedly trigger crisis, while borrowing in yen, keeping interest costs low, and never defaulting. The post-2008 era of large central-bank balance-sheet expansion did not produce the runaway inflation monetarists predicted. MMT's contribution is to reframe the binding constraint correctly: not an arbitrary debt-to-GDP ratio or a 'bond vigilante' bogeyman, but real resources and inflation. That reframing changes which policies are even on the table.",
       crux: {
         id: "default-vs-inflation-constraint",
         title: "Solvency vs. the Real Resource Constraint",
@@ -52,13 +52,13 @@ export const modernMonetaryTheoryData = {
         cost_to_verify: "$0 (public IMF / national-accounts data)",
         falsification: {
           supporter_flip:
-            "If a genuine currency-issuer with debt in its own floating currency were ever forced into involuntary nominal default by markets — not choosing not to pay, but unable to create the money to pay — the descriptive core of MMT would be refuted, and 'no involuntary default' would stop being a useful operating principle.",
+            "If a genuine currency-issuer with debt in its own floating currency were ever forced into involuntary nominal default by markets (not choosing not to pay, but unable to create the money to pay) the descriptive core of MMT would be refuted, and 'no involuntary default' would stop being a useful operating principle.",
           skeptic_flip:
             "If more decades passed with no floating-rate currency issuer forced into default in its own currency, Japan carrying about 250% debt-to-GDP without crisis and balance-sheet expansion bringing no runaway inflation, 'high debt forces default' would lose its footing.",
           common_ground:
             "Both sides agree a currency-issuer cannot literally run out of its own currency, and that the real binding constraint is inflation and the economy's productive capacity rather than an arbitrary debt-to-GDP ratio.",
           live_disagreement:
-            "Whether 'cannot be forced to default' is action-guiding for spending policy or a trivial truth that obscures the inflation constraint — resolvable by testing whether high-debt currency-issuers hit inflation/currency crises independent of nominal solvency, and at what level of slack versus full employment.",
+            "Whether 'cannot be forced to default' is action-guiding for spending policy or a trivial truth that obscures the inflation constraint, resolvable by testing whether high-debt currency-issuers hit inflation/currency crises independent of nominal solvency, and at what level of slack versus full employment.",
         },
       },
       evidence: [
@@ -66,7 +66,7 @@ export const modernMonetaryTheoryData = {
           id: "japan-high-debt-no-default",
           title: "Japan: ~230-240% Debt-to-GDP, No Default",
           description:
-            "Japan, which borrows in its own currency, has carried government debt around 230-240% of GDP (IMF general-government measure; the linked World Bank series reports central government debt) — the highest in the developed world — for years without involuntary default, with low interest costs and persistently low (often sub-target) inflation until recently.",
+            "Japan, which borrows in its own currency, has carried government debt around 230-240% of GDP (IMF general-government measure; the linked World Bank series reports central government debt), the highest in the developed world, for years without involuntary default, with low interest costs and persistently low (often sub-target) inflation until recently.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -85,7 +85,7 @@ export const modernMonetaryTheoryData = {
           id: "qe-no-runaway-inflation",
           title: "Post-2008 QE Did Not Trigger Predicted Inflation",
           description:
-            "The Federal Reserve's balance sheet expanded from ~$0.9T (6% of GDP) in 2007 to ~$4.5T (25% of GDP) by 2015 via quantitative easing, yet the high inflation predicted by monetarists did not materialize during 2009-2019 — undercutting the simple 'money creation = inflation' objection to deficit finance.",
+            "The Federal Reserve's balance sheet expanded from ~$0.9T (6% of GDP) in 2007 to ~$4.5T (25% of GDP) by 2015 via quantitative easing, yet the high inflation predicted by monetarists did not materialize during 2009-2019, undercutting the simple 'money creation = inflation' objection to deficit finance.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -123,19 +123,19 @@ export const modernMonetaryTheoryData = {
       id: "inflation-constraint",
       title: "Inflation Control",
       short_summary:
-        "MMT concedes inflation — not solvency — is the real constraint, and proposes managing it with fiscal tools (taxes plus a job guarantee). The dispute is whether those tools can control inflation as reliably as MMT claims.",
+        "MMT concedes inflation, not solvency, is the real constraint, and proposes managing it with fiscal tools (taxes plus a job guarantee). The dispute is whether those tools can control inflation as reliably as MMT claims.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "MMT's inflation-control toolkit is its weakest link. Raising taxes to cool an overheating economy requires fast, well-targeted legislative action — but fiscal policy is slow, politically captured, and biased toward spending more and taxing less. History is brutal here: in Chile, Peru, Argentina, and Venezuela, central-bank-financed fiscal expansions premised on 'unused capacity' ended in runaway inflation, with Peru's inflation peaking near 8,000%. Even in the US, the large 2020-2021 deficits coincided with ~26% year-over-year M2 growth and the worst inflation in 40 years, exactly when MMT-flavored 'deficits don't matter' rhetoric was ascendant.",
+        "MMT's inflation-control toolkit is its weakest link. Raising taxes to cool an overheating economy requires fast, well-targeted legislative action, but fiscal policy is slow, politically captured, and biased toward spending more and taxing less. History is brutal here: in Chile, Peru, Argentina, and Venezuela, central-bank-financed fiscal expansions premised on 'unused capacity' ended in runaway inflation, with Peru's inflation peaking near 8,000%. Even in the US, the large 2020-2021 deficits coincided with ~26% year-over-year M2 growth and the worst inflation in 40 years, exactly when MMT-flavored 'deficits don't matter' rhetoric was ascendant.",
       proponent_rebuttal:
-        "MMT never claimed deficits never matter — it claimed inflation is the limit, which the 2021-2022 episode confirms rather than refutes. The Latin American cases involved fixed/managed exchange rates, foreign-currency debt, and supply collapse — precisely the conditions MMT says remove monetary sovereignty, so they are not tests of MMT. Crucially, MMT proposes a structural anti-inflation anchor that critics ignore: a federally-funded Job Guarantee that buys labor at a fixed wage, creating a countercyclical 'buffer stock' that expands in slumps and shrinks in booms. Levy Institute modeling estimates such a program would cost only ~0.8-2% of GDP net while stabilizing prices through the wage floor rather than through unemployment.",
+        "MMT never claimed deficits never matter; it claimed inflation is the limit, which the 2021-2022 episode confirms rather than refutes. The Latin American cases involved fixed/managed exchange rates, foreign-currency debt, and supply collapse, precisely the conditions MMT says remove monetary sovereignty, so they are not tests of MMT. Crucially, MMT proposes a structural anti-inflation anchor that critics ignore: a federally-funded Job Guarantee that buys labor at a fixed wage, creating a countercyclical 'buffer stock' that expands in slumps and shrinks in booms. Levy Institute modeling estimates such a program would cost only ~0.8-2% of GDP net while stabilizing prices through the wage floor rather than through unemployment.",
       crux: {
         id: "can-fiscal-tools-tame-inflation",
         title: "Can Fiscal Tools Anchor Inflation as Reliably as the Central Bank?",
         question:
           "Can taxes and a job guarantee control inflation as quickly and credibly as central-bank rate policy?",
         description:
-          "The pivotal question: can discretionary taxation plus a job-guarantee buffer stock control inflation as reliably and promptly as independent central-bank interest-rate policy — or does fiscal-led inflation control fail on timing, political economy, and credibility?",
+          "The pivotal question: can discretionary taxation plus a job-guarantee buffer stock control inflation as reliably and promptly as independent central-bank interest-rate policy, or does fiscal-led inflation control fail on timing, political economy, and credibility?",
         methodology:
           "Examine historical episodes of money-financed deficit spending (Latin America 1970s-2010s; US 2020-2022) for inflation outcomes; separately test whether buffer-stock employment schemes (e.g. India's MGNREGA, Argentina's Jefes program) demonstrably anchored a price level. Assess legislative response lags vs. central-bank lags.",
         verification_status: "theoretical" as const,
@@ -147,13 +147,13 @@ export const modernMonetaryTheoryData = {
           "$0 for historical analysis; a full Job-Guarantee price-anchor test would require a national pilot (untested at US scale)",
         falsification: {
           supporter_flip:
-            "If a national-scale job-guarantee buffer stock were tried and failed to anchor wages or prices — or if discretionary tax changes proved too slow and politically captured to cool an overheating economy in time — then the MMT claim that fiscal tools can substitute for central-bank inflation control would be undercut.",
+            "If a national-scale job-guarantee buffer stock were tried and failed to anchor wages or prices (or if discretionary tax changes proved too slow and politically captured to cool an overheating economy in time) then the MMT claim that fiscal tools can substitute for central-bank inflation control would be undercut.",
           skeptic_flip:
             "If a buffer-stock employment scheme at national scale anchored wages and prices the way smaller programs such as India's MGNREGA and Argentina's Jefes worked countercyclically, the Latin American hyperinflations, which involved managed exchange rates and foreign-currency debt, would be poor tests of the mechanism.",
           common_ground:
             "Both sides agree inflation, not solvency, is the binding constraint, that the 2020-2022 episode showed deficits can drive inflation when supply is constrained, and that any inflation-control tool must act quickly enough to matter.",
           live_disagreement:
-            "Whether discretionary taxation plus a job-guarantee buffer stock can anchor inflation as promptly and credibly as independent interest-rate policy — resolvable only by a national job-guarantee pilot measuring its price-anchoring effect and by comparing legislative response lags to central-bank lags.",
+            "Whether discretionary taxation plus a job-guarantee buffer stock can anchor inflation as promptly and credibly as independent interest-rate policy, resolvable only by a national job-guarantee pilot measuring its price-anchoring effect and by comparing legislative response lags to central-bank lags.",
         },
       },
       evidence: [
@@ -161,7 +161,7 @@ export const modernMonetaryTheoryData = {
           id: "covid-deficit-inflation",
           title: "2020-2022: Large Deficits, M2 Surge, 40-Year-High Inflation",
           description:
-            "US M2 grew by roughly $6T (from about $15.4T in Feb 2020 to ~$21.7T by April 2022), with year-over-year growth peaking at 26.9% in February 2021; core PCE inflation then rose to 5.2% by January 2022 — the fastest since 1983 — as large deficit-financed transfers met constrained supply.",
+            "US M2 grew by roughly $6T (from about $15.4T in Feb 2020 to ~$21.7T by April 2022), with year-over-year growth peaking at 26.9% in February 2021; core PCE inflation then rose to 5.2% by January 2022, the fastest since 1983, as large deficit-financed transfers met constrained supply.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -222,9 +222,9 @@ export const modernMonetaryTheoryData = {
         "Mainstream economists across the ideological spectrum overwhelmingly reject MMT's headline claims, while MMT scholars argue critics attack strawman versions of the theory.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "When a proposition is sound, the relevant experts converge on it. On MMT they do the opposite: a University of Chicago panel of top economists — Keynesian, monetarist, and otherwise — registered zero agreement with MMT's core deficit claims, a near-unprecedented unanimity. The deeper objection is institutional: using discretionary taxation to fine-tune the money supply re-politicizes monetary policy and discards decades of hard-won central-bank independence built to solve the time-inconsistency problem. An inflation tax, when it comes, also falls hardest on the poor — the very group MMT claims to help.",
+        "When a proposition is sound, the relevant experts converge on it. On MMT they do the opposite: a University of Chicago panel of top economists (Keynesian, monetarist, and otherwise) registered zero agreement with MMT's core deficit claims, a near-unprecedented unanimity. The deeper objection is institutional: using discretionary taxation to fine-tune the money supply re-politicizes monetary policy and discards decades of hard-won central-bank independence built to solve the time-inconsistency problem. An inflation tax, when it comes, also falls hardest on the poor, the very group MMT claims to help.",
       proponent_rebuttal:
-        "The famous survey didn't ask economists about MMT — it asked them to endorse two crude caricatures ('finance as much spending as they want by creating money') that no serious MMT scholar holds, so the 'unanimity' is against a strawman. MMT explicitly makes inflation the constraint; it does not claim spending is costless. On the merits, MMT economists have published point-by-point replies (the Levy Institute's 'Seven Replies to the Critiques') showing that many objections either misstate MMT or restate points MMT already concedes. Consensus against a misdescribed theory is weak evidence about the theory itself.",
+        "The famous survey didn't ask economists about MMT; it asked them to endorse two crude caricatures ('finance as much spending as they want by creating money') that no serious MMT scholar holds, so the 'unanimity' is against a strawman. MMT explicitly makes inflation the constraint; it does not claim spending is costless. On the merits, MMT economists have published point-by-point replies (the Levy Institute's 'Seven Replies to the Critiques') showing that many objections either misstate MMT or restate points MMT already concedes. Consensus against a misdescribed theory is weak evidence about the theory itself.",
       crux: {
         id: "strawman-vs-substance",
         title: "Is the Expert Rejection Aimed at MMT or a Caricature?",
@@ -242,13 +242,13 @@ export const modernMonetaryTheoryData = {
         cost_to_verify: "$0 (textual comparison of survey wording vs. MMT primary sources)",
         falsification: {
           supporter_flip:
-            "If a careful textual comparison showed that leading MMT primary sources (Kelton, Wray, Mitchell, Tcherneva) actually do assert the surveyed propositions — that deficits need not be a concern or that unlimited real spending can be money-financed — then the 'strawman' defense collapses and the expert rejection lands on MMT's real claims.",
+            "If a careful textual comparison showed that leading MMT primary sources (Kelton, Wray, Mitchell, Tcherneva) actually do assert the surveyed propositions, that deficits need not be a concern or that unlimited real spending can be money-financed, then the 'strawman' defense collapses and the expert rejection lands on MMT's real claims.",
           skeptic_flip:
             "If a textual comparison found the surveyed statements, that deficits need not be a concern or that any amount of real spending can be money-financed, stronger than what the primary texts assert, and the published point-by-point replies held, the expert panel would look aimed at a caricature.",
           common_ground:
             "Both sides agree the IGM/Clark Center panel registered essentially zero agreement with the surveyed statements, and that the substantive open questions are inflation control and the wisdom of re-politicizing monetary policy.",
           live_disagreement:
-            "Whether the surveyed statements faithfully represent MMT or caricature it — resolvable by placing the exact survey wording beside MMT primary texts and the published rebuttals to mark which claims are shared, which are caricatures, and which are genuine disagreement.",
+            "Whether the surveyed statements faithfully represent MMT or caricature it, resolvable by placing the exact survey wording beside MMT primary texts and the published rebuttals to mark which claims are shared, which are caricatures, and which are genuine disagreement.",
         },
       },
       evidence: [
@@ -268,7 +268,7 @@ export const modernMonetaryTheoryData = {
             "Chicago Booth IGM / Clark Center US Economic Experts Panel, 'Modern Monetary Theory' survey (March 2019)",
           sourceUrl: "https://kentclarkcenter.org/surveys/modern-monetary-theory/",
           reasoning:
-            "An ideologically diverse, high-credibility expert panel with a rare unanimous result. Directness is deliberately capped at 6 because the survey wording is a strong, arguably caricatured version of MMT — a point MMT proponents dispute and that the crux turns on.",
+            "An ideologically diverse, high-credibility expert panel with a rare unanimous result. Directness is deliberately capped at 6 because the survey wording is a strong, arguably caricatured version of MMT, a point MMT proponents dispute and that the crux turns on.",
         },
         {
           id: "taxation-inflation-control-critique",
@@ -293,7 +293,7 @@ export const modernMonetaryTheoryData = {
           id: "mmt-replies-defense",
           title: "MMT Scholars' Point-by-Point Reply to Critics",
           description:
-            "A Levy Institute working paper ('Seven Replies to the Critiques of Modern Money Theory') argues that standard objections either misdescribe MMT, attack claims MMT does not make, or restate constraints (inflation, real resources) that MMT already builds in — so the expert consensus is partly aimed at a caricature.",
+            "A Levy Institute working paper ('Seven Replies to the Critiques of Modern Money Theory') argues that standard objections either misdescribe MMT, attack claims MMT does not make, or restate constraints (inflation, real resources) that MMT already builds in, so the expert consensus is partly aimed at a caricature.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,

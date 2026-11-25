@@ -466,47 +466,47 @@ export const studentDebtForgivenessData = {
   ],
   references: [
     {
-      title: "Federal Student Aid Posts Updated Reports to FSA Data Center — Federal Student Aid (13 March 2026)",
+      title: "Federal Student Aid Posts Updated Reports to FSA Data Center: Federal Student Aid (13 March 2026)",
       url: "https://fsapartners.ed.gov/knowledge-center/library/electronic-announcements/2026-03-13/federal-student-aid-posts-updated-reports-fsa-data-center",
     },
     {
-      title: "Biden v. Nebraska, No. 22-506 (2023) — Supreme Court Opinion",
+      title: "Biden v. Nebraska, No. 22-506 (2023): Supreme Court Opinion",
       url: "https://www.supremecourt.gov/opinions/22pdf/22-506_nmip.pdf",
     },
     {
-      title: "New student loan rules take effect July 1 — CBS News (2 July 2026)",
+      title: "New student loan rules take effect July 1: CBS News (2 July 2026)",
       url: "https://www.cbsnews.com/news/student-loan-changes-july-2026/",
     },
     {
-      title: "Trump administration moves to end the SAVE plan — CBS News (10 December 2025)",
+      title: "Trump administration moves to end the SAVE plan: CBS News (10 December 2025)",
       url: "https://www.cbsnews.com/news/student-loan-repayment-save-plan-ending",
     },
     {
-      title: "Student loan forgiveness is regressive whether measured by income, education, or wealth — Looney, Brookings (2022)",
+      title: "Student loan forgiveness is regressive whether measured by income, education, or wealth: Looney, Brookings (2022)",
       url: "https://www.brookings.edu/articles/student-loan-forgiveness-is-regressive-whether-measured-by-income-education-or-wealth/",
     },
     {
-      title: "The Distributional Effects of Student Loan Forgiveness — Catherine & Yannelis, NBER w28175",
+      title: "The Distributional Effects of Student Loan Forgiveness: Catherine & Yannelis, NBER w28175",
       url: "https://www.nber.org/papers/w28175",
     },
     {
-      title: "Federal Student Aid: Ensure Eligible Loans Receive Income-Driven Repayment Forgiveness — GAO-22-103720 (2022)",
+      title: "Federal Student Aid: Ensure Eligible Loans Receive Income-Driven Repayment Forgiveness: GAO-22-103720 (2022)",
       url: "https://www.gao.gov/products/gao-22-103720",
     },
     {
-      title: "Credit Supply and the Rise in College Tuition — Lucca, Nadauld & Shen, NY Fed Staff Report 733",
+      title: "Credit Supply and the Rise in College Tuition: Lucca, Nadauld & Shen, NY Fed Staff Report 733",
       url: "https://www.newyorkfed.org/research/staff_reports/sr733.html",
     },
     {
-      title: "Trends in College Pricing: Highlights — College Board (2025)",
+      title: "Trends in College Pricing: Highlights: College Board (2025)",
       url: "https://research.collegeboard.org/trends/college-pricing/highlights",
     },
     {
-      title: "Black-white disparity in student loan debt more than triples after graduation — Scott-Clayton & Li, Brookings (2016)",
+      title: "Black-white disparity in student loan debt more than triples after graduation: Scott-Clayton & Li, Brookings (2016)",
       url: "https://www.brookings.edu/articles/black-white-disparity-in-student-loan-debt-more-than-triples-after-graduation/",
     },
     {
-      title: "Federal Student Aid Data Center — US Department of Education",
+      title: "Federal Student Aid Data Center: US Department of Education",
       url: "https://studentaid.gov/data-center/student/portfolio",
     },
   ],

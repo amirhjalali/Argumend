@@ -12,15 +12,15 @@ export const childrenSmartphoneAgeData = {
     "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "The Anxious Generation — Jonathan Haidt",
+      title: "The Anxious Generation: Jonathan Haidt",
       url: "https://www.anxiousgeneration.com/",
     },
     {
-      title: "Social Media and Youth Mental Health — US Surgeon General Advisory",
+      title: "Social Media and Youth Mental Health: US Surgeon General Advisory",
       url: "https://www.hhs.gov/surgeongeneral/priorities/youth-mental-health/social-media/index.html",
     },
     {
-      title: "Annual Research Review: Adolescent mental health in the digital age — Odgers & Jensen, Journal of Child Psychology and Psychiatry (2020)",
+      title: "Annual Research Review: Adolescent mental health in the digital age: Odgers & Jensen, Journal of Child Psychology and Psychiatry (2020)",
       url: "https://doi.org/10.1111/jcpp.13190",
     },
   ],
@@ -103,7 +103,7 @@ export const childrenSmartphoneAgeData = {
           id: "cdc-youth-mental-health-data",
           title: "CDC Data Shows Teen Girls' Persistent Sadness Rose From 36% to 57% (2011-2021)",
           description:
-            "The CDC Youth Risk Behavior Survey shows persistent feelings of sadness or hopelessness among US high school girls increased from 36% in 2011 to 57% in 2021 (a ~58% relative rise). Note this self-reported measure indexes sadness/hopelessness, not a clinical depression diagnosis. Seriously considering suicide rose from 19% to 30% among girls, and attempted suicide from roughly 10% to 13%. For boys, persistent sadness increased from 21% to 29%. The timing coincides with mass smartphone adoption among adolescents, which crossed 50% around 2012-2013 — a temporal correlation, not by itself evidence of causation.",
+            "The CDC Youth Risk Behavior Survey shows persistent feelings of sadness or hopelessness among US high school girls increased from 36% in 2011 to 57% in 2021 (a ~58% relative rise). Note this self-reported measure indexes sadness/hopelessness, not a clinical depression diagnosis. Seriously considering suicide rose from 19% to 30% among girls, and attempted suicide from roughly 10% to 13%. For boys, persistent sadness increased from 21% to 29%. The timing coincides with mass smartphone adoption among adolescents, which crossed 50% around 2012-2013, a temporal correlation, not by itself evidence of causation.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -114,13 +114,13 @@ export const childrenSmartphoneAgeData = {
           source: "Centers for Disease Control and Prevention; Youth Risk Behavior Survey",
           sourceUrl: "https://www.cdc.gov/healthyyouth/data/yrbs/index.htm",
           reasoning:
-            "CDC data is nationally representative and methodologically rigorous, making it highly reliable. However, the temporal correlation between smartphone adoption and mental health decline does not establish causation — the directness score is lower because multiple simultaneous factors (opioid crisis, economic anxiety, school shootings, COVID) could contribute to the trend.",
+            "CDC data is nationally representative and methodologically rigorous, making it highly reliable. However, the temporal correlation between smartphone adoption and mental health decline does not establish causation; the directness score is lower because multiple simultaneous factors (opioid crisis, economic anxiety, school shootings, COVID) could contribute to the trend.",
         },
         {
           id: "przybylski-small-effects",
           title: "Oxford Meta-Analysis Finds Small Effect Sizes for Screen Time and Wellbeing",
           description:
-            "Amy Orben and Andrew Przybylski's large-scale specification-curve analyses, published in Nature Human Behaviour (2019) and Psychological Science (2019), found that the association between digital technology use and adolescent wellbeing is statistically significant but practically tiny — explaining at most about 0.4% of variation in wellbeing. They illustrated this by noting that wearing glasses and regularly eating potatoes had associations with adolescent wellbeing comparable to or larger than screen time, arguing that public discourse overstates the smartphone-mental health connection. Critics counter that undifferentiated 'screen time' and self-report time-use measures may obscure harms specific to social media.",
+            "Amy Orben and Andrew Przybylski's large-scale specification-curve analyses, published in Nature Human Behaviour (2019) and Psychological Science (2019), found that the association between digital technology use and adolescent wellbeing is statistically significant but practically tiny, explaining at most about 0.4% of variation in wellbeing. They illustrated this by noting that wearing glasses and regularly eating potatoes had associations with adolescent wellbeing comparable to or larger than screen time, arguing that public discourse overstates the smartphone-mental health connection. Critics counter that undifferentiated 'screen time' and self-report time-use measures may obscure harms specific to social media.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -131,7 +131,7 @@ export const childrenSmartphoneAgeData = {
           source: "Nature Human Behaviour; Psychological Science",
           sourceUrl: "https://www.nature.com/articles/s41562-018-0506-1",
           reasoning:
-            "Published in top-tier journals with large sample sizes and pre-registered analyses, this is methodologically strong research. However, the critique focuses on total screen time as a variable, which may miss the specific mechanisms (social media comparison, algorithmic feeds, notification patterns) that cause harm — the 'screen time' measure may be too crude to capture what matters.",
+            "Published in top-tier journals with large sample sizes and pre-registered analyses, this is methodologically strong research. However, the critique focuses on total screen time as a variable, which may miss the specific mechanisms (social media comparison, algorithmic feeds, notification patterns) that cause harm, the 'screen time' measure may be too crude to capture what matters.",
         },
       ],
     },
@@ -181,7 +181,7 @@ export const childrenSmartphoneAgeData = {
           id: "cross-national-consistency",
           title: "Youth Mental Health Decline Is Consistent Across Diverse Nations",
           description:
-            "Research by Jean Twenge and Jonathan Haidt shows that the adolescent mental health decline beginning around 2012 is remarkably consistent across the US, UK, Canada, Australia, Scandinavia, and other developed nations — countries with vastly different economic conditions, healthcare systems, gun policies, and social safety nets. This cross-national consistency is difficult to explain through country-specific factors but aligns with the global, simultaneous adoption of smartphones and algorithmic social media.",
+            "Research by Jean Twenge and Jonathan Haidt shows that the adolescent mental health decline beginning around 2012 is remarkably consistent across the US, UK, Canada, Australia, Scandinavia, and other developed nations, countries with vastly different economic conditions, healthcare systems, gun policies, and social safety nets. This cross-national consistency is difficult to explain through country-specific factors but aligns with the global, simultaneous adoption of smartphones and algorithmic social media.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -224,9 +224,9 @@ export const childrenSmartphoneAgeData = {
         "Individual families cannot effectively restrict smartphone use when every peer has one. A child without a smartphone faces social exclusion, missed communications, and safety concerns. Government intervention may be the only way to solve this coordination failure, but it raises concerns about state overreach into parenting decisions.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "The collective action problem is real but government mandates are the wrong solution. Smartphone bans for children under 14 would be practically unenforceable — would retailers check IDs? Would police confiscate phones from 13-year-olds? The enforcement mechanisms would either be toothless or invasive. More importantly, a blanket age-based ban treats smartphones as uniformly harmful, ignoring that many children use phones productively for education, creative expression, navigation, and emergency safety. Community-based solutions — phone-free schools, parent pledges like Wait Until 8th, and design regulations targeting addictive features — address the problem without the blunt instrument of government prohibition.",
+        "The collective action problem is real but government mandates are the wrong solution. Smartphone bans for children under 14 would be practically unenforceable: would retailers check IDs? Would police confiscate phones from 13-year-olds? The enforcement mechanisms would either be toothless or invasive. More importantly, a blanket age-based ban treats smartphones as uniformly harmful, ignoring that many children use phones productively for education, creative expression, navigation, and emergency safety. Community-based solutions (phone-free schools, parent pledges like Wait Until 8th, and design regulations targeting addictive features) address the problem without the blunt instrument of government prohibition.",
       proponent_rebuttal:
-        "Voluntary approaches have been tried for a decade and failed. The Wait Until 8th pledge has garnered widespread attention but minimal compliance because the coordination problem is mathematically unsolvable through voluntary action — each family faces a prisoner's dilemma where defection (getting the phone) dominates regardless of what others do. Australia's under-16 social media ban, which commenced enforcement in December 2025, demonstrates that democratic governments can implement age-based technology restrictions at scale. Enforcement need not be perfect to be effective — age verification at the platform level, combined with retailer requirements similar to alcohol and tobacco sales, would substantially reduce childhood smartphone access even with imperfect compliance. The argument that children 'need' smartphones for safety ignores that basic phones with calling and GPS but no internet access serve the safety function without the harmful features.",
+        "Voluntary approaches have been tried for a decade and failed. The Wait Until 8th pledge has garnered widespread attention but minimal compliance because the coordination problem is mathematically unsolvable through voluntary action, each family faces a prisoner's dilemma where defection (getting the phone) dominates regardless of what others do. Australia's under-16 social media ban, which commenced enforcement in December 2025, demonstrates that democratic governments can implement age-based technology restrictions at scale. Enforcement need not be perfect to be effective, age verification at the platform level, combined with retailer requirements similar to alcohol and tobacco sales, would substantially reduce childhood smartphone access even with imperfect compliance. The argument that children 'need' smartphones for safety ignores that basic phones with calling and GPS but no internet access serve the safety function without the harmful features.",
       crux: {
         id: "voluntary-vs-mandate-effectiveness",
         title: "The Voluntary vs. Mandate Comparison",
@@ -251,7 +251,7 @@ export const childrenSmartphoneAgeData = {
           common_ground:
             "Both sides agree the collective-action problem is real: a child without a smartphone risks social exclusion when every peer has one, so single families struggle to hold out alone.",
           live_disagreement:
-            "Whether voluntary pledges, phone-free schools and design regulation can reach the critical mass that removes the exclusion penalty, or whether only an age rule can — and whether one could be enforced without being toothless or invasive.",
+            "Whether voluntary pledges, phone-free schools and design regulation can reach the critical mass that removes the exclusion penalty, or whether only an age rule can, and whether one could be enforced without being toothless or invasive.",
         },
       },
       evidence: [
@@ -259,7 +259,7 @@ export const childrenSmartphoneAgeData = {
           id: "australia-social-media-ban",
           title: "Australia Enacts and Begins Enforcing Social Media Ban for Under-16s (2024-2025)",
           description:
-            "Australia's parliament passed the Online Safety Amendment (Social Media Minimum Age) Act in late November 2024 (assent December 2024), and the ban commenced on 10 December 2025. It bars under-16s from holding accounts on platforms including TikTok, Instagram, Facebook, Snapchat, X, Reddit, Threads, Twitch and Kick (YouTube's status shifted during rollout), placing enforcement on platforms — with fines up to ~A$50M — rather than on parents or children. In the first days of enforcement, platforms reported removing or restricting around 4.7 million under-16 accounts. It is the strongest government intervention on children's technology access in any Western democracy, though its effect on mental-health outcomes has not yet been evaluated.",
+            "Australia's parliament passed the Online Safety Amendment (Social Media Minimum Age) Act in late November 2024 (assent December 2024), and the ban commenced on 10 December 2025. It bars under-16s from holding accounts on platforms including TikTok, Instagram, Facebook, Snapchat, X, Reddit, Threads, Twitch and Kick (YouTube's status shifted during rollout), placing enforcement on platforms, with fines up to ~A$50M, rather than on parents or children. In the first days of enforcement, platforms reported removing or restricting around 4.7 million under-16 accounts. It is the strongest government intervention on children's technology access in any Western democracy, though its effect on mental-health outcomes has not yet been evaluated.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

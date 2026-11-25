@@ -38,43 +38,43 @@ export const geoengineeringClimateData = {
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "Reflecting Sunlight: Recommendations for Solar Geoengineering Research and Research Governance — National Academies (2021)",
+      title: "Reflecting Sunlight: Recommendations for Solar Geoengineering Research and Research Governance: National Academies (2021)",
       url: "https://www.nationalacademies.org/publications/25762",
     },
     {
-      title: "Solar radiation modification — Group of Chief Scientific Advisors and European Group on Ethics (December 2024)",
+      title: "Solar radiation modification: Group of Chief Scientific Advisors and European Group on Ethics (December 2024)",
       url: "https://scientificadvice.eu/advice/solar-radiation-modification/",
     },
     {
-      title: "Exploring Climate Cooling programme — ARIA",
+      title: "Exploring Climate Cooling programme: ARIA",
       url: "https://www.aria.org.uk/opportunity-spaces/future-proofing-our-climate-and-weather/exploring-climate-cooling",
     },
     {
-      title: "Indicators of Global Climate Change 2024 — Forster et al., Earth System Science Data (2025)",
+      title: "Indicators of Global Climate Change 2024: Forster et al., Earth System Science Data (2025)",
       url: "https://essd.copernicus.org/articles/17/2641/2025/",
     },
     {
-      title: "Effects of Mount Pinatubo volcanic eruption on the hydrological cycle as an analog of geoengineering — Trenberth and Dai, GRL (2007)",
+      title: "Effects of Mount Pinatubo volcanic eruption on the hydrological cycle as an analog of geoengineering: Trenberth and Dai, GRL (2007)",
       url: "https://doi.org/10.1029/2007GL030524",
     },
     {
-      title: "The State of Carbon Dioxide Removal — CO2RE",
+      title: "The State of Carbon Dioxide Removal: CO2RE",
       url: "https://www.stateofcdr.org/",
     },
     {
-      title: "Geoengineering the Climate: Science, Governance, and Uncertainty — Royal Society",
+      title: "Geoengineering the Climate: Science, Governance, and Uncertainty: Royal Society",
       url: "https://royalsociety.org/topics-policy/publications/2009/geoengineering-climate/",
     },
     {
-      title: "Asymmetric forcing from stratospheric aerosols impacts Sahelian rainfall — Haywood et al., Nature Climate Change (2013)",
+      title: "Asymmetric forcing from stratospheric aerosols impacts Sahelian rainfall: Haywood et al., Nature Climate Change (2013)",
       url: "https://doi.org/10.1038/nclimate1857",
     },
     {
-      title: "The impact of abrupt suspension of solar radiation management (termination effect) in GeoMIP experiment G2 — Jones et al., JGR Atmospheres (2013)",
+      title: "The impact of abrupt suspension of solar radiation management (termination effect) in GeoMIP experiment G2: Jones et al., JGR Atmospheres (2013)",
       url: "https://doi.org/10.1002/jgrd.50762",
     },
     {
-      title: "Potentially dangerous consequences for biodiversity of solar geoengineering implementation and termination — Trisos et al., Nature Ecology & Evolution (2018)",
+      title: "Potentially dangerous consequences for biodiversity of solar geoengineering implementation and termination: Trisos et al., Nature Ecology & Evolution (2018)",
       url: "https://doi.org/10.1038/s41559-017-0431-0",
     },
   ],

@@ -34,25 +34,25 @@ export const aiReplacingDoctorsData = {
     "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "WHO — Ethics and Governance of AI for Health (Guidance, 2021)",
+      title: "WHO, Ethics and Governance of AI for Health (Guidance, 2021)",
       url: "https://www.who.int/publications/i/item/9789240029200",
     },
     {
-      title: "Nori et al. — Sequential Diagnosis with Language Models (Microsoft MAI-DxO), arXiv:2506.22405 (2025)",
+      title: "Nori et al., Sequential Diagnosis with Language Models (Microsoft MAI-DxO), arXiv:2506.22405 (2025)",
       url: "https://arxiv.org/abs/2506.22405",
     },
     {
-      title: "FDA — List of Artificial Intelligence-Enabled Medical Devices",
+      title: "FDA, List of Artificial Intelligence-Enabled Medical Devices",
       url: "https://www.fda.gov/medical-devices/artificial-intelligence-enabled-medical-devices/list-artificial-intelligence-enabled-medical-devices",
     },
     {
       title:
-        "Hernström et al. — Screening performance in the MASAI randomised trial of AI-supported mammography, The Lancet Digital Health (2025)",
+        "Hernström et al., Screening performance in the MASAI randomised trial of AI-supported mammography, The Lancet Digital Health (2025)",
       url: "https://www.thelancet.com/journals/landig/article/PIIS2589-7500(24)00267-X/fulltext",
     },
     {
       title:
-        "Singhal et al. — Large language models encode clinical knowledge (Med-PaLM), Nature 620, 172-180 (2023)",
+        "Singhal et al., Large language models encode clinical knowledge (Med-PaLM), Nature 620, 172-180 (2023)",
       url: "https://doi.org/10.1038/s41586-023-06291-2",
     },
   ],
@@ -72,7 +72,7 @@ export const aiReplacingDoctorsData = {
         },
         {
           title:
-            "Gulshan et al. — Deep learning algorithm for diabetic retinopathy in retinal fundus photographs, JAMA 316(22), 2402-2410 (2016)",
+            "Gulshan et al., Deep learning algorithm for diabetic retinopathy in retinal fundus photographs, JAMA 316(22), 2402-2410 (2016)",
           url: "https://doi.org/10.1001/jama.2016.17216",
         },
       ],

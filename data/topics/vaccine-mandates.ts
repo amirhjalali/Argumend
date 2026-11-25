@@ -51,7 +51,7 @@ export const vaccineMandatesData = {
         description:
           "The load-bearing empirical question is how many additional people get vaccinated because of the mandate, versus those who would have been vaccinated anyway as the rollout matured or as a school year turned over.",
         methodology:
-          "Use quasi-experimental designs — difference-in-differences across jurisdictions with staggered mandate timing, interrupted time series with matched controls, or synthetic-control modelling — to isolate the mandate's marginal effect on first-dose rates, separating it from the underlying uptake trend. For school rules, compare coverage before and after exemptions are added or removed (California 2016, Florida if its rule takes effect) against matched states that made no change.",
+          "Use quasi-experimental designs, difference-in-differences across jurisdictions with staggered mandate timing, interrupted time series with matched controls, or synthetic-control modelling, to isolate the mandate's marginal effect on first-dose rates, separating it from the underlying uptake trend. For school rules, compare coverage before and after exemptions are added or removed (California 2016, Florida if its rule takes effect) against matched states that made no change.",
         verification_status: "verified" as const,
         settle: {
           condition:

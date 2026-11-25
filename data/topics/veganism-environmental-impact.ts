@@ -29,9 +29,9 @@ export const veganismEnvironmentalData = {
         "Vegan diets produce about 75% less greenhouse gas emissions and use about 75% less land than high-meat diets, with roughly two-thirds less biodiversity loss and around half the water use, according to large-scale Oxford research.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Food system emissions are only 26% of the global total; transport and energy dwarf dietary choices. Not all land used for grazing is suitable for crops—much grassland cannot grow vegetables. Ruminants on non-arable land convert inedible grass into protein. A focus on individual diet distracts from systemic industrial change.",
+        "Food system emissions are only 26% of the global total; transport and energy dwarf dietary choices. Not all land used for grazing is suitable for crops, much grassland cannot grow vegetables. Ruminants on non-arable land convert inedible grass into protein. A focus on individual diet distracts from systemic industrial change.",
       proponent_rebuttal:
-        "A 2023 Oxford study of 55,504 UK residents published in Nature Food found vegan diets produce just 25% of the greenhouse gas emissions of high-meat diets and use about 75% less land. The same study put vegans at roughly a third of high-meat-eaters' biodiversity-loss impact (~66% lower), about a quarter of their eutrophication (water-pollution) impact (~73% lower), and under half their water use (~54% lower). Separately, Poore & Nemecek's Science meta-analysis estimates a global shift to plant-based diets could cut food's land use by about 76% and its greenhouse emissions by about 49%—freeing farmland on the scale of the US, China, Australia, and the EU combined. This is not about individual virtue; it is the single largest lever available for food-system decarbonization.",
+        "A 2023 Oxford study of 55,504 UK residents published in Nature Food found vegan diets produce just 25% of the greenhouse gas emissions of high-meat diets and use about 75% less land. The same study put vegans at roughly a third of high-meat-eaters' biodiversity-loss impact (~66% lower), about a quarter of their eutrophication (water-pollution) impact (~73% lower), and under half their water use (~54% lower). Separately, Poore & Nemecek's Science meta-analysis estimates a global shift to plant-based diets could cut food's land use by about 76% and its greenhouse emissions by about 49%, freeing farmland on the scale of the US, China, Australia, and the EU combined. This is not about individual virtue; it is the single largest lever available for food-system decarbonization.",
       crux: {
         id: "global-dietary-shift-modeling",
         title: "Global Dietary Shift Impact Modeling",
@@ -51,7 +51,7 @@ export const veganismEnvironmentalData = {
         cost_to_verify: "$500K (Meta-analysis and modeling of existing datasets)",
         falsification: {
           supporter_flip:
-            "If integrated food-system models showed large dietary shifts deliver far smaller real-world savings than the per-capita studies imply — because freed grazing land doesn't actually draw down carbon, rebound effects redirect it to other emissions, or non-arable land can't substitute crops at scale — the 'single biggest lever' claim would shrink.",
+            "If integrated food-system models showed large dietary shifts deliver far smaller real-world savings than the per-capita studies imply (because freed grazing land doesn't actually draw down carbon, rebound effects redirect it to other emissions, or non-arable land can't substitute crops at scale) the 'single biggest lever' claim would shrink.",
           skeptic_flip:
             "If food-system accounts confirmed animal products drive most of food's land use and emissions, and no other single consumer choice came near a ~75% footprint cut, diet would look like a major lever even though food is about 26% of emissions.",
           common_ground:
@@ -141,7 +141,7 @@ export const veganismEnvironmentalData = {
       skeptic_premise:
         "Vegan diets require careful planning to avoid deficiencies in B12, iron, omega-3, zinc, and calcium. In developing nations, animal products are often the most accessible source of complete protein and bioavailable micronutrients. Children, pregnant women, and the elderly face higher risks. Supplements are not universally available or affordable.",
       proponent_rebuttal:
-        "Major nutrition bodies (Academy of Nutrition and Dietetics, British Dietetic Association) state appropriately planned vegan diets are nutritionally adequate for all life stages. B12 supplementation costs pennies per day, and a 2025 Frontiers in Nutrition modelling study found a vegan menu nutritionally equivalent to a Mediterranean diet apart from small, supplement-remediable deficits in vitamin D, iodine, and B12. Crucially, the environmental case targets where the impact actually concentrates: high-income, high-meat consumers. It does not require subsistence farmers in food-insecure regions—who depend on animal-source foods for bioavailable iron, zinc, and B12 and lack reliable supplement supply chains—to abandon livestock. The claim is that affluent populations, whose dietary choices are unconstrained, can shift to plant-based diets without nutritional penalty, which is precisely where the largest emissions and land-use savings sit.",
+        "Major nutrition bodies (Academy of Nutrition and Dietetics, British Dietetic Association) state appropriately planned vegan diets are nutritionally adequate for all life stages. B12 supplementation costs pennies per day, and a 2025 Frontiers in Nutrition modelling study found a vegan menu nutritionally equivalent to a Mediterranean diet apart from small, supplement-remediable deficits in vitamin D, iodine, and B12. Crucially, the environmental case targets where the impact actually concentrates: high-income, high-meat consumers. It does not require subsistence farmers in food-insecure regions (who depend on animal-source foods for bioavailable iron, zinc, and B12 and lack reliable supplement supply chains) to abandon livestock. The claim is that affluent populations, whose dietary choices are unconstrained, can shift to plant-based diets without nutritional penalty, which is precisely where the largest emissions and land-use savings sit.",
       crux: {
         id: "population-nutrition-outcomes",
         title: "Large-Scale Vegan Population Health Outcomes",
@@ -165,7 +165,7 @@ export const veganismEnvironmentalData = {
           common_ground:
             "Both sides agree vegan diets require deliberate planning and B12 supplementation, and that animal-source foods are nutritionally critical where supplement supply chains are weak.",
           live_disagreement:
-            "Whether a population-scale shift to vegan diets in wealthy countries carries any net health penalty once deficiencies are supplement-corrected — which no very-long-term controlled cohort has settled.",
+            "Whether a population-scale shift to vegan diets in wealthy countries carries any net health penalty once deficiencies are supplement-corrected, which no very-long-term controlled cohort has settled.",
         },
       },
       evidence: [
@@ -184,7 +184,7 @@ export const veganismEnvironmentalData = {
           source: "Melina, Craig & Levin, J Acad Nutr Diet 116(12):1970–1980 (2016)",
           sourceUrl: "https://www.jandonline.org/article/S2212-2672(16)31192-3/fulltext",
           reasoning:
-            "Authoritative position from the largest nutrition professional body; the quoted sentence is verbatim from the 2016 position paper (Melina, Craig & Levin). However, the qualifier 'appropriately planned' is doing significant work—it implies that poorly planned vegan diets carry real risks.",
+            "Authoritative position from the largest nutrition professional body; the quoted sentence is verbatim from the 2016 position paper (Melina, Craig & Levin). However, the qualifier 'appropriately planned' is doing significant work; it implies that poorly planned vegan diets carry real risks.",
         },
         {
           id: "developing-nation-access",

@@ -28,12 +28,12 @@ export const mandatoryVotingData = {
       id: "democratic-representation",
       title: "Democratic Representation",
       short_summary:
-        "Australia's mandatory voting pushes turnout above 90% — up roughly 32 points, from 59.4% in 1922 to 91.4% in 1925. The question is whether those additional voters improve representation or dilute it.",
+        "Australia's mandatory voting pushes turnout above 90%, up roughly 32 points, from 59.4% in 1922 to 91.4% in 1925. The question is whether those additional voters improve representation or dilute it.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Compelling abstainers to the booth draws in the least interested and least informed citizens, whose ballots — as Selb and Lachat find — track their own stated preferences less consistently, so 'equal turnout' need not mean equal representation. Add donkey votes (ranking candidates in ballot order) and resentment, and forced participation can add noise rather than signal. There is also a liberty claim: the freedom to vote should include the freedom to decline, and a non-vote can itself be a deliberate political statement.",
+        "Compelling abstainers to the booth draws in the least interested and least informed citizens, whose ballots, as Selb and Lachat find, track their own stated preferences less consistently, so 'equal turnout' need not mean equal representation. Add donkey votes (ranking candidates in ballot order) and resentment, and forced participation can add noise rather than signal. There is also a liberty claim: the freedom to vote should include the freedom to decline, and a non-vote can itself be a deliberate political statement.",
       proponent_rebuttal:
-        "Australia sustains 90%+ turnout versus roughly 60% in the US. When everyone must vote, campaigns cannot win by suppressing the other side's turnout, so they have to court the whole electorate — including lower-propensity, working-class voters whose preferences are otherwise underweighted. Fowler's quasi-experimental study of Australia's staggered roll-out found exactly such a redistributive shift (higher Labor vote and pension spending), not a move toward bland centrism. The 'uninformed voter' worry is also partly paternalistic: every citizen lives under the policy that results, whatever their prior level of engagement.",
+        "Australia sustains 90%+ turnout versus roughly 60% in the US. When everyone must vote, campaigns cannot win by suppressing the other side's turnout, so they have to court the whole electorate, including lower-propensity, working-class voters whose preferences are otherwise underweighted. Fowler's quasi-experimental study of Australia's staggered roll-out found exactly such a redistributive shift (higher Labor vote and pension spending), not a move toward bland centrism. The 'uninformed voter' worry is also partly paternalistic: every citizen lives under the policy that results, whatever their prior level of engagement.",
       crux: {
         id: "turnout-representation-link",
         title: "Turnout–Representation Correlation",
@@ -51,7 +51,7 @@ export const mandatoryVotingData = {
         cost_to_verify: "$500K (Cross-national comparative study)",
         falsification: {
           supporter_flip:
-            "If careful comparisons showed compulsory-voting countries are no more responsive to median-voter or lower-income preferences than voluntary ones — the extra voters too uninformed to shift policy and 'donkey votes' adding only noise — the representation case for compulsion would collapse.",
+            "If careful comparisons showed compulsory-voting countries are no more responsive to median-voter or lower-income preferences than voluntary ones, the extra voters too uninformed to shift policy and 'donkey votes' adding only noise, the representation case for compulsion would collapse.",
           skeptic_flip:
             "If more studies of Australia's staggered rollout found the same policy shift toward lower-income voters, with more pension spending and a higher Labor vote, compelled votes would be hard to dismiss as pure noise.",
           common_ground:
@@ -65,7 +65,7 @@ export const mandatoryVotingData = {
           id: "mv-aus-turnout",
           title: "Australian Electoral Commission Turnout Data",
           description:
-            "Australia introduced compulsory voting federally via the Commonwealth Electoral Act 1924. Turnout jumped from 59.4% at the 1922 election to 91.4% in 1925 and has not fallen below ~90% since, averaging around 95% for much of the 20th century — far above turnout in comparable voluntary systems.",
+            "Australia introduced compulsory voting federally via the Commonwealth Electoral Act 1924. Turnout jumped from 59.4% at the 1922 election to 91.4% in 1925 and has not fallen below ~90% since, averaging around 95% for much of the 20th century, far above turnout in comparable voluntary systems.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -101,7 +101,7 @@ export const mandatoryVotingData = {
           id: "mv-oecd-democracy",
           title: "Democracy Index Comparisons",
           description:
-            "Several countries with enforced compulsory voting — including Australia, Uruguay and (historically) Belgium — are classified as 'full democracies' near the top of the Economist Intelligence Unit Democracy Index, indicating that compelled turnout is at least compatible with high-quality democracy.",
+            "Several countries with enforced compulsory voting, including Australia, Uruguay and (historically) Belgium, are classified as 'full democracies' near the top of the Economist Intelligence Unit Democracy Index, indicating that compelled turnout is at least compatible with high-quality democracy.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -160,9 +160,9 @@ export const mandatoryVotingData = {
         "Compulsory voting treats a symptom. If citizens are disengaged, does forcing them into a booth fix the underlying problem?",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "A flat penalty is regressive: the same $20 notice (or $330 court fine) bites a low-income non-voter far harder than a wealthy one, so the cost of compulsion falls unevenly. And forcing attendance treats a symptom, not the disease — disengagement is driven by uncompetitive seats, weak candidates and a system many voters feel is captured. Mandating turnout can mask that rot behind a healthy-looking participation figure rather than fixing it.",
+        "A flat penalty is regressive: the same $20 notice (or $330 court fine) bites a low-income non-voter far harder than a wealthy one, so the cost of compulsion falls unevenly. And forcing attendance treats a symptom, not the disease, disengagement is driven by uncompetitive seats, weak candidates and a system many voters feel is captured. Mandating turnout can mask that rot behind a healthy-looking participation figure rather than fixing it.",
       proponent_rebuttal:
-        "Australia's first-line fine is ~$20, escalating to a court-imposed maximum of $330 — modest enforcement paired with near-universal compliance. The US, a voluntary-voting system, also saw by far the largest rise in affective polarization among twelve OECD democracies (Boxell, Gentzkow & Shapiro), which is at least suggestive — though not proof — that universal turnout may dampen the incentive to win by polarizing and suppressing rather than persuading.",
+        "Australia's first-line fine is ~$20, escalating to a court-imposed maximum of $330, modest enforcement paired with near-universal compliance. The US, a voluntary-voting system, also saw by far the largest rise in affective polarization among twelve OECD democracies (Boxell, Gentzkow & Shapiro), which is at least suggestive, though not proof, that universal turnout may dampen the incentive to win by polarizing and suppressing rather than persuading.",
       crux: {
         id: "enforcement-cost-benefit",
         title: "Enforcement Cost–Benefit Analysis",
@@ -181,13 +181,13 @@ export const mandatoryVotingData = {
         cost_to_verify: "$200K (Comparative administrative study)",
         falsification: {
           supporter_flip:
-            "If the administrative and liberty costs of compelling turnout clearly outweighed the democratic gains — regressive fines biting the poor, little improvement in polarization or responsiveness — the practical case for adopting it would weaken even if it raises turnout.",
+            "If the administrative and liberty costs of compelling turnout clearly outweighed the democratic gains, regressive fines biting the poor, little improvement in polarization or responsiveness, the practical case for adopting it would weaken even if it raises turnout.",
           skeptic_flip:
             "If enforcement data kept showing near-universal compliance from a modest first fine of about $20, and cross-country work tied voluntary voting to the steep rise in affective polarization seen in the US, the cost of compulsion would look small next to its gains.",
           common_ground:
             "Both sides agree a flat fine is somewhat regressive and that disengagement has deeper causes (uncompetitive seats, weak candidates) that compulsion alone doesn't fix.",
           live_disagreement:
-            "Whether the modest enforcement cost and liberty trade-off are justified by the democratic benefits — which depends on contested estimates of how much compulsion actually improves representation and reduces polarization.",
+            "Whether the modest enforcement cost and liberty trade-off are justified by the democratic benefits, which depends on contested estimates of how much compulsion actually improves representation and reduces polarization.",
         },
       },
       evidence: [
@@ -212,7 +212,7 @@ export const mandatoryVotingData = {
           id: "mv-polarization-comparison",
           title: "Political Polarization Comparison",
           description:
-            "Boxell, Gentzkow & Shapiro track affective polarization across twelve OECD democracies over four decades and find the United States — a voluntary-voting system — had by far the largest increase, while several other countries saw flat or declining polarization. The study does not test compulsory voting as a cause, so it is only suggestive evidence that voting rules might dampen polarization.",
+            "Boxell, Gentzkow & Shapiro track affective polarization across twelve OECD democracies over four decades and find the United States, a voluntary-voting system, had by far the largest increase, while several other countries saw flat or declining polarization. The study does not test compulsory voting as a cause, so it is only suggestive evidence that voting rules might dampen polarization.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -230,7 +230,7 @@ export const mandatoryVotingData = {
           id: "mv-ballot-order-effect",
           title: "Ballot position is worth about a percentage point in Australian elections",
           description:
-            "King and Leigh, in Social Science Quarterly (2009), used every Australian federal election between 1984 and 2004 — 1,187 contests and 7,113 candidate-election observations — and estimated that being placed first on the ballot raises a candidate's primary vote share by about one percentage point. As a share of their total vote the effect is much larger for independents and minor parties than for the major parties.",
+            "King and Leigh, in Social Science Quarterly (2009), used every Australian federal election between 1984 and 2004, 1,187 contests and 7,113 candidate-election observations, and estimated that being placed first on the ballot raises a candidate's primary vote share by about one percentage point. As a share of their total vote the effect is much larger for independents and minor parties than for the major parties.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,

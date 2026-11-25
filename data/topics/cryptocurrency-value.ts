@@ -33,27 +33,27 @@ export const cryptocurrencyValueData = {
   ],
   references: [
     {
-      title: "Bitcoin: A Peer-to-Peer Electronic Cash System — Satoshi Nakamoto (2008)",
+      title: "Bitcoin: A Peer-to-Peer Electronic Cash System, Satoshi Nakamoto (2008)",
       url: "https://bitcoin.org/bitcoin.pdf",
     },
     {
-      title: "Current price of Bitcoin for November 2, 2026 — Fortune",
+      title: "Current price of Bitcoin for November 2, 2026, Fortune",
       url: "https://fortune.com/article/price-of-bitcoin-11-02-2026/",
     },
     {
-      title: "Bitcoin set for first yearly loss since 2022 as macro trends weigh on crypto — Reuters via The Star (1 Jan 2026)",
+      title: "Bitcoin set for first yearly loss since 2022 as macro trends weigh on crypto, Reuters via The Star (1 Jan 2026)",
       url: "https://www.thestar.com.my/tech/tech-news/2026/01/01/bitcoin-set-for-first-yearly-loss-since-2022-as-macro-trends-weigh-on-crypto",
     },
     {
-      title: "In 2025, Bitcoin put on a show, while gold did the job — MarketScreener (23 Dec 2025)",
+      title: "In 2025, Bitcoin put on a show, while gold did the job, MarketScreener (23 Dec 2025)",
       url: "https://uk.marketscreener.com/news/in-2025-bitcoin-put-on-a-show-while-gold-did-the-job-ce7d50d3d180f121",
     },
     {
-      title: "Bitcoin market report, October 2026 — Simple Mining (2 Nov 2026)",
+      title: "Bitcoin market report, October 2026, Simple Mining (2 Nov 2026)",
       url: "https://www.simplemining.io/insights/post/bitcoin-market-report-october-2026",
     },
     {
-      title: "Fact Sheet: President Donald J. Trump Establishes the Strategic Bitcoin Reserve and U.S. Digital Asset Stockpile — White House (6 Mar 2025)",
+      title: "Fact Sheet: President Donald J. Trump Establishes the Strategic Bitcoin Reserve and U.S. Digital Asset Stockpile, White House (6 Mar 2025)",
       url: "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-establishes-the-strategic-bitcoin-reserve-and-u-s-digital-asset-stockpile/",
     },
   ],
@@ -117,7 +117,7 @@ export const cryptocurrencyValueData = {
           common_ground:
             "Both sides agree the 21M cap is currently enforced and auditable by any full node, and that thousands of other tokens copy the same supply mechanism without matching Bitcoin's adoption.",
           live_disagreement:
-            "Whether Bitcoin's lead is a durable, defensible network moat or a temporary first-mover position that a superior protocol could erode — which only continued survival without existential failure, tracked over another decade-plus, can settle.",
+            "Whether Bitcoin's lead is a durable, defensible network moat or a temporary first-mover position that a superior protocol could erode, which only continued survival without existential failure, tracked over another decade-plus, can settle.",
         },
       },
       evidence: [
@@ -176,7 +176,7 @@ export const cryptocurrencyValueData = {
     },
 
     // =========================================================================
-    // PILLAR 2: The 2025-26 test — did it behave like gold?
+    // PILLAR 2: The 2025-26 test, did it behave like gold?
     // =========================================================================
     {
       id: "volatility-problem",
@@ -309,7 +309,7 @@ export const cryptocurrencyValueData = {
     },
 
     // =========================================================================
-    // PILLAR 3: The new holders — ETFs, companies and governments
+    // PILLAR 3: The new holders, ETFs, companies and governments
     // =========================================================================
     {
       id: "institutional-holders",

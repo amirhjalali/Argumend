@@ -4,7 +4,7 @@ export const ai2027Data = {
   question:
     "Will automating AI research bring superintelligence by the late 2020s?",
   meta_claim:
-    "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s — making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
+    "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s, making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
   status: "highly_speculative" as const,
   category: "technology" as const,
   references: [
@@ -18,7 +18,7 @@ export const ai2027Data = {
       url: "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
     },
     {
-      title: "Epoch AI — Machine Learning Trends",
+      title: "Epoch AI, Machine Learning Trends",
       url: "https://epochai.org/trends",
     },
   ],
@@ -39,7 +39,7 @@ export const ai2027Data = {
       id: "q3",
       title: "Are aggressive AI timelines systematically wrong?",
       content:
-        "Forecasters — including the AI 2027 authors — have strong priors that AI arrives soon. History records both premature AI hype (the winters) and a recent run of expert predictions that proved far too conservative. Which base rate applies here is itself a measurable, resolvable question.",
+        "Forecasters, including the AI 2027 authors, have strong priors that AI arrives soon. History records both premature AI hype (the winters) and a recent run of expert predictions that proved far too conservative. Which base rate applies here is itself a measurable, resolvable question.",
     },
   ],
   // ── The opening: the fact under the title, then what rides on it ──
@@ -63,18 +63,18 @@ export const ai2027Data = {
         "The engine of the scenario: AI that can autonomously do longer and longer research tasks starts accelerating the research that produces the next AI.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "AI research is not a pure cognition problem. Its critical path runs through large training runs, real-world experiment latency, finite compute, and scarce high-quality data — serial bottlenecks that ten thousand fast AI 'researchers' cannot skip. By Amdahl's logic, automating the parallelizable thinking only speeds the whole loop up to the ceiling set by the non-automatable steps. You can generate hypotheses at superhuman speed and still wait weeks for each frontier training run to finish.",
+        "AI research is not a pure cognition problem. Its critical path runs through large training runs, real-world experiment latency, finite compute, and scarce high-quality data, serial bottlenecks that ten thousand fast AI 'researchers' cannot skip. By Amdahl's logic, automating the parallelizable thinking only speeds the whole loop up to the ceiling set by the non-automatable steps. You can generate hypotheses at superhuman speed and still wait weeks for each frontier training run to finish.",
       proponent_rebuttal:
-        "The bottleneck argument assumes the current mix of cognition-to-compute stays fixed, but the loop reallocates it: better research judgment means fewer wasted runs, better algorithms mean more capability per FLOP, and better engineering shortens experiment cycles. And the empirical trend that matters is already moving fast — METR finds the length of task an AI can complete autonomously has been doubling roughly every seven months, which is exactly the variable that governs how much of the research pipeline AI can take over.",
+        "The bottleneck argument assumes the current mix of cognition-to-compute stays fixed, but the loop reallocates it: better research judgment means fewer wasted runs, better algorithms mean more capability per FLOP, and better engineering shortens experiment cycles. And the empirical trend that matters is already moving fast, METR finds the length of task an AI can complete autonomously has been doubling roughly every seven months, which is exactly the variable that governs how much of the research pipeline AI can take over.",
       crux: {
         id: "task-horizon-trajectory",
         title: "The METR Task-Horizon Trajectory",
         question:
           "Will the length of tasks AI can complete on its own keep doubling at its recent pace, or plateau?",
         description:
-          "The single most load-bearing measurement in the whole scenario: the '50%-task-completion time horizon' — the human-clock length of task at which a frontier model succeeds half the time. If this horizon keeps doubling on its recent cadence, short timelines follow almost mechanically; if it plateaus, the intelligence-explosion loop never ignites and the timeline stretches out for decades.",
+          "The single most load-bearing measurement in the whole scenario: the '50%-task-completion time horizon'; the human-clock length of task at which a frontier model succeeds half the time. If this horizon keeps doubling on its recent cadence, short timelines follow almost mechanically; if it plateaus, the intelligence-explosion loop never ignites and the timeline stretches out for decades.",
         methodology:
-          "Assemble a suite of software/research tasks with measured human completion times, evaluate each new frontier model's success rate as a function of task length, and fit the length at which success crosses 50%. Track that horizon across model generations and test whether the doubling time is stable, lengthening, or shortening — and critically, whether the trend on messy real-world research tasks matches the trend on clean benchmarks.",
+          "Assemble a suite of software/research tasks with measured human completion times, evaluate each new frontier model's success rate as a function of task length, and fit the length at which success crosses 50%. Track that horizon across model generations and test whether the doubling time is stable, lengthening, or shortening, and critically, whether the trend on messy real-world research tasks matches the trend on clean benchmarks.",
         equation:
           "H(t) = H_0 \\cdot 2^{\\,t / \\tau}, \\quad \\tau \\approx 7\\ \\text{months}",
         verification_status: "verified" as const,
@@ -86,7 +86,7 @@ export const ai2027Data = {
           "$0 to track (METR maintains the series; the open question is extrapolation, not measurement)",
         falsification: {
           supporter_flip:
-            "If METR's 50%-completion time horizon stopped doubling across new model generations — or kept rising on software benchmarks but not on messy real-world research tasks — the intelligence-explosion loop would never ignite and the timeline would stretch out for decades.",
+            "If METR's 50%-completion time horizon stopped doubling across new model generations, or kept rising on software benchmarks but not on messy real-world research tasks, the intelligence-explosion loop would never ignite and the timeline would stretch out for decades.",
           skeptic_flip:
             "If METR's task-length horizon kept doubling roughly every seven months on new models, and success on real research tasks rose as fast as it did on GitHub issue resolution, serial bottlenecks would look far less binding.",
           common_ground:
@@ -100,7 +100,7 @@ export const ai2027Data = {
           id: "metr-time-horizon",
           title: "Autonomous task length doubling ~every 7 months",
           description:
-            "METR's 'Measuring AI Ability to Complete Long Tasks' (2025) finds the 50%-completion time horizon of frontier models has grown exponentially since 2019, doubling roughly every seven months — the clearest quantitative signal that AI is climbing toward autonomously executing long research tasks.",
+            "METR's 'Measuring AI Ability to Complete Long Tasks' (2025) finds the 50%-completion time horizon of frontier models has grown exponentially since 2019, doubling roughly every seven months; the clearest quantitative signal that AI is climbing toward autonomously executing long research tasks.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -118,7 +118,7 @@ export const ai2027Data = {
           id: "coding-agent-progress",
           title: "AI already handles substantial software-engineering tasks",
           description:
-            "Frontier models' success rates on real GitHub issue-resolution benchmarks (SWE-bench Verified) rose from a few percent to a majority of tasks within roughly two years — evidence that a large share of the coding labor inside AI R&D is becoming automatable.",
+            "Frontier models' success rates on real GitHub issue-resolution benchmarks (SWE-bench Verified) rose from a few percent to a majority of tasks within roughly two years, evidence that a large share of the coding labor inside AI R&D is becoming automatable.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -143,9 +143,9 @@ export const ai2027Data = {
             replicability: 5,
             directness: 6,
           },
-          source: "Synthesis / inference — Amdahl's law applied to an unmeasured R&D pipeline",
+          source: "Synthesis / inference: Amdahl's law applied to an unmeasured R&D pipeline",
           reasoning:
-            "A clean, well-grounded structural argument, but hard to size precisely — how large the serial fraction is remains the empirical question.",
+            "A clean, well-grounded structural argument, but hard to size precisely, how large the serial fraction is remains the empirical question.",
         },
         {
           id: "experiment-latency",
@@ -159,7 +159,7 @@ export const ai2027Data = {
             replicability: 4,
             directness: 6,
           },
-          source: "Synthesis / inference — qualitative constraint from experiment and compute latency",
+          source: "Synthesis / inference: qualitative constraint from experiment and compute latency",
           reasoning:
             "Directly targets the loop's assumed multiplier, but is a qualitative bound rather than a measured coefficient.",
         },
@@ -174,7 +174,7 @@ export const ai2027Data = {
       skeptic_premise:
         "The inputs face hard walls. Chinchilla-optimal training implies models are increasingly data-bound, and the stock of high-quality human text is finite; energy, fab capacity, and capital all scale sub-exponentially; and gains on the reasoning benchmarks that actually matter for research are slowing per compute dollar. Extrapolating a straight line on a log plot ignores that every input feeding it is bending.",
       proponent_rebuttal:
-        "Each apparent wall has had a workaround on trend. Epoch AI finds frontier training compute has grown roughly 4–5× per year, and that algorithmic efficiency independently improves at a comparable pace — the two compound. Data limits are being pushed back by synthetic data, self-play, and RL on verifiable tasks. The scenario doesn't need the trend to run forever; it only needs it to hold for the few more orders of magnitude to the automation threshold.",
+        "Each apparent wall has had a workaround on trend. Epoch AI finds frontier training compute has grown roughly 4–5× per year, and that algorithmic efficiency independently improves at a comparable pace; the two compound. Data limits are being pushed back by synthetic data, self-play, and RL on verifiable tasks. The scenario doesn't need the trend to run forever; it only needs it to hold for the few more orders of magnitude to the automation threshold.",
       crux: {
         id: "effective-compute-extrapolation",
         title: "The Effective-Compute Extrapolation",
@@ -194,7 +194,7 @@ export const ai2027Data = {
         cost_to_verify: "$0 (public Epoch AI trend data; extrapolation is the contested step)",
         falsification: {
           supporter_flip:
-            "If projecting Epoch AI's effective-compute curve against explicit ceilings — high-quality data, fab and power buildout, benchmark gains per FLOP on reasoning tasks — showed a binding wall arriving before the automation threshold, the scenario's timeline would fail.",
+            "If projecting Epoch AI's effective-compute curve against explicit ceilings (high-quality data, fab and power buildout, benchmark gains per FLOP on reasoning tasks) showed a binding wall arriving before the automation threshold, the scenario's timeline would fail.",
           skeptic_flip:
             "If frontier training compute kept growing roughly 4–5× a year, with algorithmic efficiency compounding on top, for the few more orders of magnitude the scenario needs, the view that every input is bending would lose its footing.",
           common_ground:
@@ -208,7 +208,7 @@ export const ai2027Data = {
           id: "epoch-compute-growth",
           title: "Training compute growing ~4–5× per year",
           description:
-            "Epoch AI's tracking of notable models shows frontier training compute has grown roughly 4–5× annually over the past decade — far faster than Moore's Law and a core input to short-timeline projections.",
+            "Epoch AI's tracking of notable models shows frontier training compute has grown roughly 4–5× annually over the past decade, far faster than Moore's Law and a core input to short-timeline projections.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -225,7 +225,7 @@ export const ai2027Data = {
           id: "algorithmic-efficiency",
           title: "Algorithmic efficiency compounds on top of compute",
           description:
-            "Epoch AI's analysis of algorithmic progress finds the compute needed to reach a fixed language-model performance has been falling rapidly — an efficiency gain that multiplies raw hardware growth rather than merely adding to it.",
+            "Epoch AI's analysis of algorithmic progress finds the compute needed to reach a fixed language-model performance has been falling rapidly; an efficiency gain that multiplies raw hardware growth rather than merely adding to it.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -243,7 +243,7 @@ export const ai2027Data = {
           id: "chinchilla-data-wall",
           title: "Chinchilla implies a looming data wall",
           description:
-            "Hoffmann et al.'s 'Chinchilla' (2022) showed compute-optimal models need far more data than previously assumed. Extended forward, that scaling law collides with the finite stock of high-quality human text — a constraint straight-line compute extrapolations ignore.",
+            "Hoffmann et al.'s 'Chinchilla' (2022) showed compute-optimal models need far more data than previously assumed. Extended forward, that scaling law collides with the finite stock of high-quality human text; a constraint straight-line compute extrapolations ignore.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -278,14 +278,14 @@ export const ai2027Data = {
     },
     {
       id: "takeoff-speed",
-      title: "Takeoff Is Fast — Months, Not Decades",
+      title: "Takeoff Is Fast, Months, Not Decades",
       short_summary:
         "The central crux: whether crossing the automation threshold triggers an abrupt few-month explosion or a gradual, economically visible ramp over years.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Even granting a feedback loop, its output has to flow through the physical world: chips must be fabricated, data centers powered, models deployed, and results validated by slow experiments. Paul Christiano's 'slow takeoff' picture — a continuous, broadly distributed, years-long acceleration that shows up in GDP and markets before it shows up as a singleton — is the mainstream steelman, and it implies a far wider policy window than a 2027 cliff.",
+        "Even granting a feedback loop, its output has to flow through the physical world: chips must be fabricated, data centers powered, models deployed, and results validated by slow experiments. Paul Christiano's 'slow takeoff' picture (a continuous, broadly distributed, years-long acceleration that shows up in GDP and markets before it shows up as a singleton) is the mainstream steelman, and it implies a far wider policy window than a 2027 cliff.",
       proponent_rebuttal:
-        "Compute-centric takeoff models (Tom Davidson's framework for Open Philanthropy) suggest that once AI automates a large share of AI R&D, the transition from roughly-human to strongly-superhuman research capability can be startlingly fast — potentially under a year — because the software leg of the loop has no fab-construction latency. Narrow precedents already show AI improving the tools of its own field: systems have discovered faster matrix-multiplication and chip-design routines. The question isn't whether the loop exists but how much of it is software-limited versus hardware-limited.",
+        "Compute-centric takeoff models (Tom Davidson's framework for Open Philanthropy) suggest that once AI automates a large share of AI R&D, the transition from roughly-human to strongly-superhuman research capability can be startlingly fast, potentially under a year, because the software leg of the loop has no fab-construction latency. Narrow precedents already show AI improving the tools of its own field: systems have discovered faster matrix-multiplication and chip-design routines. The question isn't whether the loop exists but how much of it is software-limited versus hardware-limited.",
       crux: {
         id: "software-intelligence-explosion",
         title: "The Software-Intelligence-Explosion Test",
@@ -310,9 +310,9 @@ export const ai2027Data = {
           skeptic_flip:
             "If measurements holding hardware fixed found the R&D speed-up rising steeply as automation deepened, matching the months-long path in Davidson's compute-centric model, a fast takeoff would look plausible rather than a decades-long ramp.",
           common_ground:
-            "Both sides grant that a feedback loop exists — AI already improves parts of its own stack — and that some of its output must flow through fabs, power and deployment.",
+            "Both sides grant that a feedback loop exists, AI already improves parts of its own stack, and that some of its output must flow through fabs, power and deployment.",
           live_disagreement:
-            "How much of the loop is software-limited and able to run in months, versus hardware-limited by fabs, power and slow experiments — which decides whether takeoff is an abrupt explosion or a years-long, visible ramp.",
+            "How much of the loop is software-limited and able to run in months, versus hardware-limited by fabs, power and slow experiments, which decides whether takeoff is an abrupt explosion or a years-long, visible ramp.",
         },
       },
       evidence: [
@@ -338,7 +338,7 @@ export const ai2027Data = {
           id: "narrow-self-improvement",
           title: "AI already improves the tools of its own field",
           description:
-            "DeepMind's AlphaTensor (Nature, 2022) discovered faster matrix-multiplication algorithms, and related systems optimize chip layouts and GPU kernels — concrete evidence that AI can accelerate parts of the compute-and-algorithms stack it runs on.",
+            "DeepMind's AlphaTensor (Nature, 2022) discovered faster matrix-multiplication algorithms, and related systems optimize chip layouts and GPU kernels, concrete evidence that AI can accelerate parts of the compute-and-algorithms stack it runs on.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -355,7 +355,7 @@ export const ai2027Data = {
           id: "christiano-slow-takeoff",
           title: "The slow-takeoff case: continuous and visible",
           description:
-            "Christiano's influential 'Takeoff Speeds' argues that transformative AI's precursors will be economically valuable and widely deployed first, producing a smooth, years-long acceleration rather than a sudden discontinuity — the opposite of a 2027 cliff.",
+            "Christiano's influential 'Takeoff Speeds' argues that transformative AI's precursors will be economically valuable and widely deployed first, producing a smooth, years-long acceleration rather than a sudden discontinuity; the opposite of a 2027 cliff.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -372,7 +372,7 @@ export const ai2027Data = {
           id: "deployment-ramp-lag",
           title: "Physical deployment imposes a hard ramp",
           description:
-            "Turning a superhuman model into world-changing capability requires fabs, power, robotics, and organizational adoption — supply chains that historically scale over years, damping any purely-cognitive explosion into a slower real-world ramp.",
+            "Turning a superhuman model into world-changing capability requires fabs, power, robotics, and organizational adoption, supply chains that historically scale over years, damping any purely-cognitive explosion into a slower real-world ramp.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -380,7 +380,7 @@ export const ai2027Data = {
             replicability: 5,
             directness: 6,
           },
-          source: "Synthesis / inference — physical supply-chain constraints applied to takeoff",
+          source: "Synthesis / inference: physical supply-chain constraints applied to takeoff",
           reasoning:
             "A robust constraint on physical impact; less binding on a purely software-mediated research explosion, which is the specific channel the scenario invokes.",
         },
@@ -395,7 +395,7 @@ export const ai2027Data = {
       skeptic_premise:
         "Races can be slowed. Nuclear and biological weapons show that even bitter rivals reach verification-backed restraint under existential stakes; export controls are already throttling a Chinese frontier buildout; and a serious safety incident, liability regime, or public backlash could trigger a pause or hard regulation well before 2027. Assuming no coordination is a choice, not a law of nature.",
       proponent_rebuttal:
-        "The structural incentives point the other way. As argued in Aschenbrenner's 'Situational Awareness,' a perceived national-security race makes unilateral slowdown look like surrender, and the capital is already committed — frontier labs and states are racing to build $100B-class compute clusters. Arms-control analogies break because AI progress is far harder to verify than fissile material and the commercial upside is enormous, so the default is to race, not to pause.",
+        "The structural incentives point the other way. As argued in Aschenbrenner's 'Situational Awareness,' a perceived national-security race makes unilateral slowdown look like surrender, and the capital is already committed, frontier labs and states are racing to build $100B-class compute clusters. Arms-control analogies break because AI progress is far harder to verify than fissile material and the commercial upside is enormous, so the default is to race, not to pause.",
       crux: {
         id: "coordination-vs-race",
         title: "The Observable-Racing Indicators",
@@ -439,7 +439,7 @@ export const ai2027Data = {
           source: "Aschenbrenner, 'Situational Awareness: The Decade Ahead' (2024)",
           sourceUrl: "https://situational-awareness.ai/",
           reasoning:
-            "Directly on the race dynamic and widely read, but a partisan essay by a former frontier-lab researcher, not independent analysis — hence low reliability/independence weights.",
+            "Directly on the race dynamic and widely read, but a partisan essay by a former frontier-lab researcher, not independent analysis, hence low reliability/independence weights.",
         },
         {
           id: "compute-capex-race",
@@ -462,7 +462,7 @@ export const ai2027Data = {
           id: "arms-control-precedent",
           title: "Rivals have coordinated under existential stakes before",
           description:
-            "Nuclear test bans, the Biological Weapons Convention, and Cold War arms control show that even adversaries can negotiate restraint when the downside is catastrophic — a precedent for AI slowdown that the no-coordination assumption dismisses.",
+            "Nuclear test bans, the Biological Weapons Convention, and Cold War arms control show that even adversaries can negotiate restraint when the downside is catastrophic; a precedent for AI slowdown that the no-coordination assumption dismisses.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -480,7 +480,7 @@ export const ai2027Data = {
           id: "export-controls-brake",
           title: "Export controls are already throttling the frontier race",
           description:
-            "US restrictions on advanced-chip and equipment exports to China demonstrate that states can and do impose real friction on a rival's compute buildout — a partial brake the pure-race model treats as absent.",
+            "US restrictions on advanced-chip and equipment exports to China demonstrate that states can and do impose real friction on a rival's compute buildout; a partial brake the pure-race model treats as absent.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -500,12 +500,12 @@ export const ai2027Data = {
       id: "forecaster-calibration",
       title: "Are Aggressive AI Timelines Systematically Wrong?",
       short_summary:
-        "The meta-crux: whether short-timeline forecasting is a track record to trust or a bias to discount — and how much the AI 2027 authors' own stated uncertainty should widen the error bars.",
+        "The meta-crux: whether short-timeline forecasting is a track record to trust or a bias to discount, and how much the AI 2027 authors' own stated uncertainty should widen the error bars.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "AI has a long history of confident, wrong, soon-timelines — the 1970s and 1980s winters followed exactly this pattern. Saturating a benchmark is not the same as general capability: models can ace an exam suite while failing at open-ended, long-horizon, real-world research. And the AI 2027 authors themselves flag deep uncertainty, with some giving a median later than 2027 and 2027 as an aggressive mode. Treating a vivid scenario as a point forecast overweights it.",
+        "AI has a long history of confident, wrong, soon-timelines; the 1970s and 1980s winters followed exactly this pattern. Saturating a benchmark is not the same as general capability: models can ace an exam suite while failing at open-ended, long-horizon, real-world research. And the AI 2027 authors themselves flag deep uncertainty, with some giving a median later than 2027 and 2027 as an aggressive mode. Treating a vivid scenario as a point forecast overweights it.",
       proponent_rebuttal:
-        "The relevant recent base rate cuts the other way: expert and forecaster predictions have been too conservative, repeatedly surprised by GPT-scale jumps, and aggregated researcher surveys shortened their timelines sharply between 2022 and 2023. One of the authors, Daniel Kokotajlo, published 'What 2026 Looks Like' in 2021, and its qualitative trajectory has held up unusually well — evidence that this particular forecasting method is better-calibrated than the generic 'AI is overhyped' prior assumes.",
+        "The relevant recent base rate cuts the other way: expert and forecaster predictions have been too conservative, repeatedly surprised by GPT-scale jumps, and aggregated researcher surveys shortened their timelines sharply between 2022 and 2023. One of the authors, Daniel Kokotajlo, published 'What 2026 Looks Like' in 2021, and its qualitative trajectory has held up unusually well, evidence that this particular forecasting method is better-calibrated than the generic 'AI is overhyped' prior assumes.",
       crux: {
         id: "forecast-calibration-scorecard",
         title: "The Milestone Calibration Scorecard",
@@ -527,9 +527,9 @@ export const ai2027Data = {
           skeptic_flip:
             "If the scenario's datable milestones kept arriving on schedule, and surveyed ML researchers kept pulling milestone dates earlier, aggressive forecasts would look calibrated rather than systematically early, and the AI-winter base rate would count for less.",
           common_ground:
-            "Both sides agree the AI 2027 authors flag deep uncertainty themselves — 2027 is an aggressive mode and some give a later median — so the scenario is not a point forecast.",
+            "Both sides agree the AI 2027 authors flag deep uncertainty themselves, 2027 is an aggressive mode and some give a later median, so the scenario is not a point forecast.",
           live_disagreement:
-            "Whether the recent record of too-conservative forecasts or the older record of AI winters is the better guide to this one — which a running scorecard of the scenario's milestones would test.",
+            "Whether the recent record of too-conservative forecasts or the older record of AI winters is the better guide to this one, which a running scorecard of the scenario's milestones would test.",
         },
       },
       evidence: [
@@ -537,7 +537,7 @@ export const ai2027Data = {
           id: "kokotajlo-2021-track-record",
           title: "Kokotajlo's 2021 forecast has aged unusually well",
           description:
-            "Daniel Kokotajlo's 'What 2026 Looks Like' (2021) laid out a year-by-year AI trajectory that anticipated much of the subsequent scaling-and-chatbot era — a concrete track record suggesting this forecasting approach is better calibrated than the 'always too soon' stereotype.",
+            "Daniel Kokotajlo's 'What 2026 Looks Like' (2021) laid out a year-by-year AI trajectory that anticipated much of the subsequent scaling-and-chatbot era; a concrete track record suggesting this forecasting approach is better calibrated than the 'always too soon' stereotype.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -555,7 +555,7 @@ export const ai2027Data = {
           id: "surveys-shortening",
           title: "Aggregated expert timelines shortened sharply",
           description:
-            "The large 'Thousands of AI Authors on the Future of AI' survey (AI Impacts, 2023) found ML researchers' expected dates for many milestones moved substantially earlier versus the prior year's survey — evidence that the expert consensus has been correcting toward, not away from, short timelines.",
+            "The large 'Thousands of AI Authors on the Future of AI' survey (AI Impacts, 2023) found ML researchers' expected dates for many milestones moved substantially earlier versus the prior year's survey, evidence that the expert consensus has been correcting toward, not away from, short timelines.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -580,7 +580,7 @@ export const ai2027Data = {
             replicability: 5,
             directness: 5,
           },
-          source: "Synthesis / inference — historical base-rate comparison across AI winters",
+          source: "Synthesis / inference: historical base-rate comparison across AI winters",
           reasoning:
             "A well-documented base rate that legitimately widens the error bars; critics note the current scaling regime differs structurally from the symbolic-AI eras that busted.",
         },
@@ -588,7 +588,7 @@ export const ai2027Data = {
           id: "benchmark-saturation-gap",
           title: "Benchmark saturation is not general capability",
           description:
-            "Models can saturate exam-style benchmarks while still failing open-ended, long-horizon, real-world tasks — as abstraction-and-reasoning challenges (ARC-AGI) were designed to expose. Rapid benchmark progress can therefore overstate progress toward autonomous research.",
+            "Models can saturate exam-style benchmarks while still failing open-ended, long-horizon, real-world tasks, as abstraction-and-reasoning challenges (ARC-AGI) were designed to expose. Rapid benchmark progress can therefore overstate progress toward autonomous research.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,

@@ -30,7 +30,7 @@ export const section230ReformData = {
   tags: ["section-230", "content-moderation", "free-speech", "platform-liability", "internet-policy"],
   pillars: [
     // =========================================================================
-    // PILLAR 1: The accountability gap — can people harmed by feeds sue?
+    // PILLAR 1: The accountability gap, can people harmed by feeds sue?
     // =========================================================================
     {
       id: "accountability-gap",
@@ -176,7 +176,7 @@ export const section230ReformData = {
     },
 
     // =========================================================================
-    // PILLAR 2: Collateral damage — would liability make platforms delete
+    // PILLAR 2: Collateral damage, would liability make platforms delete
     // lawful speech?
     // =========================================================================
     {

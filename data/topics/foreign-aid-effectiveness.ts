@@ -49,13 +49,13 @@ export const foreignAidEffectivenessData = {
         cost_to_verify: "$1M (Meta-analysis of existing RCTs and program evaluations)",
         falsification: {
           supporter_flip:
-            "If a portfolio audit showed that RCT-backed, high-impact programs (bed nets, vaccines, ART, deworming, cash transfers) make up only a small slice of total aid flows — with most dollars going to categories that lack credible impact evidence — then \"aid works\" would shrink to \"a minority of aid works,\" weakening the case for aid as currently allocated.",
+            "If a portfolio audit showed that RCT-backed, high-impact programs (bed nets, vaccines, ART, deworming, cash transfers) make up only a small slice of total aid flows, with most dollars going to categories that lack credible impact evidence, then \"aid works\" would shrink to \"a minority of aid works,\" weakening the case for aid as currently allocated.",
           skeptic_flip:
             "If audited cost-effectiveness held up, testing GiveWell's ~$3,000-$8,000 per death averted for bed nets and PEPFAR's reported ~26 million lives saved, even a small effective fraction of aid would save enough lives to answer the $4.6 trillion-and-still-poor critique.",
           common_ground:
             "Both sides agree that some targeted health interventions (bed nets, vaccines, ART) have strong causal evidence and that general budget support has much weaker evidence; they also agree aggregate aid-and-growth correlations are not, by themselves, causal.",
           live_disagreement:
-            "What fraction of the actual aid portfolio is the proven, cost-effective kind versus the unevidenced kind — which only a systematic, dollar-weighted audit of programs against their evaluation quality could resolve.",
+            "What fraction of the actual aid portfolio is the proven, cost-effective kind versus the unevidenced kind, which only a systematic, dollar-weighted audit of programs against their evaluation quality could resolve.",
         },
       },
       evidence: [
@@ -108,7 +108,7 @@ export const foreignAidEffectivenessData = {
           source: "KFF, 'The U.S. President's Emergency Plan for AIDS Relief (PEPFAR)' fact sheet (updated May 2026), citing PEPFAR program data",
           sourceUrl: "https://www.kff.org/global-health-policy/fact-sheet/the-u-s-presidents-emergency-plan-for-aids-relief-pepfar/",
           reasoning:
-            "Massive, well-documented program with clear outcome metrics. Government-reported numbers may be slightly inflated. Replicability for other diseases is uncertain. Directness is high — lives saved is the most important outcome.",
+            "Massive, well-documented program with clear outcome metrics. Government-reported numbers may be slightly inflated. Replicability for other diseases is uncertain. Directness is high, lives saved is the most important outcome.",
         },
         {
           id: "world-bank-aid-growth",
@@ -133,12 +133,12 @@ export const foreignAidEffectivenessData = {
       id: "efficiency-accountability",
       title: "Efficiency & Accountability",
       short_summary:
-        "How much of a dollar actually reaches the poor depends heavily on the channel — and the headline 'X% lost to corruption' figures turn out to be largely unsourced. Defenders say even imperfect delivery can beat doing nothing.",
+        "How much of a dollar actually reaches the poor depends heavily on the channel, and the headline 'X% lost to corruption' figures turn out to be largely unsourced. Defenders say even imperfect delivery can beat doing nothing.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "A meaningful share of every aid dollar is consumed before it reaches the intended recipient — through layered overhead, expatriate consultant fees, and, in weak-governance settings, outright leakage. Tied aid, which requires recipients to procure goods from the donor country, demonstrably raises costs and serves donor economic interests more than recipient needs. Aid conditionality has at times imposed harmful structural adjustment. And the aid industry itself sustains a large, well-paid professional class in donor countries, creating an institutional interest in aid volume rather than aid outcomes.",
+        "A meaningful share of every aid dollar is consumed before it reaches the intended recipient, through layered overhead, expatriate consultant fees, and, in weak-governance settings, outright leakage. Tied aid, which requires recipients to procure goods from the donor country, demonstrably raises costs and serves donor economic interests more than recipient needs. Aid conditionality has at times imposed harmful structural adjustment. And the aid industry itself sustains a large, well-paid professional class in donor countries, creating an institutional interest in aid volume rather than aid outcomes.",
       proponent_rebuttal:
-        "Cash transfer programs collapse most of the overhead and put money directly in the hands of the poor: GiveDirectly reports that 87% of donations to its Poverty Relief programs reach recipients as cash, and RCTs (Haushofer & Shapiro 2016; Egger et al. 2022) show transfers raise consumption, assets, and food security with large local spillovers. Where leakage is documented, it concentrates in specific weak-governance contexts rather than describing aid as a whole. Aid transparency has also improved since the 2000s under the IATI reporting standard. And 'better than nothing' is the wrong counterfactual — the real question is whether a given channel beats the alternatives.",
+        "Cash transfer programs collapse most of the overhead and put money directly in the hands of the poor: GiveDirectly reports that 87% of donations to its Poverty Relief programs reach recipients as cash, and RCTs (Haushofer & Shapiro 2016; Egger et al. 2022) show transfers raise consumption, assets, and food security with large local spillovers. Where leakage is documented, it concentrates in specific weak-governance contexts rather than describing aid as a whole. Aid transparency has also improved since the 2000s under the IATI reporting standard. And 'better than nothing' is the wrong counterfactual, the real question is whether a given channel beats the alternatives.",
       crux: {
         id: "delivery-mechanism-comparison",
         title: "Aid Delivery Mechanism Efficiency Comparison",
@@ -156,13 +156,13 @@ export const foreignAidEffectivenessData = {
         cost_to_verify: "$5M (Multi-country tracer study with outcome measurement)",
         falsification: {
           supporter_flip:
-            "If a head-to-head tracer study found that direct cash transfers and lean NGO channels deliver no better cost-per-outcome than traditional project aid or budget support — once you account for spillovers, sustainability, and what cash can't buy (infrastructure, institutions) — the \"just give cash / cut the overhead\" case for efficiency would lose much of its force.",
+            "If a head-to-head tracer study found that direct cash transfers and lean NGO channels deliver no better cost-per-outcome than traditional project aid or budget support (once you account for spillovers, sustainability, and what cash can't buy (infrastructure, institutions)), the \"just give cash / cut the overhead\" case for efficiency would lose much of its force.",
           skeptic_flip:
             "If new trials repeated the consumption and asset gains reported for GiveDirectly (Haushofer & Shapiro 2016; Egger et al. 2022), which reports sending 87% of donations to recipients as cash, and diversion stayed confined to specific weak-governance settings, the leakage-and-overhead objection would cover less of aid.",
           common_ground:
             "Both sides agree that delivery channel matters enormously, that tied aid raises costs (OECD: 15-30%), and that leakage is real in weak-governance contexts; they also agree direct cash transfers have unusually low overhead.",
           live_disagreement:
-            "Whether the lower-overhead channels actually win on cost-per-durable-outcome across the same country contexts — including spillovers and sustainability — which only a multi-mechanism tracer study following $1 from donor to measured outcome could settle.",
+            "Whether the lower-overhead channels actually win on cost-per-durable-outcome across the same country contexts, including spillovers and sustainability, which only a multi-mechanism tracer study following $1 from donor to measured outcome could settle.",
         },
       },
       evidence: [
@@ -221,7 +221,7 @@ export const foreignAidEffectivenessData = {
           id: "deaton-great-escape",
           title: "Deaton: Aid Undermines State-Building and Accountability",
           description:
-            "Nobel laureate Angus Deaton argues in 'The Great Escape' that aid weakens the social contract between governments and citizens. When governments get revenue from donors rather than taxation, they are accountable to donors, not citizens. This undermines democratic governance, state capacity, and long-run institutional development — the very foundations of sustainable growth.",
+            "Nobel laureate Angus Deaton argues in 'The Great Escape' that aid weakens the social contract between governments and citizens. When governments get revenue from donors rather than taxation, they are accountable to donors, not citizens. This undermines democratic governance, state capacity, and long-run institutional development, the very foundations of sustainable growth.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -232,7 +232,7 @@ export const foreignAidEffectivenessData = {
           source: "Angus Deaton, 'The Great Escape: Health, Wealth, and the Origins of Inequality' (Princeton University Press, 2013)",
           sourceUrl: "https://press.princeton.edu/books/hardcover/9780691153544/the-great-escape",
           reasoning:
-            "Nobel Prize-winning economist with deep expertise. Theoretical argument is compelling but hard to test empirically (low replicability). Directness is moderate — the accountability argument applies most to budget support, less to targeted health programs.",
+            "Nobel Prize-winning economist with deep expertise. Theoretical argument is compelling but hard to test empirically (low replicability). Directness is moderate, the accountability argument applies most to budget support, less to targeted health programs.",
         },
       ],
     },

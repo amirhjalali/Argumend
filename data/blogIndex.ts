@@ -1,13 +1,13 @@
 /**
  * Lightweight blog index for client components.
  *
- * The full `data/blog.ts` file is ~6,600 lines — every post's complete prose
+ * The full `data/blog.ts` file is ~6,600 lines, every post's complete prose
  * lives in its `content` field. When a client component (e.g. `SearchModal`)
  * imports `articles` from `data/blog`, all of that prose gets bundled into the
  * browser payload, even though search only needs title/description/slug/tags.
  *
  * This file holds its OWN lightweight literals (it does NOT import `data/blog`,
- * which would defeat the purpose) — only the fields needed for listing and
+ * which would defeat the purpose), only the fields needed for listing and
  * search. `data/blogIndex.test.ts` guards against drift: every article must
  * have exactly one matching summary, so adding a post requires adding an entry
  * here too.
@@ -33,7 +33,7 @@ export interface ArticleSummary {
   readingTime: string;
 }
 
-/** Pre-computed summaries — no `content`, so importing this stays lightweight. */
+/** Pre-computed summaries, no `content`, so importing this stays lightweight. */
 export const articleSummaries: ArticleSummary[] = [
   {
     slug: "how-argumend-evolved-and-how-we-map-a-topic",
@@ -98,7 +98,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "did-covid-come-from-a-lab",
     title: "Did COVID Come From a Lab? Why the Honest Answer Is 'We Can't Tell'",
-    description: "More than six years on, COVID's origin is still unresolved — and the reason isn't a missing experiment. It's missing data. Here's what each side's strongest evidence actually is, and what would settle it.",
+    description: "More than six years on, COVID's origin is still unresolved, and the reason isn't a missing experiment. It's missing data. Here's what each side's strongest evidence actually is, and what would settle it.",
     tags: [
       "covid origins",
       "lab leak",
@@ -113,7 +113,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "could-ai-be-conscious",
     title: "Could AI Be Conscious? What We Can and Can't Know",
-    description: "Whether an AI is conscious sounds like science fiction, but it's now a live research question — and the honest answer is calibrated uncertainty, not confident yes or no. Here's why we can't yet tell, and what would change that.",
+    description: "Whether an AI is conscious sounds like science fiction, but it's now a live research question, and the honest answer is calibrated uncertainty, not confident yes or no. Here's why we can't yet tell, and what would change that.",
     tags: [
       "AI consciousness",
       "philosophy of mind",
@@ -128,7 +128,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "is-fluoride-in-water-safe",
     title: "Is Fluoride in Your Water Safe? It's a Question of Margins",
-    description: "The fluoride debate isn't really 'is it poison?' — it's whether the safety margin is big enough and whether the dental benefit still justifies it. Here's what the 2024 evidence actually shows.",
+    description: "The fluoride debate isn't really 'is it poison?'; it's whether the safety margin is big enough and whether the dental benefit still justifies it. Here's what the 2024 evidence actually shows.",
     tags: [
       "fluoride",
       "public health",
@@ -143,7 +143,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "are-gmos-safe",
     title: "Are GMOs Safe to Eat? What the Evidence Actually Says",
-    description: "On the question people worry about most — is GM food safe to eat — the evidence is about as consistent as nutrition science gets. The genuine debates are somewhere else entirely. Here's how to tell them apart.",
+    description: "On the question people worry about most, is GM food safe to eat, the evidence is about as consistent as nutrition science gets. The genuine debates are somewhere else entirely. Here's how to tell them apart.",
     tags: [
       "GMO",
       "food safety",
@@ -158,7 +158,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "are-vaccine-mandates-justified",
     title: "Are Vaccine Mandates Justified? It Depends on the Disease",
-    description: "The honest answer to the vaccine-mandate debate isn't yes or no — it's 'which vaccine, for which disease?' Here's the evidence on whether mandates work, whether they protect others, and whether they're worth the cost to trust.",
+    description: "The honest answer to the vaccine-mandate debate isn't yes or no; it's 'which vaccine, for which disease?' Here's the evidence on whether mandates work, whether they protect others, and whether they're worth the cost to trust.",
     tags: [
       "vaccine mandates",
       "public health",
@@ -188,7 +188,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "what-would-change-your-mind",
     title: "What Would Change Your Mind? The Test for an Honest Belief",
-    description: "If you can't name the evidence that would change your mind, you don't hold a belief — you hold a loyalty. Here's how to use falsifiability and the crux to think more honestly about any controversy.",
+    description: "If you can't name the evidence that would change your mind, you don't hold a belief; you hold a loyalty. Here's how to use falsifiability and the crux to think more honestly about any controversy.",
     tags: [
       "falsifiability",
       "critical thinking",
@@ -217,7 +217,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "5-logical-fallacies-in-online-debates",
     title: "5 Logical Fallacies Hiding in Every Online Debate",
-    description: "From ad hominem attacks to false dichotomies, these five logical fallacies dominate online discourse. Learn to spot them instantly—and stop yourself from committing them.",
+    description: "From ad hominem attacks to false dichotomies, these five logical fallacies dominate online discourse. Learn to spot them instantly, and stop yourself from committing them.",
     tags: [
       "logical fallacies",
       "debate",
@@ -231,7 +231,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "how-confidence-scores-change-thinking",
     title: "How calibrated confidence changes the way you think",
-    description: "Saying 'I'm 70% sure' is more honest—and more useful—than saying 'I believe.' Learn how calibrated confidence transforms arguments into something you can actually update.",
+    description: "Saying 'I'm 70% sure' is more honest, and more useful, than saying 'I believe.' Learn how calibrated confidence transforms arguments into something you can actually update.",
     tags: [
       "confidence calibration",
       "epistemology",
@@ -245,7 +245,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "nuclear-energy-what-both-sides-get-right",
     title: "Nuclear Energy: What Both Sides Get Right",
-    description: "The nuclear energy debate is a masterclass in how structured analysis reveals nuance. Both proponents and critics have strong evidence—here's what they are, and where the real crux lies.",
+    description: "The nuclear energy debate is a masterclass in how structured analysis reveals nuance. Both proponents and critics have strong evidence; here's what they are, and where the real crux lies.",
     tags: [
       "nuclear energy pros and cons",
       "energy policy",
@@ -358,7 +358,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "art-of-changing-your-mind",
     title: "The Art of Changing Your Mind",
-    description: "Changing your mind is not a sign of weakness — it is the hallmark of a genuinely rational thinker. Explore the science of belief updating, intellectual humility, and Bayesian reasoning as tools for getting closer to truth.",
+    description: "Changing your mind is not a sign of weakness; it is the hallmark of a genuinely rational thinker. Explore the science of belief updating, intellectual humility, and Bayesian reasoning as tools for getting closer to truth.",
     tags: [
       "intellectual humility",
       "belief updating",
@@ -372,7 +372,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "false-balance-both-sides",
     title: "Both Sides Are Not Always Equal: When False Balance Distorts Truth",
-    description: "Giving equal weight to unequal evidence is not fairness — it is a distortion. Explore the false balance fallacy, its roots in journalism, and how it warps public understanding of science, policy, and reality.",
+    description: "Giving equal weight to unequal evidence is not fairness; it is a distortion. Explore the false balance fallacy, its roots in journalism, and how it warps public understanding of science, policy, and reality.",
     tags: [
       "false balance",
       "media bias",
@@ -416,7 +416,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "microplastics-in-your-blood",
     title: "The Microplastics in Your Blood: What the Science Actually Says",
-    description: "Microplastics have been found in human blood, brains, placentas, and arterial plaques. The headlines are alarming — but what does the peer-reviewed science actually tell us about the health risks? A balanced look at the evidence.",
+    description: "Microplastics have been found in human blood, brains, placentas, and arterial plaques. The headlines are alarming, but what does the peer-reviewed science actually tell us about the health risks? A balanced look at the evidence.",
     tags: [
       "microplastics",
       "public health",
@@ -431,7 +431,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "how-to-argue-like-a-philosopher",
     title: "How to Argue Like a Philosopher (Without Losing Friends)",
-    description: "Most arguments fail not because people disagree, but because they argue badly. Philosophers have spent millennia refining the art of productive disagreement. Here are their best techniques — adapted for real life.",
+    description: "Most arguments fail not because people disagree, but because they argue badly. Philosophers have spent millennia refining the art of productive disagreement. Here are their best techniques, adapted for real life.",
     tags: [
       "argumentation",
       "philosophy",
@@ -533,7 +533,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "deepfakes-elections-evidence",
     title: "Deepfakes, Elections, and the Death of Evidence: An Argument Map",
-    description: "AI-generated deepfakes have already influenced elections. But the biggest threat is not the fakes themselves — it is the liar's dividend that lets anyone dismiss real evidence as AI-generated. Here is what we know and what it means for democracy.",
+    description: "AI-generated deepfakes have already influenced elections. But the biggest threat is not the fakes themselves; it is the liar's dividend that lets anyone dismiss real evidence as AI-generated. Here is what we know and what it means for democracy.",
     tags: [
       "deepfakes",
       "AI misinformation",
@@ -606,7 +606,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "ai-regulation-safety-experts-disagree",
     title: "AI Regulation Explained: Why AI Safety Experts Disagree",
-    description: "Everyone agrees AI is transformative. Nobody agrees what to do about it. We break down the three major camps in the AI regulation debate — pause, accelerate, or target — and present the strongest case for each.",
+    description: "Everyone agrees AI is transformative. Nobody agrees what to do about it. We break down the three major camps in the AI regulation debate, pause, accelerate, or target, and present the strongest case for each.",
     tags: [
       "ai",
       "regulation",
@@ -621,7 +621,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "housing-crisis-zoning-rent-control-data",
     title: "The Housing Crisis Is Not What You Think It Is: Zoning, Rent Control, and the Data",
-    description: "Everyone agrees housing is unaffordable. Nobody agrees why. We break down the three competing explanations — supply constraints, demand pressures, and government intervention — steel-man each side, and identify the crux that separates reasonable people.",
+    description: "Everyone agrees housing is unaffordable. Nobody agrees why. We break down the three competing explanations, supply constraints, demand pressures, and government intervention, steel-man each side, and identify the crux that separates reasonable people.",
     tags: [
       "housing",
       "economics",
@@ -651,7 +651,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "wealth-inequality-crux",
     title: "Is Wealth Inequality a Problem? The Crux You're Missing",
-    description: "Everyone agrees wealth inequality exists. The real disagreement isn't about the numbers — it's about whether inequality itself causes harm, and whether redistribution works. We identify the three cruxes that actually divide people.",
+    description: "Everyone agrees wealth inequality exists. The real disagreement isn't about the numbers; it's about whether inequality itself causes harm, and whether redistribution works. We identify the three cruxes that actually divide people.",
     tags: [
       "economics",
       "inequality",
@@ -696,7 +696,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "iran-war-evidence-analysis",
     title: "Iran War: What the Evidence Actually Shows About Military Action",
-    description: "Should the US take military action against Iran? We break down the nuclear threat data, proxy war evidence, Iraq parallels, and diplomatic options — with real IAEA reports and Congressional findings.",
+    description: "Should the US take military action against Iran? We break down the nuclear threat data, proxy war evidence, Iraq parallels, and diplomatic options, with real IAEA reports and Congressional findings.",
     tags: [
       "Iran war evidence",
       "Iran nuclear threat analysis",
@@ -759,7 +759,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "china-taiwan-invasion-analysis",
     title: "Will China Invade Taiwan? A Structured Analysis of the Evidence",
-    description: "The Taiwan Strait is the most dangerous flashpoint on Earth. An invasion could trigger World War III, collapse the global semiconductor supply, and reshape the international order. We examine the military, economic, and diplomatic evidence — steel-manning both alarm and restraint.",
+    description: "The Taiwan Strait is the most dangerous flashpoint on Earth. An invasion could trigger World War III, collapse the global semiconductor supply, and reshape the international order. We examine the military, economic, and diplomatic evidence, steel-manning both alarm and restraint.",
     tags: [
       "china taiwan war probability",
       "taiwan strait crisis analysis",
@@ -774,7 +774,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "obesity-choice-or-disease",
     title: "Is Obesity a Choice? The Ozempic Era Forces Us to Rethink Everything",
-    description: "The GLP-1 revolution has reignited the oldest debate in public health: is obesity a personal choice or a biological disease? From twin studies to Ozempic, the evidence is more complex — and more consequential — than either side admits.",
+    description: "The GLP-1 revolution has reignited the oldest debate in public health: is obesity a personal choice or a biological disease? From twin studies to Ozempic, the evidence is more complex, and more consequential, than either side admits.",
     tags: [
       "is obesity a choice or disease",
       "ozempic obesity debate",
@@ -805,7 +805,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "us-debt-crisis-real",
     title: "$36 Trillion in Debt: Is the US Heading for a Fiscal Crisis?",
-    description: "The US national debt has surpassed $36 trillion and interest payments now exceed the defense budget. We steel-man both the fiscal crisis argument and the 'it's fine' argument to identify what would actually trigger a debt crisis — and whether the BRICS de-dollarization threat is real.",
+    description: "The US national debt has surpassed $36 trillion and interest payments now exceed the defense budget. We steel-man both the fiscal crisis argument and the 'it's fine' argument to identify what would actually trigger a debt crisis, and whether the BRICS de-dollarization threat is real.",
     tags: [
       "us national debt crisis",
       "is the national debt a problem",
@@ -906,7 +906,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "universal-basic-income-both-sides",
     title: "Universal Basic Income: What Both Sides Actually Believe",
-    description: "Supporters call it freedom from poverty; critics call it a budget-breaking work disincentive. We steel-man both sides of the universal basic income debate and locate the real crux—which turns out to be smaller and more empirical than the shouting suggests.",
+    description: "Supporters call it freedom from poverty; critics call it a budget-breaking work disincentive. We steel-man both sides of the universal basic income debate and locate the real crux, which turns out to be smaller and more empirical than the shouting suggests.",
     tags: [
       "universal basic income",
       "both sides",
@@ -921,7 +921,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "death-penalty-both-sides",
     title: "The Death Penalty: A Both-Sides Case Study in Where the Evidence Ends",
-    description: "Does capital punishment deter murder, deliver justice, or risk executing the innocent? We steel-man both sides of the death penalty debate and show why the real crux is not empirical at all—it's a moral question the data can't settle.",
+    description: "Does capital punishment deter murder, deliver justice, or risk executing the innocent? We steel-man both sides of the death penalty debate and show why the real crux is not empirical at all; it's a moral question the data can't settle.",
     tags: [
       "death penalty",
       "both sides",
@@ -951,7 +951,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "ai-policy-wars-five-debates-mapped",
     title: "The AI and Tech Policy Wars: Five Debates, Mapped",
-    description: "Generative-AI copyright, facial recognition, net neutrality, self-driving safety, and fusion's timeline. Five technology fights where the real disagreement is a specific crux, not a culture-war slogan—each mapped to its primary sources.",
+    description: "Generative-AI copyright, facial recognition, net neutrality, self-driving safety, and fusion's timeline. Five technology fights where the real disagreement is a specific crux, not a culture-war slogan, each mapped to its primary sources.",
     tags: [
       "AI policy",
       "technology",
@@ -981,7 +981,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "economic-policy-fights-mapped",
     title: "Four Economic Policy Fights, Mapped",
-    description: "Carbon taxes, congestion pricing, the Social Security retirement age, and right to repair. Four economic-policy debates where the disagreement is about trade-offs and design, not good versus evil—each mapped to the evidence.",
+    description: "Carbon taxes, congestion pricing, the Social Security retirement age, and right to repair. Four economic-policy debates where the disagreement is about trade-offs and design, not good versus evil, each mapped to the evidence.",
     tags: [
       "economics",
       "policy",
@@ -996,7 +996,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "rights-and-hard-tradeoffs-mapped",
     title: "Rights and Hard Trade-offs: Two Maps Where Facts Aren't Enough",
-    description: "Assisted dying and the Second Amendment are debates where more data won't settle it—because the disagreement is partly about values and constitutional meaning. We map where the evidence ends and the moral and legal crux begins.",
+    description: "Assisted dying and the Second Amendment are debates where more data won't settle it, because the disagreement is partly about values and constitutional meaning. We map where the evidence ends and the moral and legal crux begins.",
     tags: [
       "rights",
       "ethics",
@@ -1067,7 +1067,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "appeal-to-ignorance-fallacy-explained",
     title: "The Appeal to Ignorance Fallacy, Explained: Absence of Evidence Isn't Proof",
-    description: "The appeal to ignorance treats 'not disproven' as 'proven' — and vice versa. Learn the difference between absence of evidence and evidence of absence, and how to respond.",
+    description: "The appeal to ignorance treats 'not disproven' as 'proven', and vice versa. Learn the difference between absence of evidence and evidence of absence, and how to respond.",
     tags: [
       "appeal to ignorance",
       "logical fallacies",
@@ -1081,7 +1081,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "tu-quoque-fallacy-explained",
     title: "The Tu Quoque Fallacy (Appeal to Hypocrisy), Explained",
-    description: "Tu quoque dodges a criticism by pointing at the critic's hypocrisy — 'you do it too.' Learn why hypocrisy doesn't refute an argument, and the cases where it actually matters.",
+    description: "Tu quoque dodges a criticism by pointing at the critic's hypocrisy; 'you do it too.' Learn why hypocrisy doesn't refute an argument, and the cases where it actually matters.",
     tags: [
       "tu quoque",
       "logical fallacies",
@@ -1154,7 +1154,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "strong-argument-vs-persuasive",
     title: "How to Tell a Strong Argument From a Merely Persuasive One",
-    description: "Persuasive and strong are not the same thing. A practical guide to separating how an argument feels from whether it actually holds up — and judging the difference.",
+    description: "Persuasive and strong are not the same thing. A practical guide to separating how an argument feels from whether it actually holds up, and judging the difference.",
     tags: [
       "critical thinking",
       "argument evaluation",
@@ -1169,7 +1169,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "minimum-wage-both-sides",
     title: "Does Raising the Minimum Wage Kill Jobs? The Strongest Case on Each Side",
-    description: "Economists genuinely disagree about the minimum wage. Here's the strongest steel-manned case for and against — and the empirical crux that actually divides them.",
+    description: "Economists genuinely disagree about the minimum wage. Here's the strongest steel-manned case for and against, and the empirical crux that actually divides them.",
     tags: [
       "minimum wage",
       "economics",
@@ -1199,7 +1199,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "universal-healthcare-both-sides",
     title: "Universal Healthcare: The Strongest Case on Each Side",
-    description: "Should the government guarantee healthcare for everyone? Here is the strongest steel-manned case for and against — and the crux that actually divides them.",
+    description: "Should the government guarantee healthcare for everyone? Here is the strongest steel-manned case for and against, and the crux that actually divides them.",
     tags: [
       "universal healthcare",
       "single-payer",
@@ -1229,7 +1229,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "how-to-spot-a-bad-statistic",
     title: "How to Spot a Bad Statistic: A Field Guide to Numbers That Lie",
-    description: "Most misleading statistics are technically true. Here is a practical field guide to the eight ways numbers deceive — and the questions that expose each one.",
+    description: "Most misleading statistics are technically true. Here is a practical field guide to the eight ways numbers deceive, and the questions that expose each one.",
     tags: [
       "statistics",
       "data literacy",
@@ -1276,7 +1276,7 @@ export const articleSummaries: ArticleSummary[] = [
     slug: "immigration-economy-both-sides",
     title: "Does Immigration Help or Hurt the Economy? The Strongest Case on Each Side",
     description:
-      "Does immigration help or hurt the economy? Here's the strongest steel-manned case for and against — and the empirical crux that actually divides economists.",
+      "Does immigration help or hurt the economy? Here's the strongest steel-manned case for and against, and the empirical crux that actually divides economists.",
     tags: [
       "immigration",
       "economics",
@@ -1318,7 +1318,7 @@ export const articleSummaries: ArticleSummary[] = [
     slug: "assisted-dying-both-sides",
     title: "Assisted Dying: A Both-Sides Case Study in Autonomy vs. Protecting the Vulnerable",
     description:
-      "We steel-man both sides of the assisted dying debate — autonomy versus protecting the vulnerable — and locate the moral crux that evidence alone can't settle.",
+      "We steel-man both sides of the assisted dying debate, autonomy versus protecting the vulnerable, and locate the moral crux that evidence alone can't settle.",
     tags: ["assisted dying", "euthanasia", "both sides", "medical ethics", "steel-manning"],
     category: "Both Sides",
     publishedAt: "2026-06-29T23:55:00Z",
@@ -1328,7 +1328,7 @@ export const articleSummaries: ArticleSummary[] = [
     slug: "how-to-tell-if-a-source-is-trustworthy",
     title: "How to Tell If a Source Is Trustworthy: A Field Guide for the Internet",
     description:
-      "Anyone can publish anything online. Here's a practical checklist for vetting a source — primary vs secondary, expertise, incentives, and corroboration.",
+      "Anyone can publish anything online. Here's a practical checklist for vetting a source, primary vs secondary, expertise, incentives, and corroboration.",
     tags: ["source credibility", "media literacy", "how to evaluate sources", "misinformation", "critical thinking"],
     category: "Critical Thinking",
     publishedAt: "2026-06-29T23:59:00Z",

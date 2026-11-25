@@ -3,7 +3,7 @@ export const surveillancePublicSafetyData = {
   title: "Surveillance and Public Safety",
   question: "Does expanding government surveillance meaningfully reduce crime?",
   meta_claim:
-    "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
+    "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety, a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
   status: "contested" as const,
   category: "policy" as const,
   // ── Stage 1: the wow fact shown above everything ──
@@ -12,7 +12,7 @@ export const surveillancePublicSafetyData = {
       "London has about 700,000 CCTV cameras, and a 40-year meta-analysis found that crime near cameras fell modestly, most in car parks (about 37% there), with little effect on violent crime. A federal NIST study found facial recognition's false-match rates highest for Black women. The fight is over whether more surveillance buys enough safety to justify what it costs in privacy and in the people it misidentifies.",
     confidence: 84,
     source:
-      "Piza, Welsh, Farrington & Thomas, CCTV meta-analysis (2019); NIST Face Recognition Vendor Test — demographic effects (2019)",
+      "Piza, Welsh, Farrington & Thomas, CCTV meta-analysis (2019); NIST Face Recognition Vendor Test: demographic effects (2019)",
     sourceUrl:
       "https://www.nist.gov/news-events/news/2019/12/nist-study-evaluates-effects-race-age-sex-face-recognition-software",
   },
@@ -29,9 +29,9 @@ export const surveillancePublicSafetyData = {
         "London has 700,000 CCTV cameras. Studies show they reduce property crime in parking lots and have near-zero effect on violent crime.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Evidence that surveillance reduces crime is real but narrow. The leading 40-year meta-analysis (Piza, Welsh, Farrington & Thomas, 2019) finds CCTV produces a significant but modest overall crime decrease, concentrated in car parks (roughly a 37% reduction there) and driven by property—not violent—crime, with weak or non-significant effects in city centers and on transit; the largest gains come when cameras are actively monitored and paired with other interventions, meaning the camera alone is rarely the cause. Predictive policing algorithms can redirect resources toward already-over-policed communities, and a measured share of any effect is crime displacement rather than prevention. The honest reading is not 'surveillance does nothing' but 'its benefits are conditional, often small, and easy to overstate.'",
+        "Evidence that surveillance reduces crime is real but narrow. The leading 40-year meta-analysis (Piza, Welsh, Farrington & Thomas, 2019) finds CCTV produces a significant but modest overall crime decrease, concentrated in car parks (roughly a 37% reduction there) and driven by property, not violent, crime, with weak or non-significant effects in city centers and on transit; the largest gains come when cameras are actively monitored and paired with other interventions, meaning the camera alone is rarely the cause. Predictive policing algorithms can redirect resources toward already-over-policed communities, and a measured share of any effect is crime displacement rather than prevention. The honest reading is not 'surveillance does nothing' but 'its benefits are conditional, often small, and easy to overstate.'",
       proponent_rebuttal:
-        "Modest is not nothing, and the strongest evidence points the right way. A 2024 study of 268 US cities from 1997-2020 (Johnson et al., Cities) found that police adoption of facial recognition was associated with reductions in felony violence and homicide—larger for early adopters—without measurable increases in over-policing or racial arrest disparities for violent offenses; it is observational rather than a controlled experiment, but it is the largest analysis to date and it cuts against the assumption that these tools only harm. The same meta-analysis skeptics cite confirms CCTV genuinely cuts crime where it is deployed well. Beyond aggregate crime rates, surveillance has clear investigative value: London's CCTV network has materially aided major investigations, and license plate readers reliably recover stolen vehicles and identify suspects in serious crimes. The policy question is how to capture these benefits, not whether they exist.",
+        "Modest is not nothing, and the strongest evidence points the right way. A 2024 study of 268 US cities from 1997-2020 (Johnson et al., Cities) found that police adoption of facial recognition was associated with reductions in felony violence and homicide, larger for early adopters, without measurable increases in over-policing or racial arrest disparities for violent offenses; it is observational rather than a controlled experiment, but it is the largest analysis to date and it cuts against the assumption that these tools only harm. The same meta-analysis skeptics cite confirms CCTV genuinely cuts crime where it is deployed well. Beyond aggregate crime rates, surveillance has clear investigative value: London's CCTV network has materially aided major investigations, and license plate readers reliably recover stolen vehicles and identify suspects in serious crimes. The policy question is how to capture these benefits, not whether they exist.",
       crux: {
         id: "surveillance-crime-rct",
         title: "Randomized Controlled Trial of Surveillance Expansion",
@@ -49,13 +49,13 @@ export const surveillancePublicSafetyData = {
         cost_to_verify: "$5M (Multi-city randomized evaluation)",
         falsification: {
           supporter_flip:
-            "If a rigorous multi-city RCT found surveillance deployment produces little net crime reduction once you account for displacement to adjacent areas — the car-park gains just moving crime rather than preventing it, and facial recognition adding no measurable safety — the effectiveness case would shrink to investigative value only.",
+            "If a rigorous multi-city RCT found surveillance deployment produces little net crime reduction once you account for displacement to adjacent areas (the car-park gains just moving crime rather than preventing it, and facial recognition adding no measurable safety) the effectiveness case would shrink to investigative value only.",
           skeptic_flip:
             "If new evaluations confirmed CCTV cutting crime where it is deployed well, and the 268-city link between police facial recognition and lower felony violence held up in stronger designs, 'surveillance does nothing' would give way to 'modest and conditional.'",
           common_ground:
             "Both sides agree surveillance's crime-reduction effect is real but modest, concentrated in property crime and specific settings, and strongest when cameras are actively monitored.",
           live_disagreement:
-            "How much of the measured crime reduction is genuine prevention versus displacement to nearby areas — which only a randomized, displacement-tracking trial could cleanly separate.",
+            "How much of the measured crime reduction is genuine prevention versus displacement to nearby areas, which only a randomized, displacement-tracking trial could cleanly separate.",
         },
       },
       evidence: [
@@ -117,7 +117,7 @@ export const surveillancePublicSafetyData = {
           id: "false-arrest-cases",
           title: "Facial Recognition Has Caused False Arrests of Innocent People",
           description:
-            "In January 2020 in Detroit, Michigan, Robert Williams—a Black man—was wrongfully arrested based on an incorrect facial recognition match; the ACLU sued and won a landmark settlement. The ACLU now documents at least 14 wrongful arrests in the US linked to police use of facial recognition, nearly all of Black people (the true count is likely higher, since many departments do not disclose when a match drove an arrest). Separately, the 2018 'Gender Shades' study by Buolamwini and Gebru found that commercial gender-classification systems misclassified darker-skinned women at error rates up to 34.7%, versus a maximum of 0.8% for lighter-skinned men.",
+            "In January 2020 in Detroit, Michigan, Robert Williams, a Black man, was wrongfully arrested based on an incorrect facial recognition match; the ACLU sued and won a landmark settlement. The ACLU now documents at least 14 wrongful arrests in the US linked to police use of facial recognition, nearly all of Black people (the true count is likely higher, since many departments do not disclose when a match drove an arrest). Separately, the 2018 'Gender Shades' study by Buolamwini and Gebru found that commercial gender-classification systems misclassified darker-skinned women at error rates up to 34.7%, versus a maximum of 0.8% for lighter-skinned men.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -136,7 +136,7 @@ export const surveillancePublicSafetyData = {
           id: "eff-scant-evidence-review",
           title: "CCTV's Effect on Crime Is Modest and Concentrated in Car Parks",
           description:
-            "The leading peer-reviewed meta-analysis—Piza, Welsh, Farrington & Thomas (2019), a 40-year systematic review of 76 evaluations in Criminology & Public Policy—found CCTV is associated with a significant but modest overall decrease in crime. The effect is concentrated in car parks (where cameras combined with other measures cut crime substantially) and is much weaker or non-significant in city centers and on public transit, with the largest reductions for property (not violent) crime. The Electronic Frontier Foundation, a digital-rights advocacy group, argues such effectiveness claims are often overstated by vendors.",
+            "The leading peer-reviewed meta-analysis, Piza, Welsh, Farrington & Thomas (2019), a 40-year systematic review of 76 evaluations in Criminology & Public Policy, found CCTV is associated with a significant but modest overall decrease in crime. The effect is concentrated in car parks (where cameras combined with other measures cut crime substantially) and is much weaker or non-significant in city centers and on public transit, with the largest reductions for property (not violent) crime. The Electronic Frontier Foundation, a digital-rights advocacy group, argues such effectiveness claims are often overstated by vendors.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -161,7 +161,7 @@ export const surveillancePublicSafetyData = {
       skeptic_premise:
         "Mass surveillance creates a chilling effect on free speech, political dissent, and freedom of movement. Data collected for crime prevention is routinely repurposed for immigration enforcement, political monitoring, and commercial use. The Fourth Amendment was designed precisely to prevent government from watching all citizens at all times. Once surveillance infrastructure exists, it is virtually impossible to dismantle.",
       proponent_rebuttal:
-        "Observing public conduct is not the same as warrantless search: courts have long held there is no reasonable expectation of privacy in what one does on a public street, and targeted surveillance backed by judicial oversight (warrants, particularized suspicion) is both constitutional and effective. The civil-liberties harms skeptics cite are real, but most are failures of governance, not of the technology itself—and they are addressable. Technology-specific guardrails can capture the safety benefits while bounding the risks: prohibiting real-time mass facial recognition while permitting post-crime investigative use with human review, capping data retention, requiring audit logs and transparency reports, and barring repurposing for immigration or political monitoring. The documented wrongful arrests argue for treating a face match as an investigative lead requiring corroboration, not for abandoning the tool entirely.",
+        "Observing public conduct is not the same as warrantless search: courts have long held there is no reasonable expectation of privacy in what one does on a public street, and targeted surveillance backed by judicial oversight (warrants, particularized suspicion) is both constitutional and effective. The civil-liberties harms skeptics cite are real, but most are failures of governance, not of the technology itself, and they are addressable. Technology-specific guardrails can capture the safety benefits while bounding the risks: prohibiting real-time mass facial recognition while permitting post-crime investigative use with human review, capping data retention, requiring audit logs and transparency reports, and barring repurposing for immigration or political monitoring. The documented wrongful arrests argue for treating a face match as an investigative lead requiring corroboration, not for abandoning the tool entirely.",
       crux: {
         id: "surveillance-oversight-framework",
         title: "Effective Surveillance Oversight Model",
@@ -179,7 +179,7 @@ export const surveillancePublicSafetyData = {
         cost_to_verify: "$1M (Comparative policy study)",
         falsification: {
           supporter_flip:
-            "If cross-country comparison showed even the best oversight frameworks fail to prevent scope creep, biased false matches, and data repurposing — that surveillance infrastructure inevitably erodes civil liberties once built — the 'capture benefits with guardrails' position would collapse toward not building it.",
+            "If cross-country comparison showed even the best oversight frameworks fail to prevent scope creep, biased false matches, and data repurposing, that surveillance infrastructure inevitably erodes civil liberties once built, the 'capture benefits with guardrails' position would collapse toward not building it.",
           skeptic_flip:
             "If comparisons of oversight regimes found harms such as wrongful arrests from uncorroborated face matches and repurposing for immigration falling sharply under human review, retention caps and use bans, those harms would look like governance failures rather than built into the tools.",
           common_ground:
@@ -210,7 +210,7 @@ export const surveillancePublicSafetyData = {
           id: "china-surveillance-resistance",
           title: "Even in China, Excessive Surveillance Triggers Public Resistance",
           description:
-            "Chen & Zhan (2025), 'When Does Surveillance Trigger Resistance? Public Response to Escalating Digital Control in China,' in the Journal of Chinese Political Science, develops a risk-benefit framework arguing that when citizens perceive surveillance as intrusive and infer controlling state intent, they are more likely to resist—even within an authoritarian context where overt resistance is costly.",
+            "Chen & Zhan (2025), 'When Does Surveillance Trigger Resistance? Public Response to Escalating Digital Control in China,' in the Journal of Chinese Political Science, develops a risk-benefit framework arguing that when citizens perceive surveillance as intrusive and infer controlling state intent, they are more likely to resist, even within an authoritarian context where overt resistance is costly.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -222,7 +222,7 @@ export const surveillancePublicSafetyData = {
             "Chen & Zhan, 'When Does Surveillance Trigger Resistance?', Journal of Chinese Political Science (2025)",
           sourceUrl: "https://link.springer.com/article/10.1007/s11366-025-09918-5",
           reasoning:
-            "Peer-reviewed and a genuinely interesting cross-cultural finding, but it is primarily a theoretical/analytical framework rather than a large empirical test, and China's context differs sharply from Western democracies—hence the modest directness score. It speaks to public acceptability, not to whether surveillance reduces crime.",
+            "Peer-reviewed and a genuinely interesting cross-cultural finding, but it is primarily a theoretical/analytical framework rather than a large empirical test, and China's context differs sharply from Western democracies, hence the modest directness score. It speaks to public acceptability, not to whether surveillance reduces crime.",
         },
         {
           id: "detroit-frt-settlement-guardrails",

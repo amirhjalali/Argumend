@@ -28,19 +28,19 @@ export const animalConsciousnessRightsData = {
       id: "neuroscience-animal-consciousness",
       title: "Neuroscience of Animal Consciousness",
       short_summary:
-        "Growing scientific evidence — from mirror self-recognition tests to neural correlate studies, documented tool use, grief behaviors, and play — suggests that consciousness is far more widespread in the animal kingdom than previously assumed. The 2012 Cambridge Declaration on Consciousness and the 2024 New York Declaration have formalized this scientific consensus, but debate remains about which animals are conscious and what their experiences are like.",
+        "Growing scientific evidence (from mirror self-recognition tests to neural correlate studies, documented tool use, grief behaviors, and play) suggests that consciousness is far more widespread in the animal kingdom than previously assumed. The 2012 Cambridge Declaration on Consciousness and the 2024 New York Declaration have formalized this scientific consensus, but debate remains about which animals are conscious and what their experiences are like.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The evidence for animal consciousness is plagued by anthropomorphism and methodological problems. Mirror self-recognition tests — long considered the gold standard — have been passed by magpies and cleaner wrasse fish, either proving that fish are self-aware (unlikely) or that the test measures something other than consciousness. Neural correlate studies show that animals have brain structures associated with emotion and arousal in humans, but homologous structures do not guarantee homologous experiences. A thermostat responds to temperature without feeling hot. Octopuses have complex nervous systems but share no common brain architecture with mammals — their 'intelligence' may be fundamentally alien and non-conscious. The Cambridge Declaration was a statement by 13 scientists at a conference, not a peer-reviewed finding. We have no way to objectively measure subjective experience in another species. Claiming animals are conscious risks projecting human experience onto creatures whose inner lives we cannot access.",
+        "The evidence for animal consciousness is plagued by anthropomorphism and methodological problems. Mirror self-recognition tests, long considered the gold standard, have been passed by magpies and cleaner wrasse fish, either proving that fish are self-aware (unlikely) or that the test measures something other than consciousness. Neural correlate studies show that animals have brain structures associated with emotion and arousal in humans, but homologous structures do not guarantee homologous experiences. A thermostat responds to temperature without feeling hot. Octopuses have complex nervous systems but share no common brain architecture with mammals, their 'intelligence' may be fundamentally alien and non-conscious. The Cambridge Declaration was a statement by 13 scientists at a conference, not a peer-reviewed finding. We have no way to objectively measure subjective experience in another species. Claiming animals are conscious risks projecting human experience onto creatures whose inner lives we cannot access.",
       proponent_rebuttal:
-        "The same argument — we cannot know what it is like to be another mind — applies equally to other humans. We infer consciousness in humans through behavior, neural activity, and evolutionary continuity; the same inference applies to animals with homologous neural structures and analogous behaviors. The 2024 New York Declaration on Animal Consciousness, signed by 39 leading neuroscientists and philosophers of mind, states there is 'strong scientific evidence' for consciousness in all mammals and birds, and a 'realistic possibility' for consciousness in all vertebrates, cephalopods, and some insects. This is not anthropomorphism — it is following the evidence where it leads. Crows solve multi-step causal reasoning problems, elephants mourn their dead for days, rats show empathic behavior by freeing trapped companions even when given the option of eating chocolate instead, and octopuses demonstrate play behavior with no survival function. The most parsimonious explanation for these behaviors, given the neural substrate evidence, is conscious experience.",
+        "The same argument, we cannot know what it is like to be another mind, applies equally to other humans. We infer consciousness in humans through behavior, neural activity, and evolutionary continuity; the same inference applies to animals with homologous neural structures and analogous behaviors. The 2024 New York Declaration on Animal Consciousness, signed by 39 leading neuroscientists and philosophers of mind, states there is 'strong scientific evidence' for consciousness in all mammals and birds, and a 'realistic possibility' for consciousness in all vertebrates, cephalopods, and some insects. This is not anthropomorphism, it is following the evidence where it leads. Crows solve multi-step causal reasoning problems, elephants mourn their dead for days, rats show empathic behavior by freeing trapped companions even when given the option of eating chocolate instead, and octopuses demonstrate play behavior with no survival function. The most parsimonious explanation for these behaviors, given the neural substrate evidence, is conscious experience.",
       crux: {
         id: "consciousness-detection-method",
         title: "The Cross-Species Consciousness Detection Challenge",
         question:
           "Can consciousness be detected without a human template, and in which species would it show up?",
         description:
-          "If a rigorous, non-anthropocentric method for detecting consciousness can be developed and validated — one that reliably distinguishes conscious from non-conscious systems without assuming human-like consciousness as the template — and this method detects consciousness across a broad range of animal taxa, the case for widespread animal consciousness becomes compelling. If no such method can be developed, the question may remain permanently underdetermined.",
+          "If a rigorous, non-anthropocentric method for detecting consciousness can be developed and validated (one that reliably distinguishes conscious from non-conscious systems without assuming human-like consciousness as the template) and this method detects consciousness across a broad range of animal taxa, the case for widespread animal consciousness becomes compelling. If no such method can be developed, the question may remain permanently underdetermined.",
         methodology:
           "Develop and validate at least two independent consciousness detection paradigms that do not rely on behavioral similarity to humans. Candidates include perturbational complexity index (PCI) adapted for non-human brains, Integrated Information Theory (IIT) measurements of phi, and adversarial collaboration studies where proponents and skeptics of animal consciousness pre-register predictions about neural signatures in specific taxa. Test across mammals, birds, fish, cephalopods, and insects.",
         verification_status: "theoretical" as const,
@@ -52,13 +52,13 @@ export const animalConsciousnessRightsData = {
           "$10-30M (Multi-lab, multi-species neuroscience research program over 5-10 years)",
         falsification: {
           supporter_flip:
-            "If validated, non-anthropocentric consciousness measures (e.g., perturbational complexity index or IIT phi) reliably scored a wide range of animals as non-conscious — or if the markers fired in systems everyone agrees are not conscious (a thermostat, a simple feedback circuit) — the inference from homologous neural substrate and complex behavior to widespread consciousness would collapse into anthropomorphic over-reading.",
+            "If validated, non-anthropocentric consciousness measures (e.g., perturbational complexity index or IIT phi) reliably scored a wide range of animals as non-conscious, or if the markers fired in systems everyone agrees are not conscious (a thermostat, a simple feedback circuit), the inference from homologous neural substrate and complex behavior to widespread consciousness would collapse into anthropomorphic over-reading.",
           skeptic_flip:
             "If pre-specified marker criteria, like those behind the LSE/Birch review that became UK law and the morphine-reversal test in fish, kept picking out the same animals across mammals, birds and fish, 'it's all anthropomorphism' would be hard to hold for the clearest cases.",
           common_ground:
             "Both sides agree subjective experience cannot be measured directly in any species (including other humans), that behavioral complexity alone does not prove consciousness, and that some animals (at minimum mammals and birds) show neural and behavioral indicators worth taking seriously.",
           live_disagreement:
-            "Whether a consciousness detector can be built that distinguishes conscious from non-conscious systems without assuming a human template, and how broadly it would test positive across taxa — which only validating two or more independent paradigms against pre-registered predictions across mammals, birds, fish, cephalopods, and insects can settle.",
+            "Whether a consciousness detector can be built that distinguishes conscious from non-conscious systems without assuming a human template, and how broadly it would test positive across taxa, which only validating two or more independent paradigms against pre-registered predictions across mammals, birds, fish, cephalopods, and insects can settle.",
         },
       },
       evidence: [
@@ -66,7 +66,7 @@ export const animalConsciousnessRightsData = {
           id: "cambridge-declaration-consciousness",
           title: "Cambridge Declaration on Consciousness (2012)",
           description:
-            "On 7 July 2012, at the Francis Crick Memorial Conference at Churchill College, Cambridge, a group of neuroscientists — among them Philip Low, Christof Koch, David Edelman, Jaak Panksepp, Diana Reiss and Irene Pepperberg — signed the Cambridge Declaration on Consciousness in the presence of Stephen Hawking, who attended but was not a signatory. It states: 'The weight of evidence indicates that humans are not unique in possessing the neurological substrates that generate consciousness. Non-human animals, including all mammals and birds, and many other creatures including octopuses, also possess these neurological substrates.' The declaration was based on convergent evidence from neuroanatomy, neurochemistry, electrophysiology, and behavioral studies.",
+            "On 7 July 2012, at the Francis Crick Memorial Conference at Churchill College, Cambridge, a group of neuroscientists (among them Philip Low, Christof Koch, David Edelman, Jaak Panksepp, Diana Reiss and Irene Pepperberg) signed the Cambridge Declaration on Consciousness in the presence of Stephen Hawking, who attended but was not a signatory. It states: 'The weight of evidence indicates that humans are not unique in possessing the neurological substrates that generate consciousness. Non-human animals, including all mammals and birds, and many other creatures including octopuses, also possess these neurological substrates.' The declaration was based on convergent evidence from neuroanatomy, neurochemistry, electrophysiology, and behavioral studies.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -83,7 +83,7 @@ export const animalConsciousnessRightsData = {
           id: "fish-pain-neuroanatomy-skeptics",
           title: "Peer-reviewed case that fish lack the structures pain requires",
           description:
-            "Rose, Arlinghaus, Cooke, Diggles and co-authors, in Fish and Fisheries (2014, published online 2012), reviewed the fish-pain literature and argued that nociception — detecting and responding to damaging stimuli — does not establish the conscious experience of pain, and that fish lack the neocortical structures that in humans are associated with it. Brian Key, in Animal Sentience (2016), made the stronger structural version of the argument: that fish lack the neurocytoarchitecture, microcircuitry and connectivity the neural processing of pain requires. Both papers drew published rebuttals in the same venues.",
+            "Rose, Arlinghaus, Cooke, Diggles and co-authors, in Fish and Fisheries (2014, published online 2012), reviewed the fish-pain literature and argued that nociception, detecting and responding to damaging stimuli, does not establish the conscious experience of pain, and that fish lack the neocortical structures that in humans are associated with it. Brian Key, in Animal Sentience (2016), made the stronger structural version of the argument: that fish lack the neurocytoarchitecture, microcircuitry and connectivity the neural processing of pain requires. Both papers drew published rebuttals in the same venues.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -101,7 +101,7 @@ export const animalConsciousnessRightsData = {
           id: "new-york-declaration-2024",
           title: "New York Declaration on Animal Consciousness (2024)",
           description:
-            "The 2024 New York Declaration on Animal Consciousness — signed by more than 600 people as of November 2026, many of them researchers in neuroscience, philosophy, and animal behavior — goes further than the Cambridge Declaration by asserting 'strong scientific support' for consciousness in all mammals and birds, and 'at least a realistic possibility' of conscious experience in all vertebrates (including reptiles, amphibians, and fish) and many invertebrates (at minimum cephalopod molluscs, decapod crustaceans, and insects). Its central principle is that where consciousness is a realistic possibility, 'it is irresponsible to ignore that possibility in decisions affecting that animal.'",
+            "The 2024 New York Declaration on Animal Consciousness, signed by more than 600 people as of November 2026, many of them researchers in neuroscience, philosophy, and animal behavior, goes further than the Cambridge Declaration by asserting 'strong scientific support' for consciousness in all mammals and birds, and 'at least a realistic possibility' of conscious experience in all vertebrates (including reptiles, amphibians, and fish) and many invertebrates (at minimum cephalopod molluscs, decapod crustaceans, and insects). Its central principle is that where consciousness is a realistic possibility, 'it is irresponsible to ignore that possibility in decisions affecting that animal.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -118,7 +118,7 @@ export const animalConsciousnessRightsData = {
           id: "fish-nociception-pain",
           title: "Fish Have Nociceptors and Show Pain-Related Behavior, Not Mere Reflexes (Sneddon)",
           description:
-            "Lynne Sneddon's neuroanatomical and behavioral work, synthesized in Philosophical Transactions of the Royal Society B (2019), established that rainbow trout possess nociceptors on the head and lips with A-delta and C-fiber properties identical to those in mammals. Crucially, the response is more than reflexive: fish injected with acid or bee venom stopped feeding for roughly three times longer than controls, rocked and rubbed the affected area, and — decisively — resumed normal behavior when given morphine, indicating central processing of an aversive state rather than a simple withdrawal reflex. This addresses the standard skeptic objection that fish lack a neocortex by showing functional pain processing in non-mammalian brain architecture.",
+            "Lynne Sneddon's neuroanatomical and behavioral work, synthesized in Philosophical Transactions of the Royal Society B (2019), established that rainbow trout possess nociceptors on the head and lips with A-delta and C-fiber properties identical to those in mammals. Crucially, the response is more than reflexive: fish injected with acid or bee venom stopped feeding for roughly three times longer than controls, rocked and rubbed the affected area, and, decisively, resumed normal behavior when given morphine, indicating central processing of an aversive state rather than a simple withdrawal reflex. This addresses the standard skeptic objection that fish lack a neocortex by showing functional pain processing in non-mammalian brain architecture.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -135,7 +135,7 @@ export const animalConsciousnessRightsData = {
           id: "lse-decapod-cephalopod-sentience",
           title: "LSE/Birch Review Found Strong Evidence of Sentience in Octopuses, Crabs, and Lobsters (2021)",
           description:
-            "A UK government–commissioned, peer-reviewed review led by Jonathan Birch at the London School of Economics assessed over 300 scientific studies against eight neural and behavioral markers of sentience (e.g., nociceptors, integrative brain regions, analgesia-seeking, motivational trade-offs, associative learning). It concluded there is strong evidence that cephalopod molluscs (octopuses, squid, cuttlefish) and decapod crustaceans (crabs, lobsters, prawns) are sentient. The review directly informed the UK's Animal Welfare (Sentience) Act 2022, which added these invertebrates to the law's scope — a rare case of a sentience assessment translating into binding legislation.",
+            "A UK government–commissioned, peer-reviewed review led by Jonathan Birch at the London School of Economics assessed over 300 scientific studies against eight neural and behavioral markers of sentience (e.g., nociceptors, integrative brain regions, analgesia-seeking, motivational trade-offs, associative learning). It concluded there is strong evidence that cephalopod molluscs (octopuses, squid, cuttlefish) and decapod crustaceans (crabs, lobsters, prawns) are sentient. The review directly informed the UK's Animal Welfare (Sentience) Act 2022, which added these invertebrates to the law's scope, a rare case of a sentience assessment translating into binding legislation.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -167,7 +167,7 @@ export const animalConsciousnessRightsData = {
         },
         {
           id: "anthropomorphism-critique",
-          title: "Animal Behavior Can Be Explained Without Invoking Consciousness — Morgan's Canon",
+          title: "Animal Behavior Can Be Explained Without Invoking Consciousness, Morgan's Canon",
           description:
             "Lloyd Morgan's Canon, a foundational principle of animal behavior science, states that animal behavior should not be interpreted as the product of higher mental processes (like consciousness) if it can be explained by simpler mechanisms (like conditioning, instinct, or reflexive responses). Critics of animal consciousness claims argue that tool use, apparent grief, and 'prosocial' behavior can all be explained by evolutionary adaptations that do not require subjective experience. Skeptics argue that even bees' complex navigation and waggle-dance communication can be explained by mechanisms that need not involve experience. The assumption that behavioral complexity implies consciousness may be fundamentally mistaken.",
           side: "against" as const,
@@ -180,7 +180,7 @@ export const animalConsciousnessRightsData = {
           source: "C. Lloyd Morgan, An Introduction to Comparative Psychology (1894), p. 53, as discussed in the Stanford Encyclopedia of Philosophy, 'Animal Consciousness'",
           sourceUrl: "https://plato.stanford.edu/entries/consciousness-animal/",
           reasoning:
-            "Morgan's Canon is a well-established scientific principle that provides a legitimate check on anthropomorphic over-interpretation. The methodological concern is valid — behavioral complexity does not necessarily imply consciousness. However, critics of Morgan's Canon argue that in cases of convergent neural and behavioral evidence, invoking 'simpler' non-conscious explanations may itself be the less parsimonious interpretation.",
+            "Morgan's Canon is a well-established scientific principle that provides a legitimate check on anthropomorphic over-interpretation. The methodological concern is valid, behavioral complexity does not necessarily imply consciousness. However, critics of Morgan's Canon argue that in cases of convergent neural and behavioral evidence, invoking 'simpler' non-conscious explanations may itself be the less parsimonious interpretation.",
         },
       ],
     },
@@ -192,12 +192,12 @@ export const animalConsciousnessRightsData = {
       id: "moral-philosophy",
       title: "Moral Philosophy of Animal Rights",
       short_summary:
-        "Multiple philosophical frameworks — utilitarian (Singer), deontological (Regan), and relational (Donaldson/Kymlicka) — argue for extending moral rights to animals based on their capacity for suffering. The central philosophical question is whether consciousness necessarily entails moral status, and whether human moral frameworks can meaningfully apply to non-human beings.",
+        "Multiple philosophical frameworks, utilitarian (Singer), deontological (Regan), and relational (Donaldson/Kymlicka), argue for extending moral rights to animals based on their capacity for suffering. The central philosophical question is whether consciousness necessarily entails moral status, and whether human moral frameworks can meaningfully apply to non-human beings.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The leap from 'this animal is conscious' to 'therefore we must grant it rights' involves philosophical assumptions that are far from self-evident. Rights are social contracts between beings who can reciprocate obligations — animals cannot sign contracts, vote, or bear moral responsibility. Peter Singer's utilitarian framework reduces morality to suffering minimization, but this would also require us to intervene in nature to prevent predation (wild animal suffering), which is absurd. Tom Regan's deontological approach grants 'inherent value' to all 'subjects of a life,' but the boundary of who counts as a 'subject of a life' is arbitrary — does a mosquito have inherent value? A bacterium? Moreover, the history of 'animal rights' philosophy emerges from wealthy Western societies where basic human rights are already secured; the 60% of humanity living on under $10/day might reasonably prioritize human welfare over animal welfare.",
+        "The leap from 'this animal is conscious' to 'therefore we must grant it rights' involves philosophical assumptions that are far from self-evident. Rights are social contracts between beings who can reciprocate obligations, animals cannot sign contracts, vote, or bear moral responsibility. Peter Singer's utilitarian framework reduces morality to suffering minimization, but this would also require us to intervene in nature to prevent predation (wild animal suffering), which is absurd. Tom Regan's deontological approach grants 'inherent value' to all 'subjects of a life,' but the boundary of who counts as a 'subject of a life' is arbitrary, does a mosquito have inherent value? A bacterium? Moreover, the history of 'animal rights' philosophy emerges from wealthy Western societies where basic human rights are already secured; the 60% of humanity living on under $10/day might reasonably prioritize human welfare over animal welfare.",
       proponent_rebuttal:
-        "The social contract argument proves too much — it would also exclude human infants, severely cognitively disabled individuals, and future generations from moral consideration, since none of these can reciprocate obligations. We extend rights to these groups because they have morally relevant interests (especially the interest in not suffering), not because they can sign contracts. Singer's argument is not that animals have equal moral status to humans but that equal suffering deserves equal consideration — that torturing a dog for entertainment is wrong for the same reason torturing a child is wrong. The 'where do you draw the line' objection applies to every moral framework — the existence of borderline cases does not invalidate clear cases. Factory farming 80 billion land animals per year in conditions of extreme confinement and suffering is not a borderline case. And the argument that animal welfare is a rich-world luxury is empirically wrong: India, one of the world's largest developing nations, has a deep cultural tradition of animal welfare, and the Jain tradition of ahimsa predates Western philosophy by millennia.",
+        "The social contract argument proves too much; it would also exclude human infants, severely cognitively disabled individuals, and future generations from moral consideration, since none of these can reciprocate obligations. We extend rights to these groups because they have morally relevant interests (especially the interest in not suffering), not because they can sign contracts. Singer's argument is not that animals have equal moral status to humans but that equal suffering deserves equal consideration, that torturing a dog for entertainment is wrong for the same reason torturing a child is wrong. The 'where do you draw the line' objection applies to every moral framework, the existence of borderline cases does not invalidate clear cases. Factory farming 80 billion land animals per year in conditions of extreme confinement and suffering is not a borderline case. And the argument that animal welfare is a rich-world luxury is empirically wrong: India, one of the world's largest developing nations, has a deep cultural tradition of animal welfare, and the Jain tradition of ahimsa predates Western philosophy by millennia.",
       crux: {
         id: "suffering-moral-status-link",
         title: "The Suffering-to-Rights Bridge Test",
@@ -216,13 +216,13 @@ export const animalConsciousnessRightsData = {
           "$200K (Structured philosophical adversarial collaboration and publication)",
         falsification: {
           supporter_flip:
-            "If every framework that grants rights to conscious animals, when applied consistently, forced clearly absurd conclusions — for instance an obligation to police predation across the wild, or to extend rights to bacteria and insects without limit — then the move from 'this animal suffers' to 'therefore it has rights' would be exposed as incoherent rather than merely demanding.",
+            "If every framework that grants rights to conscious animals, when applied consistently, forced clearly absurd conclusions (for instance an obligation to police predation across the wild, or to extend rights to bacteria and insects without limit) then the move from 'this animal suffers' to 'therefore it has rights' would be exposed as incoherent rather than merely demanding.",
           skeptic_flip:
             "If analysis confirmed that the social-contract test, applied consistently, would strip moral status from infants, the severely cognitively disabled and future generations, and Birch's 'edge of sentience' approach let policy act proportionately under uncertainty, that test would lose its force against animal rights.",
           common_ground:
             "Both sides agree that the capacity to suffer is at least morally relevant, that gratuitously torturing an animal is wrong, and that some line-drawing is unavoidable because borderline cases exist for every moral theory.",
           live_disagreement:
-            "Whether any single framework can handle the full range of clear, borderline, and reductio cases coherently — which an adversarial collaboration between leading animal-rights philosophers and their critics, working from pre-registered test cases, is designed to expose.",
+            "Whether any single framework can handle the full range of clear, borderline, and reductio cases coherently, which an adversarial collaboration between leading animal-rights philosophers and their critics, working from pre-registered test cases, is designed to expose.",
         },
       },
       evidence: [
@@ -230,7 +230,7 @@ export const animalConsciousnessRightsData = {
           id: "singer-animal-liberation",
           title: "Peter Singer's 'Animal Liberation' Argument: Equal Suffering Deserves Equal Consideration (1975)",
           description:
-            "In 'Animal Liberation' (1975), philosopher Peter Singer argued that the capacity for suffering — not species membership — is the morally relevant criterion for moral consideration. Singer popularized the term 'speciesism', coined by the psychologist Richard Ryder, for the arbitrary privileging of human interests over animal interests, by analogy with racism or sexism. His utilitarian framework holds that the suffering of a pig in a factory farm deserves equal moral weight to equivalent suffering in a human, and that most animal agriculture and experimentation cannot be justified by the benefits to humans. In the 1973 New York Review of Books essay that first set out the argument, he wrote: 'If a being suffers, there can be no moral justification for refusing to take that suffering into consideration, and, indeed, to count it equally with the like suffering (if rough comparisons can be made) of any other being.'",
+            "In 'Animal Liberation' (1975), philosopher Peter Singer argued that the capacity for suffering, not species membership, is the morally relevant criterion for moral consideration. Singer popularized the term 'speciesism', coined by the psychologist Richard Ryder, for the arbitrary privileging of human interests over animal interests, by analogy with racism or sexism. His utilitarian framework holds that the suffering of a pig in a factory farm deserves equal moral weight to equivalent suffering in a human, and that most animal agriculture and experimentation cannot be justified by the benefits to humans. In the 1973 New York Review of Books essay that first set out the argument, he wrote: 'If a being suffers, there can be no moral justification for refusing to take that suffering into consideration, and, indeed, to count it equally with the like suffering (if rough comparisons can be made) of any other being.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -258,13 +258,13 @@ export const animalConsciousnessRightsData = {
           source: "FAO; Compassion in World Farming; USDA",
           sourceUrl: "https://www.fao.org/animal-production/en/",
           reasoning:
-            "The production scale data is from authoritative intergovernmental and government sources. The welfare conditions described are well-documented. Directness is somewhat lower because the evidence establishes the scale of potential suffering but does not independently resolve whether the animals are conscious or whether consciousness entails rights — those are the philosophical questions at issue.",
+            "The production scale data is from authoritative intergovernmental and government sources. The welfare conditions described are well-documented. Directness is somewhat lower because the evidence establishes the scale of potential suffering but does not independently resolve whether the animals are conscious or whether consciousness entails rights; those are the philosophical questions at issue.",
         },
         {
           id: "birch-precautionary-framework",
           title: "Birch's 'Edge of Sentience' Offers a Precautionary Framework for Decisions Under Uncertainty (2024)",
           description:
-            "In 'The Edge of Sentience: Risk and Precaution in Humans, Other Animals, and AI' (Oxford University Press, open access, 2024), philosopher Jonathan Birch argues that the 'where do you draw the line' objection is not a reason for inaction. He proposes treating any animal that is a credible 'sentience candidate' as deserving precautionary protection, grounded in three principles: a duty to avoid gratuitous suffering, the moral relevance of sentience candidature, and democratic deliberation to decide proportionate precautions. The framework deliberately avoids requiring certainty — it asks decision-makers to act proportionately to the strength of evidence and the severity of the risk, the same logic societies already apply to medical ethics and disorders of consciousness in humans.",
+            "In 'The Edge of Sentience: Risk and Precaution in Humans, Other Animals, and AI' (Oxford University Press, open access, 2024), philosopher Jonathan Birch argues that the 'where do you draw the line' objection is not a reason for inaction. He proposes treating any animal that is a credible 'sentience candidate' as deserving precautionary protection, grounded in three principles: a duty to avoid gratuitous suffering, the moral relevance of sentience candidature, and democratic deliberation to decide proportionate precautions. The framework deliberately avoids requiring certainty; it asks decision-makers to act proportionately to the strength of evidence and the severity of the risk, the same logic societies already apply to medical ethics and disorders of consciousness in humans.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -308,9 +308,9 @@ export const animalConsciousnessRightsData = {
         "If animal consciousness and rights claims are accepted, the implications for agriculture, medical research, pet ownership, wildlife conservation, and the global economy would be profound. The question is whether incremental welfare improvements or full abolitionism is the right approach, and whether modern civilization can function without animal exploitation.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Extending meaningful rights to animals would require the effective end of animal agriculture ($1.5 trillion global industry employing hundreds of millions of people), the cessation of most biomedical research using animals (which has contributed to virtually every major medical advance of the past century), the abolition of pet ownership (which animal rights theorists like Gary Francione argue is inherently exploitative), and the end of pest control, wildlife management, and countless other practices that depend on treating animal interests as subordinate to human interests. This is not a minor policy adjustment — it is a civilizational transformation that no society is prepared to undertake. Incremental welfare improvements (larger cages, less painful slaughter methods) are achievable and meaningful; abolitionist rights frameworks are utopian fantasies that, if taken seriously, would collapse food systems and medical research.",
+        "Extending meaningful rights to animals would require the effective end of animal agriculture ($1.5 trillion global industry employing hundreds of millions of people), the cessation of most biomedical research using animals (which has contributed to virtually every major medical advance of the past century), the abolition of pet ownership (which animal rights theorists like Gary Francione argue is inherently exploitative), and the end of pest control, wildlife management, and countless other practices that depend on treating animal interests as subordinate to human interests. This is not a minor policy adjustment; it is a civilizational transformation that no society is prepared to undertake. Incremental welfare improvements (larger cages, less painful slaughter methods) are achievable and meaningful; abolitionist rights frameworks are utopian fantasies that, if taken seriously, would collapse food systems and medical research.",
       proponent_rebuttal:
-        "The same 'civilizational collapse' argument was made against abolishing slavery, granting women the right to vote, and ending child labor — all of which required fundamental restructuring of economic systems. Plant-based and cultivated meat industries are growing at 20%+ annually and will make animal agriculture economically obsolete within decades regardless of the rights question. Non-animal research methods (organoids, AI drug screening, organ-on-a-chip) are increasingly outperforming animal models — the FDA Modernization Act 2.0 (2022) eliminated the requirement for animal testing before human drug trials. The claim that animal rights requires ending pet ownership misrepresents the dominant position: Donaldson and Kymlicka's relational framework explicitly supports companion animal relationships while opposing commodification. The transition need not be overnight; slavery was abolished over decades through a combination of moral argument, economic alternatives, and legal reform. The same trajectory is already underway for animal exploitation.",
+        "The same 'civilizational collapse' argument was made against abolishing slavery, granting women the right to vote, and ending child labor, all of which required fundamental restructuring of economic systems. Plant-based and cultivated meat industries are growing at 20%+ annually and will make animal agriculture economically obsolete within decades regardless of the rights question. Non-animal research methods (organoids, AI drug screening, organ-on-a-chip) are increasingly outperforming animal models, the FDA Modernization Act 2.0 (2022) eliminated the requirement for animal testing before human drug trials. The claim that animal rights requires ending pet ownership misrepresents the dominant position: Donaldson and Kymlicka's relational framework explicitly supports companion animal relationships while opposing commodification. The transition need not be overnight; slavery was abolished over decades through a combination of moral argument, economic alternatives, and legal reform. The same trajectory is already underway for animal exploitation.",
       crux: {
         id: "alternative-viability-test",
         title: "The Alternative Systems Viability Assessment",
@@ -335,7 +335,7 @@ export const animalConsciousnessRightsData = {
           common_ground:
             "Both sides agree that today's economy still depends heavily on animal use, that roughly a billion people rely on livestock for their livelihoods, and that any transition must be judged on real cost, nutrition, and medical-outcome parity rather than aspiration.",
           live_disagreement:
-            "Whether alternatives can match animal-dependent systems on nutrition, medical progress, and affordability at global scale within about 20 years — which only tracking price-parity, production-cost, nutritional-completeness, and non-animal-vs-animal testing success trajectories over time can resolve.",
+            "Whether alternatives can match animal-dependent systems on nutrition, medical progress, and affordability at global scale within about 20 years, which only tracking price-parity, production-cost, nutritional-completeness, and non-animal-vs-animal testing success trajectories over time can resolve.",
         },
       },
       evidence: [
@@ -371,7 +371,7 @@ export const animalConsciousnessRightsData = {
           source: "FAO; World Bank; OECD",
           sourceUrl: "https://www.fao.org/animal-production/en/",
           reasoning:
-            "The economic data from FAO and World Bank is authoritative and directly relevant to the feasibility of animal rights implementation. The point about developing-world dependence on livestock is particularly strong — advocating for rapid elimination of animal agriculture without addressing the livelihoods of a billion people is politically and morally untenable. This evidence challenges the abolitionist position more than the welfare improvement position.",
+            "The economic data from FAO and World Bank is authoritative and directly relevant to the feasibility of animal rights implementation. The point about developing-world dependence on livestock is particularly strong, advocating for rapid elimination of animal agriculture without addressing the livelihoods of a billion people is politically and morally untenable. This evidence challenges the abolitionist position more than the welfare improvement position.",
         },
       ],
     },
@@ -386,27 +386,27 @@ export const animalConsciousnessRightsData = {
       url: "https://sites.google.com/nyu.edu/nydeclaration/declaration",
     },
     {
-      title: "Empathy and Pro-Social Behavior in Rats — Science (2011)",
+      title: "Empathy and Pro-Social Behavior in Rats, Science (2011)",
       url: "https://doi.org/10.1126/science.1210789",
     },
     {
-      title: "Evolution of Nociception and Pain: Evidence from Fish Models — Phil. Trans. R. Soc. B (Sneddon, 2019)",
+      title: "Evolution of Nociception and Pain: Evidence from Fish Models, Phil. Trans. R. Soc. B (Sneddon, 2019)",
       url: "https://doi.org/10.1098/rstb.2019.0290",
     },
     {
-      title: "Review of the Evidence of Sentience in Cephalopod Molluscs and Decapod Crustaceans — LSE/Birch (2021)",
+      title: "Review of the Evidence of Sentience in Cephalopod Molluscs and Decapod Crustaceans, LSE/Birch (2021)",
       url: "https://www.wellbeingintlstudiesrepository.org/af_gen/2/",
     },
     {
-      title: "The Edge of Sentience — Jonathan Birch (Oxford University Press, 2024)",
+      title: "The Edge of Sentience, Jonathan Birch (Oxford University Press, 2024)",
       url: "https://doi.org/10.1093/9780191966729.001.0001",
     },
     {
-      title: "Animal Liberation — Peter Singer (The New York Review of Books essay, 1973; book, 1975)",
+      title: "Animal Liberation, Peter Singer (The New York Review of Books essay, 1973; book, 1975)",
       url: "https://www.nybooks.com/articles/1973/04/05/animal-liberation/",
     },
     {
-      title: "FDA Modernization Act 2.0 — Congress.gov",
+      title: "FDA Modernization Act 2.0, Congress.gov",
       url: "https://www.congress.gov/bill/117th-congress/senate-bill/5002",
     },
   ],
@@ -415,7 +415,7 @@ export const animalConsciousnessRightsData = {
       id: "q1",
       title: "Which animals are conscious, and how do we know?",
       content:
-        "The 2024 New York Declaration recognizes a 'realistic possibility' of consciousness in all vertebrates and many invertebrates. But 'realistic possibility' is not certainty. We cannot access another being's subjective experience directly. The best evidence comes from convergent neural, behavioral, and evolutionary indicators — but debate continues about where to draw the line.",
+        "The 2024 New York Declaration recognizes a 'realistic possibility' of consciousness in all vertebrates and many invertebrates. But 'realistic possibility' is not certainty. We cannot access another being's subjective experience directly. The best evidence comes from convergent neural, behavioral, and evolutionary indicators, but debate continues about where to draw the line.",
     },
     {
       id: "q2",
