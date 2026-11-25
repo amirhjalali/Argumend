@@ -10,7 +10,7 @@ export function LegalDraftNotice({
   document: documentName,
   lastUpdated,
 }: {
-  /** "privacy policy" / "terms" — read inside the sentence. */
+  /** "privacy policy" / "terms": read inside the sentence. */
   document: string;
   /** Human-readable revision date, e.g. "21 September 2026". */
   lastUpdated: string;
@@ -22,7 +22,7 @@ export function LegalDraftNotice({
       className="mb-10 rounded-xl border border-l-4 border-rust-200 border-l-rust-500 bg-rust-50/70 px-4 py-3 dark:border-[var(--border-default)] dark:border-l-rust-500 dark:bg-[var(--bg-card)]"
     >
       <p className="text-sm font-semibold text-primary dark:text-stone-200">
-        Draft — pending legal review
+        Draft: pending legal review
       </p>
       <p className="mt-1 text-sm leading-relaxed text-secondary dark:text-stone-400">
         This {documentName} was written from Argumend&rsquo;s source code on {lastUpdated} and has

@@ -161,7 +161,7 @@ export const affirmativeActionMeritocracyData = {
     },
 
     // =========================================================================
-    // PILLAR 2: After the ban — can race-neutral admissions keep doors open?
+    // PILLAR 2: After the ban, can race-neutral admissions keep doors open?
     // =========================================================================
     {
       id: "race-conscious-vs-neutral-effectiveness",
@@ -471,47 +471,47 @@ export const affirmativeActionMeritocracyData = {
   ],
   references: [
     {
-      title: "Students for Fair Admissions v. Harvard — Supreme Court of the United States (2023)",
+      title: "Students for Fair Admissions v. Harvard, Supreme Court of the United States (2023)",
       url: "https://www.supremecourt.gov/opinions/22pdf/20-1199_hgdj.pdf",
     },
     {
-      title: "An Early Look at Diversity Post–Affirmative Action — Inside Higher Ed (6 September 2024)",
+      title: "An Early Look at Diversity Post–Affirmative Action, Inside Higher Ed (6 September 2024)",
       url: "https://www.insidehighered.com/news/admissions/traditional-age/2024/09/06/early-look-racial-diversity-post-affirmative-action",
     },
     {
-      title: "Ending Illegal Discrimination and Restoring Merit-Based Opportunity — The White House (21 January 2025)",
+      title: "Ending Illegal Discrimination and Restoring Merit-Based Opportunity; The White House (21 January 2025)",
       url: "https://www.whitehouse.gov/presidential-actions/2025/01/ending-illegal-discrimination-and-restoring-merit-based-opportunity/",
     },
     {
-      title: "Ensuring Transparency in Higher Education Admissions — The White House (7 August 2025)",
+      title: "Ensuring Transparency in Higher Education Admissions; The White House (7 August 2025)",
       url: "https://www.whitehouse.gov/presidential-actions/2025/08/ensuring-transparency-in-higher-education-admissions/",
     },
     {
-      title: "Standardized Test Scores and Academic Performance at Ivy-Plus Colleges — Friedman, Sacerdote, Staiger & Tine (2025)",
+      title: "Standardized Test Scores and Academic Performance at Ivy-Plus Colleges, Friedman, Sacerdote, Staiger & Tine (2025)",
       url: "https://opportunityinsights.org/paper/test-scores/",
     },
     {
-      title: "Diversifying Society's Leaders? — Chetty, Deming & Friedman, Opportunity Insights (2023)",
+      title: "Diversifying Society's Leaders?, Chetty, Deming & Friedman, Opportunity Insights (2023)",
       url: "https://opportunityinsights.org/paper/collegeadmissions/",
     },
     {
-      title: "Legacy and Athlete Preferences at Harvard — Arcidiacono, Kinsler & Ransom, NBER w26316 (2019)",
+      title: "Legacy and Athlete Preferences at Harvard, Arcidiacono, Kinsler & Ransom, NBER w26316 (2019)",
       url: "https://www.nber.org/papers/w26316",
     },
     {
-      title: "Affirmative Action, Mismatch, and Economic Mobility after California's Proposition 209 — Bleemer, QJE (2022)",
+      title: "Affirmative Action, Mismatch, and Economic Mobility after California's Proposition 209, Bleemer, QJE (2022)",
       url: "https://academic.oup.com/qje/article/137/1/115/6360989",
     },
     {
-      title: "Affirmative Action in Education: Evidence From Engineering College Admissions in India — Bertrand, Hanna & Mullainathan, NBER w13926",
+      title: "Affirmative Action in Education: Evidence From Engineering College Admissions in India, Bertrand, Hanna & Mullainathan, NBER w13926",
       url: "https://www.nber.org/papers/w13926",
     },
     {
-      title: "Affirmative Action and the Quality-Fit Trade-off — Arcidiacono & Lovenheim, Journal of Economic Literature (2016)",
+      title: "Affirmative Action and the Quality-Fit Trade-off, Arcidiacono & Lovenheim, Journal of Economic Literature (2016)",
       url: "https://doi.org/10.1257/jel.54.1.3",
     },
     {
-      title: "More Americans Disapprove Than Approve of Colleges Considering Race, Ethnicity in Admissions Decisions — Pew Research Center (2023)",
+      title: "More Americans Disapprove Than Approve of Colleges Considering Race, Ethnicity in Admissions Decisions, Pew Research Center (2023)",
       url: "https://www.pewresearch.org/politics/2023/06/08/more-americans-disapprove-than-approve-of-colleges-considering-race-ethnicity-in-admissions-decisions/",
     },
     {
@@ -519,7 +519,7 @@ export const affirmativeActionMeritocracyData = {
       url: "https://senate.universityofcalifornia.edu/_files/underreview/sttf-report.pdf",
     },
     {
-      title: "Survey of Consumer Finances — Federal Reserve Board",
+      title: "Survey of Consumer Finances, Federal Reserve Board",
       url: "https://www.federalreserve.gov/econres/scfindex.htm",
     },
   ],

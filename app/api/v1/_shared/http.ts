@@ -2,7 +2,7 @@
  * Shared helpers for the public read-only API (`/api/v1/*`).
  *
  * The underscore-prefixed folder is a Next.js private directory, so nothing in
- * here is ever served as a route handler — these are plain modules consumed by
+ * here is ever served as a route handler: these are plain modules consumed by
  * the sibling `route.ts` files.
  */
 
@@ -14,7 +14,7 @@ export { SITE_URL };
 
 /**
  * Permissive CORS so any website or client-side app can consume the API
- * directly from the browser. The data is public topic analysis — there is
+ * directly from the browser. The data is public topic analysis: there is
  * nothing origin-sensitive to protect.
  */
 export const CORS_HEADERS: Record<string, string> = {

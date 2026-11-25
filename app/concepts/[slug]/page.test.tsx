@@ -44,7 +44,7 @@ describe("/concepts/cruxes", () => {
 
   it("uses a real flagship crux and the ledger's own labels", async () => {
     const text = (await renderConcept("cruxes")).container.textContent ?? "";
-    expect(text).toContain("When AI makes a firm more productive, does it hire fewer people — or just sell more?");
+    expect(text).toContain("When AI makes a firm more productive, does it hire fewer people, or just sell more?");
     expect(text).toContain("How this has moved");
     expect(text).toContain("Unresolvable by evidence");
   });
@@ -70,7 +70,7 @@ describe("concept routes and metadata", () => {
 
   it("uses a typographic separator in page and social titles", async () => {
     const metadata = await generateMetadata({ params: Promise.resolve({ slug: "steel-manning" }) });
-    expect(metadata.title).toBe("Steel-manning — Key Concept");
-    expect(metadata.openGraph?.title).toBe("Steel-manning — Key Concept");
+    expect(metadata.title).toBe("Steel-manning: Key Concept");
+    expect(metadata.openGraph?.title).toBe("Steel-manning: Key Concept");
   });
 });

@@ -33,7 +33,7 @@ export const HIDDEN_ASSUMPTION_NOTE =
 
 /** The engine's line for a crux no evidence can settle (docs/CRUX_ENGINE.md). */
 export const STANDING_DISAGREEMENT_LINE =
-  "Nothing does — this is a standing value disagreement; the map holds both horns.";
+  "Nothing does: this is a standing value disagreement; the map lays out both sides.";
 
 /**
  * The standing line for the kind of fork. A value fork keeps the engine's
@@ -42,10 +42,10 @@ export const STANDING_DISAGREEMENT_LINE =
  */
 export function standingLineFor(kind?: ResolutionKind): string {
   if (kind === "definitional-choice") {
-    return "Nothing does — this turns on a choice of definition; the map holds both readings.";
+    return "Nothing does: this turns on a choice of definition; the map holds both readings.";
   }
   if (kind === "authority-allocation") {
-    return "Nothing does — this turns on who should decide; the map holds both answers.";
+    return "Nothing does: this turns on who should decide; the map holds both answers.";
   }
   return STANDING_DISAGREEMENT_LINE;
 }
@@ -221,12 +221,12 @@ export interface TopicPageData {
 
 const NUMBER_WORDS = ["None", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 
-/** "Three", "Four", … — falls back to digits past ten. */
+/** "Three", "Four", …: falls back to digits past ten. */
 export function numberWord(n: number): string {
   return NUMBER_WORDS[n] ?? String(n);
 }
 
-/** "This turns on three questions" — never a hardcoded count. */
+/** "This turns on three questions": never a hardcoded count. */
 export function cruxSheetHeading(count: number): string {
   return `This turns on ${numberWord(count).toLowerCase()} ${count === 1 ? "question" : "questions"}`;
 }

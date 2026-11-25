@@ -429,7 +429,7 @@ export const policeReformData = {
           id: "pr-cahoots-outcomes",
           title: "CAHOOTS 2019: 24,000 Calls, Police Backup on 311",
           description:
-            "CAHOOTS in Eugene, OR has operated since 1989 and in 2019 responded to roughly 24,000 calls (~66/day) with unarmed teams — about 20% of the public-safety communications center's call volume — requesting police backup on only 311 of them (~1.3%).",
+            "CAHOOTS in Eugene, OR has operated since 1989 and in 2019 responded to roughly 24,000 calls (~66/day) with unarmed teams, about 20% of the public-safety communications center's call volume, requesting police backup on only 311 of them (~1.3%).",
           side: "for" as const,
           weight: {
             sourceReliability: 7,

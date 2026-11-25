@@ -58,19 +58,19 @@ const GLOSSARY: Array<GlossaryEntry & { aliases?: string[] }> = [
   {
     term: "Falsifiability",
     definition:
-      "Whether a claim rules anything out — if no possible observation could prove it wrong, it tells you nothing about the world.",
+      "Whether a claim rules anything out: if no possible observation could prove it wrong, it tells you nothing about the world.",
     aliases: ["falsifiable", "falsification", "falsify", "unfalsifiable"],
   },
   {
     term: "Double crux",
     definition:
-      "A single fact that both sides agree would change their mind — find it and an unwinnable argument becomes one answerable question.",
+      "A single fact that both sides agree would change their mind, find it and an unwinnable argument becomes one answerable question.",
     aliases: ["double-crux"],
   },
   {
     term: "Burden of proof",
     definition:
-      "The obligation to support a claim with evidence — it rests on whoever asserts the claim, not on those who doubt it.",
+      "The obligation to support a claim with evidence, it rests on whoever asserts the claim, not on those who doubt it.",
     aliases: ["burden-of-proof"],
   },
 ];

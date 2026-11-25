@@ -7,7 +7,7 @@ import { buildGenericOgUrl } from "@/lib/og";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 /**
- * /ai — the living AI-discourse map (spec §2): today's top cruxes across the
+ * /ai: the living AI-discourse map (spec §2): today's top cruxes across the
  * AI maps, what has moved since a date, how much moved, and the changelog.
  *
  * In the sitemap, but deliberately not in the nav or the sidebar. Rendering matches the topic pages (no

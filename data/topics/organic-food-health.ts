@@ -19,7 +19,7 @@ export const organicFoodHealthData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "Both sides accept that organic and conventional produce are nutritionally similar on vitamins and minerals, that organic buyers differ in income and lifestyle, that conventional residues sit below EPA tolerances, and that organic farming uses pesticides of its own.",
-    "They split over whether heavy organic eaters' lower cancer rate comes from the food or from their healthier, wealthier lives, and over whether decades of low-dose exposure to many residues at once carries real risk, especially for fetuses and children — questions no randomized trial or single-chemical tolerance test has answered.",
+    "They split over whether heavy organic eaters' lower cancer rate comes from the food or from their healthier, wealthier lives, and over whether decades of low-dose exposure to many residues at once carries real risk, especially for fetuses and children, questions no randomized trial or single-chemical tolerance test has answered.",
   ],
   pillars: [
     {
@@ -29,16 +29,16 @@ export const organicFoodHealthData = {
         "A Stanford meta-analysis of 237 studies found no strong evidence that organic food is more nutritious. Organic advocates say nutrition is the wrong metric.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Stanford's 2012 review (Smith-Spangler et al., Annals of Internal Medicine, 237 studies) found no consistent vitamin or mineral advantage for organic foods. Even the antioxidant gaps later reported by Barański are concentration differences on the plant, not demonstrated health benefits in people — no trial shows that the extra flavonols lower disease risk at the doses a normal diet delivers. The organic label is not 'pesticide-free'; it permits its own (often less-studied) inputs. And a 20-100% price premium can price shoppers out of fruits and vegetables entirely, which would harm public health more than any residue.",
+        "Stanford's 2012 review (Smith-Spangler et al., Annals of Internal Medicine, 237 studies) found no consistent vitamin or mineral advantage for organic foods. Even the antioxidant gaps later reported by Barański are concentration differences on the plant, not demonstrated health benefits in people: no trial shows that the extra flavonols lower disease risk at the doses a normal diet delivers. The organic label is not 'pesticide-free'; it permits its own (often less-studied) inputs. And a 20-100% price premium can price shoppers out of fruits and vegetables entirely, which would harm public health more than any residue.",
       proponent_rebuttal:
-        "Vitamins were never the strongest case. The British Journal of Nutrition's larger 2014 meta-analysis (Barański et al., 343 studies) found organic crops carried 18-69% higher antioxidant/(poly)phenol concentrations — flavanones up ~69%, anthocyanins ~51%, flavonols ~50%, stilbenes ~28% — plus roughly 48% lower cadmium (a toxic heavy metal) and detectable pesticide residues about four times less often. The Stanford review counted vitamins and minerals but largely set antioxidants aside, which is where the real organic-vs-conventional gap shows up.",
+        "Vitamins were never the strongest case. The British Journal of Nutrition's larger 2014 meta-analysis (Barański et al., 343 studies) found organic crops carried 18-69% higher antioxidant/(poly)phenol concentrations, flavanones up ~69%, anthocyanins ~51%, flavonols ~50%, stilbenes ~28%, plus roughly 48% lower cadmium (a toxic heavy metal) and detectable pesticide residues about four times less often. The Stanford review counted vitamins and minerals but largely set antioxidants aside, which is where the real organic-vs-conventional gap shows up.",
       crux: {
         id: "health-outcome-organic-diet",
         title: "Health Outcomes from Long-Term Organic Diet",
         question:
           "Is organic buyers' lower cancer rate due to the food, or to their healthier, wealthier lifestyles?",
         description:
-          "The French NutriNet-Santé cohort (Baudry et al. 2018, ~69,000 adults) found ~25% lower overall cancer incidence among the highest organic-food consumers (HR ~0.75). But organic buyers also exercise more, smoke less, and eat more produce — residual confounding or selection bias could explain much or all of it.",
+          "The French NutriNet-Santé cohort (Baudry et al. 2018, ~69,000 adults) found ~25% lower overall cancer incidence among the highest organic-food consumers (HR ~0.75). But organic buyers also exercise more, smoke less, and eat more produce, residual confounding or selection bias could explain much or all of it.",
         methodology:
           "Large-scale prospective cohort study (50,000+ participants) comparing health outcomes over 10+ years between verified organic consumers and matched conventional food consumers, controlling for income, overall diet quality, exercise, and other confounders.",
         verification_status: "theoretical" as const,
@@ -49,13 +49,13 @@ export const organicFoodHealthData = {
         cost_to_verify: "$50M (10-year prospective cohort study)",
         falsification: {
           supporter_flip:
-            "If a large cohort or trial that rigorously controlled for the confounders — organic buyers are wealthier, leaner, exercise more, eat more produce — erased the NutriNet-Santé ~25% cancer gap, showing organic eating itself confers no benefit once lifestyle is accounted for, the health case for organic would mostly collapse.",
+            "If a large cohort or trial that rigorously controlled for the confounders, organic buyers are wealthier, leaner, exercise more, eat more produce, erased the NutriNet-Santé ~25% cancer gap, showing organic eating itself confers no benefit once lifestyle is accounted for, the health case for organic would mostly collapse.",
           skeptic_flip:
             "If organic eaters' lower pesticide and cadmium exposure, measured in their bodies rather than self-reported, turned out to carry real chronic risk, the outcome gap would have a plausible mechanism and would be hard to call pure selection.",
           common_ground:
             "Both sides agree organic and conventional produce are nutritionally similar on vitamins and minerals, and that organic buyers differ systematically in income and lifestyle.",
           live_disagreement:
-            "Whether the lower cancer incidence among heavy organic consumers reflects the food itself or the healthier, wealthier lifestyle of the people who buy it — a question no randomized trial has settled.",
+            "Whether the lower cancer incidence among heavy organic consumers reflects the food itself or the healthier, wealthier lifestyle of the people who buy it, a question no randomized trial has settled.",
         },
       },
       evidence: [
@@ -63,7 +63,7 @@ export const organicFoodHealthData = {
           id: "stanford-2012",
           title: "Stanford Meta-Analysis: No Strong Evidence of Nutritional Superiority",
           description:
-            "Smith-Spangler et al. analyzed 237 studies comparing organic and conventional foods. They found no consistent differences in vitamin content and only slightly higher phosphorus levels in organic foods — a nutrient rarely deficient in any diet. They concluded the evidence does not support organic food as significantly more nutritious.",
+            "Smith-Spangler et al. analyzed 237 studies comparing organic and conventional foods. They found no consistent differences in vitamin content and only slightly higher phosphorus levels in organic foods, a nutrient rarely deficient in any diet. They concluded the evidence does not support organic food as significantly more nutritious.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -99,7 +99,7 @@ export const organicFoodHealthData = {
           id: "usda-pesticide-residue",
           title: "Organic Produce Has Roughly 4x Fewer Pesticide Residue Detections",
           description:
-            "The Barański et al. (2014) meta-analysis found detectable pesticide residues in about 11% of organic samples versus 46% of conventional samples — roughly four times more frequent in conventional produce. Some organic residues arise from drift, contamination, or allowed substances. The USDA Pesticide Data Program (PDP) provides the underlying U.S. residue-monitoring dataset, though it does not itself publish this specific organic-vs-conventional ratio.",
+            "The Barański et al. (2014) meta-analysis found detectable pesticide residues in about 11% of organic samples versus 46% of conventional samples, roughly four times more frequent in conventional produce. Some organic residues arise from drift, contamination, or allowed substances. The USDA Pesticide Data Program (PDP) provides the underlying U.S. residue-monitoring dataset, though it does not itself publish this specific organic-vs-conventional ratio.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -111,7 +111,7 @@ export const organicFoodHealthData = {
             "Barański et al., British Journal of Nutrition 112(5):794-811 (2014), drawing on residue-monitoring data; underlying U.S. data: USDA Pesticide Data Program",
           sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4141693/",
           reasoning:
-            "The ~4x figure is from the Barański meta-analysis (11% vs 46% detection), not a headline USDA PDP statistic, so the source attribution and reliability are corrected downward from the earlier overstated 'USDA finds 23%' framing. Lower directness because the health significance of the residue difference — when conventional residues are already below EPA tolerances — is the contested question. USDA PDP dataset: https://www.ams.usda.gov/datasets/pdp",
+            "The ~4x figure is from the Barański meta-analysis (11% vs 46% detection), not a headline USDA PDP statistic, so the source attribution and reliability are corrected downward from the earlier overstated 'USDA finds 23%' framing. Lower directness because the health significance of the residue difference, when conventional residues are already below EPA tolerances, is the contested question. USDA PDP dataset: https://www.ams.usda.gov/datasets/pdp",
         },
         {
           id: "newcastle-review",
@@ -129,7 +129,7 @@ export const organicFoodHealthData = {
             "Średnicka-Tober et al., 'Higher PUFA and n-3 PUFA ... in organic milk: a systematic literature review and meta- and redundancy analyses,' British Journal of Nutrition 115(6):1043-1060 (2016)",
           sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/26878105/",
           reasoning:
-            "Solid meta-analysis (170 studies) from the Newcastle group. The ~50% omega-3 figure is verified for milk. Independence slightly reduced — the Newcastle/organic-research team has been criticized for emphasis. Higher omega-3 concentration in milk is not shown to change health outcomes, since milk is one of several dietary sources of omega-3.",
+            "Solid meta-analysis (170 studies) from the Newcastle group. The ~50% omega-3 figure is verified for milk. Independence slightly reduced; the Newcastle/organic-research team has been criticized for emphasis. Higher omega-3 concentration in milk is not shown to change health outcomes, since milk is one of several dietary sources of omega-3.",
         },
       ],
     },
@@ -140,9 +140,9 @@ export const organicFoodHealthData = {
         "Every apple you eat contains pesticide residues below the safety threshold. The real question: what happens after 30 years of daily 'safe' exposures?",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Conventional residues sit below EPA tolerances (USDA's testing finds more than 99% of samples under them), and those tolerances carry an extra tenfold safety factor for children. The dose makes the poison — trace amounts on produce pose negligible risk to healthy adults. Organic farming uses pesticides too, including copper sulfate (which accumulates in soil) and, historically, rotenone (linked to Parkinson's in animal studies). And the headline cohort result cuts both ways: NutriNet-Santé participants who buy the most organic also tend to be wealthier, leaner, and more health-conscious, so an observational 25% gap is exactly what selection bias would produce even if organic food did nothing.",
+        "Conventional residues sit below EPA tolerances (USDA's testing finds more than 99% of samples under them), and those tolerances carry an extra tenfold safety factor for children. The dose makes the poison, trace amounts on produce pose negligible risk to healthy adults. Organic farming uses pesticides too, including copper sulfate (which accumulates in soil) and, historically, rotenone (linked to Parkinson's in animal studies). And the headline cohort result cuts both ways: NutriNet-Santé participants who buy the most organic also tend to be wealthier, leaner, and more health-conscious, so an observational 25% gap is exactly what selection bias would produce even if organic food did nothing.",
       proponent_rebuttal:
-        "EPA tolerances are derived largely from single-chemical exposure in adults and were not designed to capture chronic low-dose intake, cumulative effects of pesticide mixtures, or the heightened vulnerability of developing children. Intervention studies (Oates 2014; Hyland 2019) show that switching to an organic diet sharply lowers urinary pesticide metabolites within a week — reductions that vary by chemical, from about 61% for a chlorpyrifos metabolite to 95% for a malathion metabolite, and 89% for total organophosphate metabolites in Oates's crossover trial. The French NutriNet-Santé cohort (Baudry 2018) further found ~25% lower cancer incidence among the highest organic consumers, consistent with — though not proof of — a real effect.",
+        "EPA tolerances are derived largely from single-chemical exposure in adults and were not designed to capture chronic low-dose intake, cumulative effects of pesticide mixtures, or the heightened vulnerability of developing children. Intervention studies (Oates 2014; Hyland 2019) show that switching to an organic diet sharply lowers urinary pesticide metabolites within a week, reductions that vary by chemical, from about 61% for a chlorpyrifos metabolite to 95% for a malathion metabolite, and 89% for total organophosphate metabolites in Oates's crossover trial. The French NutriNet-Santé cohort (Baudry 2018) further found ~25% lower cancer incidence among the highest organic consumers, consistent with, though not proof of, a real effect.",
       crux: {
         id: "chronic-low-dose-effects",
         title: "Chronic Low-Dose Pesticide Exposure Health Effects",
@@ -166,7 +166,7 @@ export const organicFoodHealthData = {
           common_ground:
             "Both sides agree individual conventional residues sit below EPA tolerances, and that organic farming uses its own pesticides too.",
           live_disagreement:
-            "Whether decades of low-dose exposure to many residues at once — especially for fetuses and children — carries real risk, which single-chemical tolerance testing was never designed to answer.",
+            "Whether decades of low-dose exposure to many residues at once, especially for fetuses and children, carries real risk, which single-chemical tolerance testing was never designed to answer.",
         },
       },
       evidence: [
@@ -228,7 +228,7 @@ export const organicFoodHealthData = {
           id: "organic-pesticide-toxicity",
           title: "Some Organic Insecticides Scored Worse Environmentally Than New Synthetics",
           description:
-            "A University of Guelph field/lab study (Bahlai et al. 2010) compared organic-approved insecticides (a mineral-oil product and a fungal biopesticide) against conventional and newer reduced-risk synthetics for soybean-aphid control. The organic products were less effective and, at field-use rates, had similar or higher Environmental Impact Quotients and greater harm to natural-enemy insects — challenging the assumption that 'organic' pesticides are automatically greener. (Separately, copper sulfate, allowed in some organic systems, accumulates in soil and is toxic to aquatic life.)",
+            "A University of Guelph field/lab study (Bahlai et al. 2010) compared organic-approved insecticides (a mineral-oil product and a fungal biopesticide) against conventional and newer reduced-risk synthetics for soybean-aphid control. The organic products were less effective and, at field-use rates, had similar or higher Environmental Impact Quotients and greater harm to natural-enemy insects, challenging the assumption that 'organic' pesticides are automatically greener. (Separately, copper sulfate, allowed in some organic systems, accumulates in soil and is toxic to aquatic life.)",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -240,7 +240,7 @@ export const organicFoodHealthData = {
             "Bahlai, Xue, McCreary, Schaafsma & Hallett (University of Guelph), 'Choosing Organic Pesticides over Synthetic Pesticides May Not Effectively Mitigate Environmental Risk in Soybeans,' PLoS ONE 5(6):e11250 (2010)",
           sourceUrl: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0011250",
           reasoning:
-            "Peer-reviewed research challenging the assumption that organic means fewer/safer pesticides. The original claim overstated scope — this specific study tested soybean-aphid insecticides (mineral oil + a fungal product), not rotenone/copper sulfate/pyrethrin application rates, so the description was corrected and directness lowered. The comparison is about environmental toxicity per application, not human dietary exposure.",
+            "Peer-reviewed research challenging the assumption that organic means fewer/safer pesticides. The original claim overstated scope; this specific study tested soybean-aphid insecticides (mineral oil + a fungal product), not rotenone/copper sulfate/pyrethrin application rates, so the description was corrected and directness lowered. The comparison is about environmental toxicity per application, not human dietary exposure.",
         },
       ],
     },

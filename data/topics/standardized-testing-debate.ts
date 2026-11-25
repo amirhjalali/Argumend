@@ -29,9 +29,9 @@ export const standardizedTestingDebateData = {
         "Test-optional colleges saw more diverse applicant pools but no clear change in graduation rates. The experiment is still running.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "SAT/ACT scores track steeply with family wealth: Opportunity Insights found that children of the top 1% are about 13 times likelier than low-income children to score 1300+. Affluent families also buy private coaching that poorer families cannot. Test-optional policies were adopted by more than 1,800 colleges on the view that scores mostly re-encode privilege—adding more noise than signal about a given student's ability.",
+        "SAT/ACT scores track steeply with family wealth: Opportunity Insights found that children of the top 1% are about 13 times likelier than low-income children to score 1300+. Affluent families also buy private coaching that poorer families cannot. Test-optional policies were adopted by more than 1,800 colleges on the view that scores mostly re-encode privilege, adding more noise than signal about a given student's ability.",
       proponent_rebuttal:
-        "A February 2024 Dartmouth analysis (used to reinstate testing for the Class of 2029) found SAT scores alone explained about 22% of the variance in first-year GPA versus 9% for high-school GPA, and warned that going test-optional was quietly overlooking high-achieving applicants from less-resourced backgrounds. The University of California's own 2020 task force likewise found scores predicted GPA, graduation, and final GPA within every income, race, and parental-education group—at least as well for underrepresented students as for others—yet UC dropped the SAT anyway. The score gap by income is real, but it largely mirrors years of unequal opportunity, not bias in the test itself.",
+        "A February 2024 Dartmouth analysis (used to reinstate testing for the Class of 2029) found SAT scores alone explained about 22% of the variance in first-year GPA versus 9% for high-school GPA, and warned that going test-optional was quietly overlooking high-achieving applicants from less-resourced backgrounds. The University of California's own 2020 task force likewise found scores predicted GPA, graduation, and final GPA within every income, race, and parental-education group, at least as well for underrepresented students as for others, yet UC dropped the SAT anyway. The score gap by income is real, but it largely mirrors years of unequal opportunity, not bias in the test itself.",
       crux: {
         id: "test-optional-diversity-outcomes",
         title: "Test-Optional Policy Outcomes on Diversity and Achievement",
@@ -51,13 +51,13 @@ export const standardizedTestingDebateData = {
         cost_to_verify: "$300K (Analysis of existing institutional data)",
         falsification: {
           supporter_flip:
-            "If the test-optional natural experiment showed schools that dropped the SAT got more socioeconomic/racial diversity with no loss in their ability to identify talent or in graduation rates — i.e. scores added no predictive signal beyond GPA and other data — the case for keeping tests would weaken.",
+            "If the test-optional natural experiment showed schools that dropped the SAT got more socioeconomic/racial diversity with no loss in their ability to identify talent or in graduation rates, i.e. scores added no predictive signal beyond GPA and other data, the case for keeping tests would weaken.",
           skeptic_flip:
             "If more schools tested the conclusion that led Dartmouth, MIT and Yale to reinstate testing, and also found test-optional admissions screening out high-achieving low-income applicants, while scores kept predicting outcomes within every income group, dropping tests for equity would look likely to backfire.",
           common_ground:
             "Both sides agree SAT scores correlate strongly with family income, and that test-optional swept 1,800+ colleges with genuinely mixed evidence on whether diversity improved.",
           live_disagreement:
-            "Whether test-optional policies actually raised diversity without losing predictive signal — which the still-running natural experiment hasn't cleanly resolved, since aid, recruiting, and applicant pools changed at the same time.",
+            "Whether test-optional policies actually raised diversity without losing predictive signal, which the still-running natural experiment hasn't cleanly resolved, since aid, recruiting, and applicant pools changed at the same time.",
         },
       },
       evidence: [
@@ -97,7 +97,7 @@ export const standardizedTestingDebateData = {
           sourceUrl:
             "https://www.dailyprincetonian.com/article/2025/10/princeton-news-sat-act-standardized-test-optional-required-admissions",
           reasoning:
-            "Institutional behavior is informative—elite schools are reinstating tests despite political pressure to remain test-optional. However, this is a policy decision, not empirical evidence.",
+            "Institutional behavior is informative, elite schools are reinstating tests despite political pressure to remain test-optional. However, this is a policy decision, not empirical evidence.",
         },
         {
           id: "income-score-correlation",
@@ -164,9 +164,9 @@ export const standardizedTestingDebateData = {
         "Score gaps persist across race and income after decades of reform. The debate is whether the tests reveal inequality or reinforce it.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Critics argue tests embed cultural and linguistic assumptions that favor the advantaged, and that paid test prep—part of a multi-billion-dollar tutoring market concentrated among wealthier families—buys a leg up. Race-based score gaps persist even after controlling for income, suggesting the gaps reflect cumulative inequality the test then certifies. On this view, holistic admissions, portfolio assessment, and mastery-based evaluation can capture student potential more fairly than a single timed exam.",
+        "Critics argue tests embed cultural and linguistic assumptions that favor the advantaged, and that paid test prep, part of a multi-billion-dollar tutoring market concentrated among wealthier families, buys a leg up. Race-based score gaps persist even after controlling for income, suggesting the gaps reflect cumulative inequality the test then certifies. On this view, holistic admissions, portfolio assessment, and mastery-based evaluation can capture student potential more fairly than a single timed exam.",
       proponent_rebuttal:
-        "Proponents counter that a single scored exam is among the few common yardsticks in admissions: a student from a poor rural school answers the same questions as one from Exeter, whereas an 'A' at one high school can equal a 'C' at another. The diversity case for going test-optional is contested—more than 1,800 colleges dropped requirements, and studies disagree on whether socioeconomic diversity improved—so the gains, if any, are modest. And on the equity worry about coaching, the best peer-reviewed estimates put paid-prep gains in the tens of points, not hundreds. Drop tests, and admissions leans harder on essays, extracurriculars, and recommendations—channels that arguably favor wealthy families even more.",
+        "Proponents counter that a single scored exam is among the few common yardsticks in admissions: a student from a poor rural school answers the same questions as one from Exeter, whereas an 'A' at one high school can equal a 'C' at another. The diversity case for going test-optional is contested (more than 1,800 colleges dropped requirements, and studies disagree on whether socioeconomic diversity improved) so the gains, if any, are modest. And on the equity worry about coaching, the best peer-reviewed estimates put paid-prep gains in the tens of points, not hundreds. Drop tests, and admissions leans harder on essays, extracurriculars, and recommendations, channels that arguably favor wealthy families even more.",
       crux: {
         id: "alternative-assessment-comparison",
         title: "Head-to-Head Comparison of Assessment Methods",
@@ -190,7 +190,7 @@ export const standardizedTestingDebateData = {
           common_ground:
             "Both sides agree no admissions metric is bias-free, and that whatever is measured gets gamed by families who can afford to (Goodhart's Law).",
           live_disagreement:
-            "Whether holistic and portfolio methods are more equitable and predictive than a standardized test, or merely move the advantage to wealthy families through harder-to-standardize channels — a comparison no rigorous head-to-head trial has run.",
+            "Whether holistic and portfolio methods are more equitable and predictive than a standardized test, or merely move the advantage to wealthy families through harder-to-standardize channels, a comparison no rigorous head-to-head trial has run.",
         },
       },
       evidence: [
@@ -198,7 +198,7 @@ export const standardizedTestingDebateData = {
           id: "uc-system-internal-study",
           title: "UC Academic Senate Found Test Scores Predicted Outcomes Across Groups",
           description:
-            "The University of California Academic Senate's 2020 Standardized Testing Task Force (STTF) report found that test scores predicted first-year GPA, graduation, and final GPA even when students were stratified by income, race, and parental education—and that scores were at least as predictive for underrepresented students as for majority students. Notably, the report found high school GPA's predictive validity was more robust within demographic groups than the SAT's. The UC Regents dropped the SAT/ACT in 2020 despite the task force recommending tests be retained.",
+            "The University of California Academic Senate's 2020 Standardized Testing Task Force (STTF) report found that test scores predicted first-year GPA, graduation, and final GPA even when students were stratified by income, race, and parental education, and that scores were at least as predictive for underrepresented students as for majority students. Notably, the report found high school GPA's predictive validity was more robust within demographic groups than the SAT's. The UC Regents dropped the SAT/ACT in 2020 despite the task force recommending tests be retained.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -210,7 +210,7 @@ export const standardizedTestingDebateData = {
           sourceUrl:
             "https://senate.universityofcalifornia.edu/_files/committees/sttf/sttf-report.pdf",
           reasoning:
-            "Credible because the UC system acted against its own faculty task force's recommendation. The earlier framing—that the SAT was simply 'more predictive than GPA for all groups' and that this was 'the largest single-institution analysis ever conducted'—overstated the report: the STTF actually found high school GPA's within-group validity more robust, and the 'largest ever' superlative is unverified. Claim and weights adjusted accordingly.",
+            "Credible because the UC system acted against its own faculty task force's recommendation. The earlier framing, that the SAT was simply 'more predictive than GPA for all groups' and that this was 'the largest single-institution analysis ever conducted', overstated the report: the STTF actually found high school GPA's within-group validity more robust, and the 'largest ever' superlative is unverified. Claim and weights adjusted accordingly.",
         },
         {
           id: "alvero-essays-track-income",
@@ -234,7 +234,7 @@ export const standardizedTestingDebateData = {
           id: "test-prep-industry-advantage",
           title: "Paid Test Prep Is a Multi-Billion-Dollar Market, But Coaching Gains Are Modest",
           description:
-            "The US tutoring and test-preparation market is large—industry trackers put the broader sector in the low tens of billions of dollars annually—and high-end SAT/ACT coaching is concentrated among wealthier families. But peer-reviewed research on coaching effects is sobering: a NACAC review by Derek Briggs found average coaching gains of roughly 10-20 points on SAT math and 5-10 points on critical reading, far below the 100+ point gains advertised by prep companies. This is a real but smaller equity concern than prep marketing implies.",
+            "The US tutoring and test-preparation market is large, industry trackers put the broader sector in the low tens of billions of dollars annually, and high-end SAT/ACT coaching is concentrated among wealthier families. But peer-reviewed research on coaching effects is sobering: a NACAC review by Derek Briggs found average coaching gains of roughly 10-20 points on SAT math and 5-10 points on critical reading, far below the 100+ point gains advertised by prep companies. This is a real but smaller equity concern than prep marketing implies.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,

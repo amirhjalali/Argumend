@@ -3,7 +3,7 @@ export const freeWillData = {
   title: "Free Will",
   question: "Do humans have free will, the ability to have done otherwise?",
   meta_claim:
-    "Human beings possess genuine free will—the ability to have done otherwise in any given situation.",
+    "Human beings possess genuine free will, the ability to have done otherwise in any given situation.",
   status: "contested" as const,
   category: "philosophy" as const,
   // ── Stage 1: the wow fact shown above everything ──
@@ -73,14 +73,14 @@ export const freeWillData = {
       id: "neuroscience-evidence",
       title: "The Neuroscience Evidence",
       short_summary:
-        'Brain activity precedes conscious awareness of a decision — but whether that activity determines the choice, or is just spontaneous neural noise accumulating toward a threshold (Schurger et al., 2012), is contested.',
+        'Brain activity precedes conscious awareness of a decision, but whether that activity determines the choice, or is just spontaneous neural noise accumulating toward a threshold (Schurger et al., 2012), is contested.',
       image_url:
         "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=60",
       icon_name: "Microscope" as const,
       skeptic_premise:
         'Libet\'s experiments show the readiness potential begins ~350-500ms before reported conscious intention. On the skeptic\'s reading (e.g. Wegner\'s "illusion of conscious will"), the felt sense of "choosing" is a post-hoc narrative the brain constructs after the action is already underway.',
       proponent_rebuttal:
-        'Libet\'s subjects could still veto the action in the final ~150ms (the "free won\'t"). More fundamentally, Schurger et al. (2012) model the readiness potential as spontaneous neural noise accumulating to a threshold, not a determined decision unfolding — on that account the RP is an artifact of averaging stochastic fluctuations and is not evidence that the brain decides before "you" do. The RP may reflect preparation of options, with consciousness as the arena where competing neural assemblies vie for action selection.',
+        'Libet\'s subjects could still veto the action in the final ~150ms (the "free won\'t"). More fundamentally, Schurger et al. (2012) model the readiness potential as spontaneous neural noise accumulating to a threshold, not a determined decision unfolding; on that account the RP is an artifact of averaging stochastic fluctuations and is not evidence that the brain decides before "you" do. The RP may reflect preparation of options, with consciousness as the arena where competing neural assemblies vie for action selection.',
       crux: {
         id: "veto-power",
         title: "The Veto Power Test",
@@ -106,7 +106,7 @@ export const freeWillData = {
           common_ground:
             "Both sides agree that measurable brain activity reliably precedes the conscious report of a decision; the dispute is over what that activity is.",
           live_disagreement:
-            "Whether the pre-conscious signal is a determined commitment to act or merely stochastic preparation that consciousness can still modulate — resolvable by replicating Libet with single-trial (non-averaged) neural decoding and precise veto timing rather than the original averaged readiness potential.",
+            "Whether the pre-conscious signal is a determined commitment to act or merely stochastic preparation that consciousness can still modulate, resolvable by replicating Libet with single-trial (non-averaged) neural decoding and precise veto timing rather than the original averaged readiness potential.",
         },
       },
       evidence: [
@@ -144,13 +144,13 @@ export const freeWillData = {
             "Soon, Brass, Heinze & Haynes, Nature Neuroscience 11:543-545 (2008)",
           sourceUrl: "https://www.nature.com/articles/nn.2112",
           reasoning:
-            "Extends Libet, but ~60% accuracy is barely above chance — a weak bias signal, not a determined outcome.",
+            "Extends Libet, but ~60% accuracy is barely above chance, a weak bias signal, not a determined outcome.",
         },
         {
           id: "veto-evidence",
           title: "Subjects Can Veto Actions",
           description:
-            'Libet reported subjects could consciously abort (veto) a prepared movement after the readiness potential began — the "free won\'t."',
+            'Libet reported subjects could consciously abort (veto) a prepared movement after the readiness potential began, the "free won\'t."',
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -195,7 +195,7 @@ export const freeWillData = {
       skeptic_premise:
         "The universe is governed by deterministic physical laws (or probabilistic quantum laws). Every neuron firing was determined by the Big Bang. There is no room for libertarian free will.",
       proponent_rebuttal:
-        'Determinism does not preclude free will—it may enable it. Compatibilists argue that "free" means acting from your own desires and reasoning, not from external coercion. Quantum indeterminacy may provide genuine openness at the neural level.',
+        'Determinism does not preclude free will; it may enable it. Compatibilists argue that "free" means acting from your own desires and reasoning, not from external coercion. Quantum indeterminacy may provide genuine openness at the neural level.',
       crux: {
         id: "quantum-mind",
         title: "The Quantum Mind Hypothesis",
@@ -221,7 +221,7 @@ export const freeWillData = {
           common_ground:
             "Both sides agree quantum mechanics breaks classical determinism at the fundamental level and that mere randomness does not, on its own, amount to free will.",
           live_disagreement:
-            "Whether quantum effects play any functional role in neural decision-making (vs. washing out as thermal noise) — resolvable by measuring coherence/decoherence times in neural microtubules at biological temperature and testing whether they exceed neural firing timescales.",
+            "Whether quantum effects play any functional role in neural decision-making (vs. washing out as thermal noise), resolvable by measuring coherence/decoherence times in neural microtubules at biological temperature and testing whether they exceed neural firing timescales.",
         },
       },
       evidence: [
@@ -297,7 +297,7 @@ export const freeWillData = {
           sourceUrl:
             "https://plato.stanford.edu/entries/determinism-causal/",
           reasoning:
-            "Well-established physics, but directness is very low: quantum randomness undermines determinism without delivering agent control — randomness is not the same as free will.",
+            "Well-established physics, but directness is very low: quantum randomness undermines determinism without delivering agent control; randomness is not the same as free will.",
         },
       ],
     },
@@ -310,9 +310,9 @@ export const freeWillData = {
         "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Hard incompatibilists (e.g. Pereboom, Caruso) argue that if a person could not have done otherwise given their genes, upbringing, and circumstances, then backward-looking retributive punishment is unjust — there is no principled difference between manipulation and ordinary causal history. Justice should rest on forward-looking grounds: rehabilitation, protection, and deterrence.",
+        "Hard incompatibilists (e.g. Pereboom, Caruso) argue that if a person could not have done otherwise given their genes, upbringing, and circumstances, then backward-looking retributive punishment is unjust; there is no principled difference between manipulation and ordinary causal history. Justice should rest on forward-looking grounds: rehabilitation, protection, and deterrence.",
       proponent_rebuttal:
-        'Even if determinism is true, holding people responsible has pragmatic value—it shapes future behavior through social feedback. The concept of "could have done otherwise" can be reinterpreted as "would have done otherwise if they had different reasons."',
+        'Even if determinism is true, holding people responsible has pragmatic value: it shapes future behavior through social feedback. The concept of "could have done otherwise" can be reinterpreted as "would have done otherwise if they had different reasons."',
       crux: {
         id: "manipulation-argument",
         title: "The Manipulation Argument",
@@ -336,9 +336,9 @@ export const freeWillData = {
           skeptic_flip:
             "If cross-cultural work confirmed Brown's (1991) listing of holding-responsible as a human universal, with forward-looking value in shaping behavior, the practice could rest on grounds that survive even without libertarian 'could have done otherwise.'",
           common_ground:
-            "Both sides agree that physical factors outside our control — genes (~49% average heritability, Polderman et al., 2015) and brain damage (Gage and modern lesion cases) — shape moral behavior, and that some response to wrongdoing is socially necessary.",
+            "Both sides agree that physical factors outside our control, genes (~49% average heritability, Polderman et al., 2015) and brain damage (Gage and modern lesion cases), shape moral behavior, and that some response to wrongdoing is socially necessary.",
           live_disagreement:
-            "Whether ordinary people's responsibility judgments genuinely distinguish manipulation from natural determinism (Source Matters) or collapse the two — resolvable by pre-registered cross-cultural experimental-philosophy studies probing intuitions about manipulated vs. naturally-determined-but-internally-motivated agents.",
+            "Whether ordinary people's responsibility judgments genuinely distinguish manipulation from natural determinism (Source Matters) or collapse the two, resolvable by pre-registered cross-cultural experimental-philosophy studies probing intuitions about manipulated vs. naturally-determined-but-internally-motivated agents.",
         },
       },
       evidence: [
@@ -346,7 +346,7 @@ export const freeWillData = {
           id: "universal-responsibility",
           title: "All Cultures Have Moral Responsibility",
           description:
-            "Praise, blame, and holding-responsible appear on standard lists of human universals — found in every documented culture.",
+            "Praise, blame, and holding-responsible appear on standard lists of human universals, found in every documented culture.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -358,7 +358,7 @@ export const freeWillData = {
           sourceUrl:
             "https://en.wikipedia.org/wiki/Cultural_universal",
           reasoning:
-            "Universality of the practice doesn't establish libertarian free will — the intuition could be pragmatic or adaptive rather than tracking a metaphysical fact.",
+            "Universality of the practice doesn't establish libertarian free will; the intuition could be pragmatic or adaptive rather than tracking a metaphysical fact.",
         },
         {
           id: "responsibility-beliefs-matter",
@@ -376,7 +376,7 @@ export const freeWillData = {
             "Vohs & Schooler, Psychological Science 19(1):49-54 (2008); failed preregistered replication: Buttrick et al. (Many Labs 5), Advances in Methods and Practices in Psychological Science 3(4):429-438 (2020)",
           sourceUrl: "https://doi.org/10.1111/j.1467-9280.2008.02045.x",
           reasoning:
-            "Originally cited as a pragmatic argument for believing in free will, but the headline effect did not survive a preregistered replication — weight heavily discounted.",
+            "Originally cited as a pragmatic argument for believing in free will, but the headline effect did not survive a preregistered replication, weight heavily discounted.",
         },
         {
           id: "brain-damage-cases",

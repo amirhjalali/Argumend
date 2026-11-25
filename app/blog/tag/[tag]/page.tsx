@@ -59,7 +59,7 @@ export async function generateMetadata({
   ).length;
   const pageCount = Math.max(1, Math.ceil(filteredCount / TAG_PAGE_SIZE));
   const title = page > 1
-    ? `Articles tagged "${tag}" — Page ${page} of ${pageCount}`
+    ? `Articles tagged "${tag}": Page ${page} of ${pageCount}`
     : `Articles tagged "${tag}"`;
   const description = `Browse all articles tagged "${tag}" on the Argumend Blog. Evidence-based analysis and structured reasoning.`;
   const canonical = buildPageHref(

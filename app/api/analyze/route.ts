@@ -7,7 +7,7 @@ import { rateLimit } from "@/lib/rate-limit";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
 /**
- * POST /api/analyze — the map lane of the paste flow at /analyze.
+ * POST /api/analyze: the map lane of the paste flow at /analyze.
  *
  * Finds which of the site's maps the pasted argument is already on. Offline:
  * a keyword index over the maps held in memory, no network, no model. Nothing

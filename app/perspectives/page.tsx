@@ -65,7 +65,7 @@ const scenes: Scene[] = [
         Rewind. The &ldquo;victim&rdquo; had grabbed the other person&apos;s bag.
         They were trying to take something.
         <br /><br />
-        The shove wasn&apos;t aggression—<span className="text-primary dark:text-stone-200 font-semibold">it was defense</span>.
+        The shove wasn&apos;t aggression: <span className="text-primary dark:text-stone-200 font-semibold">it was defense</span>.
         <br /><br />
         <span className="text-secondary dark:text-stone-400 italic">Who&apos;s the aggressor now?</span>
       </p>
@@ -105,7 +105,7 @@ const scenes: Scene[] = [
         <span className="text-primary dark:text-stone-200 font-semibold"> Mutual combat. Both at fault.</span>
         <br /><br />
         They didn&apos;t see who started it. They didn&apos;t see the pickpocket.
-        They saw exactly what happened—and understood none of it.
+        They saw exactly what happened, and understood none of it.
       </p>
     ),
     imageSrc: "/images/perspectives/witness.jpg",
@@ -160,7 +160,7 @@ const scenes: Scene[] = [
     content: (
       <div className="text-center">
         <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed mb-8 text-primary dark:text-stone-200">
-          Every witness told the truth—<em>their</em> truth.
+          Every witness told the truth: <em>their</em> truth.
           <br />
           Shaped by when they arrived, what they noticed, who they knew, what they needed.
         </p>

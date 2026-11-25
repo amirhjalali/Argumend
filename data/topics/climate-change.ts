@@ -36,7 +36,7 @@ export const climateChangeData = {
   references: [
     {
       title:
-        "IPCC AR6 WG1 Summary for Policymakers (2021) — \"It is unequivocal that human influence has warmed the atmosphere, ocean and land\"",
+        "IPCC AR6 WG1 Summary for Policymakers (2021): \"It is unequivocal that human influence has warmed the atmosphere, ocean and land\"",
       url: "https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/",
     },
     {
@@ -124,7 +124,7 @@ export const climateChangeData = {
           common_ground:
             "Both sides agree CO₂ has varied naturally over Earth's history and that the modern level is the highest in at least ~800,000 years.",
           live_disagreement:
-            "Essentially none on source attribution — the isotopic fingerprint is not seriously contested in the literature; the real dispute is about consequences, not origin.",
+            "Essentially none on source attribution; the isotopic fingerprint is not seriously contested in the literature; the real dispute is about consequences, not origin.",
         },
       },
       evidence: [
@@ -132,7 +132,7 @@ export const climateChangeData = {
           id: "isotope-measurements",
           title: "Atmospheric carbon-13 fell from about −6.5‰ to −8‰, the fossil-fuel signature (NOAA, Scripps)",
           description:
-            "NOAA's Global Monitoring Laboratory records that 'before the industrial revolution, δ13C of our atmosphere was approximately -6.5‰; now the value is around -8‰'. Plants, and so the fossil fuels made from them, are depleted in carbon-13, so burning them makes the air isotopically lighter — the Suess effect, which NOAA defines as 'the observed decrease in δ13C and Δ14C values due to fossil fuel emissions'.",
+            "NOAA's Global Monitoring Laboratory records that 'before the industrial revolution, δ13C of our atmosphere was approximately -6.5‰; now the value is around -8‰'. Plants, and so the fossil fuels made from them, are depleted in carbon-13, so burning them makes the air isotopically lighter, the Suess effect, which NOAA defines as 'the observed decrease in δ13C and Δ14C values due to fossil fuel emissions'.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -184,7 +184,7 @@ export const climateChangeData = {
         },
         {
           id: "natural-co2-claim",
-          title: "Volcanoes and ocean outgassing release CO₂ too — about 60-90 times less than people do",
+          title: "Volcanoes and ocean outgassing release CO₂ too: about 60-90 times less than people do",
           description: "The claim is that volcanoes and a warming ocean, not people, put the extra carbon dioxide in the air. NOAA's climate.gov puts volcanic emissions at about 0.6 billion metric tons of CO₂ a year on a 2013 estimate, against roughly 40 billion tons from human activity, making human emissions '60 or more times' the volcanic figure, or more than 90 times on an earlier, lower volcanic estimate. The ocean is absorbing carbon, not releasing it, which is why its surface is becoming less alkaline.",
           side: "against" as const,
           weight: {
@@ -212,7 +212,7 @@ export const climateChangeData = {
       skeptic_premise:
         "The case rests on models that missed things they should have caught. Temperatures stalled from 1998 to 2014 while emissions kept climbing, and the models did not predict it; a subset of the newest generation still runs hotter than the thermometers. Climate shifted before, too: the Medieval Warm Period and the Roman Climate Optimum came and went with no industry at all. A theory that explains the warm years and calls the flat ones natural variability is hard to catch out.",
       proponent_rebuttal:
-        "The attribution does not rest on models alone, and where it does, they have been tested against things they did not know in advance. Models reproduce the whole 20th-century record, including the mid-century cooling caused by aerosols. The 'hiatus' was within model uncertainty bounds and is now understood as a short-term slowdown linked to a negative Pacific Decadal Oscillation phase; later reanalyses (e.g. Karl et al. 2015) found little or no actual slowdown once data biases were corrected. The Medieval Warm Period and Roman Climate Optimum were real but largely regional—IPCC AR6 finds no globally synchronous warm epoch in the past 2,000 years, whereas today's warming is globally coherent and, in rate, unprecedented over that span. Crucially, models predict specific 'fingerprints': stratospheric cooling while the troposphere warms (greenhouse signature), nights warming faster than days, and polar amplification. All three fingerprints are observed. IPCC AR6 estimates human-induced warming of about 1.1°C since 1850–1900, with natural forcings contributing only roughly −0.1°C to +0.1°C—so natural factors alone cannot explain the observed trend; only adding anthropogenic forcing matches reality.",
+        "The attribution does not rest on models alone, and where it does, they have been tested against things they did not know in advance. Models reproduce the whole 20th-century record, including the mid-century cooling caused by aerosols. The 'hiatus' was within model uncertainty bounds and is now understood as a short-term slowdown linked to a negative Pacific Decadal Oscillation phase; later reanalyses (e.g. Karl et al. 2015) found little or no actual slowdown once data biases were corrected. The Medieval Warm Period and Roman Climate Optimum were real but largely regional; IPCC AR6 finds no globally synchronous warm epoch in the past 2,000 years, whereas today's warming is globally coherent and, in rate, unprecedented over that span. Crucially, models predict specific 'fingerprints': stratospheric cooling while the troposphere warms (greenhouse signature), nights warming faster than days, and polar amplification. All three fingerprints are observed. IPCC AR6 estimates human-induced warming of about 1.1°C since 1850–1900, with natural forcings contributing only roughly −0.1°C to +0.1°C, so natural factors alone cannot explain the observed trend; only adding anthropogenic forcing matches reality.",
       crux: {
         id: "fingerprint-detection",
         title: "The Fingerprint Detection Test",
@@ -232,19 +232,19 @@ export const climateChangeData = {
         cost_to_verify: "$500K (supercomputer time + multi-model ensemble)",
         falsification: {
           supporter_flip:
-            "If the predicted greenhouse fingerprints failed — the stratosphere warming instead of cooling, or nights no longer warming faster than days — the greenhouse attribution would be in serious trouble.",
+            "If the predicted greenhouse fingerprints failed, the stratosphere warming instead of cooling, or nights no longer warming faster than days, the greenhouse attribution would be in serious trouble.",
           skeptic_flip:
-            "If natural-forcing-only climate runs could reproduce the observed global, synchronous warming and its specific fingerprints, the anthropogenic case would weaken — but to date only runs that include human forcing match the record.",
+            "If natural-forcing-only climate runs could reproduce the observed global, synchronous warming and its specific fingerprints, the anthropogenic case would weaken, but to date only runs that include human forcing match the record.",
           common_ground:
             "Both sides agree regional warm periods (Medieval, Roman) occurred and that early climate models had real uncertainties.",
           live_disagreement:
-            "How much of short-term wiggles (e.g., the 1998–2014 'hiatus') reflects model error versus natural variability — a question about precision, not about whether humans are the main driver.",
+            "How much of short-term wiggles (e.g., the 1998–2014 'hiatus') reflects model error versus natural variability, a question about precision, not about whether humans are the main driver.",
         },
       },
       evidence: [
         {
           id: "stratospheric-cooling",
-          title: "The stratosphere is cooling while the surface warms — a pattern the sun cannot make (PNAS, 2023)",
+          title: "The stratosphere is cooling while the surface warms: a pattern the sun cannot make (PNAS, 2023)",
           description:
             "Santer and colleagues extended 'vertical fingerprinting' into the mid-to-upper stratosphere, 25 to 50 km up, where satellites measure 1 to 2 °C of cooling over 1986 to 2022 while the troposphere warmed at all latitudes. Adding that layer raised the signal-to-noise ratio of the human fingerprint by a factor of five. A brighter sun would warm both layers; trapping heat below cools the layer above, which is what the satellites see.",
           side: "for" as const,
@@ -328,7 +328,7 @@ export const climateChangeData = {
       skeptic_premise:
         "Everything about Earth's climate begins with the sun, and small changes in its output can be amplified through cosmic rays seeding clouds or ultraviolet light altering ozone. Direct satellite measurement goes back only to 1978, a short record for a star. The sun has moved climate before: the Maunder Minimum of 1645-1715 coincided with Europe's bitterest winters. The honest worry is not that the sun explains everything, but that natural variability may be larger than the budget allows for.",
       proponent_rebuttal:
-        "The sun was the first suspect, and it was checked. Solar irradiance has been flat or slightly declining since 1980 while temperatures accelerated upward, so the correlation broke. Cosmic ray flux shows no trend matching temperature. Volcanic eruptions cause temporary cooling (Pinatubo 1991 clearly visible), confirming models work, but there's no volcanic trend to explain warming. Orbital (Milankovitch) cycles operate on 10,000+ year timescales and currently favor slight cooling. When you sum all natural factors, the net contribution to warming since 1850–1900 is near zero—IPCC AR6 puts natural forcings at roughly −0.1°C to +0.1°C. The energy imbalance (~0.5–1 W/m²) measured by satellites and Argo floats requires an additional forcing—greenhouse gases are the only candidate that fits.",
+        "The sun was the first suspect, and it was checked. Solar irradiance has been flat or slightly declining since 1980 while temperatures accelerated upward, so the correlation broke. Cosmic ray flux shows no trend matching temperature. Volcanic eruptions cause temporary cooling (Pinatubo 1991 clearly visible), confirming models work, but there's no volcanic trend to explain warming. Orbital (Milankovitch) cycles operate on 10,000+ year timescales and currently favor slight cooling. When you sum all natural factors, the net contribution to warming since 1850–1900 is near zero; IPCC AR6 puts natural forcings at roughly −0.1°C to +0.1°C. The energy imbalance (~0.5–1 W/m²) measured by satellites and Argo floats requires an additional forcing; greenhouse gases are the only candidate that fits.",
       crux: {
         id: "energy-budget-closure",
         title: "The Energy Budget Closure Test",
@@ -347,13 +347,13 @@ export const climateChangeData = {
         cost_to_verify: "$2M (satellite data + Argo network analysis)",
         falsification: {
           supporter_flip:
-            "If a measured natural forcing — a real upward trend in solar irradiance or a cosmic-ray-driven cloud change — could be shown to account for the measured energy imbalance and its rise, the 'only greenhouse gases fit' conclusion would fail.",
+            "If a measured natural forcing, a real upward trend in solar irradiance or a cosmic-ray-driven cloud change, could be shown to account for the measured energy imbalance and its rise, the 'only greenhouse gases fit' conclusion would fail.",
           skeptic_flip:
             "If new measurements kept finding solar irradiance flat-to-declining since 1980 while warming accelerated, and cosmic-ray flux kept showing no matching trend, the solar explanation would be hard to hold.",
           common_ground:
             "Both sides agree the sun is the ultimate driver of Earth's climate and that volcanic eruptions and orbital cycles measurably affect it.",
           live_disagreement:
-            "Whether there is an under-measured natural forcing large enough to matter — the satellite/Argo energy budget leaves little room, but that bound is what's debated.",
+            "Whether there is an under-measured natural forcing large enough to matter; the satellite/Argo energy budget leaves little room, but that bound is what's debated.",
         },
       },
       evidence: [
@@ -515,7 +515,7 @@ export const climateChangeData = {
           title:
             "DOE working group (July 2025): models give 'little guidance', warming per CO₂ doubling spans 1.8-5.7 °C",
           description:
-            "A five-member Climate Working Group assembled by Energy Secretary Chris Wright — John Christy, Judith Curry, Steven Koonin, Ross McKitrick and Roy Spencer — published 'A Critical Review of Impacts of Greenhouse Gas Emissions on the U.S. Climate', released by DOE on 29 July 2025. It states that 'the world's several dozen global climate models offer little guidance on how much the climate responds to elevated CO2, with the average surface warming under a doubling of the CO2 concentration ranging from 1.8°C to 5.7°C', that such models generally run 'hot' in their description of the climate of the past few decades, that 'claims of increased frequency or intensity of hurricanes, tornadoes, floods, and droughts are not supported by U.S. historical data', and that warming 'might be less damaging economically than commonly believed'. The same report accepts that carbon dioxide 'acts as a greenhouse gas, exerting a warming influence on climate and weather'.",
+            "A five-member Climate Working Group assembled by Energy Secretary Chris Wright, John Christy, Judith Curry, Steven Koonin, Ross McKitrick and Roy Spencer, published 'A Critical Review of Impacts of Greenhouse Gas Emissions on the U.S. Climate', released by DOE on 29 July 2025. It states that 'the world's several dozen global climate models offer little guidance on how much the climate responds to elevated CO2, with the average surface warming under a doubling of the CO2 concentration ranging from 1.8°C to 5.7°C', that such models generally run 'hot' in their description of the climate of the past few decades, that 'claims of increased frequency or intensity of hurricanes, tornadoes, floods, and droughts are not supported by U.S. historical data', and that warming 'might be less damaging economically than commonly believed'. The same report accepts that carbon dioxide 'acts as a greenhouse gas, exerting a warming influence on climate and weather'.",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -528,7 +528,7 @@ export const climateChangeData = {
           sourceUrl:
             "https://www.energy.gov/sites/default/files/2025-07/DOE_Critical_Review_of_Impacts_of_GHG_Emissions_on_the_US_Climate.pdf",
           reasoning:
-            "The fullest recent statement of the dissenting case, and its central point — that the sensitivity range is wide — is uncontested. Independence and reliability are low: the authors were picked by a department seeking a specific policy outcome, the report had no formal peer review, and critics including Zeke Hausfather argued it selects data points that fit its narrative. Its own text accepts that CO₂ warms the planet.",
+            "The fullest recent statement of the dissenting case, and its central point, that the sensitivity range is wide, is uncontested. Independence and reliability are low: the authors were picked by a department seeking a specific policy outcome, the report had no formal peer review, and critics including Zeke Hausfather argued it selects data points that fit its narrative. Its own text accepts that CO₂ warms the planet.",
         },
         {
           id: "energy-imbalance-doubled-2025",
@@ -548,7 +548,7 @@ export const climateChangeData = {
           sourceUrl:
             "https://www.su.se/english/divisions/department-of-meteorology/news/articles/2025-06-10-earths-energy-imbalance-more-than-doubled-in-recent-decades.-new-publication-by-misu",
           reasoning:
-            "A direct measurement of heat accumulating, running at the high end rather than the low end of what models expected, which cuts against the claim that projections are systematically too warm. It also shows the models are imperfect in both directions, and the explanation for the acceleration — clouds, aerosols or feedbacks — is not settled.",
+            "A direct measurement of heat accumulating, running at the high end rather than the low end of what models expected, which cuts against the claim that projections are systematically too warm. It also shows the models are imperfect in both directions, and the explanation for the acceleration, clouds, aerosols or feedbacks, is not settled.",
         },
       ],
     },

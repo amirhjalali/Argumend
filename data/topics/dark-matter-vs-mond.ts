@@ -35,12 +35,12 @@ export const darkMatterVsMondData = {
       id: "galaxy-scale",
       title: "Galaxy-Scale Dynamics",
       short_summary:
-        "Individual galaxies show a tight, single-parameter link between the gravity we observe and the gravity their visible matter alone would produce — the signature MOND predicts, and which dark matter must reproduce as a 'conspiracy'.",
+        "Individual galaxies show a tight, single-parameter link between the gravity we observe and the gravity their visible matter alone would produce, the signature MOND predicts, and which dark matter must reproduce as a 'conspiracy'.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "On galaxy scales the data look astonishingly MOND-like. Across 153 rotating galaxies of wildly different masses, sizes, and gas fractions, the observed acceleration at every radius is fixed by the baryons alone to within ~0.06 dex (~13%) scatter — most of it observational. There is a single acceleration scale, a0 ~ 1.2 x 10^-10 m/s^2, below which the discrepancy appears, and it equals roughly cH0/6, hinting at a deep link between local dynamics and cosmology. Milgrom predicted these rotation-curve shapes and the baryonic Tully-Fisher relation a priori, before the measurements existed. For dark matter to mimic this, the invisible halo must finely track the visible disk in every galaxy — a coincidence the standard model does not naturally explain.",
+        "On galaxy scales the data look astonishingly MOND-like. Across 153 rotating galaxies of wildly different masses, sizes, and gas fractions, the observed acceleration at every radius is fixed by the baryons alone to within ~0.06 dex (~13%) scatter, most of it observational. There is a single acceleration scale, a0 ~ 1.2 x 10^-10 m/s^2, below which the discrepancy appears, and it equals roughly cH0/6, hinting at a deep link between local dynamics and cosmology. Milgrom predicted these rotation-curve shapes and the baryonic Tully-Fisher relation a priori, before the measurements existed. For dark matter to mimic this, the invisible halo must finely track the visible disk in every galaxy, a coincidence the standard model does not naturally explain.",
       proponent_rebuttal:
-        "The radial acceleration relation is real, but it is an emergent regularity of galaxy formation, not proof that gravity is modified. Cold-dark-matter simulations with realistic feedback reproduce a tight relation with a characteristic acceleration scale, because halo and disk assemble together. A galaxy-scale fitting formula does not extend to clusters, cosmology, or the cosmic web, where MOND requires extra unseen mass anyway — so even MOND needs a dark component. Dark matter is one hypothesis that works across all scales; MOND works beautifully on one.",
+        "The radial acceleration relation is real, but it is an emergent regularity of galaxy formation, not proof that gravity is modified. Cold-dark-matter simulations with realistic feedback reproduce a tight relation with a characteristic acceleration scale, because halo and disk assemble together. A galaxy-scale fitting formula does not extend to clusters, cosmology, or the cosmic web, where MOND requires extra unseen mass anyway, so even MOND needs a dark component. Dark matter is one hypothesis that works across all scales; MOND works beautifully on one.",
       crux: {
         id: "rar-universality",
         title: "Is the Radial Acceleration Relation Truly Universal?",
@@ -66,7 +66,7 @@ export const darkMatterVsMondData = {
           common_ground:
             "Both sides agree the radial acceleration relation is real, tight, and has a characteristic acceleration scale; the dispute is whether that regularity is a fundamental law or an emergent outcome of galaxy formation.",
           live_disagreement:
-            "Whether the relation has exactly zero intrinsic scatter with no residual correlations (favoring a modified force) or a small but nonzero halo-to-halo variation (favoring dark matter) — resolvable by separating observational error from intrinsic scatter in a deep, homogeneous sample with precise distances, inclinations, and baryonic mass models.",
+            "Whether the relation has exactly zero intrinsic scatter with no residual correlations (favoring a modified force) or a small but nonzero halo-to-halo variation (favoring dark matter), resolvable by separating observational error from intrinsic scatter in a deep, homogeneous sample with precise distances, inclinations, and baryonic mass models.",
         },
       },
       evidence: [
@@ -148,12 +148,12 @@ export const darkMatterVsMondData = {
       id: "cluster-cosmic-scale",
       title: "Clusters and Cosmic Scale",
       short_summary:
-        "On the largest scales — colliding clusters and the cosmic microwave background — the evidence points hard at a non-baryonic mass component, and MOND alone falls short by roughly a factor of two.",
+        "On the largest scales, colliding clusters and the cosmic microwave background, the evidence points hard at a non-baryonic mass component, and MOND alone falls short by roughly a factor of two.",
       icon_name: "Atom" as const,
       skeptic_premise:
         "These are genuine successes for dark matter, but relativistic extensions of MOND (e.g. TeVeS-type and more recent covariant theories) can fit CMB and lensing data, and the cluster residual mass could be ordinary baryons we have not yet detected or light neutrinos rather than cold dark matter. The Bullet Cluster offset shows that some collisionless mass is present, which constrains pure-baryon modified gravity, but does not by itself pin down the particle nature of that mass. The decisive point for MOND advocates is that no dark-matter particle has ever been detected directly despite decades of increasingly sensitive experiments.",
       proponent_rebuttal:
-        "Even granting MOND's galaxy-scale wins, the standard cold-dark-matter (Lambda-CDM) model is extraordinarily successful where MOND struggles. The CMB acoustic peaks — especially the height of the third peak relative to the second — require a non-baryonic matter component, and the six-parameter Lambda-CDM fit to Planck data is excellent. In the Bullet Cluster, two clusters collided and the gravitational-lensing mass cleanly separated from the X-ray gas at high significance, exactly as collisionless dark matter predicts and hard for modified gravity to mimic. And MOND itself fails inside galaxy clusters, where it still needs roughly twice the observed baryonic mass — i.e., extra unseen matter.",
+        "Even granting MOND's galaxy-scale wins, the standard cold-dark-matter (Lambda-CDM) model is extraordinarily successful where MOND struggles. The CMB acoustic peaks, especially the height of the third peak relative to the second, require a non-baryonic matter component, and the six-parameter Lambda-CDM fit to Planck data is excellent. In the Bullet Cluster, two clusters collided and the gravitational-lensing mass cleanly separated from the X-ray gas at high significance, exactly as collisionless dark matter predicts and hard for modified gravity to mimic. And MOND itself fails inside galaxy clusters, where it still needs roughly twice the observed baryonic mass, i.e., extra unseen matter.",
       crux: {
         id: "cmb-third-peak",
         title: "The CMB Third Acoustic Peak",
@@ -179,7 +179,7 @@ export const darkMatterVsMondData = {
           common_ground:
             "Both sides agree the CMB peak structure and the Bullet Cluster require some collisionless, non-luminous gravitating component on large scales, and that plain MOND alone does not account for cluster dynamics.",
           live_disagreement:
-            "Whether that large-scale missing mass is a new cold-dark-matter particle or instead ordinary undetected baryons / massive neutrinos within a relativistic-MOND framework — resolvable by either a direct laboratory detection of a dark-matter particle or a covariant modified-gravity theory that fits CMB, lensing, and clusters without one.",
+            "Whether that large-scale missing mass is a new cold-dark-matter particle or instead ordinary undetected baryons / massive neutrinos within a relativistic-MOND framework, resolvable by either a direct laboratory detection of a dark-matter particle or a covariant modified-gravity theory that fits CMB, lensing, and clusters without one.",
         },
       },
       evidence: [
@@ -187,7 +187,7 @@ export const darkMatterVsMondData = {
           id: "bullet-cluster",
           title: "Bullet Cluster: Mass Separated From Gas at 8-Sigma",
           description:
-            "In the colliding cluster 1E0657-558, weak gravitational lensing locates the center of total mass offset from the X-ray gas (the dominant baryonic component) at 8-sigma significance. The collisionless mass passed through the collision while the gas was slowed — the behavior expected of dark matter, and difficult for modified gravity without a dark component.",
+            "In the colliding cluster 1E0657-558, weak gravitational lensing locates the center of total mass offset from the X-ray gas (the dominant baryonic component) at 8-sigma significance. The collisionless mass passed through the collision while the gas was slowed, the behavior expected of dark matter, and difficult for modified gravity without a dark component.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -205,7 +205,7 @@ export const darkMatterVsMondData = {
           id: "cmb-acoustic-peaks",
           title: "CMB Acoustic Peaks Require Non-Baryonic Matter",
           description:
-            "The Planck CMB power spectrum is fit by the six-parameter Lambda-CDM model with cold dark matter density Omega_c h^2 ~ 0.120 and baryon density Omega_b h^2 ~ 0.0224 — about five times more non-baryonic matter than baryons.",
+            "The Planck CMB power spectrum is fit by the six-parameter Lambda-CDM model with cold dark matter density Omega_c h^2 ~ 0.120 and baryon density Omega_b h^2 ~ 0.0224, about five times more non-baryonic matter than baryons.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,

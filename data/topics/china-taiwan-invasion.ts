@@ -561,7 +561,7 @@ export const chinaTaiwanInvasionData = {
       url: "https://www.csis.org/analysis/lights-out-wargaming-chinese-blockade-taiwan",
     },
     {
-      title: "CSIS: The First Battle of the Next War — Wargaming a Chinese Invasion of Taiwan (2023)",
+      title: "CSIS: The First Battle of the Next War, Wargaming a Chinese Invasion of Taiwan (2023)",
       url: "https://www.csis.org/analysis/first-battle-next-war-wargaming-chinese-invasion-taiwan",
     },
     {

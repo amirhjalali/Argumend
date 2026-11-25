@@ -67,7 +67,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "23.5 Million Americans Live in Food Deserts with Limited Healthy Options",
           description:
-            "A widely-cited 2009 USDA report to Congress estimated that about 23.5 million Americans live in low-income areas more than one mile (urban) or ten miles (rural) from a supermarket — so-called 'food deserts.' Whether limited supermarket access itself causes obesity is contested. A study of 1,372 households in two low-income Pittsburgh neighborhoods without a supermarket (Ghosh-Dastidar et al., American Journal of Preventive Medicine, 2014) found distance to store and food prices each associated with obesity, but when modeled together only prices remained significant, with higher prices at the stores where people shopped predicting a lower likelihood of obesity; low- and high-price stores differed in how they displayed and marketed junk food relative to healthy food. The authors concluded that placing supermarkets in food deserts 'may not be as important as' better relative prices for healthy food and active marketing of it, suggesting the systemic lever is affordability and marketing rather than physical distance alone.",
+            "A widely-cited 2009 USDA report to Congress estimated that about 23.5 million Americans live in low-income areas more than one mile (urban) or ten miles (rural) from a supermarket, so-called 'food deserts.' Whether limited supermarket access itself causes obesity is contested. A study of 1,372 households in two low-income Pittsburgh neighborhoods without a supermarket (Ghosh-Dastidar et al., American Journal of Preventive Medicine, 2014) found distance to store and food prices each associated with obesity, but when modeled together only prices remained significant, with higher prices at the stores where people shopped predicting a lower likelihood of obesity; low- and high-price stores differed in how they displayed and marketed junk food relative to healthy food. The authors concluded that placing supermarkets in food deserts 'may not be as important as' better relative prices for healthy food and active marketing of it, suggesting the systemic lever is affordability and marketing rather than physical distance alone.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -106,7 +106,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "Countries with Similar Food Industries Have Very Different Obesity Rates",
           description:
-            "Japan (adult obesity ~3-4%) and South Korea (~6%) have access to many of the same global food corporations and ultra-processed products as the US (~42%) yet report dramatically lower obesity rates (World Obesity Federation / OECD data). Some critics of the systemic argument cite cultural factors — smaller portions, walking-oriented infrastructure, social norms, school lunch programs emphasizing whole foods. However, these cross-country gaps cannot cleanly isolate 'individual choice': measurement differs (East-Asian BMI thresholds and self-report vs. measured-height methods differ across countries), and Japan/Korea's outcomes are themselves shaped by strong food policy and built environment — which are systemic, not individual, factors.",
+            "Japan (adult obesity ~3-4%) and South Korea (~6%) have access to many of the same global food corporations and ultra-processed products as the US (~42%) yet report dramatically lower obesity rates (World Obesity Federation / OECD data). Some critics of the systemic argument cite cultural factors, smaller portions, walking-oriented infrastructure, social norms, school lunch programs emphasizing whole foods. However, these cross-country gaps cannot cleanly isolate 'individual choice': measurement differs (East-Asian BMI thresholds and self-report vs. measured-height methods differ across countries), and Japan/Korea's outcomes are themselves shaped by strong food policy and built environment, which are systemic, not individual, factors.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -119,7 +119,7 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://data.worldobesity.org/rankings/",
           reasoning:
-            "Cross-national prevalence figures are real and publicly available, but as evidence for the 'personal choice' thesis they are weak. Directness lowered substantially from the prior draft (false-balance correction): the data show a between-country difference, not that individual willpower rather than systemic factors drives it. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable infrastructure — themselves systemic solutions — and BMI is measured with different cutoffs and methods across these countries, so the comparison cannot support the inference that personal choice dominates.",
+            "Cross-national prevalence figures are real and publicly available, but as evidence for the 'personal choice' thesis they are weak. Directness lowered substantially from the prior draft (false-balance correction): the data show a between-country difference, not that individual willpower rather than systemic factors drives it. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable infrastructure, themselves systemic solutions, and BMI is measured with different cutoffs and methods across these countries, so the comparison cannot support the inference that personal choice dominates.",
         },
         {
           id: "allcott-food-deserts-demand",
@@ -152,9 +152,9 @@ export const obesityPersonalResponsibilityData = {
         "Twin studies consistently show that BMI heritability is 40-70%, and over 1,000 genetic variants associated with obesity have been identified through GWAS. The gut microbiome, hormonal regulation (leptin, ghrelin, insulin), and metabolic adaptation all influence body weight in ways that cannot be overridden by willpower alone. Skeptics of the biological explanation argue that genes have not changed in 50 years while obesity tripled, suggesting environment and behavior remain the primary drivers.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The biological case is far stronger than 'genetics set a range.' Leptin, the primary satiety hormone, was discovered in 1994 — and subsequent research showed that obese individuals develop leptin resistance, meaning their brains cannot properly register satiety signals regardless of willpower. Metabolic adaptation studies (Fothergill et al. 2016, published in Obesity) tracked Biggest Loser contestants and found that six years after dramatic weight loss, their metabolisms had slowed by an average of 500 kcal/day below predicted levels, and their leptin levels remained suppressed. This means the body actively fights to regain lost weight through hormonal and metabolic mechanisms. Gut microbiome research has shown that transplanting gut bacteria from obese mice into germ-free lean mice causes weight gain without any change in diet. The 40-70% heritability figure means genetics are the single largest determinant of body weight — larger than any individual behavioral factor. The obesity epidemic reflects gene-environment interaction: susceptible genotypes existed for millennia but were only exposed to the modern hypercaloric environment recently.",
+        "The biological case is far stronger than 'genetics set a range.' Leptin, the primary satiety hormone, was discovered in 1994, and subsequent research showed that obese individuals develop leptin resistance, meaning their brains cannot properly register satiety signals regardless of willpower. Metabolic adaptation studies (Fothergill et al. 2016, published in Obesity) tracked Biggest Loser contestants and found that six years after dramatic weight loss, their metabolisms had slowed by an average of 500 kcal/day below predicted levels, and their leptin levels remained suppressed. This means the body actively fights to regain lost weight through hormonal and metabolic mechanisms. Gut microbiome research has shown that transplanting gut bacteria from obese mice into germ-free lean mice causes weight gain without any change in diet. The 40-70% heritability figure means genetics are the single largest determinant of body weight, larger than any individual behavioral factor. The obesity epidemic reflects gene-environment interaction: susceptible genotypes existed for millennia but were only exposed to the modern hypercaloric environment recently.",
       proponent_rebuttal:
-        "While genetics clearly influence body weight predisposition, the obesity epidemic is a recent phenomenon — US adult obesity roughly tripled from about 13% in the early 1960s to over 42% by 2017-18 (NHANES). Human genetics did not change meaningfully in two generations. What changed was the environment and behavior: average caloric intake rose by several hundred calories per day, occupational physical activity declined dramatically, and sedentary screen time exploded. Twin studies showing 40-70% heritability mean that within a given environment, genetics explain much of the variation — but when the entire environment shifts toward overconsumption, the population distribution shifts with it. Genetics set the range; choices determine where individuals fall within that range. Overemphasizing biology creates fatalism that discourages the dietary and exercise changes that have been proven to reduce weight.",
+        "While genetics clearly influence body weight predisposition, the obesity epidemic is a recent phenomenon, US adult obesity roughly tripled from about 13% in the early 1960s to over 42% by 2017-18 (NHANES). Human genetics did not change meaningfully in two generations. What changed was the environment and behavior: average caloric intake rose by several hundred calories per day, occupational physical activity declined dramatically, and sedentary screen time exploded. Twin studies showing 40-70% heritability mean that within a given environment, genetics explain much of the variation, but when the entire environment shifts toward overconsumption, the population distribution shifts with it. Genetics set the range; choices determine where individuals fall within that range. Overemphasizing biology creates fatalism that discourages the dietary and exercise changes that have been proven to reduce weight.",
       crux: {
         id: "biological-determinism-threshold",
         title: "The Biological Override Threshold Test",
@@ -177,7 +177,7 @@ export const obesityPersonalResponsibilityData = {
           skeptic_flip:
             "If studies traced the rise in obesity among US adults aged 20-74 from 13.4% in 1960-62 to 42.8% in 2017-18 to shifts in environment and behavior, over a period when the genome did not meaningfully change, biology would look like a limit on individuals rather than the driver of the trend.",
           common_ground:
-            "Both sides agree BMI is substantially heritable — twin studies put it at 40-70% — and that the recent rise reflects susceptible genes meeting a changed environment, not genes changing.",
+            "Both sides agree BMI is substantially heritable, twin studies put it at 40-70%, and that the recent rise reflects susceptible genes meeting a changed environment, not genes changing.",
           live_disagreement:
             "Whether genes and metabolic adaptation set a range within which choices decide where people land, or defend a set point strongly enough that diet and willpower alone rarely overcome it.",
         },
@@ -243,7 +243,7 @@ export const obesityPersonalResponsibilityData = {
         {
           id: "obesity-tripled-50-years",
           title:
-            "US Obesity Tripled in 50 Years — Genes Cannot Explain a Population-Level Shift",
+            "US Obesity Tripled in 50 Years: Genes Cannot Explain a Population-Level Shift",
           description:
             "Obesity among US adults aged 20-74 rose from 13.4% in 1960-62 to 42.8% in 2017-18 (NHANES data, age-adjusted). The human genome does not change meaningfully over 50 years, yet the entire population weight distribution shifted rightward. Critics of the biological determinism argument note that this population-level shift can only be explained by environmental and behavioral changes: a 500+ kcal/day increase in average caloric intake, dramatic reductions in occupational physical activity, increased sedentary leisure time, and the proliferation of hyper-palatable ultra-processed foods.",
           side: "for" as const,
@@ -348,12 +348,12 @@ export const obesityPersonalResponsibilityData = {
   references: [
     {
       title:
-        "Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP 1) — Wilding et al., NEJM (2021)",
+        "Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP 1): Wilding et al., NEJM (2021)",
       url: "https://doi.org/10.1056/NEJMoa2032183",
     },
     {
       title:
-        "Persistent Metabolic Adaptation 6 Years After The Biggest Loser Competition — Fothergill et al., Obesity (2016)",
+        "Persistent Metabolic Adaptation 6 Years After The Biggest Loser Competition: Fothergill et al., Obesity (2016)",
       url: "https://doi.org/10.1002/oby.21538",
     },
   ],
@@ -370,7 +370,7 @@ export const obesityPersonalResponsibilityData = {
       title:
         "How much of obesity is biologically predetermined vs. behaviorally driven?",
       content:
-        "Twin studies show 40-70% heritability of BMI, and metabolic adaptation research reveals the body actively fights weight loss through hormonal and metabolic mechanisms. Yet obesity tripled in 50 years — far too fast for genetic change. The gene-environment interaction model suggests susceptible genotypes were always present but only became obese in the modern food environment. Does this mean obesity is a biological disease triggered by environmental exposure, or a behavioral response to environmental change?",
+        "Twin studies show 40-70% heritability of BMI, and metabolic adaptation research reveals the body actively fights weight loss through hormonal and metabolic mechanisms. Yet obesity tripled in 50 years, far too fast for genetic change. The gene-environment interaction model suggests susceptible genotypes were always present but only became obese in the modern food environment. Does this mean obesity is a biological disease triggered by environmental exposure, or a behavioral response to environmental change?",
     },
     {
       id: "q3",

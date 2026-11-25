@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   // An object, not a plain string: a string title here resets the root
   // "%s | ARGUMEND" template for every page below this segment.
   title: {
-    default: "Blog — Essays on Critical Thinking & Argument Analysis",
+    default: "Blog: Essays on Critical Thinking & Argument Analysis",
     template: "%s | ARGUMEND",
   },
   description:

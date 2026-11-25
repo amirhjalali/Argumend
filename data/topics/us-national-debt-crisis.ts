@@ -61,7 +61,7 @@ export const usNationalDebtCrisisData = {
     },
     {
       title:
-        "Blanchard, O. — Public Debt and Low Interest Rates, American Economic Review (2019)",
+        "Blanchard, O.: Public Debt and Low Interest Rates, American Economic Review (2019)",
       url: "https://www.aeaweb.org/articles?id=10.1257/aer.109.4.1197",
     },
     {
@@ -237,7 +237,7 @@ export const usNationalDebtCrisisData = {
             directness: 5,
           },
           source:
-            "Herndon, T., Ash, M., & Pollin, R. — 'Does High Public Debt Consistently Stifle Economic Growth? A Critique of Reinhart and Rogoff', Cambridge Journal of Economics 38(2): 257-279 (2014)",
+            "Herndon, T., Ash, M., & Pollin, R.: 'Does High Public Debt Consistently Stifle Economic Growth? A Critique of Reinhart and Rogoff', Cambridge Journal of Economics 38(2): 257-279 (2014)",
           sourceUrl: "https://academic.oup.com/cje/article-abstract/38/2/257/1714018",
           reasoning:
             "Removes the most cited empirical basis for a specific threshold. A modest negative link between debt and growth remains, and its direction of cause is disputed, so this rebuts the cliff rather than the broader worry.",
@@ -376,7 +376,7 @@ export const usNationalDebtCrisisData = {
             directness: 5,
           },
           source:
-            "Rachel, Ł. & Summers, L.H. — 'On Falling Neutral Real Rates, Fiscal Policy, and the Risk of Secular Stagnation', Brookings Papers on Economic Activity (Spring 2019)",
+            "Rachel, Ł. & Summers, L.H.: 'On Falling Neutral Real Rates, Fiscal Policy, and the Risk of Secular Stagnation', Brookings Papers on Economic Activity (Spring 2019)",
           sourceUrl:
             "https://www.brookings.edu/articles/on-falling-neutral-real-rates-fiscal-policy-and-the-risk-of-secular-stagnation/",
           reasoning:

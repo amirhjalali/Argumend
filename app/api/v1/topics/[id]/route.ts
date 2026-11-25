@@ -1,5 +1,5 @@
 /**
- * GET /api/v1/topics/[id] — public, read-only full topic object.
+ * GET /api/v1/topics/[id]: public, read-only full topic object.
  *
  * Returns the complete analysis (pillars, evidence, cruxes, references, …) for
  * a single topic from the static dataset. No database is touched. The known

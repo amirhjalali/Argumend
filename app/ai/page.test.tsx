@@ -69,7 +69,7 @@ describe("/ai with the real AI maps", () => {
       .filter((card) => card.querySelector("[data-settle=\"standing\"]"));
     expect(standing.length).toBeGreaterThan(0);
     for (const card of standing) {
-      expect(card.textContent).toMatch(/What would settle itNothing does — .*; the map holds both \w+\./);
+      expect(card.textContent).toMatch(/What would settle itNothing does: .*; the map holds both \w+\./);
     }
   });
 
@@ -79,7 +79,7 @@ describe("/ai with the real AI maps", () => {
       .getAllByTestId("ai-crux-card")
       .find((c) => c.textContent?.includes("What do we even mean by capitalism"));
     expect(card?.textContent).toContain(
-      "Nothing does — this turns on a choice of definition; the map holds both readings.",
+      "Nothing does: this turns on a choice of definition; the map holds both readings.",
     );
     expect(card?.textContent).not.toContain("value disagreement");
   });

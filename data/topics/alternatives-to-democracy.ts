@@ -13,15 +13,15 @@ export const alternativesToDemocracyData = {
     "https://images.unsplash.com/photo-1555848962-6e79363ec58f?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "The Myth of the Rational Voter — Bryan Caplan",
+      title: "The Myth of the Rational Voter: Bryan Caplan",
       url: "https://press.princeton.edu/books/paperback/9780691138732/the-myth-of-the-rational-voter",
     },
     {
-      title: "Against Democracy — Jason Brennan",
+      title: "Against Democracy: Jason Brennan",
       url: "https://press.princeton.edu/books/hardcover/9780691162607/against-democracy",
     },
     {
-      title: "Open Democracy: Reinventing Popular Rule for the 21st Century — Helene Landemore",
+      title: "Open Democracy: Reinventing Popular Rule for the 21st Century: Helene Landemore",
       url: "https://press.princeton.edu/books/hardcover/9780691181998/open-democracy",
     },
   ],
@@ -42,7 +42,7 @@ export const alternativesToDemocracyData = {
       id: "q3",
       title: "Is technocracy compatible with human rights?",
       content:
-        "Singapore and China demonstrate that expert-led governance can produce rapid economic development — but at the cost of civil liberties. Is prosperity without political freedom a viable and stable long-term social contract, or does the absence of accountability inevitably lead to corruption and abuse?",
+        "Singapore and China demonstrate that expert-led governance can produce rapid economic development, but at the cost of civil liberties. Is prosperity without political freedom a viable and stable long-term social contract, or does the absence of accountability inevitably lead to corruption and abuse?",
     },
   ],
   // ── The opening: the fact under the title, then what rides on it ──
@@ -69,9 +69,9 @@ export const alternativesToDemocracyData = {
         "Democracies face structural incentives toward short-term thinking, polarization, and regulatory capture that may make them systematically incapable of addressing existential challenges requiring sustained, multi-generational commitment. The question is whether these are bugs that can be fixed or features inherent to democratic governance.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The dysfunction critique treats democracy's current problems as permanent features rather than solvable malfunctions. Every historical era has produced claims that democracy is failing — yet democratic systems have consistently outperformed alternatives over time. The US Constitution is 237 years old; no authoritarian system has lasted as long without violent succession crises. Current dysfunction — polarization, gridlock, misinformation — reflects specific institutional design choices (two-party systems, gerrymandering, unlimited campaign spending) rather than inherent democratic limitations. Reforming these institutions within a democratic framework is both possible and preferable to abandoning democratic principles. Countries like Denmark, New Zealand, and Uruguay demonstrate that well-designed democracies can be responsive, effective, and long-term oriented.",
+        "The dysfunction critique treats democracy's current problems as permanent features rather than solvable malfunctions. Every historical era has produced claims that democracy is failing, yet democratic systems have consistently outperformed alternatives over time. The US Constitution is 237 years old; no authoritarian system has lasted as long without violent succession crises. Current dysfunction (polarization, gridlock, misinformation) reflects specific institutional design choices (two-party systems, gerrymandering, unlimited campaign spending) rather than inherent democratic limitations. Reforming these institutions within a democratic framework is both possible and preferable to abandoning democratic principles. Countries like Denmark, New Zealand, and Uruguay demonstrate that well-designed democracies can be responsive, effective, and long-term oriented.",
       proponent_rebuttal:
-        "The reform argument assumes unlimited time for institutional evolution. Climate change requires halving emissions by 2030 and reaching net-zero by 2050 — a 25-year timeline that no democracy has shown the capacity to address at the required speed. The median tenure of a democratic leader is 4-5 years; China's leadership can plan in decades. Democratic publics consistently vote for lower energy prices over climate action, creating a structural impossibility: the policies required to address existential threats are electorally unviable. This is not a solvable design flaw — it is the mathematical consequence of aggregating short-term individual preferences into collective decisions about long-term collective threats. The Pew Research Center reports declining satisfaction with democracy across all major democracies, suggesting the dysfunction is systemic, not localized.",
+        "The reform argument assumes unlimited time for institutional evolution. Climate change requires halving emissions by 2030 and reaching net-zero by 2050, a 25-year timeline that no democracy has shown the capacity to address at the required speed. The median tenure of a democratic leader is 4-5 years; China's leadership can plan in decades. Democratic publics consistently vote for lower energy prices over climate action, creating a structural impossibility: the policies required to address existential threats are electorally unviable. This is not a solvable design flaw; it is the mathematical consequence of aggregating short-term individual preferences into collective decisions about long-term collective threats. The Pew Research Center reports declining satisfaction with democracy across all major democracies, suggesting the dysfunction is systemic, not localized.",
       crux: {
         id: "democratic-reform-capacity",
         title: "The Reform Capacity Test",
@@ -90,13 +90,13 @@ export const alternativesToDemocracyData = {
           "$500K-1.5M (Comparative governance analysis across 50+ countries over 30 years)",
         falsification: {
           supporter_flip:
-            "If comparing democratic and non-democratic governments on emissions, pandemic preparedness, infrastructure, debt and education — controlling for GDP, geography and development — showed no systematic democratic shortfall on long-horizon problems, the case that democracy is structurally short-termist would weaken.",
+            "If comparing democratic and non-democratic governments on emissions, pandemic preparedness, infrastructure, debt and education, controlling for GDP, geography and development, showed no systematic democratic shortfall on long-horizon problems, the case that democracy is structurally short-termist would weaken.",
           skeptic_flip:
             "If satisfaction with democracy kept falling after its drop from 49% in 2021 to 36% in 2024 across 12 high-income democracies, while reforms lagged the 2030 and 2050 climate deadlines, slow institutional evolution would look too slow and alternatives would merit a look.",
           common_ground:
             "Both sides agree today's democracies show real dysfunction: polarization, gridlock, and satisfaction falling to 36% across 12 high-income democracies by 2024.",
           live_disagreement:
-            "Whether short-termism and gridlock come from fixable design choices — two-party systems, gerrymandering, campaign spending — or are the inherent result of aggregating short-term preferences into decisions about long-term threats.",
+            "Whether short-termism and gridlock come from fixable design choices, two-party systems, gerrymandering, campaign spending, or are the inherent result of aggregating short-term preferences into decisions about long-term threats.",
         },
       },
       evidence: [
@@ -115,7 +115,7 @@ export const alternativesToDemocracyData = {
           source: "Pew Research Center",
           sourceUrl: "https://www.pewresearch.org/short-reads/2024/06/18/satisfaction-with-democracy-has-declined-in-recent-years-in-high-income-nations/",
           reasoning:
-            "Pew surveys are methodologically rigorous and globally representative. The cross-national pattern of dissatisfaction is compelling. However, dissatisfaction with democracy does not mean alternative systems would perform better — people may be dissatisfied with specific outcomes rather than the system itself, which limits directness.",
+            "Pew surveys are methodologically rigorous and globally representative. The cross-national pattern of dissatisfaction is compelling. However, dissatisfaction with democracy does not mean alternative systems would perform better, people may be dissatisfied with specific outcomes rather than the system itself, which limits directness.",
         },
         {
           id: "montreal-protocol-democratic-success",
@@ -132,7 +132,7 @@ export const alternativesToDemocracyData = {
           source: "United Nations Environment Programme; NASA",
           sourceUrl: "https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol",
           reasoning:
-            "The Montreal Protocol is the strongest counter-example to the claim that democracies cannot address long-term threats. It directly demonstrates democratic capacity for sustained, effective environmental action. Replicability is lower because the ozone problem was simpler than climate change — fewer industries affected, cheaper substitutes available, and the threat was more immediate and visible.",
+            "The Montreal Protocol is the strongest counter-example to the claim that democracies cannot address long-term threats. It directly demonstrates democratic capacity for sustained, effective environmental action. Replicability is lower because the ozone problem was simpler than climate change, fewer industries affected, cheaper substitutes available, and the threat was more immediate and visible.",
         },
       ],
     },
@@ -147,9 +147,9 @@ export const alternativesToDemocracyData = {
         "Proposals including epistocracy (weighted voting by knowledge), sortition (random citizen selection), liquid democracy (delegable proxy voting), and futarchy (prediction market governance) offer theoretical improvements over electoral democracy. The question is whether any has been tested at sufficient scale to evaluate seriously.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Citizens' assemblies are advisory bodies that derive their legitimacy from the democratic system they operate within — they are supplements to democracy, not alternatives. Ireland's Citizens' Assembly was convened by elected officials, its recommendations required approval through a democratic referendum, and its members had no accountability if their advice proved disastrous. The French Citizens' Convention had most of its proposals diluted or abandoned by the Macron government, demonstrating that advisory bodies without electoral power cannot overcome entrenched interests. As for epistocracy and technocracy, who selects the experts? Every 'neutral' selection process embeds the values of its designers. Singapore's technocratic success coincides with authoritarian control of media, restrictions on assembly, and political detention — successes that cannot be separated from the coercion that enables them.",
+        "Citizens' assemblies are advisory bodies that derive their legitimacy from the democratic system they operate within; they are supplements to democracy, not alternatives. Ireland's Citizens' Assembly was convened by elected officials, its recommendations required approval through a democratic referendum, and its members had no accountability if their advice proved disastrous. The French Citizens' Convention had most of its proposals diluted or abandoned by the Macron government, demonstrating that advisory bodies without electoral power cannot overcome entrenched interests. As for epistocracy and technocracy, who selects the experts? Every 'neutral' selection process embeds the values of its designers. Singapore's technocratic success coincides with authoritarian control of media, restrictions on assembly, and political detention, successes that cannot be separated from the coercion that enables them.",
       proponent_rebuttal:
-        "Alternative governance models have actually been tested — and they work. Ireland's Citizens' Assembly, composed of randomly selected citizens, resolved the decades-long abortion deadlock in 2018 by recommending repeal of the constitutional ban, which voters then approved by a two-thirds majority. France's Citizens' Convention on Climate proposed 149 measures in 2020, of which 146 were accepted by the government. These sortition-based bodies produced better policy outcomes than elected legislatures on the same issues because randomly selected citizens, given time and expert testimony, are more deliberative and less partisan than elected officials accountable to interest groups and media cycles.",
+        "Alternative governance models have actually been tested, and they work. Ireland's Citizens' Assembly, composed of randomly selected citizens, resolved the decades-long abortion deadlock in 2018 by recommending repeal of the constitutional ban, which voters then approved by a two-thirds majority. France's Citizens' Convention on Climate proposed 149 measures in 2020, of which 146 were accepted by the government. These sortition-based bodies produced better policy outcomes than elected legislatures on the same issues because randomly selected citizens, given time and expert testimony, are more deliberative and less partisan than elected officials accountable to interest groups and media cycles.",
       crux: {
         id: "sortition-scale-test",
         title: "The Sortition Scaling Experiment",
@@ -174,7 +174,7 @@ export const alternativesToDemocracyData = {
           common_ground:
             "Both sides agree the citizen assemblies tried so far have been advisory and convened by elected officials, and that Ireland's recommendation took effect only through a referendum.",
           live_disagreement:
-            "Whether sortition can move from advisory panels to binding authority and still deliberate better than elected legislatures, or only works as a supplement that borrows democracy's legitimacy — and whether any expert-selection scheme escapes its designers' values.",
+            "Whether sortition can move from advisory panels to binding authority and still deliberate better than elected legislatures, or only works as a supplement that borrows democracy's legitimacy, and whether any expert-selection scheme escapes its designers' values.",
         },
       },
       evidence: [
@@ -182,7 +182,7 @@ export const alternativesToDemocracyData = {
           id: "ireland-citizens-assembly",
           title: "Ireland's Citizens' Assembly Resolved the Abortion Deadlock (2016-2018)",
           description:
-            "Ireland's Citizens' Assembly, composed of 99 randomly selected citizens and a Supreme Court judge as chair, deliberated on the Eighth Amendment (abortion ban) over five months in 2016-2017. The assembly recommended allowing abortion with a two-thirds supermajority — a position elected officials had been unable to reach for decades. The subsequent referendum approved the recommendation by 66.4%, closely matching the assembly's vote. The process is widely cited as a model of deliberative democracy resolving a contentious issue that representative democracy could not.",
+            "Ireland's Citizens' Assembly, composed of 99 randomly selected citizens and a Supreme Court judge as chair, deliberated on the Eighth Amendment (abortion ban) over five months in 2016-2017. The assembly recommended allowing abortion with a two-thirds supermajority, a position elected officials had been unable to reach for decades. The subsequent referendum approved the recommendation by 66.4%, closely matching the assembly's vote. The process is widely cited as a model of deliberative democracy resolving a contentious issue that representative democracy could not.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -199,7 +199,7 @@ export const alternativesToDemocracyData = {
           id: "singapore-technocracy-limitations",
           title: "Singapore's Technocratic Success Depends on Authoritarian Control",
           description:
-            "Singapore is frequently cited as proof that technocratic governance works — consistently ranking among the world's least corrupt, most efficient, and most economically successful nations. However, Freedom House classifies Singapore as 'partly free,' noting restrictions on freedom of speech, press, and assembly. The ruling People's Action Party has held power continuously since 1959 through a system that combines genuine competence with gerrymandering, defamation lawsuits against opposition leaders, and media control. The causal question is whether Singapore's success requires its authoritarian elements or occurs despite them.",
+            "Singapore is frequently cited as proof that technocratic governance works, consistently ranking among the world's least corrupt, most efficient, and most economically successful nations. However, Freedom House classifies Singapore as 'partly free,' noting restrictions on freedom of speech, press, and assembly. The ruling People's Action Party has held power continuously since 1959 through a system that combines genuine competence with gerrymandering, defamation lawsuits against opposition leaders, and media control. The causal question is whether Singapore's success requires its authoritarian elements or occurs despite them.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -225,16 +225,16 @@ export const alternativesToDemocracyData = {
         "Democracy's greatest strength may be its capacity for self-correction through peaceful transfer of power, free press accountability, and electoral feedback. The question is whether this error-correction capacity is unique to democracy or whether other systems can incorporate similar mechanisms without the inefficiencies of electoral politics.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Democracy's error-correction mechanism is irreplaceable precisely because it is imperfect. Authoritarian systems can make faster decisions but cannot easily reverse catastrophic ones — Mao's Great Leap Forward killed 45 million people, and there was no mechanism to stop him. Democratic error-correction works through multiple channels simultaneously: elections remove failed leaders, free press exposes corruption, independent courts constrain overreach, and civil society organizes opposition. No alternative system has replicated this redundancy. Technocracies concentrate error in expert failures (economists missed 2008, epidemiologists bungled early COVID messaging); epistocracies assume knowledge correlates with wisdom; and sortition removes accountability entirely since randomly selected officials face no electoral consequences for bad decisions.",
+        "Democracy's error-correction mechanism is irreplaceable precisely because it is imperfect. Authoritarian systems can make faster decisions but cannot easily reverse catastrophic ones: Mao's Great Leap Forward killed 45 million people, and there was no mechanism to stop him. Democratic error-correction works through multiple channels simultaneously: elections remove failed leaders, free press exposes corruption, independent courts constrain overreach, and civil society organizes opposition. No alternative system has replicated this redundancy. Technocracies concentrate error in expert failures (economists missed 2008, epidemiologists bungled early COVID messaging); epistocracies assume knowledge correlates with wisdom; and sortition removes accountability entirely since randomly selected officials face no electoral consequences for bad decisions.",
       proponent_rebuttal:
-        "The error-correction defense proves less than it claims. Democratic error-correction is slow — it took two decades for democracies to begin seriously addressing climate change after scientific consensus was established, and the response remains inadequate. The feedback loop requires that voters correctly identify policy failures and attribute them to the responsible officials, but systematic research shows that voters are poor at both tasks: they reward or punish incumbents for economic conditions caused by global factors and routinely support policies that experts warn will fail. Furthermore, democracy's self-correction has not prevented the rise of authoritarian populists within democratic systems — Trump, Orban, Erdogan, and others have used democratic mechanisms to weaken democratic institutions. If democracy cannot protect itself from internal subversion, its error-correction capacity may be more theoretical than practical.",
+        "The error-correction defense proves less than it claims. Democratic error-correction is slow; it took two decades for democracies to begin seriously addressing climate change after scientific consensus was established, and the response remains inadequate. The feedback loop requires that voters correctly identify policy failures and attribute them to the responsible officials, but systematic research shows that voters are poor at both tasks: they reward or punish incumbents for economic conditions caused by global factors and routinely support policies that experts warn will fail. Furthermore, democracy's self-correction has not prevented the rise of authoritarian populists within democratic systems, Trump, Orban, Erdogan, and others have used democratic mechanisms to weaken democratic institutions. If democracy cannot protect itself from internal subversion, its error-correction capacity may be more theoretical than practical.",
       crux: {
         id: "error-correction-comparison",
         title: "The Comparative Error-Correction Assessment",
         question:
           "Do democracies correct policy mistakes better over time than other systems do?",
         description:
-          "The crux is whether democracy's error-correction mechanisms — elections, free press, independent courts, civil society — produce measurably better policy outcomes over time compared to alternative governance systems with different feedback mechanisms. If democracies consistently outperform alternatives in recovering from policy errors and adapting to changing conditions, the Churchill defense is empirically validated.",
+          "The crux is whether democracy's error-correction mechanisms, elections, free press, independent courts, civil society, produce measurably better policy outcomes over time compared to alternative governance systems with different feedback mechanisms. If democracies consistently outperform alternatives in recovering from policy errors and adapting to changing conditions, the Churchill defense is empirically validated.",
         methodology:
           "Compare recovery times from major policy failures across governance types. Analyze how quickly democracies vs. authoritarian states corrected course after financial crises, environmental disasters, public health emergencies, and military conflicts. Measure policy persistence (how long failed policies continue) and adaptation speed (how quickly governments respond to new information). Use natural experiments where similar challenges affected both democratic and non-democratic states simultaneously.",
         verification_status: "theoretical" as const,
@@ -250,7 +250,7 @@ export const alternativesToDemocracyData = {
           skeptic_flip:
             "If V-Dem's count of 15 straight years of democratic backsliding kept growing through elected leaders weakening institutions, and future crises repeated the two-decade lag on climate, democratic error-correction would look too slow to rule out alternatives.",
           common_ground:
-            "Both sides agree democracy's error-correction — elections, a free press, independent courts — is real but slow and imperfect.",
+            "Both sides agree democracy's error-correction, elections, a free press, independent courts, is real but slow and imperfect.",
           live_disagreement:
             "Whether democracy's redundant feedback channels recover from mistakes better than faster-deciding systems, or whether voters' poor attribution of blame and populists' subversion from within make that advantage more theoretical than practical.",
         },
@@ -288,7 +288,7 @@ export const alternativesToDemocracyData = {
           source: "V-Dem Institute, Democracy Report 2026: Unraveling the Democratic Era?; University of Gothenburg",
           sourceUrl: "https://www.v-dem.net/publications/democracy-reports/",
           reasoning:
-            "V-Dem is the most comprehensive democracy measurement project in political science, with high reliability and independence. The backsliding trend directly challenges the error-correction thesis by showing that democratic systems can be subverted from within. However, some scholars argue backsliding represents democracies under stress rather than democracies failing — the correction may simply take longer.",
+            "V-Dem is the most comprehensive democracy measurement project in political science, with high reliability and independence. The backsliding trend directly challenges the error-correction thesis by showing that democratic systems can be subverted from within. However, some scholars argue backsliding represents democracies under stress rather than democracies failing; the correction may simply take longer.",
         },
       ],
     },

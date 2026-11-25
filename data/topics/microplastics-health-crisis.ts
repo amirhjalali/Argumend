@@ -378,33 +378,33 @@ export const microplasticsHealthCrisisData = {
   references: [
     {
       title:
-        "Microplastics and Nanoplastics in Atheromas and Cardiovascular Events — New England Journal of Medicine (2024)",
+        "Microplastics and Nanoplastics in Atheromas and Cardiovascular Events: New England Journal of Medicine (2024)",
       url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2309822",
     },
     {
       title:
-        "Assessing the Efficacy of Py-GC-MS for Nanoplastic and Microplastic Analysis in Human Blood — Environmental Science & Technology (2025)",
+        "Assessing the Efficacy of Py-GC-MS for Nanoplastic and Microplastic Analysis in Human Blood: Environmental Science & Technology (2025)",
       url: "https://doi.org/10.1021/acs.est.4c12599",
     },
     {
-      title: "Bioaccumulation of microplastics in decedent human brains — Nature Medicine (2025)",
+      title: "Bioaccumulation of microplastics in decedent human brains: Nature Medicine (2025)",
       url: "https://doi.org/10.1038/s41591-024-03453-1",
     },
     {
-      title: "Production, Use, and Fate of All Plastics Ever Made — Science Advances (2017)",
+      title: "Production, Use, and Fate of All Plastics Ever Made: Science Advances (2017)",
       url: "https://www.science.org/doi/10.1126/sciadv.1700782",
     },
     {
-      title: "WHO calls for more research into microplastics — World Health Organization (2019)",
+      title: "WHO calls for more research into microplastics: World Health Organization (2019)",
       url: "https://www.who.int/news/item/22-08-2019-who-calls-for-more-research-into-microplastics-and-a-crackdown-on-plastic-pollution",
     },
     {
-      title: "INC-5.2 lobbyist analysis: at least 234 fossil fuel and chemical industry lobbyists — CIEL (7 August 2025)",
+      title: "INC-5.2 lobbyist analysis: at least 234 fossil fuel and chemical industry lobbyists: CIEL (7 August 2025)",
       url: "https://www.ciel.org/news/inc-5-2-lobbyist-analysis/",
     },
     {
       title:
-        "Discovery and Quantification of Plastic Particle Pollution in Human Blood — Environment International (2022)",
+        "Discovery and Quantification of Plastic Particle Pollution in Human Blood: Environment International (2022)",
       url: "https://www.sciencedirect.com/science/article/pii/S0160412022001258",
     },
   ],
@@ -412,7 +412,7 @@ export const microplasticsHealthCrisisData = {
     {
       id: "q1",
       title:
-        "Are microplastics the new lead — a ubiquitous toxin we ignored for decades?",
+        "Are microplastics the new lead, a ubiquitous toxin we ignored for decades?",
       content:
         "Lead was used in paint, petrol and pipes for decades while industry questioned the harm. Microplastics share some features: exposure everywhere, an industry with a record of misleading reassurance, and early signs of harm. But lead is a single element with a measured dose-response, while plastics differ by polymer, size and additive, and the amounts in human tissue are still disputed.",
     },

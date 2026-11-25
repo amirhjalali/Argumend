@@ -6,20 +6,21 @@ export const fourDayWorkWeekData = {
     "A four-day work week with no reduction in pay leads to equal or higher productivity, improved worker wellbeing, and should be adopted broadly across industries.",
   status: "contested" as const,
   category: "economics" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  last_updated: "2026-11-23",
+  tags: ["labor", "work", "productivity", "economics", "wellbeing"],
+  // ── Stage 1: the opening contrast shown above everything ──
   keystone_fact: {
     statement:
-      "In the UK's 2022 four-day-week pilot, 56 of the 61 participating companies kept the schedule afterward, and Iceland's 2015–2019 trials cut hours to 35–36 a week for over 2,500 public-sector workers. Neither had a randomized control group, and the UK firms chose to take part. What divides the sides is whether those results come from the schedule or from the firms, and how far they would carry to other sectors.",
-    confidence: 80,
+      "In a 2025 six-country study of 141 volunteer organizations (2,896 workers), cutting hours at full pay lowered burnout and raised job satisfaction over six months, and 54 of the 61 UK pilot firms still ran a four-day week a year later. Yet in the United States, 80.3 million workers, 55.6% of all wage and salary earners in 2024, are paid by the hour, where staffing tracks coverage rather than meeting slack. What divides the sides is whether volunteer-firm results survive randomization, time, and coverage-bound sectors.",
+    confidence: 82,
     source:
-      "4 Day Week Global / Autonomy / University of Cambridge & Boston College, 'The Results Are In: The UK's Four-Day Week Pilot' (2023); Autonomy & Alda, Iceland trials report (2021)",
-    sourceUrl:
-      "https://autonomy.work/wp-content/uploads/2023/02/The-results-are-in-The-UKs-four-day-week-pilot.pdf",
+      "Fan, Schor, Kelly & Gu, Nature Human Behaviour (2025); Autonomy et al., UK One-Year Follow-Up (2024); U.S. BLS Report 1115 (2025)",
+    sourceUrl: "https://doi.org/10.1038/s41562-025-02259-6",
   },
-  // ── Stage 2: the honest 3-sentence case ──
+  // ── Stage 2: the honest two-paragraph orientation ──
   simple_case: [
-    "Both sides accept that the trials so far lack randomized control groups and over-represent flexible office firms, that cutting hours at full pay helps wellbeing more than squeezing 40 hours into four days, and that hours-bound sectors like nursing and retail would need more staff to keep coverage.",
-    "They split over whether maintained productivity comes from the schedule or from self-selected, motivated firms; whether wellbeing gains last beyond two years once the trials end; and how much of a 20% cut in hours productivity can absorb across the economy, which decides whether broad adoption is roughly cost-neutral or inflationary.",
+    "Both sides accept that the major trials so far lack randomized control groups and skew toward flexible office employers, that cutting total hours at full pay differs sharply from cramming 40 hours into four 10-hour shifts, and that coverage-bound workplaces like hospitals, factories, and retail shops face harder staffing constraints than salaried offices.",
+    "They split over whether steady output in trials comes from the schedule itself or from self-selected firms; whether burnout and sleep gains hold past one to two years without intensifying each workday; and how much of a 20% cut in hours productivity can absorb across sectors without payroll subsidies, higher prices, or a wider gap between salaried and hourly workers.",
   ],
   pillars: [
     // =========================================================================
@@ -29,79 +30,96 @@ export const fourDayWorkWeekData = {
       id: "productivity-impact",
       title: "Productivity & Business Performance",
       short_summary:
-        "Large-scale trials in the UK, Iceland, and elsewhere report maintained or increased productivity under four-day schedules, but critics argue these results reflect selection bias and may not generalize to manufacturing, healthcare, or service industries with continuous coverage requirements.",
+        "Volunteer pilots in Iceland, the UK, and Germany report steady output and high continuation rates, while critics point out that participating firms self-selected, lacked randomized controls, and still saw roughly one in five German firms return to five-day schedules.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "The productivity claims from four-day work week trials are methodologically weak and suffer from severe selection bias. Companies that volunteer for trials are already high-functioning, flexible knowledge-work firms predisposed to succeed. The UK's 4 Day Week Global trial (2022) had no control group — companies compared themselves to their own past performance during a period when they were highly motivated to prove the concept worked. Manufacturing firms, hospitals, retail stores, and restaurants with continuous staffing needs were dramatically underrepresented. Survey work by the Chartered Institute of Personnel and Development (2022) found employers broadly ambivalent about reducing hours and skeptical that a four-day week could work across all roles — citing customer-coverage gaps, coordination difficulties, and the problem of atypical and non-salaried workers — concerns that received far less media attention than the headline pilot successes.",
+        "The productivity numbers from four-day-week pilots come from volunteer organizations that wanted the schedule to work and had no randomized control group. In the UK's 2022 trial, firms compared self-reported revenue to their own prior periods during a high-motivation pilot, and small flexible office employers were heavily overrepresented. Even inside Germany's 2024 volunteer pilot of 45 firms evaluated by the University of Münster, roughly 20% opted to return to traditional schedules afterward. Outside self-selected pilots, a 2022 employer-perspectives report by the UK's Chartered Institute of Personnel and Development (CIPD) found employers broadly ambivalent and skeptical that a four-day week fits across roles, flagging customer-coverage gaps, coordination friction, and the difficulty of managing atypical and hourly staff.",
       proponent_rebuttal:
-        "Iceland's trials — covering over 2,500 workers (1% of the entire workforce) across diverse public sector roles including hospitals, police, and social services from 2015-2019 — maintained productivity while dramatically improving worker wellbeing. This was not a self-selected startup sample; it included shift workers and public services. The UK's 2022 pilot, while imperfect, saw revenue increase by an average of 1.4% across 61 companies. Microsoft Japan's 2019 trial reported a 40% productivity increase. The mechanism is well-understood: Parkinson's Law (work expands to fill available time), reduced meeting bloat, and improved focus during compressed hours. A 2024 meta-analysis of 30 trials across 15 countries found that 91% of participating firms rated the trial successful enough to continue.",
+        "The persistence of real-world trials is hard to dismiss as brief enthusiasm. Iceland's 2015–2019 public-sector trials cut hours to 35–36 per week across more than 2,500 workers, roughly 1% of the national workforce, including hospitals, police, and social services, while maintaining or improving service output; by June 2021, 86% of Iceland's workforce had moved to shorter hours or gained the right to negotiate them. In the UK pilot's February 2024 one-year follow-up, at least 54 of the 61 companies (89%) were still running a four-day week and at least 31 (51%) had made it permanent by cutting redundant meetings and tightening workflows. Germany's 2024 pilot similarly reported stable turnover and profit alongside improved efficiency.",
       crux: {
         id: "four-day-rct-diverse",
         title: "The Cross-Industry Randomized Trial",
         question:
           "Is maintained productivity a real effect of the schedule, or of self-selected, motivated firms?",
         description:
-          "The decisive test is whether a four-day work week maintains productivity in a properly randomized trial across diverse industries — not just knowledge work, but manufacturing, healthcare, retail, and services. If the effect holds only in white-collar office environments, the policy cannot be 'broadly adopted' as claimed. If it holds across sectors, the case for broad adoption is strong.",
+          "Whether output per worker holds up in a randomized trial across diverse industries (not just flexible offices, but manufacturing, healthcare, retail, and frontline services) decides how far the four-day model can travel.",
         methodology:
-          "Conduct a government-sponsored randomized controlled trial across 500+ firms in at least 10 industries, randomly assigning firms to four-day or five-day schedules for 12+ months. Use objective productivity metrics (revenue per employee, output per hour, customer satisfaction scores, error rates) rather than self-reported measures. Include a mandatory 6-month follow-up after the trial ends to measure persistence. Stratify by industry, firm size, and workforce composition.",
+          "Conduct a government-sponsored randomized controlled trial across 500+ firms in at least 10 industries, randomly assigning firms to four-day or five-day schedules for 12+ months. Measure audited output per worker, revenue per employee, error rates, and customer service levels rather than self-reports, with a 6-month post-trial follow-up.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "A randomized trial across 500+ firms in at least ten industries, assigning four-day or five-day schedules for a year and measuring revenue per employee, output per hour and error rates, with a six-month follow-up.",
+            "A randomized trial across 500+ firms in at least ten industries, assigning four-day or five-day schedules for a year and measuring audited revenue per employee, output per hour, and error rates, with a six-month follow-up.",
         },
         cost_to_verify:
-          "$10-20M (Government-sponsored multi-industry RCT with objective productivity measurement)",
+          "$10-20M (Government-sponsored multi-industry RCT with audited productivity metrics)",
         falsification: {
           supporter_flip:
-            "If a randomized cross-industry trial with a real control group found productivity holding only in white-collar office firms and falling in manufacturing, healthcare, retail and other coverage-bound sectors, 'adopt broadly' would shrink to 'works for knowledge work with slack in the day.'",
+            "If a randomized cross-industry trial with a real control group found productivity holding only in flexible office firms and falling in manufacturing, healthcare, retail, and other coverage-bound sectors, the case for broad adoption would narrow to roles with trimmable slack.",
           skeptic_flip:
-            "If randomized trials matched Iceland's results, where hospital, police and social-service shift workers kept productivity steady, and firms outside volunteer pilots kept the schedule at rates like the 92% seen inside them, selection bias would explain less of the result.",
+            "If randomized trials across non-volunteer firms matched the persistence seen in Iceland's public-sector shift roles and the UK's 89% one-year continuation rate while keeping audited output steady, selection bias would explain much less of the result.",
           common_ground:
-            "Both sides agree existing trials lack randomized control groups and over-represent flexible knowledge-work firms, and that compressed white-collar days contain measurable slack (meetings, context-switching) that can be trimmed.",
+            "Both sides accept that existing trials lack randomized assignment and skew toward motivated office employers, and that many salaried weeks contain meeting and coordination slack that organizations can trim.",
           live_disagreement:
-            "Whether maintained productivity is a genuine effect of the schedule or an artifact of self-selected, highly motivated firms — which only a stratified, government-run RCT across 10+ industries with objective output metrics could settle.",
+            "Whether maintained output is a general effect of shorter hours or an artifact of self-selected, flexible firms, which only a stratified, randomized cross-industry trial using audited output metrics can separate.",
         },
       },
       evidence: [
         {
           id: "iceland-trial",
-          title: "Iceland's Public Sector Trials: 2,500 Workers Maintained Productivity on Shorter Hours (2015-2019)",
+          title: "Iceland's Public-Sector Trials (2015–2019): 2,500+ Workers Kept Service Output on 35–36 Hours",
           description:
-            "Between 2015 and 2019, Iceland conducted two large-scale trials of reduced working hours (from 40 to 35-36 hours/week) involving over 2,500 public sector workers — approximately 1% of Iceland's entire working population. Participants included office workers, hospital staff, police officers, and social service workers. Productivity was maintained or improved across nearly all workplaces. The trials fed into permanent changes: by June 2021, 86% of Iceland's working population had either moved to shorter hours or gained the right to shorten their hours. Worker wellbeing improved significantly across stress, burnout, and work-life balance measures.",
+            "Between 2015 and 2019, Reykjavík City Council and the Icelandic national government ran two trials cutting hours from 40 to 35–36 hours per week at unchanged pay across more than 2,500 public-sector workers (~1% of Iceland's workforce), including offices, hospitals, police, and social services. Service provision and productivity were maintained or improved across nearly all participating workplaces, and by June 2021 roughly 86% of Iceland's workforce had either moved to shorter hours or gained the contractual right to shorten them. Scope limit: the cut was 4–5 hours rather than a full 8-hour day, lacked random assignment, and occurred in a small, highly unionized public sector.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
+            independence: 6,
             replicability: 7,
-            directness: 8,
+            directness: 7,
           },
-          source: "Autonomy Research; Alda (Icelandic trade union research institute)",
+          source: "Gudmundur D. Haraldsson & Jack Kellam, Autonomy & Alda, 'Going Public: Iceland's Journey to a Shorter Working Week' (June 2021)",
           sourceUrl: "https://autonomy.work/wp-content/uploads/2021/06/ICELAND_4DW.pdf",
           reasoning:
-            "Iceland's trials are the most comprehensive real-world evidence, covering diverse public sector roles including shift work. The scale (1% of workforce) and duration (4 years) are impressive. However, Iceland is a small, homogeneous, high-trust society with strong unions — conditions that may not transfer to larger, more diverse economies. The lack of a randomized control group limits causal inference.",
+            "Four years of real-world public-sector data spanning shift roles like hospitals and police make Iceland the broadest non-office test to date. Independence is tempered because Alda and Autonomy advocate shorter hours, and cutting to 35–36 hours is a smaller step than a 32-hour week.",
         },
         {
           id: "uk-4dwg-trial",
-          title: "UK 4 Day Week Trial: 61 Companies Report 1.4% Revenue Increase (2022)",
+          title: "UK Pilot One Year On (2024): 54 of 61 Firms Still Ran a Four-Day Week, 31 Made It Permanent",
           description:
-            "The world's largest coordinated four-day work week trial, organized by 4 Day Week Global with academic partners at Cambridge, Oxford, and Boston College, ran from June to December 2022 across 61 UK companies and approximately 2,900 employees. Companies reported an average revenue increase of 1.4% (weighted by company size), with 56 of 61 companies (92%) choosing to continue the four-day week after the trial. Absenteeism dropped 65%, resignations fell 57%, and employee wellbeing scores increased significantly. However, the trial had no randomized control group, and participating companies self-selected.",
+            "Sixty-one UK organizations (~2,900 employees) completed a six-month 100:80:100 pilot in 2022, reporting an average size-weighted revenue rise of 1.4% and 56 firms continuing afterward. In the February 2024 one-year follow-up by Autonomy, Cambridge, and Boston College, at least 54 of the 61 companies (89%) still operated a four-day week and at least 31 (51%) had made the schedule permanent, crediting fewer meetings and sharper task prioritization. Scope limit: firms volunteered to join, lacked a randomized control group, skewed toward small flexible service and office organizations, and self-reported financial figures.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
             replicability: 6,
+            directness: 8,
+          },
+          source: "Autonomy, University of Cambridge & Boston College, 'Making It Stick: The UK Four-Day Week Pilot One Year On' (Feb 2024)",
+          sourceUrl: "https://autonomy.work/wp-content/uploads/2024/02/making-it-stick_-1.pdf",
+          reasoning:
+            "A one-year follow-up rules out pure six-month novelty as the sole reason firms continued. However, 4 Day Week Global and Autonomy are advocacy co-organizers, and without matched non-adopting controls we cannot separate schedule effects from firm quality or broader revenue trends.",
+        },
+        {
+          id: "germany-muenster-2024",
+          title: "German Pilot (45 Firms, 2024): Output Held Steady for Most, While ~20% Returned to Five Days",
+          description:
+            "In 2024, researchers at the University of Münster (Prof. Dr. Julia Backmann and Dr. Felix Hoch) evaluated a six-month Germany-wide trial of 45 organizations organized by Intraprenör and 4 Day Week Global, combining surveys with smartwatch biometric tracking. Turnover and profit stayed steady compared with prior periods, and participating employees recorded more sleep, higher physical activity, and lower burnout. At the same time, roughly 20% of participating firms opted to return to traditional schedules afterward and a small number exited early for economic reasons, showing the model did not fit every participating business.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
             directness: 7,
           },
-          source: "4 Day Week Global; Cambridge University; Boston College",
-          sourceUrl: "https://autonomy.work/wp-content/uploads/2023/02/The-results-are-in-The-UKs-four-day-week-pilot.pdf",
+          source: "University of Münster (Backmann & Hoch), '4-Day Week Germany-Wide Pilot Study' (October 2024)",
+          sourceUrl: "https://www.wiwi.uni-muenster.de/tow/en/research/4-day-week-germany-wide-pilot-study",
           reasoning:
-            "The trial provides encouraging real-world data from a significant number of firms. However, independence is lower because 4 Day Week Global is an advocacy organization. The self-selection bias is substantial — firms that volunteered are likely those most suited to compressed schedules. The 1.4% revenue figure lacks a control group counterfactual, and could reflect broader economic trends rather than the schedule change.",
+            "Independent academic evaluation adds credibility and biometric sleep/activity evidence. Filed against the 'broadly adopted' claim because even inside a self-selected volunteer cohort of 45 firms, roughly one in five reverted to a five-day schedule.",
         },
         {
           id: "cipd-reversion-rate",
-          title: "CIPD: Employers Ambivalent About Reducing Hours, See a Four-Day Week as Unlikely (2022)",
+          title: "CIPD Employer Survey (2022): UK Employers Ambivalent, Cite Coverage Gaps and Non-Salaried Fit",
           description:
-            "A report by the Chartered Institute of Personnel and Development (CIPD), the UK's professional body for HR, surveyed employer perspectives on the four-day week. It found that employers appear ambivalent about reducing working hours and see a broad move to a four-day week as unlikely. A practical challenge for employers that had reduced hours was that the arrangement did not suit everybody in their organisation, and the report flagged the difficulty of managing atypical and non-salaried workers under a shorter week. The findings temper the largely positive media narrative around four-day-week trials, which has tended to feature successful adopters.",
+            "A 2022 report by the Chartered Institute of Personnel and Development (CIPD), the UK's professional body for HR, surveyed employer perspectives on the four-day week. Employers were broadly ambivalent about cutting hours and viewed a general shift to a four-day week as unlikely. Even among employers that had reduced working hours, a recurring obstacle was that the schedule did not fit every role inside the same organization, citing customer-coverage demands, cross-team coordination, and atypical or hourly workers.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -109,10 +127,10 @@ export const fourDayWorkWeekData = {
             replicability: 6,
             directness: 6,
           },
-          source: "Chartered Institute of Personnel and Development, \"The four-day week: Employer perspectives\" (2022)",
+          source: "Chartered Institute of Personnel and Development, 'The four-day week: Employer perspectives' (2022)",
           sourceUrl: "https://www.cipd.org/en/knowledge/reports/four-day-week/",
           reasoning:
-            "The CIPD is a well-respected, independent professional body. Its employer-perspectives report provides a useful corrective to the overwhelmingly positive media coverage of four-day-week pilots, which over-represents self-selected, successful adopters. The findings are qualitative rather than a single headline statistic, and reflect practical employer concerns — fit across roles, coverage, and atypical workers — rather than ideological opposition.",
+            "An independent employer-side counterweight to volunteer pilot publicity. Directness is moderate because it captures employer expectations and operational constraints rather than an experimental output test.",
         },
       ],
     },
@@ -124,79 +142,79 @@ export const fourDayWorkWeekData = {
       id: "worker-wellbeing",
       title: "Worker Wellbeing & Health",
       short_summary:
-        "Four-day week trials consistently report large improvements in burnout, stress, sleep quality, and work-life balance, but some workers report that compressing five days of work into four increases daily intensity and stress.",
+        "A 2025 Nature Human Behaviour study across 141 organizations found lower burnout and better sleep over six months, while critics note that compressing hours without cutting total load fails to reliably improve health and long-term data beyond two years remains scarce.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Wellbeing improvements in four-day week trials may be driven by the novelty effect and Hawthorne effect (people behave differently when observed) rather than the schedule change itself. A 2024 study in Occupational Health Psychology found that among workers on compressed four-day schedules (4x10 hours rather than 4x8), 28% reported higher daily stress despite having an extra day off. Workers in client-facing roles reported feeling pressured to cram five days of responsiveness into four, leading to more intense workdays. Parents — especially mothers — often used the extra day for childcare and domestic labor rather than rest, suggesting the wellbeing benefit may be gendered. Long-term data beyond 2 years is virtually nonexistent.",
+        "Short-term wellbeing gains during publicized six-month trials may reflect novelty, Hawthorne observation effects, and the enthusiasm of volunteer firms rather than durable change. When employers instead keep weekly hours constant and pack them into four longer days (4×10), a systematic review of 40 studies by Bambra and colleagues found compressed schedules did not reliably improve shift-worker health, and after Belgium legislated a right to request a compressed four-day week in late 2022, HR provider Acerta found fewer than 1% of full-time private-sector workers took it up. Even in genuine hour-reduction programs like France's 35-hour law, Philippe Askenazy's research documented rising work intensity as firms compressed tasks into fewer hours. Clean multi-year wellbeing data past 24 months with matched five-day controls still does not exist.",
       proponent_rebuttal:
-        "The wellbeing evidence is remarkably consistent across multiple independent trials and cultural contexts. In the UK trial, organizers reported that 71% of staff experienced reduced burnout, 39% reported less anxiety, and 40% reported improved sleep quality. The 100:80:100 model — 100% pay, 80% time, 100% productivity — explicitly rejects the compressed-hours approach (4x10) in favor of genuine reduction (4x8 or less). The gendered criticism actually supports the case: if mothers use the extra day for caregiving, the solution is better care infrastructure alongside shorter hours, not longer work weeks. A 2022 study in Health Economics Review, using European Social Survey data, found that fewer working hours were significantly associated with higher life satisfaction across Europe, even after controlling for income.",
+        "The wellbeing evidence has moved well past anecdotes from a single pilot. A July 2025 peer-reviewed study in Nature Human Behaviour (Fan, Schor, Kelly & Gu) tracked 2,896 workers across 141 organizations in six countries alongside 12 five-day control companies: burnout fell from 2.83 to 2.38 on a 5-point scale, job satisfaction rose from 7.07 to 7.59 on a 10-point scale, and mental and physical health improved (patterns absent in the control firms), mediated by less fatigue, fewer sleep problems, and stronger work ability. Germany's 2024 pilot corroborated better sleep and physical activity via smartwatches, and European Social Survey data (18,060 respondents) links fewer working hours to higher life satisfaction even after controlling for income. Belgium's low uptake confirms the core point: workers want genuine hour reduction (4×8), not 4×10 compression.",
       crux: {
         id: "wellbeing-persistence",
         title: "The Long-Term Wellbeing Persistence Test",
         question:
           "Do the wellbeing gains last beyond two years, once habits stabilize and the trials end?",
         description:
-          "If four-day week wellbeing improvements persist beyond two years — after the novelty effect fades and compressed habits stabilize — the benefits are real. If improvements revert to baseline or are offset by increased daily intensity, the wellbeing case collapses. Currently, virtually no trial has measured wellbeing outcomes beyond 24 months.",
+          "Whether lower burnout and better sleep persist past two years, or fade as workdays intensify and novelty wears off, determines how durable the health case for a shorter week really is.",
         methodology:
-          "Conduct a 5-year longitudinal study following workers who transitioned to four-day weeks, with annual assessments of burnout (Maslach Burnout Inventory), life satisfaction (SWLS), daily cortisol levels (salivary biomarker), and sleep quality (actigraphy). Include a matched control group of workers who remained on five-day schedules. Stratify by gender, parental status, job type, and whether the four-day week is compressed (4x10) or reduced (4x8).",
+          "Follow cohorts of workers from multi-country four-day trials for 3 to 5 years using validated burnout, sleep, and job-satisfaction instruments alongside matched firms that stayed on five-day schedules, stratifying by reduced-hour (4×8) versus compressed (4×10) schedules and job type.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Follow employees at firms from the 2022 UK pilot and later trials that kept the four-day schedule for three to five years, using the same validated burnout, sleep and job-satisfaction surveys, alongside matched firms that stayed on five days, as the trials' academic partners could.",
+            "Follow employees at firms from the 2022 UK and six-country pilots that kept a four-day schedule for three to five years, using the same validated burnout, sleep, and work-intensity surveys alongside matched firms that stayed on five days.",
         },
         cost_to_verify:
-          "$3-5M (5-year longitudinal cohort study with biomarker collection and matched controls)",
+          "$3-5M (3-to-5-year longitudinal cohort study with matched five-day control firms)",
         falsification: {
           supporter_flip:
-            "If a 5-year longitudinal study with matched controls showed wellbeing gains reverting to baseline after the novelty wears off — or being cancelled out by higher daily intensity for client-facing and compressed-schedule workers — the wellbeing case for a shorter week would lose its foundation.",
+            "If three-to-five-year longitudinal cohorts with matched five-day controls showed burnout and sleep gains reverting to baseline, or being offset by sustained workday intensification, the durable-wellbeing case for a shorter week would weaken substantially.",
           skeptic_flip:
-            "If more independent trials across cultures found lasting drops on validated measures such as the Maslach burnout scale, and European Social Survey data kept linking fewer hours to higher life satisfaction after controlling for income, novelty and the Hawthorne effect would explain less of the gains.",
+            "If multi-year follow-ups of the six-country and German cohorts continued to show lower validated burnout and better objective sleep markers against matched five-day firms past 36 months, novelty and observation effects would explain much less of the gains.",
           common_ground:
-            "Both sides agree that genuine hour reduction (4×8) helps wellbeing more than mere compression (4×10), that almost no trial has clean data past 24 months, and that early reported burnout and sleep improvements are real within the trial windows.",
+            "Both sides accept that genuine hour reduction (4×8) improves worker wellbeing more than hour compression (4×10), that six-month trial data shows real short-term drops in reported burnout, and that controlled multi-year follow-up past 24 months is still scarce.",
           live_disagreement:
-            "Whether the wellbeing improvements persist beyond two years once habits stabilize and observation ends — which only a multi-year cohort with biomarkers, actigraphy, and a matched five-day control group can determine.",
+            "Whether early reductions in burnout and sleep problems persist past two years once observation ends and workflows settle, or erode through rising daily work intensity.",
         },
       },
       evidence: [
         {
           id: "uk-trial-burnout",
-          title: "UK Trial: Most Workers Reported Reduced Burnout, Stress, Anxiety, and Better Sleep (2022)",
+          title: "Nature Human Behaviour (2025): Across 141 Organizations in Six Countries, Burnout Fell and Job Satisfaction Rose vs. Controls",
           description:
-            "The 2022 UK four-day week trial (61 companies, ~2,900 employees, June-December 2022) measured employee wellbeing using validated instruments before, during, and after the 6-month pilot. As reported by the organizers, 71% of staff reported reduced burnout, 39% were less stressed, 39% reported less anxiety and fatigue, and 40% reported improved sleep, while overall mental and physical health ratings improved. Critically, these improvements occurred alongside broadly maintained revenue and productivity, suggesting the wellbeing gains were not achieved at the cost of work output. (An earlier version of this card listed specific before/after scores — 'burnout 2.95→2.34', 'anxiety -21%', 'work-life balance 54%→78%' — that do not match the published figures and have been replaced with the reported headline percentages.)",
+            "A July 2025 peer-reviewed study in Nature Human Behaviour by Wen Fan, Juliet B. Schor, Orla Kelly, and Guolin Gu analyzed pre- and post-trial data from 2,896 workers across 141 organizations in six countries (Australia, Canada, Ireland, New Zealand, UK, US) running six-month, full-pay four-day trials, compared with 12 control companies staying on five days. Mean burnout fell from 2.83 to 2.38 (5-point scale), job satisfaction rose from 7.07 to 7.59 (10-point scale), and mental and physical health improved, with gains not mirrored in the 12 control firms and mediated by less fatigue, fewer sleep problems, and higher self-reported work ability. Scope limit: six-month horizon, volunteer organizations rather than random assignment, small control group (12 firms), and self-reported outcomes.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 9,
             independence: 6,
-            replicability: 7,
-            directness: 8,
+            replicability: 8,
+            directness: 9,
           },
-          source: "4 Day Week Global; Juliet Schor, Boston College; Cambridge University",
-          sourceUrl: "https://www.4dayweek.com/uk-pilot-results",
+          source: "Wen Fan, Juliet B. Schor, Orla Kelly & Guolin Gu, 'Work time reduction via a 4-day workweek finds improvements in workers' well-being,' Nature Human Behaviour 9, 2153–2168 (2025)",
+          sourceUrl: "https://doi.org/10.1038/s41562-025-02259-6",
           reasoning:
-            "Validated instruments (Maslach, standard anxiety scales) provide credible measurement. The consistency of improvements across multiple wellbeing dimensions strengthens confidence. However, the 6-month duration cannot distinguish genuine improvement from novelty effects, and the advocacy organization's involvement in data collection reduces independence. Longer follow-up is essential.",
+            "Peer-reviewed multi-country data with a control comparison and clear dose-response mediation is the strongest wellbeing evidence to date. Independence is moderate because the trials were coordinated with 4 Day Week Global, and a six-month window cannot settle multi-year persistence.",
         },
         {
           id: "compressed-hours-stress",
-          title: "Compressing the Same Hours Into Fewer Days Did Not Reliably Improve Health (Systematic Review, 2008)",
+          title: "Systematic Review (2008): Compressing the Same Hours Into Fewer Days Did Not Reliably Improve Shift-Worker Health",
           description:
-            "A systematic review by Bambra and colleagues in the Journal of Epidemiology and Community Health examined 40 observational studies of the Compressed Working Week, which packs the same weekly hours into fewer, longer days, among shift workers. Interventions 'did not always improve the health of shift workers', though the five prospective studies with a control group found no detrimental effects on self-reported health and work-life balance 'was generally improved'. The authors judged the studies' methodological quality 'not very high', mostly relying on self-reported outcomes. The review bears on compressed schedules, not on four-day weeks that cut total hours.",
+            "A systematic review by Bambra and colleagues in the Journal of Epidemiology and Community Health examined 40 observational studies of the Compressed Working Week (packing the same weekly hours into fewer, longer shifts) among shift workers. Interventions 'did not always improve the health of shift workers,' though the five prospective controlled studies found no health harm and work-life balance generally improved; overall study quality was judged 'not very high.' Consistent with that distinction, after Belgium enacted a legal right to request a compressed four-day week (38–40 hours in four days) in November 2022, payroll provider Acerta reported uptake of only ~0.8% of full-time private-sector workers.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
             replicability: 5,
-            directness: 4,
+            directness: 5,
           },
-          source: "Bambra, Whitehead, Sowden, Akers & Petticrew, 'A hard day's night? The effects of Compressed Working Week interventions on the health and work-life balance of shift workers: a systematic review', Journal of Epidemiology and Community Health 62(9) (2008)",
+          source: "Bambra, Whitehead, Sowden, Akers & Petticrew, 'A hard day's night? The effects of Compressed Working Week interventions on the health and work-life balance of shift workers: a systematic review,' Journal of Epidemiology and Community Health 62(9) (2008)",
           sourceUrl: "https://doi.org/10.1136/jech.2007.067249",
           reasoning:
-            "A systematic review, but of low-quality, mostly self-reported observational studies of shift workers, so replicability is limited. It weighs only weakly against the wellbeing claim: compression alone did not reliably improve health, yet it did improve work-life balance with low risk of harm. Directness is low because it tests compressed schedules, not the reduced-hours '100:80:100' model, which is the distinction this card exists to draw.",
+            "Demonstrates why 'four-day week' is two very different policies: keeping total hours unchanged while stretching shifts fails to deliver reliable health benefits and drew sub-1% worker uptake in Belgium. Directness to reduced-hour (4×8) models is moderate because it evaluates compression rather than hour cuts.",
         },
         {
           id: "european-life-satisfaction",
-          title: "Fewer Working Hours Linked to Higher Life Satisfaction Across Europe (2022)",
+          title: "European Social Survey (18,060 Workers, 2022): Fewer Working Hours Tracked Higher Life Satisfaction After Income Controls",
           description:
-            "A 2022 study in Health Economics Review (Qinglong Shao) analyzed wave 10 of the European Social Survey (18,060 respondents across European countries) and found a significant negative relationship between working hours and life satisfaction: fewer working hours were associated with higher life satisfaction. Income was also an important driver of life satisfaction, and the analysis controlled for it. The study found that health plays an essential mediating role — part of the benefit of shorter hours appears to operate through improved health rather than as a purely direct effect.",
+            "A 2022 study by Qinglong Shao in Health Economics Review analyzed Wave 10 of the European Social Survey (18,060 respondents across Europe) and found a statistically significant negative association between weekly working hours and life satisfaction even after controlling for income. Improved self-reported health served as a central mediating pathway. Scope limit: cross-sectional observational data compares workers who already work different schedules and cannot rule out selection into shorter-hour roles.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -204,10 +222,10 @@ export const fourDayWorkWeekData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Qinglong Shao, \"Does less working time improve life satisfaction? Evidence from European Social Survey,\" Health Economics Review (2022)",
+          source: "Qinglong Shao, 'Does less working time improve life satisfaction? Evidence from European Social Survey,' Health Economics Review (2022)",
           sourceUrl: "https://doi.org/10.1186/s13561-022-00396-6",
           reasoning:
-            "Large-scale cross-national survey data with income controls provides credible associational evidence that shorter hours track higher life satisfaction. However, this is observational data comparing people who happen to work different hours, not an experiment — self-selection into shorter hours likely confounds the relationship, and the effect is partly mediated by health rather than direct. It supports, but does not prove, the wellbeing case for a shorter week.",
+            "Large cross-national sample with independent authorship and income controls supports the broader hours-to-wellbeing link beyond short-term pilot novelty, though observational design prevents causal proof.",
         },
       ],
     },
@@ -219,134 +237,142 @@ export const fourDayWorkWeekData = {
       id: "economic-feasibility",
       title: "Economic Feasibility & Equity",
       short_summary:
-        "A four-day week with maintained pay implies either a 20% productivity increase to offset lost hours or a redistribution of economic value from profits to worker leisure — with profound implications for labor markets, inflation, and the gap between knowledge workers and hourly service workers.",
+        "Cutting hours by 20% at unchanged pay implies a 25% rise in hourly output, higher payroll costs, or state subsidies, and in an economy where over half of workers are paid hourly, the trade-offs look very different outside salaried offices.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The economics of a four-day work week do not scale. Maintaining pay while reducing hours by 20% requires a 25% increase in output per hour — plausible for some knowledge workers but impossible in manufacturing, agriculture, healthcare, and service industries where output is directly tied to hours worked. A nurse cannot care for patients in 32 hours that require 40 hours of staffing. A restaurant cannot serve dinner customers on a day it is closed. Broad adoption would require hiring substantially more staff to maintain coverage, increasing economy-wide labor costs (the precise magnitude is contested and depends on how much productivity rises to offset the lost hours). These costs would either reduce profits (unlikely to be voluntarily accepted), raise prices (inflationary), or be absorbed through automation (eliminating the very jobs the policy aims to improve). The four-day week is a luxury for privileged knowledge workers that widens inequality with hourly service workers.",
+        "Cutting hours from 40 to 32 with no pay cut mechanically requires a 25% jump in output per hour to keep unit labor costs flat. That may be achievable in salaried knowledge roles with excess meetings, but U.S. Bureau of Labor Statistics data shows 80.3 million workers, 55.6% of all U.S. wage and salary earners in 2024, are paid at hourly rates, heavily represented in healthcare, retail, hospitality, logistics, and manufacturing where staffing tracks operating hours. In France's real-world statutory reduction from 39 to 35 hours, Estevão and Sá's quasi-experimental study (Economic Policy, 2008) found aggregate employment barely moved while hourly wages rose in regulated large firms, turnover increased, workers sorted into smaller unregulated firms, and dual-job holding rose, and Askenazy (2013) showed keeping costs down required large recurring payroll-tax subsidies. Left voluntary, a four-day week becomes a white-collar perk that widens the divide with frontline hourly workers; mandated broadly, it raises costs, prices, or fiscal burdens.",
       proponent_rebuttal:
-        "The 25% productivity increase assumption is flawed because it presumes all 40 hours of a five-day week are productive. Time-use studies consistently find that knowledge workers are productively engaged for only 2.5-4 hours per 8-hour day — the rest is occupied by unnecessary meetings, context-switching, and performative busyness. For shift-based industries, the model adapts: staggered four-day schedules (different days off for different workers) maintain seven-day coverage while each individual works four days. Healthcare in particular has long used 3x12-hour or 4x10-hour schedules. The equity concern is real but the solution is universal policy, not abandoning the concept: France's 35-hour work week (2000) applied across all sectors, and France's productivity per hour worked exceeds the UK and the euro-area average while remaining only modestly below the US — shorter statutory hours have proved compatible with high productivity. As automation accelerates and GDP grows, distributing gains as leisure rather than consumption is both viable and desirable.",
+        "The arithmetic assumes every hour of a 40-hour week is equally productive and ignores how economies historically absorbed shorter workweeks, from six days to five, as productivity rose. France's 35-hour framework did not wreck productivity: OECD data shows French GDP per hour worked remains above the UK and euro-area average and only modestly below the United States, proving shorter statutory hours are compatible with a high-productivity economy. For continuous-coverage sectors, staggered four-day rosters (different days off across a team) keep hospitals, shops, and plants open seven days a week, just as healthcare already relies on 3×12 schedules. Rather than rejecting shorter hours because voluntary adoption starts in offices, proponents argue gradual sectoral bargaining, phased statutory baselines, and sharing automation gains as leisure rather than consumption can extend access to frontline workers.",
       crux: {
         id: "four-day-labor-cost",
         title: "The Macroeconomic Labor Cost Test",
         question:
           "How much of the 20% cut in hours can productivity absorb across sectors?",
         description:
-          "If a four-day work week with maintained pay can be implemented broadly without significant inflation, unemployment increases, or GDP reduction, the economic feasibility case is strong. If broad adoption leads to measurable macroeconomic harm — rising prices, reduced output, or increased inequality between four-day and five-day workers — it remains a niche benefit for privileged sectors.",
+          "The share of lost hours offset by higher hourly productivity (versus absorbed by higher unit labor costs, prices, subsidies, or reduced access for hourly workers) decides whether broad adoption is economically viable.",
         methodology:
-          "Use a computable general equilibrium (CGE) model calibrated to a mid-size open economy to simulate the macroeconomic effects of a universal 32-hour work week at current wage rates. Model three scenarios: (1) productivity increase fully absorbs lost hours, (2) 50% absorption with remainder as increased labor costs, (3) no productivity increase. Measure impacts on GDP, inflation, employment, sectoral output, and Gini coefficient. Validate against observed data from France (35-hour week), Iceland, and Belgium (right to four-day week, 2022).",
+          "Track audited firm-level output per worker, unit labor costs, staffing levels, consumer prices, and hourly-versus-salaried adoption rates across multi-sector natural experiments and phased policy trials, benchmarked against matched non-adopting firms.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Output per worker and unit labor costs taken from firm accounts, not self-report, across a broad mix of sectors including manufacturing, retail and health care that adopt a 32-hour week at full pay, compared with similar firms that do not, ideally with random assignment of which firms switch.",
+            "Audited firm-level output per worker, unit labor costs, and staffing records across manufacturing, retail, healthcare, and office sectors adopting a 32-hour week at full pay without state payroll subsidies, compared with matched five-day firms.",
         },
         cost_to_verify:
-          "$500K-1M (Macroeconomic modeling with sectoral detail, validated against existing natural experiments)",
+          "$500K-1M (Sectoral firm-accounts panel analysis of phased adoption across industries)",
         falsification: {
           supporter_flip:
-            "If a calibrated general-equilibrium model — validated against France's 35-hour week, Iceland, and Belgium — showed that a universal 32-hour week at full pay raises economy-wide unit labor costs, prices, or unemployment with no offsetting productivity gain, the 'broadly feasible' claim would have to retreat to 'feasible only in sectors with slack to compress.'",
+            "If audited firm accounts across manufacturing, retail, and healthcare adopting a 32-hour week at full pay without subsidies showed unit labor costs rising near the full mechanical gap (forcing price hikes, layoffs, or reversion), the case for economy-wide adoption would have to retreat to sectors with compressable slack.",
           skeptic_flip:
-            "If time-use studies kept finding much of a knowledge-work day non-productive, staggered 4×10 and 3×12 rosters held coverage, and economies with shorter weeks, such as France at 35 hours, kept GDP per hour above the UK and euro-area average, 'output is rigidly tied to hours' would be hard to hold.",
+            "If multi-sector firm-level evaluations outside salaried offices achieved sustained 32-hour schedules without state payroll subsidies, higher turnover, or widening unit labor costs while maintaining staffing coverage, the claim that hours-bound sectors cannot absorb shorter weeks would need revision.",
           common_ground:
-            "Both sides agree that in genuinely hours-bound sectors (nursing, retail, hospitality) maintaining coverage at reduced hours requires more staff and higher payroll, and that the net effect hinges on how much productivity rises to absorb the lost hours.",
+            "Both sides accept that in coverage-bound roles like bedside nursing, retail, and hospitality, keeping operating hours constant under shorter individual weeks requires additional staffing or staggered rosters, and that net economic cost hinges on how much hourly productivity rises.",
           live_disagreement:
-            "How much of the lost 20% of hours productivity actually absorbs across sectors — the parameter that decides whether broad adoption is roughly cost-neutral or inflationary — which only sectoral macro-modeling validated against real natural experiments can pin down.",
+            "How much of a 20% hour reduction productivity can absorb across non-office sectors without triggering higher unit labor costs, recurring public subsidies, or a permanent white-collar-versus-frontline divide.",
         },
       },
       evidence: [
         {
           id: "france-35-hour-week",
-          title: "France's 35-Hour Work Week: High Per-Hour Productivity Despite Shorter Statutory Hours (2000-present)",
+          title: "France's 35-Hour Framework: High OECD Output per Hour, Backed by Payroll Subsidies and Higher Work Intensity",
           description:
-            "France legislated a 35-hour work week in 2000 (Aubry laws). Despite predictions of economic disaster, France sustained high labour productivity: its GDP per hour worked exceeds the United Kingdom and the euro-area average, and sits only modestly below the United States. In 2023, OECD data put France's GDP per hour worked slightly below the US and well above the UK. (An earlier version of this card claimed France exceeded the US; OECD data does not support that — the US leads France on output per hour, while France leads the UK.) The law has been progressively weakened — overtime exemptions expanded under Sarkozy (2008) and Macron (2016-2017) — and average actual hours worked in France are above the 35-hour statutory figure, suggesting the 35-hour limit functions more as a baseline for overtime calculations than a true ceiling.",
+            "After France legislated a 35-hour statutory week in 2000 (Aubry laws), OECD labour productivity data continued to place France's GDP per hour worked above the United Kingdom and the euro-area average and only modestly below the United States, showing shorter statutory hours can coexist with high hourly productivity. However, Philippe Askenazy's 2013 review in the Cambridge Journal of Economics documents two major caveats: keeping employer costs manageable relied on large recurring social-security payroll subsidies, and internal firm reorganization frequently raised work intensity. Subsequent reforms also expanded overtime exemptions, keeping average actual hours worked above 35.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 9,
-            replicability: 6,
+            replicability: 7,
             directness: 6,
           },
-          source: "OECD Labour Productivity Statistics; Eurostat; INSEE (French National Statistics)",
-          sourceUrl: "https://www.oecd.org/en/data/indicators/gdp-per-hour-worked.html",
+          source: "OECD Labour Productivity Statistics; Philippe Askenazy, 'Working time regulation in France from 1996 to 2012,' Cambridge Journal of Economics 37(2), 323–347 (2013)",
+          sourceUrl: "https://doi.org/10.1093/cje/bes084",
           reasoning:
-            "OECD data is the gold standard for international productivity comparisons. France's experience provides real-world evidence that shorter statutory hours are compatible with high productivity — France's output per hour clearly exceeds the UK and the euro-area average. But it does NOT exceed the United States, contrary to a common talking point, so this is evidence of compatibility, not superiority. The progressive weakening of the law and the gap between statutory and actual hours worked complicate the narrative, and France's distinct labor-market institutions limit direct transferability. Weights were reduced from an earlier overstatement once the false 'exceeds US' claim was corrected.",
+            "Pairs gold-standard OECD output-per-hour statistics with peer-reviewed institutional analysis. Supports compatibility between shorter statutory baselines and high hourly productivity, while honestly scoping the 39-to-35-hour (~10%) cut, state subsidies, and work-intensity trade-off.",
         },
         {
-          id: "oecd-labor-cost-estimate",
-          title: "Accounting Logic: A Universal 32-Hour Week Without Productivity Gains Raises Unit Labor Costs",
+          id: "france-estevao-sa-2008",
+          title: "France's 35-Hour Quasi-Experiment (2008): Aggregate Employment Flat, While Turnover and Dual-Job Holding Rose",
           description:
-            "If working hours are cut ~20% (40→32) at unchanged pay, and per-hour output does not rise to compensate, unit labor costs rise mechanically — by the most for sectors where output is tied to staffing hours (healthcare, education, retail, hospitality) and least for knowledge work with slack in the day. Maintaining the same coverage requires hiring roughly proportionally more staff, raising payroll. In an economy where labor is a large share of cost, a broad rise in unit labor costs without offsetting productivity would put upward pressure on prices and downward pressure on output in the short run, moderating over time as firms adapt through automation and process redesign. NOTE: an earlier version of this card cited a specific '2024 OECD working paper' with an '8-15% labor cost increase' figure; that citation could not be verified and the precise figures should be treated as illustrative, not as a sourced OECD estimate.",
+            "Exploiting France's staggered rollout of the 35-hour mandate (large firms in 2000, small firms in 2002), Marcello Estevão and Filipa Sá (Economic Policy, 2008) found aggregate employment was largely unaffected, while relative hourly wages rose in regulated large firms (where monthly pay was maintained). Labor turnover increased as firms shed higher-cost workers, some employees shifted to smaller unregulated firms, and dual-job holding rose as constrained workers sought extra hours. Welfare effects were split: women gained from schedule coordination, while managers reported lower welfare under the administrative burden.",
           side: "against" as const,
           weight: {
-            sourceReliability: 5,
-            independence: 6,
-            replicability: 6,
-            directness: 6,
-          },
-          source: "Standard labor-cost accounting (illustrative); prior OECD citation unverified",
-          sourceUrl: "https://www.oecd.org/en/topics/employment.html",
-          reasoning:
-            "The underlying logic is sound and is the central economic objection to broad adoption: reduce hours at constant pay without a productivity offset and unit labor costs rise, most in coverage-bound sectors. However, the specific '8-15%' magnitude and the attribution to a 2024 OECD working paper could not be web-verified and appear to have been fabricated in an earlier version, so source reliability is downgraded. The real-world cost depends entirely on how much of the lost hours productivity actually absorbs — empirically contested.",
-        },
-        {
-          id: "equity-knowledge-service-gap",
-          title: "Voluntary Four-Day Weeks Cluster in White-Collar Roles, Risking a Knowledge-vs-Service Divide",
-          description:
-            "Four-day-week and reduced-hours arrangements have so far concentrated overwhelmingly in white-collar, knowledge-work, and salaried roles, where a workday has slack to compress; service, retail, hospitality, frontline, and manual occupations — where output is tied to hours of coverage or physical production — adopt them far less. Commentators and labor analysts warn this mirrors the COVID remote-work pattern, where flexibility accrued mainly to higher-paid professionals, and that a voluntary four-day week could widen the divide between white-collar and frontline workers absent universal policy. NOTE: an earlier version cited a specific '2024 Economic Policy Institute' study with precise '62% vs 15%' access figures and a '4.2x' income multiplier; that study and those figures could not be web-verified and should be treated as unverified.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 6,
-            independence: 6,
-            replicability: 6,
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
             directness: 7,
           },
-          source: "Labor-market commentary on occupational access (qualitative); prior EPI citation unverified",
-          sourceUrl: "https://en.wikipedia.org/wiki/Four-day_workweek",
+          source: "Marcello Estevão & Filipa Sá, 'The 35-hour workweek in France: Straightjacket or welfare improvement?' Economic Policy 23(55), 417–463 (2008)",
+          sourceUrl: "https://doi.org/10.1111/j.1468-0327.2008.00204.x",
           reasoning:
-            "The equity concern directly challenges the 'broad adoption' claim in the meta-claim and is well-supported qualitatively: voluntary four-day weeks cluster in roles that can absorb compressed hours, which skew higher-paid and white-collar. However, the specific '62% vs 15%' split and '4.2x' figure attributed to a 2024 EPI study could not be verified and appear fabricated, so this is retained as a directional/qualitative point with reduced source reliability rather than a hard statistic. Proponents counter that universal legislation (as in France and Belgium) can address access, but no country has yet mandated a 32-hour week for all sectors.",
+            "Rigorous peer-reviewed quasi-experiment on the largest national statutory workweek cut in a major economy. Directly tests what happens when shorter hours at constant monthly pay are mandated across sectors rather than adopted voluntarily by self-selected firms.",
+        },
+        {
+          id: "bls-hourly-coverage-2024",
+          title: "U.S. Bureau of Labor Statistics (2024): 80.3 Million Workers (55.6%) Are Paid at Hourly Rates",
+          description:
+            "According to the U.S. Bureau of Labor Statistics report Characteristics of Minimum Wage Workers, 2024 (Report 1115), 80.3 million U.S. wage and salary workers aged 16 and older were paid at hourly rates in 2024, representing 55.6% of the wage-and-salary workforce. Because hourly-paid jobs concentrate heavily in retail, healthcare support, hospitality, logistics, and production, where output tracks staffed hours rather than salaried meeting slack, voluntary four-day schedules adopted by office employers leave more than half the workforce facing a different economic equation unless paired with additional hiring or policy intervention.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
+            directness: 7,
+          },
+          source: "U.S. Bureau of Labor Statistics, 'Characteristics of Minimum Wage Workers, 2024,' Report 1115 (2025)",
+          sourceUrl: "https://www.bls.gov/opub/reports/minimum-wage/2024/",
+          reasoning:
+            "Official federal labor-force census data establishes the baseline scale of hourly work. Directness is 7 because hourly pay does not mechanically rule out staggered four-day shifts, but it quantifies why voluntary white-collar pilots cannot simply be extrapolated to the whole labor market.",
         },
       ],
     },
   ],
   references: [
     {
-      title: "Going Public: Iceland's Journey to a Shorter Working Week — Autonomy Research (2021)",
+      title: "Work time reduction via a 4-day workweek finds improvements in workers' well-being: Fan, Schor, Kelly & Gu, Nature Human Behaviour (2025)",
+      url: "https://doi.org/10.1038/s41562-025-02259-6",
+    },
+    {
+      title: "Making It Stick: The UK Four-Day Week Pilot One Year On: Autonomy, Cambridge & Boston College (2024)",
+      url: "https://autonomy.work/wp-content/uploads/2024/02/making-it-stick_-1.pdf",
+    },
+    {
+      title: "4-Day Week Germany-Wide Pilot Study: University of Münster (2024)",
+      url: "https://www.wiwi.uni-muenster.de/tow/en/research/4-day-week-germany-wide-pilot-study",
+    },
+    {
+      title: "Going Public: Iceland's Journey to a Shorter Working Week: Autonomy & Alda (2021)",
       url: "https://autonomy.work/wp-content/uploads/2021/06/ICELAND_4DW.pdf",
     },
     {
-      title: "The Results Are In: The UK's Four-Day Week Pilot — 4 Day Week Global (2023)",
-      url: "https://autonomy.work/wp-content/uploads/2023/02/The-results-are-in-The-UKs-four-day-week-pilot.pdf",
+      title: "The 35-hour workweek in France: Straightjacket or welfare improvement? Estevão & Sá, Economic Policy (2008)",
+      url: "https://doi.org/10.1111/j.1468-0327.2008.00204.x",
     },
     {
-      title: "France's 35-Hour Work Week: An Assessment After 20 Years — OECD (2020)",
-      url: "https://data.oecd.org/lprdty/gdp-per-hour-worked.htm",
+      title: "Working time regulation in France from 1996 to 2012: Philippe Askenazy, Cambridge Journal of Economics (2013)",
+      url: "https://doi.org/10.1093/cje/bes084",
     },
     {
-      title: "The Case for a Four-Day Work Week — Juliet Schor, Boston College (2022)",
-      url: "https://www.4dayweek.com/research",
-    },
-    {
-      title: "Working Time Reduction and Economic Performance — International Labour Organization",
-      url: "https://www.ilo.org/global/topics/working-time/lang--en/index.htm",
+      title: "Characteristics of Minimum Wage Workers, 2024: U.S. Bureau of Labor Statistics Report 1115 (2025)",
+      url: "https://www.bls.gov/opub/reports/minimum-wage/2024/",
     },
   ],
   questions: [
     {
       id: "q1",
-      title: "Can the four-day week work outside knowledge industries?",
+      title: "Can the four-day week work outside salaried office jobs?",
       content:
-        "Most successful trials have been in offices, tech companies, and white-collar public sector roles. Healthcare, manufacturing, retail, and agriculture present fundamentally different constraints — output is directly tied to hours of coverage or physical production. Staggered schedules can maintain coverage, but they require more staff and more complex coordination. Is the four-day week inherently limited to a subset of the economy?",
+        "Most voluntary trials have been concentrated in offices, agencies, and flexible service firms. With 55.6% of U.S. wage and salary workers paid by the hour (BLS, 2024), healthcare, manufacturing, retail, and hospitality face coverage constraints that meeting cuts alone cannot solve. Staggered rosters can keep doors open seven days a week, but they require either additional hiring or higher output per staffed hour.",
     },
     {
       id: "q2",
-      title: "Is the productivity claim real or an artifact of selection bias?",
+      title: "Why did voluntary pilots succeed while Belgium's four-day week drew under 1% uptake?",
       content:
-        "Companies that volunteer for four-day week trials are self-selected for flexibility, innovation culture, and management quality. Without randomized controlled trials that assign firms to conditions regardless of preference, we cannot distinguish between 'the four-day week increases productivity' and 'productive firms are more likely to try four-day weeks.' Even with high continuation rates inside the pilots, employer surveys (e.g. CIPD 2022) find broad ambivalence and doubt that the model fits all roles, suggesting the effect may not survive outside self-selected samples.",
+        "The contrast highlights two different policies sharing one label. Voluntary 100:80:100 trials cut total weekly hours to roughly 32 at unchanged pay, which drove the burnout and sleep gains documented in the 2025 Nature Human Behaviour study. Belgium's November 2022 law only let workers compress the same 38–40 hours into four longer days, a schedule systematic reviews have not found to reliably improve health.",
     },
     {
       id: "q3",
-      title: "Would a four-day work week increase or decrease economic inequality?",
+      title: "Would broad adoption require public subsidies or widen inequality?",
       content:
-        "If the four-day week remains a voluntary perk, it will disproportionately benefit high-income knowledge workers — the same group that benefited from remote work during COVID. Universal legislation could prevent this, but mandating shorter hours across all sectors carries real economic costs. Is the four-day week a progressive labor reform or a privilege for the already-privileged?",
+        "If four-day weeks remain purely voluntary, access clusters among higher-paid salaried professionals, mirroring the white-collar/frontline split seen with remote work. Yet France's 35-hour experience shows that mandating shorter hours across sectors at unchanged monthly pay brought higher turnover, dual-job holding, work intensification, and recurring payroll-tax subsidies, highlighting the trade-off between universal access and firm-level cost.",
     },
   ],
 };

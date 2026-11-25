@@ -30,7 +30,7 @@ export const congressionalTermLimitsData = {
         "Congressional incumbents win re-election roughly 90%+ of the time, and term limits are meant to break that entrenchment and force regular turnover.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "High re-election rates can reflect satisfied constituents and the natural advantage of competent, experienced representatives rather than a rigged system — and term limits do not actually fix the underlying drivers. Studies of term-limited state legislatures find that open-seat races were not consistently more competitive after limits than before, and that limits 'have virtually no effect on the types of people elected to office' by demographics or ideology. Capping terms removes good and bad legislators alike, including the ones voters explicitly want to keep, substituting a blunt rule for voter choice.",
+        "High re-election rates can reflect satisfied constituents and the natural advantage of competent, experienced representatives rather than a rigged system, and term limits do not actually fix the underlying drivers. Studies of term-limited state legislatures find that open-seat races were not consistently more competitive after limits than before, and that limits 'have virtually no effect on the types of people elected to office' by demographics or ideology. Capping terms removes good and bad legislators alike, including the ones voters explicitly want to keep, substituting a blunt rule for voter choice.",
       proponent_rebuttal:
         "Elections are supposed to be the term limit. House incumbents win re-election above 90% in most cycles and almost never below 85%, which proponents read as a captured system where name recognition, fundraising advantage, and gerrymandered districts shield careerists from accountability. Hard caps would guarantee regular turnover, open seats, and fresh competition that voters demonstrably want but cannot reliably produce at the ballot box.",
       crux: {
@@ -50,13 +50,13 @@ export const congressionalTermLimitsData = {
         cost_to_verify: "$0 (existing election-returns data analysis)",
         falsification: {
           supporter_flip:
-            "If a clean difference-in-differences analysis of the 16 term-limited states showed open seats created by limits were no more competitive — similar margins of victory and candidate counts — than comparable seats in non-limited states, the accountability case would lose its core empirical support and reduce to 'high re-election rates feel bad' without a working fix.",
+            "If a clean difference-in-differences analysis of the 16 term-limited states showed open seats created by limits were no more competitive, similar margins of victory and candidate counts, than comparable seats in non-limited states, the accountability case would lose its core empirical support and reduce to 'high re-election rates feel bad' without a working fix.",
           skeptic_flip:
             "If studies found ~90%+ re-election rates holding even when generic-Congress approval was low and districts were uncompetitive by design, through gerrymandering and fundraising and name-recognition gaps, high re-election would look like structural insulation rather than earned approval.",
           common_ground:
             "Both sides agree House incumbents win re-election roughly 90%+ of the time and that large majorities of Americans say they support congressional term limits.",
           live_disagreement:
-            "Whether forced open seats actually produce more competitive races and meaningfully different winners, or merely reshuffle similar candidates — which the state-level difference-in-differences record (so far showing little competitiveness or diversity gain) is the way to resolve.",
+            "Whether forced open seats actually produce more competitive races and meaningfully different winners, or merely reshuffle similar candidates, which the state-level difference-in-differences record (so far showing little competitiveness or diversity gain) is the way to resolve.",
         },
       },
       evidence: [
@@ -77,7 +77,7 @@ export const congressionalTermLimitsData = {
           sourceUrl:
             "https://www.opensecrets.org/elections-overview/reelection-rates",
           reasoning:
-            "The underlying re-election numbers are well-established, transparently sourced from official returns, and easily replicated. Directness is moderate: high re-election rates document entrenchment but do not by themselves show term limits would improve governance — that inference is contested.",
+            "The underlying re-election numbers are well-established, transparently sourced from official returns, and easily replicated. Directness is moderate: high re-election rates document entrenchment but do not by themselves show term limits would improve governance; that inference is contested.",
         },
         {
           id: "public-support-gallup",
@@ -144,9 +144,9 @@ export const congressionalTermLimitsData = {
         "Term limits force out experienced legislators, and state-level evidence shows the lost institutional knowledge shifts power to governors, bureaucrats, and lobbyists.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The best natural experiment — the states that adopted legislative term limits, 16 of which still have them — points the opposite way. The multi-organization Joint Project on Term Limits found the most significant effect was a decline in the legislature's power relative to the governor and executive agencies, with legislative adjustments to governors' budgets falling significantly. Inexperienced members rely more on the very actors term limits were meant to weaken: lobbyists and career staff who hold the institutional knowledge. Removing experience does not remove influence — it relocates it to unelected hands.",
+        "The best natural experiment (the states that adopted legislative term limits, 16 of which still have them) points the opposite way. The multi-organization Joint Project on Term Limits found the most significant effect was a decline in the legislature's power relative to the governor and executive agencies, with legislative adjustments to governors' budgets falling significantly. Inexperienced members rely more on the very actors term limits were meant to weaken: lobbyists and career staff who hold the institutional knowledge. Removing experience does not remove influence; it relocates it to unelected hands.",
       proponent_rebuttal:
-        "Career legislators accumulate not just policy expertise but also entanglements — donors, lobbyists, and a personal stake in the status quo. Forcing regular turnover, proponents argue, dilutes those captured relationships, brings in citizens closer to ordinary life, and prevents the build-up of unaccountable seniority-based power. A legislature of relative newcomers is harder for any single interest to permanently own.",
+        "Career legislators accumulate not just policy expertise but also entanglements: donors, lobbyists, and a personal stake in the status quo. Forcing regular turnover, proponents argue, dilutes those captured relationships, brings in citizens closer to ordinary life, and prevents the build-up of unaccountable seniority-based power. A legislature of relative newcomers is harder for any single interest to permanently own.",
       crux: {
         id: "where-power-goes",
         title: "Who Gains Power When Legislators Lose Tenure?",
@@ -155,7 +155,7 @@ export const congressionalTermLimitsData = {
         description:
           "The load-bearing disagreement: does forced turnover empower citizen-legislators and weaken entrenched interests, or does it hollow out legislative capacity and hand power to governors, agencies, and lobbyists who outlast every term-limited member?",
         methodology:
-          "Compare term-limited and non-term-limited state legislatures on measurable power indicators: share of governors' proposed budgets altered by the legislature, committee-chair experience, and survey-measured lobbyist and executive-branch influence — tracked before and after limits using case studies and 50-state surveys.",
+          "Compare term-limited and non-term-limited state legislatures on measurable power indicators: share of governors' proposed budgets altered by the legislature, committee-chair experience, and survey-measured lobbyist and executive-branch influence, tracked before and after limits using case studies and 50-state surveys.",
         verification_status: "verified" as const,
         settle: {
           condition:
@@ -170,7 +170,7 @@ export const congressionalTermLimitsData = {
           common_ground:
             "Both sides agree inexperienced legislators must rely more heavily on outside sources of institutional knowledge, and that term limits do reliably reduce the average tenure and seniority within a chamber.",
           live_disagreement:
-            "Whether reduced legislative experience hands durable power to governors, agencies, and lobbyists (as budget-adjustment data and the 50-state survey suggest) or instead loosens entrenched-interest capture — resolvable by tracking concrete power indicators like share of the governor's budget altered, before and after limits.",
+            "Whether reduced legislative experience hands durable power to governors, agencies, and lobbyists (as budget-adjustment data and the 50-state survey suggest) or instead loosens entrenched-interest capture, resolvable by tracking concrete power indicators like share of the governor's budget altered, before and after limits.",
         },
       },
       evidence: [
@@ -178,7 +178,7 @@ export const congressionalTermLimitsData = {
           id: "carey-niemi-powell-burkean",
           title: "50-State Survey: 'Burkean Shift' Toward Governor, Not Constituents",
           description:
-            "A 2002 survey of legislators in all 50 states (Carey, Niemi, Powell & Moncrief, 2006) found term limits had virtually no effect on who is elected but produced a 'Burkean shift' — term-limited members grew less beholden to their districts — and shifted power toward governors and away from legislative leaders.",
+            "A 2002 survey of legislators in all 50 states (Carey, Niemi, Powell & Moncrief, 2006) found term limits had virtually no effect on who is elected but produced a 'Burkean shift': term-limited members grew less beholden to their districts, and shifted power toward governors and away from legislative leaders.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -190,13 +190,13 @@ export const congressionalTermLimitsData = {
             "Carey, Niemi, Powell & Moncrief, 'The Effects of Term Limits on State Legislatures: A New Survey of the 50 States,' Legislative Studies Quarterly 31(1), 2006",
           sourceUrl: "https://scholarworks.boisestate.edu/polsci_facpubs/82/",
           reasoning:
-            "Peer-reviewed, the only 50-state legislator survey of its kind, by leading scholars. Directly tests proponent promises (better representation, different legislators) and finds limits weaken the constituency link and shift power to the executive — strong evidence against improved governance.",
+            "Peer-reviewed, the only 50-state legislator survey of its kind, by leading scholars. Directly tests proponent promises (better representation, different legislators) and finds limits weaken the constituency link and shift power to the executive, strong evidence against improved governance.",
         },
         {
           id: "jptl-power-to-executive-lobbyists",
           title: "Joint Project: Power Shifts to Executive and Lobbyists",
           description:
-            "The Joint Project on Term Limits (NCSL, CSG, and the State Legislative Leaders Foundation, 2006) concluded that 'perhaps the most significant effect' of term limits is declining legislative power relative to the executive — legislative adjustments to governors' budgets fell significantly in four studied states — and that inexperienced members rely more on lobbyists and staff for policy information.",
+            "The Joint Project on Term Limits (NCSL, CSG, and the State Legislative Leaders Foundation, 2006) concluded that 'perhaps the most significant effect' of term limits is declining legislative power relative to the executive, legislative adjustments to governors' budgets fell significantly in four studied states, and that inexperienced members rely more on lobbyists and staff for policy information.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -215,7 +215,7 @@ export const congressionalTermLimitsData = {
           id: "olson-rogowski-polarization",
           title: "Term Limits Increased Polarization in State Legislatures",
           description:
-            "Olson & Rogowski (2020), using panel data on roll-call voting from 1993-2016, found that term limits produced systematically higher polarization — a wider ideological gap between Republican and Democratic voting records — contrary to advocates' claim that limits would reduce partisan conflict.",
+            "Olson & Rogowski (2020), using panel data on roll-call voting from 1993-2016, found that term limits produced systematically higher polarization, a wider ideological gap between Republican and Democratic voting records, contrary to advocates' claim that limits would reduce partisan conflict.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -253,10 +253,10 @@ export const congressionalTermLimitsData = {
       id: "constitutional-feasibility",
       title: "Constitutional Feasibility",
       short_summary:
-        "The Supreme Court held in 1995 that congressional term limits require a federal constitutional amendment — states cannot impose them by statute.",
+        "The Supreme Court held in 1995 that congressional term limits require a federal constitutional amendment: states cannot impose them by statute.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The bar is far higher than popularity suggests. In U.S. Term Limits v. Thornton (1995), the Supreme Court held 5-4 that neither states nor Congress may add qualifications beyond those in Article I, so limits cannot be enacted by ordinary law — only by a constitutional amendment requiring two-thirds of both houses (the very members who would be limited) or an unprecedented Article V convention, then ratification by 38 states. No amendment has cleared that bar since 1992, and self-limitation by incumbents is a steep collective-action problem regardless of public opinion.",
+        "The bar is far higher than popularity suggests. In U.S. Term Limits v. Thornton (1995), the Supreme Court held 5-4 that neither states nor Congress may add qualifications beyond those in Article I, so limits cannot be enacted by ordinary law, only by a constitutional amendment requiring two-thirds of both houses (the very members who would be limited) or an unprecedented Article V convention, then ratification by 38 states. No amendment has cleared that bar since 1992, and self-limitation by incumbents is a steep collective-action problem regardless of public opinion.",
       proponent_rebuttal:
         "Even granting the legal hurdle, proponents argue the path is clear: a constitutional amendment under Article V, which the founders provided precisely for popular structural reforms. Overwhelming, bipartisan public support (consistently two-thirds to four-fifths in polling) is exactly the kind of mandate the amendment process is meant to channel, and an Article V convention or congressional proposal could deliver durable, uniform limits.",
       crux: {
@@ -280,9 +280,9 @@ export const congressionalTermLimitsData = {
           skeptic_flip:
             "If a term-limits amendment cleared two-thirds of both houses, or Article V applications reached the 34-state threshold and produced a ratifiable proposal, the 'no realistic path' objection would lose its footing, with enactment moving from hypothetical to in progress.",
           common_ground:
-            "Both sides agree that after Thornton, congressional term limits cannot be imposed by ordinary statute and require a constitutional amendment under Article V — either two-thirds of Congress or a convention, then ratification by 38 states.",
+            "Both sides agree that after Thornton, congressional term limits cannot be imposed by ordinary statute and require a constitutional amendment under Article V, either two-thirds of Congress or a convention, then ratification by 38 states.",
           live_disagreement:
-            "Whether the Article V process can plausibly deliver term limits given that the gatekeepers are the officials being limited — measurable by counting term-limit amendment resolutions introduced in Congress and the number of live state convention applications against the two-thirds and 34/38-state thresholds.",
+            "Whether the Article V process can plausibly deliver term limits given that the gatekeepers are the officials being limited, measurable by counting term-limit amendment resolutions introduced in Congress and the number of live state convention applications against the two-thirds and 34/38-state thresholds.",
         },
       },
       evidence: [
@@ -302,7 +302,7 @@ export const congressionalTermLimitsData = {
             "U.S. Term Limits, Inc. v. Thornton, 514 U.S. 779 (1995), U.S. Supreme Court",
           sourceUrl: "https://supreme.justia.com/cases/federal/us/514/779/",
           reasoning:
-            "The controlling, verifiable primary legal authority. It does not say limits would worsen governance; rather it raises the feasibility cost so high that 'would improve governance' becomes largely hypothetical absent a constitutional amendment — a real strike against the practical claim.",
+            "The controlling, verifiable primary legal authority. It does not say limits would worsen governance; rather it raises the feasibility cost so high that 'would improve governance' becomes largely hypothetical absent a constitutional amendment, a real strike against the practical claim.",
         },
         {
           id: "house-1995-majority-vote",

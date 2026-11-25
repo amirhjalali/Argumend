@@ -149,7 +149,7 @@ export const carbonTaxEffectivenessData = {
           id: "green-ex-post-meta-review",
           title: "Green 2021: Review of 37 Ex-Post Studies Found Cuts of 0-2% a Year",
           description:
-            "Jessica Green's 2021 meta-review in Environmental Research Letters examined ex-post quantitative evaluations of carbon pricing policies since 1990 and found only 37 studies that assess the actual effects on emissions, most of them in Europe. 'The majority of studies suggest that the aggregate reductions from carbon pricing on emissions are limited—generally between 0% and 2% per year,' with considerable variation across sectors; carbon taxes performed better than emissions trading schemes. Green concludes that 'the evidence indicates that carbon pricing has a limited impact on emissions.'",
+            "Jessica Green's 2021 meta-review in Environmental Research Letters examined ex-post quantitative evaluations of carbon pricing policies since 1990 and found only 37 studies that assess the actual effects on emissions, most of them in Europe. 'The majority of studies suggest that the aggregate reductions from carbon pricing on emissions are limited, generally between 0% and 2% per year,' with considerable variation across sectors; carbon taxes performed better than emissions trading schemes. Green concludes that 'the evidence indicates that carbon pricing has a limited impact on emissions.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -344,7 +344,7 @@ export const carbonTaxEffectivenessData = {
       ],
     },
     // =========================================================================
-    // PILLAR 4: Politics — can it survive voters?
+    // PILLAR 4: Politics, can it survive voters?
     // =========================================================================
     {
       id: "political-durability",
@@ -445,19 +445,19 @@ export const carbonTaxEffectivenessData = {
   ],
   references: [
     {
-      title: "Removing the consumer carbon price, effective April 1, 2025 — Department of Finance Canada",
+      title: "Removing the consumer carbon price, effective April 1, 2025, Department of Finance Canada",
       url: "https://www.canada.ca/en/department-finance/news/2025/03/removing-the-consumer-carbon-price-effective-april-1-2025.html",
     },
     {
-      title: "State and Trends of Carbon Pricing 2026 — World Bank",
+      title: "State and Trends of Carbon Pricing 2026, World Bank",
       url: "https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing",
     },
     {
-      title: "Systematic review and meta-analysis of ex-post evaluations on the effectiveness of carbon pricing — Nature Communications (2024)",
+      title: "Systematic review and meta-analysis of ex-post evaluations on the effectiveness of carbon pricing, Nature Communications (2024)",
       url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11099057/",
     },
     {
-      title: "Carbon Border Adjustment Mechanism — European Commission",
+      title: "Carbon Border Adjustment Mechanism, European Commission",
       url: "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en",
     },
   ],

@@ -4,19 +4,19 @@ import { faqs } from "@/data/faqs";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "FAQ — Common questions",
+  title: "FAQ: Common questions",
   description:
     "What a crux is, why a map never says who is right, how evidence is weighed, what the paste tool does with your text, and how maps are kept up to date.",
   keywords: ["Argumend FAQ", "argument mapping FAQ", "what is a crux", "how evidence is weighed"],
   openGraph: {
-    title: "FAQ — Common questions about Argumend",
+    title: "FAQ: Common questions about Argumend",
     description: "What a crux is, why a map never says who is right, how evidence is weighed, and what happens to the text you paste.",
     url: "https://argumend.org/faq",
     images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FAQ — Common questions about Argumend",
+    title: "FAQ: Common questions about Argumend",
     description: "What is a crux? Why doesn’t Argumend say who is right? How is evidence weighed?",
     images: [DEFAULT_SOCIAL_IMAGE_URL],
   },

@@ -565,11 +565,11 @@ export const genderAffirmingCareMinorsData = {
   ],
   references: [
     {
-      title: "The Cass Review: Independent Review of Gender Identity Services for Children and Young People — Final Report (2024)",
+      title: "The Cass Review: Independent Review of Gender Identity Services for Children and Young People: Final Report (2024)",
       url: "https://cass.independent-review.uk/home/publications/final-report/",
     },
     {
-      title: "Miroshnychenko et al., Puberty blockers for gender dysphoria in youth: a systematic review and meta-analysis — Archives of Disease in Childhood (2025)",
+      title: "Miroshnychenko et al., Puberty blockers for gender dysphoria in youth: a systematic review and meta-analysis: Archives of Disease in Childhood (2025)",
       url: "https://pubmed.ncbi.nlm.nih.gov/39855724/",
     },
     {
@@ -577,24 +577,24 @@ export const genderAffirmingCareMinorsData = {
       url: "https://opa.hhs.gov/gender-dysphoria-report",
     },
     {
-      title: "Ensuring Comprehensive Care and Support for Transgender and Gender-Diverse Children and Adolescents — AAP (2018)",
+      title: "Ensuring Comprehensive Care and Support for Transgender and Gender-Diverse Children and Adolescents: AAP (2018)",
       url: "https://publications.aap.org/pediatrics/article/142/4/e20182162/37381/Ensuring-Comprehensive-Care-and-Support-for",
     },
     {
-      title: "Endocrine Treatment of Gender-Dysphoric/Gender-Incongruent Persons — Endocrine Society (2017)",
+      title: "Endocrine Treatment of Gender-Dysphoric/Gender-Incongruent Persons: Endocrine Society (2017)",
       url: "https://academic.oup.com/jcem/article/102/11/3869/4157558",
     },
     {
-      title: "Standards of Care Version 8 — World Professional Association for Transgender Health (2022)",
+      title: "Standards of Care Version 8: World Professional Association for Transgender Health (2022)",
       url: "https://www.tandfonline.com/doi/full/10.1080/26895269.2022.2100644",
     },
     {
       title:
-        "Medical Treatment Methods for Dysphoria Related to Gender Variance in Minors — COHERE/PALKO Finland Recommendation, Official English Summary (2020)",
+        "Medical Treatment Methods for Dysphoria Related to Gender Variance in Minors: COHERE/PALKO Finland Recommendation, Official English Summary (2020)",
       url: "https://palveluvalikoima.fi/documents/1237350/22895008/Summary_minors_en.pdf/aaf9a6e7-b970-9de9-165c-abedfae46f2e/Summary_minors_en.pdf",
     },
     {
-      title: "Care of children and adolescents with gender dysphoria: summary of national guidelines — Socialstyrelsen (December 2022)",
+      title: "Care of children and adolescents with gender dysphoria: summary of national guidelines: Socialstyrelsen (December 2022)",
       url: "https://www.socialstyrelsen.se/globalassets/sharepoint-dokument/artikelkatalog/kunskapsstod/2023-1-8330.pdf",
     },
     {
@@ -602,7 +602,7 @@ export const genderAffirmingCareMinorsData = {
       url: "https://www.supremecourt.gov/opinions/24pdf/23-477_2cp3.pdf",
     },
     {
-      title: "High Court gives go-ahead for UK puberty blocker trial (PATHWAYS) to continue — Clinical Trials Arena (3 August 2026)",
+      title: "High Court gives go-ahead for UK puberty blocker trial (PATHWAYS) to continue: Clinical Trials Arena (3 August 2026)",
       url: "https://www.clinicaltrialsarena.com/news/high-court-gives-go-ahead-for-uk-puberty-blocker-trial-to-continue/",
     },
   ],

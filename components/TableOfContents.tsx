@@ -1,7 +1,7 @@
 import { ChevronDown, List } from "lucide-react";
 
 // ---------------------------------------------------------------------------
-// Table of contents — long-form wayfinding for blog posts & guides.
+// Table of contents: long-form wayfinding for blog posts & guides.
 //
 // Server component (no client JS): both the mobile disclosure (<details>) and
 // the wide-desktop sticky rail are pure HTML/CSS, so the links stay in the

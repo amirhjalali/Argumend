@@ -397,7 +397,7 @@ export const isClaims: IsClaim[] = [
     topicId: "cancel-culture",
     question: "Does cancel culture do more harm than good?",
     claim:
-      "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
+      "Cancel culture, public shaming and professional consequences for controversial speech, does more harm than good to public discourse.",
   },
   {
     slug: "media-bias-threatens-democracy",
@@ -475,14 +475,14 @@ export const isClaims: IsClaim[] = [
     topicId: "privacy-vs-convenience",
     question: "Is digital privacy already dead?",
     claim:
-      "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
+      "Meaningful digital privacy is no longer achievable for ordinary citizens, the surveillance infrastructure is too embedded in daily life to resist.",
   },
   {
     slug: "veganism-helps-environment",
     topicId: "veganism-environmental-impact",
     question: "Would going vegan significantly help the environment?",
     claim:
-      "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint — greenhouse-gas emissions, land use, and water pollution.",
+      "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, greenhouse-gas emissions, land use, and water pollution.",
   },
   {
     slug: "longevity-extend-lifespan",
@@ -531,7 +531,7 @@ export const isClaims: IsClaim[] = [
     topicId: "college-value-proposition",
     question: "Is a college degree still worth it?",
     claim:
-      "For most students who complete it, a four-year degree still earns a strong financial return — though the payoff varies enormously by major, institution, and completion.",
+      "For most students who complete it, a four-year degree still earns a strong financial return, though the payoff varies enormously by major, institution, and completion.",
   },
   {
     slug: "foreign-aid-works",
@@ -573,7 +573,7 @@ export const isClaims: IsClaim[] = [
     topicId: "simulation-hypothesis",
     question: "Are we living in a simulation?",
     claim:
-      "Bostrom's simulation argument implies we are probably living in a computer simulation — though whether that conclusion holds, or is even testable, is contested.",
+      "Bostrom's simulation argument implies we are probably living in a computer simulation, though whether that conclusion holds, or is even testable, is contested.",
   },
   {
     slug: "inflation-caused-by-spending",
@@ -608,7 +608,7 @@ export const isClaims: IsClaim[] = [
     topicId: "lab-diamonds-ethics",
     question: "Are lab-grown diamonds more ethical than mined diamonds?",
     claim:
-      "Lab-grown diamonds are the ethical choice — they avoid the human-rights abuses and environmental destruction of diamond mining.",
+      "Lab-grown diamonds are the ethical choice: they avoid the human-rights abuses and environmental destruction of diamond mining.",
   },
   {
     slug: "degrowth-necessary",
@@ -643,7 +643,7 @@ export const isClaims: IsClaim[] = [
     topicId: "consciousness-hard-problem",
     question: "Is consciousness more than physical brain activity?",
     claim:
-      "Consciousness — subjective experience — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
+      "Consciousness, subjective experience, cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
   },
   {
     slug: "kids-smartphone-ban",
@@ -728,7 +728,7 @@ export const isClaims: IsClaim[] = [
     topicId: "open-weight-ai-models",
     question: "Should frontier AI models be released open-weight?",
     claim:
-      "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access and accelerating safety research outweighs the uplift it gives malicious actors.",
+      "Openly releasing the weights of powerful frontier AI models does more good than harm, democratizing access and accelerating safety research outweighs the uplift it gives malicious actors.",
   },
   {
     slug: "second-amendment-individual-right",
@@ -737,7 +737,7 @@ export const isClaims: IsClaim[] = [
     claim:
       "The Second Amendment protects an individual right to bear arms, not merely a collective or militia right.",
   },
-  // ── Breadth batch 8 (2026-06-22) — completes clean evergreen coverage ──────
+  // ── Breadth batch 8 (2026-06-22): completes clean evergreen coverage ──────
   {
     slug: "net-neutrality-necessary",
     topicId: "net-neutrality",
@@ -857,7 +857,7 @@ export const isClaims: IsClaim[] = [
     claim:
       "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
   },
-  // ── Net-new coverage batch (2026-06-29) — uncovered evergreen topics ───────
+  // ── Net-new coverage batch (2026-06-29): uncovered evergreen topics ───────
   {
     slug: "organic-food-healthier",
     topicId: "organic-food-health",
@@ -914,13 +914,13 @@ export const isClaims: IsClaim[] = [
     claim:
       "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms on national-security grounds.",
   },
-  // ── Net-new coverage batch (2026-06-29, cont.) — uncovered contested topics ──
+  // ── Net-new coverage batch (2026-06-29, cont.): uncovered contested topics ──
   {
     slug: "us-iran-pressure-works",
     topicId: "us-iran-conflict",
     question: "Has US pressure policy toward Iran made the Middle East safer?",
     claim:
-      "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
+      "US policy toward Iran (combining maximum-pressure sanctions, covert operations, and military deterrence) has made the Middle East safer and advanced American strategic interests.",
   },
   {
     slug: "border-enforcement-effective",
@@ -962,14 +962,14 @@ export const isClaims: IsClaim[] = [
     topicId: "ukraine-peace-terms",
     question: "Should the Russia-Ukraine war end in a negotiated settlement along current lines?",
     claim:
-      "A negotiated settlement freezing the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms rather than rewarding aggression.",
+      "A negotiated settlement freezing the war along current lines (ratifying territorial reality, barring NATO membership, and lifting sanctions) would end the killing on acceptable terms rather than rewarding aggression.",
   },
   {
     slug: "maha-improves-health",
     topicId: "rfk-health-policy",
     question: "Will RFK Jr's Make America Healthy Again agenda improve US health?",
     claim:
-      "RFK Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
+      "RFK Jr's 'Make America Healthy Again' overhaul of US health institutions (restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture) will improve American health outcomes.",
   },
   {
     slug: "doge-cut-waste",
@@ -983,6 +983,6 @@ export const isClaims: IsClaim[] = [
     topicId: "epstein-files",
     question: "Do the Epstein files reveal a systemic institutional failure?",
     claim:
-      "The Jeffrey Epstein case reveals systemic institutional failure — law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for years — and full accountability has still not been achieved.",
+      "The Jeffrey Epstein case reveals systemic institutional failure (law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for years) and full accountability has still not been achieved.",
   },
 ];

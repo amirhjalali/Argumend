@@ -44,13 +44,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const ogImage = buildGenericOgUrl({ title: concept.title, subtitle: "Key Concept" });
 
   return {
-    title: `${concept.title} — Key Concept`,
+    title: `${concept.title}: Key Concept`,
     description,
     alternates: {
       canonical: `https://argumend.org/concepts/${concept.id}`,
     },
     openGraph: {
-      title: `${concept.title} — Key Concept`,
+      title: `${concept.title}: Key Concept`,
       description,
       url: `https://argumend.org/concepts/${concept.id}`,
       type: "article",
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: "summary_large_image",
-      title: `${concept.title} — Key Concept`,
+      title: `${concept.title}: Key Concept`,
       description,
       images: [ogImage],
     },
@@ -92,7 +92,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
       : [];
   });
 
-  // JSON-LD structured data — DefinedTerm is the correct type for a concept/term page.
+  // JSON-LD structured data: DefinedTerm is the correct type for a concept/term page.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "DefinedTerm",

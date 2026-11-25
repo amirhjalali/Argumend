@@ -13,7 +13,7 @@
  *   reply prints whichever pattern won.
  *
  * 0.7 is the line `docs/reviews/2026-09-16-jev-typesafe-probe.md` drew for
- * routing — the same number the pipeline now uses for its section floor — and
+ * routing, the same number the pipeline now uses for its section floor, and
  * it is reused here for want of a better-measured one, not because those two
  * questions were calibrated together.
  *

@@ -35,7 +35,7 @@ export const socialSecurityRetirementAgeData = {
   tags: ["social-security", "retirement", "fiscal-policy", "aging", "inequality"],
   pillars: [
     // =========================================================================
-    // PILLAR 1: The shortfall — how much would a later retirement age fix?
+    // PILLAR 1: The shortfall, how much would a later retirement age fix?
     // =========================================================================
     {
       id: "fiscal-necessity",
@@ -230,7 +230,7 @@ export const socialSecurityRetirementAgeData = {
     },
 
     // =========================================================================
-    // PILLAR 3: Fairness — who loses most over a lifetime?
+    // PILLAR 3: Fairness, who loses most over a lifetime?
     // =========================================================================
     {
       id: "fairness-distribution",

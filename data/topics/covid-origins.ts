@@ -156,7 +156,7 @@ const covidOriginsData: TopicInput = {
           common_ground:
             "Both sides agree Wuhan has extensive wildlife trade AND houses the world's leading bat-coronavirus lab, and that the WIV's sequence databases are no longer publicly accessible.",
           live_disagreement:
-            "Whether the outbreak's coincidence with the WIV is just sampling bias (Wuhan is a huge trade hub) or a meaningful signal — answerable only by data China withholds.",
+            "Whether the outbreak's coincidence with the WIV is just sampling bias (Wuhan is a huge trade hub) or a meaningful signal, answerable only by data China withholds.",
         },
       },
       evidence: [
@@ -282,7 +282,7 @@ const covidOriginsData: TopicInput = {
           title:
             "The bat ancestors of both SARS viruses were too far away to reach Wuhan or Guangzhou on their own (Cell, 2025)",
           description:
-            "A 2025 study in Cell by Pekar and colleagues reconstructed the family trees of bat sarbecoviruses while accounting for recombination. It found that the closest bat ancestors of SARS-CoV and SARS-CoV-2 existed less than a decade before each virus appeared in people, that these viruses travel roughly as fast as the horseshoe bats that carry them, and that the direct ancestors of both are 'unlikely to have reached their respective sites of emergence via dispersal in the bat reservoir alone' — which the authors read as support for the wildlife trade carrying them to the cities.",
+            "A 2025 study in Cell by Pekar and colleagues reconstructed the family trees of bat sarbecoviruses while accounting for recombination. It found that the closest bat ancestors of SARS-CoV and SARS-CoV-2 existed less than a decade before each virus appeared in people, that these viruses travel roughly as fast as the horseshoe bats that carry them, and that the direct ancestors of both are 'unlikely to have reached their respective sites of emergence via dispersal in the bat reservoir alone', which the authors read as support for the wildlife trade carrying them to the cities.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -350,7 +350,7 @@ const covidOriginsData: TopicInput = {
         cost_to_verify: "$100K (Bioinformatics and evolutionary analysis)",
         falsification: {
           supporter_flip:
-            "If comprehensive phylogenetics showed the PRRA furin-cleavage insertion and its rare CGG-CGG codons arise readily through natural recombination — or a natural sarbecovirus with a furin cleavage site turned up — the 'unnatural insertion' argument would collapse.",
+            "If comprehensive phylogenetics showed the PRRA furin-cleavage insertion and its rare CGG-CGG codons arise readily through natural recombination, or a natural sarbecovirus with a furin cleavage site turned up, the 'unnatural insertion' argument would collapse.",
           skeptic_flip:
             "If analysis showed the specific insertion and codon usage are extremely improbable naturally and match lab codon-optimization patterns (and DEFUSE-style proposals), the natural-recombination explanation would weaken sharply.",
           common_ground:
@@ -423,7 +423,7 @@ const covidOriginsData: TopicInput = {
           title:
             "A bat virus, RmYN02, carries natural insertions at the same spike junction, but not a furin site (Current Biology, 2020)",
           description:
-            "RmYN02, a bat coronavirus sampled in Yunnan and described in Current Biology in 2020, carries amino-acid insertions at the S1/S2 junction of its spike protein — the same position where SARS-CoV-2 carries its furin cleavage site. RmYN02's insertions are not polybasic and do not create a functional furin cleavage site. No bat sarbecovirus sampled to date has the complete PRRAR motif.",
+            "RmYN02, a bat coronavirus sampled in Yunnan and described in Current Biology in 2020, carries amino-acid insertions at the S1/S2 junction of its spike protein, the same position where SARS-CoV-2 carries its furin cleavage site. RmYN02's insertions are not polybasic and do not create a functional furin cleavage site. No bat sarbecovirus sampled to date has the complete PRRAR motif.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -467,7 +467,7 @@ const covidOriginsData: TopicInput = {
         "Three US agencies lean to a lab accident, four and the National Intelligence Council to natural exposure to an animal, nearly all at low confidence. German newspapers reported the BND put a leak at 80-95% in 2020. The WHO's panel called zoonosis best supported and said much of the information needed to evaluate every hypothesis was never provided. Hundreds of pages declassified in June 2026 settled nothing.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Intelligence assessments are judgments, not findings, and these ones are mostly hedged. The agencies that favor a lab leak express low confidence (CIA, DOE) or, in the FBI's case, moderate confidence — levels that in intelligence parlance signal evidence that is fragmentary and open to more than one reading. Four other agencies and the National Intelligence Council assessed natural spillover as more likely or remained undecided. The WHO's SAGO panel, after three years of review, concluded in June 2025 that the weight of available scientific evidence favors zoonotic spillover. A 2024 survey of 168 epidemiologists and virologists found they assessed zoonosis as 77% likely versus 21% for lab leak. The political context matters: the CIA's January 2025 reassessment was completed during a political transition, and the House Select Subcommittee's origins conclusion was issued by its Republican majority, with the panel's Democrats releasing a separate report rejecting it. The biggest release yet changed nothing: the 391 pages Tulsi Gabbard declassified on her last day as director of national intelligence in June 2026 were about Anthony Fauci's contacts with analysts, and contained no assessment that the research he funded started the pandemic.",
+        "Intelligence assessments are judgments, not findings, and these ones are mostly hedged. The agencies that favor a lab leak express low confidence (CIA, DOE) or, in the FBI's case, moderate confidence, levels that in intelligence parlance signal evidence that is fragmentary and open to more than one reading. Four other agencies and the National Intelligence Council assessed natural spillover as more likely or remained undecided. The WHO's SAGO panel, after three years of review, concluded in June 2025 that the weight of available scientific evidence favors zoonotic spillover. A 2024 survey of 168 epidemiologists and virologists found they assessed zoonosis as 77% likely versus 21% for lab leak. The political context matters: the CIA's January 2025 reassessment was completed during a political transition, and the House Select Subcommittee's origins conclusion was issued by its Republican majority, with the panel's Democrats releasing a separate report rejecting it. The biggest release yet changed nothing: the 391 pages Tulsi Gabbard declassified on her last day as director of national intelligence in June 2026 were about Anthony Fauci's contacts with analysts, and contained no assessment that the research he funded started the pandemic.",
       proponent_rebuttal:
         "China's systematic obstruction of investigation is the most telling evidence. Beijing destroyed early viral samples, censored researchers, refused to share the WIV database, declined to provide over 500 early patient sequences, withheld Huanan market supply-chain records, and blocked independent access to WIV biosafety logs. The WHO's initial investigation in February 2021 was severely constrained; even WHO Director-General Tedros acknowledged the lab leak hypothesis required further investigation. EcoHealth Alliance was formally debarred by HHS for failing to report dangerous gain-of-function experiments at the WIV. Nor is this only an American suspicion: Germany's foreign intelligence service rated a lab leak 80-95% likely back in 2020, France's Académie nationale de médecine came to the same view in April 2025, and the SAGO panel itself said it could not evaluate the lab hypothesis because China withheld the data. Absence of evidence is not evidence of absence when the evidence is being withheld.",
       crux: {
@@ -494,7 +494,7 @@ const covidOriginsData: TopicInput = {
           common_ground:
             "Both sides agree US agencies are split and mostly at 'low confidence,' and that China's lack of transparency has impeded any definitive finding.",
           live_disagreement:
-            "Whether the classified intelligence, once released, contains anything decisive — or merely reflects the same fragmentary, ambiguous evidence already public.",
+            "Whether the classified intelligence, once released, contains anything decisive, or merely reflects the same fragmentary, ambiguous evidence already public.",
         },
       },
       evidence: [
@@ -634,7 +634,7 @@ const covidOriginsData: TopicInput = {
           sourceUrl:
             "https://www.who.int/news/item/27-06-2025-who-scientific-advisory-group-issues-report-on-origins-of-covid-19",
           reasoning:
-            "Obstruction of investigation is not direct evidence of a lab leak; authoritarian governments routinely suppress information for political reasons regardless of the underlying truth. However, the specific data withheld — early sequences, market animal records, lab biosafety information — is precisely the data that could resolve the question one way or the other. The pattern of selective transparency, sharing some market environmental data while withholding institutional records, is consistent with either covering up a lab accident or protecting state secrets unrelated to origins. Directness is scored low because obstruction itself does not indicate which hypothesis is correct.",
+            "Obstruction of investigation is not direct evidence of a lab leak; authoritarian governments routinely suppress information for political reasons regardless of the underlying truth. However, the specific data withheld, early sequences, market animal records, lab biosafety information, is precisely the data that could resolve the question one way or the other. The pattern of selective transparency, sharing some market environmental data while withholding institutional records, is consistent with either covering up a lab accident or protecting state secrets unrelated to origins. Directness is scored low because obstruction itself does not indicate which hypothesis is correct.",
         },
         {
           id: "fbi-moderate-confidence-2023",
@@ -700,7 +700,7 @@ const covidOriginsData: TopicInput = {
           title:
             "168 virologists and epidemiologists put zoonosis at 77% on average, a lab accident at 21% (2024)",
           description:
-            "A February 2024 expert survey by the Global Catastrophic Risk Institute and Nemesys Insights collected anonymous estimates from 168 scientists in 47 countries — 78 epidemiologists, 74 virologists and 16 biosafety or evolutionary-genetics specialists — out of 1,138 invited, a 15% response rate. Respondents put natural zoonosis at 77% likely on average (median 90%) and a research-related accident at 21%. Proponents of a lab origin note that the sample was drawn from the fields whose published literature has favoured zoonosis and did not include intelligence or biosecurity analysts; the report found no statistically significant difference in these beliefs between experts with backgrounds in epidemiology and in virology, or between those in developed and developing countries.",
+            "A February 2024 expert survey by the Global Catastrophic Risk Institute and Nemesys Insights collected anonymous estimates from 168 scientists in 47 countries, 78 epidemiologists, 74 virologists and 16 biosafety or evolutionary-genetics specialists, out of 1,138 invited, a 15% response rate. Respondents put natural zoonosis at 77% likely on average (median 90%) and a research-related accident at 21%. Proponents of a lab origin note that the sample was drawn from the fields whose published literature has favoured zoonosis and did not include intelligence or biosecurity analysts; the report found no statistically significant difference in these beliefs between experts with backgrounds in epidemiology and in virology, or between those in developed and developing countries.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,

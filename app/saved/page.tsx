@@ -3,7 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import { SavedClient } from "./SavedClient";
 
 export const metadata: Metadata = {
-  // Plain string — the root layout's title template ("%s | ARGUMEND") adds the
+  // Plain string: the root layout's title template ("%s | ARGUMEND") adds the
   // suffix; including it here too doubled it.
   title: "Saved maps",
   description:

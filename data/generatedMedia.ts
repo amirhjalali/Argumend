@@ -212,6 +212,18 @@ export const generatedMedia = [
   },
   {
     kind: "blog",
+    id: "how-argumend-evolved-and-how-we-map-a-topic",
+    hero: {
+      src: "/images/generated/blog/how-argumend-evolved-and-how-we-map-a-topic/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Stitched primary-source folios, five aged-brass calibration dividers, a balanced scale holding deep teal and brick-rust stones, and a fountain pen tracing faint ink threads to a single crimson crux dot on parchment.",
+      prompt: topicHeroPrompt(
+        "An architect's walnut drafting table seen from slightly above, holding a sheaf of stitched primary-source archive folios on the left, five aged-brass calibration dividers arranged in an arc across the parchment sheet, a balanced brass scale with glass pans holding deep teal and muted brick-rust river stones, and a fountain pen tracing faint hairline ink threads converging onto a single small muted crimson crux dot. No people, no text.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
     id: "did-covid-come-from-a-lab",
     hero: {
       src: "/images/generated/blog/did-covid-come-from-a-lab/hero.jpg",

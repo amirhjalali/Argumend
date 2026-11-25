@@ -16,15 +16,15 @@ export const artificialReproductionEthicsData = {
     "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "An extra-uterine system to physiologically support the extreme premature lamb — Partridge et al., Nature Communications (2017)",
+      title: "An extra-uterine system to physiologically support the extreme premature lamb: Partridge et al., Nature Communications (2017)",
       url: "https://doi.org/10.1038/ncomms15112",
     },
     {
-      title: "Mammalian in vitro gametogenesis — Saitou & Hayashi, Science (2021)",
+      title: "Mammalian in vitro gametogenesis: Saitou & Hayashi, Science (2021)",
       url: "https://doi.org/10.1126/science.aaz6830",
     },
     {
-      title: "Ethics and Abortion (incl. Artificial Wombs and Abortion Rights) — The Hastings Center",
+      title: "Ethics and Abortion (incl. Artificial Wombs and Abortion Rights): The Hastings Center",
       url: "https://www.thehastingscenter.org/ethics-and-abortion/",
     },
   ],
@@ -72,9 +72,9 @@ export const artificialReproductionEthicsData = {
         "Premature birth kills over 1 million infants per year globally and is the leading cause of death in children under 5. Artificial womb technology could save the majority of these lives by providing a controlled gestational environment for extremely premature infants.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The medical necessity argument is a Trojan horse for broader ectogenesis. While neonatal care has improved dramatically — survival rates for 24-week infants now exceed 60% — extending artificial womb technology beyond the NICU context into elective full-term ectogenesis raises entirely different ethical questions. The therapeutic application for premature infants does not justify developing the capacity for complete external gestation. Additionally, the enormous R&D costs could save far more lives if directed toward basic maternal healthcare in developing nations, where most premature deaths occur due to lack of simple interventions like antenatal steroids and kangaroo care.",
+        "The medical necessity argument is a Trojan horse for broader ectogenesis. While neonatal care has improved dramatically, survival rates for 24-week infants now exceed 60%, extending artificial womb technology beyond the NICU context into elective full-term ectogenesis raises entirely different ethical questions. The therapeutic application for premature infants does not justify developing the capacity for complete external gestation. Additionally, the enormous R&D costs could save far more lives if directed toward basic maternal healthcare in developing nations, where most premature deaths occur due to lack of simple interventions like antenatal steroids and kangaroo care.",
       proponent_rebuttal:
-        "The distinction between therapeutic and elective ectogenesis is a false boundary. The technology required to save a 22-week premature infant is functionally identical to the technology required for earlier gestational stages — the engineering challenges differ only in degree. The Children's Hospital of Philadelphia's Biobag successfully sustained fetal lambs at the equivalent of 23 weeks for up to four weeks in 2017, demonstrating proof of concept. Over 15 million babies are born premature annually, and 1 million die. The moral imperative to develop this technology is overwhelming, and restricting its development based on speculative concerns about future misuse would condemn real infants to preventable deaths.",
+        "The distinction between therapeutic and elective ectogenesis is a false boundary. The technology required to save a 22-week premature infant is functionally identical to the technology required for earlier gestational stages; the engineering challenges differ only in degree. The Children's Hospital of Philadelphia's Biobag successfully sustained fetal lambs at the equivalent of 23 weeks for up to four weeks in 2017, demonstrating proof of concept. Over 15 million babies are born premature annually, and 1 million die. The moral imperative to develop this technology is overwhelming, and restricting its development based on speculative concerns about future misuse would condemn real infants to preventable deaths.",
       crux: {
         id: "biobag-human-translation",
         title: "The Human Biobag Translation Trial",
@@ -99,7 +99,7 @@ export const artificialReproductionEthicsData = {
           common_ground:
             "Both sides agree preterm birth is a leading cause of death in young children, and that NICU care still hits a hard limit near 22 weeks, where only about 30% of actively treated infants survive.",
           live_disagreement:
-            "Whether a therapeutic artificial womb for extremely premature infants is separable from elective full-term ectogenesis, or the same engineering differing only in degree — and whether its cost would save more lives through basic maternal care.",
+            "Whether a therapeutic artificial womb for extremely premature infants is separable from elective full-term ectogenesis, or the same engineering differing only in degree, and whether its cost would save more lives through basic maternal care.",
         },
       },
       evidence: [
@@ -124,7 +124,7 @@ export const artificialReproductionEthicsData = {
           id: "premature-birth-mortality-who",
           title: "WHO: Premature Birth Is Leading Cause of Death in Children Under 5",
           description:
-            "The World Health Organization reports that approximately 13.4 million babies were born premature in 2020, and complications from preterm birth are the leading cause of death among children under 5. An estimated 900,000 children died from preterm birth complications in 2019. Most of these deaths occur in low- and middle-income countries and are preventable with current technology — but access remains limited.",
+            "The World Health Organization reports that approximately 13.4 million babies were born premature in 2020, and complications from preterm birth are the leading cause of death among children under 5. An estimated 900,000 children died from preterm birth complications in 2019. Most of these deaths occur in low- and middle-income countries and are preventable with current technology, but access remains limited.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -141,7 +141,7 @@ export const artificialReproductionEthicsData = {
           id: "nicu-survival-limits",
           title: "Current NICU Care Saves Only About 30% of Actively Treated Infants Born at 22 Weeks",
           description:
-            "The NICHD Neonatal Research Network followed 10,877 extremely preterm infants born at 19 US academic centers in 2013-2018. Only 10.9% of live-born infants at 22 weeks survived to discharge, and 30% of those who received active treatment; at 23 weeks, 55.8% of actively treated infants survived. Among survivors born at 22-26 weeks who were fully evaluated at two years, about half had moderate (29.3%) or severe (21.2%) neurodevelopmental impairment. Advocates argue that ventilating lungs this immature is itself a source of injury, so incremental NICU improvements may not move the limit much — and that a fundamentally different approach like artificial womb technology may be required.",
+            "The NICHD Neonatal Research Network followed 10,877 extremely preterm infants born at 19 US academic centers in 2013-2018. Only 10.9% of live-born infants at 22 weeks survived to discharge, and 30% of those who received active treatment; at 23 weeks, 55.8% of actively treated infants survived. Among survivors born at 22-26 weeks who were fully evaluated at two years, about half had moderate (29.3%) or severe (21.2%) neurodevelopmental impairment. Advocates argue that ventilating lungs this immature is itself a source of injury, so incremental NICU improvements may not move the limit much, and that a fundamentally different approach like artificial womb technology may be required.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -159,7 +159,7 @@ export const artificialReproductionEthicsData = {
           id: "ectogenesis-commodification-critique",
           title: "Bioethicists Warn Ectogenesis Could Commodify Human Reproduction",
           description:
-            "A growing body of bioethics literature argues that full ectogenesis — not just therapeutic use for premature infants — risks commodifying reproduction by turning gestation into a service that can be purchased, potentially creating a market where wealthy individuals outsource pregnancy entirely. This could deepen existing inequalities in reproductive access and create new forms of exploitation, particularly if commercial ectogenesis facilities develop in countries with weaker regulatory protections.",
+            "A growing body of bioethics literature argues that full ectogenesis, not just therapeutic use for premature infants, risks commodifying reproduction by turning gestation into a service that can be purchased, potentially creating a market where wealthy individuals outsource pregnancy entirely. This could deepen existing inequalities in reproductive access and create new forms of exploitation, particularly if commercial ectogenesis facilities develop in countries with weaker regulatory protections.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -185,18 +185,18 @@ export const artificialReproductionEthicsData = {
         "Ectogenesis could fundamentally reshape the abortion debate by decoupling the question of bodily autonomy from fetal life. If a fetus can be extracted and gestated externally, the right to end a pregnancy no longer necessarily implies the right to terminate a fetal life.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The claim that ectogenesis resolves the abortion debate is dangerously naive. The right to abortion has never been solely about bodily autonomy — it encompasses reproductive self-determination, including the right to decide whether to become a genetic parent. Forcing extraction-and-ectogenesis instead of termination would compel genetic parenthood against a person's will. Moreover, the practical reality is that ectogenesis would likely be used to restrict abortion access by providing courts with a 'less restrictive alternative' to termination, effectively eliminating abortion rights while claiming to respect bodily autonomy. The technology would also create hundreds of thousands of children needing parents, overwhelming adoption systems.",
+        "The claim that ectogenesis resolves the abortion debate is dangerously naive. The right to abortion has never been solely about bodily autonomy; it encompasses reproductive self-determination, including the right to decide whether to become a genetic parent. Forcing extraction-and-ectogenesis instead of termination would compel genetic parenthood against a person's will. Moreover, the practical reality is that ectogenesis would likely be used to restrict abortion access by providing courts with a 'less restrictive alternative' to termination, effectively eliminating abortion rights while claiming to respect bodily autonomy. The technology would also create hundreds of thousands of children needing parents, overwhelming adoption systems.",
       proponent_rebuttal:
-        "Ectogenesis does not resolve the abortion debate — but it clarifies it by separating two distinct rights claims that have been conflated: the right to end a pregnancy (bodily autonomy) and the right to end a fetal life (reproductive self-determination). Currently, exercising bodily autonomy necessarily requires the second. Artificial wombs would allow a person to exercise full bodily autonomy — no one would be forced to remain pregnant — while also preserving fetal life. This is not a restriction on abortion rights but an expansion of options. The ethical clarity this provides is valuable regardless of one's position: it forces both sides to articulate which right they consider fundamental.",
+        "Ectogenesis does not resolve the abortion debate, but it clarifies it by separating two distinct rights claims that have been conflated: the right to end a pregnancy (bodily autonomy) and the right to end a fetal life (reproductive self-determination). Currently, exercising bodily autonomy necessarily requires the second. Artificial wombs would allow a person to exercise full bodily autonomy, no one would be forced to remain pregnant, while also preserving fetal life. This is not a restriction on abortion rights but an expansion of options. The ethical clarity this provides is valuable regardless of one's position: it forces both sides to articulate which right they consider fundamental.",
       crux: {
         id: "right-to-terminate-vs-evacuate",
         title: "The Evacuation vs. Termination Distinction",
         question:
           "Is the abortion right about ending a pregnancy, or about not becoming a genetic parent?",
         description:
-          "The crux is whether the right to abortion is fundamentally about ending a pregnancy (bodily autonomy) or ending a potential life (reproductive self-determination). If courts and ethicists conclude that bodily autonomy is the core right, ectogenesis provides a satisfactory alternative. If reproductive self-determination — the right not to become a genetic parent — is the core right, ectogenesis does not resolve the fundamental disagreement.",
+          "The crux is whether the right to abortion is fundamentally about ending a pregnancy (bodily autonomy) or ending a potential life (reproductive self-determination). If courts and ethicists conclude that bodily autonomy is the core right, ectogenesis provides a satisfactory alternative. If reproductive self-determination, the right not to become a genetic parent, is the core right, ectogenesis does not resolve the fundamental disagreement.",
         methodology:
-          "Conduct a systematic legal analysis across jurisdictions to determine which constitutional framework — bodily autonomy or reproductive self-determination — underlies abortion protections. Survey a representative sample of 5,000 people across the political spectrum to measure whether support for abortion rights persists when extraction-without-termination is available. This would reveal whether the public debate is truly about bodily autonomy or encompasses broader reproductive control.",
+          "Conduct a systematic legal analysis across jurisdictions to determine which constitutional framework, bodily autonomy or reproductive self-determination, underlies abortion protections. Survey a representative sample of 5,000 people across the political spectrum to measure whether support for abortion rights persists when extraction-without-termination is available. This would reveal whether the public debate is truly about bodily autonomy or encompasses broader reproductive control.",
         verification_status: "impossible" as const,
         settle: {
           condition:
@@ -213,7 +213,7 @@ export const artificialReproductionEthicsData = {
           common_ground:
             "Both sides agree ectogenesis would not resolve the abortion debate: it separates ending a pregnancy from ending a fetal life, and the answer turns on which of those rights is fundamental.",
           live_disagreement:
-            "Whether the core abortion right is ending a pregnancy, which extraction would satisfy, or not becoming a genetic parent, which it would not — and so whether artificial wombs expand options or become a legal tool to restrict abortion.",
+            "Whether the core abortion right is ending a pregnancy, which extraction would satisfy, or not becoming a genetic parent, which it would not, and so whether artificial wombs expand options or become a legal tool to restrict abortion.",
         },
       },
       evidence: [
@@ -221,7 +221,7 @@ export const artificialReproductionEthicsData = {
           id: "thomson-violinist-argument",
           title: "Thomson's Violinist Argument Frames Abortion as Bodily Autonomy (1971)",
           description:
-            "Judith Jarvis Thomson's influential 1971 thought experiment argues that even if a fetus has a right to life, no one is obligated to sustain another's life with their own body. This framework suggests that abortion is fundamentally about bodily autonomy — the right to disconnect — rather than the right to terminate. Under this reasoning, ectogenesis would satisfy the bodily autonomy claim by enabling disconnection without termination.",
+            "Judith Jarvis Thomson's influential 1971 thought experiment argues that even if a fetus has a right to life, no one is obligated to sustain another's life with their own body. This framework suggests that abortion is fundamentally about bodily autonomy, the right to disconnect, rather than the right to terminate. Under this reasoning, ectogenesis would satisfy the bodily autonomy claim by enabling disconnection without termination.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -238,7 +238,7 @@ export const artificialReproductionEthicsData = {
           id: "genetic-parenthood-objection",
           title: "Reproductive Self-Determination Extends Beyond Bodily Autonomy",
           description:
-            "Legal scholars including Sonia Suter and I. Glenn Cohen have argued that the right to abortion encompasses more than bodily autonomy. Cohen's framework conceives the right not to procreate as a bundle of distinct interests — the right not to be a genetic parent, not to be a gestational parent, and not to be a legal parent. Under this framework, ectogenesis would not resolve the core ethical question because a person would still be compelled to become a genetic parent against their will. This line of scholarship has gained renewed attention since the Dobbs decision eliminated federal abortion protections.",
+            "Legal scholars including Sonia Suter and I. Glenn Cohen have argued that the right to abortion encompasses more than bodily autonomy. Cohen's framework conceives the right not to procreate as a bundle of distinct interests, the right not to be a genetic parent, not to be a gestational parent, and not to be a legal parent. Under this framework, ectogenesis would not resolve the core ethical question because a person would still be compelled to become a genetic parent against their will. This line of scholarship has gained renewed attention since the Dobbs decision eliminated federal abortion protections.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -261,12 +261,12 @@ export const artificialReproductionEthicsData = {
       id: "commodification-eugenics-risk",
       title: "Commodification & Eugenics Risk",
       short_summary:
-        "Decoupling reproduction from the human body — combined with IVG and genetic selection — could enable commercial reproduction markets and modern eugenics. The convergence of artificial wombs, synthetic gametes, and embryo screening creates possibilities that no individual technology poses alone.",
+        "Decoupling reproduction from the human body, combined with IVG and genetic selection, could enable commercial reproduction markets and modern eugenics. The convergence of artificial wombs, synthetic gametes, and embryo screening creates possibilities that no individual technology poses alone.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The convergence of ectogenesis, IVG, and preimplantation genetic testing creates a near-term pathway to consumer eugenics that existing regulatory frameworks are utterly unprepared for. IVG would allow creation of unlimited embryos from any person's cells, embryo screening could select for hundreds of genetic traits simultaneously, and artificial wombs could gestate the selected embryos without requiring any person to undergo pregnancy. This is not science fiction — each component technology exists in some form today. The wealthy would access these technologies first, creating a biological class divide that dwarfs existing inequality. History's darkest eugenic programs were constrained by biology; removing those constraints is reckless.",
+        "The convergence of ectogenesis, IVG, and preimplantation genetic testing creates a near-term pathway to consumer eugenics that existing regulatory frameworks are utterly unprepared for. IVG would allow creation of unlimited embryos from any person's cells, embryo screening could select for hundreds of genetic traits simultaneously, and artificial wombs could gestate the selected embryos without requiring any person to undergo pregnancy. This is not science fiction; each component technology exists in some form today. The wealthy would access these technologies first, creating a biological class divide that dwarfs existing inequality. History's darkest eugenic programs were constrained by biology; removing those constraints is reckless.",
       proponent_rebuttal:
-        "The eugenics comparison is historically illiterate. Historical eugenics was coercive state programs forcing sterilization and murder on the vulnerable. Reproductive technology expands individual choice — the opposite of coercion. Parents already select against genetic diseases through PGT and amniocentesis; extending this to more traits is a difference of degree, not kind. The slippery slope argument assumes no regulation is possible, yet we successfully regulate nuclear technology, pharmaceutical development, and organ transplantation. The solution is proactive governance — international frameworks similar to the Oviedo Convention — not technology prohibition. Banning reproductive research to prevent hypothetical misuse condemns real people to preventable suffering from infertility, genetic disease, and pregnancy complications.",
+        "The eugenics comparison is historically illiterate. Historical eugenics was coercive state programs forcing sterilization and murder on the vulnerable. Reproductive technology expands individual choice, the opposite of coercion. Parents already select against genetic diseases through PGT and amniocentesis; extending this to more traits is a difference of degree, not kind. The slippery slope argument assumes no regulation is possible, yet we successfully regulate nuclear technology, pharmaceutical development, and organ transplantation. The solution is proactive governance: international frameworks similar to the Oviedo Convention, not technology prohibition. Banning reproductive research to prevent hypothetical misuse condemns real people to preventable suffering from infertility, genetic disease, and pregnancy complications.",
       crux: {
         id: "regulatory-capacity-test",
         title: "The Governance Feasibility Assessment",
@@ -289,7 +289,7 @@ export const artificialReproductionEthicsData = {
           skeptic_flip:
             "If the 25+ years without confirmed human reproductive cloning, under bans in roughly 30-50 countries, held for these technologies too, and their use stayed individual choice rather than coercive state policy, the fear of consumer eugenics would lose much of its footing.",
           common_ground:
-            "Both sides agree the component technologies already exist in some form — mouse pups have been born from skin-cell-derived eggs, and embryo screening already ranks embryos by polygenic risk — and that some governance is needed.",
+            "Both sides agree the component technologies already exist in some form, mouse pups have been born from skin-cell-derived eggs, and embryo screening already ranks embryos by polygenic risk, and that some governance is needed.",
           live_disagreement:
             "Whether international rules like the cloning bans can hold back eugenic and commercial uses while preserving therapeutic ones, or whether combined IVG, embryo selection and artificial wombs will outpace regulation and widen a biological class divide.",
         },
@@ -327,7 +327,7 @@ export const artificialReproductionEthicsData = {
           source: "UNESCO Universal Declaration on the Human Genome and Human Rights (Art. 11)",
           sourceUrl: "https://www.unesco.org/en/legal-affairs/universal-declaration-human-genome-and-human-rights",
           reasoning:
-            "The track record of cloning bans provides strong evidence that international governance of reproductive technology can work. However, cloning had limited demand and clear scientific consensus against it — reproductive enhancement technologies may face much stronger commercial pressure and less scientific opposition, making the analogy imperfect.",
+            "The track record of cloning bans provides strong evidence that international governance of reproductive technology can work. However, cloning had limited demand and clear scientific consensus against it, reproductive enhancement technologies may face much stronger commercial pressure and less scientific opposition, making the analogy imperfect.",
         },
         {
           id: "pgt-trait-selection-expansion",

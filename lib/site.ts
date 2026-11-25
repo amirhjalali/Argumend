@@ -20,7 +20,7 @@ export const ARGUMENT_TOPICS_LAST_UPDATED = "2026-08-12";
  */
 export const LEGAL_LAST_UPDATED = "2026-11-03";
 export const LEGAL_LAST_UPDATED_LABEL = "3 November 2026";
-/** Placeholder contact route — see docs/PRIVACY_AND_CONSENT.md. */
+/** Placeholder contact route: see docs/PRIVACY_AND_CONSENT.md. */
 export const LEGAL_CONTACT_EMAIL = "privacy@argumend.org";
 
 /** Stable identifiers let separate JSON-LD blocks describe the same entities. */

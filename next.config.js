@@ -290,6 +290,19 @@ const nextConfig = {
       { source: '/robots.txt', headers: discoveryCacheHeaders },
       { source: '/sitemap.xml', headers: discoveryCacheHeaders },
       { source: '/manifest.webmanifest', headers: discoveryCacheHeaders },
+      // The home film's frames (components/home/film). The path carries the
+      // render's version (`/home-film/v1`), so a re-render is a new URL. Not in
+      // development, where frames are replaced in place while a film is made.
+      ...(isDev
+        ? []
+        : [
+            {
+              source: '/home-film/:version(v\\d+)/:path*',
+              headers: [
+                { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+              ],
+            },
+          ]),
       // Self-hosted italic faces (app/layout.tsx). Each file name carries the
       // font's upstream version, so a changed font is a new URL.
       {

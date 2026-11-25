@@ -415,31 +415,31 @@ export const fluorideWaterSuppliesData = {
   ],
   references: [
     {
-      title: "Fluoride Exposure: Neurodevelopment and Cognition — National Toxicology Program monograph (21 August 2024)",
+      title: "Fluoride Exposure: Neurodevelopment and Cognition, National Toxicology Program monograph (21 August 2024)",
       url: "https://ntp.niehs.nih.gov/research/assessments/noncancer/completed/fluoride",
     },
     {
-      title: "Water Fluoridation for the Prevention of Dental Caries — Cochrane systematic review (2024 update)",
+      title: "Water Fluoridation for the Prevention of Dental Caries, Cochrane systematic review (2024 update)",
       url: "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010856.pub3/full",
     },
     {
-      title: "Fluoride Exposure and Children's IQ Scores: A Systematic Review and Meta-Analysis — Taylor et al., JAMA Pediatrics (January 2025)",
+      title: "Fluoride Exposure and Children's IQ Scores: A Systematic Review and Meta-Analysis, Taylor et al., JAMA Pediatrics (January 2025)",
       url: "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2828425",
     },
     {
-      title: "Ninth Circuit Vacates Order Requiring EPA to Regulate Fluoridation of Drinking Water under TSCA — Beveridge & Diamond (2026)",
+      title: "Ninth Circuit Vacates Order Requiring EPA to Regulate Fluoridation of Drinking Water under TSCA, Beveridge & Diamond (2026)",
       url: "https://www.bdlaw.com/publications/ninth-circuit-vacates-order-requiring-epa-to-regulate-fluoridation-of-drinking-water-under-tsca/",
     },
     {
-      title: "EPA, Review of Science on Fluoride in Drinking Water: Preliminary Assessment Plan — Federal Register (28 January 2026)",
+      title: "EPA, Review of Science on Fluoride in Drinking Water: Preliminary Assessment Plan, Federal Register (28 January 2026)",
       url: "https://www.govinfo.gov/content/pkg/FR-2026-01-28/html/2026-01657.htm",
     },
     {
-      title: "Two cities stopped adding fluoride to water. Science reveals what happened — Science News (28 April 2025)",
+      title: "Two cities stopped adding fluoride to water. Science reveals what happened, Science News (28 April 2025)",
       url: "https://www.sciencenews.org/?p=3154054",
     },
     {
-      title: "Community Water Fluoridation Recommendations — CDC",
+      title: "Community Water Fluoridation Recommendations, CDC",
       url: "https://www.cdc.gov/fluoridation/about/community-water-fluoridation-recommendations.html",
     },
   ],

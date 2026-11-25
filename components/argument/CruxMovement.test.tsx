@@ -340,16 +340,16 @@ describe("standingLineFor", () => {
     expect(standingLineFor("value-difference")).toBe(STANDING_DISAGREEMENT_LINE);
     expect(standingLineFor(undefined)).toBe(STANDING_DISAGREEMENT_LINE);
     expect(STANDING_DISAGREEMENT_LINE).toBe(
-      "Nothing does — this is a standing value disagreement; the map holds both horns.",
+      "Nothing does: this is a standing value disagreement; the map lays out both sides.",
     );
   });
 
   it("names the fork for definitional and who-decides cruxes", () => {
     expect(standingLineFor("definitional-choice")).toBe(
-      "Nothing does — this turns on a choice of definition; the map holds both readings.",
+      "Nothing does: this turns on a choice of definition; the map holds both readings.",
     );
     expect(standingLineFor("authority-allocation")).toBe(
-      "Nothing does — this turns on who should decide; the map holds both answers.",
+      "Nothing does: this turns on who should decide; the map holds both answers.",
     );
   });
 });

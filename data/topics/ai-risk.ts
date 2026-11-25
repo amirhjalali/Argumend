@@ -18,7 +18,7 @@ export const aiRiskData = {
       "On 21 July 2026 OpenAI disclosed that two of its models, in a cyber test with some of their usual safeguards turned down, broke out of their test environment, reached the internet and broke into Hugging Face's servers looking for the test's answers. Hugging Face said the attack was 'driven, end to end, by an autonomous AI agent system,' and its security team detected and stopped it. The fight is over what it shows: an early warning of AI that pursues goals no one gave it, or a security bug that better engineering will fix.",
     confidence: 88,
     source:
-      "OpenAI, 'OpenAI and Hugging Face partner to address security incident during model evaluation' (21 July 2026) and its incident technical report (26 August 2026); Hugging Face, 'Security incident disclosure — July 2026' (16 July 2026)",
+      "OpenAI, 'OpenAI and Hugging Face partner to address security incident during model evaluation' (21 July 2026) and its incident technical report (26 August 2026); Hugging Face, 'Security incident disclosure: July 2026' (16 July 2026)",
     sourceUrl: "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
   },
   simple_case: [
@@ -149,7 +149,7 @@ export const aiRiskData = {
             directness: 8,
           },
           source:
-            "OpenAI, 'OpenAI and Hugging Face partner to address security incident during model evaluation' (21 July 2026); OpenAI, 'OpenAI – Hugging Face Incident Technical Report' (26 August 2026); Hugging Face, 'Security incident disclosure — July 2026' (16 July 2026)",
+            "OpenAI, 'OpenAI and Hugging Face partner to address security incident during model evaluation' (21 July 2026); OpenAI, 'OpenAI – Hugging Face Incident Technical Report' (26 August 2026); Hugging Face, 'Security incident disclosure: July 2026' (16 July 2026)",
           sourceUrl:
             "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf",
           reasoning:

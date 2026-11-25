@@ -58,8 +58,8 @@ export default function TermsPage() {
         <div className="space-y-12">
           <Section id="agreement" heading="Using Argumend means accepting these terms">
             <p>
-              {SITE_NAME} is operated from argumend.org. By using the site — reading a map, running an
-              analysis, saving a topic, subscribing to the newsletter — you accept these terms. If you
+              {SITE_NAME} is operated from argumend.org. By using the site (reading a map, running an
+              analysis, saving a topic, subscribing to the newsletter) you accept these terms. If you
               do not accept them, please do not use the site.
             </p>
           </Section>
@@ -80,8 +80,8 @@ export default function TermsPage() {
               they do not rule on who is right. A confidence or strength score describes how well an
               argument is evidenced <em>in the material supplied</em>, not how true it is. Treat the
               output as a reading aid and a starting point for your own judgement, not as a finding
-              of fact, and not as professional advice of any kind — legal, medical, financial, or
-              otherwise.
+              of fact, and not as professional advice of any kind (legal, medical, financial, or
+              otherwise).
             </p>
             <p>
               Outputs are generated in part by AI models, which make mistakes: they misattribute
@@ -138,7 +138,7 @@ export default function TermsPage() {
             </p>
             <p>
               If you choose to publish a report, you extend that licence for the published report
-              only — including the short quotations it contains — so we can host it and serve it to
+              only, including the short quotations it contains, so we can host it and serve it to
               anyone holding the link, for as long as you leave it published. Delete the report and
               that extension ends.
             </p>
@@ -159,8 +159,8 @@ export default function TermsPage() {
               not republish substantial parts wholesale or pass the work off as your own.
             </p>
             <Pending>
-              Decide the licence for Argumend&rsquo;s published maps and analyses — all rights
-              reserved, or an open licence such as CC BY — and state it here. The repository itself
+              Decide the licence for Argumend&rsquo;s published maps and analyses (all rights
+              reserved, or an open licence such as CC BY) and state it here. The repository itself
               carries its own licence file, which is separate from this question.
             </Pending>
           </Section>
@@ -200,21 +200,21 @@ export default function TermsPage() {
             <p>
               To the fullest extent the law allows, Argumend and the people behind it are not liable
               for indirect, incidental, special, consequential, or punitive damages, or for lost
-              profits, lost data, or reputational harm, arising out of your use of the site — whatever
+              profits, lost data, or reputational harm, arising out of your use of the site, whatever
               the legal theory, and even if we were told such damage was possible.
             </p>
             <Pending>
               Set the aggregate liability cap. [A typical formulation is the greater of the amount you
-              paid Argumend in the preceding twelve months — currently nothing — and a fixed floor.]
+              paid Argumend in the preceding twelve months, currently nothing, and a fixed floor.]
               Also decide whether any consumer rights that cannot be excluded need a carve-out.
             </Pending>
           </Section>
 
           <Section id="indemnity" heading="Your responsibility for what you submit">
             <p>
-              If a third party brings a claim against us because of text you submitted or published —
-              for example, someone whose private messages you pasted, or whose copyright you passed on
-              — you agree to cover the reasonable costs of dealing with that claim, to the extent it
+              If a third party brings a claim against us because of text you submitted or published
+              (for example, someone whose private messages you pasted, or whose copyright you passed on)
+              you agree to cover the reasonable costs of dealing with that claim, to the extent it
               arises from what you submitted.
             </p>
             <Pending>
@@ -226,7 +226,7 @@ export default function TermsPage() {
           <Section id="law" heading="Governing law and disputes">
             <Pending>
               Choose the governing law and the forum for disputes, and decide whether to require
-              arbitration or leave disputes to the courts. [Jurisdiction placeholder — to be set
+              arbitration or leave disputes to the courts. [Jurisdiction placeholder, to be set
               alongside the entity Argumend operates through.]
             </Pending>
           </Section>
@@ -235,7 +235,7 @@ export default function TermsPage() {
             <p>
               We may change these terms. When we do, we update the date at the top of the page, and
               continuing to use Argumend after that means you accept the new version. If a change
-              matters — a new AI provider receiving your text, say — we will also change the
+              matters (a new AI provider receiving your text, say) we will also change the
               disclosure beside the submit button, which reads from the same list in the source code
               as the privacy policy does.
             </p>

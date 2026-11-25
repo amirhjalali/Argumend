@@ -16,7 +16,7 @@ export function buildTopic(data: TopicInput): Topic {
   const computedWeight = computeWeight(data.pillars);
 
   // Settled topics: trust the authored score as a floor on the tilt, and
-  // guarantee a weight floor — "settled" is an editorial assertion of both.
+  // guarantee a weight floor: "settled" is an editorial assertion of both.
   const balance =
     data.status === "settled"
       ? Math.max(computedBalance, data.confidence_score ?? 0)
@@ -31,7 +31,7 @@ export function buildTopic(data: TopicInput): Topic {
   const tags = Array.from(new Set([data.category, ...(data.tags ?? [])]));
 
   // A "settled" quadrant that one evidence relabel could erase is demoted to
-  // "moderate" + fragile — unless the topic is authored `status: "settled"`,
+  // "moderate" + fragile: unless the topic is authored `status: "settled"`,
   // where the editorial pin keeps the word but still flags it fragile.
   // balance and weight are published unchanged either way.
   const sensitivity = topicVerdictSensitivity({ pillars: data.pillars, balance, weight });
@@ -47,6 +47,6 @@ export function buildTopic(data: TopicInput): Topic {
       sensitivity,
       data.status
     ),
-    confidence_score: balance, // @deprecated mirror — JSON-LD + unmigrated surfaces only
+    confidence_score: balance, // @deprecated mirror, JSON-LD + unmigrated surfaces only
   });
 }

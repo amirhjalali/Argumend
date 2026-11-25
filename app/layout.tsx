@@ -77,7 +77,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://argumend.org"),
   title: {
-    default: "ARGUMEND — Find what the argument actually turns on",
+    default: "ARGUMEND: Find what the argument actually turns on",
     template: "%s | ARGUMEND",
   },
   description: `${SITE_DESCRIPTION} ${L} maps, free to read.`,
@@ -102,20 +102,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://argumend.org",
     siteName: "ARGUMEND",
-    title: "ARGUMEND — Find what the argument actually turns on",
+    title: "ARGUMEND: Find what the argument actually turns on",
     description: SITE_DESCRIPTION,
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "ARGUMEND — Disagree better.",
+        alt: "A tangle of teal and rust thread on paper beside the words: Find what the argument actually turns on.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ARGUMEND — Find what the argument actually turns on",
+    title: "ARGUMEND: Find what the argument actually turns on",
     description: SITE_DESCRIPTION,
     images: ["/og.png"],
   },

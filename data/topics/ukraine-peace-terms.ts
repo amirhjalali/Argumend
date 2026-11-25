@@ -4,7 +4,7 @@ export const ukrainePeaceTermsData = {
   question:
     "Would a deal freezing current lines end the war on acceptable terms?",
   meta_claim:
-    "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
+    "A negotiated settlement that freezes the war along current lines, ratifying territorial reality, barring NATO membership, and lifting sanctions, would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
   status: "contested" as const,
   category: "policy" as const,
   // Words readers use for this question that the map's own text does not.
@@ -45,9 +45,9 @@ export const ukrainePeaceTermsData = {
         "The original US 28-point plan would have treated Crimea, Luhansk, and Donetsk as de facto Russian; the later 20-point draft would instead freeze the current line of contact, with any special zone subject to Ukraine's parliament or a referendum. Critics say any concession rewards aggression. The dispute turns on whether ratifying battlefield reality buys durable peace or merely buys time before the next invasion.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Ceding territory under duress rewards aggression and sets a catastrophic precedent. The original 28-point plan recognized Crimea, Luhansk, and Donetsk as 'de facto Russian, including by the United States' and demanded Ukraine withdraw from the part of Donetsk Oblast it still holds — about 2,500 square miles Russia had not captured, by CSIS's count. The Kremlin still wants that land: in October 2026 ISW described it as 'repeatedly demanding that Ukraine cede territory, including areas which Russian forces do not currently control.' SWP estimated in 2024 that around 3.47 million people live in the areas Russia occupies, and a freeze would leave them there. Zelensky has said any territorial settlement requires a national referendum because no leader can constitutionally sign away sovereign land. An unjust peace is also an existential threat to Poland and the Baltics, who see themselves as the next dominoes.",
+        "Ceding territory under duress rewards aggression and sets a catastrophic precedent. The original 28-point plan recognized Crimea, Luhansk, and Donetsk as 'de facto Russian, including by the United States' and demanded Ukraine withdraw from the part of Donetsk Oblast it still holds, about 2,500 square miles Russia had not captured, by CSIS's count. The Kremlin still wants that land: in October 2026 ISW described it as 'repeatedly demanding that Ukraine cede territory, including areas which Russian forces do not currently control.' SWP estimated in 2024 that around 3.47 million people live in the areas Russia occupies, and a freeze would leave them there. Zelensky has said any territorial settlement requires a national referendum because no leader can constitutionally sign away sovereign land. An unjust peace is also an existential threat to Poland and the Baltics, who see themselves as the next dominoes.",
       proponent_rebuttal:
-        "The front line moves only marginally: ISW measured net changes of 80.81 square kilometers in September 2026 and 27.29 in October, both slightly in Ukraine's favor, so Ukraine cannot realistically retake Crimea or the Donbas by force on any feasible time horizon — the maps make this plain. Continuing to fight for territory that cannot be liberated only adds to the 80,000-110,000 Ukrainian dead and the acute manpower crisis. Ratifying de facto control without de jure recognition of Russian sovereignty — the Korea-style armistice model — stops the killing while preserving Ukraine's legal claim. The 20-point draft that US and Ukrainian negotiators agreed in December 2025 replaced the 28-point plan's forced withdrawal from unoccupied Donetsk with a freeze at the current line of contact and a working group on force redeployment, with any special zone needing approval by Ukraine's parliament or a referendum.",
+        "The front line moves only marginally: ISW measured net changes of 80.81 square kilometers in September 2026 and 27.29 in October, both slightly in Ukraine's favor, so Ukraine cannot realistically retake Crimea or the Donbas by force on any feasible time horizon; the maps make this plain. Continuing to fight for territory that cannot be liberated only adds to the 80,000-110,000 Ukrainian dead and the acute manpower crisis. Ratifying de facto control without de jure recognition of Russian sovereignty, the Korea-style armistice model, stops the killing while preserving Ukraine's legal claim. The 20-point draft that US and Ukrainian negotiators agreed in December 2025 replaced the 28-point plan's forced withdrawal from unoccupied Donetsk with a freeze at the current line of contact and a working group on force redeployment, with any special zone needing approval by Ukraine's parliament or a referendum.",
       crux: {
         id: "line-of-contact-feasibility",
         title: "The Battlefield Reversibility Test",
@@ -66,13 +66,13 @@ export const ukrainePeaceTermsData = {
           "$0 (ISW and RUSI assessments are public; the forecast itself is contested and cannot be settled before the fact)",
         falsification: {
           supporter_flip:
-            "If ISW terrain data over a rolling 12 months showed Russian offensive capacity genuinely collapsing — net territorial change turning in Ukraine's favor as Russian casualties and equipment losses outran replacement — holding out for better terms would be rational and a freeze at current lines would look premature.",
+            "If ISW terrain data over a rolling 12 months showed Russian offensive capacity genuinely collapsing, net territorial change turning in Ukraine's favor as Russian casualties and equipment losses outran replacement, holding out for better terms would be rational and a freeze at current lines would look premature.",
           skeptic_flip:
             "If the front line kept moving only marginally, as ISW's 2026 monthly tallies show, and a Korea-style armistice ratified de facto control while preserving Ukraine's legal claim, 'a reward for aggression' would describe a freeze poorly.",
           common_ground:
             "Both sides agree the front line has moved little in 2026, and that any freeze would leave millions of Ukrainians in territory Russia now occupies.",
           live_disagreement:
-            "Whether ratifying battlefield reality without formal recognition buys a durable peace or only time before the next invasion — and whether any leader can cede territory without the national referendum Zelensky says the constitution requires.",
+            "Whether ratifying battlefield reality without formal recognition buys a durable peace or only time before the next invasion, and whether any leader can cede territory without the national referendum Zelensky says the constitution requires.",
         },
       },
       evidence: [
@@ -156,19 +156,19 @@ export const ukrainePeaceTermsData = {
       id: "security-guarantees-nato",
       title: "What Would Stop Russia Attacking Again?",
       short_summary:
-        "Any settlement must answer what stops Russia from attacking again. At the January 2026 Paris talks the UK and France pledged to deploy forces in Ukraine after a ceasefire as part of a 'coalition of the willing' multinational force, but Russia flatly rejects any NATO troops in Ukraine — producing a security-guarantee paradox: guarantees weak enough for Russia to accept won't deter, and guarantees strong enough to deter won't be accepted.",
+        "Any settlement must answer what stops Russia from attacking again. At the January 2026 Paris talks the UK and France pledged to deploy forces in Ukraine after a ceasefire as part of a 'coalition of the willing' multinational force, but Russia flatly rejects any NATO troops in Ukraine, producing a security-guarantee paradox: guarantees weak enough for Russia to accept won't deter, and guarantees strong enough to deter won't be accepted.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "A permanent NATO bar plus a capped Ukrainian military leaves Ukraine defenseless against a regime that has shown it will re-attack. Putin's Foreign Ministry has flatly ruled out NATO troops in Ukraine, and any guarantee Russia will accept is by definition too weak to deter. Without a credible Western tripwire, an armistice becomes a rearm-and-relaunch runway: Russia uses the pause to reconstitute its forces and invades again in five years, exactly as it did between 2014 and 2022. A deal Russia rejects is better than a deal Ukraine cannot survive.",
       proponent_rebuttal:
-        "Permanent NATO membership for Ukraine was always a core driver of Russian security fears and is not worth a nuclear confrontation; ruling it out removes Moscow's central casus belli. Credible deterrence does not require NATO Article 5 — at the January 2026 Paris talks the coalition of the willing pledged UK and French 'military hubs' across Ukraine after a ceasefire and a multinational force that European officials put at 15,000-20,000 troops, plus heavy continued Western armament of unoccupied Ukraine. This is the Korea model: no formal alliance membership, but a forward-deployed deterrent and an indefinitely armed Ukraine. A deal structured with credible tripwires and a Russian sanctions-relief incentive can be made to hold.",
+        "Permanent NATO membership for Ukraine was always a core driver of Russian security fears and is not worth a nuclear confrontation; ruling it out removes Moscow's central casus belli. Credible deterrence does not require NATO Article 5, at the January 2026 Paris talks the coalition of the willing pledged UK and French 'military hubs' across Ukraine after a ceasefire and a multinational force that European officials put at 15,000-20,000 troops, plus heavy continued Western armament of unoccupied Ukraine. This is the Korea model: no formal alliance membership, but a forward-deployed deterrent and an indefinitely armed Ukraine. A deal structured with credible tripwires and a Russian sanctions-relief incentive can be made to hold.",
       crux: {
         id: "security-guarantee-paradox",
         title: "The Security-Guarantee Paradox",
         question:
           "Is there a security guarantee strong enough to deter Russia that Russia would also accept?",
         description:
-          "The decisive question is whether any security guarantee exists that is simultaneously (a) strong enough to deter a future Russian attack and (b) acceptable to Russia as part of a deal. If the two sets are disjoint — every Russia-acceptable guarantee is too weak, every deterrent-grade guarantee is Russia-rejected — then no negotiated settlement can be both durable and signable, and the war ends only on the battlefield.",
+          "The decisive question is whether any security guarantee exists that is simultaneously (a) strong enough to deter a future Russian attack and (b) acceptable to Russia as part of a deal. If the two sets are disjoint, every Russia-acceptable guarantee is too weak, every deterrent-grade guarantee is Russia-rejected, then no negotiated settlement can be both durable and signable, and the war ends only on the battlefield.",
         methodology:
           "Map the spectrum of proposed guarantees (bilateral arms supply, European tripwire force, NATO membership, Article 5) against two independent assessments: Russian stated red lines (Foreign Ministry and Putin statements) for acceptability, and military-balance analysis (RUSI, ISW) for deterrent credibility. Identify whether any point on the spectrum satisfies both. Stress-test against the 2014-2022 precedent, where the Minsk agreements' weak guarantees failed to prevent full-scale invasion.",
         verification_status: "theoretical" as const,
@@ -180,13 +180,13 @@ export const ukrainePeaceTermsData = {
           "$500K-1M (Structured net-assessment and red-line analysis; the underlying question is a forecast about Russian intent that cannot be fully resolved in advance)",
         falsification: {
           supporter_flip:
-            "If mapping every proposed guarantee — bilateral arms, a European tripwire force, NATO membership, Article 5 — against Russia's stated red lines and military-balance analysis found no option both acceptable to Russia and strong enough to deter, no settlement could be both durable and signable, and the case for a deal would fail.",
+            "If mapping every proposed guarantee, bilateral arms, a European tripwire force, NATO membership, Article 5, against Russia's stated red lines and military-balance analysis found no option both acceptable to Russia and strong enough to deter, no settlement could be both durable and signable, and the case for a deal would fail.",
           skeptic_flip:
             "If the January 2026 Paris offer held, with UK and French military hubs, a multinational force European officials put at 15,000-20,000 troops and continued heavy armament of unoccupied Ukraine, deterrence on the Korea model without NATO membership would look like more than a rearm-and-relaunch runway.",
           common_ground:
             "Both sides agree any deal must answer what stops Russia from attacking again, and that Russia has so far rejected any NATO troops in Ukraine.",
           live_disagreement:
-            "Whether a guarantee exists that Russia would accept and that would still deter — a European tripwire plus an armed Ukraine — or whether every guarantee strong enough to deter is one Russia will refuse.",
+            "Whether a guarantee exists that Russia would accept and that would still deter, a European tripwire plus an armed Ukraine, or whether every guarantee strong enough to deter is one Russia will refuse.",
         },
       },
       evidence: [
@@ -211,7 +211,7 @@ export const ukrainePeaceTermsData = {
           id: "russia-rejects-nato-troops",
           title: "Russia Flatly Rejects Any NATO Troops in Ukraine",
           description:
-            "Russia's Foreign Ministry has stated that NATO troops in Ukraine are unacceptable, and Putin has personally ruled out any such deployment. Because the UK-French multinational force is precisely the kind of guarantee strong enough to deter, its categorical rejection by Moscow substantiates the skeptic claim that no deterrent-grade guarantee is signable — the security-guarantee paradox in operation.",
+            "Russia's Foreign Ministry has stated that NATO troops in Ukraine are unacceptable, and Putin has personally ruled out any such deployment. Because the UK-French multinational force is precisely the kind of guarantee strong enough to deter, its categorical rejection by Moscow substantiates the skeptic claim that no deterrent-grade guarantee is signable, the security-guarantee paradox in operation.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -228,7 +228,7 @@ export const ukrainePeaceTermsData = {
           id: "conversation-guarantee-paradox",
           title: "Rutland (2025): Guarantees Too Weak Won't Deter, and Too Strong Moscow Won't Sign",
           description:
-            "In an August 2025 analysis for The Conversation, Wesleyan University's Peter Rutland summarized the structural dilemma: if too weak, security guarantees 'provide no real deterrence to future Russian aggression; too stringent, and they will never be accepted by Moscow in the first place.' This framing captures why the security question, not territory, may be the binding constraint on any durable deal — and why both the tripwire and the NATO bar are individually insufficient.",
+            "In an August 2025 analysis for The Conversation, Wesleyan University's Peter Rutland summarized the structural dilemma: if too weak, security guarantees 'provide no real deterrence to future Russian aggression; too stringent, and they will never be accepted by Moscow in the first place.' This framing captures why the security question, not territory, may be the binding constraint on any durable deal, and why both the tripwire and the NATO bar are individually insufficient.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -273,7 +273,7 @@ export const ukrainePeaceTermsData = {
       skeptic_premise:
         "Lifting sanctions and freezing the war now throws away leverage at the exact moment Russia is breaking. RUSI's Watling and Reynolds estimated in February 2024 that roughly 80% of the tanks and armored vehicles Russia delivers are refurbished from war stocks rather than newly built, forecast that by 2026 Russia 'will have exhausted most of the available stocks,' and wrote that beyond 2026 attrition 'will begin to materially degrade Russian combat power.' Recruitment fell 20% in Q1 2026 to roughly 800 sign-ups per day even as sign-on payments hit record highs, and Western officials told Bloomberg that in January 2026 Russia's battlefield losses outran its replacements by about 9,000. Sweden's military intelligence chief says Russia presents its economic data to look more resilient than it is, with real inflation nearer its 15% key rate than the official 5.86%. Russia must lose decisively, or Beijing, Tehran, and Pyongyang learn that aggression pays.",
       proponent_rebuttal:
-        "Willingness, not capability, is the dominant variable — a Russian autocracy can absorb casualties and economic pain that a democratic Ukraine cannot, and Ukrainian manpower is the binding constraint, not Russian matériel. Sanctions have not coerced Russia despite years of maximum pressure; using sanctions relief as an incentive is the only lever that makes a durable deal attractive to Moscow. Betting Ukrainian lives on a forecast that Russia's attrition curve crosses around 2026 is reckless when that prediction has been made and missed before. Stop treating sanctions relief as a bargaining chip to be withheld and use it to buy peace.",
+        "Willingness, not capability, is the dominant variable: a Russian autocracy can absorb casualties and economic pain that a democratic Ukraine cannot, and Ukrainian manpower is the binding constraint, not Russian matériel. Sanctions have not coerced Russia despite years of maximum pressure; using sanctions relief as an incentive is the only lever that makes a durable deal attractive to Moscow. Betting Ukrainian lives on a forecast that Russia's attrition curve crosses around 2026 is reckless when that prediction has been made and missed before. Stop treating sanctions relief as a bargaining chip to be withheld and use it to buy peace.",
       crux: {
         id: "russian-attrition-crossover",
         title: "The Attrition-Crossover Forecast",
@@ -282,7 +282,7 @@ export const ukrainePeaceTermsData = {
         description:
           "The highest-leverage empirical disagreement: can Russia sustain another year of offensive attrition, or does its combat power materially degrade within the next twelve months? If Russian armored stocks, recruitment, and fiscal capacity are genuinely crossing a depletion threshold, withholding sanctions relief and continuing to arm Ukraine extracts better terms. If Russian willingness dominates and the autocracy can outlast Ukrainian manpower, prolonging the war only raises the body count without improving the outcome.",
         methodology:
-          "Track three time series against each other: (1) Russian armored-vehicle availability — new build vs. refurbishment vs. depot drawdown (RUSI, satellite imagery of storage bases); (2) monthly Russian recruitment net of casualties (Janis Kluge's sign-up data, Mediazona confirmed KIA, Ukraine MoD high estimates, each with stated methodology); (3) Russian fiscal stress and real inflation (Bank of Russia data cross-checked against Sweden's MUST and BOFIT independent estimates). Identify whether the depletion threshold is crossed before Ukrainian manpower is exhausted.",
+          "Track three time series against each other: (1) Russian armored-vehicle availability, new build vs. refurbishment vs. depot drawdown (RUSI, satellite imagery of storage bases); (2) monthly Russian recruitment net of casualties (Janis Kluge's sign-up data, Mediazona confirmed KIA, Ukraine MoD high estimates, each with stated methodology); (3) Russian fiscal stress and real inflation (Bank of Russia data cross-checked against Sweden's MUST and BOFIT independent estimates). Identify whether the depletion threshold is crossed before Ukrainian manpower is exhausted.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
@@ -357,7 +357,7 @@ export const ukrainePeaceTermsData = {
           id: "willingness-dominates-capability",
           title: "Carnegie (March 2026): Ukraine Faces an 'increasingly acute' Manpower Shortage",
           description:
-            "The restraint camp counters that Russia's autocracy can absorb pain Ukraine cannot, making willingness — not capability — the dominant variable. Carnegie's March 2026 study opens: 'Ukraine is facing an increasingly acute military manpower challenge,' citing severe shortages in frontline units, reduced voluntary recruitment, fatigue among long-serving personnel, record rates of absence without leave, and growing public unease with mobilization practices. In August 2026 Kyrylo Budanov, head of Ukraine's Presidential Office, said 'we cannot mobilise fewer than 30,000 people a month. This is the minimum number needed to maintain what we have.' Zelensky has refused to lower the mobilization age to 18: 'I do not believe that we should mobilize people from the age of 18,' he said in June 2025. If Ukrainian manpower fails first, prolonging the war worsens Ukraine's position.",
+            "The restraint camp counters that Russia's autocracy can absorb pain Ukraine cannot, making willingness, not capability, the dominant variable. Carnegie's March 2026 study opens: 'Ukraine is facing an increasingly acute military manpower challenge,' citing severe shortages in frontline units, reduced voluntary recruitment, fatigue among long-serving personnel, record rates of absence without leave, and growing public unease with mobilization practices. In August 2026 Kyrylo Budanov, head of Ukraine's Presidential Office, said 'we cannot mobilise fewer than 30,000 people a month. This is the minimum number needed to maintain what we have.' Zelensky has refused to lower the mobilization age to 18: 'I do not believe that we should mobilize people from the age of 18,' he said in June 2025. If Ukrainian manpower fails first, prolonging the war worsens Ukraine's position.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -397,19 +397,19 @@ export const ukrainePeaceTermsData = {
       id: "ceasefire-vs-just-peace",
       title: "Would a Freeze Hold, and What Would It Teach Beijing?",
       short_summary:
-        "Even if a freeze is achievable, would it be a stable Korea-style armistice or a fragile pause Putin exploits — and what does settling at current lines teach China about Taiwan? The dispute pits stopping the killing now against the risk that an unjust peace emboldens the next aggressor.",
+        "Even if a freeze is achievable, would it be a stable Korea-style armistice or a fragile pause Putin exploits, and what does settling at current lines teach China about Taiwan? The dispute pits stopping the killing now against the risk that an unjust peace emboldens the next aggressor.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "A ceasefire at current lines is not peace — it is a frozen conflict that emboldens aggressors worldwide. If Beijing reads a settlement at current lines as proof that aggression pays, it raises the probability of a Taiwan move in 2027-2030; Atlanticists treat this demonstration effect as nearly axiomatic. The Korea analogy is misleading: there was no four-year attrition war preceding the 1953 armistice, and Putin's regime, unlike a contained North Korea, is structurally committed to continued expansion. Stopping now to spare casualties trades a finite present cost for a larger future war.",
+        "A ceasefire at current lines is not peace; it is a frozen conflict that emboldens aggressors worldwide. If Beijing reads a settlement at current lines as proof that aggression pays, it raises the probability of a Taiwan move in 2027-2030; Atlanticists treat this demonstration effect as nearly axiomatic. The Korea analogy is misleading: there was no four-year attrition war preceding the 1953 armistice, and Putin's regime, unlike a contained North Korea, is structurally committed to continued expansion. Stopping now to spare casualties trades a finite present cost for a larger future war.",
       proponent_rebuttal:
-        "The realistic stable equilibrium is precisely a Korea-style armistice along the line of contact — no formal recognition of Russian sovereignty, no NATO membership, but heavy Western armament of unoccupied Ukraine and a long-term containment posture. Total Ukrainian victory is fantasy and total Russian victory is intolerable, so a managed freeze is the only outcome that ends the killing without surrender. The demonstration-effect claim is overstated: Taiwan is geographically and economically nothing like Ukraine, and the lessons China is actually drawing are operational (drones, AI, electronic warfare) rather than a strategic green light. Deterrence is more situational than reputational.",
+        "The realistic stable equilibrium is precisely a Korea-style armistice along the line of contact, no formal recognition of Russian sovereignty, no NATO membership, but heavy Western armament of unoccupied Ukraine and a long-term containment posture. Total Ukrainian victory is fantasy and total Russian victory is intolerable, so a managed freeze is the only outcome that ends the killing without surrender. The demonstration-effect claim is overstated: Taiwan is geographically and economically nothing like Ukraine, and the lessons China is actually drawing are operational (drones, AI, electronic warfare) rather than a strategic green light. Deterrence is more situational than reputational.",
       crux: {
         id: "demonstration-effect-china",
         title: "The Demonstration-Effect Test",
         question:
           "Would a settlement at current lines make a Chinese move on Taiwan more or less likely?",
         description:
-          "Does a negotiated settlement at current lines raise or lower the probability of a Chinese move on Taiwan in 2027-2030? This turns on whether deterrence is dominantly reputational — a signal that travels across cases, so conceding in Ukraine invites aggression elsewhere — or situational, specific to local military and economic balances. The crux is a long-running international-relations dispute that maps directly onto whether 'unjust peace' carries global costs or is contained to the Ukrainian theater.",
+          "Does a negotiated settlement at current lines raise or lower the probability of a Chinese move on Taiwan in 2027-2030? This turns on whether deterrence is dominantly reputational, a signal that travels across cases, so conceding in Ukraine invites aggression elsewhere, or situational, specific to local military and economic balances. The crux is a long-running international-relations dispute that maps directly onto whether 'unjust peace' carries global costs or is contained to the Ukrainian theater.",
         methodology:
           "Operationalize the reputational-vs-situational debate: track Chinese military posture indicators around Taiwan (PLA exercises, amphibious-lift production, gray-zone incursions) before and after any Ukraine settlement, and compare against AEI/CSIS China-Taiwan assessments of which lessons Beijing is drawing (operational vs. strategic). Reference the IR literature on credibility (e.g., Daryl Press, 'Calculating Credibility') to weight whether past concessions historically predicted future challenges. This is a probabilistic forecast, not a settleable fact.",
         verification_status: "impossible" as const,
@@ -418,7 +418,7 @@ export const ukrainePeaceTermsData = {
             "PLA exercises, amphibious-lift production and gray-zone incursions around Taiwan tracked before and after any Ukraine settlement, read against AEI and CSIS assessments of whether Beijing's lessons are operational or strategic.",
         },
         cost_to_verify:
-          "Unbounded — the counterfactual (whether China attacks Taiwan because of a Ukraine deal) cannot be observed; only correlational indicators can be tracked after the fact",
+          "Unbounded, the counterfactual (whether China attacks Taiwan because of a Ukraine deal) cannot be observed; only correlational indicators can be tracked after the fact",
         falsification: {
           supporter_flip:
             "If PLA exercises, amphibious-lift production and gray-zone incursions around Taiwan rose after a settlement at current lines, and assessments found China drawing the strategic lesson that aggression pays, the demonstration effect would be real and a freeze would carry costs far beyond Ukraine.",
@@ -427,7 +427,7 @@ export const ukrainePeaceTermsData = {
           common_ground:
             "Both sides agree a settlement at current lines would be a frozen, Korea-style armistice without formal resolution rather than a peace treaty.",
           live_disagreement:
-            "Whether deterrence is mainly reputational, so a settlement at current lines raises the odds of a Taiwan move in 2027-2030, or mainly situational, so Ukraine's lessons stay local — and whether the pause would hold or let Russia rearm.",
+            "Whether deterrence is mainly reputational, so a settlement at current lines raises the odds of a Taiwan move in 2027-2030, or mainly situational, so Ukraine's lessons stay local, and whether the pause would hold or let Russia rearm.",
         },
       },
       evidence: [
@@ -435,7 +435,7 @@ export const ukrainePeaceTermsData = {
           id: "haass-kupchan-frozen-conflict",
           title: "Haass and Kupchan: Prepare a Korea-Style Ceasefire Behind a Demilitarized Zone",
           description:
-            "In Foreign Affairs, Richard Haass and Charles Kupchan argued the West should begin laying the groundwork for a ceasefire, with both sides pulling back to create a demilitarized zone — a Korea-style armistice without formal resolution, indefinite forward deployment of Western weapons (not necessarily troops), and continued non-recognition of de jure annexation. This is the most developed expert case that a managed freeze is the realistic stable equilibrium.",
+            "In Foreign Affairs, Richard Haass and Charles Kupchan argued the West should begin laying the groundwork for a ceasefire, with both sides pulling back to create a demilitarized zone, a Korea-style armistice without formal resolution, indefinite forward deployment of Western weapons (not necessarily troops), and continued non-recognition of de jure annexation. This is the most developed expert case that a managed freeze is the realistic stable equilibrium.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -469,7 +469,7 @@ export const ukrainePeaceTermsData = {
           id: "aei-china-operational-lessons",
           title: "AEI: China Is Drawing Operational, Not Strategic, Lessons From Ukraine",
           description:
-            "AEI's China-Taiwan Update assessed that the lessons China is drawing from Ukraine are predominantly operational — drones, AI, electronic warfare, logistics — rather than a strategic conclusion that aggression pays. Combined with the restraint-camp argument that Taiwan is geographically and economically unlike Ukraine, this undercuts the reputational-deterrence premise behind the 'unjust peace emboldens China' claim.",
+            "AEI's China-Taiwan Update assessed that the lessons China is drawing from Ukraine are predominantly operational, drones, AI, electronic warfare, logistics, rather than a strategic conclusion that aggression pays. Combined with the restraint-camp argument that Taiwan is geographically and economically unlike Ukraine, this undercuts the reputational-deterrence premise behind the 'unjust peace emboldens China' claim.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -504,15 +504,15 @@ export const ukrainePeaceTermsData = {
   ],
   references: [
     {
-      title: "Russian Offensive Campaign Assessment, November 1, 2026 — Institute for the Study of War / Critical Threats",
+      title: "Russian Offensive Campaign Assessment, November 1, 2026: Institute for the Study of War / Critical Threats",
       url: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-1-2026",
     },
     {
-      title: "Russian Offensive Campaign Assessment, October 16, 2026 — Institute for the Study of War / Critical Threats",
+      title: "Russian Offensive Campaign Assessment, October 16, 2026: Institute for the Study of War / Critical Threats",
       url: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-october-16-2026",
     },
     {
-      title: "Trump and Zelenskyy say they're nearly in agreement on Ukraine peace plan — CBS News (28 December 2025)",
+      title: "Trump and Zelenskyy say they're nearly in agreement on Ukraine peace plan: CBS News (28 December 2025)",
       url: "https://www.cbsnews.com/amp/live-updates/trump-zelenskyy-meeting-florida",
     },
     {
@@ -520,43 +520,43 @@ export const ukrainePeaceTermsData = {
       url: "https://time.com/7379321/ukraine-russia-peace-talks-end-zelensky-trump-clash/",
     },
     {
-      title: "Zelensky Reveals New 20-Point Plan to End Ukraine War — The Moscow Times",
+      title: "Zelensky Reveals New 20-Point Plan to End Ukraine War: The Moscow Times",
       url: "https://www.themoscowtimes.com/2025/12/24/zelensky-reveals-new-20-point-plan-to-end-ukraine-war-a91532",
     },
     {
-      title: "The Unfinished Plan for Peace in Ukraine: Provision by Provision — CSIS",
+      title: "The Unfinished Plan for Peace in Ukraine: Provision by Provision: CSIS",
       url: "https://www.csis.org/analysis/unfinished-plan-peace-ukraine-provision-provision",
     },
     {
-      title: "Russia in the Occupied Territories of Ukraine — SWP Comment (Nikolay Petrov, September 2024)",
+      title: "Russia in the Occupied Territories of Ukraine: SWP Comment (Nikolay Petrov, September 2024)",
       url: "https://www.swp-berlin.org/publications/products/comments/2024C38_OccupiedTerritoriesUkraine.pdf",
     },
     {
-      title: "Russian Military Objectives and Capacity in Ukraine Through 2024 — RUSI (Watling & Reynolds)",
+      title: "Russian Military Objectives and Capacity in Ukraine Through 2024: RUSI (Watling & Reynolds)",
       url: "https://www.rusi.org/explore-our-research/publications/commentary/russian-military-objectives-and-capacity-ukraine-through-2024",
     },
     {
-      title: "Russia's Aggression in Ukraine Will Persist Through 2026 — RUSI",
+      title: "Russia's Aggression in Ukraine Will Persist Through 2026: RUSI",
       url: "https://www.rusi.org/explore-our-research/publications/commentary/russias-aggression-ukraine-will-persist-through-2026",
     },
     {
-      title: "The Security-Guarantee Paradox — The Conversation",
+      title: "The Security-Guarantee Paradox: The Conversation",
       url: "https://theconversation.com/the-security-guarantee-paradox-too-weak-and-it-wont-protect-ukraine-too-robust-and-russia-wont-accept-it-263518",
     },
     {
-      title: "Rethinking Ukraine's Manpower Challenge — Carnegie Endowment for International Peace",
+      title: "Rethinking Ukraine's Manpower Challenge: Carnegie Endowment for International Peace",
       url: "https://carnegieendowment.org/research/2026/03/ukraine-military-russia-war-manpower-recruitment",
     },
     {
-      title: "The Cost of an Unjust Peace in Ukraine: An Emboldened China — Atlantic Council",
+      title: "The Cost of an Unjust Peace in Ukraine: An Emboldened China: Atlantic Council",
       url: "https://www.atlanticcouncil.org/blogs/new-atlanticist/the-cost-of-an-unjust-peace-in-ukraine-an-emboldened-china/",
     },
     {
-      title: "The West Needs a New Strategy in Ukraine — Foreign Affairs (Haass & Kupchan)",
+      title: "The West Needs a New Strategy in Ukraine: Foreign Affairs (Haass & Kupchan)",
       url: "https://www.foreignaffairs.com/ukraine/russia-richard-haass-west-battlefield-negotiations",
     },
     {
-      title: "Frequently Asked Questions About the Russia-Ukraine Negotiations — Quincy Institute",
+      title: "Frequently Asked Questions About the Russia-Ukraine Negotiations: Quincy Institute",
       url: "https://quincyinst.org/research/frequently-asked-questions-about-the-russia-ukraine-negotiations/",
     },
   ],
@@ -577,7 +577,7 @@ export const ukrainePeaceTermsData = {
       id: "q3",
       title: "Would a settlement at current lines embolden China over Taiwan?",
       content:
-        "Atlanticists treat the demonstration effect as near-axiomatic: conceding in Ukraine teaches Beijing that aggression pays. The restraint camp argues Taiwan is geographically and economically nothing like Ukraine, and that China's lessons are operational rather than strategic. This is the reputational-vs-situational deterrence debate, and it determines whether an 'unjust peace' carries global costs or is contained to the Ukrainian theater — a forecast that cannot be settled before the fact.",
+        "Atlanticists treat the demonstration effect as near-axiomatic: conceding in Ukraine teaches Beijing that aggression pays. The restraint camp argues Taiwan is geographically and economically nothing like Ukraine, and that China's lessons are operational rather than strategic. This is the reputational-vs-situational deterrence debate, and it determines whether an 'unjust peace' carries global costs or is contained to the Ukrainian theater, a forecast that cannot be settled before the fact.",
     },
   ],
 };

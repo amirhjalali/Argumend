@@ -11,7 +11,7 @@ export const DEFAULT_SOCIAL_IMAGE = {
   url: DEFAULT_SOCIAL_IMAGE_URL,
   width: OG_WIDTH,
   height: OG_HEIGHT,
-  alt: "ARGUMEND — See both sides. Find the crux.",
+  alt: "ARGUMEND: See both sides. Find the crux.",
 } as const;
 
 export function truncateOgText(value: string, maxCharacters: number): string {

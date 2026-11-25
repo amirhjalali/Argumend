@@ -30,9 +30,9 @@ export const factoryFarmingBanData = {
         "By one estimate about 99% of US farmed animals live on factory farms. The ethics hinge on how much moral weight you give a pig or a chicken, and on what changing the system would cost.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Animal welfare standards have improved significantly over the past two decades. Cage-free, free-range, and humanely raised options exist for consumers who want them — the market is responding. Banning factory farming would disrupt rural economies that depend on it and raise the cost of animal protein, since pasture systems use far more land per unit of output and grow animals more slowly; that cost burden would fall hardest on low-income households. The exact price increase is uncertain and contested, but the direction is upward. And whether animals are moral patients in a way that overrides these costs is a genuinely unsettled ethical question, not a settled one.",
+        "Animal welfare standards have improved significantly over the past two decades. Cage-free, free-range, and humanely raised options exist for consumers who want them; the market is responding. Banning factory farming would disrupt rural economies that depend on it and raise the cost of animal protein, since pasture systems use far more land per unit of output and grow animals more slowly; that cost burden would fall hardest on low-income households. The exact price increase is uncertain and contested, but the direction is upward. And whether animals are moral patients in a way that overrides these costs is a genuinely unsettled ethical question, not a settled one.",
       proponent_rebuttal:
-        "By the Sentience Institute's estimate, roughly 99% of US farmed animals live in factory farms — 'humane' options are a tiny fraction of production. Conditions include gestation crates so small pigs cannot turn around, battery cages giving hens less space than a sheet of paper, debeaking without anesthesia, and selection for rapid growth that causes skeletal and metabolic failure. The Cambridge Declaration on Consciousness (2012), signed by a group of neuroscientists, concluded that non-human animals including all mammals and birds possess the neurological substrates that generate consciousness — the capacity to have experiences, which is the basis any plausible case for their suffering rests on.",
+        "By the Sentience Institute's estimate, roughly 99% of US farmed animals live in factory farms, 'humane' options are a tiny fraction of production. Conditions include gestation crates so small pigs cannot turn around, battery cages giving hens less space than a sheet of paper, debeaking without anesthesia, and selection for rapid growth that causes skeletal and metabolic failure. The Cambridge Declaration on Consciousness (2012), signed by a group of neuroscientists, concluded that non-human animals including all mammals and birds possess the neurological substrates that generate consciousness, the capacity to have experiences, which is the basis any plausible case for their suffering rests on.",
       crux: {
         id: "sentience-threshold",
         title: "Animal Sentience and Moral Status",
@@ -57,9 +57,9 @@ export const factoryFarmingBanData = {
           skeptic_flip:
             "If pain research kept crediting mammals and birds with the neural substrates of conscious experience, extending the Cambridge Declaration, dismissing farmed-animal suffering would mean drawing a moral line the biology does not support.",
           common_ground:
-            "Both sides agree the vast majority of farmed animals live in intensive confinement, and that whether — and how much — that matters morally is a genuinely contested values question, not a pure empirical one.",
+            "Both sides agree the vast majority of farmed animals live in intensive confinement, and that whether, and how much, that matters morally is a genuinely contested values question, not a pure empirical one.",
           live_disagreement:
-            "How much moral weight farmed-animal suffering carries relative to the economic costs of changing the system — a values judgment no measurement of neural activity can settle by itself.",
+            "How much moral weight farmed-animal suffering carries relative to the economic costs of changing the system, a values judgment no measurement of neural activity can settle by itself.",
         },
       },
       evidence: [
@@ -144,9 +144,9 @@ export const factoryFarmingBanData = {
         "Livestock accounts for 14.5% of global greenhouse emissions, and animals consume about three times the antimicrobials people do. These are public health numbers, not just animal welfare arguments.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Modern intensive agriculture supplies cheap calories and protein at a scale no prior system has matched. Poorly planned plant-based diets risk shortfalls in B12, iron, zinc, and omega-3s, a real concern where food diversity or supplementation is limited — even if well-planned vegan diets can be adequate. Cultivated ('lab-grown') meat is not yet cost-competitive at scale and may take years to match the price and texture of conventional meat. Abruptly dismantling the system that feeds billions, rather than reforming it incrementally, risks food-security and affordability harms that fall hardest on the poor.",
+        "Modern intensive agriculture supplies cheap calories and protein at a scale no prior system has matched. Poorly planned plant-based diets risk shortfalls in B12, iron, zinc, and omega-3s, a real concern where food diversity or supplementation is limited, even if well-planned vegan diets can be adequate. Cultivated ('lab-grown') meat is not yet cost-competitive at scale and may take years to match the price and texture of conventional meat. Abruptly dismantling the system that feeds billions, rather than reforming it incrementally, risks food-security and affordability harms that fall hardest on the poor.",
       proponent_rebuttal:
-        "Animal agriculture produces 14.5% of global greenhouse gas emissions (FAO lifecycle estimate). The often-repeated 'more than all transport combined' line is an apples-to-oranges comparison FAO itself disavows, but the absolute footprint is large regardless. Worldwide, antimicrobial consumption in animals is about threefold that of humans, and confined operations are recognized drivers of antibiotic resistance and a plausible mixing-vessel for novel influenza — commercial swine herds are an established reservoir, and pig–human transmission is documented. Intensive crop and animal agriculture together drive nutrient runoff and ocean dead zones; the Gulf of Mexico hypoxic zone measured about 6,300 square miles in 2021, though NOAA traces its nutrients to cities, farms and other sources across the watershed, not to livestock alone.",
+        "Animal agriculture produces 14.5% of global greenhouse gas emissions (FAO lifecycle estimate). The often-repeated 'more than all transport combined' line is an apples-to-oranges comparison FAO itself disavows, but the absolute footprint is large regardless. Worldwide, antimicrobial consumption in animals is about threefold that of humans, and confined operations are recognized drivers of antibiotic resistance and a plausible mixing-vessel for novel influenza, commercial swine herds are an established reservoir, and pig–human transmission is documented. Intensive crop and animal agriculture together drive nutrient runoff and ocean dead zones; the Gulf of Mexico hypoxic zone measured about 6,300 square miles in 2021, though NOAA traces its nutrients to cities, farms and other sources across the watershed, not to livestock alone.",
       crux: {
         id: "ghg-antibiotic-impact",
         title: "Comprehensive Environmental & Health Cost Accounting",
@@ -166,13 +166,13 @@ export const factoryFarmingBanData = {
         cost_to_verify: "$2M (Multi-disciplinary externality study)",
         falsification: {
           supporter_flip:
-            "If full externality accounting showed factory farming's environmental and health costs are modest next to its cheap-calorie benefits — or that intensive systems are actually lower-impact per unit of protein than the pasture alternatives that would replace them — the public-health case for banning (vs. taxing externalities) would weaken.",
+            "If full externality accounting showed factory farming's environmental and health costs are modest next to its cheap-calorie benefits, or that intensive systems are actually lower-impact per unit of protein than the pasture alternatives that would replace them, the public-health case for banning (vs. taxing externalities) would weaken.",
           skeptic_flip:
             "If full externality accounting tallied livestock's ~14.5% share of global emissions, the medically important antibiotics given to food animals, and confined operations' role in resistance and pandemic risk, and found those costs missing from the price, the status quo would be hard to defend.",
           common_ground:
             "Both sides agree industrial animal agriculture imposes real, unpriced environmental and health externalities, and that intensive systems are also more land-efficient per unit of output than pasture.",
           live_disagreement:
-            "Whether those externalities are large enough to justify banning the system rather than taxing or reforming it — and whether pasture-based alternatives would be better or worse on land use, emissions, and food prices.",
+            "Whether those externalities are large enough to justify banning the system rather than taxing or reforming it, and whether pasture-based alternatives would be better or worse on land use, emissions, and food prices.",
         },
       },
       evidence: [

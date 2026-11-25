@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 import { JsonLd } from "@/components/JsonLd";
 
-const TITLE = "Paste an argument — find what it turns on";
+const TITLE = "Paste an argument: find what it turns on";
 const DESCRIPTION =
   "Paste a conversation, article or draft. Argumend finds its map, the question it turns on and the strongest evidence on each side. It never says who is right.";
 

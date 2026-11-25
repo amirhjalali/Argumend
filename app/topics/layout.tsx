@@ -7,7 +7,7 @@ const SOCIAL_IMAGE = buildGenericOgUrl({
   subtitle: `${L} contested questions, mapped to what they turn on`,
 });
 
-const SOCIAL_TITLE = `Maps — ${L} contested questions | ARGUMEND`;
+const SOCIAL_TITLE = `Maps: ${L} contested questions | ARGUMEND`;
 const SOCIAL_DESCRIPTION =
   "Argument maps of contested questions: each side's case, the evidence, and what would settle it.";
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   // every page under /topics/, which is why map titles went out bare. The
   // default is /topics' own title; its children keep the site suffix.
   title: {
-    default: `Maps — ${L} contested questions`,
+    default: `Maps: ${L} contested questions`,
     template: "%s | ARGUMEND",
   },
   description:

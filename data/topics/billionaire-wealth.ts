@@ -31,7 +31,7 @@ export const billionaireWealthData = {
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Where big fortunes come from — earned or extracted?
+    // PILLAR 1: Where big fortunes come from, earned or extracted?
     // =========================================================================
     {
       id: "economic-impact",
@@ -167,7 +167,7 @@ export const billionaireWealthData = {
     },
 
     // =========================================================================
-    // PILLAR 2: Opportunity — does concentration choke mobility?
+    // PILLAR 2: Opportunity, does concentration choke mobility?
     // =========================================================================
     {
       id: "social-mobility",
@@ -264,7 +264,7 @@ export const billionaireWealthData = {
     },
 
     // =========================================================================
-    // PILLAR 3: Political power — does wealth buy policy?
+    // PILLAR 3: Political power, does wealth buy policy?
     // =========================================================================
     {
       id: "political-power",

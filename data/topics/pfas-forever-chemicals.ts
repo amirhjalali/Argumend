@@ -457,19 +457,19 @@ export const pfasForeverChemicalsData = {
   ],
   references: [
     {
-      title: "Per- and Polyfluoroalkyl Substances (PFAS) — EPA drinking water rule and 2026 proposals",
+      title: "Per- and Polyfluoroalkyl Substances (PFAS): EPA drinking water rule and 2026 proposals",
       url: "https://www.epa.gov/sdwa/and-polyfluoroalkyl-substances-pfas",
     },
     {
-      title: "PFAS in the U.S. Population — ATSDR (NHANES biomonitoring)",
+      title: "PFAS in the U.S. Population: ATSDR (NHANES biomonitoring)",
       url: "https://www.atsdr.cdc.gov/pfas/data-research/facts-stats/index.html",
     },
     {
-      title: "Guidance on PFAS Exposure, Testing, and Clinical Follow-Up — National Academies (2022)",
+      title: "Guidance on PFAS Exposure, Testing, and Clinical Follow-Up: National Academies (2022)",
       url: "https://www.nationalacademies.org/read/26156/chapter/2",
     },
     {
-      title: "IARC Monographs evaluate the carcinogenicity of PFOA and PFOS — IARC (December 2023)",
+      title: "IARC Monographs evaluate the carcinogenicity of PFOA and PFOS: IARC (December 2023)",
       url: "https://www.iarc.who.int/news-events/iarc-monographs-evaluate-the-carcinogenicity-of-perfluorooctanoic-acid-pfoa-and-perfluorooctanesulfonic-acid-pfos/",
     },
     {
@@ -477,11 +477,11 @@ export const pfasForeverChemicalsData = {
       url: "http://www.c8sciencepanel.org/prob_link.html",
     },
     {
-      title: "PFAS National Primary Drinking Water Regulation — Federal Register (26 April 2024)",
+      title: "PFAS National Primary Drinking Water Regulation: Federal Register (26 April 2024)",
       url: "https://www.govinfo.gov/content/pkg/FR-2024-04-26/html/2024-07773.htm",
     },
     {
-      title: "The Evolution of PFAS Epidemiology — Boston et al., Frontiers in Public Health (2025, defense-funded)",
+      title: "The Evolution of PFAS Epidemiology: Boston et al., Frontiers in Public Health (2025, defense-funded)",
       url: "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2025.1532277/full",
     },
   ],

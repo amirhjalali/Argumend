@@ -30,14 +30,14 @@ export const electoralCollegeReformData = {
       skeptic_premise:
         "The Electoral College protects federalism and ensures small states have meaningful influence. It forces candidates to build geographically broad coalitions. A pure popular vote would concentrate campaigns in major cities and ignore rural America. The Founders deliberately rejected direct democracy because they feared tyranny of the majority.",
       proponent_rebuttal:
-        "Under the Electoral College, candidates already ignore 40+ states to focus on 5-7 swing states. Wyoming voters have 3.6x the electoral weight of California voters. In 2000 and 2016, the popular vote winner lost the presidency—outcomes most democracies would consider illegitimate. A 2024 Pew Research survey found 63% of Americans favor replacing the Electoral College with a popular vote, including 46% of Republicans and Republican-leaners (with 53% preferring to keep the Electoral College)—so reform support is not confined to one party, even if it is far stronger among Democrats (80%).",
+        "Under the Electoral College, candidates already ignore 40+ states to focus on 5-7 swing states. Wyoming voters have 3.6x the electoral weight of California voters. In 2000 and 2016, the popular vote winner lost the presidency, outcomes most democracies would consider illegitimate. A 2024 Pew Research survey found 63% of Americans favor replacing the Electoral College with a popular vote, including 46% of Republicans and Republican-leaners (with 53% preferring to keep the Electoral College), so reform support is not confined to one party, even if it is far stronger among Democrats (80%).",
       crux: {
         id: "npvic-enactment",
         title: "National Popular Vote Interstate Compact Reaching 270 EVs",
         question:
           "Can the National Popular Vote compact realistically reach 270 electoral votes?",
         description:
-          "The NPVIC needs states totaling 270 electoral votes to take effect. As of April 2026 it has 222 (18 states plus DC), leaving it 48 short. The remaining states needed lean Republican, and Republican policymakers—who benefited from the Electoral College in 2000 and 2016—have so far shown little incentive to enact it; no state with a Republican trifecta has done so.",
+          "The NPVIC needs states totaling 270 electoral votes to take effect. As of April 2026 it has 222 (18 states plus DC), leaving it 48 short. The remaining states needed lean Republican, and Republican policymakers, who benefited from the Electoral College in 2000 and 2016, have so far shown little incentive to enact it; no state with a Republican trifecta has done so.",
         methodology:
           "Track state-level NPVIC legislation. Analyze political feasibility in remaining states needed to reach 270 EVs. Model legal challenges that would follow enactment.",
         verification_status: "theoretical" as const,
@@ -48,13 +48,13 @@ export const electoralCollegeReformData = {
         cost_to_verify: "$0 (Monitor state legislative actions)",
         falsification: {
           supporter_flip:
-            "If the NPVIC stalled permanently below 270 — the remaining states it needs (which lean Republican and benefited from the Electoral College) keep refusing — then 'replace it with the popular vote' becomes an aspiration with no realistic path, and reform energy would be better spent elsewhere.",
+            "If the NPVIC stalled permanently below 270, the remaining states it needs (which lean Republican and benefited from the Electoral College) keep refusing, then 'replace it with the popular vote' becomes an aspiration with no realistic path, and reform energy would be better spent elsewhere.",
           skeptic_flip:
             "If polling kept showing about 63% of Americans, including a substantial share of Republicans, favoring a popular vote, and another popular-vote loser took the presidency, reform would be hard to dismiss as fringe or partisan noise.",
           common_ground:
             "Both sides agree the NPVIC currently sits at 222 of the 270 electoral votes it needs, and that the remaining path runs through states with little incentive to join.",
           live_disagreement:
-            "Whether the compact can realistically reach 270 given that the states it still needs lean Republican and benefited from the Electoral College — a political question only future legislatures will answer.",
+            "Whether the compact can realistically reach 270 given that the states it still needs lean Republican and benefited from the Electoral College, a political question only future legislatures will answer.",
         },
       },
       evidence: [
@@ -75,7 +75,7 @@ export const electoralCollegeReformData = {
           sourceUrl:
             "https://www.pewresearch.org/short-reads/2024/09/25/majority-of-americans-continue-to-favor-moving-away-from-electoral-college/",
           reasoning:
-            "Gold-standard polling from the most respected survey organization. However, public opinion does not determine constitutional correctness—many constitutional protections exist precisely to override majority preferences.",
+            "Gold-standard polling from the most respected survey organization. However, public opinion does not determine constitutional correctness; many constitutional protections exist precisely to override majority preferences.",
         },
         {
           id: "popular-vote-losses",
@@ -94,7 +94,7 @@ export const electoralCollegeReformData = {
           sourceUrl:
             "https://en.wikipedia.org/wiki/List_of_United_States_presidential_elections_in_which_the_winner_lost_the_popular_vote",
           reasoning:
-            "Indisputable factual record—Gore led Bush by 543,895 votes in 2000 and Clinton led Trump by 2,868,686 votes in 2016. Directness is high because this is exactly the scenario reform proponents want to prevent.",
+            "Indisputable factual record: Gore led Bush by 543,895 votes in 2000 and Clinton led Trump by 2,868,686 votes in 2016. Directness is high because this is exactly the scenario reform proponents want to prevent.",
         },
         {
           id: "federalism-protection",
@@ -112,13 +112,13 @@ export const electoralCollegeReformData = {
             "National Archives, \"About the Electors\" (documents the minimum of 3 electoral votes per state); argument is a common pro–Electoral College interpretation rather than a sourced empirical finding",
           sourceUrl: "https://www.archives.gov/electoral-college/about",
           reasoning:
-            "The factual mechanism is confirmed by the National Archives: every state gets at least 3 electoral votes (one per senator plus one per representative), so low-population states are overrepresented relative to population. The downstream claim that this protects small-state influence is interpretive and empirically questionable—under the current system candidates already concentrate on a handful of swing states, and small states like Wyoming and Vermont are not swing states and receive minimal attention. (Note: the previously cited American Bar Association does not endorse this argument; the ABA has historically criticized the Electoral College as archaic.) Weights lowered accordingly.",
+            "The factual mechanism is confirmed by the National Archives: every state gets at least 3 electoral votes (one per senator plus one per representative), so low-population states are overrepresented relative to population. The downstream claim that this protects small-state influence is interpretive and empirically questionable, under the current system candidates already concentrate on a handful of swing states, and small states like Wyoming and Vermont are not swing states and receive minimal attention. (Note: the previously cited American Bar Association does not endorse this argument; the ABA has historically criticized the Electoral College as archaic.) Weights lowered accordingly.",
         },
         {
           id: "npvic-progress",
           title: "Virginia Brought the NPVIC to 222 of the 270 Electoral Votes It Needs (April 2026)",
           description:
-            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join when Gov. Abigail Spanberger signed the bill on Monday, April 13, 2026, NPR reported). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined—an additional 48 are needed. Every state that has enacted it joined under a Democratic governor.",
+            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join when Gov. Abigail Spanberger signed the bill on Monday, April 13, 2026, NPR reported). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined; an additional 48 are needed. Every state that has enacted it joined under a Democratic governor.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -148,7 +148,7 @@ export const electoralCollegeReformData = {
             "Ballotpedia, \"National Popular Vote Interstate Compact\" (partisan-control analysis of member states)",
           sourceUrl: "https://ballotpedia.org/National_Popular_Vote_Interstate_Compact",
           reasoning:
-            "The partisan pattern in enactment is real, but the original claim that 'no Republican legislature has passed the compact' overstated it—Republican-controlled chambers have passed it in one chamber in several states. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
+            "The partisan pattern in enactment is real, but the original claim that 'no Republican legislature has passed the compact' overstated it; Republican-controlled chambers have passed it in one chamber in several states. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
         },
       ],
     },
@@ -161,7 +161,7 @@ export const electoralCollegeReformData = {
       skeptic_premise:
         "The NPVIC is constitutionally dubious: it effectively amends the Constitution through an interstate agreement rather than the Article V process, arguably evading the supermajority safeguards the Founders built in deliberately. The Supreme Court could strike it down under the Compact Clause. Adoption has also been lopsidedly partisan: every enacting state did so under a Democratic governor, and no state with a Republican trifecta has enacted it (though Republican-controlled chambers have passed it in one chamber in a few states). If enacted, a state could withdraw close to an election, and a single recount or disputed national tally could throw the result into chaos across all member states at once.",
       proponent_rebuttal:
-        "The Constitution explicitly grants states the power to determine how their electors are chosen (Article II, Section 1). States already use winner-take-all by choice, not constitutional mandate—they could just as easily choose to allocate electors based on the national popular vote. As of April 2026, 18 states plus DC have joined the NPVIC, controlling 222 of the needed 270 electoral votes (Virginia became the most recent, signing on April 13, 2026), leaving the compact 48 short.",
+        "The Constitution explicitly grants states the power to determine how their electors are chosen (Article II, Section 1). States already use winner-take-all by choice, not constitutional mandate; they could just as easily choose to allocate electors based on the national popular vote. As of April 2026, 18 states plus DC have joined the NPVIC, controlling 222 of the needed 270 electoral votes (Virginia became the most recent, signing on April 13, 2026), leaving the compact 48 short.",
       crux: {
         id: "scotus-constitutionality",
         title: "Supreme Court Ruling on NPVIC Constitutionality",
@@ -179,13 +179,13 @@ export const electoralCollegeReformData = {
         cost_to_verify: "$0 (Monitor legal proceedings if/when NPVIC activates)",
         falsification: {
           supporter_flip:
-            "If courts ruled the NPVIC unconstitutional — finding it an interstate compact that requires Congressional approval under the Compact Clause, or that it unlawfully evades Article V — the popular-vote-via-compact route would be dead, leaving only a near-impossible constitutional amendment.",
+            "If courts ruled the NPVIC unconstitutional (finding it an interstate compact that requires Congressional approval under the Compact Clause, or that it unlawfully evades Article V) the popular-vote-via-compact route would be dead, leaving only a near-impossible constitutional amendment.",
           skeptic_flip:
             "If courts read Article II's grant to each state over how it chooses electors as covering a state that directs its electors by the national vote, the compact would look like a serious constitutional route rather than an obvious overreach.",
           common_ground:
             "Both sides agree the Supreme Court has never ruled on the NPVIC, and that its Compact-Clause status is genuinely unsettled.",
           live_disagreement:
-            "Whether the NPVIC survives a Supreme Court challenge — turning on whether directing electors by national vote is a permissible exercise of states' Article II power or an interstate compact needing Congressional consent.",
+            "Whether the NPVIC survives a Supreme Court challenge, turning on whether directing electors by national vote is a permissible exercise of states' Article II power or an interstate compact needing Congressional consent.",
         },
       },
       evidence: [

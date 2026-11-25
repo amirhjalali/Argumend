@@ -42,7 +42,7 @@ describe("BlogPage pagination", () => {
 
     expect(metadata.alternates?.canonical).toBe("https://argumend.org/blog?page=2");
     expect(metadata.title).toBe(
-      `Blog — Page 2 of ${Math.ceil(articleSummaries.length / BLOG_PAGE_SIZE)}`,
+      `Blog: Page 2 of ${Math.ceil(articleSummaries.length / BLOG_PAGE_SIZE)}`,
     );
     expect(metadata.pagination).toEqual({
       previous: "https://argumend.org/blog",

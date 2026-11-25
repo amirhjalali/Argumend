@@ -29,12 +29,12 @@ export const vapingHarmReductionData = {
       id: "cessation-efficacy",
       title: "Cessation Efficacy",
       short_summary:
-        "Randomised trials find nicotine e-cigarettes help more smokers quit than traditional nicotine-replacement therapy — but most users do not fully switch.",
+        "Randomised trials find nicotine e-cigarettes help more smokers quit than traditional nicotine-replacement therapy, but most users do not fully switch.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Even where e-cigarettes outperform patches in trials, the absolute effect is modest (about 4 extra quitters per 100), the long-term abstinence base rate is low, and a large share of 'switchers' become dual users who keep smoking some cigarettes — capturing little of the promised health benefit while sustaining nicotine dependence. Trial populations (motivated quitters given support) may not generalise to the real-world market, where flavoured disposables are marketed heavily and many people vape indefinitely rather than quitting nicotine.",
+        "Even where e-cigarettes outperform patches in trials, the absolute effect is modest (about 4 extra quitters per 100), the long-term abstinence base rate is low, and a large share of 'switchers' become dual users who keep smoking some cigarettes, capturing little of the promised health benefit while sustaining nicotine dependence. Trial populations (motivated quitters given support) may not generalise to the real-world market, where flavoured disposables are marketed heavily and many people vape indefinitely rather than quitting nicotine.",
       proponent_rebuttal:
-        "The 2024 Cochrane review — the highest tier of evidence synthesis, covering dozens of randomised trials and tens of thousands of participants — rates nicotine e-cigarettes as MORE effective than nicotine-replacement therapy at producing 6-month-plus abstinence, with HIGH certainty (RR 1.59). A modest per-attempt edge compounds across a population of a billion smokers, and even partial switching that fully displaces combustion in some users prevents disease. 'Effective' is a comparative claim against the existing standard of care, and e-cigarettes clear that bar.",
+        "The 2024 Cochrane review, the highest tier of evidence synthesis, covering dozens of randomised trials and tens of thousands of participants, rates nicotine e-cigarettes as MORE effective than nicotine-replacement therapy at producing 6-month-plus abstinence, with HIGH certainty (RR 1.59). A modest per-attempt edge compounds across a population of a billion smokers, and even partial switching that fully displaces combustion in some users prevents disease. 'Effective' is a comparative claim against the existing standard of care, and e-cigarettes clear that bar.",
       crux: {
         id: "abstinence-rate-vs-standard-care",
         title: "Quit Rate vs. Standard Cessation Care",
@@ -52,13 +52,13 @@ export const vapingHarmReductionData = {
         cost_to_verify: "$0 (existing meta-analysis)",
         falsification: {
           supporter_flip:
-            "If newer, larger head-to-head trials (or a Cochrane downgrade) showed nicotine e-cigarettes do NOT beat nicotine-replacement therapy on biochemically verified 6-month-plus abstinence — or that the trial edge vanishes once real-world dual use and relapse are counted — the 'more effective than standard care' claim would collapse to 'no better than the patch.'",
+            "If newer, larger head-to-head trials (or a Cochrane downgrade) showed nicotine e-cigarettes do NOT beat nicotine-replacement therapy on biochemically verified 6-month-plus abstinence, or that the trial edge vanishes once real-world dual use and relapse are counted, the 'more effective than standard care' claim would collapse to 'no better than the patch.'",
           skeptic_flip:
             "If newer trials held the edge over NRT that the 2024 Cochrane review rated high certainty (RR 1.59), about 4 more quitters per 100, and it carried into real-world use across millions of smokers, 'modest' would undersell the effect.",
           common_ground:
             "Both sides agree that randomised trials show nicotine e-cigarettes produce at least as many quitters as NRT, and that long-term continuous-abstinence base rates for any method are low.",
           live_disagreement:
-            "Whether the controlled-trial quit-rate advantage survives translation to the real-world market (flavoured disposables, minimal support, indefinite vaping) — which only large pragmatic trials and biochemically verified long-term cohort follow-up can settle.",
+            "Whether the controlled-trial quit-rate advantage survives translation to the real-world market (flavoured disposables, minimal support, indefinite vaping), which only large pragmatic trials and biochemically verified long-term cohort follow-up can settle.",
         },
       },
       evidence: [
@@ -116,7 +116,7 @@ export const vapingHarmReductionData = {
           sourceUrl:
             "https://www.gov.uk/government/news/e-cigarettes-around-95-less-harmful-than-tobacco-estimates-landmark-review",
           reasoning:
-            "Authoritative national medical bodies endorsing the acceptability of harm reduction — directly on the 'acceptable tool' half of the claim. Weighted down because the headline '95%' figure derives partly from an expert-elicitation estimate that critics (e.g. in The Lancet) argued rested on weak sourcing, so replicability is limited.",
+            "Authoritative national medical bodies endorsing the acceptability of harm reduction, directly on the 'acceptable tool' half of the claim. Weighted down because the headline '95%' figure derives partly from an expert-elicitation estimate that critics (e.g. in The Lancet) argued rested on weak sourcing, so replicability is limited.",
         },
         {
           id: "wang-consumer-ecig-quitting",
@@ -145,9 +145,9 @@ export const vapingHarmReductionData = {
         "Switching completely reduces toxicant exposure, but dual use, long-term unknowns, and youth uptake complicate whether vaping is an acceptable population-level tool.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "An 'acceptable' tool must be safe and net-beneficial across the whole population, not just for an ideal switcher. Dual users — the most common real-world outcome — show cardiovascular risk profiles no better than smoking alone. The 2019 EVALI outbreak (2,807 hospitalisations, 68 deaths) showed how vaping products can cause acute lethal harm. And mass-marketed flavoured devices recruited millions of adolescents to nicotine, raising a new generation of dependent users. Long-term disease outcomes from chronic vaping remain unknown because the products are too new.",
+        "An 'acceptable' tool must be safe and net-beneficial across the whole population, not just for an ideal switcher. Dual users, the most common real-world outcome, show cardiovascular risk profiles no better than smoking alone. The 2019 EVALI outbreak (2,807 hospitalisations, 68 deaths) showed how vaping products can cause acute lethal harm. And mass-marketed flavoured devices recruited millions of adolescents to nicotine, raising a new generation of dependent users. Long-term disease outcomes from chronic vaping remain unknown because the products are too new.",
       proponent_rebuttal:
-        "Acceptability is judged against the realistic alternative — continued smoking, which kills roughly half of long-term users. Complete switching sharply cuts carcinogen and carbon-monoxide exposure. The EVALI outbreak was traced overwhelmingly to vitamin E acetate in illicit THC products from informal sources, not regulated nicotine e-liquids, and ended once that adulterant was identified. US youth vaping has fallen by roughly two-thirds from its 2019 peak under tighter rules, showing the youth problem is tractable through regulation rather than a reason to deny the tool to adult smokers.",
+        "Acceptability is judged against the realistic alternative, continued smoking, which kills roughly half of long-term users. Complete switching sharply cuts carcinogen and carbon-monoxide exposure. The EVALI outbreak was traced overwhelmingly to vitamin E acetate in illicit THC products from informal sources, not regulated nicotine e-liquids, and ended once that adulterant was identified. US youth vaping has fallen by roughly two-thirds from its 2019 peak under tighter rules, showing the youth problem is tractable through regulation rather than a reason to deny the tool to adult smokers.",
       crux: {
         id: "complete-switch-vs-dual-use",
         title: "Complete Switch vs. Persistent Dual Use",
@@ -172,7 +172,7 @@ export const vapingHarmReductionData = {
           common_ground:
             "Both sides agree that exclusive switching sharply reduces toxicant exposure, that dual use captures little of that benefit, and that youth nicotine initiation is a genuine cost that needs to be controlled.",
           live_disagreement:
-            "The net population balance — how much smoking-attributable harm switchers actually avert versus the harm from long-term dual users plus new never-smoker nicotine initiation — which only multi-year prospective cohorts with biomarkers, disease endpoints, and separate youth-initiation tracking can resolve.",
+            "The net population balance, how much smoking-attributable harm switchers actually avert versus the harm from long-term dual users plus new never-smoker nicotine initiation, which only multi-year prospective cohorts with biomarkers, disease endpoints, and separate youth-initiation tracking can resolve.",
         },
       },
       evidence: [
@@ -230,13 +230,13 @@ export const vapingHarmReductionData = {
           sourceUrl:
             "https://archive.cdc.gov/www_cdc_gov/media/releases/2020/s0225-EVALI-cases-deaths.html",
           reasoning:
-            "Authoritative government surveillance showing vaping products can cause acute lethal harm. Directness is reduced because CDC traced the cause overwhelmingly to vitamin E acetate in illicit THC vapes, not regulated nicotine e-liquids — so it indicts the unregulated market more than nicotine harm reduction per se.",
+            "Authoritative government surveillance showing vaping products can cause acute lethal harm. Directness is reduced because CDC traced the cause overwhelmingly to vitamin E acetate in illicit THC vapes, not regulated nicotine e-liquids, so it indicts the unregulated market more than nicotine harm reduction per se.",
         },
         {
           id: "youth-uptake",
           title: "Millions of Youth Took Up Vaping",
           description:
-            "Youth e-cigarette use surged to over 5 million US students at its 2019 peak; the 2024 National Youth Tobacco Survey reported 1.63 million current youth users (1.21 million high-schoolers, 7.8%), most using flavoured products — a large non-smoker population newly exposed to nicotine.",
+            "Youth e-cigarette use surged to over 5 million US students at its 2019 peak; the 2024 National Youth Tobacco Survey reported 1.63 million current youth users (1.21 million high-schoolers, 7.8%), most using flavoured products, a large non-smoker population newly exposed to nicotine.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,

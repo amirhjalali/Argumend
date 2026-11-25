@@ -35,7 +35,7 @@ export const nuclearFusionTimelineData = {
   tags: ["fusion", "energy", "technology", "iter", "decarbonization"],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Physics to plant — the wall-plug gap
+    // PILLAR 1: Physics to plant, the wall-plug gap
     // =========================================================================
     {
       id: "scientific-feasibility",

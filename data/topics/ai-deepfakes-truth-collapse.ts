@@ -40,7 +40,7 @@ export const aiDeepfakesTruthCollapseData = {
       url: "https://arxiv.org/abs/2503.02857",
     },
     {
-      title: "Schiff, Schiff & Bueno — The Liar's Dividend, American Political Science Review (2025)",
+      title: "Schiff, Schiff & Bueno, The Liar's Dividend, American Political Science Review (2025)",
       url: "https://www.cambridge.org/core/journals/american-political-science-review/article/liars-dividend-can-politicians-claim-misinformation-to-evade-accountability/687FEE54DBD7ED0C96D72B26606AA073",
     },
     {
@@ -48,7 +48,7 @@ export const aiDeepfakesTruthCollapseData = {
       url: "https://contentauthenticity.org/",
     },
     {
-      title: "TAKE IT DOWN Act, Public Law 119-12 (2025) — Congress.gov",
+      title: "TAKE IT DOWN Act, Public Law 119-12 (2025), Congress.gov",
       url: "https://www.congress.gov/bill/119th-congress/senate-bill/146",
     },
   ],

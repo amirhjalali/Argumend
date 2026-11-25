@@ -385,11 +385,11 @@ export const housingAffordabilityCrisisData = {
       url: "https://fred.stlouisfed.org/series/MORTGAGE30US",
     },
     {
-      title: "The Economic Implications of Housing Supply — Glaeser & Gyourko (2018)",
+      title: "The Economic Implications of Housing Supply: Glaeser & Gyourko (2018)",
       url: "https://www.aeaweb.org/articles?id=10.1257/jep.32.1.3",
     },
     {
-      title: "Municipal Housing in Vienna (Gemeindebau) — Wiener Wohnen, City of Vienna",
+      title: "Municipal Housing in Vienna (Gemeindebau): Wiener Wohnen, City of Vienna",
       url: "https://www.wienerwohnen.at/wiener-gemeindebau/municipal-housing-in-vienna.html",
     },
   ],

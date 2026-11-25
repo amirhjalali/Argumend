@@ -85,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // ── New-model (ArgumentGraph) debate maps — the flagship experience ────
+  // ── New-model (ArgumentGraph) debate maps: the flagship experience ────
   const argumentTopicPages: MetadataRoute.Sitemap = argumentTopicIds.map((id) => ({
     url: `${baseUrl}/topics/${id}`,
     lastModified: argumentTopicsLastUpdated,

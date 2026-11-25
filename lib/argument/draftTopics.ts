@@ -4,7 +4,7 @@
  * These are authored as validated draft JSON in data/topics/drafts/ and render
  * through the progressive-disclosure DebateView instead of the legacy
  * pillar/graph experience. The crux ranking is computed server-side at build
- * time — it is deterministic (see lib/crux), so there is nothing to hydrate.
+ * time: it is deterministic (see lib/crux), so there is nothing to hydrate.
  */
 import { parseArgumentGraph } from "@/lib/schemas/argument";
 import { identifyCruxes, type CruxResult } from "@/lib/crux";
@@ -30,7 +30,7 @@ export interface ArgumentTopicMeta {
   hero?: { src: string; alt: string };
   /** Short human framing used in <title> / descriptions. */
   tagline: string;
-  /** Identity-stakes opener — who this page is about, in one breath. */
+  /** Identity-stakes opener: who this page is about, in one breath. */
   hook: string;
   /** Optional topic-specific context shown directly below the hook. */
   contextNote?: string;
@@ -94,7 +94,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "The November 2025 Stanford/ADP study found young workers' employment in AI-exposed jobs down 16% relative to less-exposed peers. Its August 2026 update estimates 19%. Is AI responsible?",
       hook: "The November 2025 Stanford/ADP study found employment among 22–25-year-olds in the most AI-exposed occupations down 16% relative to less-exposed peers. Its August 2026 update estimates 19%, while finding no widespread economy-wide displacement. The authors call these descriptive patterns, not causal estimates. The fight is over what they mean.",
       contextNote:
-        "“AI-exposed” means jobs whose everyday tasks overlap most with what current AI systems do — software, clerical, customer service, analysis.",
+        "“AI-exposed” means jobs whose everyday tasks overlap most with what current AI systems do: software, clerical, customer service, analysis.",
       tldr: "This is three fights in a trench coat: whether AI is what broke entry-level hiring (the data can't yet say), whether the harm arrives as unemployment or as worse jobs (history mostly says worse jobs), and who gets to set the pace of deployment (no dataset settles that). Five questions carry almost all of it.",
       agreementClaims: [
         "c-aggregate-unemployment-normal",
@@ -110,7 +110,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "p-automation-panic-redux": {
           name: "Arvind Narayanan & Sayash Kapoor",
           affiliation: "Princeton / AI Snake Oil",
-          line: "argue AI is normal technology: capability is not power, diffusion runs on decades, and institutions — not model scores — set the pace.",
+          line: "argue AI is normal technology: capability is not power, diffusion runs on decades, and institutions, not model scores, set the pace.",
         },
         "p-wage-collapse-not-unemployment": {
           name: "Daron Acemoglu",
@@ -120,14 +120,14 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "p-institutional-who-decides": {
           name: "Veena Dubal",
           affiliation: "UC Irvine Law",
-          line: "argues the live harm is algorithmic control over pay and scheduling, which is decided in contracts and law — not forecast in datasets.",
+          line: "argues the live harm is algorithmic control over pay and scheduling, which is decided in contracts and law, not forecast in datasets.",
         },
       },
       shareCard: {
-        left: { value: "4.2%", label: "U.S. unemployment, June 2026 — still far below a mass-unemployment threshold" },
+        left: { value: "4.2%", label: "U.S. unemployment, June 2026, still far below a mass-unemployment threshold" },
         right: { value: "−16%", label: "Relative employment change for ages 22–25 in the most AI-exposed occupations, November 2025 study" },
         line: "Both numbers are true. The whole fight is the gap between them.",
-        attribution: "BLS · Stanford Digital Economy Lab / ADP — argumend.org",
+        attribution: "BLS · Stanford Digital Economy Lab / ADP · argumend.org",
       },
       highlights: [
         {
@@ -139,7 +139,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         {
           fact: "700 “agents”",
           context:
-            "Klarna's AI famously “did the work of 700 agents” — the company's workload-equivalence estimate, not evidence that 700 employees were laid off.",
+            "Klarna's AI famously “did the work of 700 agents”: the company's workload-equivalence estimate, not evidence that 700 employees were laid off.",
           source: "Klarna press release",
         },
         {
@@ -151,22 +151,22 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         {
           fact: "$34,900",
           context:
-            "Median wage of home-health care — America's largest projected job growth to 2034, and a concrete comparison for what aggregate job growth can mean for workers' incomes.",
+            "Median wage of home-health care, America's largest projected job growth to 2034, and a concrete comparison for what aggregate job growth can mean for workers' incomes.",
           source: "BLS Employment Projections 2024–34",
         },
       ],
       closer: {
         heading: "The same numbers can support different readings. Attribution is the live disagreement.",
         splits: [
-          { camp: "Yes — it's already starting", reading: "the −16% employment decline is the leading edge; the 4.2% is a lagging average that will catch up." },
-          { camp: "No — we've panicked before", reading: "the 4.2% is the story; the relative employment decline has competing explanations. Separately, much of the tech job-postings decline predates ChatGPT." },
-          { camp: "Not fewer jobs — worse ones", reading: "both are true and both miss it — the damage shows up in wages and career ladders, which neither number tracks." },
-          { camp: "Wrong question — who decides?", reading: "neither number settles anything; deployment terms are set in contracts and law, not forecasts." },
+          { camp: "Yes: it's already starting", reading: "the −16% employment decline is the leading edge; the 4.2% is a lagging average that will catch up." },
+          { camp: "No: we've panicked before", reading: "the 4.2% is the story; the relative employment decline has competing explanations. Separately, much of the tech job-postings decline predates ChatGPT." },
+          { camp: "Not fewer jobs: worse ones", reading: "both are true and both miss it: the damage shows up in wages and career ladders, which neither number tracks." },
+          { camp: "Wrong question: who decides?", reading: "neither number settles anything; deployment terms are set in contracts and law, not forecasts." },
         ],
         take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers since late 2022. Firm-level studies now track AI adoption and staffing, but neither observation establishes how much AI caused.",
       },
       takeaways: [
-        "Employment among early-career workers in AI-exposed jobs fell ~16% relative to less-exposed peers — but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
+        "Employment among early-career workers in AI-exposed jobs fell ~16% relative to less-exposed peers, but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
         "Klarna's famous “AI replaced 700 agents” was the company's workload math, not evidence of 700 layoffs. Headline AI-layoff numbers rarely mean what they seem.",
         "America's biggest projected job growth is home-health care at ~$35K. Whether growth centered in jobs like that counts as the economy “adjusting” is a value question no dataset can settle.",
       ],
@@ -187,7 +187,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         },
         "c-displaced-workers-can-retrain-costlessly": {
           fight:
-            "Optimists assume displaced workers move on without lasting damage. The displacement data cuts against that — earnings still down 25% a decade later, and Black and non-degree workers 67% more likely to be displaced at all.",
+            "Optimists assume displaced workers move on without lasting damage. The displacement data cuts against that: earnings still down 25% a decade later, and Black and non-degree workers 67% more likely to be displaced at all.",
           soWhat:
             "This assumption is doing silent work under every “the economy always adjusts” argument. If it's false, the aggregate story hides real, durable harm.",
           assumption:
@@ -201,7 +201,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         },
         "c-credential-pathway-narrows": {
           fight:
-            "AI exposure is highest in well-paid, credentialed work — which optimists read as a cushion. The counter: the credential is exactly the asset being devalued, and wage growth already lags where experience doesn't protect you.",
+            "AI exposure is highest in well-paid, credentialed work, which optimists read as a cushion. The counter: the credential is exactly the asset being devalued, and wage growth already lags where experience doesn't protect you.",
           soWhat:
             "Decides whether “learn to code / get a degree” is still advice or nostalgia.",
         },
@@ -218,9 +218,9 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         alt: "A central channel forks toward community workshops and gardens on one side and clustered dark towers on the other.",
       },
       tagline:
-        "Labor's share of income has declined globally over four decades, and the U.S. index is down since 2000. Four camps ask what AI means for the wage channel — and what “survive” even means.",
+        "Labor's share of income has declined globally over four decades, and the U.S. index is down since 2000. Four camps ask what AI means for the wage channel, and what “survive” even means.",
       hook: "Capitalism pays most people through wages. AI could automate a wider range of tasks while labor's share has already declined globally since the 1980s and the U.S. nonfarm-business index has fallen since 2000. The dispute is whether AI extends that trend or changes its scale.",
-      tldr: "Almost nobody argues markets stop working. The real fight is narrower and stranger: whether the wage channel keeps distributing enough income to sustain demand and consent — and whether a system that keeps markets but pays people through dividends or transfers still counts as the thing we're defending. Two of the five cruxes are assumptions the positions depend on without arguing them directly; a third is a definition.",
+      tldr: "Almost nobody argues markets stop working. The real fight is narrower and stranger: whether the wage channel keeps distributing enough income to sustain demand and consent, and whether a system that keeps markets but pays people through dividends or transfers still counts as the thing we're defending. Two of the five cruxes are assumptions the positions depend on without arguing them directly; a third is a definition.",
       agreementClaims: [
         "c-historical-automation-preserved-markets",
         "c-labor-share-declining-global",
@@ -230,37 +230,37 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         left: { value: "−19.4", label: "Index-point change in U.S. nonfarm labor share, Q1 2000 → Q2 2026" },
         right: { value: "40%", label: "Estimated share of 2025 U.S. enterprise LLM spend attributed to one provider" },
         line: "Falling wage share, high AI-provider concentration. Whether that ends capitalism depends on what you think capitalism is.",
-        attribution: "BLS/FRED · Menlo Ventures — argumend.org",
+        attribution: "BLS/FRED · Menlo Ventures · argumend.org",
       },
       advocates: {
         "p-adapts-as-always": { name: "David Autor", affiliation: "MIT", line: "argues automation substitutes for labor in some tasks while complementing it in others, and that new task creation has repeatedly restored labor demand." },
-        "p-requires-restructuring": { name: "Anton Korinek", affiliation: "University of Virginia / IMF", line: "argues output can rise sharply once labor stops constraining production, which makes the distribution channel — not growth — the binding problem." },
+        "p-requires-restructuring": { name: "Anton Korinek", affiliation: "University of Virginia / IMF", line: "argues output can rise sharply once labor stops constraining production, which makes the distribution channel, not growth: the binding problem." },
         "p-breaks-fundamentally": { name: "Loukas Karabarbounis & Brent Neiman", affiliation: "Chicago Booth", line: "document a global decline in labor's share since the 1980s associated with the falling price of capital. This camp uses that finding as a precedent; their study does not itself establish the AI forecast." },
       },
       highlights: [
-        { fact: "−19.4", context: "Index-point decline in U.S. nonfarm business labor share from Q1 2000 (112.828) to Q2 2026 (93.446, revised) — a 17.2% relative drop.", source: "BLS via FRED, series PRS85006173" },
+        { fact: "−19.4", context: "Index-point decline in U.S. nonfarm business labor share from Q1 2000 (112.828) to Q2 2026 (93.446, revised): a 17.2% relative drop.", source: "BLS via FRED, series PRS85006173" },
         { fact: "40% / 27%", context: "Estimated shares of 2025 U.S. enterprise LLM spend attributed to the two leading providers, based on a decision-maker survey and bottom-up market model.", source: "Menlo Ventures" },
-        { fact: "€11.2B", context: "Mondragon's 2024 sales with more than 70,000 employees — a large live test of an alternative ownership structure at industrial scale.", source: "Mondragon 2024 annual report" },
-        { fact: "$1,000/mo", context: "The largest U.S. guaranteed-income RCT: three years, 1,000 adults — real evidence on transfers, in an economy where jobs still existed.", source: "NBER / OpenResearch" },
+        { fact: "€11.2B", context: "Mondragon's 2024 sales with more than 70,000 employees: a large live test of an alternative ownership structure at industrial scale.", source: "Mondragon 2024 annual report" },
+        { fact: "$1,000/mo", context: "The largest U.S. guaranteed-income RCT (three years, 1,000 adults): real evidence on transfers, in an economy where jobs still existed.", source: "NBER / OpenResearch" },
       ],
       closer: {
         heading: "Everyone sees the same falling wage share. They disagree about what it implies.",
         splits: [
-          { camp: "Yes — it adapts like it always has", reading: "the trend is real but bounded; new tasks and new sectors have restored labor demand every previous time." },
+          { camp: "Yes: it adapts like it always has", reading: "the trend is real but bounded; new tasks and new sectors have restored labor demand every previous time." },
           { camp: "Only if the channel is rebuilt", reading: "markets survive; the wage channel doesn't, so dividends, ownership, or transfers have to carry what wages used to." },
-          { camp: "No — the wage bargain breaks", reading: "once output no longer needs labor, the bargain that made markets politically survivable is gone, whatever we call what's left." },
-          { camp: "Wrong question", reading: "none of this is decidable until someone says which feature — private ownership, market prices, or wage income — has to survive for the answer to be yes." },
+          { camp: "No: the wage bargain breaks", reading: "once output no longer needs labor, the bargain that made markets politically survivable is gone, whatever we call what's left." },
+          { camp: "Wrong question", reading: "none of this is decidable until someone says which feature (private ownership, market prices, or wage income) has to survive for the answer to be yes." },
         ],
         take: "Labor's share has declined globally over four decades, and the U.S. index has fallen since 2000. Whether AI turns that trend into capitalism's end or another adaptation depends on both what happens to the wage channel and which definition you started with.",
       },
       takeaways: [
-        "Almost nobody serious argues markets stop working. The fight is over whether wages keep distributing enough income — and that's a narrower, more answerable question than “does capitalism survive.”",
+        "Almost nobody serious argues markets stop working. The fight is over whether wages keep distributing enough income, and that's a narrower, more answerable question than “does capitalism survive.”",
         "Two of the top cruxes are assumptions neither side states out loud: that AI ownership stays concentrated, and that labor reallocation keeps pace. Both cases quietly depend on them.",
-        "There are live alternatives with real track records — sovereign dividends, worker ownership at Mondragon scale, guaranteed-income trials — so “what else could work” is an evidence question, not just theory.",
+        "There are live alternatives with real track records (sovereign dividends, worker ownership at Mondragon scale, guaranteed-income trials), so “what else could work” is an evidence question, not just theory.",
       ],
       cruxNotes: {
         "c-ai-ownership-stays-concentrated": {
-          question: "Does control of frontier AI stay concentrated — or diffuse?",
+          question: "Does control of frontier AI stay concentrated, or diffuse?",
           fight:
             "Today's frontier models, chips, and cloud capacity are concentrated. The real bet is whether that concentration survives cheaper models, open weights, antitrust, and new entrants over the next decade. The map has not found decisive direct evidence that settles that forecast.",
           soWhat:
@@ -323,12 +323,12 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
           label: "Same review: recipient assurances were deemed sufficiently credible and reliable",
         },
         line: "The same review documented both. NSM-20 was rescinded in February 2025; current statutes are separate.",
-        attribution: "U.S. State / Defense NSM-20 report · White House — argumend.org",
+        attribution: "U.S. State / Defense NSM-20 report · White House · argumend.org",
       },
       highlightsHeading: "Facts that anchor the dispute",
       highlights: [
         { fact: "$38B", context: "Pledged under the 2016 U.S.–Israel MOU for FY2019–FY2028, subject to annual congressional appropriations: $33B in Foreign Military Financing plus $5B for missile defense.", source: "White House MOU fact sheet" },
-        { fact: "100+ by Mar. 2024", context: "Separate military sales approved and delivered from October 7, 2023 through early March 2024 — a five-month snapshot, with most below congressional-notification thresholds.", source: "Washington Post reporting, March 2024" },
+        { fact: "100+ by Mar. 2024", context: "Separate military sales approved and delivered from October 7, 2023 through early March 2024: a five-month snapshot, with most below congressional-notification thresholds.", source: "Washington Post reporting, March 2024" },
         { fact: "73,016 / 71,444", context: "Deaths reported in OCHA's June 17, 2026 snapshot / people identified by Gaza's Ministry of Health as of December 31, 2025. Undercount, indirect deaths, and civilian–combatant classification remain disputed.", source: "OCHA, citing Gaza Ministry of Health" },
         { fact: "May 2024 → Feb. 2025", context: "The NSM-20 review found a reasonable basis for serious concerns while accepting recipient assurances sufficient for aid to continue. The memorandum was rescinded in February 2025; current statutes apply separate tests.", source: "U.S. State / Defense NSM-20 report; White House" },
       ],
@@ -344,13 +344,13 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       },
       takeaways: [
         "The 2016 MOU pledged $38B for FY2019–28, subject to annual appropriations. The 100+ sales figure is a separate October 2023–early March 2024 snapshot, not a current cumulative total.",
-        "Reported direct-death toplines had converged around 71,000–73,000 by mid-2026. The serious remaining disputes concern identification, undercount, indirect mortality, and the civilian–combatant breakdown — not whether every topline is arbitrary.",
+        "Reported direct-death toplines had converged around 71,000–73,000 by mid-2026. The serious remaining disputes concern identification, undercount, indirect mortality, and the civilian–combatant breakdown, not whether every topline is arbitrary.",
         "The May 2024 NSM-20 review documented both serious concerns and assurances sufficient for aid to continue. NSM-20 was rescinded in February 2025; Leahy, FAA §620I, AECA, and other authorities remain separate.",
         "“Does U.S. aid buy leverage?” is the hidden hinge between maintaining, conditioning, and reducing support. This map has not found decisive direct evidence that settles it.",
       ],
       cruxNotes: {
         "c-gaza-death-toll-uncertain": {
-          question: "What uncertainty remains in Gaza's death toll — and what does it change?",
+          question: "What uncertainty remains in Gaza's death toll, and what does it change?",
           fight:
             "By mid-2026, a figure attributed in the press to a senior Israeli military official and Gaza health-authority reporting had moved into a similar 71,000–73,000 range for reported direct deaths. What remains unresolved is who has been identified, who is missing, indirect mortality, and the civilian–combatant breakdown.",
           soWhat:
@@ -364,7 +364,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
             "The civilian–combatant mix strongly changes how people judge proportionality and complicity, even though it does not by itself decide whether any particular strike was lawful.",
         },
         "c-regional-stability-depends-on-alliance": {
-          question: "Does current U.S. support deter a wider war — or feed escalation?",
+          question: "Does current U.S. support deter a wider war, or feed escalation?",
           fight:
             "Supporters see the alliance as deterrence against Iran and its partners. Critics argue the same visible backing can entangle the U.S., invite retaliation, and reduce diplomatic room. There is no clean counterfactual, and this map has not found decisive direct evidence for either causal story.",
           soWhat:
@@ -399,7 +399,7 @@ const draftIds = Object.keys(DRAFTS).sort().join(",");
 const registered = [...registeredIds].sort().join(",");
 if (draftIds !== registered) {
   throw new Error(
-    `ArgumentGraph topic registry mismatch: drafts [${draftIds}] vs allowlisted ids [${registered}] — update lib/argument/topicIds.ts`
+    `ArgumentGraph topic registry mismatch: drafts [${draftIds}] vs allowlisted ids [${registered}]; update lib/argument/topicIds.ts`
   );
 }
 

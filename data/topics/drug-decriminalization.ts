@@ -4,7 +4,7 @@ export const drugDecriminalizationData = {
   question:
     "Does decriminalizing drug use, with treatment, improve public health?",
   meta_claim:
-    "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
+    "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization, though results depend heavily on implementation.",
   status: "contested" as const,
   category: "policy" as const,
   // ── Stage 1: the wow fact shown above everything ──
@@ -30,9 +30,9 @@ export const drugDecriminalizationData = {
         "Portugal decriminalized all drugs in 2001 alongside heavy treatment investment. Drug-induced deaths and HIV infections among people who inject drugs fell sharply, and overall use stayed near the European average.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Removing penalties before treatment capacity exists can strip away the leverage that pushes people toward help while doing nothing to expand care. Oregon's Measure 110 is the cautionary case: it decriminalized possession but the promised treatment pathway barely functioned, and amid visible public-disorder problems voters and lawmakers reversed course within three years. Critics also warn decriminalization can normalize use and let open-air drug markets concentrate harm in specific neighborhoods. (Portugal avoided this — but only because decriminalization arrived bundled with real treatment infrastructure, which is the hard part to replicate.)",
+        "Removing penalties before treatment capacity exists can strip away the leverage that pushes people toward help while doing nothing to expand care. Oregon's Measure 110 is the cautionary case: it decriminalized possession but the promised treatment pathway barely functioned, and amid visible public-disorder problems voters and lawmakers reversed course within three years. Critics also warn decriminalization can normalize use and let open-air drug markets concentrate harm in specific neighborhoods. (Portugal avoided this, but only because decriminalization arrived bundled with real treatment infrastructure, which is the hard part to replicate.)",
       proponent_rebuttal:
-        "Two decades after Portugal decriminalized in 2001, its drug-induced death rate sat around 6 per million adults — far below the EU average of 23.7 — and new HIV diagnoses tied to injecting drug use fell from over 1,000 to a handful per year, while overall use stayed near the European average. The gains came from a package that paired decriminalization with treatment and harm reduction, redirecting resources from punishment to healthcare so addiction is caught earlier. The mechanism — not a magic 'decrim alone' number — is what travels.",
+        "Two decades after Portugal decriminalized in 2001, its drug-induced death rate sat around 6 per million adults, far below the EU average of 23.7, and new HIV diagnoses tied to injecting drug use fell from over 1,000 to a handful per year, while overall use stayed near the European average. The gains came from a package that paired decriminalization with treatment and harm reduction, redirecting resources from punishment to healthcare so addiction is caught earlier. The mechanism, not a magic 'decrim alone' number, is what travels.",
       crux: {
         id: "decrim-use-rates",
         title: "Use Rates Under Decriminalization vs. Criminalization",
@@ -50,13 +50,13 @@ export const drugDecriminalizationData = {
         cost_to_verify: "$500K (Multi-jurisdiction longitudinal analysis of existing data)",
         falsification: {
           supporter_flip:
-            "If well-matched comparisons showed decriminalization — even bundled with treatment investment — reliably RAISING problematic use or overdose deaths versus criminalization, i.e. Portugal's results turned out to be driven by something other than the policy package and replicated nowhere, the public-health case would collapse.",
+            "If well-matched comparisons showed decriminalization, even bundled with treatment investment, reliably RAISING problematic use or overdose deaths versus criminalization, i.e. Portugal's results turned out to be driven by something other than the policy package and replicated nowhere, the public-health case would collapse.",
           skeptic_flip:
             "If other places that paired decriminalization with treatment saw what Portugal reports, overdose deaths well below the EU average and use near the European norm with no drug tourism, the fear of a usage surge would lose its footing.",
           common_ground:
-            "Both sides agree that decriminalization WITHOUT funded treatment and harm-reduction capacity — the Oregon path — does not deliver Portugal's results.",
+            "Both sides agree that decriminalization WITHOUT funded treatment and harm-reduction capacity, the Oregon path, does not deliver Portugal's results.",
           live_disagreement:
-            "How much of Portugal's improvement came from decriminalization itself versus the simultaneous treatment investment — and therefore whether the model exports to places that can't or won't fund the treatment half.",
+            "How much of Portugal's improvement came from decriminalization itself versus the simultaneous treatment investment, and therefore whether the model exports to places that can't or won't fund the treatment half.",
         },
       },
       evidence: [
@@ -95,7 +95,7 @@ export const drugDecriminalizationData = {
             "Oregon Secretary of State Audit 2025-29 'Measure 110 Lacks Stability, Coordination, and Clear Results' (Dec 2025); hotline take-up reporting (KPTV/OPB, 2023)",
           sourceUrl: "https://sos.oregon.gov/audits/Documents/2025-29.pdf",
           reasoning:
-            "Demonstrates an implementation and uptake failure of the decriminalization model as enacted in Oregon. Directness lowered because the strongest causal claim against decrim — that it drove overdose deaths — is not supported by peer-reviewed work; the failure was in treatment delivery, not a proven causal harm. Confounded by the fentanyl wave, COVID-era disruptions, and a slow rollout of treatment funding.",
+            "Demonstrates an implementation and uptake failure of the decriminalization model as enacted in Oregon. Directness lowered because the strongest causal claim against decrim, that it drove overdose deaths, is not supported by peer-reviewed work; the failure was in treatment delivery, not a proven causal harm. Confounded by the fentanyl wave, COVID-era disruptions, and a slow rollout of treatment funding.",
         },
         {
           id: "emcdda-european-comparison",
@@ -131,7 +131,7 @@ export const drugDecriminalizationData = {
             "CDC NCHS, 'U.S. Overdose Deaths Decrease in 2023, First Time Since 2018' (15 May 2024); Martha Mendoza, Associated Press, 'US drug war has met none of its goals' (13 May 2010)",
           sourceUrl: "https://www.cdc.gov/nchs/pressroom/nchs_press_releases/2024/20240515.htm",
           reasoning:
-            "Highly reliable mortality data showing criminalization has coincided with record harm. Low directness: correlation, not causation — rising deaths are driven primarily by the fentanyl supply shift, not the choice between criminalization and decriminalization. The prior '50-fold increase since 1979' framing was dropped as it overstated a clean causal story.",
+            "Highly reliable mortality data showing criminalization has coincided with record harm. Low directness: correlation, not causation; rising deaths are driven primarily by the fentanyl supply shift, not the choice between criminalization and decriminalization. The prior '50-fold increase since 1979' framing was dropped as it overstated a clean causal story.",
         },
         {
           id: "bc-decrim-pilot-ended-2026",
@@ -179,9 +179,9 @@ export const drugDecriminalizationData = {
         "The Drug Policy Alliance (2016) estimated U.S. drug enforcement costs at more than $51B a year across federal, state, and local budgets, and 77% of released drug offenders are rearrested within five years (BJS). The status quo is expensive and leaky.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Without criminal penalties, there is little leverage to push people into treatment, and arrest can serve as the wake-up call that motivates recovery. Drug courts already divert people to treatment within the criminal system, and meta-analyses credit adult drug courts with cutting re-arrest by roughly 10–15 percent on average (one puts it at 50% falling to 38%) — structure and accountability that purely voluntary referral often lacks. Oregon's experience is the warning: when decriminalization removed that entry point without standing up an alternative, almost no one ticketed actually reached treatment.",
+        "Without criminal penalties, there is little leverage to push people into treatment, and arrest can serve as the wake-up call that motivates recovery. Drug courts already divert people to treatment within the criminal system, and meta-analyses credit adult drug courts with cutting re-arrest by roughly 10–15 percent on average (one puts it at 50% falling to 38%), structure and accountability that purely voluntary referral often lacks. Oregon's experience is the warning: when decriminalization removed that entry point without standing up an alternative, almost no one ticketed actually reached treatment.",
       proponent_rebuttal:
-        "Criminalization falls unevenly: ACLU data show Black Americans are 3.64x more likely to be arrested for marijuana possession despite similar usage rates. The Drug Policy Alliance puts U.S. drug enforcement at least $51B a year across all levels of government. Drug courts help those they reach, but capacity limits mean they touch only a small share of eligible drug-involved people — and each still requires a criminal charge as the entry point.",
+        "Criminalization falls unevenly: ACLU data show Black Americans are 3.64x more likely to be arrested for marijuana possession despite similar usage rates. The Drug Policy Alliance puts U.S. drug enforcement at least $51B a year across all levels of government. Drug courts help those they reach, but capacity limits mean they touch only a small share of eligible drug-involved people, and each still requires a criminal charge as the entry point.",
       crux: {
         id: "coerced-vs-voluntary-treatment",
         title: "Coerced vs. Voluntary Treatment Outcomes",
@@ -203,9 +203,9 @@ export const drugDecriminalizationData = {
           skeptic_flip:
             "If population-level data showed drug courts reaching only a small share of drug-involved people, so that a well-funded voluntary system treated more people overall despite any per-participant edge for courts, the case for keeping arrest as the on-ramp would weaken.",
           common_ground:
-            "Both sides agree that treatment access is what actually reduces addiction harm; the dispute is over the best on-ramp to treatment — a criminal charge versus voluntary outreach.",
+            "Both sides agree that treatment access is what actually reduces addiction harm; the dispute is over the best on-ramp to treatment; a criminal charge versus voluntary outreach.",
           live_disagreement:
-            "Whether the accountability of court-mandated treatment outperforms voluntary referral by enough to justify the costs and collateral harms of arrest — a question no large randomized trial has cleanly answered.",
+            "Whether the accountability of court-mandated treatment outperforms voluntary referral by enough to justify the costs and collateral harms of arrest; a question no large randomized trial has cleanly answered.",
         },
       },
       evidence: [
@@ -226,7 +226,7 @@ export const drugDecriminalizationData = {
           sourceUrl:
             "https://www.aclu.org/report/tale-two-countries-racially-targeted-arrests-era-marijuana-reform",
           reasoning:
-            "Advocacy organization but using FBI Uniform Crime Report data; the 3.64x national figure is the report's headline (an earlier draft of this item said 3.73x). The '40% lifetime earnings' claim was removed as it could not be sourced to the report. Findings independently replicable from public arrest data. Directness is good — racial disparities are a core harm of criminalization.",
+            "Advocacy organization but using FBI Uniform Crime Report data; the 3.64x national figure is the report's headline (an earlier draft of this item said 3.73x). The '40% lifetime earnings' claim was removed as it could not be sourced to the report. Findings independently replicable from public arrest data. Directness is good: racial disparities are a core harm of criminalization.",
         },
         {
           id: "cato-portugal-analysis",
@@ -245,7 +245,7 @@ export const drugDecriminalizationData = {
           sourceUrl:
             "https://www.cato.org/publications/white-paper/drug-decriminalization-portugal-lessons-creating-fair-successful-drug-policies",
           reasoning:
-            "Ideologically diverse source (libertarian think tank) lending cross-spectrum credibility, though Greenwald was a decriminalization advocate, so independence is moderate. The paper actually found prevalence declines among 13-18 year olds and slight increases for some older cohorts — the prior 'reduced use among 15-24' wording was corrected. Portugal-specific findings may not fully generalize.",
+            "Ideologically diverse source (libertarian think tank) lending cross-spectrum credibility, though Greenwald was a decriminalization advocate, so independence is moderate. The paper actually found prevalence declines among 13-18 year olds and slight increases for some older cohorts; the prior 'reduced use among 15-24' wording was corrected. Portugal-specific findings may not fully generalize.",
         },
         {
           id: "drug-court-effectiveness",
@@ -299,7 +299,7 @@ export const drugDecriminalizationData = {
             "Prison Policy Initiative, 'Following the Money of Mass Incarceration' (2017); Bureau of Justice Statistics, 'Sentencing Decisions for Persons in Federal Prison for Drug Offenses, 2013-2018' (2023); Vera Institute of Justice, 'The Price of Prisons: Examining State Spending Trends, 2010-2015' (2017)",
           sourceUrl: "https://www.prisonpolicy.org/research/economics_of_incarceration/",
           reasoning:
-            "Reliable cost data, but the figures were reconciled: the $182B is the whole criminal-justice system (not drug enforcement alone), and 47% is the federal — not overall — drug-offender share, so the prior '$80B+ drug incarceration' title, and a later 'above $100,000 in some states' per-prisoner claim that Vera's table does not support, and '45% of federal prisoners' phrasing overstated the link. Directness lowered to 5 — high costs and recidivism suggest the status quo is failing but don't prove decriminalization would do better.",
+            "Reliable cost data, but the figures were reconciled: the $182B is the whole criminal-justice system (not drug enforcement alone), and 47% is the federal, not overall, drug-offender share, so the prior '$80B+ drug incarceration' title, and a later 'above $100,000 in some states' per-prisoner claim that Vera's table does not support, and '45% of federal prisoners' phrasing overstated the link. Directness lowered to 5: high costs and recidivism suggest the status quo is failing but don't prove decriminalization would do better.",
         },
       ],
     },

@@ -29,7 +29,7 @@ export const homeschoolingEffectivenessData = {
         "Homeschooled students score roughly 15-25 percentile points higher on standardized tests. But the families who homeschool are not a random sample, and even the institute reporting that gap says the studies cannot show homeschooling caused it.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "Self-selection bias inflates homeschool test scores — homeschool families are disproportionately affluent, educated, and motivated, and the largest cited samples are overwhelmingly white, college-educated, and religiously homogeneous. Even NHERI concedes its studies cannot show homeschooling causes the gap rather than family demographics. Testing is voluntary, so the lowest-performing children may never be measured, and because most states require little oversight, some homeschooled children receive inadequate education that no system catches.",
+        "Self-selection bias inflates homeschool test scores, homeschool families are disproportionately affluent, educated, and motivated, and the largest cited samples are overwhelmingly white, college-educated, and religiously homogeneous. Even NHERI concedes its studies cannot show homeschooling causes the gap rather than family demographics. Testing is voluntary, so the lowest-performing children may never be measured, and because most states require little oversight, some homeschooled children receive inadequate education that no system catches.",
       proponent_rebuttal:
         "NHERI data show homeschoolers scoring about 15-25 percentile points above public school averages, and the gap has been consistent across roughly three decades of studies. The mechanism is plausible: personalized pace, curriculum flexibility, and effectively one-on-one instruction are structural advantages a 30-student classroom cannot match. Some studies report homeschoolers outscoring expectations even within lower-income or minority subgroups, suggesting the format adds value on top of family background, not just selection.",
       crux: {
@@ -49,13 +49,13 @@ export const homeschoolingEffectivenessData = {
         cost_to_verify: "$3M (National longitudinal study with mandatory participation)",
         falsification: {
           supporter_flip:
-            "If a large study using mandatory (not voluntary) testing and propensity-score matching on income, parental education, and region erased the homeschool advantage — leaving homeschoolers at or below matched public school peers — the 'homeschooling itself raises achievement' claim would collapse into a pure selection effect.",
+            "If a large study using mandatory (not voluntary) testing and propensity-score matching on income, parental education, and region erased the homeschool advantage, leaving homeschoolers at or below matched public school peers, the 'homeschooling itself raises achievement' claim would collapse into a pure selection effect.",
           skeptic_flip:
             "If controlled studies found homeschoolers outscoring expectations within lower-income and minority subgroups, testing reports that they do, a format effect from near one-on-one, self-paced instruction would be hard to put down to demographics alone.",
           common_ground:
             "Both sides agree homeschoolers post higher average scores on the tests actually administered, that those samples are self-selected and demographically advantaged, and that no existing study uses mandatory testing with full SES controls.",
           live_disagreement:
-            "Whether any homeschool achievement advantage survives once family income, parental education, and voluntary-testing bias are controlled — which only a large randomized or propensity-score-matched study with mandatory participation could resolve.",
+            "Whether any homeschool achievement advantage survives once family income, parental education, and voluntary-testing bias are controlled, which only a large randomized or propensity-score-matched study with mandatory participation could resolve.",
         },
       },
       evidence: [
@@ -74,7 +74,7 @@ export const homeschoolingEffectivenessData = {
           source: "National Home Education Research Institute, Research Facts on Homeschooling (Ray)",
           sourceUrl: "https://nheri.org/research-facts-on-homeschooling/",
           reasoning:
-            "NHERI is a homeschool advocacy organization — low independence. Underlying samples are self-selected (voluntary testing). NHERI itself states the research does not prove homeschooling causes the gains; the figure reflects demographically advantaged families, biasing it upward.",
+            "NHERI is a homeschool advocacy organization, low independence. Underlying samples are self-selected (voluntary testing). NHERI itself states the research does not prove homeschooling causes the gains; the figure reflects demographically advantaged families, biasing it upward.",
         },
         {
           id: "hs-kunzman-gaither",
@@ -91,7 +91,7 @@ export const homeschoolingEffectivenessData = {
           source: "Kunzman & Gaither, Other Education 2013, 2(1), 4-59",
           sourceUrl: "https://www.icher.org/files/Kunzman_and_Gaither_An%20Updated_Comprehensive_Survey.pdf",
           reasoning:
-            "Comprehensive academic survey of the research literature by scholars without advocacy ties (the linked PDF is the authors' updated edition of the 2013 survey). Directly catalogs the methodological weaknesses — self-selection, voluntary/convenience samples, missing controls — that limit strong achievement claims.",
+            "Comprehensive academic survey of the research literature by scholars without advocacy ties (the linked PDF is the authors' updated edition of the 2013 survey). Directly catalogs the methodological weaknesses (self-selection, voluntary/convenience samples, missing controls) that limit strong achievement claims.",
         },
         {
           id: "hs-ray-2010",
@@ -108,7 +108,7 @@ export const homeschoolingEffectivenessData = {
           source: "Ray, Academic Leadership Live: The Online Journal, 8(1), 2010",
           sourceUrl: "https://nheri.org/academic-achievement-and-demographic-traits-of-homeschool-students-a-nationwide-study-2010/",
           reasoning:
-            "Large but self-selected/convenience sample, authored by the NHERI founder with an advocacy position. Published in a now-defunct online journal. The original 'for' framing (that gains held even among low-income, non-college families) is not supported by the study — its sample was heavily affluent and college-educated, and reviewers attribute results to family demographics rather than to homeschooling.",
+            "Large but self-selected/convenience sample, authored by the NHERI founder with an advocacy position. Published in a now-defunct online journal. The original 'for' framing (that gains held even among low-income, non-college families) is not supported by the study; its sample was heavily affluent and college-educated, and reviewers attribute results to family demographics rather than to homeschooling.",
         },
         {
           id: "hs-crhe-data",
@@ -125,7 +125,7 @@ export const homeschoolingEffectivenessData = {
           source: "Coalition for Responsible Home Education, Educational Neglect",
           sourceUrl: "https://crhe.org/advocacy/policy/educational-neglect/",
           reasoning:
-            "CRHE is a reform-advocacy nonprofit founded by homeschool alumni — directional bias, so treated cautiously. It documents that most states require little oversight, so educational neglect can go undetected. Illustrates that averages obscure a wide distribution of outcomes, though its case records are not a representative sample.",
+            "CRHE is a reform-advocacy nonprofit founded by homeschool alumni, directional bias, so treated cautiously. It documents that most states require little oversight, so educational neglect can go undetected. Illustrates that averages obscure a wide distribution of outcomes, though its case records are not a representative sample.",
         },
       ],
     },
@@ -136,9 +136,9 @@ export const homeschoolingEffectivenessData = {
         "The socialization objection is the first thing everyone raises. The research on it is surprisingly thin in both directions.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Homeschoolers can miss everyday conflict resolution with diverse peers and sustained exposure to different backgrounds and viewpoints. The favorable socialization studies rest on small, self-selected samples, so they cannot rule out that engaged families — not the schooling format — produce the good outcomes. Cardus data point the other way on civic life: homeschool graduates are less likely to register to vote and less likely to vote in local elections. And with minimal oversight in most states, a minority of children face real educational neglect or ideological isolation that no one detects.",
+        "Homeschoolers can miss everyday conflict resolution with diverse peers and sustained exposure to different backgrounds and viewpoints. The favorable socialization studies rest on small, self-selected samples, so they cannot rule out that engaged families, not the schooling format, produce the good outcomes. Cardus data point the other way on civic life: homeschool graduates are less likely to register to vote and less likely to vote in local elections. And with minimal oversight in most states, a minority of children face real educational neglect or ideological isolation that no one detects.",
       proponent_rebuttal:
-        "Homeschoolers participate in co-ops, sports leagues, community activities, and religious organizations, so the 'isolated child' stereotype rarely matches reality. The available reviews find their social skills, self-esteem, and adult relationships at least comparable to conventionally schooled peers, and Cardus data show homeschool graduates volunteer and give to charity at higher rates. Public school 'socialization' also includes bullying, peer pressure, and artificial age segregation — not an unqualified advantage.",
+        "Homeschoolers participate in co-ops, sports leagues, community activities, and religious organizations, so the 'isolated child' stereotype rarely matches reality. The available reviews find their social skills, self-esteem, and adult relationships at least comparable to conventionally schooled peers, and Cardus data show homeschool graduates volunteer and give to charity at higher rates. Public school 'socialization' also includes bullying, peer pressure, and artificial age segregation, not an unqualified advantage.",
       crux: {
         id: "socialization-measurement",
         title: "Standardized Socialization Assessment",
@@ -156,13 +156,13 @@ export const homeschoolingEffectivenessData = {
         cost_to_verify: "$1M (Matched longitudinal cohort study)",
         falsification: {
           supporter_flip:
-            "If validated social-skills instruments (SSRS, SDQ) administered to demographically matched samples showed homeschoolers with measurably worse social competence or worse adult relationships — or if the favorable findings vanished once family engagement was controlled — the 'socialization is fine' rebuttal would not hold.",
+            "If validated social-skills instruments (SSRS, SDQ) administered to demographically matched samples showed homeschoolers with measurably worse social competence or worse adult relationships, or if the favorable findings vanished once family engagement was controlled, the 'socialization is fine' rebuttal would not hold.",
           skeptic_flip:
             "If matched-sample studies found homeschoolers' social skills and adult relationships at least comparable, with wide co-op, sports and community participation and the higher volunteering and giving Cardus reports, the 'isolated child' worry would weaken.",
           common_ground:
             "Both sides agree the existing socialization studies rest on small, self-selected samples; that outcomes vary widely across families; and that Cardus shows a genuinely mixed civic picture (higher giving and volunteering, but lower voter registration and local voting).",
           live_disagreement:
-            "Whether homeschooling itself produces equivalent social competence, or whether engaged families would produce the same outcomes in any setting — which only validated instruments applied to matched samples with longitudinal adult follow-up could disentangle.",
+            "Whether homeschooling itself produces equivalent social competence, or whether engaged families would produce the same outcomes in any setting, which only validated instruments applied to matched samples with longitudinal adult follow-up could disentangle.",
         },
       },
       evidence: [
@@ -198,7 +198,7 @@ export const homeschoolingEffectivenessData = {
           source: "Cogan, Journal of College Admission, Summer 2010",
           sourceUrl: "https://eric.ed.gov/?id=EJ893891",
           reasoning:
-            "Institutional records are reliable, but this is a single-institution sample and only captures homeschoolers who enroll in college — survivor bias. The most disadvantaged homeschoolers may never apply, and the graduation gap disappears after controlling for student characteristics.",
+            "Institutional records are reliable, but this is a single-institution sample and only captures homeschoolers who enroll in college, survivor bias. The most disadvantaged homeschoolers may never apply, and the graduation gap disappears after controlling for student characteristics.",
         },
         {
           id: "hs-isolation-cases",
@@ -232,7 +232,7 @@ export const homeschoolingEffectivenessData = {
           source: "Cardus Education Survey (2011/2014), Homeschooling and Young Adult Outcomes",
           sourceUrl: "https://www.cardus.ca/research/education/reports/homeschooling-and-young-adult-outcomes-evidence-from-the-2011-and-2014-cardus-education-survey/",
           reasoning:
-            "Cardus uses a nationally representative sample, but findings are mixed rather than uniformly pro-homeschool: higher giving/volunteering but lower voter registration and local voting. Results are also confounded by self-selection — homeschool families are often already highly engaged, so effects may be familial, not educational.",
+            "Cardus uses a nationally representative sample, but findings are mixed rather than uniformly pro-homeschool: higher giving/volunteering but lower voter registration and local voting. Results are also confounded by self-selection, homeschool families are often already highly engaged, so effects may be familial, not educational.",
         },
       ],
     },

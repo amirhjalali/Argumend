@@ -486,7 +486,7 @@ function CruxEntry({
   );
 }
 
-/** "What would change the mind of someone who says yes / no…" — rust names the proponent side, brown the skeptic. */
+/** "What would change the mind of someone who says yes / no…": rust names the proponent side, brown the skeptic. */
 function MindChange({
   label,
   tone,
@@ -723,7 +723,7 @@ function TopicFooter({
               <li key={topic.id}>
                 <Link
                   href={`/topics/${topic.id}`}
-                  className="inline-flex min-h-11 items-center link-underline text-stone-800 dark:text-stone-200"
+                  className="inline-flex min-h-11 items-center py-1.5 link-underline text-stone-800 dark:text-stone-200"
                 >
                   {topic.title} →
                 </Link>

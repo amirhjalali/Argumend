@@ -39,39 +39,39 @@ export const cryptocurrencyRegulationData = {
     "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "Clarity Act fails Senate hurdle — Decrypt (15 Sept 2026)",
+      title: "Clarity Act fails Senate hurdle: Decrypt (15 Sept 2026)",
       url: "https://decrypt.co/378283/clarity-act-fails-senate-hurdle",
     },
     {
-      title: "Senate fails to advance the CLARITY Act: Top points — DLA Piper (Sept 2026)",
+      title: "Senate fails to advance the CLARITY Act: Top points: DLA Piper (Sept 2026)",
       url: "https://www.dlapiper.com/en/insights/publications/2026/09/senate-fails-to-advance-the-clarity-act",
     },
     {
-      title: "OCC Advances U.S. Digital Asset Leadership with Final Rule to Implement GENIUS Act — OCC News Release 2026-92",
+      title: "OCC Advances U.S. Digital Asset Leadership with Final Rule to Implement GENIUS Act: OCC News Release 2026-92",
       url: "https://www.occ.gov/news-issuances/news-releases/2026/nr-occ-2026-92.html",
     },
     {
-      title: "Statement on Regulation Crypto Assets — SEC Chairman Paul Atkins (18 Aug 2026)",
+      title: "Statement on Regulation Crypto Assets: SEC Chairman Paul Atkins (18 Aug 2026)",
       url: "https://www.sec.gov/newsroom/speeches-statements/atkins-statement-regulation-crypto-assets-081826",
     },
     {
-      title: "SEC Cryptocurrency Enforcement: 2025 Update — Cornerstone Research",
+      title: "SEC Cryptocurrency Enforcement: 2025 Update: Cornerstone Research",
       url: "https://www.cornerstone.com/insights/research/sec-cryptocurrency-enforcement-2025-update/",
     },
     {
-      title: "The next-generation monetary and financial system — BIS Annual Economic Report 2025, Chapter III",
+      title: "The next-generation monetary and financial system: BIS Annual Economic Report 2025, Chapter III",
       url: "https://www.bis.org/publ/arpdf/ar2025e3.htm",
     },
     {
-      title: "Crypto-assets (Markets in Crypto-Assets Regulation, MiCA) — European Commission",
+      title: "Crypto-assets (Markets in Crypto-Assets Regulation, MiCA): European Commission",
       url: "https://finance.ec.europa.eu/digital-finance/crypto-assets_en",
     },
     {
-      title: "FTX Collapse: A Summary — Congressional Research Service",
+      title: "FTX Collapse: A Summary: Congressional Research Service",
       url: "https://crsreports.congress.gov/product/pdf/IF/IF12301",
     },
     {
-      title: "Why Stablecoins Fail: A Look at Terra — Federal Reserve Bank of Richmond",
+      title: "Why Stablecoins Fail: A Look at Terra: Federal Reserve Bank of Richmond",
       url: "https://www.richmondfed.org/publications/research/economic_brief/2022/eb_22-24",
     },
   ],
@@ -103,7 +103,7 @@ export const cryptocurrencyRegulationData = {
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: The losses — would ordinary financial rules have stopped them?
+    // PILLAR 1: The losses, would ordinary financial rules have stopped them?
     // =========================================================================
     {
       id: "consumer-protection-vs-innovation",
@@ -531,7 +531,7 @@ export const cryptocurrencyRegulationData = {
     },
 
     // =========================================================================
-    // PILLAR 4: Who writes the rules — conflicts of interest
+    // PILLAR 4: Who writes the rules, conflicts of interest
     // =========================================================================
     {
       id: "conflicts-of-interest",

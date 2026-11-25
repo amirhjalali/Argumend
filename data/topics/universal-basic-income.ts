@@ -464,63 +464,63 @@ export const universalBasicIncomeData = {
   ],
   references: [
     {
-      title: "The Employment Effects of a Guaranteed Income — Vivalt et al., NBER w32719 (rev. 2026), Quarterly Journal of Economics (2026)",
+      title: "The Employment Effects of a Guaranteed Income, Vivalt et al., NBER w32719 (rev. 2026), Quarterly Journal of Economics (2026)",
       url: "https://www.nber.org/papers/w32719",
     },
     {
-      title: "Does Income Affect Health? Evidence from a Randomized Controlled Trial of a Guaranteed Income — Miller et al., NBER w32711",
+      title: "Does Income Affect Health? Evidence from a Randomized Controlled Trial of a Guaranteed Income, Miller et al., NBER w32711",
       url: "https://www.nber.org/papers/w32711",
     },
     {
-      title: "The Effect of a Monthly Unconditional Cash Transfer on Children's Development at Four Years of Age — Noble et al., NBER w33844 (2025)",
+      title: "The Effect of a Monthly Unconditional Cash Transfer on Children's Development at Four Years of Age, Noble et al., NBER w33844 (2025)",
       url: "https://www.nber.org/papers/w33844",
     },
     {
-      title: "Kenya UBI study: results from a long-term experiment — GiveDirectly (2023)",
+      title: "Kenya UBI study: results from a long-term experiment, GiveDirectly (2023)",
       url: "https://www.givedirectly.org/2023-ubi-results/",
     },
     {
-      title: "Basic Income Pilot Project: Labour results — Pilotprojekt Grundeinkommen / DIW (2025)",
+      title: "Basic Income Pilot Project: Labour results, Pilotprojekt Grundeinkommen / DIW (2025)",
       url: "https://www.pilotprojekt-grundeinkommen.de/en/labour",
     },
     {
-      title: "The Labor Market Impacts of Universal and Permanent Cash Transfers: Evidence from the Alaska Permanent Fund — Jones & Marinescu, AEJ: Economic Policy (2022)",
+      title: "The Labor Market Impacts of Universal and Permanent Cash Transfers: Evidence from the Alaska Permanent Fund, Jones & Marinescu, AEJ: Economic Policy (2022)",
       url: "https://www.aeaweb.org/articles?id=10.1257/pol.20190299",
     },
     {
-      title: "Poverty in the United States: 2022 — US Census Bureau (2023)",
+      title: "Poverty in the United States: 2022, US Census Bureau (2023)",
       url: "https://www.census.gov/library/publications/2023/demo/p60-280.html",
     },
     {
-      title: "Final Evaluation of the Finnish Basic Income Experiment 2017-2018 — Ministry of Social Affairs and Health, Finland",
+      title: "Final Evaluation of the Finnish Basic Income Experiment 2017-2018, Ministry of Social Affairs and Health, Finland",
       url: "https://julkaisut.valtioneuvosto.fi/handle/10024/162219",
     },
     {
-      title: "Options for Universal Basic Income: Dynamic Modeling — Penn Wharton Budget Model (2018)",
+      title: "Options for Universal Basic Income: Dynamic Modeling, Penn Wharton Budget Model (2018)",
       url: "https://budgetmodel.wharton.upenn.edu/issues/2018/3/29/options-for-universal-basic-income-dynamic-modeling",
     },
     {
-      title: "Does Andrew Yang's 'Freedom Dividend' Proposal Add Up? — Tax Foundation",
+      title: "Does Andrew Yang's 'Freedom Dividend' Proposal Add Up?, Tax Foundation",
       url: "https://taxfoundation.org/blog/andrew-yang-value-added-tax-universal-basic-income/",
     },
     {
-      title: "Macroeconomic Effects of Universal Basic Income Programs — Roosevelt Institute (2017)",
+      title: "Macroeconomic Effects of Universal Basic Income Programs, Roosevelt Institute (2017)",
       url: "https://rooseveltinstitute.org/publications/macroeconomic-effects-universal-basic-income/",
     },
     {
-      title: "Cash Transfers and Temptation Goods — Evans & Popova, Economic Development and Cultural Change (2017)",
+      title: "Cash Transfers and Temptation Goods, Evans & Popova, Economic Development and Cultural Change (2017)",
       url: "https://ideas.repec.org/a/ucp/ecdecc/doi10.1086-689575.html",
     },
     {
-      title: "TANF Reaching Few Poor Families — Center on Budget and Policy Priorities",
+      title: "TANF Reaching Few Poor Families, Center on Budget and Policy Priorities",
       url: "https://www.cbpp.org/research/family-income-support/tanf-reaching-few-poor-families",
     },
     {
-      title: "Overview of the Final Report of the Seattle-Denver Income Maintenance Experiment — US DHHS",
+      title: "Overview of the Final Report of the Seattle-Denver Income Maintenance Experiment, US DHHS",
       url: "https://aspe.hhs.gov/reports/overview-final-report-seattle-denver-income-maintenance-experiment",
     },
     {
-      title: "The Town With No Poverty — Forget, Canadian Public Policy (2011)",
+      title: "The Town With No Poverty, Forget, Canadian Public Policy (2011)",
       url: "https://utpjournals.press/doi/abs/10.3138/cpp.37.3.283",
     },
     {

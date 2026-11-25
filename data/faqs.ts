@@ -25,7 +25,7 @@ export const faqs: FAQ[] = [
   {
     question: "What is a crux?",
     answer:
-      "A crux is the question a fight turns on, and what would settle it. On the map of whether AI will cause mass unemployment, one crux asks: “When AI makes a firm more productive, does it hire fewer people — or just sell more?” Under it, the map says what would settle it: several years of firm-level data linking AI adoption to headcount, output and prices. Some cruxes close with evidence like that; some only when the sides agree on terms or on who decides; and some not at all, because they are about values, and the map says so. A crux is narrower than a big question like “what is the best economic policy?”, which no single finding could answer.",
+      "A crux is the question a fight turns on, and what would settle it. On the map of whether AI will cause mass unemployment, one crux asks: “When AI makes a firm more productive, does it hire fewer people, or just sell more?” Under it, the map says what would settle it: several years of firm-level data linking AI adoption to headcount, output and prices. Some cruxes close with evidence like that; some only when the sides agree on terms or on who decides; and some not at all, because they are about values, and the map says so. A crux is narrower than a big question like “what is the best economic policy?”, which no single finding could answer.",
     linkText: "More on cruxes",
     linkHref: "/concepts/cruxes",
   },

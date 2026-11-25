@@ -1,5 +1,5 @@
 // ──────────────────────────────────────────────────────────────
-// Research page data — edit citations and sections here;
+// Research page data: edit citations and sections here;
 // the page component reads from these arrays.
 // ──────────────────────────────────────────────────────────────
 
@@ -295,18 +295,18 @@ export const researchSections: ResearchSection[] = [
   {
     id: "polarization-crisis",
     title: "The polarization crisis",
-    subtitle: "We are not merely disagreeing — we are forgetting how to disagree.",
+    subtitle: "We are not merely disagreeing: we are forgetting how to disagree.",
     paragraphs: [
       {
-        text: "In 2019, 79% of Democrats and 83% of Republicans rated the opposing party \"coldly\" — a sharp increase from 61% and 69% just three years earlier. Over half of partisans on each side now view the other party as \"more immoral\" than other Americans.",
+        text: "In 2019, 79% of Democrats and 83% of Republicans rated the opposing party \"coldly\": a sharp increase from 61% and 69% just three years earlier. Over half of partisans on each side now view the other party as \"more immoral\" than other Americans.",
         citationIds: ["pew-2019"],
       },
       {
-        text: "By 2022, 72% of Republicans and 63% of Democrats said those in the opposing party are more immoral than other Americans — up from 47% and 35% in 2016. Partisan hostility is not only rising; it is accelerating.",
+        text: "By 2022, 72% of Republicans and 63% of Democrats said those in the opposing party are more immoral than other Americans, up from 47% and 35% in 2016. Partisan hostility is not only rising; it is accelerating.",
         citationIds: ["pew-2022"],
       },
       {
-        text: "The partisan coalitions themselves are shifting. The education gap, the age gap, and the racial composition of each party have all changed dramatically since the 1990s. But the pace of affective polarization — how much we dislike the other side — has outstripped actual policy disagreement.",
+        text: "The partisan coalitions themselves are shifting. The education gap, the age gap, and the racial composition of each party have all changed dramatically since the 1990s. But the pace of affective polarization, how much we dislike the other side, has outstripped actual policy disagreement.",
         citationIds: ["pew-2024"],
       },
     ],
@@ -318,11 +318,11 @@ export const researchSections: ResearchSection[] = [
       "Falsehood flies, and the truth comes limping after it.",
     paragraphs: [
       {
-        text: "The largest-ever study of online news diffusion, analyzing 126,000 stories spread by 3 million people on Twitter, found that false news reached more people, penetrated deeper into networks, and spread faster than true stories — in every category of information. False political news was the worst offender.",
+        text: "The largest-ever study of online news diffusion, analyzing 126,000 stories spread by 3 million people on Twitter, found that false news reached more people, penetrated deeper into networks, and spread faster than true stories, in every category of information. False political news was the worst offender.",
         citationIds: ["vosoughi-2018"],
       },
       {
-        text: "The researchers found that false stories were 70% more likely to be retweeted than true ones. The effect was not driven by bots; it was driven by humans. False news triggered stronger emotions — particularly fear, disgust, and surprise — making it more \"shareable\" than factual reporting.",
+        text: "The researchers found that false stories were 70% more likely to be retweeted than true ones. The effect was not driven by bots; it was driven by humans. False news triggered stronger emotions (particularly fear, disgust, and surprise) making it more \"shareable\" than factual reporting.",
         citationIds: ["vosoughi-2018"],
       },
       {
@@ -338,11 +338,11 @@ export const researchSections: ResearchSection[] = [
       "Algorithms optimize for engagement. Engagement rewards outrage.",
     paragraphs: [
       {
-        text: "In 2011, internet activist Eli Pariser coined the term \"filter bubble\" to describe how personalization algorithms create a state of intellectual isolation — where users are primarily exposed to content that confirms their existing worldview, and shielded from perspectives that might challenge it.",
+        text: "In 2011, internet activist Eli Pariser coined the term \"filter bubble\" to describe how personalization algorithms create a state of intellectual isolation, where users are primarily exposed to content that confirms their existing worldview, and shielded from perspectives that might challenge it.",
         citationIds: ["pariser-2011"],
       },
       {
-        text: "A landmark 2015 study of 10.1 million Facebook users confirmed the effect: the News Feed algorithm reduced exposure to cross-cutting content by roughly 15%, and users' own choices amplified this further — they clicked through to 70% less ideologically diverse content than was available to them.",
+        text: "A landmark 2015 study of 10.1 million Facebook users confirmed the effect: the News Feed algorithm reduced exposure to cross-cutting content by roughly 15%, and users' own choices amplified this further, they clicked through to 70% less ideologically diverse content than was available to them.",
         citationIds: ["bakshy-2015"],
       },
       {
@@ -354,18 +354,18 @@ export const researchSections: ResearchSection[] = [
   {
     id: "cost-of-bad-arguments",
     title: "The cost of bad arguments",
-    subtitle: "Poor epistemics are not an abstract problem — they are a public health crisis.",
+    subtitle: "Poor epistemics are not an abstract problem: they are a public health crisis.",
     paragraphs: [
       {
-        text: "The World Health Organization identified vaccine hesitancy as one of the ten greatest threats to global health in 2019 — before the COVID-19 pandemic amplified the problem. Misinformation about vaccines has proliferated on social media, driving hesitancy faster than interventions can address it.",
+        text: "The World Health Organization identified vaccine hesitancy as one of the ten greatest threats to global health in 2019, before the COVID-19 pandemic amplified the problem. Misinformation about vaccines has proliferated on social media, driving hesitancy faster than interventions can address it.",
         citationIds: ["who-2019"],
       },
       {
-        text: "Kahneman and Tversky's foundational research on cognitive biases demonstrated that humans systematically deviate from rational judgment through heuristics like anchoring, availability, and representativeness. These biases are not bugs — they are features of fast, efficient cognition. But in complex policy domains, they lead to predictably poor decisions.",
+        text: "Kahneman and Tversky's foundational research on cognitive biases demonstrated that humans systematically deviate from rational judgment through heuristics like anchoring, availability, and representativeness. These biases are not bugs, they are features of fast, efficient cognition. But in complex policy domains, they lead to predictably poor decisions.",
         citationIds: ["kahneman-1974"],
       },
       {
-        text: "These effects compound. Motivated reasoning plus algorithmic amplification produces more than individual error — it produces communities unable to converge on shared facts, institutions stripped of credibility, and democracies unable to make informed decisions.",
+        text: "These effects compound. Motivated reasoning plus algorithmic amplification produces more than individual error, it produces communities unable to converge on shared facts, institutions stripped of credibility, and democracies unable to make informed decisions.",
         citationIds: ["kahneman-1974", "vosoughi-2018", "pariser-2011"],
       },
     ],
@@ -376,15 +376,15 @@ export const researchSections: ResearchSection[] = [
     subtitle: "The research is clear: structured thinking produces better outcomes.",
     paragraphs: [
       {
-        text: "Philip Tetlock's research on forecasting demonstrated that calibrated confidence dramatically improves prediction accuracy. In the Good Judgment Project, ordinary citizens trained in probabilistic thinking outperformed professional intelligence analysts with access to classified information — by 60% in the first year and 78% in the second.",
+        text: "Philip Tetlock's research on forecasting demonstrated that calibrated confidence dramatically improves prediction accuracy. In the Good Judgment Project, ordinary citizens trained in probabilistic thinking outperformed professional intelligence analysts with access to classified information, by 60% in the first year and 78% in the second.",
         citationIds: ["tetlock-2015"],
       },
       {
-        text: "Julia Galef's \"Scout Mindset\" framework distinguishes between two epistemic orientations: the \"soldier\" who defends pre-existing beliefs, and the \"scout\" who seeks to build an accurate map of reality. Her research draws on cognitive science to show that the scout mindset — characterized by curiosity, openness to being wrong, and calibrated confidence — leads to systematically better judgments.",
+        text: "Julia Galef's \"Scout Mindset\" framework distinguishes between two epistemic orientations: the \"soldier\" who defends pre-existing beliefs, and the \"scout\" who seeks to build an accurate map of reality. Her research draws on cognitive science to show that the scout mindset (characterized by curiosity, openness to being wrong, and calibrated confidence) leads to systematically better judgments.",
         citationIds: ["galef-2021"],
       },
       {
-        text: "Structured deliberation works. Multi-disciplinary research reviews show that when group discussions follow deliberative democracy principles — diverse composition, trained facilitation, and structured interaction — polarization decreases. Stanford's \"America in One Room\" experiment demonstrated measurable depolarization after just a few days of structured discussion among 500+ participants.",
+        text: "Structured deliberation works. Multi-disciplinary research reviews show that when group discussions follow deliberative democracy principles (diverse composition, trained facilitation, and structured interaction) polarization decreases. Stanford's \"America in One Room\" experiment demonstrated measurable depolarization after just a few days of structured discussion among 500+ participants.",
         citationIds: ["fishkin-2018", "fishkin-depolarization"],
       },
     ],
@@ -396,15 +396,15 @@ export const researchSections: ResearchSection[] = [
       "We translate research into a tool anyone can use.",
     paragraphs: [
       {
-        text: "Argumend implements the evidence-based approaches identified by researchers. Steel-manning — presenting the strongest version of opposing arguments — mirrors the deliberative democracy principle that depolarizes through genuine engagement with the other side. Crux identification forces the kind of structured disagreement that moves debates forward.",
+        text: "Argumend implements the evidence-based approaches identified by researchers. Steel-manning, presenting the strongest version of opposing arguments, mirrors the deliberative democracy principle that depolarizes through genuine engagement with the other side. Crux identification forces the kind of structured disagreement that moves debates forward.",
         citationIds: ["fishkin-2018", "galef-2021"],
       },
       {
-        text: "Tetlock's research on superforecasting shaped how our maps talk about uncertainty. Instead of a verdict or a single percentage, a map shows where the argument turns and what would settle each crux, and the strongest evidence on each side — because admitting what we don't know is the first step toward knowing more.",
+        text: "Tetlock's research on superforecasting shaped how our maps talk about uncertainty. Instead of a verdict or a single percentage, a map shows where the argument turns and what would settle each crux, and the strongest evidence on each side, because admitting what we don't know is the first step toward knowing more.",
         citationIds: ["tetlock-2015"],
       },
       {
-        text: "Source transparency counters the mechanisms that make misinformation sticky. By linking every claim to its evidence, we make it harder for the continued influence effect to take hold — and easier for users to verify, challenge, and update their understanding.",
+        text: "Source transparency counters the mechanisms that make misinformation sticky. By linking every claim to its evidence, we make it harder for the continued influence effect to take hold, and easier for users to verify, challenge, and update their understanding.",
         citationIds: ["lewandowsky-2020", "vosoughi-2018"],
       },
     ],

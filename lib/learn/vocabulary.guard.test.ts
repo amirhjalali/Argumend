@@ -141,7 +141,7 @@ describe("Learn defines a crux one way, the way the maps use it", () => {
   it("names a real flagship crux and only the statuses the maps show", () => {
     const crux = concepts.find((c) => c.id === "cruxes")!.description;
     // A crux question as the AI unemployment map words it.
-    expect(crux).toContain("When AI makes a firm more productive, does it hire fewer people — or just sell more?");
+    expect(crux).toContain("When AI makes a firm more productive, does it hire fewer people, or just sell more?");
     // The ledger's labels (components/argument/CruxMovement.tsx), verbatim.
     for (const label of ["Open", "Narrowed", "Resolved", "Unresolvable by evidence", "Still open", "How this has moved"]) {
       expect(crux).toContain(label);

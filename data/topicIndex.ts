@@ -4,7 +4,7 @@
  * The full `data/topics.ts` file is ~500KB. When client components import it,
  * the entire payload gets duplicated into every page chunk that uses it.
  * This file re-exports only the minimal fields needed for listing, searching,
- * and navigation — keeping client bundles small (~17KB vs ~500KB).
+ * and navigation: keeping client bundles small (~17KB vs ~500KB).
  *
  * For full topic data (pillars, evidence, cruxes), import from `data/topics.ts`
  * only in server components or lazy-loaded client code (e.g., CanvasView).
@@ -26,7 +26,7 @@ export interface TopicSummary {
   /** The map's headline as a question, when authored; lists prefer it. */
   question?: string;
   meta_claim: string;
-  /** @deprecated — always equal to balance; do not display */
+  /** @deprecated: always equal to balance; do not display */
   confidence_score: number;
   balance: number;
   weight: number;
@@ -51,7 +51,7 @@ export interface TopicSummary {
   addedAt?: string;
 }
 
-/** Pre-computed summaries — ~17KB vs ~500KB for the full topics array. */
+/** Pre-computed summaries: ~17KB vs ~500KB for the full topics array. */
 export const topicSummaries: TopicSummary[] = summaries as TopicSummary[];
 
 /** Exact topic count. */

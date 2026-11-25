@@ -100,7 +100,7 @@ export const evEnvironmentalImpactData = {
             replicability: 7,
             directness: 8,
           },
-          source: "International Energy Agency, Global EV Outlook 2024 — Outlook for emissions reductions",
+          source: "International Energy Agency, Global EV Outlook 2024, Outlook for emissions reductions",
           sourceUrl:
             "https://www.iea.org/reports/global-ev-outlook-2024/outlook-for-emissions-reductions",
           reasoning:
@@ -402,39 +402,39 @@ export const evEnvironmentalImpactData = {
   ],
   references: [
     {
-      title: "Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update — ICCT (July 2025)",
+      title: "Life-cycle greenhouse gas emissions from passenger cars in the European Union: A 2025 update, ICCT (July 2025)",
       url: "https://theicct.org/publication/electric-cars-life-cycle-analysis-emissions-europe-jul25/",
     },
     {
-      title: "EPA Stopped Updating the Data Behind Electric Vehicle Emissions. The Numbers Still Show EVs Are Winners — Union of Concerned Scientists (August 2026)",
+      title: "EPA Stopped Updating the Data Behind Electric Vehicle Emissions. The Numbers Still Show EVs Are Winners, Union of Concerned Scientists (August 2026)",
       url: "https://blog.ucs.org/dave-reichmuth/epa-stopped-updating-the-data-behind-electric-vehicle-emissions-the-numbers-still-show-evs-are-winners/",
     },
     {
-      title: "Factcheck: 21 misleading myths about electric vehicles — Carbon Brief (updated August 2025)",
+      title: "Factcheck: 21 misleading myths about electric vehicles, Carbon Brief (updated August 2025)",
       url: "https://interactive.carbonbrief.org/factcheck/electric-vehicles/index.html",
     },
     {
-      title: "Global Electricity Review 2026 — Ember",
+      title: "Global Electricity Review 2026, Ember",
       url: "https://ember-energy.org/latest-insights/global-electricity-review-2026/",
     },
     {
-      title: "Mineral Commodity Summaries 2026: Cobalt — US Geological Survey",
+      title: "Mineral Commodity Summaries 2026: Cobalt, US Geological Survey",
       url: "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cobalt.pdf",
     },
     {
-      title: "GREET Model — Argonne National Laboratory, US Department of Energy",
+      title: "GREET Model, Argonne National Laboratory, US Department of Energy",
       url: "https://greet.anl.gov/",
     },
     {
-      title: "Global EV Outlook 2024 — International Energy Agency",
+      title: "Global EV Outlook 2024, International Energy Agency",
       url: "https://www.iea.org/reports/global-ev-outlook-2024",
     },
     {
-      title: "This Is What We Die For: Human Rights Abuses in the DRC — Amnesty International (2016)",
+      title: "This Is What We Die For: Human Rights Abuses in the DRC, Amnesty International (2016)",
       url: "https://www.amnesty.org/en/documents/afr62/3183/2016/en/",
     },
     {
-      title: "Nickel Unearthed: The Human and Climate Costs of Indonesia's Nickel Industry — Climate Rights International (2024)",
+      title: "Nickel Unearthed: The Human and Climate Costs of Indonesia's Nickel Industry, Climate Rights International (2024)",
       url: "https://cri.org/reports/nickel-unearthed/",
     },
   ],

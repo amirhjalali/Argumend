@@ -36,16 +36,16 @@ export const inflationMonetaryPolicyData = {
     "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "Federal Reserve Economic Data (FRED) — M2 Money Supply",
+      title: "Federal Reserve Economic Data (FRED): M2 Money Supply",
       url: "https://fred.stlouisfed.org/series/M2SL",
     },
     {
-      title: "FRED — CPI for All Urban Consumers, not seasonally adjusted (CPIAUCNS)",
+      title: "FRED: CPI for All Urban Consumers, not seasonally adjusted (CPIAUCNS)",
       url: "https://fred.stlouisfed.org/series/CPIAUCNS",
     },
     {
       title:
-        "Bernanke & Blanchard (2023) — What Caused the U.S. Pandemic-Era Inflation?",
+        "Bernanke & Blanchard (2023), What Caused the U.S. Pandemic-Era Inflation?",
       url: "https://www.brookings.edu/articles/what-caused-the-u-s-pandemic-era-inflation/",
     },
     {
@@ -144,7 +144,7 @@ export const inflationMonetaryPolicyData = {
             replicability: 10,
             directness: 6,
           },
-          source: "Federal Reserve Economic Data (FRED) — M2 (M2SL), Federal Reserve Bank of St. Louis",
+          source: "Federal Reserve Economic Data (FRED), M2 (M2SL), Federal Reserve Bank of St. Louis",
           sourceUrl: "https://fred.stlouisfed.org/series/M2SL",
           reasoning:
             "An indisputable measurement. Directness is moderate because money growth and inflation moving together does not show which caused which; the M2 definition was also revised in May 2020.",
@@ -216,7 +216,7 @@ export const inflationMonetaryPolicyData = {
             replicability: 10,
             directness: 5,
           },
-          source: "FRED — Velocity of M2 Money Stock (M2V), Federal Reserve Bank of St. Louis",
+          source: "FRED, Velocity of M2 Money Stock (M2V), Federal Reserve Bank of St. Louis",
           sourceUrl: "https://fred.stlouisfed.org/series/M2V",
           reasoning:
             "Low velocity offsets part of the money growth. Velocity recovered as the economy reopened, which is the other side's point.",
@@ -427,7 +427,7 @@ export const inflationMonetaryPolicyData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Federal Reserve Bank of Atlanta — Taylor Rule Utility (Center for Quantitative Economic Research)",
+          source: "Federal Reserve Bank of Atlanta, Taylor Rule Utility (Center for Quantitative Economic Research)",
           sourceUrl: "https://www.atlantafed.org/cqer/research/taylor-rule",
           reasoning:
             "A rule-based benchmark showing the Fed departed from standard prescriptions. The exact should-have-been rate depends on which rule and inflation measure are used.",
@@ -461,7 +461,7 @@ export const inflationMonetaryPolicyData = {
             replicability: 9,
             directness: 5,
           },
-          source: "FRED — 10-Year Breakeven Inflation Rate (T10YIE), Federal Reserve Bank of St. Louis",
+          source: "FRED, 10-Year Breakeven Inflation Rate (T10YIE), Federal Reserve Bank of St. Louis",
           sourceUrl: "https://fred.stlouisfed.org/series/T10YIE",
           reasoning:
             "Anchored expectations suggest the delay did not wreck the Fed's credibility; they do not show the delay was costless.",
@@ -518,7 +518,7 @@ export const inflationMonetaryPolicyData = {
             replicability: 10,
             directness: 6,
           },
-          source: "BLS, Consumer Price Index — September 2026 (released 14 October 2026)",
+          source: "BLS, Consumer Price Index, September 2026 (released 14 October 2026)",
           sourceUrl: "https://www.bls.gov/news.release/cpi.nr0.htm",
           reasoning:
             "Official data showing the 2026 rise is concentrated in energy, which favors the supply reading of this episode. Core at 2.6% is still above the 2% goal, which is the other side's point.",

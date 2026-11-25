@@ -15,7 +15,7 @@ import {
 // say, in the same voice.
 // ---------------------------------------------------------------------------
 
-const TITLE = "ARGUMEND — Find what the argument actually turns on";
+const TITLE = "ARGUMEND: Find what the argument actually turns on";
 const DESCRIPTION =
   "Argumend maps the questions behind a disagreement, the evidence on each side, and what would change each side's mind. It never names a winner.";
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "ARGUMEND — Disagree better.",
+        alt: "A tangle of teal and rust thread on paper beside the words: Find what the argument actually turns on.",
       },
     ],
   },

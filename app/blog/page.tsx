@@ -24,7 +24,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   const canonical = buildPageHref("https://argumend.org/blog", page);
 
   return {
-    title: page > 1 ? `Blog — Page ${page} of ${pageCount}` : "Blog — Essays on Disagreeing Well",
+    title: page > 1 ? `Blog: Page ${page} of ${pageCount}` : "Blog: Essays on Disagreeing Well",
     description: DESCRIPTION,
     alternates: { canonical },
     pagination: {

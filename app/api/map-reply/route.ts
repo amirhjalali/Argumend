@@ -6,7 +6,7 @@
  * the pasted text to TypeSafe AI, a third party.
  *
  * The body is never persisted and never logged. The log line carries lengths,
- * timings, the model the API reported, token usage and the chosen topic id —
+ * timings, the model the API reported, token usage and the chosen topic id,
  * nothing a reader wrote.
  */
 import { NextRequest, NextResponse } from "next/server";

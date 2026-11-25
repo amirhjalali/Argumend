@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? absoluteMediaUrl(media.hero.src)
     : getGuideFallbackOgUrl(guide.title);
   // The root layout's template adds the brand once.
-  const title = `${guide.title} — Guide`;
+  const title = `${guide.title}: Guide`;
   const description = fitMetaDescription(guide.description);
 
   return {
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           url: ogImageUrl,
           width: media?.hero.width ?? 1200,
           height: media?.hero.height ?? 630,
-          alt: media?.hero.alt ?? `${guide.title} — Critical Thinking Guide`,
+          alt: media?.hero.alt ?? `${guide.title}: Critical Thinking Guide`,
         },
       ],
     },
@@ -128,7 +128,7 @@ export default async function GuidePage({ params }: PageProps) {
     .flatMap((section) => [section.content, ...(section.subsections?.map((sub) => sub.content) ?? [])])
     .join("\n");
 
-  // JSON-LD structured data — LearningResource is the correct type for an educational guide.
+  // JSON-LD structured data: LearningResource is the correct type for an educational guide.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LearningResource",

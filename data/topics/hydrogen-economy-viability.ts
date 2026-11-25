@@ -20,7 +20,7 @@ export const hydrogenEconomyViabilityData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "Both sides accept that steel, ammonia and long-haul shipping are genuinely hard to electrify directly, that green hydrogen costs several times more than grey hydrogen made from gas, that announced projects have far outrun those financed and built, and that for cars and home heating, batteries and heat pumps get far more out of each unit of clean electricity.",
-    "They split over whether other routes — scrap-based furnaces, carbon capture, bio-feedstocks — can undercut hydrogen even in those hard sectors; whether its energy density and seasonal storage justify its conversion losses in aviation, shipping and grid balancing; and whether green hydrogen costs will fall the way solar and batteries did or stay above parity without subsidies like the 45V tax credit.",
+    "They split over whether other routes (scrap-based furnaces, carbon capture, bio-feedstocks) can undercut hydrogen even in those hard sectors; whether its energy density and seasonal storage justify its conversion losses in aviation, shipping and grid balancing; and whether green hydrogen costs will fall the way solar and batteries did or stay above parity without subsidies like the 45V tax credit.",
   ],
   pillars: [
     // =========================================================================
@@ -33,16 +33,16 @@ export const hydrogenEconomyViabilityData = {
         "Steel, ammonia/fertilizer, and shipping account for a large share of industrial emissions and have no easy battery-electric substitute. Proponents argue green hydrogen is the indispensable molecule for these 'hard-to-abate' sectors. Skeptics counter that even here, hydrogen is expensive, that pilot 'green steel' projects are already near-bankrupt, and that some of these uses (like steel) may be better served by other routes.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "Even in the sectors hydrogen advocates call its 'no-regret' home turf, the economics are brutal. Green steel is the flagship example: Sweden's Stegra (formerly H2 Green Steel), Europe's first major commercial hydrogen-DRI mill, came within weeks of bankruptcy in late 2025 and saw its funding gap more than double to over €2 billion, ultimately needing a Wallenberg-led rescue. Green steel carries an estimated cost premium of roughly $200/tonne over conventional steel in a market where commodity steel prices are falling. Green ammonia made with electrolytic hydrogen costs two to four times more than today's natural-gas-based ammonia, threatening fertilizer affordability for the food supply. The point isn't that hydrogen is technically impossible in these sectors — it's that 'hard-to-electrify' has quietly become 'hard-to-afford,' and without permanent subsidy the molecule doesn't pencil out even where it has the strongest case.",
+        "Even in the sectors hydrogen advocates call its 'no-regret' home turf, the economics are brutal. Green steel is the flagship example: Sweden's Stegra (formerly H2 Green Steel), Europe's first major commercial hydrogen-DRI mill, came within weeks of bankruptcy in late 2025 and saw its funding gap more than double to over €2 billion, ultimately needing a Wallenberg-led rescue. Green steel carries an estimated cost premium of roughly $200/tonne over conventional steel in a market where commodity steel prices are falling. Green ammonia made with electrolytic hydrogen costs two to four times more than today's natural-gas-based ammonia, threatening fertilizer affordability for the food supply. The point isn't that hydrogen is technically impossible in these sectors; it's that 'hard-to-electrify' has quietly become 'hard-to-afford,' and without permanent subsidy the molecule doesn't pencil out even where it has the strongest case.",
       proponent_rebuttal:
-        "Steel, ammonia and long-haul shipping are exactly why hydrogen is non-negotiable — there is no battery-electric path for them. Steelmaking via blast furnace and coking coal is responsible for roughly 7-8% of global CO2 emissions, and hydrogen-based direct reduced iron (H2-DRI) is the only demonstrated route to cut those emissions by up to ~95%; HYBRIT in Sweden has already proven 100% hydrogen reduction at pilot scale. Ammonia production (mostly for fertilizer that underpins food for roughly half the world's population) generates roughly 450 million tonnes of CO2 a year — around 1.8% of global emissions — and green ammonia simply swaps the grey hydrogen feedstock for electrolytic hydrogen with no change to the downstream Haber-Bosch chemistry. Long-haul shipping and aviation feedstocks have no plausible battery answer at the required energy density. Stegra's near-failure is a financing-and-timing story, not a physics one; first-of-a-kind plants in any technology face cost overruns, and the chemistry works.",
+        "Steel, ammonia and long-haul shipping are exactly why hydrogen is non-negotiable; there is no battery-electric path for them. Steelmaking via blast furnace and coking coal is responsible for roughly 7-8% of global CO2 emissions, and hydrogen-based direct reduced iron (H2-DRI) is the only demonstrated route to cut those emissions by up to ~95%; HYBRIT in Sweden has already proven 100% hydrogen reduction at pilot scale. Ammonia production (mostly for fertilizer that underpins food for roughly half the world's population) generates roughly 450 million tonnes of CO2 a year, around 1.8% of global emissions, and green ammonia simply swaps the grey hydrogen feedstock for electrolytic hydrogen with no change to the downstream Haber-Bosch chemistry. Long-haul shipping and aviation feedstocks have no plausible battery answer at the required energy density. Stegra's near-failure is a financing-and-timing story, not a physics one; first-of-a-kind plants in any technology face cost overruns, and the chemistry works.",
       crux: {
         id: "no-electric-substitute-test",
         title: "The No-Electric-Substitute Test",
         question:
           "In hard-to-electrify sectors, can other decarbonization routes undercut hydrogen?",
         description:
-          "Whether a given sector genuinely has no viable direct-electrification or alternative-decarbonization path — making hydrogen the only option — or whether cheaper substitutes exist. If steel, ammonia, and long-haul shipping truly cannot be decarbonized any other way at scale, hydrogen's value is locked in regardless of its cost penalty. If competing routes (electric arc furnaces with scrap, biomethane, e-methanol, batteries for short-sea shipping) can do much of the job more cheaply, hydrogen's 'indispensable' claim shrinks to a narrower slice.",
+          "Whether a given sector genuinely has no viable direct-electrification or alternative-decarbonization path, making hydrogen the only option, or whether cheaper substitutes exist. If steel, ammonia, and long-haul shipping truly cannot be decarbonized any other way at scale, hydrogen's value is locked in regardless of its cost penalty. If competing routes (electric arc furnaces with scrap, biomethane, e-methanol, batteries for short-sea shipping) can do much of the job more cheaply, hydrogen's 'indispensable' claim shrinks to a narrower slice.",
         methodology:
           "Build a sector-by-sector marginal abatement comparison: for steel, ammonia, methanol, and shipping, model the full delivered cost per tonne of CO2 avoided for (a) the hydrogen route and (b) the leading non-hydrogen alternative (scrap-based EAF, carbon capture, electrified processes, bio-feedstocks, direct battery use), under a range of electricity prices ($20-60/MWh) and electrolyzer capital costs. Identify, for each sector, the break-even electricity price at which the hydrogen route is the cheapest decarbonization option. Cross-check against operating first-of-a-kind plants (HYBRIT, Stegra, green-ammonia pilots) for real cost data rather than spreadsheet projections.",
         verification_status: "theoretical" as const,
@@ -60,7 +60,7 @@ export const hydrogenEconomyViabilityData = {
           common_ground:
             "Both sides agree these sectors are genuinely hard to electrify directly and that green hydrogen is currently far more expensive than the incumbent fossil route.",
           live_disagreement:
-            "Whether competing decarbonization routes can undercut hydrogen in these sectors, or whether hydrogen is the unavoidable (if costly) answer — which only honest, plant-level marginal-abatement-cost data can settle.",
+            "Whether competing decarbonization routes can undercut hydrogen in these sectors, or whether hydrogen is the unavoidable (if costly) answer, which only honest, plant-level marginal-abatement-cost data can settle.",
         },
       },
       evidence: [
@@ -89,7 +89,7 @@ export const hydrogenEconomyViabilityData = {
           title:
             "Ammonia Production Emits ~1.8% of Global CO2; Green Route Drops In Cleanly",
           description:
-            "Conventional ammonia synthesis relies on hydrogen made from natural gas via steam methane reforming, and steam-methane reformers for ammonia emit roughly 450 million tonnes of CO2 per year — around 1.8% of worldwide CO2 emissions. Roughly 70% of ammonia goes to fertilizer, which underpins food production for a large share of humanity. Green ammonia substitutes electrolytic hydrogen for grey hydrogen while leaving the Haber-Bosch nitrogen-fixation chemistry unchanged, making it one of the most technically straightforward 'drop-in' uses for green hydrogen.",
+            "Conventional ammonia synthesis relies on hydrogen made from natural gas via steam methane reforming, and steam-methane reformers for ammonia emit roughly 450 million tonnes of CO2 per year, around 1.8% of worldwide CO2 emissions. Roughly 70% of ammonia goes to fertilizer, which underpins food production for a large share of humanity. Green ammonia substitutes electrolytic hydrogen for grey hydrogen while leaving the Haber-Bosch nitrogen-fixation chemistry unchanged, making it one of the most technically straightforward 'drop-in' uses for green hydrogen.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -122,14 +122,14 @@ export const hydrogenEconomyViabilityData = {
           sourceUrl:
             "https://www.canarymedia.com/articles/green-steel/stegra-funding-complete-mill",
           reasoning:
-            "Stegra's financial troubles are extensively reported by independent outlets. The evidence is direct against the 'even in its best sector hydrogen pencils out' claim. It does not show the chemistry fails — only that the economics of first-of-a-kind hydrogen plants are precarious, which proponents fairly attribute to financing and timing rather than physics.",
+            "Stegra's financial troubles are extensively reported by independent outlets. The evidence is direct against the 'even in its best sector hydrogen pencils out' claim. It does not show the chemistry fails, only that the economics of first-of-a-kind hydrogen plants are precarious, which proponents fairly attribute to financing and timing rather than physics.",
         },
         {
           id: "shipping-fuel-density",
           title:
             "Long-Haul Shipping and Aviation Lack a Battery-Electric Path",
           description:
-            "Trans-ocean shipping and long-haul aviation require energy carriers with far higher energy density than current batteries can provide for the duration and range involved. Hydrogen-derived fuels — green ammonia and e-methanol for ships, synthetic e-kerosene for aircraft — are among the few candidate low-carbon options, which is why the International Maritime Organization's decarbonization strategy and shipping majors (e.g. Maersk's methanol vessels) are pursuing hydrogen-based fuels rather than batteries for deep-sea routes. This is a genuine 'no direct-electrification substitute' domain, though e-fuels remain expensive and scarce.",
+            "Trans-ocean shipping and long-haul aviation require energy carriers with far higher energy density than current batteries can provide for the duration and range involved. Hydrogen-derived fuels (green ammonia and e-methanol for ships, synthetic e-kerosene for aircraft) are among the few candidate low-carbon options, which is why the International Maritime Organization's decarbonization strategy and shipping majors (e.g. Maersk's methanol vessels) are pursuing hydrogen-based fuels rather than batteries for deep-sea routes. This is a genuine 'no direct-electrification substitute' domain, though e-fuels remain expensive and scarce.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -154,19 +154,19 @@ export const hydrogenEconomyViabilityData = {
       id: "round-trip-efficiency",
       title: "The Efficiency Penalty",
       short_summary:
-        "Making hydrogen from electricity and using it back loses most of the energy along the way. For cars and home heating — where you can simply plug in — batteries and heat pumps deliver two to six times more useful energy per unit of clean electricity. Proponents concede this for light vehicles and heating but argue efficiency isn't the only criterion: storage, energy density, and seasonal balancing matter too.",
+        "Making hydrogen from electricity and using it back loses most of the energy along the way. For cars and home heating, where you can simply plug in, batteries and heat pumps deliver two to six times more useful energy per unit of clean electricity. Proponents concede this for light vehicles and heating but argue efficiency isn't the only criterion: storage, energy density, and seasonal balancing matter too.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Thermodynamics is the hydrogen economy's hardest constraint, and it is unforgiving for everyday uses. Electrolysis is roughly 70-80% efficient, then you lose more energy to compression, storage, and transport, and a fuel cell converting hydrogen back to electricity is only ~50-60% efficient — so a hydrogen fuel-cell car delivers only about 25-35% of the original clean electricity to the wheels, versus 70-80% for a battery EV. The 'hydrogen car' dream is collapsing in practice: Shell shut its U.S. hydrogen refueling stations in 2024, the network has shrunk, and Toyota Mirai owners have filed suit over unfueled cars. Home heating is the same story: a peer-reviewed Joule review by Jan Rosenow of 32 independent studies found not one supporting a major role for hydrogen in home heating, because a heat pump delivers 3-4 units of heat per unit of electricity while hydrogen heating needs five to six times more electricity for the same warmth. Every unit of clean electricity diverted into 'hydrogen for everything' is clean electricity not used far more effectively elsewhere.",
+        "Thermodynamics is the hydrogen economy's hardest constraint, and it is unforgiving for everyday uses. Electrolysis is roughly 70-80% efficient, then you lose more energy to compression, storage, and transport, and a fuel cell converting hydrogen back to electricity is only ~50-60% efficient, so a hydrogen fuel-cell car delivers only about 25-35% of the original clean electricity to the wheels, versus 70-80% for a battery EV. The 'hydrogen car' dream is collapsing in practice: Shell shut its U.S. hydrogen refueling stations in 2024, the network has shrunk, and Toyota Mirai owners have filed suit over unfueled cars. Home heating is the same story: a peer-reviewed Joule review by Jan Rosenow of 32 independent studies found not one supporting a major role for hydrogen in home heating, because a heat pump delivers 3-4 units of heat per unit of electricity while hydrogen heating needs five to six times more electricity for the same warmth. Every unit of clean electricity diverted into 'hydrogen for everything' is clean electricity not used far more effectively elsewhere.",
       proponent_rebuttal:
-        "Round-trip efficiency is the right lens for cars and home heating — and serious hydrogen advocates have largely conceded those uses to batteries and heat pumps. But efficiency is not the only thing that matters for an energy system. Hydrogen is a chemical feedstock and a long-duration, seasonal store of energy in ways batteries cannot economically match: you can stockpile hydrogen in salt caverns for months to balance a renewables-heavy grid across a windless winter, which lithium batteries (built for hours, not seasons) cannot do affordably. For aviation and shipping, energy density per kilogram, not electrical efficiency, is the binding constraint, and there hydrogen-derived fuels win where batteries are simply too heavy. The mistake is treating 'low round-trip efficiency' as disqualifying everywhere; the correct reading is that hydrogen should be reserved for the niches where electrons cannot go — and abandoned for cars and heating where they obviously can.",
+        "Round-trip efficiency is the right lens for cars and home heating, and serious hydrogen advocates have largely conceded those uses to batteries and heat pumps. But efficiency is not the only thing that matters for an energy system. Hydrogen is a chemical feedstock and a long-duration, seasonal store of energy in ways batteries cannot economically match: you can stockpile hydrogen in salt caverns for months to balance a renewables-heavy grid across a windless winter, which lithium batteries (built for hours, not seasons) cannot do affordably. For aviation and shipping, energy density per kilogram, not electrical efficiency, is the binding constraint, and there hydrogen-derived fuels win where batteries are simply too heavy. The mistake is treating 'low round-trip efficiency' as disqualifying everywhere; the correct reading is that hydrogen should be reserved for the niches where electrons cannot go, and abandoned for cars and heating where they obviously can.",
       crux: {
         id: "efficiency-vs-value-test",
         title: "The Useful-Energy-Per-Clean-Kilowatt-Hour Test",
         question:
           "Do hydrogen's density and storage advantages justify its energy losses in aviation, shipping and grids?",
         description:
-          "Whether, for a given end use, direct electrification delivers more useful service per unit of clean electricity than the hydrogen pathway — and whether efficiency is the binding constraint at all. If a heat pump or battery delivers the same service with a fraction of the renewable input, hydrogen is a poor allocation of scarce clean power for that use. If the binding constraint is instead energy density (aviation) or seasonal storage duration (grid balancing), where hydrogen has no electric competitor, the efficiency penalty is a price worth paying.",
+          "Whether, for a given end use, direct electrification delivers more useful service per unit of clean electricity than the hydrogen pathway, and whether efficiency is the binding constraint at all. If a heat pump or battery delivers the same service with a fraction of the renewable input, hydrogen is a poor allocation of scarce clean power for that use. If the binding constraint is instead energy density (aviation) or seasonal storage duration (grid balancing), where hydrogen has no electric competitor, the efficiency penalty is a price worth paying.",
         methodology:
           "For each candidate end use (passenger car, home heating, grid storage over hours vs. months, aviation, shipping), compute the system-level useful output per kWh of upstream clean electricity for the hydrogen route versus the best electric alternative, including all conversion, compression, storage, and distribution losses. Then identify the binding constraint for each use: is it efficiency (kWh in vs. service out), energy density (kWh per kg), or storage duration (hours vs. seasons)? Hydrogen 'wins' only where its non-efficiency advantage (density or duration) outweighs its efficiency disadvantage. Validate against real-world deployment data (FCEV vs. BEV fleets, hydrogen vs. heat-pump heating trials, battery vs. hydrogen grid-storage economics).",
         verification_status: "verified" as const,
@@ -178,13 +178,13 @@ export const hydrogenEconomyViabilityData = {
           "$50K-200K (Energy-systems modeling; underlying efficiency figures are already well-measured)",
         falsification: {
           supporter_flip:
-            "If, even after accounting for energy density and seasonal storage, system models showed direct electrification beats hydrogen on useful-energy-per-clean-kWh in essentially every end use — including grid balancing and heavy transport — then the 'reserve hydrogen for the niches' case would collapse and hydrogen would be a stranded detour.",
+            "If, even after accounting for energy density and seasonal storage, system models showed direct electrification beats hydrogen on useful-energy-per-clean-kWh in essentially every end use, including grid balancing and heavy transport, then the 'reserve hydrogen for the niches' case would collapse and hydrogen would be a stranded detour.",
           skeptic_flip:
             "If system models found batteries had no economical answer for seasonal grid storage, or for aviation and shipping where weight per unit of energy binds, the efficiency penalty in those uses would look like a price worth paying rather than a fatal flaw.",
           common_ground:
             "Both sides agree that for passenger cars and home heating, batteries and heat pumps deliver far more useful energy per unit of clean electricity, and that hydrogen there is wasteful.",
           live_disagreement:
-            "Whether hydrogen's density and seasonal-storage advantages justify its efficiency penalty in aviation, shipping, and long-duration grid balancing — or whether electrification (plus cheaper battery/storage advances) will encroach even there.",
+            "Whether hydrogen's density and seasonal-storage advantages justify its efficiency penalty in aviation, shipping, and long-duration grid balancing, or whether electrification (plus cheaper battery/storage advances) will encroach even there.",
         },
       },
       evidence: [
@@ -226,7 +226,7 @@ export const hydrogenEconomyViabilityData = {
           sourceUrl:
             "https://www.cell.com/joule/fulltext/S2542-4351(22)00416-0",
           reasoning:
-            "A peer-reviewed evidence review in a respected journal, explicitly restricted to non-industry-funded studies, with a unanimous finding — very high reliability and independence. Directness to home heating is high. It does not bear on industrial feedstock or storage uses, so it should not be over-generalized to 'hydrogen is useless.'",
+            "A peer-reviewed evidence review in a respected journal, explicitly restricted to non-industry-funded studies, with a unanimous finding, very high reliability and independence. Directness to home heating is high. It does not bear on industrial feedstock or storage uses, so it should not be over-generalized to 'hydrogen is useless.'",
         },
         {
           id: "hydrogen-station-retreat",
@@ -252,7 +252,7 @@ export const hydrogenEconomyViabilityData = {
           title:
             "Hydrogen Offers Seasonal Storage and Energy Density Batteries Cannot Match",
           description:
-            "Hydrogen can be stored in geological salt caverns at very large scale for weeks-to-months, providing seasonal (inter-month) energy storage to balance a renewables-heavy grid through prolonged low-wind, low-sun periods — a function lithium-ion batteries, optimized for hours of storage, cannot deliver economically. By mass, hydrogen also carries far more energy per kilogram than batteries (~120 MJ/kg lower heating value vs. roughly 1 MJ/kg of usable energy for lithium-ion cells), which is why it (and its derived e-fuels) is a leading candidate where weight matters, such as aviation and deep-sea shipping. These advantages are independent of round-trip efficiency.",
+            "Hydrogen can be stored in geological salt caverns at very large scale for weeks-to-months, providing seasonal (inter-month) energy storage to balance a renewables-heavy grid through prolonged low-wind, low-sun periods, a function lithium-ion batteries, optimized for hours of storage, cannot deliver economically. By mass, hydrogen also carries far more energy per kilogram than batteries (~120 MJ/kg lower heating value vs. roughly 1 MJ/kg of usable energy for lithium-ion cells), which is why it (and its derived e-fuels) is a leading candidate where weight matters, such as aviation and deep-sea shipping. These advantages are independent of round-trip efficiency.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -280,9 +280,9 @@ export const hydrogenEconomyViabilityData = {
         "Green hydrogen costs several times more than the fossil-based hydrogen it must replace, and the gulf between announced projects and ones actually built is enormous. Proponents point to steep cost-decline curves, subsidies like the US IRA and EU Hydrogen Bank, and the precedent of solar and batteries. Skeptics see a recurring hype cycle in which announcements vastly outrun reality.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The hydrogen economy has a chronic gap between promise and delivery. Green hydrogen costs roughly $4-8/kg today versus about $1-2/kg for grey hydrogen from natural gas — a two-to-fivefold penalty with no buyer willing to pay it absent subsidy. The deployment numbers expose the hype: the IEA reports that of all announced low-emissions hydrogen capacity, only ~7% has reached a final investment decision, and a Nature Energy study tracking roughly 190 projects over three years found only ~7% of announced capacity was realized on schedule. A wave of cancellations and downscalings hit in 2024-2025; by the end of 2024, more than a fifth of announced EU green-hydrogen projects had been shelved, scaled back, or delayed, and only about 10% of announced pre-2030 clean-hydrogen capacity had an identified buyer. The world has been promised a 'hydrogen economy' since at least the 1970s and it has repeatedly failed to arrive; betting the energy transition on it again is imprudent.",
+        "The hydrogen economy has a chronic gap between promise and delivery. Green hydrogen costs roughly $4-8/kg today versus about $1-2/kg for grey hydrogen from natural gas, a two-to-fivefold penalty with no buyer willing to pay it absent subsidy. The deployment numbers expose the hype: the IEA reports that of all announced low-emissions hydrogen capacity, only ~7% has reached a final investment decision, and a Nature Energy study tracking roughly 190 projects over three years found only ~7% of announced capacity was realized on schedule. A wave of cancellations and downscalings hit in 2024-2025; by the end of 2024, more than a fifth of announced EU green-hydrogen projects had been shelved, scaled back, or delayed, and only about 10% of announced pre-2030 clean-hydrogen capacity had an identified buyer. The world has been promised a 'hydrogen economy' since at least the 1970s and it has repeatedly failed to arrive; betting the energy transition on it again is imprudent.",
       proponent_rebuttal:
-        "Cost and deployment gaps are real but are exactly what an early-stage technology scaling curve looks like — and the trajectory is steeply downward. Green hydrogen's cost is dominated by electrolyzer capital and clean-electricity price, both falling fast; the US DOE's Hydrogen Shot targets $1/kg by 2031, IRA production tax credits already push subsidized US projects under $1/kg, and the EU Hydrogen Bank is auctioning fixed-premium support to close the gap. Solar modules fell ~90% in a decade and lithium batteries ~90% as well once volume scaled, defying identical 'it will never be cheap enough' skepticism. The IEA itself, even while documenting the cancellations, projects low-emissions hydrogen from operational-or-FID projects reaching about 4.2 Mtpa by 2030 — roughly a fivefold increase and around 4% of total supply — so the industry is growing, just slower than the early hype. The honest reading is that the 'hydrogen for everything' hype deserved to be punctured, but that disciplined, subsidy-bridged deployment in the right sectors is on track.",
+        "Cost and deployment gaps are real but are exactly what an early-stage technology scaling curve looks like, and the trajectory is steeply downward. Green hydrogen's cost is dominated by electrolyzer capital and clean-electricity price, both falling fast; the US DOE's Hydrogen Shot targets $1/kg by 2031, IRA production tax credits already push subsidized US projects under $1/kg, and the EU Hydrogen Bank is auctioning fixed-premium support to close the gap. Solar modules fell ~90% in a decade and lithium batteries ~90% as well once volume scaled, defying identical 'it will never be cheap enough' skepticism. The IEA itself, even while documenting the cancellations, projects low-emissions hydrogen from operational-or-FID projects reaching about 4.2 Mtpa by 2030, roughly a fivefold increase and around 4% of total supply, so the industry is growing, just slower than the early hype. The honest reading is that the 'hydrogen for everything' hype deserved to be punctured, but that disciplined, subsidy-bridged deployment in the right sectors is on track.",
       crux: {
         id: "cost-decline-trajectory-test",
         title: "The Cost-Decline Trajectory Test",
@@ -309,7 +309,7 @@ export const hydrogenEconomyViabilityData = {
           common_ground:
             "Both sides agree green hydrogen is several times more expensive than grey today, and that announced projects have vastly outrun those actually financed and built.",
           live_disagreement:
-            "Whether green hydrogen rides a solar/battery-style experience curve to unsubsidized competitiveness in the 2030s, or plateaus above parity as a perennially-deferred, subsidy-dependent promise — which only realized cost and FID-conversion data over the decade can resolve.",
+            "Whether green hydrogen rides a solar/battery-style experience curve to unsubsidized competitiveness in the 2030s, or plateaus above parity as a perennially-deferred, subsidy-dependent promise, which only realized cost and FID-conversion data over the decade can resolve.",
         },
       },
       evidence: [
@@ -331,7 +331,7 @@ export const hydrogenEconomyViabilityData = {
           sourceUrl:
             "https://www.iea.org/reports/global-hydrogen-review-2025",
           reasoning:
-            "The cost ranges are consistent across IEA, BNEF, and industry sources and are directly on point for viability. Ranges are wide because cost is highly site-specific (electricity price, capacity factor), which slightly lowers replicability, but the qualitative conclusion — green is several times costlier than grey today — is not seriously disputed.",
+            "The cost ranges are consistent across IEA, BNEF, and industry sources and are directly on point for viability. Ranges are wide because cost is highly site-specific (electricity price, capacity factor), which slightly lowers replicability, but the qualitative conclusion, green is several times costlier than grey today, is not seriously disputed.",
         },
         {
           id: "fid-7-percent",
@@ -371,14 +371,14 @@ export const hydrogenEconomyViabilityData = {
           sourceUrl:
             "https://www.nature.com/articles/s41560-024-01684-7",
           reasoning:
-            "Peer-reviewed in a top-tier journal, independent of industry, tracking a large project sample over time — high reliability and independence. Directly quantifies the hype gap. It measures historical realization rates, which proponents argue understate future delivery as subsidy frameworks (IRA, EU Hydrogen Bank) take hold.",
+            "Peer-reviewed in a top-tier journal, independent of industry, tracking a large project sample over time, high reliability and independence. Directly quantifies the hype gap. It measures historical realization rates, which proponents argue understate future delivery as subsidy frameworks (IRA, EU Hydrogen Bank) take hold.",
         },
         {
           id: "subsidy-cost-decline",
           title:
             "DOE Hydrogen Shot Targets $1/kg by 2031; Subsidies Already Push Costs Down",
           description:
-            "The US Department of Energy's 'Hydrogen Shot' targets clean hydrogen at $1/kg within a decade (by 2031), and the Inflation Reduction Act's 45V production tax credit (up to $3/kg) is large enough to push subsidized US green-hydrogen projects toward or below $1/kg. The EU Hydrogen Bank runs competitive auctions paying a fixed premium per kg to bridge the cost gap. Proponents point to solar PV and lithium-ion batteries — both of which fell roughly 90% in cost once volume scaled — as precedent for a steep experience curve that the same 'never competitive' skepticism failed to anticipate.",
+            "The US Department of Energy's 'Hydrogen Shot' targets clean hydrogen at $1/kg within a decade (by 2031), and the Inflation Reduction Act's 45V production tax credit (up to $3/kg) is large enough to push subsidized US green-hydrogen projects toward or below $1/kg. The EU Hydrogen Bank runs competitive auctions paying a fixed premium per kg to bridge the cost gap. Proponents point to solar PV and lithium-ion batteries, both of which fell roughly 90% in cost once volume scaled, as precedent for a steep experience curve that the same 'never competitive' skepticism failed to anticipate.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -390,7 +390,7 @@ export const hydrogenEconomyViabilityData = {
             "US DOE Hydrogen Shot; IRA Section 45V; European Hydrogen Bank",
           sourceUrl: "https://www.hydrogen.energy.gov/",
           reasoning:
-            "The DOE target, the 45V credit, and the EU Hydrogen Bank are real policy instruments, and the solar/battery learning-curve analogy is well-documented. Independence and replicability are lower because the targets are aspirational and the $1/kg figures depend on subsidies rather than demonstrated unsubsidized cost — exactly the point skeptics dispute.",
+            "The DOE target, the 45V credit, and the EU Hydrogen Bank are real policy instruments, and the solar/battery learning-curve analogy is well-documented. Independence and replicability are lower because the targets are aspirational and the $1/kg figures depend on subsidies rather than demonstrated unsubsidized cost, exactly the point skeptics dispute.",
         },
       ],
     },
@@ -398,31 +398,31 @@ export const hydrogenEconomyViabilityData = {
   references: [
     {
       title:
-        "Global Hydrogen Review 2025 — International Energy Agency (IEA)",
+        "Global Hydrogen Review 2025: International Energy Agency (IEA)",
       url: "https://www.iea.org/reports/global-hydrogen-review-2025",
     },
     {
       title:
-        "The green hydrogen ambition and implementation gap — Odenweller & Ueckerdt, Nature Energy (2024)",
+        "The green hydrogen ambition and implementation gap: Odenweller & Ueckerdt, Nature Energy (2024)",
       url: "https://www.nature.com/articles/s41560-024-01684-7",
     },
     {
       title:
-        "Is heating homes with hydrogen all but a pipe dream? An evidence review — Rosenow, Joule (2022)",
+        "Is heating homes with hydrogen all but a pipe dream? An evidence review: Rosenow, Joule (2022)",
       url: "https://www.cell.com/joule/fulltext/S2542-4351(22)00416-0",
     },
     {
       title:
-        "Iron and Steel Technology Roadmap — International Energy Agency (IEA)",
+        "Iron and Steel Technology Roadmap: International Energy Agency (IEA)",
       url: "https://www.iea.org/reports/iron-and-steel-technology-roadmap",
     },
     {
       title:
-        "Ammonia: zero-carbon fertiliser, fuel and energy store — The Royal Society",
+        "Ammonia: zero-carbon fertiliser, fuel and energy store: The Royal Society",
       url: "https://royalsociety.org/news-resources/projects/low-carbon-energy-programme/green-ammonia/",
     },
     {
-      title: "Hydrogen Shot — US Department of Energy (DOE Hydrogen Program)",
+      title: "Hydrogen Shot, US Department of Energy (DOE Hydrogen Program)",
       url: "https://www.hydrogen.energy.gov/",
     },
   ],
@@ -432,14 +432,14 @@ export const hydrogenEconomyViabilityData = {
       title:
         "Does green hydrogen have an indispensable role in hard-to-electrify sectors?",
       content:
-        "Steel (~7-8% of global CO2), ammonia/fertilizer (~1.8%), and long-haul shipping have no demonstrated battery-electric path, and hydrogen-based direct reduced iron can cut steel emissions by up to ~95%. Yet even here the economics are brutal: Europe's flagship green-steel mill, Stegra, came within weeks of bankruptcy in late 2025 and green steel carries a roughly $200/tonne premium. Is hydrogen the unavoidable (if costly) answer for these sectors, or can cheaper routes — scrap-based electric arc furnaces, carbon capture, e-fuels — undercut it even there?",
+        "Steel (~7-8% of global CO2), ammonia/fertilizer (~1.8%), and long-haul shipping have no demonstrated battery-electric path, and hydrogen-based direct reduced iron can cut steel emissions by up to ~95%. Yet even here the economics are brutal: Europe's flagship green-steel mill, Stegra, came within weeks of bankruptcy in late 2025 and green steel carries a roughly $200/tonne premium. Is hydrogen the unavoidable (if costly) answer for these sectors, or can cheaper routes (scrap-based electric arc furnaces, carbon capture, e-fuels) undercut it even there?",
     },
     {
       id: "q2",
       title:
         "Does the round-trip efficiency penalty disqualify hydrogen for cars and home heating?",
       content:
-        "A hydrogen fuel-cell car delivers only ~25-35% of the original clean electricity to the wheels versus ~70-80% for a battery EV, and a peer-reviewed Joule review of 32 independent studies found none supporting a major role for hydrogen in home heating, since heat pumps deliver 3-4 units of heat per unit of electricity. Hydrogen advocates have largely conceded cars and heating to batteries and heat pumps — but argue efficiency isn't the binding constraint for seasonal grid storage or aviation, where energy density and storage duration matter more. Where does the efficiency penalty disqualify hydrogen, and where is it a price worth paying?",
+        "A hydrogen fuel-cell car delivers only ~25-35% of the original clean electricity to the wheels versus ~70-80% for a battery EV, and a peer-reviewed Joule review of 32 independent studies found none supporting a major role for hydrogen in home heating, since heat pumps deliver 3-4 units of heat per unit of electricity. Hydrogen advocates have largely conceded cars and heating to batteries and heat pumps, but argue efficiency isn't the binding constraint for seasonal grid storage or aviation, where energy density and storage duration matter more. Where does the efficiency penalty disqualify hydrogen, and where is it a price worth paying?",
     },
     {
       id: "q3",

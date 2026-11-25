@@ -5,23 +5,24 @@ export const privacyVsConvenienceData = {
   title: "Have We Already Lost the Battle for Digital Privacy?",
   question: "Have we already lost the battle for digital privacy?",
   meta_claim:
-    "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
+    "Meaningful digital privacy is no longer achievable for ordinary citizens: the surveillance infrastructure is too embedded in daily life to resist.",
   status: "contested" as const,
   category: "technology" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  last_updated: "2026-11-23",
+  tags: ["privacy", "surveillance", "data", "regulation", "encryption"],
+  // ── Stage 1: the opening contrast shown above everything ──
   keystone_fact: {
     statement:
-      "Most people say they care deeply about privacy — then click 'agree' on terms nobody reads and trade their data for free apps. That 'privacy paradox' is the real puzzle, compounded by scale: data brokers already hold thousands of data points on nearly every adult, so the live question is whether individual opt-outs do anything, or whether only regulation can.",
-    confidence: 80,
+      "When Apple asked iOS users directly before cross-app tracking, most said no, cutting Meta's annual ad revenue by an estimated $10 billion, and in June 2026 the House rejected a short-term extension of FISA Section 702 by 198 to 218, after which the statute lapsed. Yet browser fingerprinting uniquely identifies 89.4% of tested modern browsers without cookies, and FISA Court certifications approved in March 2026 were reported to keep Section 702 surveillance running into 2027 anyway. The fight is whether opt-outs, encryption, and laws actually shrink exposure, or only move where collection happens.",
+    confidence: 82,
     source:
-      "FTC, 'Data Brokers' report (2014); privacy-paradox research (Acquisti; Norberg et al.); Pew privacy surveys",
-    sourceUrl:
-      "https://www.ftc.gov/reports/data-brokers-call-transparency-accountability-report-federal-trade-commission-may-2014",
+      "Meta Q4 2021 Earnings / Financial Times (2022); Laperdrix et al., IEEE S&P (2016); CRS R48592 (2024 law); Roll Call, June 11, 2026 (House vote)",
+    sourceUrl: "https://doi.org/10.1109/SP.2016.57",
   },
-  // ── Stage 2: the honest 3-sentence case ──
+  // ── Stage 2: the honest two-paragraph orientation ──
   simple_case: [
-    "Both sides accept that privacy tools like Signal, ad blockers and VPNs cut some tracking while data brokers aggregate information from many sources; that post-Snowden reforms changed the law and encryption has spread, even as police buy broker data to sidestep warrants; and that privacy rules like GDPR have imposed real compliance costs and consent prompts.",
-    "They split over whether careful privacy habits shrink corporate profiling or aggregation rebuilds the profile anyway; whether reforms and encryption reduced government surveillance or agencies found workarounds; and whether regulation shrinks how much data is collected per user or only relabels its legal basis.",
+    "Both sides accept that privacy tools like Signal, ad blockers, and privacy browsers cut some tracking while data brokers aggregate information from many sources; that legal reforms and default encryption have spread even as agencies use broker data and court certifications to maintain reach; and that privacy laws like GDPR and FTC broker bans have imposed real compliance costs and consent prompts.",
+    "They split over whether careful privacy habits shrink corporate profiling or aggregation rebuilds the profile anyway; whether legal limits and encryption reduced government surveillance or agencies routed around them; and whether regulation shrinks how much data is collected per user or mostly relabels its legal basis.",
   ],
   pillars: [
     // =========================================================================
@@ -31,46 +32,46 @@ export const privacyVsConvenienceData = {
       id: "corporate-data-collection",
       title: "Corporate Data Collection",
       short_summary:
-        "Google, Meta, and thousands of data brokers have built a surveillance economy where opting out is functionally impossible. Even privacy-conscious users leave digital footprints through device fingerprinting, shadow profiles, and cross-site tracking. The question is whether individual opt-out mechanisms are meaningful or merely theater when the entire digital infrastructure is designed around data extraction.",
+        "Apple's App Tracking Transparency wiped billions from targeted ad revenue and privacy tools now serve tens of millions, yet shadow profiles on non-users and cookie-free browser fingerprinting still track people who never opted in.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "The 'resistance is futile' framing overstates corporate omniscience and understates both the impact of privacy tools and the genuine value users receive in return. Apple's App Tracking Transparency (ATT) framework, introduced in iOS 14.5, caused Meta to lose an estimated $10 billion in annual advertising revenue because, given a clear choice, only a minority of users (roughly 16-25% globally) opted in to cross-app tracking — proof that consumer agency is real when friction is removed. Firefox and Brave have implemented effective anti-fingerprinting measures, and Signal, Proton, and DuckDuckGo show privacy-respecting alternatives can reach scale (Signal at 40+ million users; Brave past 100 million). The data broker industry faces mounting regulatory pressure: the FTC has acted against Kochava, X-Mode, and InMarket for selling precise location data, and GDPR enforcement has produced over 4 billion euros in fines since 2018. There is also a defensible affirmative case that the exchange is, for many users, a fair trade: ad-supported services like search, maps, email, and social platforms are delivered at zero monetary cost to billions who could not or would not pay subscription prices, and targeted advertising funds journalism, open-source software, and free tools. Corporate data collection is extensive but neither inevitable nor purely extractive — it persists because of regulatory choices and a value exchange many users would rationally accept if it were transparent and consensual.",
+        "The 'resistance is futile' framing overstates corporate omniscience and understates both the impact of privacy tools and the value many users consciously trade for free services. Apple's App Tracking Transparency (ATT) in iOS 14.5 prompted a large majority of iOS users to decline cross-app tracking and cost Meta an estimated $10 billion in annual ad revenue, demonstrating that when opt-out is clear and low-friction, consumer agency has real financial bite. Privacy-respecting alternatives have reached meaningful scale: Brave passed 100 million monthly active users in late 2025, and Signal disclosed roughly 40 million monthly users. Regulators have also moved against location brokers, with the FTC finalizing bans on sensitive location-data sales against X-Mode/Outlogic (2024) and Gravy Analytics/Venntel (January 2025). Meanwhile, ad-supported search, maps, and email remain free to billions who would not pay subscriptions, suggesting the core task is transparent consent and firm boundaries rather than surrendering.",
       proponent_rebuttal:
-        "Opting out of corporate data collection is a myth. Google controls 92% of global search, Android runs on 72% of smartphones, and Chrome holds 65% of browser market share — creating an inescapable data funnel. Meta maintains 'shadow profiles' on non-users by harvesting contact lists and tracking pixels embedded across 8.4 million websites. Data brokers like Acxiom, Oracle Data Cloud, and LexisNexis aggregate purchase histories, location data, and public records into profiles covering 99% of US adults. Even users who avoid mainstream platforms are tracked through device fingerprinting (which identifies browsers with 99.1% accuracy according to Mozilla research), ultrasonic cross-device tracking, and cell tower triangulation. The $600 billion digital advertising industry has no viable business model without pervasive surveillance — privacy-preserving alternatives generate a fraction of the revenue.",
+        "Individual opt-out cannot beat an economy built around passive aggregation. Academic research by Aguiar and colleagues (2022) estimated that Facebook can track roughly 40% of web browsing time for both users and non-users, and infer demographic attributes of people who never signed up, a collection practice Mark Zuckerberg acknowledged in 2018 congressional testimony. Blocking cookies does not stop identification: Eckersley's EFF Panopticlick study found 83.6% of tested browsers unique (94.2% with Flash or Java), and Laperdrix et al. (IEEE S&P 2016) found 89.4% of modern browser configurations uniquely fingerprintable via Canvas, WebGL, and system traits. Even when one platform adds friction like Apple ATT, ad-tech firms shift toward first-party data graphs and third-party brokers whose dossiers assemble purchase, location, and public-record trails without direct consent.",
       crux: {
         id: "opt-out-effectiveness",
         title: "The Opt-Out Effectiveness Test",
         question:
           "Can careful privacy habits shrink corporate profiling, or does data aggregation rebuild the profile anyway?",
         description:
-          "Whether an ordinary user, following best-practice privacy guidance, can reduce their corporate data exposure to a level that meaningfully limits profiling. If privacy tools and opt-out mechanisms reduce trackable data by 80%+ across major platforms, individual agency is real. If corporate tracking reconstructs equivalent profiles regardless of user actions, opt-out is theater.",
+          "Whether an ordinary person following best-practice privacy guidance meaningfully shrinks their corporate data profile, or whether cross-site tracking, fingerprinting, and broker aggregation reconstruct an equivalent profile regardless.",
         methodology:
-          "Recruit 200 participants divided into four groups: (1) default settings on mainstream platforms, (2) maximum privacy settings on mainstream platforms, (3) privacy-focused alternatives only (Signal, Brave, DuckDuckGo, ProtonMail), (4) privacy alternatives plus VPN and ad blockers. Over 6 months, use data subject access requests (GDPR/CCPA) to retrieve all data held by Google, Meta, Amazon, and 10 major data brokers for each participant. Compare profile completeness, accuracy, and advertising category assignments across groups. Measure whether privacy-focused behavior produces meaningfully less detailed profiles.",
+          "Recruit 200 participants divided into four groups: (1) default settings on mainstream platforms, (2) maximum privacy settings on mainstream platforms, (3) privacy-focused alternatives (Signal, Brave, DuckDuckGo, ProtonMail), and (4) privacy alternatives plus VPN and content blockers. Over 6 months, use GDPR/CCPA data subject access requests to inspect profiles held by major platforms and data brokers and compare completeness and targeting accuracy across groups.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "A six-month study of 200 people on default settings, maximum privacy settings, privacy-focused alternatives, or alternatives plus VPN and ad blockers, using GDPR and CCPA access requests to compare the profiles companies end up holding.",
         },
         cost_to_verify:
-          "$200K-500K (Participant recruitment, DSAR processing, and comparative data analysis)",
+          "$200K-500K (Participant recruitment, DSAR processing, and comparative profile analysis)",
         falsification: {
           supporter_flip:
-            "If a controlled study showed that diligent users following best-practice privacy guidance achieve dramatically smaller, less accurate corporate profiles than default users, 'privacy is unachievable for ordinary people' would be wrong — individual agency would meaningfully work.",
+            "If a controlled access-request study showed that diligent users following best-practice privacy guidance end up with dramatically smaller, less accurate corporate profiles than default users, the claim that privacy is unachievable for ordinary people would weaken substantially.",
           skeptic_flip:
-            "If tests found cross-site tracking, device fingerprinting and data-broker aggregation rebuilding most of a careful user's profile, 'just use privacy tools' would look closer to theater than to real protection.",
+            "If access-request tests found cross-site tracking, browser fingerprinting, and broker aggregation rebuilding most of a careful user's profile anyway, relying on individual privacy tools would look closer to theater than real protection.",
           common_ground:
-            "Both sides agree privacy tools (Signal, blockers, VPNs) reduce some tracking and that data brokers aggregate information across many sources.",
+            "Both sides accept that privacy tools like Signal, ad blockers, and privacy browsers block some tracking vectors and that data brokers aggregate records across many sources.",
           live_disagreement:
-            "Whether best-practice individual privacy behavior meaningfully shrinks corporate profiling or whether aggregation reconstructs equivalent profiles regardless — which only a controlled data-subject-access study can measure.",
+            "Whether best-practice individual privacy habits meaningfully shrink corporate profiles or whether passive aggregation reconstructs comparable profiles regardless.",
         },
       },
       evidence: [
         {
           id: "apple-att-impact",
           title:
-            "Apple ATT Caused $10B Revenue Loss for Meta, Proving Opt-Out Can Bite",
+            "Apple ATT (2021–2022): Most iOS Users Declined Tracking, Costing Meta an Estimated $10B Annually",
           description:
-            "Apple's App Tracking Transparency, launched in April 2021, required apps to ask permission before tracking users across other apps and websites. 75-85% of users declined tracking. Meta reported a $10 billion annual revenue impact in February 2022, and the broader ad-tech industry saw significant disruption. This demonstrated that when opt-out is clear and frictionless, most users choose privacy — and it has real economic consequences for surveillance business models.",
+            "Apple's App Tracking Transparency, launched in iOS 14.5 in April 2021, required apps to ask explicit permission before tracking users across third-party apps and websites. A large majority of iOS users declined cross-app tracking, and in February 2022 Meta disclosed an estimated $10 billion annual revenue headwind. Scope limit: this was a platform-level default shift by Apple, which also operates its own ad business, rather than pure user self-defense, and it did not stop first-party tracking inside apps.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -78,55 +79,56 @@ export const privacyVsConvenienceData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Meta Q4 2021 Earnings Report; Financial Times Analysis",
+          source: "Meta Platforms Q4 2021 Earnings Call (Feb 2022); Financial Times",
           sourceUrl:
             "https://www.ft.com/content/4c19e387-ee1a-41d8-8dd2-bc6c302ee58e",
           reasoning:
-            "Meta's own financial disclosures confirm the revenue impact, making this highly reliable. Independence is slightly lower because Apple had competitive motivations (its own advertising business). Directly demonstrates that privacy mechanisms can meaningfully disrupt data collection when implemented at the platform level.",
+            "Meta's investor disclosure is high-reliability financial evidence that clear, low-friction opt-out controls can sharply disrupt cross-app tracking economics, even though Apple had competitive incentives alongside privacy goals.",
         },
         {
           id: "shadow-profiles",
           title:
-            "Meta Maintains Shadow Profiles on Non-Users via Contact Harvesting",
+            "Academic Study (2022): Facebook Can Track ~40% of Non-User Web Browsing and Infer Attributes",
           description:
-            "An academic study (Aguiar, Peukert, Schäfer & Ullrich, 2022) estimated that Facebook is able to track roughly 40% of the web browsing time of both users and non-users, partly because users sharing demographic data lets the platform infer details (such as age and gender) about non-users who never consented. Separately, in April 2018 congressional testimony, Mark Zuckerberg acknowledged that Facebook collects data on people who are not signed up. Data broker Acxiom states in its own marketing materials that it reaches over 2.5 billion of the world's consumers, aggregated from public records, purchase data, and digital tracking — most of whom never directly consented.",
+            "In a 2022 working paper ('Facebook Shadow Profiles'), Aguiar, Peukert, Schäfer, and Ullrich estimated that Facebook can track roughly 40% of web browsing time for both account holders and non-users, and that demographic sharing by users enables the platform to infer attributes like age and gender for people who never signed up. Separately, in April 2018 congressional testimony, Mark Zuckerberg acknowledged that Facebook collects data on non-users. Scope limit: estimates browsing-time reach and attribute inference prior to newer browser anti-tracking defaults.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
             directness: 8,
           },
           source:
-            "Aguiar, Peukert, Schäfer & Ullrich, 'Facebook Shadow Profiles' (arXiv:2202.04131, 2022); Zuckerberg US Congressional Testimony (April 2018); Acxiom Global Data marketing brochure",
+            "Aguiar, Peukert, Schäfer & Ullrich, 'Facebook Shadow Profiles' (arXiv:2202.04131, 2022); Zuckerberg U.S. Congressional Testimony (April 2018)",
           sourceUrl: "https://arxiv.org/abs/2202.04131",
           reasoning:
-            "The 'Facebook Shadow Profiles' working paper is independent academic work; its 40% browsing-time tracking figure is the directly verifiable claim. Zuckerberg's 2018 admission is a matter of public record. The Acxiom 2.5 billion figure is the company's own self-reported marketing claim, so reliability is moderate. Weights were lowered from the prior version because earlier attributions (Northeastern/Max Planck, facial recognition in tagged photos) could not be verified. Shadow profiles still demonstrate that individual opt-out is insufficient when others' behavior exposes you.",
+            "Independent empirical work combined with on-the-record congressional testimony demonstrates a structural limit of individual consent: other people's data sharing and embedded third-party trackers profile non-users who never opted in.",
         },
         {
           id: "device-fingerprinting-accuracy",
           title:
-            "Browser Fingerprinting Identifies Users with 99%+ Accuracy Without Cookies",
+            "IEEE S&P (2016) & EFF (2010): 83.6% to 89.4% of Tested Browsers Are Uniquely Identifiable Without Cookies",
           description:
-            "Research from INRIA and Mozilla demonstrated that browser fingerprinting — using combinations of screen resolution, installed fonts, WebGL rendering, timezone, language, and dozens of other browser characteristics — can uniquely identify 99.1% of users without any cookies or login state. Even privacy-focused browsers leak enough information through JavaScript APIs to enable cross-site tracking. Google's proposed Privacy Sandbox and Topics API have been criticized by privacy researchers as replacing third-party cookies with first-party tracking that is harder to block.",
+            "Peter Eckersley's landmark 2010 EFF Panopticlick study found that 83.6% of tested browser configurations were unique (94.2% when Flash or Java plugins were enabled). Even as plugins were phased out, Pierre Laperdrix, Walter Rudametkin, and Benoit Baudry (IEEE Symposium on Security and Privacy, 2016) analyzed modern browsers through the AmIUnique project and found 89.4% of collected fingerprints remained unique using attributes like HTML5 Canvas, WebGL, fonts, and screen geometry, allowing identification without cookies. Scope limit: volunteer study visitors skew more technically diverse than typical consumers, and privacy browsers have since added fingerprint randomization.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 9,
             independence: 9,
             replicability: 8,
             directness: 8,
           },
-          source: "INRIA Research; Mozilla Fingerprinting Study; EFF Panopticlick",
-          sourceUrl: "https://coveryourtracks.eff.org/",
+          source:
+            "Laperdrix, Rudametkin & Baudry, 'Beauty and the Beast: Diverting Modern Web Browsers to Build Unique Browser Fingerprints,' IEEE S&P (2016); Eckersley, EFF (2010)",
+          sourceUrl: "https://doi.org/10.1109/SP.2016.57",
           reasoning:
-            "Academic research from INRIA and EFF's Panopticlick/Cover Your Tracks are independent and technically rigorous. The 99.1% accuracy finding has been replicated. Demonstrates that cookie-based consent mechanisms address only one tracking vector while more invasive methods persist.",
+            "Peer-reviewed computer-security research establishes that blocking third-party cookies alone does not prevent cross-site identification, though ongoing browser defenses make uniqueness a moving target.",
         },
         {
           id: "privacy-tools-adoption",
           title:
-            "Privacy Tools Reaching Meaningful Scale: Brave 100M+ MAU, Signal ~40M",
+            "Privacy Alternatives Reaching Scale: Brave Passed 100M Monthly Users (2025); Signal ~40M",
           description:
-            "Privacy-focused alternatives have achieved significant adoption. Brave Software announced in October 2025 that its browser had surpassed 100 million monthly active users (reaching 101 million as of September 30, 2025). Signal reported around 40 million monthly active users (2021 figure), and DuckDuckGo has processed roughly 100 million searches per day. These numbers, while small relative to mainstream platforms (Brave's 100M+ vs Chrome's billions; Signal's ~40M vs WhatsApp's 2B+), demonstrate that privacy-preserving tools can reach meaningful scale and that consumer demand for privacy is real.",
+            "Privacy-focused alternatives have moved beyond tiny niches: Brave Software announced in October 2025 that its browser surpassed 100 million monthly active users (101 million as of September 30, 2025), while Signal disclosed roughly 40 million monthly active users in 2021. Scope limit: both numbers are company self-reports, remain a small slice of global Chrome and WhatsApp usage, and show consumer demand rather than proving immunity from server-side or broker tracking.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -135,10 +137,10 @@ export const privacyVsConvenienceData = {
             directness: 6,
           },
           source:
-            "Brave Software ('Brave passes 100 million monthly active users'); Signal Foundation (2021 figure); DuckDuckGo",
+            "Brave Software, 'Brave passes 100 million monthly active users' (Oct 2025); Signal Foundation (2021)",
           sourceUrl: "https://brave.com/blog/100m-mau/",
           reasoning:
-            "Usage numbers are largely self-reported by the companies, reducing reliability and independence; the Signal figure in particular dates to 2021. The Brave 100M+ MAU claim is verified via Brave's own October 2025 announcement (101M as of September 30, 2025); the prior 'late 2023' date was incorrect. The scale is real but represents a small fraction of total internet users. Directness is moderate because tool adoption doesn't prove effective privacy protection — users of these tools may still be tracked through other vectors.",
+            "Self-reported adoption shows privacy tools can sustain mainstream scale, though market share remains small compared with dominant platforms and adoption alone does not measure total exposure reduction.",
         },
       ],
     },
@@ -150,65 +152,66 @@ export const privacyVsConvenienceData = {
       id: "government-surveillance",
       title: "Government Surveillance",
       short_summary:
-        "The Snowden revelations exposed mass surveillance programs of unprecedented scope, but subsequent reforms have been widely criticized as cosmetic. Section 702 of FISA was reauthorized and expanded in 2024. Five Eyes intelligence sharing circumvents national privacy laws. Meanwhile, facial recognition, license plate readers, and cell-site simulators have proliferated at local and federal levels with minimal oversight.",
+        "Default encryption, the Supreme Court's Carpenter warrant ruling, and the House's June 2026 rejection of a short-term Section 702 extension show real pushback, yet FISA Court certifications were reported to keep collection running into 2027, and 18 of 24 major federal agencies reported using facial recognition.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The surveillance picture is more nuanced than a simple expansion narrative. The USA FREEDOM Act (2015) ended bulk phone metadata collection under Section 215 — a genuine structural reform. The FISA Court now has amicus curiae advocates for privacy. Apple and Google implemented default device encryption in 2014-2015, which the FBI's own testimony confirms has locked investigators out of thousands of devices. End-to-end encryption in WhatsApp, Signal, and iMessage protects billions of messages from government access without user action. The EU's GDPR has created extraterritorial privacy protections that constrain even US government contractors. Court rulings like Carpenter v. United States (2018) established that cell-site location data requires a warrant, pushing back on warrantless surveillance. The infrastructure exists, but legal, technical, and political constraints have meaningfully limited its use compared to the pre-Snowden era.",
+        "The surveillance picture is more nuanced than a one-way slide into total state visibility. Congress ended bulk phone metadata collection under Section 215 in the 2015 USA FREEDOM Act, and in June 2026 the House rejected a short-term extension of FISA Section 702 by 198 to 218, with 19 Republicans opposed, some citing warrantless-search concerns, and Democratic opposition also tied to the president's pick of Bill Pulte as acting Director of National Intelligence, after which the statute lapsed. In Carpenter v. United States (2018), the Supreme Court held that historical cell-site location data requires a Fourth Amendment warrant. Technically, default full-disk encryption on iOS and Android plus end-to-end encryption in iMessage, WhatsApp, and Signal have created real blind spots that service providers cannot unlock even with a court order. Government surveillance capability remains vast, but legal, political, and cryptographic pushback has produced tangible limits.",
       proponent_rebuttal:
-        "Post-Snowden reforms were largely cosmetic, and government surveillance capacity has expanded, not contracted, since 2013. Section 702 of FISA — the legal authority for warrantless surveillance of foreign communications that sweeps up vast quantities of domestic data — was reauthorized in April 2024 with expanded scope, not reduced. The NSA's upstream collection program continues to scan internet backbone traffic. Five Eyes intelligence sharing (US, UK, Canada, Australia, New Zealand) allows each nation to collect on the others' citizens and share the data, circumventing domestic legal protections. At the local level, over 3,100 US law enforcement agencies use facial recognition technology, often without warrants or public disclosure. Automated license plate readers capture 200+ million plate scans per month in the US alone. Cell-site simulators (Stingrays) are deployed by at least 75 federal, state, and local agencies. The surveillance infrastructure is bipartisan — built under Bush, expanded under Obama, maintained under Trump, and reauthorized under Biden.",
+        "Even visible legislative victories rarely shut down state collection. When Congress reauthorized FISA Section 702 in April 2024 (RISAA), it rejected a warrant requirement for U.S.-person queries and widened which entities can be compelled to assist surveillance, and even after the statute lapsed in June 2026, yearlong FISA Court certifications approved in March 2026 were reported to keep surveillance running into 2027. Meanwhile, Carpenter was explicitly framed as a narrow ruling that left real-time tracking, tower dumps, and commercial data-broker purchases unresolved, and the U.S. Government Accountability Office found that 18 of the 24 largest federal agencies reported using facial recognition technology (GAO-21-526), and that 14 of 42 federal agencies employing law-enforcement officers reported using it to support criminal investigations, all of them via systems owned by non-federal entities (GAO-21-518). When one authority tightens, agencies shift to court certifications, commercial brokers, or newer biometric tools.",
       crux: {
         id: "surveillance-reform-substance",
         title: "The Surveillance Reform Substance Test",
         question:
           "Did surveillance reforms and encryption reduce government access, or did agencies find workarounds?",
         description:
-          "Whether post-Snowden legal reforms and encryption technologies have meaningfully reduced government access to citizens' private communications and data, or whether surveillance agencies have adapted their methods to maintain equivalent capability through alternative legal authorities and technical workarounds.",
+          "Whether post-Snowden legal reforms, Supreme Court rulings, and default encryption meaningfully cut government access to citizens' private data, or whether agencies maintained equivalent reach through court certifications, commercial broker purchases, and biometric tools.",
         methodology:
-          "Analyze declassified FISA Court opinions and annual transparency reports from 2013 to present to track the volume of surveillance orders and targets over time. Compare pre- and post-reform data collection volumes using the limited public disclosures from the Office of the Director of National Intelligence. Audit law enforcement use of facial recognition, cell-site simulators, and data broker purchases (which circumvent warrant requirements) through FOIA requests to 50 major law enforcement agencies. Interview former intelligence community officials and FISA Court judges about the practical impact of reforms on surveillance operations.",
+          "Track declassified FISA Court opinions and ODNI transparency reports from 2013 onward alongside FOIA audits of federal and local law-enforcement use of facial recognition, cell-site simulators, and commercial data-broker purchases.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Declassified FISA Court opinions, transparency reports and ODNI disclosures from 2013 on, tracking the volume of orders and targets, together with audits of police use of facial recognition, cell-site simulators and data bought from brokers.",
         },
         cost_to_verify:
-          "$500K-1.5M (FOIA litigation, comparative legal analysis, and expert interviews across multiple jurisdictions)",
+          "$500K-1.5M (FOIA litigation, comparative legal analysis, and transparency-report audit)",
         falsification: {
           supporter_flip:
-            "If declassified records showed post-Snowden reforms and encryption genuinely cut government access to private communications, the 'surveillance is inescapable' thesis would weaken on the state side — reform would have substance, not just optics.",
+            "If declassified records and FOIA audits showed that legal limits, warrant rules, and default encryption genuinely reduced total government access to private communications and location trails without equivalent broker workarounds, the claim that state surveillance is unstoppable would weaken.",
           skeptic_flip:
-            "If records showed agencies buying the same data from brokers without a warrant and shifting to other legal authorities after the post-Snowden reforms, 'the law was reformed' would no longer mean that surveillance capability fell.",
+            "If records showed agencies routinely buying comparable location and communications metadata from commercial brokers without warrants and sustaining collection through standing court certifications despite statutory lapses, legal reform would look far thinner than it reads on paper.",
           common_ground:
-            "Both sides agree post-Snowden reforms changed the legal framework and that encryption has spread, while law enforcement increasingly buys broker data to sidestep warrants.",
+            "Both sides accept that post-Snowden reforms changed parts of surveillance law and that default encryption has spread widely, while agencies also rely on commercial data brokers and biometric tools.",
           live_disagreement:
-            "Whether reforms and encryption actually reduced government access or whether agencies maintained equivalent capability through workarounds — which only declassified-record and FOIA analysis over time can show.",
+            "Whether legal reforms and encryption actually reduced net government access or whether agencies maintained equivalent reach through legal and commercial workarounds.",
         },
       },
       evidence: [
         {
           id: "section-702-reauthorization",
           title:
-            "Section 702 Reauthorized and Expanded in 2024 Despite Privacy Concerns",
+            "FISA Section 702 (2024–2026): Statute Lapsed in June 2026, Yet Court Certifications Kept Surveillance Active Into 2027",
           description:
-            "In April 2024, Congress passed the Reforming Intelligence and Securing America Act (RISAA), reauthorizing Section 702 of the Foreign Intelligence Surveillance Act for two years (sunset April 2026) and rejecting proposals to require warrants for querying Americans' data swept up in foreign intelligence collection. The reauthorized version expanded the statutory definition of 'electronic communications service provider,' which privacy advocates warned could compel a broader set of entities to assist surveillance. Public ODNI transparency reporting on FBI queries of Section 702 data using US-person identifiers has been marked by large year-over-year swings and acknowledged overcounting, illustrating the opacity of these programs.",
+            "In April 2024 Congress passed the Reforming Intelligence and Securing America Act (RISAA), extending Section 702 for two years without a U.S.-person query warrant requirement and widening the definition of covered service providers. On June 11, 2026 the House rejected a short-term extension of the authority by 198 to 218. Nineteen Republicans voted against it, and Democratic opposition was also tied to the president's pick of Bill Pulte as acting Director of National Intelligence. The statute then lapsed. Yet because the Foreign Intelligence Surveillance Court was reported to have approved yearlong certifications in March 2026, collection was widely expected to continue into 2027. Whether Congress has since reauthorized the authority was not confirmed as of November 2026. The vote shows legislative resistance and how entrenched the surveillance operations remain.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 8,
+            independence: 9,
             replicability: 9,
             directness: 9,
           },
           source:
-            "Congressional Research Service, 'FISA Section 702 and the 2024 Reforming Intelligence and Securing America Act' (R48592); Office of the Director of National Intelligence transparency reports",
-          sourceUrl: "https://www.congress.gov/crs-product/R48592",
+            "Roll Call, 'House vote puts surveillance authority on path to lapse' (June 11, 2026); Congressional Research Service (R48592) for the 2024 law",
+          sourceUrl:
+            "https://rollcall.com/2026/06/11/house-vote-puts-surveillance-authority-on-path-to-lapse/",
           reasoning:
-            "Official government disclosures and congressional records are highly reliable. The reauthorization with expanded scope directly contradicts the narrative that surveillance is being reined in. The FBI query numbers demonstrate the scale of domestic impact from a program nominally targeting foreigners.",
+            "Contemporaneous reporting on the vote, together with the reported yearlong certifications, shows why surveillance skeptics remain unconvinced by statutory sunsets: a failed extension vote and a lapse were not expected to halt collection under existing FISA Court certifications. The certification term comes from press reports, not a court record.",
         },
         {
           id: "carpenter-ruling",
           title:
-            "Carpenter v. United States (2018): Supreme Court Requires Warrants for Cell Location Data",
+            "Carpenter v. United States (2018): Supreme Court Required Warrants for Historical Cell-Site Location",
           description:
-            "In a landmark 5-4 decision, the Supreme Court held in Carpenter v. United States that the government's acquisition of 127 days of historical cell-site location information constituted a search under the Fourth Amendment requiring a warrant. Chief Justice Roberts wrote that individuals maintain a 'reasonable expectation of privacy in the whole of their physical movements' and that cell phone location data provides 'an intimate window into a person's life.' The Court called its decision 'a narrow one', expressly not addressing real-time location data, 'tower dumps', conventional tools such as security cameras, or 'other business records that might incidentally reveal location information', so its reach to other digital records has been left to later cases.",
+            "In a 5–4 decision, the Supreme Court ruled in Carpenter v. United States that acquiring 127 days of historical cell-site location information is a Fourth Amendment search requiring a warrant, recognizing a 'reasonable expectation of privacy in the whole of their physical movements.' Scope limit: Chief Justice Roberts explicitly called the ruling 'a narrow one,' leaving real-time tracking, tower dumps, security cameras, intelligence authorities, and commercially purchased broker records unaddressed.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
@@ -220,46 +223,46 @@ export const privacyVsConvenienceData = {
           sourceUrl:
             "https://www.supremecourt.gov/opinions/17pdf/16-402_h315.pdf",
           reasoning:
-            "A Supreme Court decision is the highest-reliability legal source. The ruling represents a genuine expansion of Fourth Amendment digital privacy protections and has been applied broadly. Directness is slightly reduced because the ruling applies to law enforcement, not intelligence agencies operating under FISA, which has its own legal framework.",
+            "Binding Supreme Court precedent proves constitutional privacy protections can adapt to digital location records, though its express narrowness leaves broker purchases and foreign-intelligence collection contested.",
         },
         {
           id: "facial-recognition-proliferation",
           title:
-            "3,100+ US Law Enforcement Agencies Use Facial Recognition, Often Without Warrants",
+            "GAO Audits (2021): 18 of 24 Largest Federal Agencies Reported Using Facial Recognition",
           description:
-            "A 2023 Government Accountability Office report found that 20 of 42 surveyed federal agencies used facial recognition technology, while investigative reporting by the Georgetown Center on Privacy & Technology documented that over 3,100 state and local law enforcement agencies have used Clearview AI's facial recognition system alone. Clearview AI scraped over 30 billion photos from social media and the open web without consent. Only a handful of US jurisdictions (San Francisco, Boston, Portland) have banned government facial recognition use. The technology has documented racial bias — NIST testing found error rates up to 100x higher for Black and Asian faces compared to white faces.",
+            "In GAO-21-526 (August 2021), the U.S. Government Accountability Office reported that 18 of the 24 agencies it surveyed (the Chief Financial Officers Act agencies) reported using facial recognition technology in fiscal year 2020, most often for digital access and domestic law enforcement. In GAO-21-518 (June 2021), a survey of 42 federal agencies that employ law-enforcement officers found that 20 reported owning facial recognition systems or using systems owned by other entities, and that 14 reported using the technology to support criminal investigations, all 14 through systems owned by non-federal entities. GAO's June 2022 testimony (GAO-22-106100) restates both sets of findings. Scope limit: covers federal agencies rather than state or local police, and bundles routine device/building authentication with investigative searches.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
             directness: 8,
           },
           source:
-            "GAO Report GAO-22-106100; Georgetown COPT; NIST FRVT Report",
-          sourceUrl: "https://www.gao.gov/products/gao-22-106100",
+            "U.S. Government Accountability Office, GAO-21-526, 'Facial Recognition Technology: Current and Planned Uses by Federal Agencies' (Aug 2021); GAO-21-518 (Jun 2021); restated in testimony GAO-22-106100 (Jun 2022)",
+          sourceUrl: "https://www.gao.gov/products/gao-21-526",
           reasoning:
-            "GAO reports and NIST testing are authoritative government sources. Georgetown's research is based on public records requests and is independently verifiable. The combination of massive adoption, lack of regulation, documented bias, and non-consensual data scraping demonstrates an expanding surveillance infrastructure with minimal accountability.",
+            "Authoritative federal audit confirming broad adoption of biometric identification across U.S. government agencies, while keeping routine access control distinct from criminal investigation uses.",
         },
         {
           id: "encryption-as-defense",
           title:
-            "Default Encryption on Billions of Devices Has Created Real Government Blind Spots",
+            "Default Device & Messaging Encryption Creates Real Content Blind Spots for Investigators",
           description:
-            "Since 2014, Apple and Google have implemented default full-disk encryption on iOS and Android devices. End-to-end encryption in iMessage, WhatsApp (2 billion users), and Signal means that even with a lawful warrant, service providers cannot decrypt message contents — the FBI's long-running 'going dark' campaign reflects that these barriers are real. A cautionary note on the headline numbers: in 2017-2018 the FBI repeatedly told Congress it could not access nearly 7,800 locked devices, but the bureau later admitted a programming error caused 'significant over-counting' and the true figure was likely closer to 1,200-2,000 devices. The technical barrier is genuine even if specific government statistics have been overstated.",
+            "Since 2014, Apple and Google have enabled default device encryption on iOS and Android, and end-to-end encryption in iMessage, WhatsApp, and Signal prevents service providers from decrypting message contents even under warrant. Although the FBI initially told Congress in 2017–2018 it could not access nearly 7,800 locked devices before admitting a programming error inflated the count (with the true figure closer to 1,200–2,000), the technical barrier to content decryption is genuine. Scope limit: encryption shields message content, not metadata (who contacted whom and when) or endpoint compromise.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 6,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
           },
           source:
-            "The Washington Post, 'FBI repeatedly overstated encryption threat figures to Congress, public' (May 2018); Apple platform security documentation; WhatsApp Encryption Overview",
+            "The Washington Post (May 22, 2018), citing FBI disclosure; Apple Platform Security & WhatsApp Encryption documentation",
           sourceUrl:
             "https://www.washingtonpost.com/world/national-security/fbi-repeatedly-overstated-encryption-threat-figures-to-congress-public/2018/05/22/5b68ae90-5dce-11e8-a4a4-c070ef53f315_story.html",
           reasoning:
-            "The technical reality of end-to-end encryption is well-established and independently verifiable. Weights were lowered from the prior version because the original 'thousands of devices / 2023 testimony' framing relied on an FBI figure that was publicly retracted as a large overcount (~7,775 claimed vs ~1,200-2,000 actual). Metadata (who contacts whom, when, where) also remains accessible even with content encryption, and governments invest in endpoint exploitation to circumvent it — so encryption is a real but partial blind spot.",
+            "Even after correcting the FBI's overcount, widespread default encryption represents a major technical gain for user privacy since 2013, though metadata and endpoint access remain open flanks.",
         },
       ],
     },
@@ -271,117 +274,117 @@ export const privacyVsConvenienceData = {
       id: "privacy-nihilism-vs-regulation",
       title: "Privacy Nihilism vs Regulation",
       short_summary:
-        "Privacy nihilism — the belief that digital privacy is already dead and resistance is futile — has become widespread, particularly among younger demographics. Yet GDPR enforcement has extracted billions in fines, California's CCPA has created new consumer rights, and privacy-tech companies are growing. The debate is whether regulatory and technical interventions can restore meaningful privacy or whether the surveillance economy is too entrenched to reform.",
+        "Roughly 71% of countries now have data-protection laws, GDPR has levied billions in fines, and the FTC has banned major brokers from selling sensitive location data, yet U.S. federal legislation keeps stalling and dark-pattern cookie banners undermine consent.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The 'privacy is dead' narrative confuses 'privacy is difficult' with 'privacy is impossible' — and it serves the interests of companies that profit from surveillance. GDPR has had measurable structural impact beyond fines: the right to data portability has enabled competitor services, the right to erasure has forced companies to build deletion infrastructure, and the requirement for Data Protection Officers has created an institutional privacy constituency within corporations. The Irish DPC's 1.2 billion euro fine against Meta for EU-US data transfers (2023) forced a fundamental restructuring of transatlantic data flows. Beyond GDPR, privacy regulation is expanding globally: Brazil's LGPD, India's Digital Personal Data Protection Act (2023), and Japan's APPI amendments create a regulatory floor covering billions of people. Technical privacy-enhancing technologies — differential privacy, homomorphic encryption, federated learning, and zero-knowledge proofs — are maturing from academic concepts to deployed products. Apple's privacy features have demonstrated that privacy can be a competitive advantage, not just a regulatory burden. The trajectory is toward more privacy protection, not less.",
+        "The 'privacy is dead' narrative confuses hard enforcement with impossible enforcement. Globally, UNCTAD tracks 137 of 194 countries (71%) with enacted data-protection legislation, including Brazil's LGPD and India's Digital Personal Data Protection Act (2023). In Europe, regulators have moved beyond token warnings, imposing a €1.2 billion fine on Meta over EU-U.S. transfers (May 2023) and €746 million on Amazon (2021), while in the United States, the FTC finalized landmark bans prohibiting location brokers X-Mode/Outlogic (2024) and Gravy Analytics/Venntel (January 2025) from selling sensitive geolocation data without verifiable consent. Paired with privacy-enhancing technologies like differential privacy and zero-knowledge proofs, the regulatory and technical floor is steadily rising.",
       proponent_rebuttal:
-        "Privacy regulation is failing to keep pace with surveillance technology, and the regulatory gap is widening, not closing. GDPR, despite 4+ billion euros in fines since 2018, has not fundamentally changed Big Tech's business model — Google and Meta still derive 80%+ of revenue from targeted advertising in EU markets. Cookie consent banners have become the most visible GDPR impact, and research shows that 'dark patterns' in consent interfaces result in 90%+ acceptance rates, rendering the consent framework meaningless. The California CCPA/CPRA covers only California residents, and attempts at federal US privacy legislation have failed repeatedly since 2012. Meanwhile, surveillance capitalism has expanded into new domains: connected cars collect location and driving behavior, smart home devices record conversations, and health apps share intimate data with advertisers. The 'I have nothing to hide' mentality has normalized pervasive data collection, and younger generations treat privacy loss as an acceptable trade for free services. The regulatory toolkit was designed for a previous era and cannot address an economy where data extraction is the fundamental business model.",
+        "Passing laws and levying fines has not dismantled surveillance business models. In a peer-reviewed CHI 2020 audit of consent pop-ups across the top 10,000 UK websites, Nouwens and colleagues found only 11.8% met minimal European legal requirements, and removing a first-page 'reject all' button boosted consent rates by 22–23 percentage points, turning GDPR's consent model into interface theater. In the United States, comprehensive federal privacy legislation has repeatedly stalled: the bipartisan American Data Privacy and Protection Act passed committee 53–2 in 2022 only to die over state preemption, and the 2024 American Privacy Rights Act stalled as well, leaving a fragmented state patchwork while connected cars, smart appliances, and ad-tech brokers keep expanding collection.",
       crux: {
         id: "regulatory-behavioral-impact",
         title: "The Regulatory Behavioral Impact Test",
         question:
           "Does privacy regulation shrink how much data is collected per user, or just relabel its legal basis?",
         description:
-          "Whether privacy regulations (GDPR, CCPA, and successors) have produced measurable reductions in the volume and intrusiveness of personal data collection, or whether they have merely added compliance bureaucracy without changing surveillance practices. If regulated markets show meaningfully smaller data footprints per user compared to unregulated markets, regulation works. If data collection volumes are equivalent regardless of regulatory regime, the approach has failed.",
+          "Whether privacy laws and enforcement orders measurably shrink the volume and granularity of personal data held per user, or mainly add compliance paperwork and consent banners without reducing collection.",
         methodology:
-          "Compare the data profiles held by major platforms (Google, Meta, Amazon) on users in heavily regulated jurisdictions (EU/GDPR) versus minimally regulated jurisdictions (Southeast Asia, parts of Africa) using data subject access requests. Measure profile size, granularity, and advertising category richness. Track the number and type of third-party data sharing partners per user across jurisdictions. Analyze whether GDPR's consent requirements have reduced actual data collection volumes or merely changed the legal basis from consent to 'legitimate interest.' Survey corporate data practices through confidential interviews with data protection officers at 50 major companies.",
+          "Compare profiles held by major platforms (Google, Meta, Amazon) and data brokers on matched users in heavily regulated jurisdictions (EU/GDPR) versus lightly regulated markets using data subject access requests, measuring profile size, granularity, and third-party sharing partners.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Data access requests filed with Google, Meta and Amazon by users in the EU and in lightly regulated markets, comparing profile size, granularity and the number of third-party sharing partners per user.",
         },
         cost_to_verify:
-          "$300K-800K (Cross-jurisdictional DSAR analysis, corporate interviews, and comparative data measurement)",
+          "$300K-800K (Cross-jurisdictional DSAR study and comparative profile measurement)",
         falsification: {
           supporter_flip:
-            "If cross-jurisdiction comparisons found profiles measurably smaller under GDPR and CCPA, rather than the same data relabeled from 'consent' to 'legitimate interest', 'regulation is just bureaucracy' would lose its footing and the battle would look less lost.",
+            "If cross-jurisdiction access requests found profiles measurably smaller under GDPR, CCPA, and FTC broker orders, rather than the same data relabeled from 'consent' to 'legitimate interest', the claim that regulation is mostly bureaucracy would weaken.",
           skeptic_flip:
-            "If cross-jurisdiction data showed platforms hold equally large, granular profiles on users in heavily regulated (GDPR) and unregulated markets — regulation adding paperwork without shrinking data collection — the case that 'only regulation can fix this' would weaken to 'even regulation doesn't.'",
+            "If cross-jurisdiction data showed platforms holding equally large, granular profiles on users in heavily regulated and lightly regulated markets, the case that regulation meaningfully shrinks data collection would lose much of its force.",
           common_ground:
-            "Both sides agree privacy regulation has imposed real compliance costs and consent prompts, and that whether it reduced actual data collection is not yet clearly measured.",
+            "Both sides accept that privacy laws have created real compliance costs, major fines, and ubiquitous consent prompts, and that net reductions in per-user data volume remain poorly measured.",
           live_disagreement:
-            "Whether regulation meaningfully shrinks per-user data collection or merely re-labels its legal basis — which only comparing real profiles across regulated and unregulated jurisdictions can determine.",
+            "Whether privacy regulation meaningfully shrinks per-user data collection or largely relabels its legal basis without changing underlying collection volumes.",
         },
       },
       evidence: [
         {
           id: "gdpr-fines-record",
           title:
-            "GDPR Has Imposed 4+ Billion Euros in Fines, Including 1.2B Against Meta",
+            "FTC Location-Broker Bans (2024–2025) & Billion-Euro GDPR Fines Show Regulators Can Bite",
           description:
-            "Since enforcement began in May 2018, European data protection authorities have imposed over 4 billion euros in GDPR fines. The largest single fine — 1.2 billion euros against Meta by the Irish Data Protection Commission in May 2023 — concerned the transfer of EU user data to the US without adequate privacy protections. This decision forced the adoption of the EU-US Data Privacy Framework and required Meta to restructure its data processing architecture. Other significant fines include 746 million euros against Amazon (Luxembourg, 2021) and 390 million euros against Meta for behavioral advertising consent violations (Ireland, 2023). These fines represent meaningful financial penalties, not symbolic enforcement.",
+            "On January 14, 2025, the Federal Trade Commission finalized an order prohibiting location data broker Gravy Analytics and its government-contracting subsidiary Venntel from selling or disclosing sensitive geolocation data (visits to medical clinics, houses of worship, and similar sites) without verifiable consent, following its January 2024 ban against X-Mode/Outlogic. In Europe, data-protection authorities have levied billions of euros in GDPR fines since 2018, including €1.2 billion against Meta (May 2023) over EU-U.S. transfers and €746 million against Amazon (2021). Scope limit: enforcement orders penalize specific violations rather than proving per-user data collection fell economy-wide.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 8,
+            independence: 9,
             replicability: 9,
             directness: 7,
           },
           source:
-            "European Data Protection Board; Irish Data Protection Commission; GDPR Enforcement Tracker",
-          sourceUrl: "https://www.enforcementtracker.com/",
+            "Federal Trade Commission (Jan 14, 2025), Gravy Analytics / Venntel Final Order; European Data Protection Board / Irish DPC",
+          sourceUrl:
+            "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-finalizes-order-prohibiting-gravy-analytics-venntel-selling-sensitive-location-data",
           reasoning:
-            "Official regulatory decisions and fine amounts are a matter of public record and highly reliable. Independence is strong as European DPAs are legally independent bodies. Directness is somewhat limited because fines measure enforcement activity, not whether user privacy has actually improved — Meta continues to derive most EU revenue from targeted advertising despite the fines.",
+            "Binding FTC bans on major sensitive-location brokers and billion-euro GDPR penalties show regulators can impose structural restrictions, not merely symbolic fines, though direct impact on aggregate per-user profiling remains contested.",
         },
         {
           id: "dark-patterns-consent",
           title:
-            "Dark Patterns in Cookie Consent Result in 90%+ Acceptance Rates",
+            "CHI 2020 Audit: Only 11.8% of UK Cookie Pop-Ups Met Minimal GDPR Rules; Hiding 'Reject' Boosted Consent 22–23 Points",
           description:
-            "A widely cited CHI 2020 study by Nouwens, Liccardi, Veale, Karger & Kagal scraped the consent interfaces of the top 10,000 websites in the UK and found that only 11.8% met the minimal requirements of European law, with dark patterns and implied consent ubiquitous. In a paired field experiment (n=40), the authors showed that removing the 'reject all' button from the first page — forcing users through a 'more options' step — substantially increased the share of users who consented, confirming that interface design drives consent outcomes more than user preference. The European Data Protection Board later issued guidelines against deceptive design patterns (03/2022), but enforcement has been uneven, and the consent banner remains widely regarded as GDPR's most visible shortcoming.",
+            "In a peer-reviewed CHI 2020 study ('Dark Patterns after the GDPR'), Nouwens, Liccardi, Veale, Karger, and Kagal scraped the five most popular consent-management platforms across the top 10,000 UK websites (n=680 implementations) and found only 11.8% met minimal European legal requirements. In a paired field experiment, removing a first-page opt-out/reject button increased consent acceptance by 22–23 percentage points, while showing granular controls on the first page reduced consent by 8–20 percentage points. Scope limit: measured 2019–2020 implementations before later European Data Protection Board dark-pattern guidelines (03/2022).",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 9,
             independence: 9,
             replicability: 8,
             directness: 8,
           },
           source:
-            "Nouwens, Liccardi, Veale, Karger & Kagal, 'Dark Patterns after the GDPR' (CHI 2020); European Data Protection Board Guidelines 03/2022",
+            "Nouwens, Liccardi, Veale, Karger & Kagal, 'Dark Patterns after the GDPR,' CHI 2020",
           sourceUrl: "https://dl.acm.org/doi/10.1145/3313831.3376321",
           reasoning:
-            "Peer-reviewed academic research (CHI 2020) by independent authors at MIT, UCL, and Aarhus University with a large website sample (n=680 of the top 10,000 UK sites) plus a controlled experiment. The prior version mis-attributed the work to Ruhr University Bochum and the University of Michigan; that attribution has been corrected. The 11.8% figure refers to minimal GDPR compliance, not specifically reject-all prominence. The finding that consent design determines outcomes more than user preference directly undermines the consent-based regulatory model.",
+            "Independent peer-reviewed audit plus controlled field experiment demonstrates that interface design systematically overrides user privacy preferences under notice-and-consent laws.",
         },
         {
           id: "federal-privacy-law-failure",
           title:
-            "US Federal Privacy Legislation Has Failed Repeatedly Since 2012",
+            "U.S. Federal Privacy Bills Repeatedly Stalled: ADPPA Died After 53–2 Vote (2022) and APRA Stalled (2024)",
           description:
-            "The United States still lacks a comprehensive federal privacy law. The American Data Privacy and Protection Act (ADPPA) advanced out of the House Energy and Commerce Committee in July 2022 on a 53-2 bipartisan vote — a rare moment of momentum — but never received a floor vote. House Speaker Nancy Pelosi declined to bring it up over its preemption provisions, which California argued would weaken the CCPA/CPRA. A successor effort, the American Privacy Rights Act, was introduced in 2024 but also stalled. As a result only sector-specific federal laws exist (HIPAA for health, COPPA for children, GLBA for finance), while a growing number of states have enacted their own privacy laws, creating a fragmented patchwork.",
+            "The United States still has no comprehensive federal privacy statute. The bipartisan American Data Privacy and Protection Act (H.R. 8152) cleared the House Energy and Commerce Committee 53–2 in July 2022 but never received a floor vote after preemption objections tied to California's CCPA/CPRA, and the 2024 American Privacy Rights Act likewise stalled. Federal statutory rules remain limited to specific sectors (HIPAA, COPPA, GLBA), leaving general consumer privacy to state laws and targeted FTC enforcement.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 9,
             independence: 8,
             replicability: 9,
             directness: 8,
           },
           source:
-            "IAPP, 'Pelosi opposes proposed American Data Privacy and Protection Act, seeks new preemption compromise'; Congressional records on ADPPA (H.R. 8152) and the American Privacy Rights Act",
+            "IAPP; U.S. Congressional records on ADPPA (H.R. 8152, 2022) and the American Privacy Rights Act (2024)",
           sourceUrl:
             "https://iapp.org/news/a/pelosi-rejects-proposed-american-data-privacy-and-protection-act-seeks-new-compromise",
           reasoning:
-            "Legislative history is a matter of public record and highly reliable. The repeated failure of federal privacy legislation despite broad public support demonstrates structural obstacles to US regulatory reform. The earlier '12 bills since 2012' count and '$100M annual lobbying' figure were dropped because they could not be pinned to a specific verifiable source; the ADPPA 53-2 committee vote and Pelosi's preemption objection are well-documented.",
+            "Well-documented legislative impasse shows how hard it is to pass comprehensive baseline privacy rules in the world's largest ad-tech market, even when bipartisan committee votes pass overwhelmingly.",
         },
         {
           id: "global-privacy-expansion",
           title:
-            "Privacy Regulation Expanding Globally: ~137 of 194 Countries Have Data Protection Laws",
+            "UNCTAD Tracker: 137 of 194 Countries (~71%) Have Enacted Data-Protection Legislation",
           description:
-            "According to UNCTAD, 137 of 194 countries (about 71%) have enacted data protection and privacy legislation, with another 9% having draft legislation; adoption ranges from roughly 96% in Europe down to about 50% in Africa. India's Digital Personal Data Protection Act (2023) covers more than 1.4 billion people, Brazil's LGPD (2020) established an independent enforcement authority, and several Asian jurisdictions have strengthened frameworks toward EU adequacy. While enforcement quality varies widely, the global trajectory is toward more regulation, not less, and companies increasingly adopt GDPR-level protections as a global baseline.",
+            "According to UN Trade and Development (UNCTAD), 137 of 194 countries (roughly 71%) have enacted data-protection and privacy legislation, with another 9% holding draft bills, including Brazil's LGPD and India's Digital Personal Data Protection Act (2023). Scope limit: enacting a statute on paper does not ensure strong enforcement agencies or measurably smaller corporate profiles.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
+            independence: 9,
             replicability: 8,
-            directness: 7,
+            directness: 6,
           },
-          source:
-            "UNCTAD, 'Data Protection and Privacy Legislation Worldwide'",
+          source: "UNCTAD, 'Data Protection and Privacy Legislation Worldwide'",
           sourceUrl:
             "https://unctad.org/page/data-protection-and-privacy-legislation-worldwide",
           reasoning:
-            "UNCTAD is an authoritative international source. The prior '160+ countries, up from 76 in 2010' figures were corrected to UNCTAD's actual count of 137 of 194 countries (71%). Directness is moderate because the existence of laws does not guarantee effective enforcement — many countries have minimal enforcement capacity — but the trend creates a regulatory ratchet that makes reversal difficult.",
+            "Authoritative global tally showing privacy legislation is spreading rather than retreating, though directness is moderate because enforcement strength varies sharply across jurisdictions.",
         },
       ],
     },
@@ -389,18 +392,48 @@ export const privacyVsConvenienceData = {
   references: [
     {
       title:
-        "Zuboff, S. — The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power (2019)",
-      url: "https://shoshanazuboff.com/book/about/",
+        "Laperdrix, Rudametkin & Baudry: Beauty and the Beast: Diverting Modern Web Browsers to Build Unique Browser Fingerprints, IEEE S&P (2016)",
+      url: "https://doi.org/10.1109/SP.2016.57",
     },
     {
       title:
-        "GDPR Enforcement Tracker — Comprehensive Database of GDPR Fines and Decisions",
-      url: "https://www.enforcementtracker.com/",
+        "Nouwens, Liccardi, Veale, Karger & Kagal: Dark Patterns after the GDPR, CHI (2020)",
+      url: "https://dl.acm.org/doi/10.1145/3313831.3376321",
     },
     {
       title:
-        "Snowden, E. — Permanent Record (2019); NSA Surveillance Program Documentation",
-      url: "https://www.aclu.org/issues/national-security/privacy-and-surveillance/nsa-surveillance",
+        "FTC: Final Order Prohibiting Gravy Analytics, Venntel from Selling Sensitive Location Data (Jan 2025)",
+      url: "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-finalizes-order-prohibiting-gravy-analytics-venntel-selling-sensitive-location-data",
+    },
+    {
+      title:
+        "Roll Call: House vote puts surveillance authority on path to lapse (June 11, 2026)",
+      url: "https://rollcall.com/2026/06/11/house-vote-puts-surveillance-authority-on-path-to-lapse/",
+    },
+    {
+      title:
+        "Congressional Research Service: FISA Section 702 and the 2024 Reforming Intelligence and Securing America Act (R48592)",
+      url: "https://www.congress.gov/crs-product/R48592",
+    },
+    {
+      title:
+        "U.S. Government Accountability Office: Facial Recognition Technology: Current and Planned Uses by Federal Agencies (GAO-21-526)",
+      url: "https://www.gao.gov/products/gao-21-526",
+    },
+    {
+      title:
+        "U.S. Government Accountability Office: Facial Recognition Technology: Federal Law Enforcement Agencies Should Better Assess Privacy and Other Risks (GAO-21-518)",
+      url: "https://www.gao.gov/products/gao-21-518",
+    },
+    {
+      title:
+        "U.S. Government Accountability Office: Facial Recognition Technology: Federal Agencies' Use and Related Privacy Protections (GAO-22-106100, testimony)",
+      url: "https://www.gao.gov/products/gao-22-106100",
+    },
+    {
+      title:
+        "Supreme Court of the United States: Carpenter v. United States, 585 U.S. 296 (2018)",
+      url: "https://www.supremecourt.gov/opinions/17pdf/16-402_h315.pdf",
     },
   ],
   questions: [
@@ -408,21 +441,21 @@ export const privacyVsConvenienceData = {
       id: "q1",
       title: "Is opting out of corporate tracking actually possible?",
       content:
-        "Google, Meta, and data brokers have built surveillance infrastructure so pervasive that even non-users are profiled through shadow profiles, device fingerprinting, and cross-site tracking. Apple's ATT showed that when opt-out is frictionless, 80% of users choose privacy. But is using privacy-focused alternatives (Signal, Brave, DuckDuckGo) genuine protection, or does it merely shift tracking from one vector to another while the underlying data economy remains intact?",
+        "Apple's App Tracking Transparency showed that when opt-out is frictionless, most users decline cross-app tracking and ad-tech revenues take a real hit. Yet shadow-profile research (Aguiar et al., 2022) and browser-fingerprinting studies (Laperdrix et al., 2016) show that platforms can still track non-users and identify 89.4% of tested browsers without cookies, leaving open how much individual privacy tools shrink real-world profiles.",
     },
     {
       id: "q2",
       title:
         "Have post-Snowden reforms meaningfully constrained government surveillance?",
       content:
-        "The USA FREEDOM Act ended bulk metadata collection, the Supreme Court's Carpenter decision required warrants for location data, and default encryption has created real blind spots for investigators. Yet Section 702 was reauthorized and expanded in 2024, facial recognition has proliferated to 3,100+ law enforcement agencies, and Five Eyes intelligence sharing circumvents national privacy laws. Has the balance shifted toward or away from citizen privacy since 2013?",
+        "Default device encryption, the Supreme Court's Carpenter warrant ruling, and the House's June 2026 rejection of a short-term Section 702 extension show genuine legal and technical resistance. At the same time, March 2026 FISA Court certifications were reported to keep Section 702 collection running into 2027, and 18 of 24 major federal agencies reported using facial recognition (GAO-21-526).",
     },
     {
       id: "q3",
       title:
-        "Can regulation restore digital privacy, or is the surveillance economy too entrenched?",
+        "Can regulation restore digital privacy, or does it mostly change paperwork?",
       content:
-        "GDPR has imposed billions in fines and forced structural changes like the EU-US Data Privacy Framework. Roughly 137 of 194 countries (about 71%) now have data protection laws, per UNCTAD. But dark patterns render consent banners meaningless, the US still lacks federal privacy legislation, and Big Tech's advertising revenue continues to grow in regulated markets. Is the global regulatory trend sufficient to reverse surveillance capitalism, or is it merely adding compliance costs without changing the fundamental dynamic?",
+        "Roughly 71% of countries now have data-protection laws (UNCTAD), Europe has levied billion-euro GDPR fines, and the FTC banned major brokers like X-Mode and Gravy Analytics/Venntel from selling sensitive location data. Yet CHI 2020 research found only 11.8% of UK cookie banners met minimal legal standards, and comprehensive U.S. federal privacy bills have repeatedly stalled.",
     },
   ],
 } satisfies TopicInput;

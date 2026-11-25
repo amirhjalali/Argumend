@@ -8,12 +8,12 @@ const DESCRIPTION =
 
 export const metadata: Metadata = {
   title: {
-    absolute: "About ARGUMEND — why it exists and how to read a map",
+    absolute: "About ARGUMEND: why it exists and how to read a map",
   },
   description: DESCRIPTION,
   keywords: ["about argumend", "argument mapping", "crux", "what would change your mind", "disagree better"],
   openGraph: {
-    title: "About ARGUMEND — Disagree better.",
+    title: "About ARGUMEND: Disagree better.",
     description: DESCRIPTION,
     url: "https://argumend.org/about",
     images: [DEFAULT_SOCIAL_IMAGE],

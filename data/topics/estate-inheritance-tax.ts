@@ -27,12 +27,12 @@ export const estateInheritanceTaxData = {
       id: "fairness-incidence",
       title: "Fairness & Who Pays",
       short_summary:
-        "Whether a tax on transferred wealth is fair turns on how concentrated inherited wealth is and how few — and how rich — the estates that actually pay it really are.",
+        "Whether a tax on transferred wealth is fair turns on how concentrated inherited wealth is and how few, and how rich, the estates that actually pay it really are.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Taxing an estate is double taxation: the wealth was already taxed when it was earned, so taxing it again at death penalizes thrift and the desire to provide for one's children — a near-universal moral impulse. The 'fairness' framing is contested by the people who feel it: a family that built a business or farm over decades did nothing wrong by wanting to pass it on intact. And because the rich hire lawyers to route assets through dynasty trusts and valuation discounts, the tax often falls hardest on the moderately wealthy who planned least, not the true dynasties it claims to target.",
+        "Taxing an estate is double taxation: the wealth was already taxed when it was earned, so taxing it again at death penalizes thrift and the desire to provide for one's children, a near-universal moral impulse. The 'fairness' framing is contested by the people who feel it: a family that built a business or farm over decades did nothing wrong by wanting to pass it on intact. And because the rich hire lawyers to route assets through dynasty trusts and valuation discounts, the tax often falls hardest on the moderately wealthy who planned least, not the true dynasties it claims to target.",
       proponent_rebuttal:
-        "The estate tax is among the most progressive parts of the US code: fewer than 0.2% of decedents leave a taxable estate (roughly 4,000 of ~2.8 million deaths in 2023), and the exemption (~$12.92M per person / ~$25.84M per couple in 2023) shields all but the very largest fortunes. A large share of these fortunes is unrealized capital gains that were never taxed during life — so the 'double taxation' objection is often empirically false. Inherited (not self-made) wealth is estimated at roughly 35–45% of total wealth, so taxing very large transfers targets advantage that recipients did nothing to earn, and pushes back on dynastic concentration of opportunity.",
+        "The estate tax is among the most progressive parts of the US code: fewer than 0.2% of decedents leave a taxable estate (roughly 4,000 of ~2.8 million deaths in 2023), and the exemption (~$12.92M per person / ~$25.84M per couple in 2023) shields all but the very largest fortunes. A large share of these fortunes is unrealized capital gains that were never taxed during life, so the 'double taxation' objection is often empirically false. Inherited (not self-made) wealth is estimated at roughly 35–45% of total wealth, so taxing very large transfers targets advantage that recipients did nothing to earn, and pushes back on dynastic concentration of opportunity.",
       crux: {
         id: "share-never-taxed",
         title: "How Much Estate Wealth Was Never Taxed During Life",
@@ -56,7 +56,7 @@ export const estateInheritanceTaxData = {
           common_ground:
             "Both sides agree the estate tax hits only a tiny share of estates (under 0.2% of deaths) and that stepped-up basis lets some unrealized gains escape income tax at death; the dispute is how large that never-taxed share is within taxable estates.",
           live_disagreement:
-            "The precise fraction of taxable-estate wealth that is unrealized appreciation versus already-taxed basis — resolvable by decomposing Form 706 microdata against the assets' original cost basis, which is not routinely published.",
+            "The precise fraction of taxable-estate wealth that is unrealized appreciation versus already-taxed basis, resolvable by decomposing Form 706 microdata against the assets' original cost basis, which is not routinely published.",
         },
       },
       evidence: [
@@ -82,7 +82,7 @@ export const estateInheritanceTaxData = {
           id: "stepped-up-basis-backstop",
           title: "Stepped-Up Basis Lets Vast Gains Escape Income Tax at Death",
           description:
-            "The stepped-up basis provision resets an inherited asset's tax basis to its market value at death, erasing accumulated unrealized capital gains. The Joint Committee on Taxation estimates this costs ~$72.5 billion in forgone federal revenue in 2026 — about a quarter of all capital-gains tax revenue. Supporters of the estate tax point to these gains as income that otherwise escapes tax entirely.",
+            "The stepped-up basis provision resets an inherited asset's tax basis to its market value at death, erasing accumulated unrealized capital gains. The Joint Committee on Taxation estimates this costs ~$72.5 billion in forgone federal revenue in 2026, about a quarter of all capital-gains tax revenue. Supporters of the estate tax point to these gains as income that otherwise escapes tax entirely.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -163,13 +163,13 @@ export const estateInheritanceTaxData = {
         cost_to_verify: "$500K (microsimulation modeling with contested elasticity assumptions)",
         falsification: {
           supporter_flip:
-            "If a transparent microsimulation — netting gross receipts against estate-tax-induced income-tax erosion and lost saving, and crediting reduced lock-in — produced a robustly negative or near-zero net fiscal effect under mainstream elasticities, the 'economically sound, raises real revenue' case would weaken toward the JEC 'raises little net revenue' view.",
+            "If a transparent microsimulation (netting gross receipts against estate-tax-induced income-tax erosion and lost saving, and crediting reduced lock-in) produced a robustly negative or near-zero net fiscal effect under mainstream elasticities, the 'economically sound, raises real revenue' case would weaken toward the JEC 'raises little net revenue' view.",
           skeptic_flip:
             "If independent modeling with less contested assumptions than the 1998 JEC study found the tax's ~$24B a year from large estates plus the reduced stepped-up-basis lock-in outweighing capital-stock effects, the near-zero-net-revenue reading would lose its footing.",
           common_ground:
             "Both sides agree the estate tax induces real behavioral responses (avoidance, planning, deathbed transfers) that carry deadweight cost, and that its gross revenue is modest relative to the federal budget.",
           live_disagreement:
-            "The sign and magnitude of the net fiscal-and-efficiency effect once avoidance, saving response, and lock-in reduction are all counted — which only a microsimulation with disclosed, defensible elasticity assumptions can pin down.",
+            "The sign and magnitude of the net fiscal-and-efficiency effect once avoidance, saving response, and lock-in reduction are all counted, which only a microsimulation with disclosed, defensible elasticity assumptions can pin down.",
         },
       },
       evidence: [
@@ -208,7 +208,7 @@ export const estateInheritanceTaxData = {
           sourceUrl:
             "https://www.jec.senate.gov/public/_cache/files/a96b5a38-b22d-4c49-b22c-4cec067f25aa/the-economics-of-the-estate-tax.pdf",
           reasoning:
-            "This is the strongest articulated efficiency case against the tax and addresses the claim directly, but it is a partisan congressional committee study (majority staff), not peer-reviewed, and its capital-stock and net-revenue figures rest on contested modeling assumptions — hence low reliability and independence despite high directness.",
+            "This is the strongest articulated efficiency case against the tax and addresses the claim directly, but it is a partisan congressional committee study (majority staff), not peer-reviewed, and its capital-stock and net-revenue figures rest on contested modeling assumptions, hence low reliability and independence despite high directness.",
         },
         {
           id: "forced-sales-rare",
@@ -233,7 +233,7 @@ export const estateInheritanceTaxData = {
           id: "farm-bureau-forced-sale",
           title: "Agricultural Groups: Estate Tax Can Force Sale of Land and Equipment",
           description:
-            "Farm and ranch organizations argue that when estate tax due on an illiquid agricultural operation exceeds available cash, surviving partners can be forced to sell land, buildings, or equipment needed to keep the business running — a real risk for asset-rich, cash-poor operations near the exemption threshold.",
+            "Farm and ranch organizations argue that when estate tax due on an illiquid agricultural operation exceeds available cash, surviving partners can be forced to sell land, buildings, or equipment needed to keep the business running, a real risk for asset-rich, cash-poor operations near the exemption threshold.",
           side: "against" as const,
           weight: {
             sourceReliability: 4,

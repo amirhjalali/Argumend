@@ -3,7 +3,7 @@ export const consciousnessHardProblemData = {
   title: "The Hard Problem of Consciousness",
   question: "Does explaining consciousness require more than brain processes?",
   meta_claim:
-    "Consciousness — subjective experience or 'what it is like' to be something — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
+    "Consciousness, subjective experience or 'what it is like' to be something, cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
   status: "contested" as const,
   category: "philosophy" as const,
   // ── Stage 1: the wow fact shown above everything ──
@@ -28,19 +28,19 @@ export const consciousnessHardProblemData = {
       id: "explanatory-gap",
       title: "The Explanatory Gap",
       short_summary:
-        "Even a complete neuroscientific account of the brain's information processing would leave unexplained why there is subjective experience at all — the gap between explaining neural correlates of consciousness and explaining consciousness itself.",
+        "Even a complete neuroscientific account of the brain's information processing would leave unexplained why there is subjective experience at all, the gap between explaining neural correlates of consciousness and explaining consciousness itself.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "The 'explanatory gap' is an artifact of human cognitive limitations, not a genuine feature of reality. Neuroscience has progressively closed every previous explanatory gap: memory, emotion, perception, decision-making, and language have all yielded to mechanistic explanation. The 'hard problem,' formulated by David Chalmers in 1995, assumes that subjective experience is categorically different from information processing — but this assumption is itself unproven. Daniel Dennett argued persuasively in 'Consciousness Explained' (1991) that once you have explained all the functions of consciousness — discrimination, reporting, integration, attention, self-monitoring — there is nothing left to explain. The feeling that 'something is missing' from the functional account is an intuition, not an argument. Evolution did not equip us to intuit the deep nature of consciousness any more than it equipped us to intuit quantum mechanics.",
+        "The 'explanatory gap' is an artifact of human cognitive limitations, not a genuine feature of reality. Neuroscience has progressively closed every previous explanatory gap: memory, emotion, perception, decision-making, and language have all yielded to mechanistic explanation. The 'hard problem,' formulated by David Chalmers in 1995, assumes that subjective experience is categorically different from information processing, but this assumption is itself unproven. Daniel Dennett argued persuasively in 'Consciousness Explained' (1991) that once you have explained all the functions of consciousness, discrimination, reporting, integration, attention, self-monitoring, there is nothing left to explain. The feeling that 'something is missing' from the functional account is an intuition, not an argument. Evolution did not equip us to intuit the deep nature of consciousness any more than it equipped us to intuit quantum mechanics.",
       proponent_rebuttal:
-        "The explanatory gap is not merely a 'we haven't figured it out yet' problem — it is a problem of logical category. Physical descriptions deal in structure, function, and dynamics. Subjective experience — the redness of red, the painfulness of pain — is not a structural or functional property. You can describe every wavelength, photoreceptor response, and neural firing pattern involved in seeing red, and none of these descriptions contain or entail the subjective quality of the experience. Thomas Nagel's 'What Is It Like to Be a Bat?' (1974) demonstrated that even complete knowledge of bat neuroscience and echolocation physics would not tell you what it is like to experience sonar perception. This is not an empirical gap that more data will fill — it is a conceptual gap between third-person description and first-person experience that no amount of neuroscience can bridge without new conceptual frameworks.",
+        "The explanatory gap is not merely a 'we haven't figured it out yet' problem; it is a problem of logical category. Physical descriptions deal in structure, function, and dynamics. Subjective experience, the redness of red, the painfulness of pain, is not a structural or functional property. You can describe every wavelength, photoreceptor response, and neural firing pattern involved in seeing red, and none of these descriptions contain or entail the subjective quality of the experience. Thomas Nagel's 'What Is It Like to Be a Bat?' (1974) demonstrated that even complete knowledge of bat neuroscience and echolocation physics would not tell you what it is like to experience sonar perception. This is not an empirical gap that more data will fill; it is a conceptual gap between third-person description and first-person experience that no amount of neuroscience can bridge without new conceptual frameworks.",
       crux: {
         id: "functional-exhaustion-test",
         title: "The Functional Exhaustion Test",
         question:
           "After a complete functional account, is 'why does it feel like something?' a real question left over?",
         description:
-          "If a complete functional account of consciousness — one that explains every discriminative, integrative, reportive, and behavioral capacity associated with conscious experience — leaves rational people still asking 'but why is there something it is like?', then the hard problem is real and something beyond function needs explaining. If such an account satisfies all reasonable epistemic demands, the hard problem dissolves as a pseudo-problem generated by cognitive illusion.",
+          "If a complete functional account of consciousness, one that explains every discriminative, integrative, reportive, and behavioral capacity associated with conscious experience, leaves rational people still asking 'but why is there something it is like?', then the hard problem is real and something beyond function needs explaining. If such an account satisfies all reasonable epistemic demands, the hard problem dissolves as a pseudo-problem generated by cognitive illusion.",
         methodology:
           "This is primarily a conceptual and philosophical test, but it can be informed empirically. Develop the most complete functional model of consciousness possible using current neuroscience (Global Workspace Theory, Integrated Information Theory, Predictive Processing). Present the model to a diverse panel of philosophers, neuroscientists, psychologists, and AI researchers. Survey whether they judge the functional account to be complete. If disagreement persists systematically along disciplinary lines (philosophers say no, neuroscientists say yes), this reveals the gap is partly a function of disciplinary assumptions rather than pure ontology.",
         verification_status: "theoretical" as const,
@@ -58,7 +58,7 @@ export const consciousnessHardProblemData = {
           common_ground:
             "Both sides agree neuroscience has identified robust neural correlates of consciousness and can explain the functions of consciousness (discrimination, integration, reportability) increasingly well.",
           live_disagreement:
-            "Whether, after a complete functional account, the question 'but why is there something it is like?' is a real unexplained fact or a pseudo-question generated by introspection — testable only by whether a finished functional model leaves trained, cross-disciplinary experts still systematically unsatisfied.",
+            "Whether, after a complete functional account, the question 'but why is there something it is like?' is a real unexplained fact or a pseudo-question generated by introspection, testable only by whether a finished functional model leaves trained, cross-disciplinary experts still systematically unsatisfied.",
         },
       },
       evidence: [
@@ -66,7 +66,7 @@ export const consciousnessHardProblemData = {
           id: "chalmers-hard-problem",
           title: "David Chalmers Formulates the 'Hard Problem of Consciousness' (1995)",
           description:
-            "In his 1995 paper 'Facing Up to the Problem of Consciousness' and subsequent book 'The Conscious Mind' (1996), philosopher David Chalmers distinguished the 'easy problems' of consciousness (explaining discrimination, integration, reportability, attention — all functional capacities) from the 'hard problem' (explaining why these functional processes are accompanied by subjective experience). Chalmers argued that even a completed neuroscience would face an explanatory gap: knowing every physical fact about the brain would not logically entail the existence of conscious experience. The paper has been cited over 12,000 times and framed the subsequent three decades of consciousness research.",
+            "In his 1995 paper 'Facing Up to the Problem of Consciousness' and subsequent book 'The Conscious Mind' (1996), philosopher David Chalmers distinguished the 'easy problems' of consciousness (explaining discrimination, integration, reportability, attention, all functional capacities) from the 'hard problem' (explaining why these functional processes are accompanied by subjective experience). Chalmers argued that even a completed neuroscience would face an explanatory gap: knowing every physical fact about the brain would not logically entail the existence of conscious experience. The paper has been cited over 12,000 times and framed the subsequent three decades of consciousness research.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -77,13 +77,13 @@ export const consciousnessHardProblemData = {
           source: "Chalmers, D. (1995). 'Facing Up to the Problem of Consciousness.' Journal of Consciousness Studies 2(3), 200-219",
           sourceUrl: "https://consc.net/papers/facing.html",
           reasoning:
-            "Chalmers' formulation is the foundational text of the modern consciousness debate. It is scored highly for directness because it defines the very problem under discussion. However, it is a philosophical argument, not empirical evidence, and its persuasiveness depends on accepting the distinction between functional and phenomenal consciousness — which Dennett, Frankish, and other 'illusionists' reject.",
+            "Chalmers' formulation is the foundational text of the modern consciousness debate. It is scored highly for directness because it defines the very problem under discussion. However, it is a philosophical argument, not empirical evidence, and its persuasiveness depends on accepting the distinction between functional and phenomenal consciousness, which Dennett, Frankish, and other 'illusionists' reject.",
         },
         {
           id: "dennett-consciousness-explained",
           title: "Dennett Argues the Hard Problem Is a Cognitive Illusion (1991, 2017)",
           description:
-            "Daniel Dennett, in 'Consciousness Explained' (1991) and 'From Bacteria to Bach and Back' (2017), argued that the hard problem is an illusion generated by our introspective habits. Consciousness, Dennett contends, is 'fame in the brain' — multiple parallel processes competing for global broadcast, with the winning coalitions constituting what we call conscious experience. There is no additional 'something it is like' beyond the functional dynamics. The persistent intuition that something is missing from the functional account reflects the limits of introspection, not an actual explanatory gap. Keith Frankish's 'illusionism' (2016) formalized this position: phenomenal consciousness — consciousness with intrinsic qualitative properties — is an illusion; what exists is 'quasi-phenomenal' properties that are fully functionally explicable.",
+            "Daniel Dennett, in 'Consciousness Explained' (1991) and 'From Bacteria to Bach and Back' (2017), argued that the hard problem is an illusion generated by our introspective habits. Consciousness, Dennett contends, is 'fame in the brain', multiple parallel processes competing for global broadcast, with the winning coalitions constituting what we call conscious experience. There is no additional 'something it is like' beyond the functional dynamics. The persistent intuition that something is missing from the functional account reflects the limits of introspection, not an actual explanatory gap. Keith Frankish's 'illusionism' (2016) formalized this position: phenomenal consciousness, consciousness with intrinsic qualitative properties, is an illusion; what exists is 'quasi-phenomenal' properties that are fully functionally explicable.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -94,7 +94,7 @@ export const consciousnessHardProblemData = {
           source: "Dennett, D. (1991). Consciousness Explained. Little, Brown; Frankish, K. (2016). 'Illusionism as a Theory of Consciousness.' Journal of Consciousness Studies 23(11-12)",
           sourceUrl: "https://www.hachettebookgroup.com/titles/daniel-c-dennett/consciousness-explained/9780316180665/",
           reasoning:
-            "Dennett is one of the most influential philosophers of mind alive. His functionalist dissolution of the hard problem has significant support among neuroscientists and cognitive scientists. However, many philosophers find illusionism self-refuting: if there is an illusion of consciousness, there must be a subject experiencing the illusion — which is itself a form of consciousness requiring explanation. The replicability score is lower because philosophical arguments cannot be independently 'replicated' in the scientific sense.",
+            "Dennett is one of the most influential philosophers of mind alive. His functionalist dissolution of the hard problem has significant support among neuroscientists and cognitive scientists. However, many philosophers find illusionism self-refuting: if there is an illusion of consciousness, there must be a subject experiencing the illusion, which is itself a form of consciousness requiring explanation. The replicability score is lower because philosophical arguments cannot be independently 'replicated' in the scientific sense.",
         },
         {
           id: "ncc-neuroscience-progress",
@@ -111,13 +111,13 @@ export const consciousnessHardProblemData = {
           source: "Cogitate Consortium, Nature 642, 133-142 (2025); Templeton World Charity Foundation",
           sourceUrl: "https://doi.org/10.1038/s41586-025-08888-1",
           reasoning:
-            "The NCC research program represents rigorous empirical science. The PCI's clinical success in detecting consciousness is impressive. However, directness is scored lower because identifying neural correlates of consciousness is precisely what Chalmers categorized as an 'easy problem' — it tells us what brain activity accompanies experience, not why there is experience at all. The Templeton adversarial collaboration's inconclusive results also suggest we lack a complete functional theory, let alone a solution to the hard problem.",
+            "The NCC research program represents rigorous empirical science. The PCI's clinical success in detecting consciousness is impressive. However, directness is scored lower because identifying neural correlates of consciousness is precisely what Chalmers categorized as an 'easy problem'; it tells us what brain activity accompanies experience, not why there is experience at all. The Templeton adversarial collaboration's inconclusive results also suggest we lack a complete functional theory, let alone a solution to the hard problem.",
         },
         {
           id: "nagel-bat-argument",
           title: "Thomas Nagel: 'What Is It Like to Be a Bat?' Demonstrates Irreducibility of Subjectivity (1974)",
           description:
-            "In his 1974 paper 'What Is It Like to Be a Bat?', philosopher Thomas Nagel argued that even complete objective knowledge of bat neurobiology and echolocation physics would not reveal what it is like to subjectively experience sonar perception. The argument demonstrates that subjective character — the first-person perspective — is categorically different from any third-person scientific description. Nagel concluded that current physical theories are fundamentally incomplete because they cannot accommodate subjective experience, and that solving the mind-body problem will require a 'conceptual revolution' comparable to the shift from Newtonian to relativistic physics.",
+            "In his 1974 paper 'What Is It Like to Be a Bat?', philosopher Thomas Nagel argued that even complete objective knowledge of bat neurobiology and echolocation physics would not reveal what it is like to subjectively experience sonar perception. The argument demonstrates that subjective character, the first-person perspective, is categorically different from any third-person scientific description. Nagel concluded that current physical theories are fundamentally incomplete because they cannot accommodate subjective experience, and that solving the mind-body problem will require a 'conceptual revolution' comparable to the shift from Newtonian to relativistic physics.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -140,19 +140,19 @@ export const consciousnessHardProblemData = {
       id: "competing-theories",
       title: "Competing Theories of Consciousness",
       short_summary:
-        "Major scientific theories of consciousness — Global Workspace Theory, Integrated Information Theory, and predictive processing — disagree fundamentally on what consciousness is, where it resides, and whether the hard problem is real, suggesting the field lacks a unifying framework.",
+        "Major scientific theories of consciousness, Global Workspace Theory, Integrated Information Theory, and predictive processing, disagree fundamentally on what consciousness is, where it resides, and whether the hard problem is real, suggesting the field lacks a unifying framework.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "The proliferation of competing consciousness theories reflects a healthy, pre-paradigmatic science — not evidence that consciousness is inexplicable. Global Workspace Theory (GWT) explains consciousness as information broadcast to a 'global workspace' enabling flexible behavioral response. Integrated Information Theory (IIT) identifies consciousness with integrated information (phi). Higher-Order Theories locate consciousness in meta-representations. Predictive Processing views consciousness as the brain's best prediction about the causes of sensory input. These theories disagree, but disagreement is normal at the frontiers of science — quantum mechanics and general relativity also disagree, and no one concludes gravity is non-physical. The correct theory may not yet exist, but the expectation should be that it will be physical, as every other successful scientific explanation has been.",
+        "The proliferation of competing consciousness theories reflects a healthy, pre-paradigmatic science, not evidence that consciousness is inexplicable. Global Workspace Theory (GWT) explains consciousness as information broadcast to a 'global workspace' enabling flexible behavioral response. Integrated Information Theory (IIT) identifies consciousness with integrated information (phi). Higher-Order Theories locate consciousness in meta-representations. Predictive Processing views consciousness as the brain's best prediction about the causes of sensory input. These theories disagree, but disagreement is normal at the frontiers of science, quantum mechanics and general relativity also disagree, and no one concludes gravity is non-physical. The correct theory may not yet exist, but the expectation should be that it will be physical, as every other successful scientific explanation has been.",
       proponent_rebuttal:
-        "The disagreement among theories is not merely about mechanisms — it is about what consciousness fundamentally is. IIT, developed by Giulio Tononi, predicts that consciousness exists wherever there is sufficiently integrated information — potentially including thermostats and the internet — and explicitly claims the hard problem is real and requires new physics. GWT, by contrast, treats consciousness as a functional property and considers the hard problem dissolved. These are not competing hypotheses about the same phenomenon; they disagree on whether the phenomenon needing explanation exists. The Templeton-funded Cogitate adversarial collaboration between GWT and IIT (launched 2019; results published in Nature in 2025), designed to resolve the debate empirically, produced results that partially supported and partially contradicted both theories — suggesting neither is correct. This level of foundational disagreement after 30 years of intensive research suggests the problem is genuinely harder than normal science.",
+        "The disagreement among theories is not merely about mechanisms; it is about what consciousness fundamentally is. IIT, developed by Giulio Tononi, predicts that consciousness exists wherever there is sufficiently integrated information, potentially including thermostats and the internet, and explicitly claims the hard problem is real and requires new physics. GWT, by contrast, treats consciousness as a functional property and considers the hard problem dissolved. These are not competing hypotheses about the same phenomenon; they disagree on whether the phenomenon needing explanation exists. The Templeton-funded Cogitate adversarial collaboration between GWT and IIT (launched 2019; results published in Nature in 2025), designed to resolve the debate empirically, produced results that partially supported and partially contradicted both theories, suggesting neither is correct. This level of foundational disagreement after 30 years of intensive research suggests the problem is genuinely harder than normal science.",
       crux: {
         id: "theory-empirical-test",
         title: "The Decisive Empirical Test Between Theories",
         question:
           "Do the leading theories of consciousness make different testable predictions, or differ only in metaphysics?",
         description:
-          "If empirical neuroscience can design experiments that decisively discriminate between major consciousness theories — confirming one and falsifying others — consciousness is tractable by normal science and the hard problem is either solved or dissolved. If no experiment can distinguish the theories because they make identical functional predictions while disagreeing about phenomenal consciousness, the hard problem is empirically irresolvable and may require non-standard approaches.",
+          "If empirical neuroscience can design experiments that decisively discriminate between major consciousness theories, confirming one and falsifying others, consciousness is tractable by normal science and the hard problem is either solved or dissolved. If no experiment can distinguish the theories because they make identical functional predictions while disagreeing about phenomenal consciousness, the hard problem is empirically irresolvable and may require non-standard approaches.",
         methodology:
           "Extend the Templeton adversarial collaboration methodology. Design experiments where GWT, IIT, Higher-Order Theory, and Predictive Processing make divergent predictions about: (1) consciousness in unusual states (split-brain, anesthesia, psychedelics), (2) the neural correlates of specific qualia, (3) whether specific artificial systems (large language models, neuromorphic chips) are conscious. If theories converge on predictions, they are empirically equivalent and the choice is metaphysical. If they diverge, experiments can discriminate.",
         verification_status: "theoretical" as const,
@@ -170,7 +170,7 @@ export const consciousnessHardProblemData = {
           common_ground:
             "Both sides agree that no single theory of consciousness currently commands consensus and that adversarial, pre-registered testing (as in the Cogitate program) is the right way to adjudicate.",
           live_disagreement:
-            "Whether the major theories make genuinely divergent, testable predictions (so experiments can pick a winner) or are empirically equivalent on function while disagreeing only metaphysically about phenomenal consciousness — resolvable by whether a next-generation adversarial collaboration can force the theories apart.",
+            "Whether the major theories make genuinely divergent, testable predictions (so experiments can pick a winner) or are empirically equivalent on function while disagreeing only metaphysically about phenomenal consciousness, resolvable by whether a next-generation adversarial collaboration can force the theories apart.",
         },
       },
       evidence: [
@@ -189,13 +189,13 @@ export const consciousnessHardProblemData = {
           source: "Cogitate Consortium, Nature 642, 133-142 (2025); Templeton World Charity Foundation",
           sourceUrl: "https://doi.org/10.1038/s41586-025-08888-1",
           reasoning:
-            "This represents the gold standard of consciousness science: pre-registered, adversarial, well-funded, and published in the top journal. The inconclusive results are significant precisely because of the rigor — if the best-designed experiments cannot discriminate between theories, this suggests the problem is genuinely harder than standard neuroscience. Scored as 'for' the meta-claim because the failure to resolve the theoretical debate empirically supports the view that consciousness requires new frameworks.",
+            "This represents the gold standard of consciousness science: pre-registered, adversarial, well-funded, and published in the top journal. The inconclusive results are significant precisely because of the rigor, if the best-designed experiments cannot discriminate between theories, this suggests the problem is genuinely harder than standard neuroscience. Scored as 'for' the meta-claim because the failure to resolve the theoretical debate empirically supports the view that consciousness requires new frameworks.",
         },
         {
           id: "iit-panpsychism",
           title: "Integrated Information Theory Implies Consciousness Is Fundamental, Not Emergent (2004-2024)",
           description:
-            "Giulio Tononi's Integrated Information Theory (IIT), first formulated in 2004 and refined through IIT 4.0 (2024), identifies consciousness with integrated information (phi) — a mathematical measure of a system's irreducibility. IIT predicts that consciousness is a fundamental property of any system with sufficiently high phi, potentially including simple systems like photodiodes (which would have minimal consciousness) and excluding digital computers running simulations (which would have low phi regardless of their functional sophistication). This implies a form of panpsychism — consciousness as a ubiquitous feature of reality — and represents a radical departure from standard neuroscience. IIT has been supported by clinical data (phi correlates with consciousness levels in anesthesia and disorders of consciousness) but its deeper metaphysical claims remain untestable.",
+            "Giulio Tononi's Integrated Information Theory (IIT), first formulated in 2004 and refined through IIT 4.0 (2024), identifies consciousness with integrated information (phi), a mathematical measure of a system's irreducibility. IIT predicts that consciousness is a fundamental property of any system with sufficiently high phi, potentially including simple systems like photodiodes (which would have minimal consciousness) and excluding digital computers running simulations (which would have low phi regardless of their functional sophistication). This implies a form of panpsychism, consciousness as a ubiquitous feature of reality, and represents a radical departure from standard neuroscience. IIT has been supported by clinical data (phi correlates with consciousness levels in anesthesia and disorders of consciousness) but its deeper metaphysical claims remain untestable.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -206,7 +206,7 @@ export const consciousnessHardProblemData = {
           source: "Tononi et al., Nature Reviews Neuroscience (2016); IIT 4.0 (2024)",
           sourceUrl: "https://doi.org/10.1038/nrn.2016.44",
           reasoning:
-            "IIT is one of the most mathematically rigorous consciousness theories. Its clinical predictions have found support, and its theoretical framework explicitly addresses the hard problem — a rarity among neuroscience theories. However, its panpsychist implications are controversial, phi is computationally intractable to measure for large systems, and the theory's core claim (consciousness = integrated information) is an axiom, not a derivation. The 'for' scoring reflects that IIT's need for new metaphysics supports the meta-claim.",
+            "IIT is one of the most mathematically rigorous consciousness theories. Its clinical predictions have found support, and its theoretical framework explicitly addresses the hard problem, a rarity among neuroscience theories. However, its panpsychist implications are controversial, phi is computationally intractable to measure for large systems, and the theory's core claim (consciousness = integrated information) is an axiom, not a derivation. The 'for' scoring reflects that IIT's need for new metaphysics supports the meta-claim.",
         },
         {
           id: "gwt-prefrontal-evidence",
@@ -223,7 +223,7 @@ export const consciousnessHardProblemData = {
           source: "Dehaene & Changeux, Neuron (2011); Baars, B. (1988)",
           sourceUrl: "https://doi.org/10.1016/j.neuron.2011.03.018",
           reasoning:
-            "GWT/GNW is arguably the most empirically successful consciousness theory, with strong neural evidence. Its directness score is lower because it explicitly addresses only access consciousness, not the hard problem of phenomenal consciousness — Dehaene himself acknowledges this gap. Scored as 'against' the meta-claim because GWT demonstrates that significant aspects of consciousness are physically explicable, even if it does not claim to solve the hard problem completely.",
+            "GWT/GNW is arguably the most empirically successful consciousness theory, with strong neural evidence. Its directness score is lower because it explicitly addresses only access consciousness, not the hard problem of phenomenal consciousness, Dehaene himself acknowledges this gap. Scored as 'against' the meta-claim because GWT demonstrates that significant aspects of consciousness are physically explicable, even if it does not claim to solve the hard problem completely.",
         },
       ],
     },
@@ -256,7 +256,7 @@ export const consciousnessHardProblemData = {
             "Emulations and neuromorphic chips that copy brain dynamics at rising fidelity, checked for the markers that track consciousness in people, such as responses to magnetic stimulation, with both camps agreeing in advance which result would count against them.",
         },
         cost_to_verify:
-          "$50-200M (Neuromorphic hardware development with consciousness marker testing — requires decades of engineering progress)",
+          "$50-200M (Neuromorphic hardware development with consciousness marker testing, requires decades of engineering progress)",
         falsification: {
           supporter_flip:
             "If a silicon system faithfully reproducing biological neural dynamics kept every consciousness marker the biological original showed, and no property of experience could be named that the functional copy lacked, the case that function leaves something out would lose much of its force.",
@@ -273,7 +273,7 @@ export const consciousnessHardProblemData = {
           id: "turing-test-consciousness",
           title: "Behavioral Tests Cannot Determine Consciousness: The Philosophical Zombie Problem",
           description:
-            "Chalmers' philosophical zombie thought experiment (1996) argues that it is conceivable that a being could be functionally identical to a conscious human — producing identical behavior, including reporting subjective experiences — while having no inner experience at all. If this is even conceivable, then no behavioral test (including the Turing test or any future behavioral assessment) can determine consciousness, because behavior underdetermines inner experience. Critics (Dennett, Frankish) argue that philosophical zombies are not genuinely conceivable — that functional identity entails experiential identity — but this remains one of the most debated questions in philosophy of mind.",
+            "Chalmers' philosophical zombie thought experiment (1996) argues that it is conceivable that a being could be functionally identical to a conscious human, producing identical behavior, including reporting subjective experiences, while having no inner experience at all. If this is even conceivable, then no behavioral test (including the Turing test or any future behavioral assessment) can determine consciousness, because behavior underdetermines inner experience. Critics (Dennett, Frankish) argue that philosophical zombies are not genuinely conceivable, that functional identity entails experiential identity, but this remains one of the most debated questions in philosophy of mind.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -290,7 +290,7 @@ export const consciousnessHardProblemData = {
           id: "embodied-cognition-argument",
           title: "Embodied Cognition Research: Consciousness May Require a Body, Not Just a Brain",
           description:
-            "The embodied cognition research program, developed by Francisco Varela, Evan Thompson, and others, argues that consciousness is not a product of brain computation alone but emerges from the dynamic interaction between brain, body, and environment. Evidence includes: interoceptive signals (heartbeat, breathing, gut signals) significantly influence conscious experience and emotional states; patients with spinal cord injuries report altered consciousness and emotional processing; and developmental neuroscience shows that sensorimotor interaction with the physical world is essential for the development of conscious self-awareness. If consciousness requires embodiment, then disembodied AI systems — regardless of computational sophistication — may be categorically incapable of consciousness.",
+            "The embodied cognition research program, developed by Francisco Varela, Evan Thompson, and others, argues that consciousness is not a product of brain computation alone but emerges from the dynamic interaction between brain, body, and environment. Evidence includes: interoceptive signals (heartbeat, breathing, gut signals) significantly influence conscious experience and emotional states; patients with spinal cord injuries report altered consciousness and emotional processing; and developmental neuroscience shows that sensorimotor interaction with the physical world is essential for the development of conscious self-awareness. If consciousness requires embodiment, then disembodied AI systems, regardless of computational sophistication, may be categorically incapable of consciousness.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -301,7 +301,7 @@ export const consciousnessHardProblemData = {
           source: "Thompson, E. (2007). Mind in Life: Biology, Phenomenology, and the Sciences of Mind. Harvard University Press; Varela, Thompson & Rosch (1991), The Embodied Mind, MIT Press",
           sourceUrl: "https://www.hup.harvard.edu/books/9780674057517",
           reasoning:
-            "Embodied cognition is a well-established research program with growing empirical support from interoception research. It challenges both pure computationalism and simple substrate independence. However, it does not settle the hard problem — it shifts the question from 'can silicon be conscious?' to 'can disembodied systems be conscious?' Embodied robots might still potentially be conscious, while purely software systems might not.",
+            "Embodied cognition is a well-established research program with growing empirical support from interoception research. It challenges both pure computationalism and simple substrate independence. However, it does not settle the hard problem; it shifts the question from 'can silicon be conscious?' to 'can disembodied systems be conscious?' Embodied robots might still potentially be conscious, while purely software systems might not.",
         },
         {
           id: "fading-qualia-organizational-invariance",
@@ -326,23 +326,23 @@ export const consciousnessHardProblemData = {
   ],
   references: [
     {
-      title: "Facing Up to the Problem of Consciousness — David Chalmers (1995)",
+      title: "Facing Up to the Problem of Consciousness: David Chalmers (1995)",
       url: "https://consc.net/papers/facing.html",
     },
     {
-      title: "What Is It Like to Be a Bat? — Thomas Nagel (1974)",
+      title: "What Is It Like to Be a Bat?: Thomas Nagel (1974)",
       url: "https://doi.org/10.2307/2183914",
     },
     {
-      title: "Consciousness Explained — Daniel Dennett (1991)",
+      title: "Consciousness Explained: Daniel Dennett (1991)",
       url: "https://www.hachettebookgroup.com/titles/daniel-c-dennett/consciousness-explained/9780316180665/",
     },
     {
-      title: "Integrated Information Theory 4.0 — Tononi et al., Nature Reviews Neuroscience",
+      title: "Integrated Information Theory 4.0: Tononi et al., Nature Reviews Neuroscience",
       url: "https://doi.org/10.1038/nrn.2016.44",
     },
     {
-      title: "Adversarial testing of global neuronal workspace and integrated information theories of consciousness — Cogitate Consortium, Nature 642, 133-142 (2025)",
+      title: "Adversarial testing of global neuronal workspace and integrated information theories of consciousness: Cogitate Consortium, Nature 642, 133-142 (2025)",
       url: "https://doi.org/10.1038/s41586-025-08888-1",
     },
   ],
@@ -351,13 +351,13 @@ export const consciousnessHardProblemData = {
       id: "q1",
       title: "Is the hard problem a genuine metaphysical puzzle or a cognitive illusion?",
       content:
-        "David Chalmers argues that explaining all the functions of consciousness still leaves unexplained why there is subjective experience. Daniel Dennett argues that once all functions are explained, there is nothing left — the feeling that something is missing is itself the illusion. This disagreement has persisted for 30 years among brilliant philosophers on both sides, suggesting it may not be resolvable through philosophical argument alone and may require empirical breakthroughs.",
+        "David Chalmers argues that explaining all the functions of consciousness still leaves unexplained why there is subjective experience. Daniel Dennett argues that once all functions are explained, there is nothing left; the feeling that something is missing is itself the illusion. This disagreement has persisted for 30 years among brilliant philosophers on both sides, suggesting it may not be resolvable through philosophical argument alone and may require empirical breakthroughs.",
     },
     {
       id: "q2",
       title: "Can any scientific theory explain consciousness, or do we need new physics?",
       content:
-        "Integrated Information Theory suggests consciousness is a fundamental property of reality, potentially requiring new physical laws. Global Workspace Theory treats it as a functional property fully explicable by neuroscience. The Templeton adversarial collaboration failed to decisively support either. If the hard problem is real, it may require conceptual innovation as radical as the shift from Newtonian mechanics to quantum physics — a possibility Nagel, Penrose, and others have raised.",
+        "Integrated Information Theory suggests consciousness is a fundamental property of reality, potentially requiring new physical laws. Global Workspace Theory treats it as a functional property fully explicable by neuroscience. The Templeton adversarial collaboration failed to decisively support either. If the hard problem is real, it may require conceptual innovation as radical as the shift from Newtonian mechanics to quantum physics, a possibility Nagel, Penrose, and others have raised.",
     },
     {
       id: "q3",

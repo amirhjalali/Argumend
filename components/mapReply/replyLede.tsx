@@ -5,7 +5,7 @@ import { Fragment, type ReactNode } from "react";
  * page can lead with it.
  *
  * The page writes no sentence of its own here. `lib/mapReply/render.ts` builds
- * the markdown as: title and claim, a blank line, then the opening paragraph —
+ * the markdown as: title and claim, a blank line, then the opening paragraph,
  * where the thread is arguing, what could not be placed, who made no
  * argument, and whether people are talking past each other. That paragraph is
  * the part a reader in the argument most needs, so it is shown first, exactly

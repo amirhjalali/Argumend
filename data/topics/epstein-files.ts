@@ -6,7 +6,7 @@ export const epsteinFilesData = {
   question:
     "Did America's institutions protect Epstein and the powerful people around him?",
   meta_claim:
-    "The Jeffrey Epstein case reveals systemic institutional failure — law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for decades, and full accountability has still not been achieved.",
+    "The Jeffrey Epstein case reveals systemic institutional failure, law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for decades, and full accountability has still not been achieved.",
   status: "contested" as const,
   category: "policy" as TopicCategory,
   // As of 3 November 2026. Sources distinguish three kinds of claim and this
@@ -37,7 +37,7 @@ export const epsteinFilesData = {
       url: "https://www.justice.gov/opa/media/1407001/dl?inline",
     },
     {
-      title: "Epstein Files Transparency Act — Public Law 119-38 (approved 19 November 2025)",
+      title: "Epstein Files Transparency Act: Public Law 119-38 (approved 19 November 2025)",
       url: "https://www.govinfo.gov/content/pkg/PLAW-119publ38/html/PLAW-119publ38.htm",
     },
     {
@@ -55,7 +55,7 @@ export const epsteinFilesData = {
     },
     {
       title:
-        "Timeline of Jeffrey Epstein-Ghislaine Maxwell Law Enforcement Failures (1996–2025) — Just Security",
+        "Timeline of Jeffrey Epstein-Ghislaine Maxwell Law Enforcement Failures (1996–2025), Just Security",
       url: "https://www.justsecurity.org/119137/timeline-jeffrey-epstein-ghislaine-maxwell/",
     },
   ],
@@ -179,7 +179,7 @@ export const epsteinFilesData = {
           title:
             "Courts: prosecutors kept the deal from victims; full appeals court called it 'a tale of national disgrace' (2019, 2021)",
           description:
-            "On 21 February 2019 a federal district judge ruled that the government violated the Crime Victims' Rights Act by failing to tell victims it intended to enter the agreement, and that letters describing the case as ongoing 'mislead [sic] the victims to believe that federal prosecution was still a possibility.' In April 2021 the full Eleventh Circuit denied a survivor's petition, holding the Act gave no way to sue before charges were filed, while writing that the facts 'are beyond scandalous—they tell a tale of national disgrace', that Epstein and co-conspirators abused 'more than 30 young girls' in Florida and elsewhere, and that 'prosecutors worked hand-in-hand with Epstein's lawyers—or at the very least acceded to their requests—to keep the NPA's existence and terms hidden from victims.'",
+            "On 21 February 2019 a federal district judge ruled that the government violated the Crime Victims' Rights Act by failing to tell victims it intended to enter the agreement, and that letters describing the case as ongoing 'mislead [sic] the victims to believe that federal prosecution was still a possibility.' In April 2021 the full Eleventh Circuit denied a survivor's petition, holding the Act gave no way to sue before charges were filed, while writing that the facts 'are beyond scandalous, they tell a tale of national disgrace', that Epstein and co-conspirators abused 'more than 30 young girls' in Florida and elsewhere, and that 'prosecutors worked hand-in-hand with Epstein's lawyers, or at the very least acceded to their requests, to keep the NPA's existence and terms hidden from victims.'",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -270,7 +270,7 @@ export const epsteinFilesData = {
           common_ground:
             "Both sides agree the DOJ's release of more than 3 million pages came under the Epstein Files Transparency Act, which passed the House 427–1, and that the department missed the law's December 2025 deadline.",
           live_disagreement:
-            "Whether the redactions and missed deadlines reflect ordinary protection of victims, investigations and security, or resistance to exposing powerful people — and so whether a release that took an act of Congress two decades on shows transparency or its absence.",
+            "Whether the redactions and missed deadlines reflect ordinary protection of victims, investigations and security, or resistance to exposing powerful people, and so whether a release that took an act of Congress two decades on shows transparency or its absence.",
         },
       },
       evidence: [
@@ -381,13 +381,13 @@ export const epsteinFilesData = {
           "$10–20M (special counsel investigation with prosecutorial authority)",
         falsification: {
           supporter_flip:
-            "If an independent review applying the ordinary sex-trafficking probable-cause standard found the released evidence too thin to charge any of the eight FBI-named co-conspirators — the same answer a defendant without wealth or connections would get — the gap between naming and charging would reflect the evidence, not a shielded network.",
+            "If an independent review applying the ordinary sex-trafficking probable-cause standard found the released evidence too thin to charge any of the eight FBI-named co-conspirators, the same answer a defendant without wealth or connections would get, the gap between naming and charging would reflect the evidence, not a shielded network.",
           skeptic_flip:
             "If less-connected defendants in comparable trafficking cases were charged on evidence like that against the eight FBI-named co-conspirators, none charged across four administrations, Maxwell's conviction and the settlements would look like partial accounting rather than accountability.",
           common_ground:
             "Both sides accept that Maxwell was convicted and sentenced to 20 years, that survivors received over $121 million from the compensation program and $365 million from bank settlements, and that no one else has been criminally convicted in the US.",
           live_disagreement:
-            "Whether the absence of further prosecutions reflects a lack of prosecutable evidence against specific people, or wealth and power shielding Epstein's associates — which turns on whether the named co-conspirators are held to the same charging standard as ordinary trafficking defendants.",
+            "Whether the absence of further prosecutions reflects a lack of prosecutable evidence against specific people, or wealth and power shielding Epstein's associates, which turns on whether the named co-conspirators are held to the same charging standard as ordinary trafficking defendants.",
         },
       },
       evidence: [

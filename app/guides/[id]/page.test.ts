@@ -27,8 +27,8 @@ describe("guide Open Graph fallback", () => {
       params: Promise.resolve({ id: "triangulation" }),
     });
 
-    expect(metadata.title).toBe("Triangulation — Guide");
-    expect(metadata.openGraph?.title).toBe("Triangulation — Guide");
+    expect(metadata.title).toBe("Triangulation: Guide");
+    expect(metadata.openGraph?.title).toBe("Triangulation: Guide");
     expect(String(metadata.title)).not.toMatch(/argumend/i);
   });
 });

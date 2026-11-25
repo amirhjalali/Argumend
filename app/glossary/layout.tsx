@@ -3,7 +3,7 @@ import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 import { glossaryPageTerms } from "@/data/glossaryPageTerms";
 
 export const metadata: Metadata = {
-  title: "Glossary — Critical Thinking & Argument Mapping Terms",
+  title: "Glossary: Critical Thinking & Argument Mapping Terms",
   description:
     `Definitions of ${glossaryPageTerms.length} key terms in critical thinking and argument mapping, A to Z: steel-manning, crux, fallacies, Bayesian reasoning, evidence weighting and more.`,
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "burden of proof",
   ],
   openGraph: {
-    title: "Glossary — Critical Thinking & Argument Mapping Terms",
+    title: "Glossary: Critical Thinking & Argument Mapping Terms",
     description: "Clear definitions for steel-manning, cruxes, what would settle them, logical fallacies, and more.",
     url: "https://argumend.org/glossary",
     images: [DEFAULT_SOCIAL_IMAGE],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Critical Thinking Glossary",
-    description: "Steel-manning, cruxes, logical fallacies, and more — defined clearly.",
+    description: "Steel-manning, cruxes, logical fallacies, and more, defined clearly.",
     images: [DEFAULT_SOCIAL_IMAGE_URL],
   },
   alternates: {

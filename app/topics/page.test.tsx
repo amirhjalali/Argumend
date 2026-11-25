@@ -470,11 +470,11 @@ describe("/topics metadata", () => {
     expect(metadata.alternates?.canonical).toBe(
       "https://argumend.org/topics?category=science&sort=title-asc&page=2",
     );
-    expect(metadata.title).toBe("Science maps — page 2");
+    expect(metadata.title).toBe("Science maps: page 2");
     expect(metadata.description).toMatch(/contested science questions.*Page 2 of 2\.$/);
     const first = await generateMetadata({ searchParams: Promise.resolve({}) });
     // The real count, not a rounded "150+".
-    expect(first.title).toBe(`Maps — ${LIBRARY_ENTRIES.length} contested questions`);
+    expect(first.title).toBe(`Maps: ${LIBRARY_ENTRIES.length} contested questions`);
     // The bare library keeps the /topics layout's description.
     expect(first.description).toBeUndefined();
     expect(metadata.pagination).toEqual({
@@ -489,14 +489,14 @@ describe("/topics metadata", () => {
     const science = await meta({ category: "science" });
     const policy = await meta({ category: "policy" });
     const scienceCount = LIBRARY_ENTRIES.filter((entry) => entry.category === "science").length;
-    expect(science.title).toBe(`Science maps — ${scienceCount} contested questions`);
+    expect(science.title).toBe(`Science maps: ${scienceCount} contested questions`);
     expect(science.description).toBe(
       `${scienceCount} argument maps of contested science questions: each side's strongest case, the evidence, and the questions it turns on.`,
     );
     expect(policy.title).not.toBe(science.title);
     expect(policy.description).not.toBe(science.description);
     const page2 = await meta({ page: "2" });
-    expect(page2.title).toBe("Maps — page 2");
+    expect(page2.title).toBe("Maps: page 2");
     expect(String(page2.description)).toMatch(/Page 2 of \d+\.$/);
     for (const metadata of [science, policy, page2]) {
       expect(String(metadata.description).length).toBeLessThanOrEqual(160);

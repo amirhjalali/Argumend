@@ -3,7 +3,7 @@ export const cancelCultureData = {
   title: "Cancel Culture",
   question: "Does cancel culture do more harm than good to public discourse?",
   meta_claim:
-    "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
+    "Cancel culture, public shaming and professional consequences for controversial speech, does more harm than good to public discourse.",
   status: "contested" as const,
   category: "technology" as const,
   // ── The opening: the fact under the title, then what rides on it ──
@@ -27,9 +27,9 @@ export const cancelCultureData = {
         "A single tweet can end a career. The question is whether that power functions as accountability or as mob justice with no appeals process.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "\"Cancel culture\" is just accountability with a new name. Marginalized groups finally have tools to challenge powerful people who previously faced no consequences. The supposedly \"canceled\" almost always keep their platforms, wealth, and influence. Social consequences for speech have always existed — this is democracy, not tyranny.",
+        "\"Cancel culture\" is just accountability with a new name. Marginalized groups finally have tools to challenge powerful people who previously faced no consequences. The supposedly \"canceled\" almost always keep their platforms, wealth, and influence. Social consequences for speech have always existed; this is democracy, not tyranny.",
       proponent_rebuttal:
-        "Fear of cancellation tracks with a measurable rise in self-censorship. A 2020 Cato Institute/YouGov survey found 62% of Americans say the political climate prevents them from sharing things they believe — up from 58% in 2017 — and the discomfort spans the spectrum (77% of Republicans, 59% of independents, even 52% of Democrats). Disproportionate punishment — losing a career over a single old tweet — violates basic proportionality, and online pile-ons operate without due process, presumption of innocence, or right of appeal.",
+        "Fear of cancellation tracks with a measurable rise in self-censorship. A 2020 Cato Institute/YouGov survey found 62% of Americans say the political climate prevents them from sharing things they believe, up from 58% in 2017, and the discomfort spans the spectrum (77% of Republicans, 59% of independents, even 52% of Democrats). Disproportionate punishment, losing a career over a single old tweet, violates basic proportionality, and online pile-ons operate without due process, presumption of innocence, or right of appeal.",
       crux: {
         id: "chilling-effect-measurement",
         title: "Quantifying the Chilling Effect on Public Discourse",
@@ -49,11 +49,11 @@ export const cancelCultureData = {
         cost_to_verify: "$500K (Multi-year survey and behavioral tracking study)",
         falsification: {
           supporter_flip:
-            "If behavioral measures — op-ed submissions, the range of topics in academic papers, public-comment participation — showed no narrowing over time once political climate and platform changes are controlled for, the self-censorship surveys would describe discomfort rather than a chilling effect, and the harm case would weaken.",
+            "If behavioral measures (op-ed submissions, the range of topics in academic papers, public-comment participation) showed no narrowing over time once political climate and platform changes are controlled for, the self-censorship surveys would describe discomfort rather than a chilling effect, and the harm case would weaken.",
           skeptic_flip:
             "If behavioral measures matched the surveys, with the 62% in Cato/YouGov who hold back their views and the quarter of students FIRE found self-censoring showing up as a real narrowing of what gets said, the chilling effect would be hard to read as mere accountability.",
           common_ground:
-            "Both sides agree some speech warrants social consequences, and that many high-profile targets — J.K. Rowling, Dave Chappelle, Joe Rogan — kept their platforms after cancellation attempts.",
+            "Both sides agree some speech warrants social consequences, and that many high-profile targets, J.K. Rowling, Dave Chappelle, Joe Rogan, kept their platforms after cancellation attempts.",
           live_disagreement:
             "Whether the self-censorship people report reflects a real narrowing of public discourse caused by fear of backlash, or ordinary social consequences for speech, which have always existed, felt more sharply online.",
         },
@@ -98,7 +98,7 @@ export const cancelCultureData = {
           id: "canceled-people-outcomes",
           title: "Many High-Profile 'Canceled' Figures Retain Their Platforms",
           description:
-            "A number of widely covered cancellation attempts against prominent figures — J.K. Rowling, Dave Chappelle, Joe Rogan — did not produce lasting professional consequences, and some figures saw increased audience engagement afterward. This is a qualitative observation from media commentary, not a systematic dataset, so it cannot quantify the overall share of targets who 'survive.'",
+            "A number of widely covered cancellation attempts against prominent figures, J.K. Rowling, Dave Chappelle, Joe Rogan, did not produce lasting professional consequences, and some figures saw increased audience engagement afterward. This is a qualitative observation from media commentary, not a systematic dataset, so it cannot quantify the overall share of targets who 'survive.'",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -107,15 +107,15 @@ export const cancelCultureData = {
             directness: 5,
           },
           source:
-            "Synthesis / inference — illustrative cases with no systematic outcome dataset",
+            "Synthesis / inference: illustrative cases with no systematic outcome dataset",
           reasoning:
-            "No web-verifiable systematic study aggregates cancellation outcomes, so no sourceUrl is provided and weights are kept low. Suggestive but subject to survivorship bias — we don't see cases where less powerful people quietly disappeared.",
+            "No web-verifiable systematic study aggregates cancellation outcomes, so no sourceUrl is provided and weights are kept low. Suggestive but subject to survivorship bias; we don't see cases where less powerful people quietly disappeared.",
         },
         {
           id: "historical-accountability-comparison",
           title: "Social Consequences for Speech Predate the Internet",
           description:
-            "Boycotts, public shaming, and social ostracism long predate social media — for example, the Civil Rights movement used boycotts and organized public pressure to force change. This is a conceptual/historical argument that today's 'cancel culture' shares a mechanism with older forms of social accountability, differing mainly in speed and scale.",
+            "Boycotts, public shaming, and social ostracism long predate social media; for example, the Civil Rights movement used boycotts and organized public pressure to force change. This is a conceptual/historical argument that today's 'cancel culture' shares a mechanism with older forms of social accountability, differing mainly in speed and scale.",
           side: "against" as const,
           weight: {
             sourceReliability: 4,
@@ -124,7 +124,7 @@ export const cancelCultureData = {
             directness: 4,
           },
           source:
-            "Synthesis / inference — broad historical analogy rather than an effect estimate",
+            "Synthesis / inference: broad historical analogy rather than an effect estimate",
           reasoning:
             "A framing/contextual claim rather than a specific empirical finding, so no sourceUrl is provided. Less direct because the increased speed and scale of online pile-ons may change the qualitative nature of the phenomenon.",
         },
@@ -156,9 +156,9 @@ export const cancelCultureData = {
         "In a 2020 Cato/YouGov poll, 62% of Americans said the political climate prevents them from sharing things they believe. Self-censorship may be rational, but it is not free speech.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Power structures need disruption, and social media gives marginalized people tools to fight back. #MeToo removed actual predators who operated with impunity for decades. Cultural shift toward inclusion requires discomfort. Cancel culture is overstated — most 'cancelations' are temporary, and the discourse about cancel culture is louder than the phenomenon itself.",
+        "Power structures need disruption, and social media gives marginalized people tools to fight back. #MeToo removed actual predators who operated with impunity for decades. Cultural shift toward inclusion requires discomfort. Cancel culture is overstated, most 'cancelations' are temporary, and the discourse about cancel culture is louder than the phenomenon itself.",
       proponent_rebuttal:
-        "Celebrities have legal teams and audiences; ordinary people do not. When a non-public figure like data analyst David Shor loses a job over a single tweet, there is no platform to mount a defense. Survey data also points to conformity pressure that falls unevenly: FIRE's 2024 rankings found conservative students self-censor far more than liberal peers (e.g., 38% vs. 19% in conversations with other students). That gap suggests people are learning to perform accepted opinions rather than examine their beliefs — and fear-based compliance is not the same as changed minds, and may simply drive resentment underground.",
+        "Celebrities have legal teams and audiences; ordinary people do not. When a non-public figure like data analyst David Shor loses a job over a single tweet, there is no platform to mount a defense. Survey data also points to conformity pressure that falls unevenly: FIRE's 2024 rankings found conservative students self-censor far more than liberal peers (e.g., 38% vs. 19% in conversations with other students). That gap suggests people are learning to perform accepted opinions rather than examine their beliefs, and fear-based compliance is not the same as changed minds, and may simply drive resentment underground.",
       crux: {
         id: "ordinary-vs-powerful-impact",
         title: "Differential Impact on Ordinary vs. Powerful People",
@@ -192,7 +192,7 @@ export const cancelCultureData = {
           id: "metoo-predator-removal",
           title: "#MeToo Removed Powerful Predators",
           description:
-            "The #MeToo movement led to the removal of figures such as Harvey Weinstein, Larry Nassar, and Bill Cosby, who had operated with institutional protection. EEOC sexual harassment charges rose 13.6% in FY2018 (6,696 to 7,609) — the first year-over-year increase in roughly a decade — suggesting previously silenced victims felt empowered to report after #MeToo went viral in October 2017.",
+            "The #MeToo movement led to the removal of figures such as Harvey Weinstein, Larry Nassar, and Bill Cosby, who had operated with institutional protection. EEOC sexual harassment charges rose 13.6% in FY2018 (6,696 to 7,609), the first year-over-year increase in roughly a decade, suggesting previously silenced victims felt empowered to report after #MeToo went viral in October 2017.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -227,7 +227,7 @@ export const cancelCultureData = {
           id: "ordinary-person-cancelation-cases",
           title: "Some Non-Public Figures Have Faced Severe Consequences",
           description:
-            "Individual cases involving lesser-known people illustrate severe professional fallout from online controversy — for example, data analyst David Shor was let go by Civis Analytics in 2020 after tweeting a peer-reviewed political-science study on protest tactics. Such anecdotes show ordinary people can face career consequences with little recourse, but they are selected examples, not a representative sample.",
+            "Individual cases involving lesser-known people illustrate severe professional fallout from online controversy; for example, data analyst David Shor was let go by Civis Analytics in 2020 after tweeting a peer-reviewed political-science study on protest tactics. Such anecdotes show ordinary people can face career consequences with little recourse, but they are selected examples, not a representative sample.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,

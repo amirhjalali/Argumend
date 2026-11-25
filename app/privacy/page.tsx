@@ -57,11 +57,11 @@ const ANALYTICS_SENTENCE = ANALYTICS_CONFIG
 
 /** Which providers can see which kind of material, for the processor table. */
 const PROVIDER_ROLES: Record<string, string> = {
-  typesafe: "Map replies only, when that tool is switched on — after identifiers are removed",
+  typesafe: "Map replies only, when that tool is switched on, after identifiers are removed",
   anthropic:
     "Disagreement diagnosis (when that lane is enabled) and one seat on the debate tools’ judge council",
-  openai: "Judge council only — receives extracted arguments, not your raw text",
-  google: "Judge council only — receives extracted arguments, not your raw text",
+  openai: "Judge council only: receives extracted arguments, not your raw text",
+  google: "Judge council only: receives extracted arguments, not your raw text",
   xai: "Judge council, only when a request explicitly asks for it",
 };
 
@@ -111,7 +111,7 @@ export default function PrivacyPage() {
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-stone-400 dark:bg-stone-500" />
                 <span>
-                  You can browse the whole site — every argument map, every topic — without an
+                  You can browse the whole site (every argument map, every topic) without an
                   account, and nothing you read is tied to your name.
                 </span>
               </li>
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
             </p>
 
             <h3 className="pt-2 font-semibold text-primary dark:text-stone-200">
-              /analyze — the paste tool
+              /analyze: the paste tool
             </h3>
             <p>
               By default it runs entirely on our own server. It matches your text against
@@ -141,15 +141,15 @@ export default function PrivacyPage() {
             </p>
             <p>
               When the diagnosis is switched on by configuration, the text is also sent to an AI
-              provider — {formatProviderList(DIAGNOSIS_PROVIDER_IDS)} — which returns a structured
+              provider, {formatProviderList(DIAGNOSIS_PROVIDER_IDS)}, which returns a structured
               reading of it. Argumend holds the text only for as long as the request takes and then
               discards it; the report comes back to your browser. The line above the button then
               names the provider, at the moment you submit.
             </p>
             <p>
               Until 29 September 2026 this page ran an older analyzer. When a database was connected
-              it saved the result of each extraction — the topic, a summary, the positions with their
-              claims and evidence, the cruxes, any flagged fallacies, and scores for each side — and
+              it saved the result of each extraction (the topic, a summary, the positions with their
+              claims and evidence, the cruxes, any flagged fallacies, and scores for each side) and
               listed recent results publicly. It no longer saves anything, the public list is gone,
               and old result links show a retirement notice instead of the result.
             </p>
@@ -161,8 +161,8 @@ export default function PrivacyPage() {
             </p>
             <p>
               Publishing a report is a separate, deliberate step. When publishing is configured and
-              you press Publish and then confirm, the report and its argument graph — including those
-              quotes — are saved and served at an unlisted <code>/d/&lt;id&gt;</code> address that
+              you press Publish and then confirm, the report and its argument graph (including those
+              quotes) are saved and served at an unlisted <code>/d/&lt;id&gt;</code> address that
               anyone with the link can open. Your browser keeps a management key for that report, and
               the delete control on the page uses it to take the report down.
             </p>
@@ -174,7 +174,7 @@ export default function PrivacyPage() {
             </p>
 
             <h3 className="pt-2 font-semibold text-primary dark:text-stone-200">
-              Map replies — not live yet
+              Map replies: not live yet
             </h3>
             <p>
               A tool that maps a reply against an existing argument map is in development and
@@ -182,7 +182,7 @@ export default function PrivacyPage() {
               TypeSafe AI directly because that is the only company it can reach. It is also the one
               tool here that redacts before it sends: email addresses, phone numbers and @handles are
               replaced with placeholders, and every speaker is renamed &ldquo;Speaker 1&rdquo;,
-              &ldquo;Speaker 2&rdquo; and so on. Nothing it produces is written down — no database
+              &ldquo;Speaker 2&rdquo; and so on. Nothing it produces is written down, no database
               row, no file, no cache.
             </p>
 
@@ -192,14 +192,14 @@ export default function PrivacyPage() {
             <p>
               This is about the analysis tools. The map reply tool above is the one exception: it
               replaces email addresses, phone numbers and @handles and renames every speaker before
-              it sends anything, which is redaction of the obvious rather than anonymisation —
-              prose can identify a person without containing a single handle — so the warning below
+              it sends anything, which is redaction of the obvious rather than anonymisation,
+              prose can identify a person without containing a single handle, so the warning below
               applies to it too.
             </p>
             <p>
               We do not strip names, handles, email addresses, or any other identifier out of what
               you paste. It reaches the provider as you wrote it. So please do not paste other
-              people&rsquo;s private information — medical details, contact details, private messages,
+              people&rsquo;s private information: medical details, contact details, private messages,
               or anything a person would not want a third-party AI company to receive. If you are
               analysing a conversation someone else took part in, remove what identifies them first.
             </p>
@@ -208,7 +208,7 @@ export default function PrivacyPage() {
           <Section id="providers" heading="Who else sees your text">
             <p>
               Every provider below is an independent company with its own privacy policy and its own
-              retention practices. Once your text reaches one of them, their terms — not ours —
+              retention practices. Once your text reaches one of them, their terms, not ours,
               govern what happens to it, including how long they keep it. Not all of them publish a
               retention period.
             </p>
@@ -274,8 +274,8 @@ export default function PrivacyPage() {
           <Section id="accounts" heading="Accounts and sign-in">
             <p>
               Accounts are optional and are switched off in the default deployment. When they are
-              enabled, the only way to sign in is with Google. We then store what Google returns —
-              your name, email address, whether the email is verified, and your profile image URL —
+              enabled, the only way to sign in is with Google. We then store what Google returns
+              (your name, email address, whether the email is verified, and your profile image URL)
               along with the Google account identifier, the OAuth tokens that keep the connection
               alive, and a session record with an expiry.
             </p>
@@ -294,7 +294,7 @@ export default function PrivacyPage() {
               Argumend&rsquo;s own updates. We do not sell it or pass it to advertisers.
             </p>
             <Pending>
-              There is no self-serve unsubscribe endpoint yet — only a column that records one. Wire
+              There is no self-serve unsubscribe endpoint yet, only a column that records one. Wire
               an unsubscribe link before the first send, and confirm which service will do the
               sending.
             </Pending>
@@ -330,9 +330,9 @@ export default function PrivacyPage() {
               request; Google&rsquo;s privacy policy governs what it does with them. Plausible and
               Umami are built to count visits without cookies; they still receive your IP address
               with each request, as any web server does. Signing in sets a session cookie.
-              Everything else Argumend remembers about you — your light or dark theme, the maps you
+              Everything else Argumend remembers about you (your light or dark theme, the maps you
               saved, your answer to a map&rsquo;s reflection question, a report&rsquo;s management
-              key, text handed from the home page to the analyzer — is stored in your own browser
+              key, text handed from the home page to the analyzer) is stored in your own browser
               and never sent to us.
             </p>
             <Pending>
@@ -435,7 +435,7 @@ export default function PrivacyPage() {
             <p>
               When this policy changes we update the date at the top of the page. If a change means
               your text would reach a provider that is not named here, the disclosure beside the
-              submit button changes at the same time — both read from the same list in the source
+              submit button changes at the same time: both read from the same list in the source
               code, so one cannot be updated without the other.
             </p>
           </Section>

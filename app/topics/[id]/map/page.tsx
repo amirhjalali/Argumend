@@ -33,11 +33,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const topic = topicSummaries.find((t) => t.id === id);
   if (!topic) return { title: "Topic Not Found" };
   const name = mapDisplayTitle(topic);
-  const title = `${name} — Diagram`;
+  const title = `${name}: Diagram`;
   const description = `The argument map for “${name}” as an interactive diagram.`;
   const canonical = `https://argumend.org/topics/${topic.id}`;
   // The map's own social card, the one its topic page uses. Without an
-  // openGraph here the /topics layout's library card ("Maps — N contested
+  // openGraph here the /topics layout's library card ("Maps: N contested
   // questions") is what a shared diagram link would preview.
   const media = getGeneratedMedia("topic", topic.id);
   const image = media?.hero ? absoluteMediaUrl(media.hero.src) : buildTopicOgUrl(topic.id);

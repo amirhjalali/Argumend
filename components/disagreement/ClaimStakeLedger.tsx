@@ -11,7 +11,7 @@ const BASIS_LABEL = {
 const NOTE_MARKS = ["¹", "²", "³", "⁴"];
 
 /**
- * "What is actually at stake?" — an editorial ledger, not cards. Desktop is a
+ * "What is actually at stake?": an editorial ledger, not cards. Desktop is a
  * four-column table with hairline rules; mobile stacks into labelled blocks.
  * Grounding quotes render as numbered source notes beneath the table, the way
  * a print brief would run them.
