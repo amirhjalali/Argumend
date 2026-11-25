@@ -162,7 +162,13 @@ function HomeHero({ film = false }: { film?: boolean }) {
   return (
     // On an upright phone or tablet the film's thread has the top of the
     // frame (80vw of it), so the hero's copy starts below it, on the paper.
-    <HomeBeat className={film ? "max-lg:portrait:pt-[80vw]" : undefined}>
+    <HomeBeat
+      className={
+        // Sideways below `lg` the wide frames fill the stage, so the copy
+        // brings its own paper.
+        film ? "max-lg:landscape:bg-canvas/90 max-lg:portrait:pt-[80vw]" : undefined
+      }
+    >
       <PageHeader
         size="display"
         titleId="home-heading"
@@ -348,6 +354,8 @@ function HomeStorySteps({
           {cruxLinks.length > 0 ? (
             // The knots in the picture, named: the map's own cruxes, in its order.
             <ol
+              // Safari drops the list role from an unstyled list.
+              role="list"
               aria-label={`The ${cruxes} questions`}
               className="mt-5 border-t border-divider"
             >
@@ -387,7 +395,7 @@ function HomeStorySteps({
                 over the pinned picture; from `lg` it sits beside it. */}
             <div
               data-film-copy=""
-              className="max-lg:-mx-4 max-lg:border-t max-lg:border-divider max-lg:bg-canvas/95 max-lg:px-4 max-lg:pb-[6svh] max-lg:pt-5 max-lg:backdrop-blur-sm sm:max-lg:-mx-6 sm:max-lg:px-6 lg:max-w-[24rem] xl:max-w-[26rem]"
+              className="max-lg:-mx-4 max-lg:border-t max-lg:border-divider max-lg:bg-canvas max-lg:px-4 max-lg:pb-[6svh] max-lg:pt-5 sm:max-lg:-mx-6 sm:max-lg:px-6 lg:max-w-[24rem] xl:max-w-[26rem]"
             >
               <p
                 data-film-rise=""

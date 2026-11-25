@@ -3,16 +3,33 @@ import {
   BEAT_COUNT,
   FILM_MOBILE_QUERY,
   FILM_SEEN_KEY,
+  hasDarkFilm,
   stillUrl,
 } from "@/components/home/film/filmPaths";
 
+/** The stills that can be the first thing painted: first frame or last, per theme and shape. */
+const POSTERS = Object.fromEntries(
+  (["light", "dark"] as const).map((theme) => [
+    theme,
+    {
+      start: { d: stillUrl(theme, "desktop", 0), m: stillUrl(theme, "mobile", 0) },
+      end: {
+        d: stillUrl(theme, "desktop", BEAT_COUNT - 1),
+        m: stillUrl(theme, "mobile", BEAT_COUNT - 1),
+      },
+    },
+  ]),
+);
+
 /**
- * Runs before the section paints: a visitor who has already scrolled the film
- * gets the short home (hero only, last still) with no flash of the long one.
- * That still is their largest paint, so it is preloaded here; the `img` for it
- * stays lazy, because a first-time visitor never sees it.
+ * Runs before the section paints. A visitor who has already scrolled the
+ * film gets the short home (hero only, last still) with no flash of the long
+ * one. Either way the one still this visitor will see first (by theme, screen
+ * shape and first or return visit) is preloaded at high priority; the `img`
+ * elements themselves are lazy, so the stills nobody sees are not fetched.
+ * next-themes has set the `dark` class on `html` by the time this runs.
  */
-const SEEN_SCRIPT = `try{if(localStorage.getItem(${JSON.stringify(FILM_SEEN_KEY)})==="1"){document.currentScript.parentElement.setAttribute("data-seen","");var l=document.createElement("link");l.rel="preload";l.as="image";l.fetchPriority="high";l.href=matchMedia(${JSON.stringify(FILM_MOBILE_QUERY)}).matches?${JSON.stringify(stillUrl("light", "mobile", BEAT_COUNT - 1))}:${JSON.stringify(stillUrl("light", "desktop", BEAT_COUNT - 1))};document.head.appendChild(l)}}catch(e){}`;
+const SEEN_SCRIPT = `(function(){try{var s=document.currentScript.parentElement,seen=false;try{seen=localStorage.getItem(${JSON.stringify(FILM_SEEN_KEY)})==="1"}catch(e){}if(seen)s.setAttribute("data-seen","");var P=${JSON.stringify(POSTERS)};var t=${JSON.stringify(hasDarkFilm)}&&document.documentElement.classList.contains("dark")?"dark":"light";var l=document.createElement("link");l.rel="preload";l.as="image";l.fetchPriority="high";l.href=P[t][seen?"end":"start"][matchMedia(${JSON.stringify(FILM_MOBILE_QUERY)}).matches?"m":"d"];document.head.appendChild(l)}catch(e){}})()`;
 
 /**
  * The frame for home's film: a full-bleed section whose children are the

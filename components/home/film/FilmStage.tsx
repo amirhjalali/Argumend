@@ -153,7 +153,9 @@ export function FilmStage() {
       if (countingFigure)
         countingFigure.textContent = countingFigure.dataset.filmCount ?? "";
       countingFigure = null;
-      if (!figure || !Number.isFinite(end)) return;
+      // Nothing to count where the figure is not shown (below `lg`).
+      if (!figure || !Number.isFinite(end) || figure.offsetParent === null)
+        return;
       countingFigure = figure;
       const started = performance.now();
       const tick = (now: number) => {
@@ -195,7 +197,13 @@ export function FilmStage() {
       const stills = reducedQuery.matches || saveData;
       const key = `${theme}/${variant}/${stills ? "stills" : "film"}`;
       if (sequence?.key === key) return;
-      if (sequence) sequence.cancelled = true;
+      if (sequence) {
+        sequence.cancelled = true;
+        // The old frames are another theme's or another shape's: show the
+        // poster underneath until the new ones arrive.
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.removeAttribute("data-painted");
+      }
       const urls = stills
         ? Array.from({ length: BEAT_COUNT }, (_, beat) =>
             stillUrl(theme, variant, beat),
@@ -465,7 +473,13 @@ export function FilmStage() {
     );
     visibility.observe(section);
 
-    const themeWatcher = new MutationObserver(reconfigure);
+    // `html`'s class changes for more than the theme: act only on that.
+    let watchedTheme = wantedTheme();
+    const themeWatcher = new MutationObserver(() => {
+      if (wantedTheme() === watchedTheme) return;
+      watchedTheme = wantedTheme();
+      reconfigure();
+    });
     themeWatcher.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class"],
@@ -523,7 +537,7 @@ export function FilmStage() {
           }`}
         >
           <div className="group-data-[seen]/film:hidden">
-            <FilmPoster beat={0} eager />
+            <FilmPoster beat={0} />
           </div>
           <div className="hidden group-data-[seen]/film:block">
             <FilmPoster beat={BEAT_COUNT - 1} />
@@ -560,13 +574,7 @@ export function FilmStage() {
  * visitor without JavaScript sees. Plain `img`: the files are already WebP at
  * the sizes they are shown.
  */
-function FilmPoster({
-  beat,
-  eager = false,
-}: {
-  beat: number;
-  eager?: boolean;
-}) {
+function FilmPoster({ beat }: { beat: number }) {
   const themes: FilmThemeName[] = hasDarkFilm ? ["light", "dark"] : ["light"];
   return (
     <>
@@ -576,7 +584,6 @@ function FilmPoster({
           : theme === "dark"
             ? "hidden dark:block"
             : "dark:hidden";
-        const first = eager && theme === "light";
         return (
           <picture
             key={theme}
@@ -592,8 +599,9 @@ function FilmPoster({
               alt=""
               width={FILM.desktop.width}
               height={FILM.desktop.height}
-              loading={first ? "eager" : "lazy"}
-              fetchPriority={first ? "high" : "auto"}
+              // Lazy: the still this visitor sees first is preloaded by the
+              // inline script in HomeFilm, and the others are never fetched.
+              loading="lazy"
               decoding="async"
               className="absolute left-0 top-0 h-auto w-full"
             />
